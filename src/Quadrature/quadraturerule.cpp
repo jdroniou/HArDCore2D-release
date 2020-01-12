@@ -9,11 +9,11 @@ namespace HArDCore2D
 
   QuadratureRule generate_quadrature_rule(
 					  const Cell & T,
-					  const size_t doe,
+					  const int doe,
 					  const bool force_split
 					  )
   { 
-    QuadRuleTriangle quadCell(doe, true);
+    QuadRuleTriangle quadCell(std::max(doe,0), true);
     QuadratureRule quad;
     size_t nedges = T.n_edges();
 
@@ -74,10 +74,10 @@ namespace HArDCore2D
 
   QuadratureRule generate_quadrature_rule(
 					  const Edge & E,
-					  const size_t doe
+					  const int doe
 					  )
   {
-    QuadRuleEdge quadEdge(doe, true);
+    QuadRuleEdge quadEdge(std::max(doe,0), true);
     QuadratureRule quad;
 
     auto x0 = E.vertex(0)->coords();

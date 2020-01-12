@@ -55,14 +55,14 @@ namespace HArDCore2D {
   /// Generate quadrature rule on mesh element
   QuadratureRule generate_quadrature_rule(
 					  const Cell & T,                ///< Reference to the mesh cell
-					  const size_t doe,              ///< Degree of exactness
+					  const int doe,              ///< Degree of exactness
 					  const bool force_split = false ///< TRUE if we want the quadrature nodes to be computed by forcing the splitting of the cell into triangles based on its center of mass and edges (otherwise, for simple cells, quadrature nodes are computed by splitting in fewer triangles)
 					  );  /**< @returns list of quadrature nodes and weights */
 
   /// Generate quadrature rule on mesh face
   QuadratureRule generate_quadrature_rule(
 					  const Edge & E,                ///< Reference to the mesh face
-					  const size_t doe               ///< Degree of exactness
+					  const int doe               ///< Degree of exactness
 					  );  /**< @returns list of quadrature nodes and weights */
 
 }  // end of namespace HArDCore2D
