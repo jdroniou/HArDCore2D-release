@@ -3,7 +3,7 @@ Hybrid Arbitrary Degree::Core 2D - Library to implement numerical schemes with e
 
 The complete documentation is available here:
 
-https://jdroniou.github.io/HArDCore2D/
+https://jdroniou.github.io/HArDCore2D-release/
 
 See also the landing page for the HArDCore project: https://github.com/jdroniou/HArDCore/
 
