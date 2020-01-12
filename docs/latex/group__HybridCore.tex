@@ -1,0 +1,123 @@
+\hypertarget{group__HybridCore}{}\section{Hybrid\+Core}
+\label{group__HybridCore}\index{Hybrid\+Core@{Hybrid\+Core}}
+
+
+Classes providing cell and edge quadrature rules, and values of basis functions at the nodes.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHArDCore2D_1_1ElementQuad}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}
+\item 
+class \hyperlink{classHArDCore2D_1_1HybridCore}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__HybridCore_ga16951d0e488060237fbb5eee3c5194b2}\label{group__HybridCore_ga16951d0e488060237fbb5eee3c5194b2}} 
+Quadrature\+Rule \hyperlink{group__HybridCore_ga16951d0e488060237fbb5eee3c5194b2}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns quadrature rules in cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga0cde817c1cf12e839c3f195aa02498ba}\label{group__HybridCore_ga0cde817c1cf12e839c3f195aa02498ba}} 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga0cde817c1cf12e839c3f195aa02498ba}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+phi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gae8e43d7a9a64a009690c4890534e6549}\label{group__HybridCore_gae8e43d7a9a64a009690c4890534e6549}} 
+std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_gae8e43d7a9a64a009690c4890534e6549}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+dphi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gaa90e88daa7803576aaeb9edc3574e935}\label{group__HybridCore_gaa90e88daa7803576aaeb9edc3574e935}} 
+Quadrature\+Rule \hyperlink{group__HybridCore_gaa90e88daa7803576aaeb9edc3574e935}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga89dc78ee0eea49e4a9725ed7df748ba9}\label{group__HybridCore_ga89dc78ee0eea49e4a9725ed7df748ba9}} 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga89dc78ee0eea49e4a9725ed7df748ba9}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+phi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga2c8a70eb42762e460ad31e4d43afb0e8}\label{group__HybridCore_ga2c8a70eb42762e460ad31e4d43afb0e8}} 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga2c8a70eb42762e460ad31e4d43afb0e8}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+phi\+F\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of edges basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga11e133360ae70b9aef714054b7de76a4}\label{group__HybridCore_ga11e133360ae70b9aef714054b7de76a4}} 
+std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_ga11e133360ae70b9aef714054b7de76a4}{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad\+::get\+\_\+dphi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga3c33c8cec55dbe2d8873e53fcd43d01f}\label{group__HybridCore_ga3c33c8cec55dbe2d8873e53fcd43d01f}} 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore_ga3c33c8cec55dbe2d8873e53fcd43d01f}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::quadrature\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over a cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gafbf9c61f2d929331197ba971b52b8710}\label{group__HybridCore_gafbf9c61f2d929331197ba971b52b8710}} 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore_gafbf9c61f2d929331197ba971b52b8710}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::quadrature\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga64ffbc44306e06018efe3cea5a62f652}\label{group__HybridCore_ga64ffbc44306e06018efe3cea5a62f652}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_ga64ffbc44306e06018efe3cea5a62f652}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over a cell. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga03f276ea9c905d64662c39b7555d560c}\label{group__HybridCore_ga03f276ea9c905d64662c39b7555d560c}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_ga03f276ea9c905d64662c39b7555d560c}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over an edge. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gab058c4e54d1e33c49e537b8d0f602848}\label{group__HybridCore_gab058c4e54d1e33c49e537b8d0f602848}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_gab058c4e54d1e33c49e537b8d0f602848}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+domain} (const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over the domaine. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__HybridCore_ga71c953efc96f467cb24faa1b60ee9bb2}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::interpolate} (const Function \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Compute the interpolant in the discrete space of a continuous function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gab698480a3a9e9339d5c191549b817501}\label{group__HybridCore_gab698480a3a9e9339d5c191549b817501}} 
+size\+\_\+t \hyperlink{group__HybridCore_gab698480a3a9e9339d5c191549b817501}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nlocal\+\_\+cell\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom in each cell (dimension of polynomial space) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga86e6a3566cf506821606c8802a5f2364}\label{group__HybridCore_ga86e6a3566cf506821606c8802a5f2364}} 
+size\+\_\+t \hyperlink{group__HybridCore_ga86e6a3566cf506821606c8802a5f2364}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+cell\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga41f1294e34e4daade19ad16981eaac15}\label{group__HybridCore_ga41f1294e34e4daade19ad16981eaac15}} 
+size\+\_\+t \hyperlink{group__HybridCore_ga41f1294e34e4daade19ad16981eaac15}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nlocal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom on each edge (dimension of polynomial space) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gac0af0b8fa9bea07b9cfba8cbb1b50bed}\label{group__HybridCore_gac0af0b8fa9bea07b9cfba8cbb1b50bed}} 
+size\+\_\+t \hyperlink{group__HybridCore_gac0af0b8fa9bea07b9cfba8cbb1b50bed}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga57c23358c4ca7e485e8382c6b2761ad5}\label{group__HybridCore_ga57c23358c4ca7e485e8382c6b2761ad5}} 
+size\+\_\+t \hyperlink{group__HybridCore_ga57c23358c4ca7e485e8382c6b2761ad5}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nhighorder\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom with polynomials up to order k+1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gaffe520cbcf3d8212a503d51f11c13e5f}\label{group__HybridCore_gaffe520cbcf3d8212a503d51f11c13e5f}} 
+size\+\_\+t \hyperlink{group__HybridCore_gaffe520cbcf3d8212a503d51f11c13e5f}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ngradient\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of degrees of freedom for gradients \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga95c76303ee1dabc5c78f0bdd7a2c6aaa}\label{group__HybridCore_ga95c76303ee1dabc5c78f0bdd7a2c6aaa}} 
+size\+\_\+t \hyperlink{group__HybridCore_ga95c76303ee1dabc5c78f0bdd7a2c6aaa}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ninternal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for internal edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga4e7b0325c0966ec722fe8808048fb3ab}\label{group__HybridCore_ga4e7b0325c0966ec722fe8808048fb3ab}} 
+size\+\_\+t \hyperlink{group__HybridCore_ga4e7b0325c0966ec722fe8808048fb3ab}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nboundary\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for boundary edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gaf887b486ad0eea60382e306f1487b44a}\label{group__HybridCore_gaf887b486ad0eea60382e306f1487b44a}} 
+size\+\_\+t \hyperlink{group__HybridCore_gaf887b486ad0eea60382e306f1487b44a}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em Total number of degrees of freedom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gab3337e9e6d16154e080e247b3fa43d72}\label{group__HybridCore_gab3337e9e6d16154e080e247b3fa43d72}} 
+const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$ \hyperlink{group__HybridCore_gab3337e9e6d16154e080e247b3fa43d72}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::get\+\_\+mesh\+\_\+ptr} () const
+\begin{DoxyCompactList}\small\item\em returns a pointer to the mesh \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gadaf859b98dea34338c9e6376e975b131}\label{group__HybridCore_gadaf859b98dea34338c9e6376e975b131}} 
+size\+\_\+t \hyperlink{group__HybridCore_gadaf859b98dea34338c9e6376e975b131}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::K} () const
+\begin{DoxyCompactList}\small\item\em polynomial degree of edge unknowns \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_ga816cd87658b200d1ea32d2c4fefd5c6e}\label{group__HybridCore_ga816cd87658b200d1ea32d2c4fefd5c6e}} 
+int \hyperlink{group__HybridCore_ga816cd87658b200d1ea32d2c4fefd5c6e}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::L} () const
+\begin{DoxyCompactList}\small\item\em polynomial degree of cell unknowns \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore_gaaa9fe846646c9e26f699364ac29631f6}\label{group__HybridCore_gaaa9fe846646c9e26f699364ac29631f6}} 
+int \hyperlink{group__HybridCore_gaaa9fe846646c9e26f699364ac29631f6}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::\+Ldeg} () const
+\begin{DoxyCompactList}\small\item\em usually equal to L, but put at 0 if L=-\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classes providing cell and edge quadrature rules, and values of basis functions at the nodes. 
+
+Classes providing tools to implement schemes having polynomial unknowns on the edges and in the cells The basic ordering of vectors is to put all cell degrees of freedom first, and then all edge degrees of freedom.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__HybridCore_ga71c953efc96f467cb24faa1b60ee9bb2}\label{group__HybridCore_ga71c953efc96f467cb24faa1b60ee9bb2}} 
+\index{Hybrid\+Core@{Hybrid\+Core}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!Hybrid\+Core@{Hybrid\+Core}}
+\subsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily template$<$typename Function $>$ \\
+Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::interpolate (\begin{DoxyParamCaption}\item[{const Function \&}]{f,  }\item[{size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
+
+
+
+Compute the interpolant in the discrete space of a continuous function. 
+
+\begin{DoxyReturn}{Returns}
+The vector X\+TF of coefficients on the basis functions. All the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function to interpolate \\
+\hline
+{\em doe} & degree of exactness of the quadrature rules to compute the interpolate \\
+\hline
+\end{DoxyParams}

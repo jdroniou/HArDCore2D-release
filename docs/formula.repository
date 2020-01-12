@@ -1,0 +1,33 @@
+\form#0:$K$
+\form#1:$(K+1)$
+\form#2:$L\le K+1$
+\form#3:$(K+1)(K+2)/2$
+\form#4:$L$
+\form#5:$\le L$
+\form#6:$\le K$
+\form#7:$\le K+1$
+\form#8:$f(x,y) = x^2 + y^2 $
+\form#9:$(\int weight*f_i*g_j)_{ij}$
+\form#10:$(f_1,\ldots,f_{Nf})$
+\form#11:$(g_1,\ldots,g_{Ng})$
+\form#12:$-\mathrm{div}(K\nabla u)=f$
+\form#13:$u(x,y)=sin(\pi x) sin(\pi y)$
+\form#14:$u(x,y)=cos(\pi x) cos(\pi y)$
+\form#15:$u(x,y)= x$
+\form#16:$u(x,y)= y$
+\form#17:$u(x,y)= x^2 + y^2$
+\form#18:$u(x,y)= e^x \sin(pi x) \cos(\pi x)$
+\form#19:$\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
+\form#20:$\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$
+\form#21:$y<1/2$
+\form#22:$y\ge 1/2$
+\form#23:$\partial_x u$
+\form#24:$y=1/2$
+\form#25:$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 & (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} & \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$
+\form#26:$\bar{x}=x+0.1$
+\form#27:$\bar{y}=y+0.1$
+\form#28:$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#29:$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#30:$(\nabla \phi_i)_{i\in I}$
+\form#31:$(\phi_i)_{i\in I}$
+\form#32:$\nabla \phi_i$

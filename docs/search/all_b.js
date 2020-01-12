@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['n_5fb_5fcells',['n_b_cells',['../classHArDCore2D_1_1Mesh.html#ab231e49129645ecfddafa69329c0fc51',1,'HArDCore2D::Mesh']]],
+  ['n_5fb_5fedges',['n_b_edges',['../classHArDCore2D_1_1Mesh.html#acef44edcdc9f6d4d49d1508e7bc7ed2f',1,'HArDCore2D::Mesh']]],
+  ['n_5fb_5fvertices',['n_b_vertices',['../classHArDCore2D_1_1Mesh.html#a38e8f0bf1414441ceef7e3b39526ac23',1,'HArDCore2D::Mesh']]],
+  ['n_5fcells',['n_cells',['../group__Mesh.html#ga0926b705b6169b73293e60e0c48e85f8',1,'HArDCore2D::Edge::n_cells()'],['../group__Mesh.html#ga2202a0715196c41356692d8adcfe3893',1,'HArDCore2D::Mesh::n_cells()'],['../group__Mesh.html#gaae4e6a646ff79f705428c9063736aee1',1,'HArDCore2D::Vertex::n_cells()']]],
+  ['n_5fedges',['n_edges',['../group__Mesh.html#ga1b0586610a05e1a7a64bbe11f59e9b19',1,'HArDCore2D::Cell::n_edges()'],['../group__Mesh.html#ga55a1cd5db98bbce8c73ab86b4527859c',1,'HArDCore2D::Mesh::n_edges()'],['../group__Mesh.html#ga1d6d5233c4f95c862387b5961fef5a22',1,'HArDCore2D::Vertex::n_edges()']]],
+  ['n_5fi_5fcells',['n_i_cells',['../classHArDCore2D_1_1Mesh.html#ae31711c40d2d9888a6e8ca906bd2cbea',1,'HArDCore2D::Mesh']]],
+  ['n_5fi_5fedges',['n_i_edges',['../classHArDCore2D_1_1Mesh.html#a7650c95dec763d4aa3fcb44644229f0e',1,'HArDCore2D::Mesh']]],
+  ['n_5fi_5fvertices',['n_i_vertices',['../classHArDCore2D_1_1Mesh.html#a209126a0e22bea2f597dbc844110123c',1,'HArDCore2D::Mesh']]],
+  ['n_5fvertices',['n_vertices',['../group__Mesh.html#ga70f9744e4ff553db7f0e147342319f43',1,'HArDCore2D::Cell::n_vertices()'],['../group__Mesh.html#gadb4a39bfc5444953e7799d28b8e37563',1,'HArDCore2D::Mesh::n_vertices()'],['../group__Mesh.html#ga64033a69394a8fa757ca097407ab5e0a',1,'HArDCore2D::Vertex::n_vertices()']]],
+  ['nboundary_5fedge_5fdofs',['nboundary_edge_dofs',['../group__HybridCore.html#ga4e7b0325c0966ec722fe8808048fb3ab',1,'HArDCore2D::HybridCore']]],
+  ['neighbour',['neighbour',['../classHArDCore2D_1_1Cell.html#adddfffa330938bd8ab624349722a0e4e',1,'HArDCore2D::Cell']]],
+  ['next_5fedge_5fidx',['next_edge_idx',['../group__Mesh.html#ga950e099c278cd367de1a87c6dcaefafe',1,'HArDCore2D::Mesh']]],
+  ['ngradient_5fdofs',['ngradient_dofs',['../group__HybridCore.html#gaffe520cbcf3d8212a503d51f11c13e5f',1,'HArDCore2D::HybridCore']]],
+  ['nhighorder_5fdofs',['nhighorder_dofs',['../group__HybridCore.html#ga57c23358c4ca7e485e8382c6b2761ad5',1,'HArDCore2D::HybridCore']]],
+  ['ninternal_5fedge_5fdofs',['ninternal_edge_dofs',['../group__HybridCore.html#ga95c76303ee1dabc5c78f0bdd7a2c6aaa',1,'HArDCore2D::HybridCore']]],
+  ['nlocal_5fcell_5fdofs',['nlocal_cell_dofs',['../group__HybridCore.html#gab698480a3a9e9339d5c191549b817501',1,'HArDCore2D::HybridCore']]],
+  ['nlocal_5fedge_5fdofs',['nlocal_edge_dofs',['../group__HybridCore.html#ga41f1294e34e4daade19ad16981eaac15',1,'HArDCore2D::HybridCore']]],
+  ['ntotal_5fcell_5fdofs',['ntotal_cell_dofs',['../group__HybridCore.html#ga86e6a3566cf506821606c8802a5f2364',1,'HArDCore2D::HybridCore']]],
+  ['ntotal_5fdofs',['ntotal_dofs',['../group__HybridCore.html#gaf887b486ad0eea60382e306f1487b44a',1,'HArDCore2D::HybridCore']]],
+  ['ntotal_5fedge_5fdofs',['ntotal_edge_dofs',['../group__HybridCore.html#gac0af0b8fa9bea07b9cfba8cbb1b50bed',1,'HArDCore2D::HybridCore']]]
+];

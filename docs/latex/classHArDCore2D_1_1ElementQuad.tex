@@ -1,0 +1,58 @@
+\hypertarget{classHArDCore2D_1_1ElementQuad}{}\section{H\+Ar\+D\+Core2D\+:\+:Element\+Quad Class Reference}
+\label{classHArDCore2D_1_1ElementQuad}\index{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}}
+
+
+{\ttfamily \#include $<$elementquad.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1ElementQuad_a0d27ba99f9f3e6f2a3e5311e6be19eba}{Element\+Quad} (const \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const size\+\_\+t iT, const size\+\_\+t doeT, const size\+\_\+t doeF)
+\begin{DoxyCompactList}\small\item\em Class constructor\+: loads the quadrature rules and values of basis functions/gradients at these points. \end{DoxyCompactList}\item 
+Quadrature\+Rule \hyperlink{group__HybridCore_ga16951d0e488060237fbb5eee3c5194b2}{get\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns quadrature rules in cell. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga0cde817c1cf12e839c3f195aa02498ba}{get\+\_\+phi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_gae8e43d7a9a64a009690c4890534e6549}{get\+\_\+dphi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
+Quadrature\+Rule \hyperlink{group__HybridCore_gaa90e88daa7803576aaeb9edc3574e935}{get\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga89dc78ee0eea49e4a9725ed7df748ba9}{get\+\_\+phi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga2c8a70eb42762e460ad31e4d43afb0e8}{get\+\_\+phi\+F\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of edges basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_ga11e133360ae70b9aef714054b7de76a4}{get\+\_\+dphi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad} class creates cell and edge quadrature rules, and vectors of values of basis functions and gradients at these points 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a0d27ba99f9f3e6f2a3e5311e6be19eba}\label{classHArDCore2D_1_1ElementQuad_a0d27ba99f9f3e6f2a3e5311e6be19eba}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}!Element\+Quad@{Element\+Quad}}
+\index{Element\+Quad@{Element\+Quad}!H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}}
+\subsubsection{\texorpdfstring{Element\+Quad()}{ElementQuad()}}
+{\footnotesize\ttfamily Element\+Quad\+::\+Element\+Quad (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&}]{hho,  }\item[{const size\+\_\+t}]{iT,  }\item[{const size\+\_\+t}]{doeT,  }\item[{const size\+\_\+t}]{doeF }\end{DoxyParamCaption})}
+
+
+
+Class constructor\+: loads the quadrature rules and values of basis functions/gradients at these points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hho} & A reference to the hybridcore instance \\
+\hline
+{\em iT} & Number of cell \\
+\hline
+{\em doeT} & The degree of exactness for cell quadratures \\
+\hline
+{\em doeF} & The degree of exactness of edge quadratures \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Hybrid\+Core/elementquad.\+hpp\item 
+src/\+Hybrid\+Core/elementquad.\+cpp\end{DoxyCompactItemize}

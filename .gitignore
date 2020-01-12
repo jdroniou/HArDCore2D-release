@@ -1,0 +1,6 @@
+description/
+build/
+outputs/
+COMPUTE_RATES
+directories.sh
+*~

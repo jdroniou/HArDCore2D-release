@@ -1,0 +1,290 @@
+H\+Ar\+D\+::\+Core (sources\+: \href{http://users.monash.edu/~jdroniou/releases/}{\tt http\+://users.\+monash.\+edu/$\sim$jdroniou/releases/}) provides a suite of tools, in C++, to implement numerical schemes whose unknowns are polynomials in the cells and on the edges (in 2D) or faces (in 3D). The focus is on dealing on generic polytopal meshes. This documentation addresses the 2D version of H\+Ar\+D\+::\+Core, but similar principles are valid for the 3D version.
+
+
+\begin{DoxyItemize}
+\item \href{#build}{\tt Build instructions} -- How to build the libraries and the schemes.
+\item \href{#mesh}{\tt The mesh structure} -- The principles of the data structure representing the mesh, and how to load a mesh.
+\item \href{#hybridcore}{\tt The Hybrid\+Core structure} -- How to use the \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure to compute integrals on the cells and faces of the mesh, and how to use the polynomial basis functions.
+\item \href{#schemes}{\tt Schemes} -- The list of schemes currently implemented in H\+Ar\+D\+::\+Core2D, and scripts to run them.
+\end{DoxyItemize}
+
+\label{_build}%
+ \hypertarget{index_build}{}\section{Build instructions}\label{index_build}
+\hypertarget{index_buildlib}{}\subsection{Building the libraries and the schemes}\label{index_buildlib}
+To build the libraries and implemented schemes, the minimal requirements are\+:
+
+
+\begin{DoxyItemize}
+\item C\+Make version 2.\+6 or above (\href{https://cmake.org/}{\tt https\+://cmake.\+org/})
+\item A C++ compiler that supports the C++14 standard, eg. G\+CC (\href{https://gcc.gnu.org/}{\tt https\+://gcc.\+gnu.\+org/}) or Clang (\href{https://clang.llvm.org/}{\tt https\+://clang.\+llvm.\+org/})
+\item Eigen C++ library, version 3.\+3 or above (\href{http://eigen.tuxfamily.org/}{\tt http\+://eigen.\+tuxfamily.\+org/})
+\item The follwing Boost C++ libraries (\href{http://www.boost.org/}{\tt http\+://www.\+boost.\+org/})\+: filesystem, program options, timer, chrono.
+\end{DoxyItemize}
+
+Make sure that you have the development version of boost installed. On Linux, install {\ttfamily libboost-\/dev}, {\ttfamily libboost-\/filesystem-\/dev}, {\ttfamily libboost-\/program-\/options-\/dev}, {\ttfamily libboost-\/chrono-\/dev} and {\ttfamily libboost-\/timer-\/dev} from your package manager.
+
+The linear systems resulting from the assembled scheme are solved using the Bi\+C\+G\+Stab implementation of Eigen. An alternative (currently commented out in the schemes\textquotesingle{} implementations) is to use the M\+A41 solver of the H\+SL library. To use this alternative you will need\+:
+
+
+\begin{DoxyItemize}
+\item B\+L\+AS (\href{http://www.netlib.org/blas/}{\tt http\+://www.\+netlib.\+org/blas/}) and L\+A\+P\+A\+CK (\href{http://www.netlib.org/lapack/}{\tt http\+://www.\+netlib.\+org/lapack/})
+\item G\+Fortran (\href{https://gcc.gnu.org/wiki/GFortran}{\tt https\+://gcc.\+gnu.\+org/wiki/\+G\+Fortran})
+\item H\+SL M\+A41 linear solver (\href{http://www.hsl.rl.ac.uk/catalogue/ma41.html}{\tt http\+://www.\+hsl.\+rl.\+ac.\+uk/catalogue/ma41.\+html})
+\end{DoxyItemize}
+
+Once you have installed all of the required dependencies, set up the build directory and generate the build files by running the following from the repository root\+:
+
+
+\begin{DoxyCode}
+mkdir build
+cd build
+cmake ..
+make
+\end{DoxyCode}
+
+
+After this, {\ttfamily build/\+Schemes} will contain the executables (e.\+g. {\ttfamily hho-\/diffusion}) to run the schemes. These executable need to access the typ2 meshes, which they should naturally find if you put the {\ttfamily typ2\+\_\+meshes} directory at the root of the project\textquotesingle{}s files.\hypertarget{index_doco}{}\subsection{Building the Documentation}\label{index_doco}
+The mesh documentation is built with Doxygen (\href{http://www.stack.nl/~dimitri/doxygen/}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/}). If you are reading this then somebody has already built it for you. If you modify the code and wish to rebuild the documentation, simply run {\ttfamily doxygen} from the root directory. The H\+T\+ML version of the documentation is generated inside {\ttfamily documentation/html} and the La\+TeX version is generated inside {\ttfamily documentation/latex} and can be compiled using the generated Makefile.
+
+\label{_mesh}%
+ \hypertarget{index_mesh}{}\section{The mesh}\label{index_mesh}
+\hypertarget{index_meshpple}{}\subsection{Principles}\label{index_meshpple}
+After it is loaded, the mesh is represented by classes describing a vertex, an edge, and a cell\+: \hyperlink{classHArDCore2D_1_1Vertex}{Vertex}, \hyperlink{classHArDCore2D_1_1Edge}{Edge}, and \hyperlink{classHArDCore2D_1_1Cell}{Cell}. Each of these classes contains methods to access useful information for the corresponding element, including other geometrical quantities it is related to. The mesh itself is represented by an element of the \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} class with methods to access all the vertices, edges and cells (or a particular vertex, edge or cell). In this class, each cell has a unique identifier, numbered from 0.
+
+For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to a Mesh class, the lines 
+\begin{DoxyCode}
+Vertex* vertex = mesh\_ptr->vertex(5);
+
+Eigen::Vector2d vert\_coord = vertex->coords()
+\end{DoxyCode}
+ store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors are {\ttfamily Eigen\+::\+Vector2d}. We also use {\ttfamily Eigen\+::\+Vector\{2,X\}d} and {\ttfamily Eigen\+::\+Matrix\{2,X\}d} for objects on which linear algebraic operations are performed. Lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}. Finally, {\ttfamily Eigen\+::\+Array} is used for lists on which component-\/wise operators are performed (typically, values of some functions at the quadrature nodes, that will be multiplied component-\/wise by the corresponding quadrature weights and then summed together).
+
+Here is an example that loops over all cells, grabs all the edges of the cell, and loops over these edges to output their length. Here, {\ttfamily mesh\+\_\+ptr} is a pointer to the mesh.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Loop over all cells of the mesh}
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iC = 0; iC < mesh\_ptr->n\_cells() iC++) \{
+
+    \textcolor{comment}{// We grab the edges of the iC-th cell}
+    std::vector<Edge *> edges = mesh\_ptr->cell(iC)->get\_edges();
+
+    \textcolor{comment}{// Loop over the edges of the cell}
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} ilE = 0; ilE < cell->n\_edges(); ilE++) \{
+
+        \textcolor{comment}{// Write the edge length on the standard output}
+        std::cout << \textcolor{stringliteral}{"The length of edge "} << ilE+1 << \textcolor{stringliteral}{" in cell "} << iC+1 << \textcolor{stringliteral}{" is: "} << edges(ilE)->
+      measure() << \textcolor{stringliteral}{"\(\backslash\)n"};
+    \}
+
+\}
+\end{DoxyCode}
+
+
+The mesh classes and other auxilliary classes are located inside the namespace H\+Ar\+D\+Core2D.
+
+There is no direct access from a high-\/level geometrical entity to elements purely associated with lower-\/level entities. For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to the mesh, there is no direct method to access the coordinates of the i-\/th vertex of the mesh (no {\ttfamily mesh\+\_\+ptr-\/$>$coords\+\_\+vertex()} exists). Instead, this is done through {\ttfamily mesh\+\_\+ptr-\/$>$vertex(i)-\/$>$coords()}. This choice is deliberate as it preserves the logical organisation of the data structure, and facilitates the memorisation of the various methods. Of course, writing a wrapper providing a direct access is easy...\hypertarget{index_loading_mesh}{}\subsection{Loading a mesh}\label{index_loading_mesh}
+H\+Ar\+D\+Core2D can currently read meshes in the {\ttfamily typ2} format designed for the F\+V\+C\+A5 Benchmark. A short documentation describing this format is provided in the {\ttfamily typ2\+\_\+meshes} directory (see R\+E\+A\+D\+M\+E.\+pdf there). Several meshes can also be found in this directory.
+
+A mesh file must be read using an instance of the {\ttfamily Mesh\+Reader\+Typ2} class, and then built using {\ttfamily Mesh\+Builder}. A working example is given below (assuming the executable will be in {\ttfamily build/\+Schemes} for example).
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "mesh.hpp"}
+\textcolor{preprocessor}{#include "import\_mesh.hpp"}
+\textcolor{preprocessor}{#include "mesh\_builder.hpp"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespaceHArDCore2D}{HArDCore2D};
+
+\textcolor{keywordtype}{int} main() \{
+
+    \textcolor{comment}{// Mesh file to read}
+    std::string mesh\_file = \textcolor{stringliteral}{"../../typ2\_meshes/cart5x5.typ2"};
+
+    \textcolor{comment}{// Read the mesh file}
+    \hyperlink{classHArDCore2D_1_1MeshReaderTyp2}{MeshReaderTyp2} mesh(mesh\_file);
+    std::vector<std::vector<double> > vertices;
+    std::vector<std::vector<size\_t> > cells;
+    std::vector<std::vector<double> > centers;
+    \textcolor{keywordflow}{if} (mesh.read\_mesh(vertices, cells, centers) == \textcolor{keyword}{false}) \{
+        std::cout << \textcolor{stringliteral}{"Could not open file"} << std::endl;
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \};
+    \textcolor{comment}{// Build the mesh}
+    \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}* builder = \textcolor{keyword}{new} \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}();
+    std::unique\_ptr<Mesh> mesh\_ptr = builder->\hyperlink{classHArDCore2D_1_1MeshBuilder_a0ef4a78ac64d1bcb6380317ea866758d}{build\_the\_mesh}(vertices, cells);
+
+    std::cout << \textcolor{stringliteral}{"There are "} << mesh\_ptr->n\_cells() << \textcolor{stringliteral}{" cells in the mesh.\(\backslash\)n"};
+
+    \textcolor{comment}{// Create an HybridCore instance}
+    \hyperlink{classHArDCore2D_1_1HybridCore}{HybridCore} hho(mesh\_ptr.get(), 1, 1);
+\}
+\end{DoxyCode}
+
+
+Note that the builder returns a {\ttfamily unique\+\_\+ptr} for the mesh. This ensures that, at the end of the code, the mesh destructor is called (which destroys all cells, edges, vertices...). Classes and functions use a raw pointer to the mesh, so the {\ttfamily .get()} method should be used when passing the mesh as argument to the class constructors or functions (see the {\ttfamily Hybrid\+Core} example above).
+
+{\itshape Note}\+: the {\ttfamily typ2} format allows for meshes with very generic polygonal cells, including non-\/convex cells. However, the builder assumes that each cell is star-\/shaped with respect to the isobarycenter of its vertices -- otherwise, the calculation of the center of mass may be incorrect. Similarly, the quadrature rules (see \href{#quad_rules}{\tt Quadrature rules}) assume that each cell is star-\/shaped with respect to its center of mass.
+
+\label{_hybridcore}%
+ \hypertarget{index_hybridcore}{}\section{The Hybrid\+Core structure}\label{index_hybridcore}
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure encapsulates routines to create bases of polynomial spaces in each cell and on each edge, to integrate functions on these mesh entities, and to evaluate functions defined through their coefficients on the cell and edge basis functions. Start by including the structure as follows\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "hybridcore.hpp"}
+\end{DoxyCode}
+\hypertarget{index_init_core}{}\subsection{Initialising the Hybrid\+Core structure}\label{index_init_core}
+To initialise a \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure, we must first have a mesh loaded as a pointer (see \href{#loading_mesh}{\tt loading a mesh}). The structure is then created by specifying the desired degree of the polynomial spaces on the edges and in the cells.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Create the HybridCore structure with polynomial degree K on the edges, and L in the cells}
+  HybridCore hho(mesh\_ptr, K, L);
+\end{DoxyCode}
+
+
+\label{_basis}%
+ \hypertarget{index_basis}{}\subsection{Polynomial basis functions}\label{index_basis}
+Initialising the \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure constructs basis functions for the polynomial spaces on the edges (up to degree $K$) and in the cells (up to degree $(K+1)$). The choice of the degree in the cells corresponds to the needs of certain high-\/order methods, such as the H\+HO method that requires the reconstruction of a polynomial of degree $(K+1)$ in each cell. It is also assumed that $L\le K+1$.
+
+The basis functions are accessed through the methods \hyperlink{classHArDCore2D_1_1HybridCore_a34242db07cc2b3c3b867d9e4580b634d}{cell\+\_\+basis(iT,i)} and \hyperlink{classHArDCore2D_1_1HybridCore_a6b4feaeef7739a2e30fcf6c601fcf721}{edge\+\_\+basis(iE,i)} which return the i-\/th basis function on the i\+T-\/th cell or i\+E-\/th edge. The cell gradients are available from \hyperlink{classHArDCore2D_1_1HybridCore_a710fc23b914623b90a2699ab4291e539}{cell\+\_\+gradient(iT,i)}; these gradients are indexed to correspond with their basis functions, which means that the first gradient will always identically be the zero vector, since it corresponds to the constant basis function.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keyword}{auto} &phi\_i = cell\_basis(iT, i);
+\textcolor{keyword}{const} \textcolor{keyword}{auto} &dphi\_i = cell\_gradient(iT, i);  \textcolor{comment}{// dphi\_i is the gradient of phi\_i}
+\end{DoxyCode}
+
+
+The basis functions are hierarchical, which means that they are constructed by increasing degree. A basis of the space of polynomials of degree $K$ in the cell is thus obtained by selecting the first $(K+1)(K+2)/2$ cell basis functions.
+
+When a scheme has polynomial unknowns of degree $K$ on the edges and $L$ in the cells, these unknowns can be represented as vectors of coefficients on the basis functions, for example by listing all the coefficients on the basis functions in the first cell, then all the coefficients on the basis functions in the second cell, etc., and then listing all the coefficients on the basis functions in the first edge, etc. This is the choice adopted in H\+H\+O-\/diffusion.
+
+A number of convenient quantities relating to the basis functions are available in the \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure follows.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Symbol name }&\textbf{ Meaning  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Symbol name }&\textbf{ Meaning  }\\\cline{1-2}
+\endhead
+\hyperlink{group__HybridCore_gab698480a3a9e9339d5c191549b817501}{nlocal\+\_\+cell\+\_\+dofs} &The number of degrees of freedom of a cell polynomial (ie. the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga41f1294e34e4daade19ad16981eaac15}{nlocal\+\_\+face\+\_\+dofs} &The number of degrees of freedom of a face polynomial (ie. the dimension of the space of polynomials of degree $\le K$ in one variable) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga57c23358c4ca7e485e8382c6b2761ad5}{nhighorder\+\_\+dofs} &The number of degrees of freedom of a degree $(K+1)$ cell polynomial (ie. the dimension of the space of polynomials of degree $\le K+1$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_gaffe520cbcf3d8212a503d51f11c13e5f}{ngradient\+\_\+dofs} &The dimension of the gradient space of degree $(K+1)$ cell polynomials \\\cline{1-2}
+\hyperlink{group__HybridCore_ga86e6a3566cf506821606c8802a5f2364}{ntotal\+\_\+cell\+\_\+dofs} &The total number of degrees of freedom over all cell polynomials over the entire mesh (i.\+e. the number of cells times the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_gac0af0b8fa9bea07b9cfba8cbb1b50bed}{ntotal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all face polynomials over the entire mesh (i.\+e. the number of edges times the dimension of the space of polynomials of degree $\le K$ in one variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga95c76303ee1dabc5c78f0bdd7a2c6aaa}{ninternal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all internal faces over the entire mesh \\\cline{1-2}
+\hyperlink{group__HybridCore_gaf887b486ad0eea60382e306f1487b44a}{ntotal\+\_\+dofs} &The total number of cell and face degrees of freedom over the entire mesh \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_integrate_mesh}{}\subsection{Integration over cells and edges}\label{index_integrate_mesh}
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to integrate generic functions on the cells and the edges. These routines are however expensive as they re-\/compute the quadrature nodes and weights every time they are called. They should therefore only be used with parsimony; computing quadrature nodes and values of basis functions at these nodes is more efficient, see \href{#quad_rules}{\tt Quadratures rules}.
+
+For example, to integrate $f(x,y) = x^2 + y^2 $ over the cell number iT\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{auto} integral = integrate\_over\_cell(iT, [](\textcolor{keyword}{auto} x, \textcolor{keyword}{auto} y) \{
+        \textcolor{keywordflow}{return} x*x+y*y;
+      \});
+\end{DoxyCode}
+
+
+Basis functions can also be integrated\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keyword}{auto}& phi\_i = edge\_basis(iT, i);
+\textcolor{keyword}{const} \textcolor{keyword}{auto}& phi\_j = cell\_basis(iT, j);
+\textcolor{keyword}{auto} integral = hho.integrate\_over\_face(iT, [&phi\_i, &phi\_j](\textcolor{keyword}{auto} x, \textcolor{keyword}{auto} y, \textcolor{keyword}{auto} z) \{
+  \textcolor{keywordflow}{return} phi\_i(x,y) * phi\_j(x,y);
+\});
+\end{DoxyCode}
+\hypertarget{index_quad_rules}{}\subsection{Quadrature rules}\label{index_quad_rules}
+H\+Ar\+D\+::\+Core deals with quite arbitrary cell geometries. As a consequence, no reference element can be used, and the quadrature rules have to be adjusted to each particular cell. This is done by partitioning each cell into triangles and by using \href{https://people.sc.fsu.edu/~jburkardt/cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html}{\tt John Burkardt\textquotesingle{}s implementation of the Dunavant rules}. The choice was also made not to pre-\/compute all quadrature rules for all cells and edges, but rather to compute them -- with a locally chosen degree of exactness -- when needed in the code. To reduce the computational cost, quadrature rules -- and the values of basis functions at quadrature nodes -- should only be computed once when looping over each cell, before being used, e.\+g., to form mass matrices.
+
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to do that. The method \hyperlink{classHArDCore2D_1_1HybridCore_a5d70dcda8d8a56311b2d1eac4f7d306c}{cell\+\_\+qrule(iT,doe)} calculates quadrature nodes and weights, exact up to the polynomial degree {\ttfamily doe} for an integration over cell number {\ttfamily iT}; see \hyperlink{classHArDCore2D_1_1HybridCore_a4158e234143fd956fd4038adf9097bc2}{edge\+\_\+qrule(iE,doe)} for the equivalent over an edge. At present, the quadrature rules available in the code support a total degree of exactness in the cells or on the edges up to 20. This quadrature rule, stored for example in {\ttfamily quad\+TE}, is then be provided to \hyperlink{classHArDCore2D_1_1HybridCore_acf453b4f239a76fe7f21b02ac91e127c}{basis\+\_\+quad(type,i,quad\+TE,deg)} which computes the values of the basis functions in cell/edge (depending on {\ttfamily type}=T or some other character) number {\ttfamily i} up to the specified degree {\ttfamily deg}; see also \hyperlink{classHArDCore2D_1_1HybridCore_add794287f4bb49157a7b5f94a5ecb200}{grad\+\_\+basis\+\_\+quad(i,quad\+TE,deg)} to compute the gradients of the basis functions at the quadrature nodes.
+
+Typically, these values are then passed on to \hyperlink{classHArDCore2D_1_1HybridCore_aa5c203c11a661933930a33335b0e2479}{gram\+\_\+matrix(f\+\_\+quad,g\+\_\+quad,Nf,Ng,quad\+TE,sym,weight)} which computes a ``generalised\textquotesingle{}\textquotesingle{} Gram matrix $(\int weight*f_i*g_j)_{ij}$ of the families of functions $(f_1,\ldots,f_{Nf})$ and $(g_1,\ldots,g_{Ng})$, provided at the quadrature notes by {\ttfamily f\+\_\+quad} and {\ttfamily g\+\_\+quad} (here, {\ttfamily sym} is a boolean indicating if the matrix is expected to be symmetric). This Gram matrix method is useful to compute mass and stiffness matrices.
+
+Here is an example.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Create quadrature rule on cell `iT`. Here, `hho` is an instance of the `HybridCore` class. The degree of
+       }
+\textcolor{comment}{// exactness ensures that the rule will be exact for polynomial functions up to degree \(\backslash\)f$K+L+1\(\backslash\)f$}
+std::vector<HybridCore::qrule> quadT = hho.cell\_qrule(iT, hho.Ldeg()+hho.K()+1);
+
+\textcolor{comment}{// Compute values of basis functions, up to degree \(\backslash\)f$(K+1)\(\backslash\)$, at the quadrature nodes}
+std::vector<Eigen::ArrayXd> phi\_quadT = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadT, hho.nhighorder\_dofs());
+
+\textcolor{comment}{// Compute values of gradients of basis functions, as well as `diff` times these gradients, at the
+       quadrature nodes}
+std::vector<Eigen::ArrayXXd> dphiT\_quadT = hho.grad\_basis\_quad(iT, quadT, hho.nhighorder\_dofs());
+
+\textcolor{comment}{// Create the mass matrix of basis functions up to degree \(\backslash\)f$L\(\backslash\)f$ and the stiffness matrix of the gradients}
+\textcolor{comment}{// kappa is a function that returns the diffusion tensor at the considered location}
+Eigen::MatrixXd MTT = hho.gram\_matrix(phi\_quadT, phi\_quadT, hho.nlocal\_cell\_dofs(), hho.nhighorder\_dofs(), 
+      quadT, \textcolor{keyword}{true});
+Eigen::MatrixXd StiffT = hho.gram\_matrix(dphiT\_quadT, dphiT\_quadT, hho.nhighorder\_dofs(), hho.
+      nhighorder\_dofs(), quadT, \textcolor{keyword}{true}, kappa);
+
+\textcolor{comment}{// Grab the global index of the first edge of cell iT, compute quadrature nodes on this edge}
+\textcolor{keywordtype}{size\_t} iF = mesh->cell(iT)->edge(0)->global\_index();
+std::vector<HybridCore::qrule> quadF = hho.edge\_qrule(iF, 2*hho.K()+2);
+
+\textcolor{comment}{// Compute the values of the cell basis function, and the edge basis function, at the quadrature nodes}
+\textcolor{comment}{// on the edge, and create the 'mass matrix' of cell-edge basis functions on the edge}
+std::vector<Eigen::ArrayXd> phiT\_quadF = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadF, hho.nhighorder\_dofs());
+std::vector<Eigen::ArrayXd> phiF\_quadF = hho.basis\_quad(\textcolor{charliteral}{'F'}, iF, quadF, hho.nlocal\_edge\_dofs());
+Eigen::MatrixXd MFT = hho.gram\_matrix(phiF\_quadF, phiT\_quadF, hho.nlocal\_edge\_dofs(), hho.nhighorder\_dofs()
+      , quadF, \textcolor{keyword}{false});
+\end{DoxyCode}
+
+
+The quadrature rules and values of basis functions (and gradients) at the quadrature nodes can be conveniently computed and stored using the Cell\+Edge\+Quad class. Instantiating an element of this class on a cell loads these rules and values once, that can then be passed to several functions in charge of various calculations (e.\+g. one function computes the local cell contribution to the diffusion term, another function is in charge of computing the load term associated to the cell, etc.). This prevents recomputing these rules and values when needed by various functions. It works the following way\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{size\_t} doeT = hho.Ldeg()+hho.K()+1;         \textcolor{comment}{// degree of exactness for cell quadrature rules}
+\textcolor{keywordtype}{size\_t} doeF = 2*hho.K()+1;                          \textcolor{comment}{// degree of exactness for edge quadrature rules}
+CellEdgeQuad celledgequad(hho, iT, doeT, doeF);     \textcolor{comment}{// compute local quadrature rules at quadrature points
+       in cell iT}
+Eigen::MatrixXd aT = diffusion\_operator(hho, iT, celledgequad);     \textcolor{comment}{// compute local contribution to
+       diffusion term}
+Eigen::VectorXd bT = load\_operator(hho, iT, celledgequad);      \textcolor{comment}{//  compute local loading term}
+
+(...)
+\textcolor{comment}{// Function to compute local contribution to diffusion term}
+Eigen::MatrixXd HHO\_Diffusion::diffusion\_operator(HybridCore &hho, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} iT, \textcolor{keyword}{const} CellEdgeQuad &
+      celledgequad)\textcolor{keyword}{ const }\{
+
+(... initialise/\textcolor{keywordflow}{do} stuff ...)
+\textcolor{comment}{// Cell quadrature rules and values at nodes are needed, we grab them}
+std::vector<HybridCore::qrule> quadT = celledgequad.get\_quadT();
+std::vector<Eigen::ArrayXd> phiT\_quadT = celledgequad.get\_phiT\_quadT();
+std::vector<Eigen::ArrayXXd> dphiT\_quadT = celledgequad.get\_dphiT\_quadT();
+
+(... the rest as in the previous example: create mass matrices, etc. ...)
+\end{DoxyCode}
+
+
+\label{_schemes}%
+ \hypertarget{index_schemes}{}\section{Schemes}\label{index_schemes}
+The following schemes are currently available in H\+Ar\+D\+::\+Core2D. The Hybrid High-\/\+Order schemes follow the implementation principles described in Appendix B of the book available at \href{https://hal.archives-ouvertes.fr/hal-02151813}{\tt https\+://hal.\+archives-\/ouvertes.\+fr/hal-\/02151813}.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+diffusion}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
+\item \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+locvardiff}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
+\end{DoxyItemize}
+
+The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.
+
+To run the scripts as they are, you will need {\ttfamily pdflatex} and a F\+O\+R\+T\+R\+AN compiler, and to adjust the {\ttfamily Makefile} to your compiler, to run {\ttfamily compute\+\_\+rates.\+f90} and compute the rates of convergence in the various norms. 

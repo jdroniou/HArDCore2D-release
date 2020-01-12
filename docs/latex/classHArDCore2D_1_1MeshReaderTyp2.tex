@@ -1,0 +1,71 @@
+\hypertarget{classHArDCore2D_1_1MeshReaderTyp2}{}\section{H\+Ar\+D\+Core2D\+:\+:Mesh\+Reader\+Typ2 Class Reference}
+\label{classHArDCore2D_1_1MeshReaderTyp2}\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2}}
+
+
+The \hyperlink{classHArDCore2D_1_1MeshReaderTyp2}{Mesh\+Reader\+Typ2} class provides functions to read a .typ2 mesh file.  
+
+
+
+
+{\ttfamily \#include $<$import\+\_\+mesh.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1MeshReaderTyp2_a0b4f74d0e71a0efba9699e6960d43205}{Mesh\+Reader\+Typ2} (std\+::string file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em class to read the cells and vertices in a .typ2 file \end{DoxyCompactList}\item 
+bool \hyperlink{classHArDCore2D_1_1MeshReaderTyp2_a495a9de74127ecdf3c30c041863b9dd0}{read\+\_\+mesh} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&vertices, std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&cells, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&centers)
+\begin{DoxyCompactList}\small\item\em reads the .typ2 file and fills in cells, vertices and centers \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1MeshReaderTyp2}{Mesh\+Reader\+Typ2} class provides functions to read a .typ2 mesh file. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1MeshReaderTyp2_a0b4f74d0e71a0efba9699e6960d43205}\label{classHArDCore2D_1_1MeshReaderTyp2_a0b4f74d0e71a0efba9699e6960d43205}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2}!Mesh\+Reader\+Typ2@{Mesh\+Reader\+Typ2}}
+\index{Mesh\+Reader\+Typ2@{Mesh\+Reader\+Typ2}!H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2}}
+\subsubsection{\texorpdfstring{Mesh\+Reader\+Typ2()}{MeshReaderTyp2()}}
+{\footnotesize\ttfamily Mesh\+Reader\+Typ2\+::\+Mesh\+Reader\+Typ2 (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+class to read the cells and vertices in a .typ2 file 
+
+Constructor for mesh reader
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & name of the file name, needs to include the full path \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1MeshReaderTyp2_a495a9de74127ecdf3c30c041863b9dd0}\label{classHArDCore2D_1_1MeshReaderTyp2_a495a9de74127ecdf3c30c041863b9dd0}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2}!read\+\_\+mesh@{read\+\_\+mesh}}
+\index{read\+\_\+mesh@{read\+\_\+mesh}!H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Reader\+Typ2}}
+\subsubsection{\texorpdfstring{read\+\_\+mesh()}{read\_mesh()}}
+{\footnotesize\ttfamily bool Mesh\+Reader\+Typ2\+::read\+\_\+mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{vertices,  }\item[{std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&}]{cells,  }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{centers }\end{DoxyParamCaption})}
+
+
+
+reads the .typ2 file and fills in cells, vertices and centers 
+
+Reads the file into the specified containers
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & reference to a vector to hold the vertices coordinates \\
+\hline
+{\em cells} & reference to a vector to hold the cell indexes \\
+\hline
+{\em centers} & reference to a vector to hold the cell centers coordinates \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Mesh/import\+\_\+mesh.\+hpp\item 
+src/\+Mesh/import\+\_\+mesh.\+cpp\end{DoxyCompactItemize}

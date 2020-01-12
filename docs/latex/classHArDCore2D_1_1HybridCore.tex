@@ -1,0 +1,448 @@
+\hypertarget{classHArDCore2D_1_1HybridCore}{}\section{H\+Ar\+D\+Core2D\+:\+:Hybrid\+Core Class Reference}
+\label{classHArDCore2D_1_1HybridCore}\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+
+
+{\ttfamily \#include $<$hybridcore.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}\label{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}} 
+using \hyperlink{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}{cell\+\_\+basis\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for cell basis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}\label{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}} 
+using \hyperlink{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}{cell\+\_\+gradient\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector2d(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for gradients of cell basis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}\label{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}} 
+using \hyperlink{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}{edge\+\_\+basis\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for edge basis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ad9a6cc8ee2f9d26c936c5c61c358b538}\label{classHArDCore2D_1_1HybridCore_ad9a6cc8ee2f9d26c936c5c61c358b538}} 
+using \hyperlink{classHArDCore2D_1_1HybridCore_ad9a6cc8ee2f9d26c936c5c61c358b538}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for 2D tensors basis \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1HybridCore_af4978b5ad1f20f152357e94ffa94bfa9}{Hybrid\+Core} (const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh\+\_\+ptr, const size\+\_\+t \hyperlink{group__HybridCore_gadaf859b98dea34338c9e6376e975b131}{K}, const size\+\_\+t \hyperlink{group__HybridCore_ga816cd87658b200d1ea32d2c4fefd5c6e}{L}, const std\+::string choice\+\_\+basis=\char`\"{}Mon\char`\"{})
+\begin{DoxyCompactList}\small\item\em Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_aa2bdc59d150566e1b992058031509d2f}{dim\+\_\+\+Pcell} (const size\+\_\+t m) const
+\begin{DoxyCompactList}\small\item\em Compute the size of the basis of 2-\/variate polynomials up to degree m. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_ab0fb57313f27fb8b4a6e9747de1d5cfe}{dim\+\_\+\+Pedge} (const size\+\_\+t m) const
+\begin{DoxyCompactList}\small\item\em Compute the size of the basis of 1-\/variate polynomials up to degree m. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}{cell\+\_\+basis\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_aa7006921a9e212784abf688f63a855a0}{cell\+\_\+monomial} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th monomial function of the cell iT. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}{edge\+\_\+basis\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a9a0879fca63fe056f75bb0574584639b}{edge\+\_\+monomial} (size\+\_\+t iF, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th monomial function of the edge iF. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}{cell\+\_\+basis\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a34242db07cc2b3c3b867d9e4580b634d}{cell\+\_\+basis} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th basis function of the cell iT. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}{edge\+\_\+basis\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a6b4feaeef7739a2e30fcf6c601fcf721}{edge\+\_\+basis} (size\+\_\+t iF, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th basis function of the edge iF. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}{cell\+\_\+gradient\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a0edb2fb02577f68744abb8a436381cf7}{cell\+\_\+monomials\+\_\+gradient} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the gradient of the i\textquotesingle{}th monomial function of the cell iT. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}{cell\+\_\+gradient\+\_\+type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a710fc23b914623b90a2699ab4291e539}{cell\+\_\+gradient} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the gradient of the i\textquotesingle{}th basis function of the cell iT. \end{DoxyCompactList}\item 
+Quadrature\+Rule \hyperlink{classHArDCore2D_1_1HybridCore_a5d70dcda8d8a56311b2d1eac4f7d306c}{cell\+\_\+qrule} (const size\+\_\+t iT, const size\+\_\+t doe, const bool force\+\_\+split=false) const
+\begin{DoxyCompactList}\small\item\em Compute a quadrature rule of a given degree of exactness on a cell. \end{DoxyCompactList}\item 
+Quadrature\+Rule \hyperlink{classHArDCore2D_1_1HybridCore_a4158e234143fd956fd4038adf9097bc2}{edge\+\_\+qrule} (const size\+\_\+t iE, const size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Compute a quadrature rule of a given degree of exactness on an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a02b46a742045262030431b73eb112f9c}\label{classHArDCore2D_1_1HybridCore_a02b46a742045262030431b73eb112f9c}} 
+Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a02b46a742045262030431b73eb112f9c}{restr} (const Eigen\+::\+Vector\+Xd \&Xh, size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Extract from a global vector Xh of unknowns the unknowns corresponding to cell iT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a6c2a3d4fde899dde50fda5d97eafdc07}\label{classHArDCore2D_1_1HybridCore_a6c2a3d4fde899dde50fda5d97eafdc07}} 
+double \hyperlink{classHArDCore2D_1_1HybridCore_a6c2a3d4fde899dde50fda5d97eafdc07}{L2norm} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute L2 norm of a discrete function (using cell values) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a5962007697ffc13367070f7c4bcbe875}\label{classHArDCore2D_1_1HybridCore_a5962007697ffc13367070f7c4bcbe875}} 
+double \hyperlink{classHArDCore2D_1_1HybridCore_a5962007697ffc13367070f7c4bcbe875}{H1norm} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute discrete H1 norm of a discrete function (using cell values) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ac8878fba08f008f5ecbaa69a9a084904}\label{classHArDCore2D_1_1HybridCore_ac8878fba08f008f5ecbaa69a9a084904}} 
+double \hyperlink{classHArDCore2D_1_1HybridCore_ac8878fba08f008f5ecbaa69a9a084904}{Linf\+\_\+edge} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute maximum of the coefficients on the edge basis functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__HybridCore_ga71c953efc96f467cb24faa1b60ee9bb2}{interpolate} (const Function \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Compute the interpolant in the discrete space of a continuous function. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_aa5c203c11a661933930a33335b0e2479}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a9d7cab97f874ee1c6debab251400d7a7}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
+\begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}\label{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}} 
+Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}{compute\+\_\+weights} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Weights to compute cell unknowns from edge unknowns when l=-\/1. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{classHArDCore2D_1_1HybridCore_acf453b4f239a76fe7f21b02ac91e127c}{basis\+\_\+quad} (const std\+::string celledge, const size\+\_\+t i\+TF, const Quadrature\+Rule quad, const size\+\_\+t degree, const std\+::string type\+\_\+basis=\char`\"{}basis\char`\"{}) const
+\begin{DoxyCompactList}\small\item\em Computes (cell or edge) basis functions at the given quadrature nodes. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{classHArDCore2D_1_1HybridCore_add794287f4bb49157a7b5f94a5ecb200}{grad\+\_\+basis\+\_\+quad} (const size\+\_\+t iT, const Quadrature\+Rule quad, const size\+\_\+t degree, const std\+::string type\+\_\+basis=\char`\"{}basis\char`\"{}) const
+\begin{DoxyCompactList}\small\item\em Compute $(\nabla \phi_i)_{i\in I}$ at the given quadrature nodes, where $(\phi_i)_{i\in I}$ are the cell basis functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a58dd478934c1f5b65ae8b7df31e8ead4}\label{classHArDCore2D_1_1HybridCore_a58dd478934c1f5b65ae8b7df31e8ead4}} 
+double \hyperlink{classHArDCore2D_1_1HybridCore_a58dd478934c1f5b65ae8b7df31e8ead4}{evaluate\+\_\+in\+\_\+cell} (const Eigen\+::\+Vector\+Xd X\+TF, size\+\_\+t iT, double x, double y) const
+\begin{DoxyCompactList}\small\item\em Evaluates a discrete function in the cell iT at point (x,y) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ae6795e8bc0058be7e399b379333032c8}\label{classHArDCore2D_1_1HybridCore_ae6795e8bc0058be7e399b379333032c8}} 
+double \hyperlink{classHArDCore2D_1_1HybridCore_ae6795e8bc0058be7e399b379333032c8}{evaluate\+\_\+in\+\_\+edge} (const Eigen\+::\+Vector\+Xd X\+TF, size\+\_\+t iF, double x, double y) const
+\begin{DoxyCompactList}\small\item\em Evaluates a discrete function on the edge iF at point (x,y) \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$ \hyperlink{group__HybridCore_gab3337e9e6d16154e080e247b3fa43d72}{get\+\_\+mesh\+\_\+ptr} () const
+\begin{DoxyCompactList}\small\item\em returns a pointer to the mesh \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_gadaf859b98dea34338c9e6376e975b131}{K} () const
+\begin{DoxyCompactList}\small\item\em polynomial degree of edge unknowns \end{DoxyCompactList}\item 
+int \hyperlink{group__HybridCore_ga816cd87658b200d1ea32d2c4fefd5c6e}{L} () const
+\begin{DoxyCompactList}\small\item\em polynomial degree of cell unknowns \end{DoxyCompactList}\item 
+int \hyperlink{group__HybridCore_gaaa9fe846646c9e26f699364ac29631f6}{Ldeg} () const
+\begin{DoxyCompactList}\small\item\em usually equal to L, but put at 0 if L=-\/1 \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_gaf887b486ad0eea60382e306f1487b44a}{ntotal\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em Total number of degrees of freedom. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_gab698480a3a9e9339d5c191549b817501}{nlocal\+\_\+cell\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom in each cell (dimension of polynomial space) \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_ga86e6a3566cf506821606c8802a5f2364}{ntotal\+\_\+cell\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_ga41f1294e34e4daade19ad16981eaac15}{nlocal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom on each edge (dimension of polynomial space) \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_gac0af0b8fa9bea07b9cfba8cbb1b50bed}{ntotal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_ga95c76303ee1dabc5c78f0bdd7a2c6aaa}{ninternal\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for internal edges \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_ga4e7b0325c0966ec722fe8808048fb3ab}{nboundary\+\_\+edge\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for boundary edges \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_ga57c23358c4ca7e485e8382c6b2761ad5}{nhighorder\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom with polynomials up to order k+1 \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__HybridCore_gaffe520cbcf3d8212a503d51f11c13e5f}{ngradient\+\_\+dofs} () const
+\begin{DoxyCompactList}\small\item\em total number of degrees of freedom for gradients \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore_ga3c33c8cec55dbe2d8873e53fcd43d01f}{quadrature\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over a cell. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore_gafbf9c61f2d929331197ba971b52b8710}{quadrature\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over an edge. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_ga64ffbc44306e06018efe3cea5a62f652}{integrate\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over a cell. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_ga03f276ea9c905d64662c39b7555d560c}{integrate\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over an edge. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore_gab058c4e54d1e33c49e537b8d0f602848}{integrate\+\_\+over\+\_\+domain} (const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over the domaine. Use with parcimony, expensive (re-\/compute quadratures) \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a4e623d59fe09c23c4b714541e4aff5ea}{Vertex\+Values} (const Eigen\+::\+Vector\+Xd Xh, const std\+::string from\+\_\+dofs)
+\begin{DoxyCompactList}\small\item\em From a hybrid function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} class provides convenient interfaces for performing integration over mesh cells and edges and handling polynomial basis functions The class also provides convenient interfaces for dealing with solutions to Hybrid High-\/\+Order schemes, such as the computation of integrals, norms and interpolants in the H\+HO space. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_af4978b5ad1f20f152357e94ffa94bfa9}\label{classHArDCore2D_1_1HybridCore_af4978b5ad1f20f152357e94ffa94bfa9}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!Hybrid\+Core@{Hybrid\+Core}}
+\index{Hybrid\+Core@{Hybrid\+Core}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{Hybrid\+Core()}{HybridCore()}}
+{\footnotesize\ttfamily Hybrid\+Core\+::\+Hybrid\+Core (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh\+\_\+ptr,  }\item[{const size\+\_\+t}]{K,  }\item[{const size\+\_\+t}]{L,  }\item[{const std\+::string}]{choice\+\_\+basis = {\ttfamily \char`\"{}Mon\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. 
+
+The orthonormalisation comes at a cost in terms of manipulation of the basis functions. This should only be use when the polynomial degree is large and/or the cell is very distorted. However, in these cases, it can make a huge difference on the observed convergence rate. 
+\begin{DoxyParams}{Parameters}
+{\em mesh\+\_\+ptr} & A pointer to the loaded mesh \\
+\hline
+{\em K} & The degree of the edge polynomials \\
+\hline
+{\em L} & The degree of the cell polynomials \\
+\hline
+{\em choice\+\_\+basis} & \char`\"{}\+Mon\char`\"{} for monomials basis, \char`\"{}\+O\+N\char`\"{} for orthonormalised basis. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_acf453b4f239a76fe7f21b02ac91e127c}\label{classHArDCore2D_1_1HybridCore_acf453b4f239a76fe7f21b02ac91e127c}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!basis\+\_\+quad@{basis\+\_\+quad}}
+\index{basis\+\_\+quad@{basis\+\_\+quad}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{basis\+\_\+quad()}{basis\_quad()}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ Hybrid\+Core\+::basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const std\+::string}]{celledge,  }\item[{const size\+\_\+t}]{i\+TF,  }\item[{const Quadrature\+Rule}]{quad,  }\item[{const size\+\_\+t}]{degree,  }\item[{const std\+::string}]{type\+\_\+basis = {\ttfamily \char`\"{}basis\char`\"{}} }\end{DoxyParamCaption}) const}
+
+
+
+Computes (cell or edge) basis functions at the given quadrature nodes. 
+
+\begin{DoxyReturn}{Returns}
+phi\+\_\+quad\mbox{[}i\mbox{]} = array listing the nbq (=nb of quadrature nodes) values of phi\+\_\+i at the quadrature nodes 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em celledge} & determines the type of basis function (cell or edge) we want the values of \\
+\hline
+{\em i\+TF} & global index of the cell/edge \\
+\hline
+{\em quad} & quadrature nodes and weights on the cell/edge \\
+\hline
+{\em degree} & the maximum polynomial degree to consider \\
+\hline
+{\em type\+\_\+basis} & optional argument to determine if we want on the monomial, or the basis functions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a34242db07cc2b3c3b867d9e4580b634d}\label{classHArDCore2D_1_1HybridCore_a34242db07cc2b3c3b867d9e4580b634d}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!cell\+\_\+basis@{cell\+\_\+basis}}
+\index{cell\+\_\+basis@{cell\+\_\+basis}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{cell\+\_\+basis()}{cell\_basis()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}{Hybrid\+Core\+::cell\+\_\+basis\+\_\+type} \& Hybrid\+Core\+::cell\+\_\+basis (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the i\textquotesingle{}th basis function of the cell iT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global cell number of the cell \\
+\hline
+{\em i} & The index of the desired basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a710fc23b914623b90a2699ab4291e539}\label{classHArDCore2D_1_1HybridCore_a710fc23b914623b90a2699ab4291e539}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!cell\+\_\+gradient@{cell\+\_\+gradient}}
+\index{cell\+\_\+gradient@{cell\+\_\+gradient}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{cell\+\_\+gradient()}{cell\_gradient()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}{Hybrid\+Core\+::cell\+\_\+gradient\+\_\+type} \& Hybrid\+Core\+::cell\+\_\+gradient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the gradient of the i\textquotesingle{}th basis function of the cell iT. 
+
+Note that the gradient functions are indexed the same as the basis functions. In particular, this means that the first gradient function will always be identically zero, as it is the gradient of the constant basis function. 
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global cell number of the cell \\
+\hline
+{\em i} & The index of the desired basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_aa7006921a9e212784abf688f63a855a0}\label{classHArDCore2D_1_1HybridCore_aa7006921a9e212784abf688f63a855a0}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!cell\+\_\+monomial@{cell\+\_\+monomial}}
+\index{cell\+\_\+monomial@{cell\+\_\+monomial}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{cell\+\_\+monomial()}{cell\_monomial()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a4b9c53f6ec13dc9e73f5cdc5c8ae782b}{Hybrid\+Core\+::cell\+\_\+basis\+\_\+type} \& Hybrid\+Core\+::cell\+\_\+monomial (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the i\textquotesingle{}th monomial function of the cell iT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global cell number of the cell \\
+\hline
+{\em i} & The index of the desired monomial function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a0edb2fb02577f68744abb8a436381cf7}\label{classHArDCore2D_1_1HybridCore_a0edb2fb02577f68744abb8a436381cf7}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!cell\+\_\+monomials\+\_\+gradient@{cell\+\_\+monomials\+\_\+gradient}}
+\index{cell\+\_\+monomials\+\_\+gradient@{cell\+\_\+monomials\+\_\+gradient}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{cell\+\_\+monomials\+\_\+gradient()}{cell\_monomials\_gradient()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a41350d7c3ac5a5a5e932348d2c9d0750}{Hybrid\+Core\+::cell\+\_\+gradient\+\_\+type} \& Hybrid\+Core\+::cell\+\_\+monomials\+\_\+gradient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the gradient of the i\textquotesingle{}th monomial function of the cell iT. 
+
+Note that the gradient functions are indexed the same as the monomial functions. In particular, this means that the first gradient function will always be identically zero, as it is the gradient of the constant monomial. 
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global cell number of the cell \\
+\hline
+{\em i} & The index of the desired monomial function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a5d70dcda8d8a56311b2d1eac4f7d306c}\label{classHArDCore2D_1_1HybridCore_a5d70dcda8d8a56311b2d1eac4f7d306c}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!cell\+\_\+qrule@{cell\+\_\+qrule}}
+\index{cell\+\_\+qrule@{cell\+\_\+qrule}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{cell\+\_\+qrule()}{cell\_qrule()}}
+{\footnotesize\ttfamily Quadrature\+Rule Hybrid\+Core\+::cell\+\_\+qrule (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const size\+\_\+t}]{doe,  }\item[{const bool}]{force\+\_\+split = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Compute a quadrature rule of a given degree of exactness on a cell. 
+
+\begin{DoxyReturn}{Returns}
+list of quadrature nodes and weights 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & Global index of the cell \\
+\hline
+{\em doe} & Required degree of exactness \\
+\hline
+{\em force\+\_\+split} & T\+R\+UE if we want the quadrature nodes to be computed by forcing the splitting of the cell into triangles based on its center of mass and edges (otherwise, for simple cells, quadrature nodes are computed by splitting in fewer triangles) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_aa2bdc59d150566e1b992058031509d2f}\label{classHArDCore2D_1_1HybridCore_aa2bdc59d150566e1b992058031509d2f}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!dim\+\_\+\+Pcell@{dim\+\_\+\+Pcell}}
+\index{dim\+\_\+\+Pcell@{dim\+\_\+\+Pcell}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{dim\+\_\+\+Pcell()}{dim\_Pcell()}}
+{\footnotesize\ttfamily size\+\_\+t Hybrid\+Core\+::dim\+\_\+\+Pcell (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{m }\end{DoxyParamCaption}) const}
+
+
+
+Compute the size of the basis of 2-\/variate polynomials up to degree m. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The maximum degree of the polynomial \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ab0fb57313f27fb8b4a6e9747de1d5cfe}\label{classHArDCore2D_1_1HybridCore_ab0fb57313f27fb8b4a6e9747de1d5cfe}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!dim\+\_\+\+Pedge@{dim\+\_\+\+Pedge}}
+\index{dim\+\_\+\+Pedge@{dim\+\_\+\+Pedge}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{dim\+\_\+\+Pedge()}{dim\_Pedge()}}
+{\footnotesize\ttfamily size\+\_\+t Hybrid\+Core\+::dim\+\_\+\+Pedge (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{m }\end{DoxyParamCaption}) const}
+
+
+
+Compute the size of the basis of 1-\/variate polynomials up to degree m. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The maximum degree of the polynomial \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a6b4feaeef7739a2e30fcf6c601fcf721}\label{classHArDCore2D_1_1HybridCore_a6b4feaeef7739a2e30fcf6c601fcf721}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!edge\+\_\+basis@{edge\+\_\+basis}}
+\index{edge\+\_\+basis@{edge\+\_\+basis}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{edge\+\_\+basis()}{edge\_basis()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}{Hybrid\+Core\+::edge\+\_\+basis\+\_\+type} \& Hybrid\+Core\+::edge\+\_\+basis (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iF,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the i\textquotesingle{}th basis function of the edge iF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iF} & The global edge number of the edge \\
+\hline
+{\em i} & The index of the desired basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a9a0879fca63fe056f75bb0574584639b}\label{classHArDCore2D_1_1HybridCore_a9a0879fca63fe056f75bb0574584639b}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!edge\+\_\+monomial@{edge\+\_\+monomial}}
+\index{edge\+\_\+monomial@{edge\+\_\+monomial}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{edge\+\_\+monomial()}{edge\_monomial()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1HybridCore_a9e3231c1356e797daaa3476ff1fa4154}{Hybrid\+Core\+::edge\+\_\+basis\+\_\+type} \& Hybrid\+Core\+::edge\+\_\+monomial (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iF,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Return a reference to the i\textquotesingle{}th monomial function of the edge iF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iF} & The global edge number of the edge \\
+\hline
+{\em i} & The index of the desired monomial function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a4158e234143fd956fd4038adf9097bc2}\label{classHArDCore2D_1_1HybridCore_a4158e234143fd956fd4038adf9097bc2}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!edge\+\_\+qrule@{edge\+\_\+qrule}}
+\index{edge\+\_\+qrule@{edge\+\_\+qrule}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{edge\+\_\+qrule()}{edge\_qrule()}}
+{\footnotesize\ttfamily Quadrature\+Rule Hybrid\+Core\+::edge\+\_\+qrule (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iE,  }\item[{const size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
+
+
+
+Compute a quadrature rule of a given degree of exactness on an edge. 
+
+\begin{DoxyReturn}{Returns}
+list of quadrature nodes and weights 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em iE} & Global index of the edge \\
+\hline
+{\em doe} & Required degree of exactness \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_add794287f4bb49157a7b5f94a5ecb200}\label{classHArDCore2D_1_1HybridCore_add794287f4bb49157a7b5f94a5ecb200}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!grad\+\_\+basis\+\_\+quad@{grad\+\_\+basis\+\_\+quad}}
+\index{grad\+\_\+basis\+\_\+quad@{grad\+\_\+basis\+\_\+quad}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{grad\+\_\+basis\+\_\+quad()}{grad\_basis\_quad()}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ Hybrid\+Core\+::grad\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const Quadrature\+Rule}]{quad,  }\item[{const size\+\_\+t}]{degree,  }\item[{const std\+::string}]{type\+\_\+basis = {\ttfamily \char`\"{}basis\char`\"{}} }\end{DoxyParamCaption}) const}
+
+
+
+Compute $(\nabla \phi_i)_{i\in I}$ at the given quadrature nodes, where $(\phi_i)_{i\in I}$ are the cell basis functions. 
+
+\begin{DoxyReturn}{Returns}
+dphi\+\_\+quad\mbox{[}i\mbox{]}\+: array of size 2$\ast$nbq (where nbq=nb of quadrature nodes), with each column being $\nabla \phi_i$ at the corresponding quadrature node 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & global index of the cell \\
+\hline
+{\em quad} & quadrature rules in the cell \\
+\hline
+{\em degree} & the maximum polynomial degree to consider \\
+\hline
+{\em type\+\_\+basis} & optional argument to determine if we want on the monomial, or the basis functions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_aa5c203c11a661933930a33335b0e2479}\label{classHArDCore2D_1_1HybridCore_aa5c203c11a661933930a33335b0e2479}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!gram\+\_\+matrix@{gram\+\_\+matrix}}
+\index{gram\+\_\+matrix@{gram\+\_\+matrix}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ double $>$}]{L2weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+
+Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of functions (this is not really a Gram matrix, unless the two families are the same) \begin{DoxyReturn}{Returns}
+The matrix $(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+quad} & Values of functions (f1,f2,...) at the quadrature nodes \\
+\hline
+{\em g\+\_\+quad} & Values of functions (g1,g2,...) at the quadrature nodes \\
+\hline
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions f\+\_\+i (but could be less) \\
+\hline
+{\em ncols} & Number of columns of the matrix -\/ typically number of functions g\+\_\+j (but could be less) \\
+\hline
+{\em quad} & Quadrature nodes for integration \\
+\hline
+{\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#f$<$=\#g and f\+\_\+i=g\+\_\+i if i$<$=\#f) \\
+\hline
+{\em L2weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$double$>$ of the weight at the quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a9d7cab97f874ee1c6debab251400d7a7}\label{classHArDCore2D_1_1HybridCore_a9d7cab97f874ee1c6debab251400d7a7}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!gram\+\_\+matrix@{gram\+\_\+matrix}}
+\index{gram\+\_\+matrix@{gram\+\_\+matrix}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ Eigen\+::\+Matrix2d $>$}]{L2\+Weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. 
+
+\begin{DoxyReturn}{Returns}
+The matrix $(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em F\+\_\+quad} & Values of functions (F1,F2,...) at the quadrature nodes \\
+\hline
+{\em G\+\_\+quad} & Values of functions (G1,G2,...) at the quadrature nodes \\
+\hline
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions F\+\_\+i (but could be less) \\
+\hline
+{\em ncols} & Number of rows of the matrix -\/ typically number of functions G\+\_\+j (but could be less) \\
+\hline
+{\em quad} & Quadrature nodes for integration \\
+\hline
+{\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#F$<$=\#G and F\+\_\+i=G\+\_\+i if i$<$=\#F) \\
+\hline
+{\em L2\+Weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$\+Eigen\+::\+Matrix2d$>$ of the weight at the quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a4e623d59fe09c23c4b714541e4aff5ea}\label{classHArDCore2D_1_1HybridCore_a4e623d59fe09c23c4b714541e4aff5ea}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!Vertex\+Values@{Vertex\+Values}}
+\index{Vertex\+Values@{Vertex\+Values}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\subsubsection{\texorpdfstring{Vertex\+Values()}{VertexValues()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd Hybrid\+Core\+::\+Vertex\+Values (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{const std\+::string}]{from\+\_\+dofs }\end{DoxyParamCaption})}
+
+
+
+From a hybrid function, computes a vector of values at the vertices of the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Xh} & hybrid function (cell and edge polynomials) \\
+\hline
+{\em from\+\_\+dofs} & Type of unknowns to use\+: \char`\"{}cell\char`\"{} or \char`\"{}edge\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Hybrid\+Core/hybridcore.\+hpp\item 
+src/\+Hybrid\+Core/hybridcore.\+cpp\end{DoxyCompactItemize}

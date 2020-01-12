@@ -1,0 +1,58 @@
+\hypertarget{classHArDCore2D_1_1VtuWriter}{}\section{H\+Ar\+D\+Core2D\+:\+:Vtu\+Writer Class Reference}
+\label{classHArDCore2D_1_1VtuWriter}\index{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer@{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1VtuWriter_a6e7b1979b243145647b544b680a85b7d}{Vtu\+Writer} (\hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructor for mesh writer. \end{DoxyCompactList}\item 
+bool \hyperlink{classHArDCore2D_1_1VtuWriter_abbbc4aff8486550827a70b4f8ad404cc}{write\+\_\+to\+\_\+vtu} (std\+::string file\+\_\+name, Eigen\+::\+Vector\+Xd sol\+\_\+vertex, bool dimen)
+\begin{DoxyCompactList}\small\item\em Writes the vtu file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1VtuWriter_aaf75193eddca3a0d369ad71c10c2be68}\label{classHArDCore2D_1_1VtuWriter_aaf75193eddca3a0d369ad71c10c2be68}} 
+bool \hyperlink{classHArDCore2D_1_1VtuWriter_aaf75193eddca3a0d369ad71c10c2be68}{write\+\_\+to\+\_\+vtu} (std\+::string file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em overloaded writer for the mesh alone \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1VtuWriter_a6e7b1979b243145647b544b680a85b7d}\label{classHArDCore2D_1_1VtuWriter_a6e7b1979b243145647b544b680a85b7d}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer@{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer}!Vtu\+Writer@{Vtu\+Writer}}
+\index{Vtu\+Writer@{Vtu\+Writer}!H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer@{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer}}
+\subsubsection{\texorpdfstring{Vtu\+Writer()}{VtuWriter()}}
+{\footnotesize\ttfamily Vtu\+Writer\+::\+Vtu\+Writer (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Constructor for mesh writer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & pointer to the mesh \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1VtuWriter_abbbc4aff8486550827a70b4f8ad404cc}\label{classHArDCore2D_1_1VtuWriter_abbbc4aff8486550827a70b4f8ad404cc}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer@{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer}!write\+\_\+to\+\_\+vtu@{write\+\_\+to\+\_\+vtu}}
+\index{write\+\_\+to\+\_\+vtu@{write\+\_\+to\+\_\+vtu}!H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer@{H\+Ar\+D\+Core2\+D\+::\+Vtu\+Writer}}
+\subsubsection{\texorpdfstring{write\+\_\+to\+\_\+vtu()}{write\_to\_vtu()}}
+{\footnotesize\ttfamily bool Vtu\+Writer\+::write\+\_\+to\+\_\+vtu (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name,  }\item[{Eigen\+::\+Vector\+Xd}]{sol\+\_\+vertex,  }\item[{bool}]{dimen }\end{DoxyParamCaption})}
+
+
+
+Writes the vtu file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & name of file to write to \\
+\hline
+{\em sol\+\_\+vertex} & vector of values of the solution at the mesh vertices \\
+\hline
+{\em dimen} & elevation of the plot\+: planar if dimen=0, elevated if dimen=1 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Plot/vtu\+\_\+writer.\+hpp\item 
+src/\+Plot/vtu\+\_\+writer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{group__HHO__LocVarDiff}{}\section{H\+H\+O\+\_\+\+Loc\+Var\+Diff}
+\label{group__HHO__LocVarDiff}\index{H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+H\+O\+\_\+\+Loc\+Var\+Diff}}
+
+
+H\+HO scheme for diffusion equation -\/div(Diff grad u)=f, with Diff possibly varying in each cell.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+\+Loc\+Var\+Diff} class provides tools to implement the H\+HO method for the diffusion problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__HHO__LocVarDiff_ga5f2ab34d1e5afb3d83b548a1cb09f83a}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff} (\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}{tensor\+\_\+function\+\_\+type} kappa, size\+\_\+t deg\+\_\+kappa, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}{source\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_ga74eac0904256440c429fb9502112a867}\label{group__HHO__LocVarDiff_ga74eac0904256440c429fb9502112a867}} 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__LocVarDiff_ga74eac0904256440c429fb9502112a867}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_gaf359d2047dc5b2fb8640a01c025fb860}\label{group__HHO__LocVarDiff_gaf359d2047dc5b2fb8640a01c025fb860}} 
+double \hyperlink{group__HHO__LocVarDiff_gaf359d2047dc5b2fb8640a01c025fb860}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::\+Energy\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd Xh)
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) of an hybrid function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_ga9c37d2cf2744465d0bf50ff02fe185f9}\label{group__HHO__LocVarDiff_ga9c37d2cf2744465d0bf50ff02fe185f9}} 
+double \hyperlink{group__HHO__LocVarDiff_ga9c37d2cf2744465d0bf50ff02fe185f9}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_gad184ecd99c5da4172395a210d0289c12}\label{group__HHO__LocVarDiff_gad184ecd99c5da4172395a210d0289c12}} 
+double \hyperlink{group__HHO__LocVarDiff_gad184ecd99c5da4172395a210d0289c12}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_ga61e65ce589db4203515ae8e1f5c30d0f}\label{group__HHO__LocVarDiff_ga61e65ce589db4203515ae8e1f5c30d0f}} 
+double \hyperlink{group__HHO__LocVarDiff_ga61e65ce589db4203515ae8e1f5c30d0f}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__LocVarDiff_ga9648b003ca1d519794bcc5407c8ce606}\label{group__HHO__LocVarDiff_ga9648b003ca1d519794bcc5407c8ce606}} 
+double \hyperlink{group__HHO__LocVarDiff_ga9648b003ca1d519794bcc5407c8ce606}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+H\+HO scheme for diffusion equation -\/div(Diff grad u)=f, with Diff possibly varying in each cell. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__HHO__LocVarDiff_ga5f2ab34d1e5afb3d83b548a1cb09f83a}\label{group__HHO__LocVarDiff_ga5f2ab34d1e5afb3d83b548a1cb09f83a}} 
+\index{H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+H\+O\+\_\+\+Loc\+Var\+Diff}!H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+H\+O\+\_\+\+Loc\+Var\+Diff}}
+\index{H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+H\+O\+\_\+\+Loc\+Var\+Diff}!H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+H\+O\+\_\+\+Loc\+Var\+Diff}}
+\subsubsection{\texorpdfstring{H\+H\+O\+\_\+\+Loc\+Var\+Diff()}{HHO\_LocVarDiff()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}{tensor\+\_\+function\+\_\+type}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}{source\+\_\+function\+\_\+type}}]{source,  }\item[{size\+\_\+t}]{BC,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}{solution\+\_\+function\+\_\+type}}]{exact\+\_\+solution,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}{grad\+\_\+function\+\_\+type}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kappa} & diffusion tensor \\
+\hline
+{\em deg\+\_\+kappa} & polynomial degree of the diffusion tensor \\
+\hline
+{\em source} & source term \\
+\hline
+{\em BC} & type of boundary conditions (0 for Dirichlet, 1 for Neumann) \\
+\hline
+{\em exact\+\_\+solution} & exact solution \\
+\hline
+{\em grad\+\_\+exact\+\_\+solution} & gradient of the exact solution \\
+\hline
+{\em solver\+\_\+type} & type of solver to use for the global system (bicgstab at the moment) \\
+\hline
+\end{DoxyParams}

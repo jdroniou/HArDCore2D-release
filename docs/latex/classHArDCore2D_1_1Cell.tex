@@ -1,0 +1,116 @@
+\hypertarget{classHArDCore2D_1_1Cell}{}\section{H\+Ar\+D\+Core2D\+:\+:Cell Class Reference}
+\label{classHArDCore2D_1_1Cell}\index{H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}}
+
+
+The \hyperlink{classHArDCore2D_1_1Cell}{Cell} class provides description of a cell.  
+
+
+
+
+{\ttfamily \#include $<$cell.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1Cell_a419647e4f50c110f473ada556ef7a944}{Cell} (size\+\_\+t iC, std\+::vector$<$ size\+\_\+t $>$ vertex\+\_\+ids, \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh)
+\item 
+size\+\_\+t \hyperlink{group__Mesh_ga36d093e9886bcd4befae4ddf5f75f2ee}{global\+\_\+index} () const
+\begin{DoxyCompactList}\small\item\em cell index \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh_ga1b0586610a05e1a7a64bbe11f59e9b19}{n\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em returns number of edges of the cell \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh_ga70f9744e4ff553db7f0e147342319f43}{n\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em returns number of vertices of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_abac3633d6b17df44320054664d9581b1}\label{classHArDCore2D_1_1Cell_abac3633d6b17df44320054664d9581b1}} 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Edge}{Edge} $\ast$ $>$ \hyperlink{classHArDCore2D_1_1Cell_abac3633d6b17df44320054664d9581b1}{get\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em returns the list of edges of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a19a14fe5dd32fbf9d9557aaece6a0499}\label{classHArDCore2D_1_1Cell_a19a14fe5dd32fbf9d9557aaece6a0499}} 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Vertex}{Vertex} $\ast$ $>$ \hyperlink{classHArDCore2D_1_1Cell_a19a14fe5dd32fbf9d9557aaece6a0499}{get\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em returns the list of vertices of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a4d29dc1248424166380aa33d9ea7de3d}\label{classHArDCore2D_1_1Cell_a4d29dc1248424166380aa33d9ea7de3d}} 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$ $>$ \hyperlink{classHArDCore2D_1_1Cell_a4d29dc1248424166380aa33d9ea7de3d}{get\+\_\+neighbours} () const
+\begin{DoxyCompactList}\small\item\em returns the list of neighbours of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a85defed1382a8af8227e89f00434603e}\label{classHArDCore2D_1_1Cell_a85defed1382a8af8227e89f00434603e}} 
+\hyperlink{classHArDCore2D_1_1Edge}{Edge} $\ast$ \hyperlink{classHArDCore2D_1_1Cell_a85defed1382a8af8227e89f00434603e}{edge} (size\+\_\+t iL) const
+\begin{DoxyCompactList}\small\item\em returns the i\+L-\/th edge of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a2e6bcdeac17fd028ef3892e7866c7b88}\label{classHArDCore2D_1_1Cell_a2e6bcdeac17fd028ef3892e7866c7b88}} 
+\hyperlink{classHArDCore2D_1_1Vertex}{Vertex} $\ast$ \hyperlink{classHArDCore2D_1_1Cell_a2e6bcdeac17fd028ef3892e7866c7b88}{vertex} (size\+\_\+t iL) const
+\begin{DoxyCompactList}\small\item\em returns the i\+L-\/th edge of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_adddfffa330938bd8ab624349722a0e4e}\label{classHArDCore2D_1_1Cell_adddfffa330938bd8ab624349722a0e4e}} 
+\hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$ \hyperlink{classHArDCore2D_1_1Cell_adddfffa330938bd8ab624349722a0e4e}{neighbour} (size\+\_\+t iL) const
+\begin{DoxyCompactList}\small\item\em returns the i\+L-\/th neighbour of the cell \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh_ga710ded03b7741c8377e0b2dda2395b46}{is\+\_\+boundary} () const
+\begin{DoxyCompactList}\small\item\em returns true if cell touches the boundary \end{DoxyCompactList}\item 
+double \hyperlink{group__Mesh_gac19ec98507a18d255bd54b1e55b16653}{measure} () const
+\begin{DoxyCompactList}\small\item\em returns area of cell \end{DoxyCompactList}\item 
+double \hyperlink{group__Mesh_ga84c743487088ebb64ca0c860329c7162}{diam} () const
+\begin{DoxyCompactList}\small\item\em returns diameter of cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_af55d7a602439110ebbb3c9aee1895580}\label{classHArDCore2D_1_1Cell_af55d7a602439110ebbb3c9aee1895580}} 
+Vector2d \hyperlink{classHArDCore2D_1_1Cell_af55d7a602439110ebbb3c9aee1895580}{edge\+\_\+normal} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em returns the outer normal to the i-\/th edge \end{DoxyCompactList}\item 
+Vector2d \hyperlink{group__Mesh_ga66b278b12266d5c5bfee8699886cc89b}{center\+\_\+mass} () const
+\begin{DoxyCompactList}\small\item\em returns the center of mass of the cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a6dfa6d2f4a0c971bc760538b73880a1c}\label{classHArDCore2D_1_1Cell_a6dfa6d2f4a0c971bc760538b73880a1c}} 
+bool \hyperlink{classHArDCore2D_1_1Cell_a6dfa6d2f4a0c971bc760538b73880a1c}{calc\+\_\+cell\+\_\+geometry\+\_\+factors} ()
+\begin{DoxyCompactList}\small\item\em calculate cell diam, area etc \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a6e29b140b5f4a286ed694f2851fe76e1}\label{classHArDCore2D_1_1Cell_a6e29b140b5f4a286ed694f2851fe76e1}} 
+bool \hyperlink{classHArDCore2D_1_1Cell_a6e29b140b5f4a286ed694f2851fe76e1}{add\+\_\+neighbour} (\hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$neigh)
+\begin{DoxyCompactList}\small\item\em add a cell to the neighbour \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_ac752606c3c705df6140e20d3c7ae45a2}\label{classHArDCore2D_1_1Cell_ac752606c3c705df6140e20d3c7ae45a2}} 
+bool \hyperlink{classHArDCore2D_1_1Cell_ac752606c3c705df6140e20d3c7ae45a2}{is\+\_\+neighbour} (const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$rhs) const
+\begin{DoxyCompactList}\small\item\em true if shares edge \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a23fe549c562fac9ca1eef82c04948546}\label{classHArDCore2D_1_1Cell_a23fe549c562fac9ca1eef82c04948546}} 
+Vector2d \hyperlink{classHArDCore2D_1_1Cell_a23fe549c562fac9ca1eef82c04948546}{ari\+\_\+coords} () const
+\begin{DoxyCompactList}\small\item\em return average of edge midpoints \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1Cell_a80ddbe4dea925baeec6da304a0873a2c}{shared\+\_\+edge} (size\+\_\+t i)
+\item 
+void \hyperlink{classHArDCore2D_1_1Cell_ac4332b689450ab38b5c77ae9f5ff0809}{set\+\_\+boundary} (bool val)
+\begin{DoxyCompactList}\small\item\em calling this function. Returns -\/1 if there is no cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a65ac02c8ef4407d5c0693ae97d24c45a}\label{classHArDCore2D_1_1Cell_a65ac02c8ef4407d5c0693ae97d24c45a}} 
+void \hyperlink{classHArDCore2D_1_1Cell_a65ac02c8ef4407d5c0693ae97d24c45a}{set\+\_\+global\+\_\+index} (size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Set the global index of the cell to idx. Used to re-\/index the cells, should essentially only be used inside \hyperlink{classHArDCore2D_1_1Mesh_af77873bbc892a7a5b37bf4773c55aefc}{Mesh\+::renum}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1Cell}{Cell} class provides description of a cell. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_a419647e4f50c110f473ada556ef7a944}\label{classHArDCore2D_1_1Cell_a419647e4f50c110f473ada556ef7a944}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}}
+\subsubsection{\texorpdfstring{Cell()}{Cell()}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iC,  }\item[{std\+::vector$<$ size\+\_\+t $>$}]{vertex\+\_\+ids,  }\item[{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+Constructor from global indexes and a mesh 
+\begin{DoxyParams}{Parameters}
+{\em iG} & is the global index of the \hyperlink{classHArDCore2D_1_1Cell}{Cell} (basically its just the location in the mesh cells vector \\
+\hline
+{\em vertex\+\_\+ids} & vector containing the global indices of the cell vertices \\
+\hline
+{\em mesh} & pointer to the mesh that the cell is contained in \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1Cell_ac4332b689450ab38b5c77ae9f5ff0809}\label{classHArDCore2D_1_1Cell_ac4332b689450ab38b5c77ae9f5ff0809}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}!set\+\_\+boundary@{set\+\_\+boundary}}
+\index{set\+\_\+boundary@{set\+\_\+boundary}!H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}}
+\subsubsection{\texorpdfstring{set\+\_\+boundary()}{set\_boundary()}}
+{\footnotesize\ttfamily void Cell\+::set\+\_\+boundary (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})}
+
+
+
+calling this function. Returns -\/1 if there is no cell 
+
+that shares the edge defined by the local coordinates with this cell if there is no edge it will return a null pointer, it would be best to check if the cell is a boundary before\+Set the \+\_\+boundary value of the cell to val \mbox{\Hypertarget{classHArDCore2D_1_1Cell_a80ddbe4dea925baeec6da304a0873a2c}\label{classHArDCore2D_1_1Cell_a80ddbe4dea925baeec6da304a0873a2c}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}!shared\+\_\+edge@{shared\+\_\+edge}}
+\index{shared\+\_\+edge@{shared\+\_\+edge}!H\+Ar\+D\+Core2\+D\+::\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Cell}}
+\subsubsection{\texorpdfstring{shared\+\_\+edge()}{shared\_edge()}}
+{\footnotesize\ttfamily size\+\_\+t Cell\+::shared\+\_\+edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+Returns the global index to the cell 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Mesh/cell.\+hpp\item 
+src/\+Mesh/cell.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\hypertarget{classHArDCore2D_1_1HHO__LocVarDiff}{}\section{H\+Ar\+D\+Core2D\+:\+:H\+H\+O\+\_\+\+Loc\+Var\+Diff Class Reference}
+\label{classHArDCore2D_1_1HHO__LocVarDiff}\index{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff@{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Loc\+Var\+Diff}}
+
+
+The \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+\+Loc\+Var\+Diff} class provides tools to implement the H\+HO method for the diffusion problem.  
+
+
+
+
+{\ttfamily \#include $<$H\+H\+O\+\_\+\+Loc\+Var\+Diff.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}\label{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}} 
+using \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}{solution\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}\label{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}} 
+using \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}{source\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}\label{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}} 
+using \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}{grad\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}\label{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}} 
+using \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__HHO__LocVarDiff_ga5f2ab34d1e5afb3d83b548a1cb09f83a}{H\+H\+O\+\_\+\+Loc\+Var\+Diff} (\hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a15bd0c2320b456efcc07c11842c13492}{tensor\+\_\+function\+\_\+type} kappa, size\+\_\+t deg\+\_\+kappa, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd}{source\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a8bb87b6170b8a77e14d343bf76cac3d6}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff_a00b073818ecee542bb74860b1c204d49}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__LocVarDiff_ga74eac0904256440c429fb9502112a867}{solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__LocVarDiff_gaf359d2047dc5b2fb8640a01c025fb860}{Energy\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd Xh)
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) of an hybrid function. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__LocVarDiff_ga9c37d2cf2744465d0bf50ff02fe185f9}{get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__LocVarDiff_gad184ecd99c5da4172395a210d0289c12}{get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__LocVarDiff_ga9648b003ca1d519794bcc5407c8ce606}{get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__LocVarDiff_ga61e65ce589db4203515ae8e1f5c30d0f}{get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+\+Loc\+Var\+Diff} class provides tools to implement the H\+HO method for the diffusion problem. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+H\+H\+O-\/locvardiff/H\+H\+O\+\_\+\+Loc\+Var\+Diff.\+hpp\end{DoxyCompactItemize}
