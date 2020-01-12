@@ -1,5 +1,5 @@
 
-HArD::Core (sources: http://users.monash.edu/~jdroniou/releases/) provides a suite of tools, in C++, to implement numerical schemes whose unknowns are polynomials in the cells and on the edges (in 2D) or faces (in 3D). The focus is on dealing on generic polytopal meshes. This documentation addresses the 2D version of HArD::Core, but similar principles are valid for the 3D version.
+HArD::Core (sources: https://github.com/jdroniou/HArDCore2D-release/) provides a suite of tools, in C++, to implement numerical schemes whose unknowns are polynomials in the cells and on the edges (in 2D) or faces (in 3D). The focus is on dealing on generic polytopal meshes. This documentation addresses the 2D version of HArD::Core, but similar principles are valid for the 3D version.
 
 \tableofcontents
 
