@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generate_5fquadrature_5frule',['generate_quadrature_rule',['../group__Quadratures.html#gaccff0bc4833f415d2160633e2d93ccc3',1,'HArDCore2D::generate_quadrature_rule(const Cell &amp;T, const size_t doe, const bool force_split=false)'],['../group__Quadratures.html#ga919c5b682e3c7dc3cef895b32a86ec7d',1,'HArDCore2D::generate_quadrature_rule(const Edge &amp;E, const size_t doe)']]],
+  ['generate_5fquadrature_5frule',['generate_quadrature_rule',['../group__Quadratures.html#gad8f643134b5bea1e323e14c5ac42aa74',1,'HArDCore2D::generate_quadrature_rule(const Cell &amp;T, const int doe, const bool force_split=false)'],['../group__Quadratures.html#ga5e1f7c48ac0530bcb24e590a729bf3db',1,'HArDCore2D::generate_quadrature_rule(const Edge &amp;E, const int doe)']]],
   ['get_5fassembly_5ftime',['get_assembly_time',['../group__HHO__Diffusion.html#ga4b67f061d06b1aea5a626792a2bddd1e',1,'HArDCore2D::HHO_Diffusion::get_assembly_time()'],['../group__HHO__LocVarDiff.html#ga9c37d2cf2744465d0bf50ff02fe185f9',1,'HArDCore2D::HHO_LocVarDiff::get_assembly_time()']]],
   ['get_5fb_5fcells',['get_b_cells',['../group__Mesh.html#gaf5cd4923da2e5abbe05c0f473e3b9c8f',1,'HArDCore2D::Mesh']]],
   ['get_5fb_5fedges',['get_b_edges',['../group__Mesh.html#gad876c80b23ab0c0d490b5dc8a60172b4',1,'HArDCore2D::Mesh']]],

@@ -248,28 +248,29 @@ Eigen::MatrixXd MFT = hho.gram\_matrix(phiF\_quadF, phiT\_quadF, hho.nlocal\_edg
 \end{DoxyCode}
 
 
-The quadrature rules and values of basis functions (and gradients) at the quadrature nodes can be conveniently computed and stored using the Cell\+Edge\+Quad class. Instantiating an element of this class on a cell loads these rules and values once, that can then be passed to several functions in charge of various calculations (e.\+g. one function computes the local cell contribution to the diffusion term, another function is in charge of computing the load term associated to the cell, etc.). This prevents recomputing these rules and values when needed by various functions. It works the following way\+:
+The quadrature rules and values of basis functions (and gradients) at the quadrature nodes can be conveniently computed and stored using the Element\+Quad class. Instantiating an element of this class on a cell loads these rules and values once, that can then be passed to several functions in charge of various calculations (e.\+g. one function computes the local cell contribution to the diffusion term, another function is in charge of computing the load term associated to the cell, etc.). This prevents recomputing these rules and values when needed by various functions. It works the following way\+:
 
 
 \begin{DoxyCode}
-\textcolor{keywordtype}{size\_t} doeT = hho.Ldeg()+hho.K()+1;         \textcolor{comment}{// degree of exactness for cell quadrature rules}
-\textcolor{keywordtype}{size\_t} doeF = 2*hho.K()+1;                          \textcolor{comment}{// degree of exactness for edge quadrature rules}
-CellEdgeQuad celledgequad(hho, iT, doeT, doeF);     \textcolor{comment}{// compute local quadrature rules at quadrature points
-       in cell iT}
-Eigen::MatrixXd aT = diffusion\_operator(hho, iT, celledgequad);     \textcolor{comment}{// compute local contribution to
-       diffusion term}
-Eigen::VectorXd bT = load\_operator(hho, iT, celledgequad);      \textcolor{comment}{//  compute local loading term}
+HybridCore hho(mesh\_ptr.get(), K+1, K, -1, use\_threads, output);    \textcolor{comment}{// HybridCore instantiation}
+\textcolor{keywordtype}{size\_t} doeT = m\_Ldeg + m\_K + 1;     \textcolor{comment}{// degree of exactness for cell quadrature rules}
+\textcolor{keywordtype}{size\_t} doeF = 2*m\_K + 1;            \textcolor{comment}{// degree of exactness for edge quadrature rules}
+ElementQuad elquad(hho, iT, doeT, doeF);  \textcolor{comment}{// compute local quadrature rules at quadrature points in cell iT}
+
+Eigen::MatrixXd aT = diffusion\_operator(hho, iT, elquad);       \textcolor{comment}{// compute local contribution to diffusion
+       term}
+Eigen::VectorXd bT = load\_operator(hho, iT, elquad);        \textcolor{comment}{//  compute local loading term}
 
 (...)
 \textcolor{comment}{// Function to compute local contribution to diffusion term}
-Eigen::MatrixXd HHO\_Diffusion::diffusion\_operator(HybridCore &hho, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} iT, \textcolor{keyword}{const} CellEdgeQuad &
-      celledgequad)\textcolor{keyword}{ const }\{
+Eigen::MatrixXd HHO\_Diffusion::diffusion\_operator(HybridCore &hho, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} iT, \textcolor{keyword}{const} ElementQuad &
+      elquad)\textcolor{keyword}{ const }\{
 
 (... initialise/\textcolor{keywordflow}{do} stuff ...)
 \textcolor{comment}{// Cell quadrature rules and values at nodes are needed, we grab them}
-std::vector<HybridCore::qrule> quadT = celledgequad.get\_quadT();
-std::vector<Eigen::ArrayXd> phiT\_quadT = celledgequad.get\_phiT\_quadT();
-std::vector<Eigen::ArrayXXd> dphiT\_quadT = celledgequad.get\_dphiT\_quadT();
+QuadratureRule quadT = elquad.get\_quadT();
+boost::multi\_array<double, 2> phiT\_quadT = elquad.get\_phiT\_quadT();
+boost::multi\_array<VectorRd, 2> dphiT\_quadT = elquad.get\_dphiT\_quadT();
 
 (... the rest as in the previous example: create mass matrices, etc. ...)
 \end{DoxyCode}

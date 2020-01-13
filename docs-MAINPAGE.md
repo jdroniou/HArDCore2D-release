@@ -244,24 +244,26 @@ std::vector<Eigen::ArrayXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nloc
 Eigen::MatrixXd	MFT = hho.gram_matrix(phiF_quadF, phiT_quadF, hho.nlocal_edge_dofs(), hho.nhighorder_dofs(), quadF, false);
 \endcode
 
-The quadrature rules and values of basis functions (and gradients) at the quadrature nodes can be conveniently computed and stored using the [CellEdgeQuad](@ref HArDCore2D::CellEdgeQuad) class. Instantiating an element of this class on a cell loads these rules and values once, that can then be passed to several functions in charge of various calculations (e.g. one function computes the local cell contribution to the diffusion term, another function is in charge of computing the load term associated to the cell, etc.). This prevents recomputing these rules and values when needed by various functions. It works the following way:
+The quadrature rules and values of basis functions (and gradients) at the quadrature nodes can be conveniently computed and stored using the [ElementQuad](@ref HArDCore3D::ElementQuad) class. Instantiating an element of this class on a cell loads these rules and values once, that can then be passed to several functions in charge of various calculations (e.g. one function computes the local cell contribution to the diffusion term, another function is in charge of computing the load term associated to the cell, etc.). This prevents recomputing these rules and values when needed by various functions. It works the following way:
 
 \code{.cpp}
-size_t doeT = hho.Ldeg()+hho.K()+1;			// degree of exactness for cell quadrature rules
-size_t doeF = 2*hho.K()+1;							// degree of exactness for edge quadrature rules
-CellEdgeQuad celledgequad(hho, iT, doeT, doeF);		// compute local quadrature rules at quadrature points in cell iT
-Eigen::MatrixXd aT = diffusion_operator(hho, iT, celledgequad);		// compute local contribution to diffusion term
-Eigen::VectorXd bT = load_operator(hho, iT, celledgequad);		//	compute local loading term
+HybridCore hho(mesh_ptr.get(), K+1, K, -1, use_threads, output);    // HybridCore instantiation
+size_t doeT = m_Ldeg + m_K + 1;     // degree of exactness for cell quadrature rules
+size_t doeF = 2*m_K + 1;            // degree of exactness for edge quadrature rules
+ElementQuad elquad(hho, iT, doeT, doeF);  // compute local quadrature rules at quadrature points in cell iT
+
+Eigen::MatrixXd aT = diffusion_operator(hho, iT, elquad);		// compute local contribution to diffusion term
+Eigen::VectorXd bT = load_operator(hho, iT, elquad);		//	compute local loading term
 
 (...)
 // Function to compute local contribution to diffusion term
-Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t iT, const CellEdgeQuad &celledgequad) const {
+Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t iT, const ElementQuad &elquad) const {
 
 (... initialise/do stuff ...)
 // Cell quadrature rules and values at nodes are needed, we grab them
-std::vector<HybridCore::qrule> quadT = celledgequad.get_quadT();
-std::vector<Eigen::ArrayXd> phiT_quadT = celledgequad.get_phiT_quadT();
-std::vector<Eigen::ArrayXXd> dphiT_quadT = celledgequad.get_dphiT_quadT();
+QuadratureRule quadT = elquad.get_quadT();
+boost::multi_array<double, 2> phiT_quadT = elquad.get_phiT_quadT();
+boost::multi_array<VectorRd, 2> dphiT_quadT = elquad.get_dphiT_quadT();
 
 (... the rest as in the previous example: create mass matrices, etc. ...)
 

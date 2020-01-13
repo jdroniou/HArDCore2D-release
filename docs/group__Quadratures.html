@@ -99,12 +99,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga27f8f3696a0be686ed1606dda2425da6"><td class="memItemLeft" align="right" valign="top"><a id="ga27f8f3696a0be686ed1606dda2425da6"></a>
 Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::QuadratureNode::vector</b> () const</td></tr>
 <tr class="separator:ga27f8f3696a0be686ed1606dda2425da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaccff0bc4833f415d2160633e2d93ccc3"><td class="memItemLeft" align="right" valign="top">QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaccff0bc4833f415d2160633e2d93ccc3">HArDCore2D::generate_quadrature_rule</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const size_t doe, const bool force_split=false)</td></tr>
-<tr class="memdesc:gaccff0bc4833f415d2160633e2d93ccc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate quadrature rule on mesh element.  <a href="group__Quadratures.html#gaccff0bc4833f415d2160633e2d93ccc3">More...</a><br /></td></tr>
-<tr class="separator:gaccff0bc4833f415d2160633e2d93ccc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga919c5b682e3c7dc3cef895b32a86ec7d"><td class="memItemLeft" align="right" valign="top">QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga919c5b682e3c7dc3cef895b32a86ec7d">HArDCore2D::generate_quadrature_rule</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const size_t doe)</td></tr>
-<tr class="memdesc:ga919c5b682e3c7dc3cef895b32a86ec7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate quadrature rule on mesh face.  <a href="group__Quadratures.html#ga919c5b682e3c7dc3cef895b32a86ec7d">More...</a><br /></td></tr>
-<tr class="separator:ga919c5b682e3c7dc3cef895b32a86ec7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8f643134b5bea1e323e14c5ac42aa74"><td class="memItemLeft" align="right" valign="top">QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gad8f643134b5bea1e323e14c5ac42aa74">HArDCore2D::generate_quadrature_rule</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const int doe, const bool force_split=false)</td></tr>
+<tr class="memdesc:gad8f643134b5bea1e323e14c5ac42aa74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate quadrature rule on mesh element.  <a href="group__Quadratures.html#gad8f643134b5bea1e323e14c5ac42aa74">More...</a><br /></td></tr>
+<tr class="separator:gad8f643134b5bea1e323e14c5ac42aa74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e1f7c48ac0530bcb24e590a729bf3db"><td class="memItemLeft" align="right" valign="top">QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga5e1f7c48ac0530bcb24e590a729bf3db">HArDCore2D::generate_quadrature_rule</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const int doe)</td></tr>
+<tr class="memdesc:ga5e1f7c48ac0530bcb24e590a729bf3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate quadrature rule on mesh face.  <a href="group__Quadratures.html#ga5e1f7c48ac0530bcb24e590a729bf3db">More...</a><br /></td></tr>
+<tr class="separator:ga5e1f7c48ac0530bcb24e590a729bf3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -121,8 +121,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Classes providing quadratures on edges and in cells. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaccff0bc4833f415d2160633e2d93ccc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaccff0bc4833f415d2160633e2d93ccc3">&#9670;&nbsp;</a></span>generate_quadrature_rule() <span class="overload">[1/2]</span></h2>
+<a id="gad8f643134b5bea1e323e14c5ac42aa74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8f643134b5bea1e323e14c5ac42aa74">&#9670;&nbsp;</a></span>generate_quadrature_rule() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,7 +136,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>doe</em>, </td>
         </tr>
         <tr>
@@ -166,8 +166,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
 
 </div>
 </div>
-<a id="ga919c5b682e3c7dc3cef895b32a86ec7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga919c5b682e3c7dc3cef895b32a86ec7d">&#9670;&nbsp;</a></span>generate_quadrature_rule() <span class="overload">[2/2]</span></h2>
+<a id="ga5e1f7c48ac0530bcb24e590a729bf3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e1f7c48ac0530bcb24e590a729bf3db">&#9670;&nbsp;</a></span>generate_quadrature_rule() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +181,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>doe</em>&#160;</td>
         </tr>
         <tr>

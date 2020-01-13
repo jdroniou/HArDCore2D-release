@@ -31,9 +31,9 @@ typedef std\+::vector$<$ \hyperlink{structHArDCore2D_1_1QuadratureNode}{Quadratu
 \mbox{\Hypertarget{group__Quadratures_ga27f8f3696a0be686ed1606dda2425da6}\label{group__Quadratures_ga27f8f3696a0be686ed1606dda2425da6}} 
 Eigen\+::\+Vector2d {\bfseries H\+Ar\+D\+Core2\+D\+::\+Quadrature\+Node\+::vector} () const
 \item 
-Quadrature\+Rule \hyperlink{group__Quadratures_gaccff0bc4833f415d2160633e2d93ccc3}{H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule} (const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&T, const size\+\_\+t doe, const bool force\+\_\+split=false)
+Quadrature\+Rule \hyperlink{group__Quadratures_gad8f643134b5bea1e323e14c5ac42aa74}{H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule} (const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&T, const int doe, const bool force\+\_\+split=false)
 \begin{DoxyCompactList}\small\item\em Generate quadrature rule on mesh element. \end{DoxyCompactList}\item 
-Quadrature\+Rule \hyperlink{group__Quadratures_ga919c5b682e3c7dc3cef895b32a86ec7d}{H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule} (const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&E, const size\+\_\+t doe)
+Quadrature\+Rule \hyperlink{group__Quadratures_ga5e1f7c48ac0530bcb24e590a729bf3db}{H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule} (const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&E, const int doe)
 \begin{DoxyCompactList}\small\item\em Generate quadrature rule on mesh face. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -55,11 +55,11 @@ Classes providing quadratures on edges and in cells.
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{group__Quadratures_gaccff0bc4833f415d2160633e2d93ccc3}\label{group__Quadratures_gaccff0bc4833f415d2160633e2d93ccc3}} 
+\mbox{\Hypertarget{group__Quadratures_gad8f643134b5bea1e323e14c5ac42aa74}\label{group__Quadratures_gad8f643134b5bea1e323e14c5ac42aa74}} 
 \index{Quadratures@{Quadratures}!generate\+\_\+quadrature\+\_\+rule@{generate\+\_\+quadrature\+\_\+rule}}
 \index{generate\+\_\+quadrature\+\_\+rule@{generate\+\_\+quadrature\+\_\+rule}!Quadratures@{Quadratures}}
 \subsubsection{\texorpdfstring{generate\+\_\+quadrature\+\_\+rule()}{generate\_quadrature\_rule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Quadrature\+Rule H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&}]{T,  }\item[{const size\+\_\+t}]{doe,  }\item[{const bool}]{force\+\_\+split = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Quadrature\+Rule H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&}]{T,  }\item[{const int}]{doe,  }\item[{const bool}]{force\+\_\+split = {\ttfamily false} }\end{DoxyParamCaption})}
 
 
 
@@ -77,11 +77,11 @@ list of quadrature nodes and weights
 {\em force\+\_\+split} & T\+R\+UE if we want the quadrature nodes to be computed by forcing the splitting of the cell into triangles based on its center of mass and edges (otherwise, for simple cells, quadrature nodes are computed by splitting in fewer triangles) \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Quadratures_ga919c5b682e3c7dc3cef895b32a86ec7d}\label{group__Quadratures_ga919c5b682e3c7dc3cef895b32a86ec7d}} 
+\mbox{\Hypertarget{group__Quadratures_ga5e1f7c48ac0530bcb24e590a729bf3db}\label{group__Quadratures_ga5e1f7c48ac0530bcb24e590a729bf3db}} 
 \index{Quadratures@{Quadratures}!generate\+\_\+quadrature\+\_\+rule@{generate\+\_\+quadrature\+\_\+rule}}
 \index{generate\+\_\+quadrature\+\_\+rule@{generate\+\_\+quadrature\+\_\+rule}!Quadratures@{Quadratures}}
 \subsubsection{\texorpdfstring{generate\+\_\+quadrature\+\_\+rule()}{generate\_quadrature\_rule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Quadrature\+Rule H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&}]{E,  }\item[{const size\+\_\+t}]{doe }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Quadrature\+Rule H\+Ar\+D\+Core2\+D\+::generate\+\_\+quadrature\+\_\+rule (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&}]{E,  }\item[{const int}]{doe }\end{DoxyParamCaption})}
 
 
 
