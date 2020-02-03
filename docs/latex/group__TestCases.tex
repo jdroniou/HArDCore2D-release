@@ -2,14 +2,20 @@
 \label{group__TestCases}\index{Test\+Cases@{Test\+Cases}}
 
 
-Defines test cases (exact solutions, source terms etc.)  
+Defines test cases (exact solutions, source terms, boundary condition, etc.)  
 
 
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \hyperlink{classBoundaryConditions}{Boundary\+Conditions}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classBoundaryConditions}{Boundary\+Conditions} class provides definition of boundary conditions. \end{DoxyCompactList}\item 
 class \hyperlink{classTestCase}{Test\+Case}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases. \end{DoxyCompactList}\item 
+class \hyperlink{classTestCaseNonLinearity}{Test\+Case\+Non\+Linearity}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classTestCaseNonLinearity}{Test\+Case\+Non\+Linearity} class provides definition of a nonlinear function, and related functions. \end{DoxyCompactList}\item 
+class \hyperlink{classTestCaseStefanPME}{Test\+Case\+Stefan\+P\+ME}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classTestCaseStefanPME}{Test\+Case\+Stefan\+P\+ME} class provides definition of test cases (exact solution, diffusion) for the Stefan and P\+ME problems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,9 +24,15 @@ size\+\_\+t \hyperlink{group__TestCases_ga3dd2daaebb012281b252ab65db0045b2}{Test
 \begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__TestCases_gabb42d3b206c5e89d34ed34f5fe2546e0}\label{group__TestCases_gabb42d3b206c5e89d34ed34f5fe2546e0}} 
 double \hyperlink{group__TestCases_gabb42d3b206c5e89d34ed34f5fe2546e0}{Test\+Case\+::get\+\_\+lambda} ()
+\begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__TestCases_gad12abb16eefb6bbc83b2668dcfab4cee}\label{group__TestCases_gad12abb16eefb6bbc83b2668dcfab4cee}} 
+size\+\_\+t \hyperlink{group__TestCases_gad12abb16eefb6bbc83b2668dcfab4cee}{Test\+Case\+Stefan\+P\+M\+E\+::get\+\_\+deg\+\_\+diff} ()
+\begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__TestCases_ga6a35b05916ba0fe5a3574778b597fab5}\label{group__TestCases_ga6a35b05916ba0fe5a3574778b597fab5}} 
+double \hyperlink{group__TestCases_ga6a35b05916ba0fe5a3574778b597fab5}{Test\+Case\+Stefan\+P\+M\+E\+::get\+\_\+lambda} ()
 \begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Defines test cases (exact solutions, source terms etc.) 
+Defines test cases (exact solutions, source terms, boundary condition, etc.) 
 

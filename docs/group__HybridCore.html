@@ -74,138 +74,131 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html">HArDCore2D::ElementQuad</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1UVector.html">HArDCore2D::UVector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html">HArDCore2D::HybridCore</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga16951d0e488060237fbb5eee3c5194b2"><td class="memItemLeft" align="right" valign="top"><a id="ga16951d0e488060237fbb5eee3c5194b2"></a>
-QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga16951d0e488060237fbb5eee3c5194b2">HArDCore2D::ElementQuad::get_quadT</a> () const</td></tr>
-<tr class="memdesc:ga16951d0e488060237fbb5eee3c5194b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules in cell. <br /></td></tr>
-<tr class="separator:ga16951d0e488060237fbb5eee3c5194b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0cde817c1cf12e839c3f195aa02498ba"><td class="memItemLeft" align="right" valign="top"><a id="ga0cde817c1cf12e839c3f195aa02498ba"></a>
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga0cde817c1cf12e839c3f195aa02498ba">HArDCore2D::ElementQuad::get_phiT_quadT</a> () const</td></tr>
-<tr class="memdesc:ga0cde817c1cf12e839c3f195aa02498ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at cell quadrature rules in cell. <br /></td></tr>
-<tr class="separator:ga0cde817c1cf12e839c3f195aa02498ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8e43d7a9a64a009690c4890534e6549"><td class="memItemLeft" align="right" valign="top"><a id="gae8e43d7a9a64a009690c4890534e6549"></a>
-std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gae8e43d7a9a64a009690c4890534e6549">HArDCore2D::ElementQuad::get_dphiT_quadT</a> () const</td></tr>
-<tr class="memdesc:gae8e43d7a9a64a009690c4890534e6549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at cell quadrature rules in cell. <br /></td></tr>
-<tr class="separator:gae8e43d7a9a64a009690c4890534e6549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa90e88daa7803576aaeb9edc3574e935"><td class="memItemLeft" align="right" valign="top"><a id="gaa90e88daa7803576aaeb9edc3574e935"></a>
-QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaa90e88daa7803576aaeb9edc3574e935">HArDCore2D::ElementQuad::get_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:gaa90e88daa7803576aaeb9edc3574e935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:gaa90e88daa7803576aaeb9edc3574e935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="memItemLeft" align="right" valign="top"><a id="ga89dc78ee0eea49e4a9725ed7df748ba9"></a>
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga89dc78ee0eea49e4a9725ed7df748ba9">HArDCore2D::ElementQuad::get_phiT_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="memItemLeft" align="right" valign="top"><a id="ga2c8a70eb42762e460ad31e4d43afb0e8"></a>
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga2c8a70eb42762e460ad31e4d43afb0e8">HArDCore2D::ElementQuad::get_phiF_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of edges basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga11e133360ae70b9aef714054b7de76a4"><td class="memItemLeft" align="right" valign="top"><a id="ga11e133360ae70b9aef714054b7de76a4"></a>
-std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga11e133360ae70b9aef714054b7de76a4">HArDCore2D::ElementQuad::get_dphiT_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga11e133360ae70b9aef714054b7de76a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga11e133360ae70b9aef714054b7de76a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3c33c8cec55dbe2d8873e53fcd43d01f"><td class="memTemplParams" colspan="2"><a id="ga3c33c8cec55dbe2d8873e53fcd43d01f"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:ga3c33c8cec55dbe2d8873e53fcd43d01f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga3c33c8cec55dbe2d8873e53fcd43d01f">HArDCore2D::HybridCore::quadrature_over_cell</a> (const size_t iT, const Function &amp;f) const</td></tr>
-<tr class="memdesc:ga3c33c8cec55dbe2d8873e53fcd43d01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">To integrate a function over a cell. <br /></td></tr>
-<tr class="separator:ga3c33c8cec55dbe2d8873e53fcd43d01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafbf9c61f2d929331197ba971b52b8710"><td class="memTemplParams" colspan="2"><a id="gafbf9c61f2d929331197ba971b52b8710"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:gafbf9c61f2d929331197ba971b52b8710"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gafbf9c61f2d929331197ba971b52b8710">HArDCore2D::HybridCore::quadrature_over_edge</a> (const size_t iF, const Function &amp;f) const</td></tr>
-<tr class="memdesc:gafbf9c61f2d929331197ba971b52b8710"><td class="mdescLeft">&#160;</td><td class="mdescRight">To integrate a function over an edge. <br /></td></tr>
-<tr class="separator:gafbf9c61f2d929331197ba971b52b8710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64ffbc44306e06018efe3cea5a62f652"><td class="memTemplParams" colspan="2"><a id="ga64ffbc44306e06018efe3cea5a62f652"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:ga64ffbc44306e06018efe3cea5a62f652"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga64ffbc44306e06018efe3cea5a62f652">HArDCore2D::HybridCore::integrate_over_cell</a> (const size_t iT, const Function &amp;f) const</td></tr>
-<tr class="memdesc:ga64ffbc44306e06018efe3cea5a62f652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrates a function over a cell. Use with parcimony, expensive (re-compute quadratures) <br /></td></tr>
-<tr class="separator:ga64ffbc44306e06018efe3cea5a62f652"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03f276ea9c905d64662c39b7555d560c"><td class="memTemplParams" colspan="2"><a id="ga03f276ea9c905d64662c39b7555d560c"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:ga03f276ea9c905d64662c39b7555d560c"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga03f276ea9c905d64662c39b7555d560c">HArDCore2D::HybridCore::integrate_over_edge</a> (const size_t iF, const Function &amp;f) const</td></tr>
-<tr class="memdesc:ga03f276ea9c905d64662c39b7555d560c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrates a function over an edge. Use with parcimony, expensive (re-compute quadratures) <br /></td></tr>
-<tr class="separator:ga03f276ea9c905d64662c39b7555d560c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab058c4e54d1e33c49e537b8d0f602848"><td class="memTemplParams" colspan="2"><a id="gab058c4e54d1e33c49e537b8d0f602848"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:gab058c4e54d1e33c49e537b8d0f602848"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gab058c4e54d1e33c49e537b8d0f602848">HArDCore2D::HybridCore::integrate_over_domain</a> (const Function &amp;f) const</td></tr>
-<tr class="memdesc:gab058c4e54d1e33c49e537b8d0f602848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrates a function over the domaine. Use with parcimony, expensive (re-compute quadratures) <br /></td></tr>
-<tr class="separator:gab058c4e54d1e33c49e537b8d0f602848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="memTemplItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga71c953efc96f467cb24faa1b60ee9bb2">HArDCore2D::HybridCore::interpolate</a> (const Function &amp;f, size_t doe) const</td></tr>
-<tr class="memdesc:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the interpolant in the discrete space of a continuous function.  <a href="#ga71c953efc96f467cb24faa1b60ee9bb2">More...</a><br /></td></tr>
-<tr class="separator:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab698480a3a9e9339d5c191549b817501"><td class="memItemLeft" align="right" valign="top"><a id="gab698480a3a9e9339d5c191549b817501"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gab698480a3a9e9339d5c191549b817501">HArDCore2D::HybridCore::nlocal_cell_dofs</a> () const</td></tr>
-<tr class="memdesc:gab698480a3a9e9339d5c191549b817501"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of degrees of freedom in each cell (dimension of polynomial space) <br /></td></tr>
-<tr class="separator:gab698480a3a9e9339d5c191549b817501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga86e6a3566cf506821606c8802a5f2364"><td class="memItemLeft" align="right" valign="top"><a id="ga86e6a3566cf506821606c8802a5f2364"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga86e6a3566cf506821606c8802a5f2364">HArDCore2D::HybridCore::ntotal_cell_dofs</a> () const</td></tr>
-<tr class="memdesc:ga86e6a3566cf506821606c8802a5f2364"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of cell degrees of freedom <br /></td></tr>
-<tr class="separator:ga86e6a3566cf506821606c8802a5f2364"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga41f1294e34e4daade19ad16981eaac15"><td class="memItemLeft" align="right" valign="top"><a id="ga41f1294e34e4daade19ad16981eaac15"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga41f1294e34e4daade19ad16981eaac15">HArDCore2D::HybridCore::nlocal_edge_dofs</a> () const</td></tr>
-<tr class="memdesc:ga41f1294e34e4daade19ad16981eaac15"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of degrees of freedom on each edge (dimension of polynomial space) <br /></td></tr>
-<tr class="separator:ga41f1294e34e4daade19ad16981eaac15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac0af0b8fa9bea07b9cfba8cbb1b50bed"><td class="memItemLeft" align="right" valign="top"><a id="gac0af0b8fa9bea07b9cfba8cbb1b50bed"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gac0af0b8fa9bea07b9cfba8cbb1b50bed">HArDCore2D::HybridCore::ntotal_edge_dofs</a> () const</td></tr>
-<tr class="memdesc:gac0af0b8fa9bea07b9cfba8cbb1b50bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of edge degrees of freedom <br /></td></tr>
-<tr class="separator:gac0af0b8fa9bea07b9cfba8cbb1b50bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57c23358c4ca7e485e8382c6b2761ad5"><td class="memItemLeft" align="right" valign="top"><a id="ga57c23358c4ca7e485e8382c6b2761ad5"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga57c23358c4ca7e485e8382c6b2761ad5">HArDCore2D::HybridCore::nhighorder_dofs</a> () const</td></tr>
-<tr class="memdesc:ga57c23358c4ca7e485e8382c6b2761ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of cell degrees of freedom with polynomials up to order k+1 <br /></td></tr>
-<tr class="separator:ga57c23358c4ca7e485e8382c6b2761ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaffe520cbcf3d8212a503d51f11c13e5f"><td class="memItemLeft" align="right" valign="top"><a id="gaffe520cbcf3d8212a503d51f11c13e5f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaffe520cbcf3d8212a503d51f11c13e5f">HArDCore2D::HybridCore::ngradient_dofs</a> () const</td></tr>
-<tr class="memdesc:gaffe520cbcf3d8212a503d51f11c13e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of degrees of freedom for gradients <br /></td></tr>
-<tr class="separator:gaffe520cbcf3d8212a503d51f11c13e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga95c76303ee1dabc5c78f0bdd7a2c6aaa"><td class="memItemLeft" align="right" valign="top"><a id="ga95c76303ee1dabc5c78f0bdd7a2c6aaa"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga95c76303ee1dabc5c78f0bdd7a2c6aaa">HArDCore2D::HybridCore::ninternal_edge_dofs</a> () const</td></tr>
-<tr class="memdesc:ga95c76303ee1dabc5c78f0bdd7a2c6aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of edge degrees of freedom for internal edges <br /></td></tr>
-<tr class="separator:ga95c76303ee1dabc5c78f0bdd7a2c6aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4e7b0325c0966ec722fe8808048fb3ab"><td class="memItemLeft" align="right" valign="top"><a id="ga4e7b0325c0966ec722fe8808048fb3ab"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga4e7b0325c0966ec722fe8808048fb3ab">HArDCore2D::HybridCore::nboundary_edge_dofs</a> () const</td></tr>
-<tr class="memdesc:ga4e7b0325c0966ec722fe8808048fb3ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of edge degrees of freedom for boundary edges <br /></td></tr>
-<tr class="separator:ga4e7b0325c0966ec722fe8808048fb3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf887b486ad0eea60382e306f1487b44a"><td class="memItemLeft" align="right" valign="top"><a id="gaf887b486ad0eea60382e306f1487b44a"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaf887b486ad0eea60382e306f1487b44a">HArDCore2D::HybridCore::ntotal_dofs</a> () const</td></tr>
-<tr class="memdesc:gaf887b486ad0eea60382e306f1487b44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of degrees of freedom. <br /></td></tr>
-<tr class="separator:gaf887b486ad0eea60382e306f1487b44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab3337e9e6d16154e080e247b3fa43d72"><td class="memItemLeft" align="right" valign="top"><a id="gab3337e9e6d16154e080e247b3fa43d72"></a>
-const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gab3337e9e6d16154e080e247b3fa43d72">HArDCore2D::HybridCore::get_mesh_ptr</a> () const</td></tr>
-<tr class="memdesc:gab3337e9e6d16154e080e247b3fa43d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a pointer to the mesh <br /></td></tr>
-<tr class="separator:gab3337e9e6d16154e080e247b3fa43d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadaf859b98dea34338c9e6376e975b131"><td class="memItemLeft" align="right" valign="top"><a id="gadaf859b98dea34338c9e6376e975b131"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gadaf859b98dea34338c9e6376e975b131">HArDCore2D::HybridCore::K</a> () const</td></tr>
-<tr class="memdesc:gadaf859b98dea34338c9e6376e975b131"><td class="mdescLeft">&#160;</td><td class="mdescRight">polynomial degree of edge unknowns <br /></td></tr>
-<tr class="separator:gadaf859b98dea34338c9e6376e975b131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga816cd87658b200d1ea32d2c4fefd5c6e"><td class="memItemLeft" align="right" valign="top"><a id="ga816cd87658b200d1ea32d2c4fefd5c6e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga816cd87658b200d1ea32d2c4fefd5c6e">HArDCore2D::HybridCore::L</a> () const</td></tr>
-<tr class="memdesc:ga816cd87658b200d1ea32d2c4fefd5c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">polynomial degree of cell unknowns <br /></td></tr>
-<tr class="separator:ga816cd87658b200d1ea32d2c4fefd5c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa9fe846646c9e26f699364ac29631f6"><td class="memItemLeft" align="right" valign="top"><a id="gaaa9fe846646c9e26f699364ac29631f6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaaa9fe846646c9e26f699364ac29631f6">HArDCore2D::HybridCore::Ldeg</a> () const</td></tr>
-<tr class="memdesc:gaaa9fe846646c9e26f699364ac29631f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">usually equal to L, but put at 0 if L=-1 <br /></td></tr>
-<tr class="separator:gaaa9fe846646c9e26f699364ac29631f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6ece52a0724f8ea46bb2e11667444a7"><td class="memTemplParams" colspan="2"><a id="gab6ece52a0724f8ea46bb2e11667444a7"></a>
+template&lt;typename GeometricSupport &gt; </td></tr>
+<tr class="memitem:gab6ece52a0724f8ea46bb2e11667444a7"><td class="memTemplItemLeft" align="right" valign="top">size_t const&#160;</td><td class="memTemplItemRight" valign="bottom"><b>HArDCore2D::DimPoly</b> (int m)</td></tr>
+<tr class="separator:gab6ece52a0724f8ea46bb2e11667444a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga320f4be89026a2059fe48d1286a9aebf"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ga320f4be89026a2059fe48d1286a9aebf"><td class="memTemplItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga320f4be89026a2059fe48d1286a9aebf">HArDCore2D::DimPoly&lt; Cell &gt;</a> (const int m)</td></tr>
+<tr class="memdesc:ga320f4be89026a2059fe48d1286a9aebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the size of the basis of 2-variate polynomials up to degree m.  <a href="group__HybridCore.html#ga320f4be89026a2059fe48d1286a9aebf">More...</a><br /></td></tr>
+<tr class="separator:ga320f4be89026a2059fe48d1286a9aebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6de69a77fb6e18b5a92cb09766d50dc"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:gaf6de69a77fb6e18b5a92cb09766d50dc"><td class="memTemplItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaf6de69a77fb6e18b5a92cb09766d50dc">HArDCore2D::DimPoly&lt; Edge &gt;</a> (const int m)</td></tr>
+<tr class="memdesc:gaf6de69a77fb6e18b5a92cb09766d50dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the size of the basis of 1-variate polynomials up to degree m.  <a href="group__HybridCore.html#gaf6de69a77fb6e18b5a92cb09766d50dc">More...</a><br /></td></tr>
+<tr class="separator:gaf6de69a77fb6e18b5a92cb09766d50dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d6af50952aa59143ac364dd1dc4118e"><td class="memTemplParams" colspan="2">template&lt;typename ContinuousFunction &gt; </td></tr>
+<tr class="memitem:ga7d6af50952aa59143ac364dd1dc4118e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classHArDCore2D_1_1UVector.html">UVector</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga7d6af50952aa59143ac364dd1dc4118e">HArDCore2D::HybridCore::interpolate</a> (const ContinuousFunction &amp;f, const int deg_cell, const size_t deg_edge, size_t doe) const</td></tr>
+<tr class="memdesc:ga7d6af50952aa59143ac364dd1dc4118e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the interpolant in the discrete space of a continuous function.  <a href="#ga7d6af50952aa59143ac364dd1dc4118e">More...</a><br /></td></tr>
+<tr class="separator:ga7d6af50952aa59143ac364dd1dc4118e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Classes providing cell and edge quadrature rules, and values of basis functions at the nodes. </p>
-<p>Classes providing tools to implement schemes having polynomial unknowns on the edges and in the cells The basic ordering of vectors is to put all cell degrees of freedom first, and then all edge degrees of freedom.</p>
+<p>Classes providing tools to implement schemes having polynomial unknowns in the cells and on the edges.</p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga71c953efc96f467cb24faa1b60ee9bb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga71c953efc96f467cb24faa1b60ee9bb2">&#9670;&nbsp;</a></span>interpolate()</h2>
+<a id="ga320f4be89026a2059fe48d1286a9aebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga320f4be89026a2059fe48d1286a9aebf">&#9670;&nbsp;</a></span>DimPoly< Cell >()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function &gt; </div>
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::VectorXd HArDCore2D::HybridCore::interpolate </td>
+          <td class="memname">const size_t HArDCore2D::DimPoly&lt; <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &gt; </td>
           <td>(</td>
-          <td class="paramtype">const Function &amp;&#160;</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the size of the basis of 2-variate polynomials up to degree m. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Polynomial degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf6de69a77fb6e18b5a92cb09766d50dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf6de69a77fb6e18b5a92cb09766d50dc">&#9670;&nbsp;</a></span>DimPoly< Edge >()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t HArDCore2D::DimPoly&lt; <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the size of the basis of 1-variate polynomials up to degree m. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Polynomial degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7d6af50952aa59143ac364dd1dc4118e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7d6af50952aa59143ac364dd1dc4118e">&#9670;&nbsp;</a></span>interpolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ContinuousFunction &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHArDCore2D_1_1UVector.html">UVector</a> HArDCore2D::HybridCore::interpolate </td>
+          <td>(</td>
+          <td class="paramtype">const ContinuousFunction &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>deg_cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>deg_edge</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -222,10 +215,12 @@ template&lt;typename Function &gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the interpolant in the discrete space of a continuous function. </p>
-<dl class="section return"><dt>Returns</dt><dd>The vector XTF of coefficients on the basis functions. All the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>vector Xh of coefficients on the basis functions, as described in class <a class="el" href="classHArDCore2D_1_1UVector.html">UVector</a>. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>function to interpolate </td></tr>
+    <tr><td class="paramname">deg_cell</td><td>degree of cell polynomials for interpolation </td></tr>
+    <tr><td class="paramname">deg_edge</td><td>degree of edge polynomials for interpolation </td></tr>
     <tr><td class="paramname">doe</td><td>degree of exactness of the quadrature rules to compute the interpolate </td></tr>
   </table>
   </dd>

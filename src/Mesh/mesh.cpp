@@ -181,33 +181,38 @@ std::vector<double> Mesh::regularity(){
     ///      * diameter of cell / (measure of cell)^{1/2}
     ///      * diameter of cell / diameter of edge  [for each edge of the cell]
     ///
-    ///   2nd component: evaluation of ratio "diam of cell / radius ball inscribed in cell"
+    ///   2nd component: evaluation of max of ratio "diam of cell / radius ball inscribed in cell"
 
-    std::vector<double> value(2,0.0);
-    for (auto& icell : get_cells()){
-      double hT = icell->diam();
-      Eigen::Vector2d xT = icell->center_mass();
+    std::vector<std::vector<double>> reg_cell(n_cells(),{0.0, 0.0});
+    for (size_t iT=0; iT < n_cells(); iT++){
+      Cell* T = cell(iT);
+      double hT = T->diam();
+      Eigen::Vector2d xT = T->center_mass();
 
-      value[0] = std::max(value[0], hT / pow(icell->measure(), 1/this->dim()));
+      reg_cell[iT][0] = hT / pow(T->measure(), 1.0/dim());
  
       double rhoT = hT;
-      std::vector<Edge *> edges = icell->get_edges();
+      std::vector<Edge *> edges = T->get_edges();
       for (size_t i=0; i < edges.size(); i++){
-        Edge* iedge = edges[i];
-        double hF = iedge->diam();
-        Eigen::Vector2d xF = iedge->center_mass();
-        Eigen::Vector2d nTF = icell->edge_normal(i);
+        Edge* E = edges[i];
+        double hF = E->diam();
+        Eigen::Vector2d xF = E->center_mass();
+        Eigen::Vector2d nTF = T->edge_normal(i);
 
-        value[0] = std::max(value[0], hT / hF);
+        reg_cell[iT][0] = std::max(reg_cell[iT][0], hT / hF);
 
         rhoT = std::min(rhoT, std::abs( (xT-xF).dot(nTF) ) );
       }
-      value[1] = std::max(value[1], hT/rhoT);
+      reg_cell[iT][1] = hT/rhoT;
+    }
 
+    std::vector<double> value(2,0.0);
+    for (size_t iT=0; iT < n_cells(); iT++){
+      value[0] = std::max(value[0], reg_cell[iT][0]);
+      value[1] = std::max(value[1], reg_cell[iT][1]);
     }
 
     return value;
-
 }
 
 void Mesh::renum(const char B, const std::vector<size_t> new_to_old){

@@ -50,7 +50,7 @@ public:
     bool write_to_vtu(
           std::string file_name, ///< name of file to write to
           Eigen::VectorXd sol_vertex,   ///< vector of values of the solution at the mesh vertices
-          bool dimen  ///< elevation of the plot: planar if dimen=0, elevated if dimen=1
+          bool dimen = true  ///< elevation of the plot: planar if dimen=0, elevated if dimen=1
           );
 
     /// overloaded writer for the mesh alone

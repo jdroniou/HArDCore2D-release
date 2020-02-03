@@ -132,18 +132,18 @@ void VtuWriter::write_footer(FILE* pFile) {
     fprintf(pFile, "%s\n", "</VTKFile>");
 }
 bool VtuWriter::write_to_vtu(std::string filename, Eigen::VectorXd sol_vertex, bool dimen) {
-    FILE* pFile = fopen(filename.c_str(), "w");
-    write_header(pFile);
+  FILE* pFile = fopen(filename.c_str(), "w");
+  write_header(pFile);
   if (dimen) { 
     write_vertices(pFile,sol_vertex);
   } else {
     write_vertices(pFile);
   }
   write_point_scalar_property(pFile, sol_vertex, "solution");
-    write_cells(pFile);
-    write_footer(pFile);
-    fclose(pFile);
-    return true;
+  write_cells(pFile);
+  write_footer(pFile);
+  fclose(pFile);
+  return true;
 }
 
 bool VtuWriter::write_to_vtu(std::string filename) {

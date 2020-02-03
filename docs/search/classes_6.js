@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['testcase',['TestCase',['../classTestCase.html',1,'']]]
+  ['legendregauss',['LegendreGauss',['../classHArDCore2D_1_1LegendreGauss.html',1,'HArDCore2D']]]
 ];

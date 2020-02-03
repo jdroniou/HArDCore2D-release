@@ -2,15 +2,17 @@
 #
 
 # Edge and cell degrees
-k=2
-l=2
+k=1
+l=1
 
-# Choice basis
-#choice_basis="Mon"
-choice_basis="ON"
+# Use threads
+use_threads="true"
+
+# Export matrix
+export_matrix="false"
 
 # Boundary conditions (0=Dirichlet, 1=Neumann)
-bc=0
+bc="D"
 
 # Test case
 tcsol=2
@@ -71,6 +73,11 @@ mesh[3]="hexa1_3"
 #mesh[3]="anisotropic/hexa80x320"
 #mesh[4]="anisotropic/hexa120x720"
 
+#mesh[1]="anisotropic/hexa10x10"
+#mesh[2]="anisotropic/hexa20x40"
+#mesh[3]="anisotropic/hexa40x160"
+#mesh[4]="anisotropic/hexa100x1400"
+
 #mesh[1]="anisotropic/cart160x160"
 #mesh[2]="anisotropic/cart80x320"
 #mesh[3]="anisotropic/cart40x640"
@@ -90,9 +97,14 @@ mesh[3]="hexa1_3"
 #mesh[3]="anisotropic/quads30x480"
 #mesh[4]="anisotropic/quads15x960"
 
-
 #mesh[1]="anisotropic/hexa_straight10x10"
 #mesh[2]="anisotropic/hexa_straight20x40"
 #mesh[3]="anisotropic/hexa_straight40x160"
 #mesh[4]="anisotropic/hexa_straight80x640"
+
+#mesh[1]="anisotropic/hexa_straight10x10"
+#mesh[2]="anisotropic/hexa_straight20x20"
+#mesh[3]="anisotropic/hexa_straight40x40"
+#mesh[4]="anisotropic/hexa_straight80x80"
+#mesh[5]="anisotropic/hexa_straight160x160"
 

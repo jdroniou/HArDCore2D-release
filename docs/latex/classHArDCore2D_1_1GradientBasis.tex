@@ -1,0 +1,65 @@
+\hypertarget{classHArDCore2D_1_1GradientBasis}{}\section{H\+Ar\+D\+Core2D\+:\+:Gradient\+Basis$<$ Basis\+Type $>$ Class Template Reference}
+\label{classHArDCore2D_1_1GradientBasis}\index{H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$@{H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}}
+
+
+{\ttfamily \#include $<$basis.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a88eba0d5ce79a279b6577d119c88442a}\label{classHArDCore2D_1_1GradientBasis_a88eba0d5ce79a279b6577d119c88442a}} 
+typedef Vector\+Rd {\bfseries Function\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a5ebfddada3978c4b571e667b939496c6}\label{classHArDCore2D_1_1GradientBasis_a5ebfddada3978c4b571e667b939496c6}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Gradient\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_ac2c823452962577abcb6f9176f1554fe}\label{classHArDCore2D_1_1GradientBasis_ac2c823452962577abcb6f9176f1554fe}} 
+typedef Vector\+Rd {\bfseries Curl\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a639a17eae62656583350d42bba42773c}\label{classHArDCore2D_1_1GradientBasis_a639a17eae62656583350d42bba42773c}} 
+typedef double {\bfseries Divergence\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_ad7aeabadc1694d72f9a7ec37924b86b7}\label{classHArDCore2D_1_1GradientBasis_ad7aeabadc1694d72f9a7ec37924b86b7}} 
+typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a4177dd42cb8ac5499f6eae33965c0e69}\label{classHArDCore2D_1_1GradientBasis_a4177dd42cb8ac5499f6eae33965c0e69}} 
+\hyperlink{classHArDCore2D_1_1GradientBasis_a4177dd42cb8ac5499f6eae33965c0e69}{Gradient\+Basis} (const Basis\+Type \&basis)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a013a7a8c18e05623b1c9f6562f80c9e6}\label{classHArDCore2D_1_1GradientBasis_a013a7a8c18e05623b1c9f6562f80c9e6}} 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1GradientBasis_a013a7a8c18e05623b1c9f6562f80c9e6}{dimension} () const
+\begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a5e054975f7e1247ba66f08fa159dcf84}\label{classHArDCore2D_1_1GradientBasis_a5e054975f7e1247ba66f08fa159dcf84}} 
+Function\+Value \hyperlink{classHArDCore2D_1_1GradientBasis_a5e054975f7e1247ba66f08fa159dcf84}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a1acbb7bb95bd4c88fb8d5bb283df1013}\label{classHArDCore2D_1_1GradientBasis_a1acbb7bb95bd4c88fb8d5bb283df1013}} 
+static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a3db76edf9738f960e61862e962e6bd6f}\label{classHArDCore2D_1_1GradientBasis_a3db76edf9738f960e61862e962e6bd6f}} 
+static const bool {\bfseries has\+Function} = true
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_aa8f1cede00f4c25346edd02b828a7aa4}\label{classHArDCore2D_1_1GradientBasis_aa8f1cede00f4c25346edd02b828a7aa4}} 
+static const bool {\bfseries has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_a94d63d9b4462f078073749a5cf69f9dd}\label{classHArDCore2D_1_1GradientBasis_a94d63d9b4462f078073749a5cf69f9dd}} 
+static const bool {\bfseries has\+Curl} = false
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1GradientBasis_accec3fbf49f52c17ba38e873de7ac6ca}\label{classHArDCore2D_1_1GradientBasis_accec3fbf49f52c17ba38e873de7ac6ca}} 
+static const bool {\bfseries has\+Divergence} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Basis\+Type$>$\newline
+class H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}
+
+Basis for the space of gradients of polynomials. It assumes that the first function of the scalar basis is constant 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/basis.\+hpp\end{DoxyCompactItemize}

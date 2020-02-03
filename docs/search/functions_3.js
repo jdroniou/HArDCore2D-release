@@ -1,9 +1,11 @@
 var searchData=
 [
   ['diam',['diam',['../group__Mesh.html#ga84c743487088ebb64ca0c860329c7162',1,'HArDCore2D::Cell::diam()'],['../classHArDCore2D_1_1Edge.html#ad558804a7493cb6a6d968f48bb4f4742',1,'HArDCore2D::Edge::diam()']]],
-  ['diff',['diff',['../classTestCase.html#aaf745f4815ce0e9c16d8bded9f9b3596',1,'TestCase']]],
+  ['diff',['diff',['../classTestCase.html#aaf745f4815ce0e9c16d8bded9f9b3596',1,'TestCase::diff()'],['../classTestCaseStefanPME.html#ae99d679c24d05b295bcd01538c175a6d',1,'TestCaseStefanPME::diff()']]],
   ['dim',['dim',['../group__Mesh.html#gaecd909db5f3ab863010382cf6b71ec58',1,'HArDCore2D::Mesh']]],
-  ['dim_5fpcell',['dim_Pcell',['../classHArDCore2D_1_1HybridCore.html#aa2bdc59d150566e1b992058031509d2f',1,'HArDCore2D::HybridCore']]],
-  ['dim_5fpedge',['dim_Pedge',['../classHArDCore2D_1_1HybridCore.html#ab0fb57313f27fb8b4a6e9747de1d5cfe',1,'HArDCore2D::HybridCore']]],
-  ['div_5fdiff',['div_diff',['../classTestCase.html#aa32221ff5dd860c050a28661406a87dc',1,'TestCase']]]
+  ['dimension',['dimension',['../classHArDCore2D_1_1MonomialScalarBasisCell.html#a79a3220472fbc88d100be37ea1503d3e',1,'HArDCore2D::MonomialScalarBasisCell::dimension()'],['../classHArDCore2D_1_1MonomialScalarBasisEdge.html#ae546ece15c11ddb4382aa47c50fdd53c',1,'HArDCore2D::MonomialScalarBasisEdge::dimension()'],['../classHArDCore2D_1_1Family.html#a385bf99cf8c3888a150ed53f410ae39f',1,'HArDCore2D::Family::dimension()'],['../classHArDCore2D_1_1TensorizedVectorFamily.html#abdcbe0043887c0aa46065409f1731a83',1,'HArDCore2D::TensorizedVectorFamily::dimension()'],['../classHArDCore2D_1_1ShiftedBasis.html#a74ebe98de6bd42447c4743c784e8c601',1,'HArDCore2D::ShiftedBasis::dimension()'],['../classHArDCore2D_1_1RestrictedBasis.html#a5128f2da3cb58784d6ee7f4dffcacb90',1,'HArDCore2D::RestrictedBasis::dimension()'],['../classHArDCore2D_1_1GradientBasis.html#a013a7a8c18e05623b1c9f6562f80c9e6',1,'HArDCore2D::GradientBasis::dimension()']]],
+  ['dimpoly_3c_20cell_20_3e',['DimPoly&lt; Cell &gt;',['../group__HybridCore.html#ga320f4be89026a2059fe48d1286a9aebf',1,'HArDCore2D']]],
+  ['dimpoly_3c_20edge_20_3e',['DimPoly&lt; Edge &gt;',['../group__HybridCore.html#gaf6de69a77fb6e18b5a92cb09766d50dc',1,'HArDCore2D']]],
+  ['div_5fdiff',['div_diff',['../classTestCase.html#aa32221ff5dd860c050a28661406a87dc',1,'TestCase::div_diff()'],['../classTestCaseStefanPME.html#a8c85fa8375fbc6c42461dd4562d53ce3',1,'TestCaseStefanPME::div_diff()']]],
+  ['divergence',['divergence',['../classHArDCore2D_1_1Family.html#a86a0fd0d5391607f156b3c27be6d7164',1,'HArDCore2D::Family::divergence()'],['../classHArDCore2D_1_1TensorizedVectorFamily.html#a6e852fda44755e4ca0a8ffac94d97d16',1,'HArDCore2D::TensorizedVectorFamily::divergence()'],['../classHArDCore2D_1_1ShiftedBasis.html#a84d8719be3260330c3c2e80dbf1b4eed',1,'HArDCore2D::ShiftedBasis::divergence()'],['../classHArDCore2D_1_1RestrictedBasis.html#aa273301688a05d4f7e38cda0d1277212',1,'HArDCore2D::RestrictedBasis::divergence()']]]
 ];

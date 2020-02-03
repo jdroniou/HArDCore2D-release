@@ -67,13 +67,22 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Defines test cases (exact solutions, source terms etc.)  
+<p>Defines test cases (exact solutions, source terms, boundary condition, etc.)  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html">BoundaryConditions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classBoundaryConditions.html" title="The BoundaryConditions class provides definition of boundary conditions. ">BoundaryConditions</a> class provides definition of boundary conditions.  <a href="classBoundaryConditions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html">TestCase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classTestCase.html" title="The TestCase class provides definition of test cases. ">TestCase</a> class provides definition of test cases.  <a href="classTestCase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCaseNonLinearity.html">TestCaseNonLinearity</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classTestCaseNonLinearity.html" title="The TestCaseNonLinearity class provides definition of a nonlinear function, and related functions...">TestCaseNonLinearity</a> class provides definition of a nonlinear function, and related functions.  <a href="classTestCaseNonLinearity.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCaseStefanPME.html">TestCaseStefanPME</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classTestCaseStefanPME.html" title="The TestCaseStefanPME class provides definition of test cases (exact solution, diffusion) for the Ste...">TestCaseStefanPME</a> class provides definition of test cases (exact solution, diffusion) for the Stefan and PME problems.  <a href="classTestCaseStefanPME.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -86,9 +95,17 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TestCases.html#gabb42d3b206c5e89d34ed34f5fe2546e0">TestCase::get_lambda</a> ()</td></tr>
 <tr class="memdesc:gabb42d3b206c5e89d34ed34f5fe2546e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the parameter lambda. <br /></td></tr>
 <tr class="separator:gabb42d3b206c5e89d34ed34f5fe2546e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad12abb16eefb6bbc83b2668dcfab4cee"><td class="memItemLeft" align="right" valign="top"><a id="gad12abb16eefb6bbc83b2668dcfab4cee"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TestCases.html#gad12abb16eefb6bbc83b2668dcfab4cee">TestCaseStefanPME::get_deg_diff</a> ()</td></tr>
+<tr class="memdesc:gad12abb16eefb6bbc83b2668dcfab4cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) <br /></td></tr>
+<tr class="separator:gad12abb16eefb6bbc83b2668dcfab4cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a35b05916ba0fe5a3574778b597fab5"><td class="memItemLeft" align="right" valign="top"><a id="ga6a35b05916ba0fe5a3574778b597fab5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TestCases.html#ga6a35b05916ba0fe5a3574778b597fab5">TestCaseStefanPME::get_lambda</a> ()</td></tr>
+<tr class="memdesc:ga6a35b05916ba0fe5a3574778b597fab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the parameter lambda. <br /></td></tr>
+<tr class="separator:ga6a35b05916ba0fe5a3574778b597fab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Defines test cases (exact solutions, source terms etc.) </p>
+<p>Defines test cases (exact solutions, source terms, boundary condition, etc.) </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,336 @@
+\hypertarget{group__Basis}{}\section{Basis}
+\label{group__Basis}\index{Basis@{Basis}}
+
+
+Classes and functions for polynomial basis creation and manipulation.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell}
+\begin{DoxyCompactList}\small\item\em Scalar monomial basis on a cell. \end{DoxyCompactList}\item 
+class \hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge}
+\begin{DoxyCompactList}\small\item\em Scalar monomial basis on an edge. \end{DoxyCompactList}\item 
+class \hyperlink{classHArDCore2D_1_1Family}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}
+\item 
+class \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$}
+\item 
+class \hyperlink{classHArDCore2D_1_1ShiftedBasis}{H\+Ar\+D\+Core2\+D\+::\+Shifted\+Basis$<$ Basis\+Type $>$}
+\item 
+class \hyperlink{classHArDCore2D_1_1RestrictedBasis}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$}
+\item 
+class \hyperlink{classHArDCore2D_1_1GradientBasis}{H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}
+\item 
+struct \hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}\label{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}} 
+typedef Eigen\+::\+Vector2d {\bfseries H\+Ar\+D\+Core2\+D\+::\+Vector\+Rd}
+\item 
+\mbox{\Hypertarget{group__Basis_ga2bc880baa1a6163014c7f37345bf8ac6}\label{group__Basis_ga2bc880baa1a6163014c7f37345bf8ac6}} 
+typedef Eigen\+::\+Vector2i {\bfseries H\+Ar\+D\+Core2\+D\+::\+Vector\+Zd}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Basis_ga99c0a4ae66e5304b0bb7500c00f6e397}\label{group__Basis_ga99c0a4ae66e5304b0bb7500c00f6e397}} 
+enum {\bfseries Tensor\+RankE} \{ {\bfseries Scalar} = 0, 
+{\bfseries Vector} = 1, 
+{\bfseries Matrix} = 2
+ \}
+\item 
+\mbox{\Hypertarget{group__Basis_ga21912c7c8daa962296cd7f608150d525}\label{group__Basis_ga21912c7c8daa962296cd7f608150d525}} 
+enum {\bfseries Basis\+FunctionE} \{ {\bfseries Function}, 
+{\bfseries Gradient}, 
+{\bfseries Curl}, 
+{\bfseries Divergence}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}{H\+Ar\+D\+Core2\+D\+::gram\+\_\+schmidt} (boost\+::multi\+\_\+array$<$ T, 2 $>$ \&basis\+\_\+eval, const std\+::function$<$ double(size\+\_\+t, size\+\_\+t)$>$ \&inner\+\_\+product)
+\item 
+\mbox{\Hypertarget{group__Basis_ga5363b354f8dce20ca199459fe4074fda}\label{group__Basis_ga5363b354f8dce20ca199459fe4074fda}} 
+double \hyperlink{group__Basis_ga5363b354f8dce20ca199459fe4074fda}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product} (const double \&x, const double \&y)
+\begin{DoxyCompactList}\small\item\em Scalar product between two reals. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gad1566133b908e08f82d4598114bf10f3}\label{group__Basis_gad1566133b908e08f82d4598114bf10f3}} 
+double \hyperlink{group__Basis_gad1566133b908e08f82d4598114bf10f3}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product} (const Vector\+Rd \&x, const Vector\+Rd \&y)
+\begin{DoxyCompactList}\small\item\em Scalar product between two vectors. \end{DoxyCompactList}\item 
+boost\+::multi\+\_\+array$<$ double, 2 $>$ \hyperlink{group__Basis_ga5c6454782d8290f926940267271951bf}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&basis\+\_\+quad, const Vector\+Rd \&v)
+\item 
+{\footnotesize template$<$typename Basis\+Type $>$ }\\\hyperlink{classHArDCore2D_1_1Family}{Family}$<$ Basis\+Type $>$ \hyperlink{group__Basis_ga3a5604879e905ecb08cbf4dda5d9a33c}{H\+Ar\+D\+Core2\+D\+::l2\+\_\+orthonormalize} (const Basis\+Type \&basis, const Quadrature\+Rule \&qr, boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&basis\+\_\+quad)
+\begin{DoxyCompactList}\small\item\em $L^2$-\/orthonormalization\+: simply consists in using \hyperlink{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}{gram\+\_\+schmidt()} with the specific l2 inner product \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\item 
+{\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\item 
+{\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B, const Quadrature\+Rule \&qr)
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr)
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga4172a9ecfd889368855cf0715211e394}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym)
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym)
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym)
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym)
+\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__Basis_ga8b3e4c44e672ad940f3dd12f2b0ae8cc}{H\+Ar\+D\+Core2\+D\+::integrate} (const std\+::function$<$ T(const Vector\+Rd \&)$>$ \&f, const boost\+::multi\+\_\+array$<$ T, 2 $>$ \&B, const Quadrature\+Rule \&qr)
+\begin{DoxyCompactList}\small\item\em Compute the integral of a given function against all functions from a family. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Basis\+Type $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__Basis_ga650f15db9b781f0ad398e54d96a5ba39}{H\+Ar\+D\+Core2\+D\+::l2\+\_\+projection} (const std\+::function$<$ typename Basis\+Type\+::\+Function\+Value(const Vector\+Rd \&)$>$ \&f, const Basis\+Type \&basis, Quadrature\+Rule \&quad, const boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&basis\+\_\+quad)
+\begin{DoxyCompactList}\small\item\em Compute the L2-\/projection of a function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}\label{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}} 
+constexpr int \hyperlink{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}{H\+Ar\+D\+Core2\+D\+::dimspace} = 2
+\begin{DoxyCompactList}\small\item\em Dimension, and generic types for vector in correct dimension (makes it easier to translate a code between 2D and 3D) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classes and functions for polynomial basis creation and manipulation. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}\label{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given a family of vector-\/valued and one of scalar-\/valued functions by tensorizing the latter 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family (to be tensorized) at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga4172a9ecfd889368855cf0715211e394}\label{group__Basis_ga4172a9ecfd889368855cf0715211e394}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for double-\/valued families, more efficient than the generic templated version. 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em nrows} & Number of rows of the matrix (nb of members of first family to consider) \\
+\hline
+{\em ncols} & Number of rows of the matrix (nn of members of second family to consider) \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}\label{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the double-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}\label{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for Vector2d-\/valued families, more efficient than the generic templated version. 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em nrows} & Optional. Number of rows of the matrix (nb of members of first family to consider). \\
+\hline
+{\em ncols} & Optional. Number of rows of the matrix (nb of members of second family to consider). \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}\label{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the Vector2d-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}\label{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This templated function is very generic, and thus not the most efficient. More efficient overloads are provided for double-\/ or Vector2d-\/valued families 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em nrows} & Number of rows of the matrix (nb of members of first family to consider) \\
+\hline
+{\em ncols} & Number of rows of the matrix (nn of members of second family to consider) \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}\label{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version calls the generic one with nrows = nb of elements in family B1 and ncols = nb of elements in family B2. 
+\begin{DoxyParams}{Parameters}
+{\em B1} & First family at quadrature nodes \\
+\hline
+{\em B2} & Second family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+{\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}\label{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}} 
+\index{Basis@{Basis}!compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}}
+\index{compute\+\_\+gram\+\_\+matrix@{compute\+\_\+gram\+\_\+matrix}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{compute\+\_\+gram\+\_\+matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compute the Gram matrix given the evaluation of one family of functions at quadrature nodes. Consists in calling the generic templated version with B1=B2. 
+\begin{DoxyParams}{Parameters}
+{\em B} & \hyperlink{classHArDCore2D_1_1Family}{Family} at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}\label{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}} 
+\index{Basis@{Basis}!gram\+\_\+schmidt@{gram\+\_\+schmidt}}
+\index{gram\+\_\+schmidt@{gram\+\_\+schmidt}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{gram\+\_\+schmidt()}{gram\_schmidt()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::gram\+\_\+schmidt (\begin{DoxyParamCaption}\item[{boost\+::multi\+\_\+array$<$ T, 2 $>$ \&}]{basis\+\_\+eval,  }\item[{const std\+::function$<$ double(size\+\_\+t, size\+\_\+t)$>$ \&}]{inner\+\_\+product }\end{DoxyParamCaption})}
+
+Gram-\/\+Schmidt algorithm to ortonormalize a basis. The matrix $M$ returned by this function gives the coefficients in the original basis of the orthonormalised basis. If $(f_1,...,f_r)$ is the original basis, the orthonormalised basis is $(\phi_1,...,\phi_r)$ where $\phi_i = \sum_j M_{ij}f_j$.
+
+The function also modifies the variable basis\+\_\+eval so that it contains the evaluation on at quadrature nodes of the new orthonormalised basis. 
+\begin{DoxyParams}{Parameters}
+{\em basis\+\_\+eval} & Evaluations at quadrature nodes of the original basis. \\
+\hline
+{\em inner\+\_\+product} & inner product (of two original basis functions) with respect to which we orthonormalise. This inner product must only depend on the basis functions through their values basis\+\_\+eval. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga8b3e4c44e672ad940f3dd12f2b0ae8cc}\label{group__Basis_ga8b3e4c44e672ad940f3dd12f2b0ae8cc}} 
+\index{Basis@{Basis}!integrate@{integrate}}
+\index{integrate@{integrate}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{integrate()}{integrate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::integrate (\begin{DoxyParamCaption}\item[{const std\+::function$<$ T(const Vector\+Rd \&)$>$ \&}]{f,  }\item[{const boost\+::multi\+\_\+array$<$ T, 2 $>$ \&}]{B,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
+
+
+
+Compute the integral of a given function against all functions from a family. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Function \\
+\hline
+{\em B} & \hyperlink{classHArDCore2D_1_1Family}{Family} at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga3a5604879e905ecb08cbf4dda5d9a33c}\label{group__Basis_ga3a5604879e905ecb08cbf4dda5d9a33c}} 
+\index{Basis@{Basis}!l2\+\_\+orthonormalize@{l2\+\_\+orthonormalize}}
+\index{l2\+\_\+orthonormalize@{l2\+\_\+orthonormalize}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{l2\+\_\+orthonormalize()}{l2\_orthonormalize()}}
+{\footnotesize\ttfamily template$<$typename Basis\+Type $>$ \\
+\hyperlink{classHArDCore2D_1_1Family}{Family}$<$Basis\+Type$>$ H\+Ar\+D\+Core2\+D\+::l2\+\_\+orthonormalize (\begin{DoxyParamCaption}\item[{const Basis\+Type \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&}]{basis\+\_\+quad }\end{DoxyParamCaption})}
+
+
+
+$L^2$-\/orthonormalization\+: simply consists in using \hyperlink{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}{gram\+\_\+schmidt()} with the specific l2 inner product 
+
+
+\begin{DoxyParams}{Parameters}
+{\em basis} & basis to orthonormalise \\
+\hline
+{\em qr} & quadrature rule for computing the l2 inner product \\
+\hline
+{\em basis\+\_\+quad} & values of basis functions at quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga650f15db9b781f0ad398e54d96a5ba39}\label{group__Basis_ga650f15db9b781f0ad398e54d96a5ba39}} 
+\index{Basis@{Basis}!l2\+\_\+projection@{l2\+\_\+projection}}
+\index{l2\+\_\+projection@{l2\+\_\+projection}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{l2\+\_\+projection()}{l2\_projection()}}
+{\footnotesize\ttfamily template$<$typename Basis\+Type $>$ \\
+Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::l2\+\_\+projection (\begin{DoxyParamCaption}\item[{const std\+::function$<$ typename Basis\+Type\+::\+Function\+Value(const Vector\+Rd \&)$>$ \&}]{f,  }\item[{const Basis\+Type \&}]{basis,  }\item[{Quadrature\+Rule \&}]{quad,  }\item[{const boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&}]{basis\+\_\+quad }\end{DoxyParamCaption})}
+
+
+
+Compute the L2-\/projection of a function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Function to project \\
+\hline
+{\em basis} & Basis for the space on which we project \\
+\hline
+{\em quad} & Quadrature rule \\
+\hline
+{\em basis\+\_\+quad} & Evaluation of the basis at quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga5c6454782d8290f926940267271951bf}\label{group__Basis_ga5c6454782d8290f926940267271951bf}} 
+\index{Basis@{Basis}!scalar\+\_\+product@{scalar\+\_\+product}}
+\index{scalar\+\_\+product@{scalar\+\_\+product}!Basis@{Basis}}
+\subsubsection{\texorpdfstring{scalar\+\_\+product()}{scalar\_product()}}
+{\footnotesize\ttfamily boost\+::multi\+\_\+array$<$ double, 2 $>$ H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{basis\+\_\+quad,  }\item[{const Vector\+Rd \&}]{v }\end{DoxyParamCaption})}
+
+This overloading of the scalar\+\_\+product function computes the scalar product between an evaluation of a basis and a constant vector 
+\begin{DoxyParams}{Parameters}
+{\em basis\+\_\+quad} & The basis evaluation \\
+\hline
+{\em v} & The vector to take the scalar product with \\
+\hline
+\end{DoxyParams}

@@ -9,20 +9,33 @@
 \item 
 \hyperlink{classHArDCore2D_1_1ElementQuad_a0d27ba99f9f3e6f2a3e5311e6be19eba}{Element\+Quad} (const \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const size\+\_\+t iT, const size\+\_\+t doeT, const size\+\_\+t doeF)
 \begin{DoxyCompactList}\small\item\em Class constructor\+: loads the quadrature rules and values of basis functions/gradients at these points. \end{DoxyCompactList}\item 
-Quadrature\+Rule \hyperlink{group__HybridCore_ga16951d0e488060237fbb5eee3c5194b2}{get\+\_\+quadT} () const
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a213822f156a19022e6bff238d438606d}\label{classHArDCore2D_1_1ElementQuad_a213822f156a19022e6bff238d438606d}} 
+const Quadrature\+Rule \& \hyperlink{classHArDCore2D_1_1ElementQuad_a213822f156a19022e6bff238d438606d}{get\+\_\+quadT} () const
 \begin{DoxyCompactList}\small\item\em Returns quadrature rules in cell. \end{DoxyCompactList}\item 
-std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga0cde817c1cf12e839c3f195aa02498ba}{get\+\_\+phi\+T\+\_\+quadT} () const
-\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
-std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_gae8e43d7a9a64a009690c4890534e6549}{get\+\_\+dphi\+T\+\_\+quadT} () const
-\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules in cell. \end{DoxyCompactList}\item 
-Quadrature\+Rule \hyperlink{group__HybridCore_gaa90e88daa7803576aaeb9edc3574e935}{get\+\_\+quadF} (size\+\_\+t ilF) const
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a08c8a69abf1995ea353668beb8c5b19b}\label{classHArDCore2D_1_1ElementQuad_a08c8a69abf1995ea353668beb8c5b19b}} 
+const Quadrature\+Rule \& \hyperlink{classHArDCore2D_1_1ElementQuad_a08c8a69abf1995ea353668beb8c5b19b}{get\+\_\+quadF} (size\+\_\+t ilF) const
 \begin{DoxyCompactList}\small\item\em Returns quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
-std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga89dc78ee0eea49e4a9725ed7df748ba9}{get\+\_\+phi\+T\+\_\+quadF} (size\+\_\+t ilF) const
-\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
-std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__HybridCore_ga2c8a70eb42762e460ad31e4d43afb0e8}{get\+\_\+phi\+F\+\_\+quadF} (size\+\_\+t ilF) const
-\begin{DoxyCompactList}\small\item\em Returns values of edges basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\item 
-std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__HybridCore_ga11e133360ae70b9aef714054b7de76a4}{get\+\_\+dphi\+T\+\_\+quadF} (size\+\_\+t ilF) const
-\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature rules on edge with local number ilF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a87443a1da538a16841f08e5a8c1dd8ee}\label{classHArDCore2D_1_1ElementQuad_a87443a1da538a16841f08e5a8c1dd8ee}} 
+const boost\+::multi\+\_\+array$<$ double, 2 $>$ \& \hyperlink{classHArDCore2D_1_1ElementQuad_a87443a1da538a16841f08e5a8c1dd8ee}{get\+\_\+phi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at cell quadrature nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a4962e2d0b866a3016b574f24c0d15940}\label{classHArDCore2D_1_1ElementQuad_a4962e2d0b866a3016b574f24c0d15940}} 
+const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \& \hyperlink{classHArDCore2D_1_1ElementQuad_a4962e2d0b866a3016b574f24c0d15940}{get\+\_\+dphi\+T\+\_\+quadT} () const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at cell quadrature nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_ab8d725c09a9086bfe42688d0f34d1669}\label{classHArDCore2D_1_1ElementQuad_ab8d725c09a9086bfe42688d0f34d1669}} 
+const boost\+::multi\+\_\+array$<$ double, 2 $>$ \& \hyperlink{classHArDCore2D_1_1ElementQuad_ab8d725c09a9086bfe42688d0f34d1669}{get\+\_\+phi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of cell basis functions at edge quadrature nodes, for edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a0289327a67759deb2c311e75d4f6ce55}\label{classHArDCore2D_1_1ElementQuad_a0289327a67759deb2c311e75d4f6ce55}} 
+const boost\+::multi\+\_\+array$<$ double, 2 $>$ \hyperlink{classHArDCore2D_1_1ElementQuad_a0289327a67759deb2c311e75d4f6ce55}{get\+\_\+phi\+F\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of edge basis functions at edge quadrature nodes, for edge with local number ilF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_aada65c8bf767b946fe72c466071698f6}\label{classHArDCore2D_1_1ElementQuad_aada65c8bf767b946fe72c466071698f6}} 
+const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \& \hyperlink{classHArDCore2D_1_1ElementQuad_aada65c8bf767b946fe72c466071698f6}{get\+\_\+dphi\+T\+\_\+quadF} (size\+\_\+t ilF) const
+\begin{DoxyCompactList}\small\item\em Returns values of gradients of cell basis functions at edge quadrature nodes, for edge with local number ilF. \end{DoxyCompactList}\item 
+boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \hyperlink{classHArDCore2D_1_1ElementQuad_a3c549d43c0a5171d0c14f6b56ffc843d}{get\+\_\+vec\+\_\+phi\+T\+\_\+quadT} (size\+\_\+t degree) const
+\begin{DoxyCompactList}\small\item\em Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one\+: $(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$. \end{DoxyCompactList}\item 
+boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \hyperlink{classHArDCore2D_1_1ElementQuad_ad470965a0f66f62c1ffed045e2dd49fc}{get\+\_\+vec\+\_\+phi\+T\+\_\+quadF} (size\+\_\+t ilF, size\+\_\+t degree) const
+\begin{DoxyCompactList}\small\item\em Builds on the fly the values of vector cell basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get\+\_\+vec\+\_\+phi\+T\+\_\+quadT. \end{DoxyCompactList}\item 
+boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \hyperlink{classHArDCore2D_1_1ElementQuad_a862a7cc1c7f5e62bcb26c5a2a14bb4ea}{get\+\_\+vec\+\_\+phi\+F\+\_\+quadF} (size\+\_\+t ilF, size\+\_\+t degree) const
+\begin{DoxyCompactList}\small\item\em Builds on the fly the values of vector edge basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get\+\_\+vec\+\_\+phi\+T\+\_\+quadT. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -43,11 +56,68 @@ Class constructor\+: loads the quadrature rules and values of basis functions/gr
 \begin{DoxyParams}{Parameters}
 {\em hho} & A reference to the hybridcore instance \\
 \hline
-{\em iT} & Number of cell \\
+{\em iT} & Global index of cell \\
 \hline
 {\em doeT} & The degree of exactness for cell quadratures \\
 \hline
 {\em doeF} & The degree of exactness of edge quadratures \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a862a7cc1c7f5e62bcb26c5a2a14bb4ea}\label{classHArDCore2D_1_1ElementQuad_a862a7cc1c7f5e62bcb26c5a2a14bb4ea}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}!get\+\_\+vec\+\_\+phi\+F\+\_\+quadF@{get\+\_\+vec\+\_\+phi\+F\+\_\+quadF}}
+\index{get\+\_\+vec\+\_\+phi\+F\+\_\+quadF@{get\+\_\+vec\+\_\+phi\+F\+\_\+quadF}!H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}}
+\subsubsection{\texorpdfstring{get\+\_\+vec\+\_\+phi\+F\+\_\+quad\+F()}{get\_vec\_phiF\_quadF()}}
+{\footnotesize\ttfamily boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ Element\+Quad\+::get\+\_\+vec\+\_\+phi\+F\+\_\+quadF (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{ilF,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption}) const}
+
+
+
+Builds on the fly the values of vector edge basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get\+\_\+vec\+\_\+phi\+T\+\_\+quadT. 
+
+\begin{DoxyReturn}{Returns}
+vec\+\_\+phi\+T\+\_\+quadT such that, for r=0,..,dim-\/1 and i=0,..,Dim\+Poly$<$\+Cell$>$(degree)-\/1, vec\+\_\+phi\+T\+\_\+quadT\mbox{[}r$\ast$\+Dim\+Poly$<$\+Cell$>$(degree)-\/1 + i\mbox{]} has, on its row r, the values of the i-\/th scalar basis function at the quadrature nodes, and 0 on its other rows. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em degree} & local number of edge required degree of basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_ad470965a0f66f62c1ffed045e2dd49fc}\label{classHArDCore2D_1_1ElementQuad_ad470965a0f66f62c1ffed045e2dd49fc}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}!get\+\_\+vec\+\_\+phi\+T\+\_\+quadF@{get\+\_\+vec\+\_\+phi\+T\+\_\+quadF}}
+\index{get\+\_\+vec\+\_\+phi\+T\+\_\+quadF@{get\+\_\+vec\+\_\+phi\+T\+\_\+quadF}!H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}}
+\subsubsection{\texorpdfstring{get\+\_\+vec\+\_\+phi\+T\+\_\+quad\+F()}{get\_vec\_phiT\_quadF()}}
+{\footnotesize\ttfamily boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ Element\+Quad\+::get\+\_\+vec\+\_\+phi\+T\+\_\+quadF (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{ilF,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption}) const}
+
+
+
+Builds on the fly the values of vector cell basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get\+\_\+vec\+\_\+phi\+T\+\_\+quadT. 
+
+\begin{DoxyReturn}{Returns}
+vec\+\_\+phi\+T\+\_\+quadT such that, for r=0,..,dim-\/1 and i=0,..,Dim\+Poly$<$\+Cell$>$(degree)-\/1, vec\+\_\+phi\+T\+\_\+quadT\mbox{[}r$\ast$\+Dim\+Poly$<$\+Cell$>$(degree)-\/1 + i\mbox{]} has, on its row r, the values of the i-\/th scalar basis function at the quadrature nodes, and 0 on its other rows. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em degree} & local number of edge maximum degree of basis functions required \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHArDCore2D_1_1ElementQuad_a3c549d43c0a5171d0c14f6b56ffc843d}\label{classHArDCore2D_1_1ElementQuad_a3c549d43c0a5171d0c14f6b56ffc843d}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}!get\+\_\+vec\+\_\+phi\+T\+\_\+quadT@{get\+\_\+vec\+\_\+phi\+T\+\_\+quadT}}
+\index{get\+\_\+vec\+\_\+phi\+T\+\_\+quadT@{get\+\_\+vec\+\_\+phi\+T\+\_\+quadT}!H\+Ar\+D\+Core2\+D\+::\+Element\+Quad@{H\+Ar\+D\+Core2\+D\+::\+Element\+Quad}}
+\subsubsection{\texorpdfstring{get\+\_\+vec\+\_\+phi\+T\+\_\+quad\+T()}{get\_vec\_phiT\_quadT()}}
+{\footnotesize\ttfamily boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ Element\+Quad\+::get\+\_\+vec\+\_\+phi\+T\+\_\+quadT (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption}) const}
+
+
+
+Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one\+: $(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$. 
+
+\begin{DoxyReturn}{Returns}
+vec\+\_\+phi\+T\+\_\+quadT such that, for r=0,..,dim-\/1 and i=0,..,Dim\+Poly$<$\+Cell$>$(degree)-\/1, vec\+\_\+phi\+T\+\_\+quadT\mbox{[}r$\ast$\+Dim\+Poly$<$\+Cell$>$(degree)-\/1 + i\mbox{]} has, on its row r, the values of the i-\/th scalar basis function at the quadrature nodes, and 0 on its other rows. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em degree} & maximal degree of basis functions that is required \\
 \hline
 \end{DoxyParams}
 

@@ -1,0 +1,83 @@
+\hypertarget{classTestCaseNonLinearity}{}\section{Test\+Case\+Non\+Linearity Class Reference}
+\label{classTestCaseNonLinearity}\index{Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}}
+
+
+The \hyperlink{classTestCaseNonLinearity}{Test\+Case\+Non\+Linearity} class provides definition of a nonlinear function, and related functions.  
+
+
+
+
+{\ttfamily \#include $<$Test\+Case\+Non\+Linearity.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}\label{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}} 
+using \hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{nonlinearity\+\_\+function\+\_\+type} = std\+::function$<$ double(double, std\+::string)$>$
+\begin{DoxyCompactList}\small\item\em type for nonlinear function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTestCaseNonLinearity_a490a6f0868a2edd9ecd6a88aaaca1ddb}{Test\+Case\+Non\+Linearity} (const int i\+T\+C\+NL, const double m=1.\+0)
+\begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
+double \hyperlink{classTestCaseNonLinearity_a62249600985bb7532fe498680b38f38a}{nonlinearity} (const double s, const std\+::string type)
+\begin{DoxyCompactList}\small\item\em Nonlinearity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTestCaseNonLinearity}{Test\+Case\+Non\+Linearity} class provides definition of a nonlinear function, and related functions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTestCaseNonLinearity_a490a6f0868a2edd9ecd6a88aaaca1ddb}\label{classTestCaseNonLinearity_a490a6f0868a2edd9ecd6a88aaaca1ddb}} 
+\index{Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}!Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}}
+\index{Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}!Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}}
+\subsubsection{\texorpdfstring{Test\+Case\+Non\+Linearity()}{TestCaseNonLinearity()}}
+{\footnotesize\ttfamily Test\+Case\+Non\+Linearity\+::\+Test\+Case\+Non\+Linearity (\begin{DoxyParamCaption}\item[{const int}]{i\+T\+C\+NL,  }\item[{const double}]{m = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+
+
+Initialise data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+T\+C\+NL} & The id of the test case \\
+\hline
+{\em m} & Optional, power of the porous medium non-\/linearity \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCaseNonLinearity_a62249600985bb7532fe498680b38f38a}\label{classTestCaseNonLinearity_a62249600985bb7532fe498680b38f38a}} 
+\index{Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}!nonlinearity@{nonlinearity}}
+\index{nonlinearity@{nonlinearity}!Test\+Case\+Non\+Linearity@{Test\+Case\+Non\+Linearity}}
+\subsubsection{\texorpdfstring{nonlinearity()}{nonlinearity()}}
+{\footnotesize\ttfamily double Test\+Case\+Non\+Linearity\+::nonlinearity (\begin{DoxyParamCaption}\item[{const double}]{s,  }\item[{const std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Nonlinearity. 
+
+i\+T\+CR\mbox{[}0\mbox{]}=-\/1\+: $f(u)=0$
+
+i\+T\+CR\mbox{[}0\mbox{]}=1\+: $f(u)=u$
+
+i\+T\+CR\mbox{[}0\mbox{]}=2\+: $f(u)=|u|^{m-1}u = |u|^m sign(u)$
+
+i\+T\+CR\mbox{[}0\mbox{]}=3\+: $f(u)=max(u,0)^2$
+
+i\+T\+CR\mbox{[}0\mbox{]}=4\+: $f(u)=(u+th)^+-th + eps u$
+
+i\+T\+CR\mbox{[}0\mbox{]}=5\+: $f(u)=u$ truncated at 0 and th
+
+i\+T\+CR\mbox{[}0\mbox{]}=6\+: Classical Stefan $f(s)=s$ if $s<0$, $f(s)=0$ if $0\le s\le 1$, $f(s)=s-1$ if $s>1$. 
+\begin{DoxyParams}{Parameters}
+{\em type} & \char`\"{}type\char`\"{} = \char`\"{}fct\char`\"{} for the function itself, \char`\"{}nlin\char`\"{} for the nonlinear part gamma such that fct(u) = gamma(u) u, \char`\"{}der\char`\"{} for derivative, \char`\"{}hess\char`\"{} for 2nd derivative \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Test\+Case/Test\+Case\+Non\+Linearity.\+hpp\item 
+Schemes/\+Test\+Case/Test\+Case\+Non\+Linearity.\+cpp\end{DoxyCompactItemize}

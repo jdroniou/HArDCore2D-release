@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['quadraturenode',['QuadratureNode',['../structHArDCore2D_1_1QuadratureNode.html',1,'HArDCore2D']]],
-  ['quadruleedge',['QuadRuleEdge',['../classHArDCore2D_1_1QuadRuleEdge.html',1,'HArDCore2D']]],
-  ['quadruletriangle',['QuadRuleTriangle',['../classHArDCore2D_1_1QuadRuleTriangle.html',1,'HArDCore2D']]]
+  ['hho_5fdiffusion',['HHO_Diffusion',['../classHArDCore2D_1_1HHO__Diffusion.html',1,'HArDCore2D']]],
+  ['hho_5flocvardiff',['HHO_LocVarDiff',['../classHArDCore2D_1_1HHO__LocVarDiff.html',1,'HArDCore2D']]],
+  ['hybridcore',['HybridCore',['../classHArDCore2D_1_1HybridCore.html',1,'HArDCore2D']]]
 ];

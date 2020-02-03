@@ -21,11 +21,11 @@ using namespace HArDCore2D;
 
 // Class - we set up the anisotropy when we create the class
 TestCase::TestCase(const std::vector<int> iTC)
-  : iTC(iTC),
+  : m_iTC(iTC),
     _deg_diff(0),
     _lambda(pow(10,6)) {
     validate();
-    if (iTC[1]==2 || iTC[1]==4){
+    if (m_iTC[1]==2 || m_iTC[1]==4){
       _deg_diff = 2;
     }
   }
@@ -35,7 +35,7 @@ TestCase::TestCase(const std::vector<int> iTC)
 // Solution
 double TestCase::sol(const double x, const double y){
   double u = 0;
-  switch(iTC[0]){
+  switch(m_iTC[0]){
       /// iTC[0]=1: \f$u(x,y)=sin(\pi x)  sin(\pi y)\f$
     case 1: u = sin(pi*x) * sin(pi*y);
             break;
@@ -54,7 +54,6 @@ double TestCase::sol(const double x, const double y){
       /// iTC[0]=6: \f$u(x,y)= e^x \sin(pi x) \cos(\pi x)\f$
     case 6: u = exp(x) * sin(pi*x) * sin(pi*y); 
             break;
-
     default: break;
   }
   return u;
@@ -63,13 +62,13 @@ double TestCase::sol(const double x, const double y){
 // Gradient of the solution
 Eigen::Vector2d TestCase::grad_sol(const double x, const double y, const Cell* cell){
   Eigen::Vector2d G = Eigen::Vector2d::Zero();
-  switch(iTC[0]){
+  switch(m_iTC[0]){
     case 1: G(0) = pi * cos(pi*x) * sin(pi*y);
             G(1) = pi * sin(pi*x) * cos(pi*y);
             break;
 
     case 2: G(0) = -pi * sin(pi*x) * cos(pi*y);
-            G(1) = -pi * cos(pi*x) * sin(pi*y) ;
+            G(1) = -pi * cos(pi*x) * sin(pi*y);
             break;
 
     case 3: G(0) = 1;
@@ -96,7 +95,7 @@ Eigen::Vector2d TestCase::grad_sol(const double x, const double y, const Cell* c
 // Hessian of the solution
 Eigen::Matrix2d TestCase::hess_sol(const double x, const double y, const Cell* cell){
   Eigen::MatrixXd H = Eigen::Matrix2d::Zero();
-  switch(iTC[0]){
+  switch(m_iTC[0]){
 
     case 1: H.row(0) << - pi*pi*sin(pi*x)*sin(pi*y), pi*pi*cos(pi*x)*cos(pi*y);
             H.row(1) <<  pi*pi*cos(pi*x)*cos(pi*y), -pi*pi*sin(pi*x)*sin(pi*y);
@@ -125,7 +124,7 @@ Eigen::Matrix2d TestCase::hess_sol(const double x, const double y, const Cell* c
 // Diffusion matrix
 Eigen::Matrix2d TestCase::diff(const double x, const double y, const Cell* cell){
   Eigen::Matrix2d K = Eigen::Matrix2d::Identity();
-  switch(iTC[1]){
+  switch(m_iTC[1]){
       /// iTC[1]=1: Diff = Id
     case 1: break;    
       /// iTC[1]=2: Diff = \f$\left[\begin{array}{cc}y^2+1 & -xy\\  -xy & x^2+1\end{array}\right]\f$
@@ -160,7 +159,7 @@ Eigen::Matrix2d TestCase::diff(const double x, const double y, const Cell* cell)
 // Divergence by row of the diffusion matrix
 Eigen::Vector2d TestCase::div_diff(const double x, const double y, const Cell* cell){
   Eigen::Vector2d divK = Eigen::Vector2d::Zero();
-  switch(iTC[1]){
+  switch(m_iTC[1]){
     case 1: break;
     case 2: divK(0) = -x;
             divK(1) = -y;
@@ -195,8 +194,8 @@ double TestCase::source(const double x, const double y, const Cell* cell){
 
 void TestCase::validate(){
   
-  if (iTC[0]>6 || iTC[1]>5 || (iTC[1]==3 && iTC[0] !=2)){
-    std::cout << "Incorrect choice of test cases: iTC= " << iTC[0] << ", " << iTC[1] << "\n";
+  if (m_iTC[0]>6 || m_iTC[1]>5 || (m_iTC[1]==3 && m_iTC[0] !=2)){
+    std::cout << "Incorrect choice of test cases: iTC= " << m_iTC[0] << ", " << m_iTC[1] << "\n";
     exit(EXIT_FAILURE);
   }  
 

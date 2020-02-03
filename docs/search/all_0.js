@@ -10,5 +10,9 @@ var searchData=
   ['add_5fi_5fvertex',['add_i_vertex',['../group__Mesh.html#gae0eac0c28f63b2106e97e595cb95248e',1,'HArDCore2D::Mesh']]],
   ['add_5fneighbour',['add_neighbour',['../classHArDCore2D_1_1Cell.html#a6e29b140b5f4a286ed694f2851fe76e1',1,'HArDCore2D::Cell']]],
   ['add_5fvertex',['add_vertex',['../group__Mesh.html#ga9dc43dcebaa54356ddbaa45fbd94fa1a',1,'HArDCore2D::Mesh::add_vertex()'],['../classHArDCore2D_1_1Vertex.html#aeffe35d0d60a1ee284f645a5642ff75c',1,'HArDCore2D::Vertex::add_vertex()']]],
-  ['ari_5fcoords',['ari_coords',['../classHArDCore2D_1_1Cell.html#a23fe549c562fac9ca1eef82c04948546',1,'HArDCore2D::Cell']]]
+  ['ancestor',['ancestor',['../classHArDCore2D_1_1Family.html#a1f618ff125041ebcfb88db2f4373d37e',1,'HArDCore2D::Family']]],
+  ['apply_5fnonlinearity',['apply_nonlinearity',['../group__BPNC.html#ga1d2805e0b077ec85e8530cf5e2b11be5',1,'HArDCore2D::BPNC_StefanPME']]],
+  ['ari_5fcoords',['ari_coords',['../classHArDCore2D_1_1Cell.html#a23fe549c562fac9ca1eef82c04948546',1,'HArDCore2D::Cell']]],
+  ['assemble',['assemble',['../group__HHO__Diffusion.html#gaa78a74bda050f0773e920c00c297c858',1,'HArDCore2D::HHO_Diffusion::assemble()'],['../group__HHO__LocVarDiff.html#ga5a556b259e62cf0474e2f933da569b15',1,'HArDCore2D::HHO_LocVarDiff::assemble()']]],
+  ['asvectorxd',['asVectorXd',['../classHArDCore2D_1_1UVector.html#a38b36a187519471f6cbe4719f14c5bd1',1,'HArDCore2D::UVector']]]
 ];

@@ -2,18 +2,20 @@
 #
 
 # Edge and cell degrees
-k=1
-l=2
+k=2
+l=1
 
-# Choice basis
-#choice_basis="Mon"
-choice_basis="ON"
+# Use threads
+use_threads="true"
 
-# Boundary conditions (0=Dirichlet, 1=Neumann)
-bc=1
+# Export matrix
+export_matrix="true"
+
+# Boundary conditions (D, N, Mx)
+bc="M0"
 
 # Test case
-tcsol=1
+tcsol=2
 tcdiff=2
 
 # Solver

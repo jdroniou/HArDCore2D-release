@@ -34,9 +34,10 @@ namespace HArDCore2D {		// Forward declaration
 
 using namespace HArDCore2D;
 
+
 /*!
 * @defgroup TestCases
-*	@brief Defines test cases (exact solutions, source terms etc.)
+*	@brief Defines test cases (exact solutions, source terms, boundary condition, etc.)
 */
 
 // ----------------------------------------------------------------------------
@@ -108,8 +109,10 @@ public:
 
 private:
   // Parameters: id of test case, pi
-  const std::vector<int> iTC;
+  const std::vector<int> m_iTC;
 	const double pi = acos(-1);
+	const double sqrt2 = std::pow(2,0.5);
+	const double gamma = 1.0/3.0;
 	const double eps = 1e-5;		// constant for rotating diffusion case
 
 	size_t _deg_diff;

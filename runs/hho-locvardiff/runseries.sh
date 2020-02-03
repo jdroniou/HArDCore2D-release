@@ -10,24 +10,55 @@ executable_name="hho-locvardiff"
 ###
 # Directories
 origin=$(pwd)
+if [ ! -f ../directories.sh ]; then
+  echo "directories.sh does not exist. Please read the README.txt in the parent folder."
+  exit
+fi
 . ../directories.sh
 
 # Options:
 if [[ $1 == "help" ]]; then
-	echo -e "\nExecute tests using parameters in data.sh, creates and compile latex file, and calculate rates.\n"
-  exit;
+	echo -e "\nExecute tests using parameters in data.sh, creates and compile latex file, and calculate rates.\n
+Executed without parameters: uses the data in the local data.sh file\n
+Parameters that can be passed: data file | -k <value of k> | -l <value of l>\n"
+	exit;
 fi;
 
-
-if [ ! -d $outdir ]; then
-  mkdir $outdir
+# Create/clean output directory
+if [ -d $outdir ]; then
+	\rm -r $outdir
 fi
-\rm -r $outdir/*
+mkdir $outdir
 
 ###
 # LOAD DATA
 # (LATER: Test that each required data exists (files, parameters...))
-. data.sh
+# Default data file
+datafile=$(readlink -f data.sh);
+# We go over the parameters. -k K or -l L will set k or l to these values. Any other
+# parameter is assumed to be a datafile that overrides the previous one
+until [ $# -eq 0 ]; do
+  if [[ $1 == "-k" ]]; then
+    ksave=$(echo $2 | sed s/'^[^0-9].*'//g)
+    shift 2
+  elif [[ $1 == "-l" ]]; then
+    lsave=$(echo $2 | sed s/'^[^0-9].*'//g)
+    shift 2
+  else
+    datafile=$(readlink -f $1)
+    shift
+  fi
+done
+echo -e "Using data file $datafile\n"
+. $datafile
+
+# if ksave or lsave have been ecountered we override whatever values $datafile might have contained
+if [[ ! -z "$ksave" ]]; then
+  k=$ksave;
+fi
+if [[ ! -z "$lsave" ]]; then
+  l=$lsave;
+fi
 
 echo "degrees: (edge) k=$k, (cell) l=$l"
 echo "boundary conditions bc=$bc"
@@ -40,19 +71,26 @@ for i in `seq 1 $nbmesh`;
 do
   meshfile=$meshdir"/"${mesh[$i]}".typ2"
   echo -e "\n*************************\nmesh $i out of $nbmesh: ${mesh[$i]}.typ2"
-  # Execute code
-  $executable -m $meshfile -k $k -l $l --choice_basis $choice_basis -b $bc -c $tcsol $tcdiff --solver_type $solver_type
-  r=$?
-  if [ "$r" != "0" ]; then
-    exit
+	# Execute code
+  $executable -m $meshfile -k $k -l $l -b $bc -c $tcsol $tcdiff --solver_type $solver_type --use_threads $use_threads --export_matrix $export_matrix
+	r=$?
+	if [ "$r" != "0" ]; then
+		exit
+	fi
+	# Move outputs
+	mv results.txt $outdir/results-$i.txt
+	if [ -f T-solution.vtu ]; then
+  	mv T-solution.vtu $outdir/mesh"$i"_T-solution.vtu
+	fi
+	if [ -f solution.vtu ]; then
+  	mv solution.vtu $outdir/mesh"$i"_solution.vtu
   fi
-  # Move outputs
-  mv results.txt $outdir/results-$i.txt
-  if [ -f T-solution.vtu ]; then
-    mv T-solution.vtu $outdir/T-solution-$i.vtu
+	if [ -f exact-solution.vtu ]; then
+  	mv exact-solution.vtu $outdir/mesh"$i"_exact-solution.vtu
   fi
-  mv solution.vtu $outdir/mesh"$i"_solution.vtu
-  mv exact-solution.vtu $outdir/mesh"$i"_exact-solution.vtu
+	if [ -f SystemMatrix.mtx ]; then
+  	mv SystemMatrix.mtx $outdir/mesh"$i"_SystemMatrix.mtx
+  fi
 done;
 
 # CREATE DATA FILE FOR LATEX
@@ -60,12 +98,12 @@ cd $outdir
 echo -e "meshsize L2error H1error EnergyError NbEdgeDOFs MeshReg MeshSkewness" > $errorsfile
 for i in `seq 1 $nbmesh`; 
 do
-  meshsize=$(awk '/MeshSize:/ {print $NF}' results-$i.txt)
-  L2error=$(awk '/L2error:/ {print $NF}' results-$i.txt)
-  H1error=$(awk '/H1error:/ {print $NF}' results-$i.txt)
-  EnergyError=$(awk '/EnergyError:/ {print $NF}' results-$i.txt)
+	meshsize=$(awk '/MeshSize:/ {print $NF}' results-$i.txt)
+	L2error=$(awk '/L2error:/ {print $NF}' results-$i.txt)
+	H1error=$(awk '/H1error:/ {print $NF}' results-$i.txt)
+	EnergyError=$(awk '/EnergyError:/ {print $NF}' results-$i.txt)
   NbEdgeDOFs=$(awk '/NbEdgeDOFs:/ {print $NF}' results-$i.txt)
-  MeshReg=$(awk '/MeshReg:/ {print $NF}' results-$i.txt)
+	MeshReg=$(awk '/MeshReg:/ {print $NF}' results-$i.txt)
   MeshSkewness=$(awk '/MeshSkewness:/ {print $NF}' results-$i.txt)
   echo -e "$meshsize $L2error $H1error $EnergyError $NbEdgeDOFs $MeshReg $MeshSkewness" >> $errorsfile
 done;
@@ -154,7 +192,7 @@ Test case: tcsol=$tcsol, tcdiff=$tcdiff \n\n" > $latexfile;
 
 for i in `seq 1 $nbmesh`; 
 do
-  echo -e "mesh[$i]=\\\verb!${mesh[$i]}!\n\n" >> $latexfile;
+	echo -e "mesh[$i]=\\\verb!${mesh[$i]}!\n\n" >> $latexfile;
 done
 
 
@@ -164,9 +202,9 @@ echo -e "\\\end{document}" >> $latexfile;
 # Tests data at the end of the file
 for i in `seq 1 $nbmesh`; 
 do
-  echo -e "Test $i:\n" >> $latexfile
-  cat results-$i.txt >> $latexfile
-  pdflatex $latexfile > /dev/null
+	echo -e "Test $i:\n" >> $latexfile
+	cat results-$i.txt >> $latexfile
+	pdflatex $latexfile > /dev/null
 done
 
 ##
@@ -177,7 +215,9 @@ echo "degrees: (edge) k=$k, (cell) l=$l"
 echo "boundary conditions bc=$bc"
 echo "test case: solution=$tcsol, diffusion=$tcdiff"
 cd ..
-echo "k=$k, l=$l" > $outdir/allrates.txt
+echo "data file: $datafile" > $outdir/allrates.txt
+echo "k=$k, l=$l" >> $outdir/allrates.txt
+echo "Mesh 1: ${mesh[1]}" >> $outdir/allrates.txt
 make compute_rates_run | tee -a $outdir/allrates.txt
 
 

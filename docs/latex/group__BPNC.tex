@@ -1,0 +1,335 @@
+\hypertarget{group__BPNC}{}\section{B\+P\+NC}
+\label{group__BPNC}\index{B\+P\+NC@{B\+P\+NC}}
+
+
+Tools to implement the Bubble Polytopal Non-\/\+Conforming method.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHArDCore2D_1_1BPNC__StefanPME}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+ME}
+\begin{DoxyCompactList}\small\item\em The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. \end{DoxyCompactList}\item 
+class \hyperlink{classHArDCore2D_1_1BPNCCore}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__BPNC_ga85e80578aa553215feae11284549b354}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+ME} (\hyperlink{classHArDCore2D_1_1BPNCCore}{B\+P\+N\+C\+Core} \&nc, \hyperlink{classHArDCore2D_1_1BPNC__StefanPME_aa07717e39892228c331b3cf3c29b086e}{tensor\+\_\+function\+\_\+type} kappa, size\+\_\+t deg\+\_\+kappa, \hyperlink{classHArDCore2D_1_1BPNC__StefanPME_a233ff438d25c93b72498ce3b461c8623}{source\+\_\+function\+\_\+type} source, \hyperlink{classBoundaryConditions}{Boundary\+Conditions} BC, \hyperlink{classHArDCore2D_1_1BPNC__StefanPME_ad0802f467317597f803c0dd45d26c3ba}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1BPNC__StefanPME_a33d159dc2e762c21926b85a21e38c5d8}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, \hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga8729ab99cd04c0ef4c6b2556805d1e8d}\label{group__BPNC_ga8729ab99cd04c0ef4c6b2556805d1e8d}} 
+Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_ga8729ab99cd04c0ef4c6b2556805d1e8d}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::solve} ()
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga1d2805e0b077ec85e8530cf5e2b11be5}\label{group__BPNC_ga1d2805e0b077ec85e8530cf5e2b11be5}} 
+Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_ga1d2805e0b077ec85e8530cf5e2b11be5}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::apply\+\_\+nonlinearity} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
+\begin{DoxyCompactList}\small\item\em Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight (0,1) ) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga54ab7a35ac7ccb83fc678aee96eb5dc3}\label{group__BPNC_ga54ab7a35ac7ccb83fc678aee96eb5dc3}} 
+double \hyperlink{group__BPNC_ga54ab7a35ac7ccb83fc678aee96eb5dc3}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+L2\+\_\+\+Mass\+Lumped} (const Eigen\+::\+Vector\+Xd Xh) const
+\begin{DoxyCompactList}\small\item\em Mass-\/lumped L2 norm of a function given by a vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga494151015dbd833a691e50f78966c82d}\label{group__BPNC_ga494151015dbd833a691e50f78966c82d}} 
+double \hyperlink{group__BPNC_ga494151015dbd833a691e50f78966c82d}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+Energy\+Norm} (const Eigen\+::\+Vector\+Xd Xh) const
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_gade729cb0357bb3f3476c2335a37b822d}\label{group__BPNC_gade729cb0357bb3f3476c2335a37b822d}} 
+double \hyperlink{group__BPNC_gade729cb0357bb3f3476c2335a37b822d}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga90122c6a87891a16e7bc19edcfde175c}\label{group__BPNC_ga90122c6a87891a16e7bc19edcfde175c}} 
+double \hyperlink{group__BPNC_ga90122c6a87891a16e7bc19edcfde175c}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga1cdc2dc9af6aa57d315e6660453641f7}\label{group__BPNC_ga1cdc2dc9af6aa57d315e6660453641f7}} 
+double \hyperlink{group__BPNC_ga1cdc2dc9af6aa57d315e6660453641f7}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_gabb15277c1c88313e9e8e18186fea2b2f}\label{group__BPNC_gabb15277c1c88313e9e8e18186fea2b2f}} 
+double \hyperlink{group__BPNC_gabb15277c1c88313e9e8e18186fea2b2f}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+\hyperlink{group__BPNC_ga063bc1a24f9fbe136809f447fc25a486}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::\+B\+P\+N\+C\+Core} (const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh\+\_\+ptr, const size\+\_\+t K, const size\+\_\+t L, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Class constructor\+: initialise the \hyperlink{classHArDCore2D_1_1BPNCCore}{B\+P\+N\+C\+Core} class, and creates non-\/conforming basis functions (and gradients) \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1BPNCCore_a3aa8544d9ea9ae31d70e65aaefb0e9c8}{cell\+\_\+basis\+\_\+type} \& \hyperlink{group__BPNC_ga169de49549ae3c009c54c24d72d2e0ec}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+basis} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
+const \hyperlink{classHArDCore2D_1_1BPNCCore_a3e1f027c19acfc768851fbdbb00f2eec}{cell\+\_\+gradient\+\_\+type} \& \hyperlink{group__BPNC_ga967af6ae54aa35135ab8edb9cb94f1cf}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+gradient} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return a reference to the gradient of the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
+const Vector\+Rd \hyperlink{group__BPNC_ga554c5835189ff791d8db8f0e31c222dd}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::ml\+\_\+node} (size\+\_\+t iT, size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Return the i\textquotesingle{}th nodal point in cell iT (for mass lumping) \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \hyperlink{group__BPNC_gadab9f7a9f6d42f729a8dce8e358e4d00}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+basis\+\_\+quad} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+\begin{DoxyCompactList}\small\item\em Computes non-\/conforming basis functions at the given quadrature nodes. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \hyperlink{group__BPNC_gab7cc52dd5f725b057ec52cca573bf15f}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::grad\+\_\+nc\+\_\+basis\+\_\+quad} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+\begin{DoxyCompactList}\small\item\em Compute $(\nabla \phi_i^{nc})_{i\in I}$ at the quadrature nodes, where $(\phi_i^{nc})_{i\in I}$ are the cell basis functions. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__BPNC_gaa3150fe82adc0be190b698e1b17f6bc8}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{group__BPNC_gaf92e85c265e2138324347e02c2b7847f}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
+\begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga25153a400e70dd231c4c29f0f72f9f4d}\label{group__BPNC_ga25153a400e70dd231c4c29f0f72f9f4d}} 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_ga25153a400e70dd231c4c29f0f72f9f4d}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+moments} (const Function \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_ga28d174f3526b19d85e225b9db5f9de8e}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+ml} (const Function \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_gad91a640f713f2f584b9280d7740f97da}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+restr} (const Eigen\+::\+Vector\+Xd \&Xh, size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Extract from a global vector Xh of unknowns the non-\/conforming unknowns corresponding to cell iT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_gafd34682af893a9c13dc8f60b9f2ca532}\label{group__BPNC_gafd34682af893a9c13dc8f60b9f2ca532}} 
+double \hyperlink{group__BPNC_gafd34682af893a9c13dc8f60b9f2ca532}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+\+L2norm} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute L2 norm of a discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_gabca2e8cbf4f01cddfa96124a07526a0e}\label{group__BPNC_gabca2e8cbf4f01cddfa96124a07526a0e}} 
+double \hyperlink{group__BPNC_gabca2e8cbf4f01cddfa96124a07526a0e}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+\+L2norm\+\_\+ml} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute L2 norm of the mass-\/lumped discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga3d9e24f90636c4a8a5cac49f03e7ff59}\label{group__BPNC_ga3d9e24f90636c4a8a5cac49f03e7ff59}} 
+double \hyperlink{group__BPNC_ga3d9e24f90636c4a8a5cac49f03e7ff59}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+\+H1norm} (const Eigen\+::\+Vector\+Xd \&Xh) const
+\begin{DoxyCompactList}\small\item\em Compute broken H1 norm of a discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BPNC_ga7a82bab8fa4bfe4f99796db632d9411d}\label{group__BPNC_ga7a82bab8fa4bfe4f99796db632d9411d}} 
+double \hyperlink{group__BPNC_ga7a82bab8fa4bfe4f99796db632d9411d}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+evaluate\+\_\+in\+\_\+cell} (const Eigen\+::\+Vector\+Xd X\+TF, size\+\_\+t iT, double x, double y) const
+\begin{DoxyCompactList}\small\item\em Evaluates a non-\/conforming discrete function in the cell iT at point (x,y) \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__BPNC_ga2c3a632143dcb66992710d39cfb9ed42}{H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+\+Vertex\+Values} (const Eigen\+::\+Vector\+Xd Xh, const double weight=0)
+\begin{DoxyCompactList}\small\item\em From a non-\/conforming discrete function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools to implement the Bubble Polytopal Non-\/\+Conforming method. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__BPNC_ga85e80578aa553215feae11284549b354}\label{group__BPNC_ga85e80578aa553215feae11284549b354}} 
+\index{B\+P\+NC@{B\+P\+NC}!B\+P\+N\+C\+\_\+\+Stefan\+P\+ME@{B\+P\+N\+C\+\_\+\+Stefan\+P\+ME}}
+\index{B\+P\+N\+C\+\_\+\+Stefan\+P\+ME@{B\+P\+N\+C\+\_\+\+Stefan\+P\+ME}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E()}{BPNC\_StefanPME()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+B\+P\+N\+C\+\_\+\+Stefan\+P\+ME (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1BPNCCore}{B\+P\+N\+C\+Core} \&}]{nc,  }\item[{\hyperlink{classHArDCore2D_1_1BPNC__StefanPME_aa07717e39892228c331b3cf3c29b086e}{tensor\+\_\+function\+\_\+type}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\hyperlink{classHArDCore2D_1_1BPNC__StefanPME_a233ff438d25c93b72498ce3b461c8623}{source\+\_\+function\+\_\+type}}]{source,  }\item[{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}]{BC,  }\item[{\hyperlink{classHArDCore2D_1_1BPNC__StefanPME_ad0802f467317597f803c0dd45d26c3ba}{solution\+\_\+function\+\_\+type}}]{exact\+\_\+solution,  }\item[{\hyperlink{classHArDCore2D_1_1BPNC__StefanPME_a33d159dc2e762c21926b85a21e38c5d8}{grad\+\_\+function\+\_\+type}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nc} & instance of the core nonconforming class (with basis functions, etc.) \\
+\hline
+{\em kappa} & diffusion tensor \\
+\hline
+{\em deg\+\_\+kappa} & polynomial degree of the diffusion tensor \\
+\hline
+{\em source} & source term \\
+\hline
+{\em BC} & type of boundary conditions \\
+\hline
+{\em exact\+\_\+solution} & exact solution \\
+\hline
+{\em grad\+\_\+exact\+\_\+solution} & gradient of the exact solution \\
+\hline
+{\em zeta} & function describing the nonlinearity \\
+\hline
+{\em weight} & proportion of weight (between 0 and 1) of mass-\/lumping on the edges \\
+\hline
+{\em solver\+\_\+type} & type of solver to use for the global system (bicgstab at the moment) \\
+\hline
+{\em output} & optional argument for output of messages \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_ga063bc1a24f9fbe136809f447fc25a486}\label{group__BPNC_ga063bc1a24f9fbe136809f447fc25a486}} 
+\index{B\+P\+NC@{B\+P\+NC}!B\+P\+N\+C\+Core@{B\+P\+N\+C\+Core}}
+\index{B\+P\+N\+C\+Core@{B\+P\+N\+C\+Core}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{B\+P\+N\+C\+Core()}{BPNCCore()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::\+B\+P\+N\+C\+Core (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh\+\_\+ptr,  }\item[{const size\+\_\+t}]{K,  }\item[{const size\+\_\+t}]{L,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Class constructor\+: initialise the \hyperlink{classHArDCore2D_1_1BPNCCore}{B\+P\+N\+C\+Core} class, and creates non-\/conforming basis functions (and gradients) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+\_\+ptr} & A pointer to the loaded mesh \\
+\hline
+{\em K} & The degree of the edge polynomials \\
+\hline
+{\em L} & The degree of the cell polynomials \\
+\hline
+{\em output} & Optional argument for specifying outputs of messages. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_gab7cc52dd5f725b057ec52cca573bf15f}\label{group__BPNC_gab7cc52dd5f725b057ec52cca573bf15f}} 
+\index{B\+P\+NC@{B\+P\+NC}!grad\+\_\+nc\+\_\+basis\+\_\+quad@{grad\+\_\+nc\+\_\+basis\+\_\+quad}}
+\index{grad\+\_\+nc\+\_\+basis\+\_\+quad@{grad\+\_\+nc\+\_\+basis\+\_\+quad}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{grad\+\_\+nc\+\_\+basis\+\_\+quad()}{grad\_nc\_basis\_quad()}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::grad\+\_\+nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const Quadrature\+Rule}]{quad }\end{DoxyParamCaption}) const}
+
+
+
+Compute $(\nabla \phi_i^{nc})_{i\in I}$ at the quadrature nodes, where $(\phi_i^{nc})_{i\in I}$ are the cell basis functions. 
+
+\begin{DoxyReturn}{Returns}
+Dnc\+\_\+phi\+\_\+quad\mbox{[}i\mbox{]}\+: array of size 2$\ast$nbq (where nbq=nb of quadrature nodes), with each column being $\nabla \phi_i^{nc}$ at the corresponding quadrature node 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & global index of the cell \\
+\hline
+{\em quad} & quadrature rules in the cell \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_gaa3150fe82adc0be190b698e1b17f6bc8}\label{group__BPNC_gaa3150fe82adc0be190b698e1b17f6bc8}} 
+\index{B\+P\+NC@{B\+P\+NC}!gram\+\_\+matrix@{gram\+\_\+matrix}}
+\index{gram\+\_\+matrix@{gram\+\_\+matrix}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ double $>$}]{L2weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+
+Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of functions (this is not really a Gram matrix, unless the two families are the same) \begin{DoxyReturn}{Returns}
+The matrix $(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\end{DoxyReturn}
+Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of functions (this is not really a Gram matrix, unless the two families are the same) 
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+quad} & Values of functions (f1,f2,...) at the quadrature nodes \\
+\hline
+{\em g\+\_\+quad} & Values of functions (g1,g2,...) at the quadrature nodes \\
+\hline
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions f\+\_\+i (but could be less) \\
+\hline
+{\em ncols} & Number of columns of the matrix -\/ typically number of functions g\+\_\+j (but could be less) \\
+\hline
+{\em quad} & Quadrature nodes for integration \\
+\hline
+{\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#f$<$=\#g and f\+\_\+i=g\+\_\+i if i$<$=\#f) \\
+\hline
+{\em L2weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$double$>$ of the weight at the quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_gaf92e85c265e2138324347e02c2b7847f}\label{group__BPNC_gaf92e85c265e2138324347e02c2b7847f}} 
+\index{B\+P\+NC@{B\+P\+NC}!gram\+\_\+matrix@{gram\+\_\+matrix}}
+\index{gram\+\_\+matrix@{gram\+\_\+matrix}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ Eigen\+::\+Matrix2d $>$}]{L2\+Weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. 
+
+\begin{DoxyReturn}{Returns}
+The matrix $(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em F\+\_\+quad} & Values of functions (F1,F2,...) at the quadrature nodes \\
+\hline
+{\em G\+\_\+quad} & Values of functions (G1,G2,...) at the quadrature nodes \\
+\hline
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions F\+\_\+i (but could be less) \\
+\hline
+{\em ncols} & Number of rows of the matrix -\/ typically number of functions G\+\_\+j (but could be less) \\
+\hline
+{\em quad} & Quadrature nodes for integration \\
+\hline
+{\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#F$<$=\#G and F\+\_\+i=G\+\_\+i if i$<$=\#F) \\
+\hline
+{\em L2\+Weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$\+Eigen\+::\+Matrix2d$>$ of the weight at the quadrature nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_ga554c5835189ff791d8db8f0e31c222dd}\label{group__BPNC_ga554c5835189ff791d8db8f0e31c222dd}} 
+\index{B\+P\+NC@{B\+P\+NC}!ml\+\_\+node@{ml\+\_\+node}}
+\index{ml\+\_\+node@{ml\+\_\+node}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{ml\+\_\+node()}{ml\_node()}}
+{\footnotesize\ttfamily const Vector\+Rd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::ml\+\_\+node (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the i\textquotesingle{}th nodal point in cell iT (for mass lumping) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global region number of the cell \\
+\hline
+{\em i} & The index of the desired nodal point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_ga169de49549ae3c009c54c24d72d2e0ec}\label{group__BPNC_ga169de49549ae3c009c54c24d72d2e0ec}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+basis@{nc\+\_\+basis}}
+\index{nc\+\_\+basis@{nc\+\_\+basis}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+basis()}{nc\_basis()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1BPNCCore_a3aa8544d9ea9ae31d70e65aaefb0e9c8}{B\+P\+N\+C\+Core\+::cell\+\_\+basis\+\_\+type} \& H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+basis (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a reference to the i\textquotesingle{}th non-\/conforming basis function of the cell iT. 
+
+For i=Dim\+Poly$<$\+Cell$>$(1) to nedge-\/1, nc\+\_\+basis(i\+T,i) is the basis function associated with edge i (that is, product of all distances to all other edges, scaled to have an integral over edge i equal to 1). For i=0, ..., Dim\+Poly$<$\+Cell$>$(1)-\/1 the basis function corresponds to 1, x, y, to which we subtract a linear combination of the basis functions corresponding to the edge in order to obtain basis functions with a zero integral on each edge 
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global region number of the cell \\
+\hline
+{\em i} & The index of the desired basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_gadab9f7a9f6d42f729a8dce8e358e4d00}\label{group__BPNC_gadab9f7a9f6d42f729a8dce8e358e4d00}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+basis\+\_\+quad@{nc\+\_\+basis\+\_\+quad}}
+\index{nc\+\_\+basis\+\_\+quad@{nc\+\_\+basis\+\_\+quad}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+basis\+\_\+quad()}{nc\_basis\_quad()}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const Quadrature\+Rule}]{quad }\end{DoxyParamCaption}) const}
+
+
+
+Computes non-\/conforming basis functions at the given quadrature nodes. 
+
+\begin{DoxyReturn}{Returns}
+nc\+\_\+phi\+\_\+quad\mbox{[}i\mbox{]} = array listing the nbq (=nb of quadrature nodes) values of the nonconforming $\phi^{nc}_i$ basis function at the quadrature nodes 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em iT} & global index of the cell/edge \\
+\hline
+{\em quad} & quadrature nodes and weights on the cell/edge \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_ga967af6ae54aa35135ab8edb9cb94f1cf}\label{group__BPNC_ga967af6ae54aa35135ab8edb9cb94f1cf}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+gradient@{nc\+\_\+gradient}}
+\index{nc\+\_\+gradient@{nc\+\_\+gradient}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+gradient()}{nc\_gradient()}}
+{\footnotesize\ttfamily const \hyperlink{classHArDCore2D_1_1BPNCCore_a3e1f027c19acfc768851fbdbb00f2eec}{B\+P\+N\+C\+Core\+::cell\+\_\+gradient\+\_\+type} \& H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+gradient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a reference to the gradient of the i\textquotesingle{}th non-\/conforming basis function of the cell iT. 
+
+The gradient functions are indexed the same as the basis functions. 
+\begin{DoxyParams}{Parameters}
+{\em iT} & The global region number of the cell \\
+\hline
+{\em i} & The index of the desired basis function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BPNC_ga28d174f3526b19d85e225b9db5f9de8e}\label{group__BPNC_ga28d174f3526b19d85e225b9db5f9de8e}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+interpolate\+\_\+ml@{nc\+\_\+interpolate\+\_\+ml}}
+\index{nc\+\_\+interpolate\+\_\+ml@{nc\+\_\+interpolate\+\_\+ml}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+interpolate\+\_\+ml()}{nc\_interpolate\_ml()}}
+{\footnotesize\ttfamily template$<$typename Function $>$ \\
+Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+ml (\begin{DoxyParamCaption}\item[{const Function \&}]{f,  }\item[{size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
+
+
+
+Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) 
+
+\begin{DoxyReturn}{Returns}
+X\+TF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BPNC_gad91a640f713f2f584b9280d7740f97da}\label{group__BPNC_gad91a640f713f2f584b9280d7740f97da}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+restr@{nc\+\_\+restr}}
+\index{nc\+\_\+restr@{nc\+\_\+restr}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+restr()}{nc\_restr()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+restr (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh,  }\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const}
+
+
+
+Extract from a global vector Xh of unknowns the non-\/conforming unknowns corresponding to cell iT. 
+
+\begin{DoxyReturn}{Returns}
+X\+TF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BPNC_ga2c3a632143dcb66992710d39cfb9ed42}\label{group__BPNC_ga2c3a632143dcb66992710d39cfb9ed42}} 
+\index{B\+P\+NC@{B\+P\+NC}!nc\+\_\+\+Vertex\+Values@{nc\+\_\+\+Vertex\+Values}}
+\index{nc\+\_\+\+Vertex\+Values@{nc\+\_\+\+Vertex\+Values}!B\+P\+NC@{B\+P\+NC}}
+\subsubsection{\texorpdfstring{nc\+\_\+\+Vertex\+Values()}{nc\_VertexValues()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+B\+P\+N\+C\+Core\+::nc\+\_\+\+Vertex\+Values (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{const double}]{weight = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+From a non-\/conforming discrete function, computes a vector of values at the vertices of the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Xh} & non-\/conforming function (coefficients on basis) \\
+\hline
+{\em weight} & weight put on the edge values when evaluating the functions at the vertices \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+
+# Boundary conditions (D, N, Mx)
+bc="D"  # N may not work...
+
+# Test case
+tcsol=-3
+tcdiff=1
+
+# Type of nonlinearity
+tcNL=2
+mPME=2
+
+# Weight of mass-lumping on edges
+weight=0
+
+# Source: exact (1) or zero (0)
+source=1
+
+# Solver
+solver_type="bicgstab"
+
+
+# Meshes: choose one family
+
+# Kershaw
+#mesh[1]="mesh4_1_1"
+#mesh[1]="mesh4_1_2"
+#mesh[2]="mesh4_1_3"
+#mesh[3]="mesh4_1_4"
+#mesh[4]="mesh4_1_5"
+#mesh[5]="mesh4_1_6"
+
+# Locally refined
+#mesh[1]="mesh3_2"
+#mesh[2]="mesh3_3"
+#mesh[3]="mesh3_4"
+#mesh[4]="mesh3_5"
+
+# Hexagonal
+mesh[1]="hexa1_1"
+mesh[2]="hexa1_2"
+mesh[3]="hexa1_3"
+#mesh[4]="hexa1_4"
+#mesh[5]="hexa1_5"
+
+
+

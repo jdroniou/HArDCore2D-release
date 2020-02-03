@@ -78,34 +78,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d27ba99f9f3e6f2a3e5311e6be19eba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a0d27ba99f9f3e6f2a3e5311e6be19eba">ElementQuad</a> (const <a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho, const size_t iT, const size_t doeT, const size_t doeF)</td></tr>
 <tr class="memdesc:a0d27ba99f9f3e6f2a3e5311e6be19eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor: loads the quadrature rules and values of basis functions/gradients at these points.  <a href="#a0d27ba99f9f3e6f2a3e5311e6be19eba">More...</a><br /></td></tr>
 <tr class="separator:a0d27ba99f9f3e6f2a3e5311e6be19eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga16951d0e488060237fbb5eee3c5194b2"><td class="memItemLeft" align="right" valign="top">
-QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga16951d0e488060237fbb5eee3c5194b2">get_quadT</a> () const</td></tr>
-<tr class="memdesc:ga16951d0e488060237fbb5eee3c5194b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules in cell. <br /></td></tr>
-<tr class="separator:ga16951d0e488060237fbb5eee3c5194b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0cde817c1cf12e839c3f195aa02498ba"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga0cde817c1cf12e839c3f195aa02498ba">get_phiT_quadT</a> () const</td></tr>
-<tr class="memdesc:ga0cde817c1cf12e839c3f195aa02498ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at cell quadrature rules in cell. <br /></td></tr>
-<tr class="separator:ga0cde817c1cf12e839c3f195aa02498ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8e43d7a9a64a009690c4890534e6549"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gae8e43d7a9a64a009690c4890534e6549">get_dphiT_quadT</a> () const</td></tr>
-<tr class="memdesc:gae8e43d7a9a64a009690c4890534e6549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at cell quadrature rules in cell. <br /></td></tr>
-<tr class="separator:gae8e43d7a9a64a009690c4890534e6549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa90e88daa7803576aaeb9edc3574e935"><td class="memItemLeft" align="right" valign="top">
-QuadratureRule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gaa90e88daa7803576aaeb9edc3574e935">get_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:gaa90e88daa7803576aaeb9edc3574e935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:gaa90e88daa7803576aaeb9edc3574e935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga89dc78ee0eea49e4a9725ed7df748ba9">get_phiT_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga89dc78ee0eea49e4a9725ed7df748ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; Eigen::ArrayXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga2c8a70eb42762e460ad31e4d43afb0e8">get_phiF_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of edges basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga2c8a70eb42762e460ad31e4d43afb0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga11e133360ae70b9aef714054b7de76a4"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga11e133360ae70b9aef714054b7de76a4">get_dphiT_quadF</a> (size_t ilF) const</td></tr>
-<tr class="memdesc:ga11e133360ae70b9aef714054b7de76a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at cell quadrature rules on edge with local number ilF. <br /></td></tr>
-<tr class="separator:ga11e133360ae70b9aef714054b7de76a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213822f156a19022e6bff238d438606d"><td class="memItemLeft" align="right" valign="top"><a id="a213822f156a19022e6bff238d438606d"></a>
+const QuadratureRule &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a213822f156a19022e6bff238d438606d">get_quadT</a> () const</td></tr>
+<tr class="memdesc:a213822f156a19022e6bff238d438606d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules in cell. <br /></td></tr>
+<tr class="separator:a213822f156a19022e6bff238d438606d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c8a69abf1995ea353668beb8c5b19b"><td class="memItemLeft" align="right" valign="top"><a id="a08c8a69abf1995ea353668beb8c5b19b"></a>
+const QuadratureRule &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a08c8a69abf1995ea353668beb8c5b19b">get_quadF</a> (size_t ilF) const</td></tr>
+<tr class="memdesc:a08c8a69abf1995ea353668beb8c5b19b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns quadrature rules on edge with local number ilF. <br /></td></tr>
+<tr class="separator:a08c8a69abf1995ea353668beb8c5b19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87443a1da538a16841f08e5a8c1dd8ee"><td class="memItemLeft" align="right" valign="top"><a id="a87443a1da538a16841f08e5a8c1dd8ee"></a>
+const boost::multi_array&lt; double, 2 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a87443a1da538a16841f08e5a8c1dd8ee">get_phiT_quadT</a> () const</td></tr>
+<tr class="memdesc:a87443a1da538a16841f08e5a8c1dd8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at cell quadrature nodes. <br /></td></tr>
+<tr class="separator:a87443a1da538a16841f08e5a8c1dd8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4962e2d0b866a3016b574f24c0d15940"><td class="memItemLeft" align="right" valign="top"><a id="a4962e2d0b866a3016b574f24c0d15940"></a>
+const boost::multi_array&lt; VectorRd, 2 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a4962e2d0b866a3016b574f24c0d15940">get_dphiT_quadT</a> () const</td></tr>
+<tr class="memdesc:a4962e2d0b866a3016b574f24c0d15940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at cell quadrature nodes. <br /></td></tr>
+<tr class="separator:a4962e2d0b866a3016b574f24c0d15940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d725c09a9086bfe42688d0f34d1669"><td class="memItemLeft" align="right" valign="top"><a id="ab8d725c09a9086bfe42688d0f34d1669"></a>
+const boost::multi_array&lt; double, 2 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#ab8d725c09a9086bfe42688d0f34d1669">get_phiT_quadF</a> (size_t ilF) const</td></tr>
+<tr class="memdesc:ab8d725c09a9086bfe42688d0f34d1669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of cell basis functions at edge quadrature nodes, for edge with local number ilF. <br /></td></tr>
+<tr class="separator:ab8d725c09a9086bfe42688d0f34d1669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0289327a67759deb2c311e75d4f6ce55"><td class="memItemLeft" align="right" valign="top"><a id="a0289327a67759deb2c311e75d4f6ce55"></a>
+const boost::multi_array&lt; double, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a0289327a67759deb2c311e75d4f6ce55">get_phiF_quadF</a> (size_t ilF) const</td></tr>
+<tr class="memdesc:a0289327a67759deb2c311e75d4f6ce55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of edge basis functions at edge quadrature nodes, for edge with local number ilF. <br /></td></tr>
+<tr class="separator:a0289327a67759deb2c311e75d4f6ce55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada65c8bf767b946fe72c466071698f6"><td class="memItemLeft" align="right" valign="top"><a id="aada65c8bf767b946fe72c466071698f6"></a>
+const boost::multi_array&lt; VectorRd, 2 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#aada65c8bf767b946fe72c466071698f6">get_dphiT_quadF</a> (size_t ilF) const</td></tr>
+<tr class="memdesc:aada65c8bf767b946fe72c466071698f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at edge quadrature nodes, for edge with local number ilF. <br /></td></tr>
+<tr class="separator:aada65c8bf767b946fe72c466071698f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c549d43c0a5171d0c14f6b56ffc843d"><td class="memItemLeft" align="right" valign="top">boost::multi_array&lt; VectorRd, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a3c549d43c0a5171d0c14f6b56ffc843d">get_vec_phiT_quadT</a> (size_t degree) const</td></tr>
+<tr class="memdesc:a3c549d43c0a5171d0c14f6b56ffc843d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: <img class="formulaInl" alt="$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$" src="form_77.png"/>.  <a href="#a3c549d43c0a5171d0c14f6b56ffc843d">More...</a><br /></td></tr>
+<tr class="separator:a3c549d43c0a5171d0c14f6b56ffc843d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad470965a0f66f62c1ffed045e2dd49fc"><td class="memItemLeft" align="right" valign="top">boost::multi_array&lt; VectorRd, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#ad470965a0f66f62c1ffed045e2dd49fc">get_vec_phiT_quadF</a> (size_t ilF, size_t degree) const</td></tr>
+<tr class="memdesc:ad470965a0f66f62c1ffed045e2dd49fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector cell basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get_vec_phiT_quadT.  <a href="#ad470965a0f66f62c1ffed045e2dd49fc">More...</a><br /></td></tr>
+<tr class="separator:ad470965a0f66f62c1ffed045e2dd49fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862a7cc1c7f5e62bcb26c5a2a14bb4ea"><td class="memItemLeft" align="right" valign="top">boost::multi_array&lt; VectorRd, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1ElementQuad.html#a862a7cc1c7f5e62bcb26c5a2a14bb4ea">get_vec_phiF_quadF</a> (size_t ilF, size_t degree) const</td></tr>
+<tr class="memdesc:a862a7cc1c7f5e62bcb26c5a2a14bb4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector edge basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get_vec_phiT_quadT.  <a href="#a862a7cc1c7f5e62bcb26c5a2a14bb4ea">More...</a><br /></td></tr>
+<tr class="separator:a862a7cc1c7f5e62bcb26c5a2a14bb4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classHArDCore2D_1_1ElementQuad.html">ElementQuad</a> class creates cell and edge quadrature rules, and vectors of values of basis functions and gradients at these points </p>
@@ -152,9 +161,111 @@ std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hho</td><td>A reference to the hybridcore instance </td></tr>
-    <tr><td class="paramname">iT</td><td>Number of cell </td></tr>
+    <tr><td class="paramname">iT</td><td>Global index of cell </td></tr>
     <tr><td class="paramname">doeT</td><td>The degree of exactness for cell quadratures </td></tr>
     <tr><td class="paramname">doeF</td><td>The degree of exactness of edge quadratures </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a862a7cc1c7f5e62bcb26c5a2a14bb4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862a7cc1c7f5e62bcb26c5a2a14bb4ea">&#9670;&nbsp;</a></span>get_vec_phiF_quadF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::multi_array&lt; VectorRd, 2 &gt; ElementQuad::get_vec_phiF_quadF </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ilF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>degree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds on the fly the values of vector edge basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get_vec_phiT_quadT. </p>
+<dl class="section return"><dt>Returns</dt><dd>vec_phiT_quadT such that, for r=0,..,dim-1 and i=0,..,DimPoly&lt;Cell&gt;(degree)-1, vec_phiT_quadT[r*DimPoly&lt;Cell&gt;(degree)-1 + i] has, on its row r, the values of the i-th scalar basis function at the quadrature nodes, and 0 on its other rows. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>local number of edge required degree of basis function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad470965a0f66f62c1ffed045e2dd49fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad470965a0f66f62c1ffed045e2dd49fc">&#9670;&nbsp;</a></span>get_vec_phiT_quadF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::multi_array&lt; VectorRd, 2 &gt; ElementQuad::get_vec_phiT_quadF </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ilF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>degree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds on the fly the values of vector cell basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get_vec_phiT_quadT. </p>
+<dl class="section return"><dt>Returns</dt><dd>vec_phiT_quadT such that, for r=0,..,dim-1 and i=0,..,DimPoly&lt;Cell&gt;(degree)-1, vec_phiT_quadT[r*DimPoly&lt;Cell&gt;(degree)-1 + i] has, on its row r, the values of the i-th scalar basis function at the quadrature nodes, and 0 on its other rows. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>local number of edge maximum degree of basis functions required </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c549d43c0a5171d0c14f6b56ffc843d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c549d43c0a5171d0c14f6b56ffc843d">&#9670;&nbsp;</a></span>get_vec_phiT_quadT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::multi_array&lt; VectorRd, 2 &gt; ElementQuad::get_vec_phiT_quadT </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>degree</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: <img class="formulaInl" alt="$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$" src="form_77.png"/>. </p>
+<dl class="section return"><dt>Returns</dt><dd>vec_phiT_quadT such that, for r=0,..,dim-1 and i=0,..,DimPoly&lt;Cell&gt;(degree)-1, vec_phiT_quadT[r*DimPoly&lt;Cell&gt;(degree)-1 + i] has, on its row r, the values of the i-th scalar basis function at the quadrature nodes, and 0 on its other rows. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>maximal degree of basis functions that is required </td></tr>
   </table>
   </dd>
 </dl>

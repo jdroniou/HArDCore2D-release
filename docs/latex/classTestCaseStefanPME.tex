@@ -1,0 +1,168 @@
+\hypertarget{classTestCaseStefanPME}{}\section{Test\+Case\+Stefan\+P\+ME Class Reference}
+\label{classTestCaseStefanPME}\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+
+
+The \hyperlink{classTestCaseStefanPME}{Test\+Case\+Stefan\+P\+ME} class provides definition of test cases (exact solution, diffusion) for the Stefan and P\+ME problems.  
+
+
+
+
+{\ttfamily \#include $<$Test\+Case\+Stefan\+P\+M\+E.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTestCaseStefanPME_a5e456675c254048c7a087d4d2f1466c8}{Test\+Case\+Stefan\+P\+ME} (const std\+::vector$<$ int $>$ i\+T\+CS)
+\begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
+double \hyperlink{classTestCaseStefanPME_adb724181b45dfacc154d6bbc2fe66aed}{sol} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the exact solution at the points x, y. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector2d \hyperlink{classTestCaseStefanPME_a9beffb89d9ccf0e0092df1eac1beac6e}{grad\+\_\+sol} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns the gradient of the exact solution at the points x, y. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix2d \hyperlink{classTestCaseStefanPME_a54e4ead2ac700269fd940dcdd739f517}{hess\+\_\+sol} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns the Hessian of the exact solution at the points x, y. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix2d \hyperlink{classTestCaseStefanPME_ae99d679c24d05b295bcd01538c175a6d}{diff} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector2d \hyperlink{classTestCaseStefanPME_a8c85fa8375fbc6c42461dd4562d53ce3}{div\+\_\+diff} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns the divergence by row of the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
+double \hyperlink{classTestCaseStefanPME_a674169b5716f534375eabde0b5b2e7f3}{source} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns the source term at the points x, y. \end{DoxyCompactList}\item 
+double \hyperlink{group__TestCases_ga6a35b05916ba0fe5a3574778b597fab5}{get\+\_\+lambda} ()
+\begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCaseStefanPME_a5ee3e8ea52cb1168e65bc09619680e7e}\label{classTestCaseStefanPME_a5ee3e8ea52cb1168e65bc09619680e7e}} 
+void \hyperlink{classTestCaseStefanPME_a5ee3e8ea52cb1168e65bc09619680e7e}{validate} ()
+\begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__TestCases_gad12abb16eefb6bbc83b2668dcfab4cee}{get\+\_\+deg\+\_\+diff} ()
+\begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCaseStefanPME_a80a585412b30c38dc1c257179894c445}\label{classTestCaseStefanPME_a80a585412b30c38dc1c257179894c445}} 
+Eigen\+::\+Vector2d {\bfseries translate} (double x, double y) const
+\item 
+\mbox{\Hypertarget{classTestCaseStefanPME_a5df8bcc38342baba9fc8763ee2f4adee}\label{classTestCaseStefanPME_a5df8bcc38342baba9fc8763ee2f4adee}} 
+double {\bfseries radial} (const double x, const double y) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTestCaseStefanPME}{Test\+Case\+Stefan\+P\+ME} class provides definition of test cases (exact solution, diffusion) for the Stefan and P\+ME problems. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTestCaseStefanPME_a5e456675c254048c7a087d4d2f1466c8}\label{classTestCaseStefanPME_a5e456675c254048c7a087d4d2f1466c8}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{Test\+Case\+Stefan\+P\+M\+E()}{TestCaseStefanPME()}}
+{\footnotesize\ttfamily Test\+Case\+Stefan\+P\+M\+E\+::\+Test\+Case\+Stefan\+P\+ME (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$}]{i\+T\+CS }\end{DoxyParamCaption})}
+
+
+
+Initialise data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+T\+CS} & The vector id of the test case\+: (id of solution, id of diffusion). For positive id of solutions, we take the solutions from Test\+Case.\+cpp. Otherwise, it\textquotesingle{}s specific solutions for Stefan or P\+ME. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCaseStefanPME_ae99d679c24d05b295bcd01538c175a6d}\label{classTestCaseStefanPME_ae99d679c24d05b295bcd01538c175a6d}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!diff@{diff}}
+\index{diff@{diff}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+Stefan\+P\+M\+E\+::diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns the diffusion matrix at the points x, y. 
+
+i\+T\+CS\mbox{[}1\mbox{]}=1\+: Diff = Id
+
+i\+T\+CS\mbox{[}1\mbox{]}=2\+: Diff = $\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
+
+i\+T\+CS\mbox{[}1\mbox{]}=3\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$ if $y<1/2$, Diff=Id if $y\ge 1/2$. Only valid with i\+T\+CS\mbox{[}0\mbox{]}=2 ( $\partial_x u$ must vanish along $y=1/2$).
+
+i\+T\+CS\mbox{[}1\mbox{]}=4\+: rotating diffusion. Diff= $\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 & (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} & \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$, where $\bar{x}=x+0.1$ and $\bar{y}=y+0.1$.
+
+i\+T\+CS\mbox{[}1\mbox{]}=5\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$. 
+\begin{DoxyParams}{Parameters}
+{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTestCaseStefanPME_a8c85fa8375fbc6c42461dd4562d53ce3}\label{classTestCaseStefanPME_a8c85fa8375fbc6c42461dd4562d53ce3}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!div\+\_\+diff@{div\+\_\+diff}}
+\index{div\+\_\+diff@{div\+\_\+diff}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{div\+\_\+diff()}{div\_diff()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+Stefan\+P\+M\+E\+::div\+\_\+diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns the divergence by row of the diffusion matrix at the points x, y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTestCaseStefanPME_a9beffb89d9ccf0e0092df1eac1beac6e}\label{classTestCaseStefanPME_a9beffb89d9ccf0e0092df1eac1beac6e}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!grad\+\_\+sol@{grad\+\_\+sol}}
+\index{grad\+\_\+sol@{grad\+\_\+sol}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{grad\+\_\+sol()}{grad\_sol()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+Stefan\+P\+M\+E\+::grad\+\_\+sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns the gradient of the exact solution at the points x, y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTestCaseStefanPME_a54e4ead2ac700269fd940dcdd739f517}\label{classTestCaseStefanPME_a54e4ead2ac700269fd940dcdd739f517}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!hess\+\_\+sol@{hess\+\_\+sol}}
+\index{hess\+\_\+sol@{hess\+\_\+sol}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{hess\+\_\+sol()}{hess\_sol()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+Stefan\+P\+M\+E\+::hess\+\_\+sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns the Hessian of the exact solution at the points x, y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTestCaseStefanPME_adb724181b45dfacc154d6bbc2fe66aed}\label{classTestCaseStefanPME_adb724181b45dfacc154d6bbc2fe66aed}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!sol@{sol}}
+\index{sol@{sol}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{sol()}{sol()}}
+{\footnotesize\ttfamily double Test\+Case\+Stefan\+P\+M\+E\+::sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y }\end{DoxyParamCaption})}
+
+
+
+Returns the exact solution at the points x, y. 
+
+i\+T\+CS\mbox{[}0\mbox{]}=-\/1, $u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$ if $\frac{x+y}{\sqrt{2}}>\gamma$.
+
+i\+T\+CS\mbox{[}0\mbox{]}=-\/2, $u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$.
+
+i\+T\+CS\mbox{[}0\mbox{]}=-\/3, $u=max(\rho - r^2, 0)$ where $r^2=(x-.5)^2+(y-.5)^2$. \mbox{\Hypertarget{classTestCaseStefanPME_a674169b5716f534375eabde0b5b2e7f3}\label{classTestCaseStefanPME_a674169b5716f534375eabde0b5b2e7f3}} 
+\index{Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}!source@{source}}
+\index{source@{source}!Test\+Case\+Stefan\+P\+ME@{Test\+Case\+Stefan\+P\+ME}}
+\subsubsection{\texorpdfstring{source()}{source()}}
+{\footnotesize\ttfamily double Test\+Case\+Stefan\+P\+M\+E\+::source (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns the source term at the points x, y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Test\+Case/Test\+Case\+Stefan\+P\+M\+E.\+hpp\item 
+Schemes/\+Test\+Case/Test\+Case\+Stefan\+P\+M\+E.\+cpp\end{DoxyCompactItemize}

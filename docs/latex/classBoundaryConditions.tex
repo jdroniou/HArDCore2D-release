@@ -1,0 +1,77 @@
+\hypertarget{classBoundaryConditions}{}\section{Boundary\+Conditions Class Reference}
+\label{classBoundaryConditions}\index{Boundary\+Conditions@{Boundary\+Conditions}}
+
+
+The \hyperlink{classBoundaryConditions}{Boundary\+Conditions} class provides definition of boundary conditions.  
+
+
+
+
+{\ttfamily \#include $<$Boundary\+Conditions.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoundaryConditions_a5f9b50ca35f0fcee51e84e015223396c}{Boundary\+Conditions} (const std\+::string bc\+\_\+id, \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} \&mesh)
+\begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
+const std\+::string \hyperlink{classBoundaryConditions_abaeb77c2484042f248639f1806fe8e72}{type} (const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&edge) const
+\begin{DoxyCompactList}\small\item\em Test the boundary condition of an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditions_ad3c69b47183027c427ff6404875da645}\label{classBoundaryConditions_ad3c69b47183027c427ff6404875da645}} 
+const size\+\_\+t \hyperlink{classBoundaryConditions_ad3c69b47183027c427ff6404875da645}{n\+\_\+dir\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of Dirichlet edges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditions_ac3609733d5e7e43e9240d0a8b05d17ba}\label{classBoundaryConditions_ac3609733d5e7e43e9240d0a8b05d17ba}} 
+const std\+::string \hyperlink{classBoundaryConditions_ac3609733d5e7e43e9240d0a8b05d17ba}{name} () const
+\begin{DoxyCompactList}\small\item\em Returns the complete name of the boundary condition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditions_ad3d79d4870a388b5e796c3bb25891e59}\label{classBoundaryConditions_ad3d79d4870a388b5e796c3bb25891e59}} 
+void \hyperlink{classBoundaryConditions_ad3d79d4870a388b5e796c3bb25891e59}{reorder\+\_\+edges} ()
+\begin{DoxyCompactList}\small\item\em Re-\/order edges of the mesh to put the Dirichlet edges at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classBoundaryConditions}{Boundary\+Conditions} class provides definition of boundary conditions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBoundaryConditions_a5f9b50ca35f0fcee51e84e015223396c}\label{classBoundaryConditions_a5f9b50ca35f0fcee51e84e015223396c}} 
+\index{Boundary\+Conditions@{Boundary\+Conditions}!Boundary\+Conditions@{Boundary\+Conditions}}
+\index{Boundary\+Conditions@{Boundary\+Conditions}!Boundary\+Conditions@{Boundary\+Conditions}}
+\subsubsection{\texorpdfstring{Boundary\+Conditions()}{BoundaryConditions()}}
+{\footnotesize\ttfamily Boundary\+Conditions\+::\+Boundary\+Conditions (\begin{DoxyParamCaption}\item[{const std\+::string}]{bc\+\_\+id,  }\item[{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh} \&}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Initialise data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bc\+\_\+id} & The identifier for the boundary condition (D, N or Mx) \\
+\hline
+{\em mesh} & reference to the mesh \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBoundaryConditions_abaeb77c2484042f248639f1806fe8e72}\label{classBoundaryConditions_abaeb77c2484042f248639f1806fe8e72}} 
+\index{Boundary\+Conditions@{Boundary\+Conditions}!type@{type}}
+\index{type@{type}!Boundary\+Conditions@{Boundary\+Conditions}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const std\+::string Boundary\+Conditions\+::type (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&}]{edge }\end{DoxyParamCaption}) const}
+
+
+
+Test the boundary condition of an edge. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}dir\char`\"{} or \char`\"{}neu\char`\"{} depending if the edge is a Dirichlet or Neumann boundary condition, as determined by m\+\_\+bc\+\_\+id below. For an internal edge, returns \char`\"{}int\char`\"{}. m\+\_\+bc\+\_\+id = \char`\"{}\+D\char`\"{}\+: all edges are Dirichlet m\+\_\+bc\+\_\+id = \char`\"{}\+N\char`\"{}\+: all edges are Neumann m\+\_\+bc\+\_\+id = \char`\"{}\+Mx\char`\"{} (x=0,1,...)\+: various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & Edge on which to check the boundary condition \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Test\+Case/Boundary\+Conditions.\+hpp\item 
+Schemes/\+Test\+Case/Boundary\+Conditions.\+cpp\end{DoxyCompactItemize}

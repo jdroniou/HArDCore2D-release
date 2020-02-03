@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['quadrature_5fover_5fcell',['quadrature_over_cell',['../group__HybridCore.html#ga3c33c8cec55dbe2d8873e53fcd43d01f',1,'HArDCore2D::HybridCore']]],
-  ['quadrature_5fover_5fedge',['quadrature_over_edge',['../group__HybridCore.html#gafbf9c61f2d929331197ba971b52b8710',1,'HArDCore2D::HybridCore']]],
-  ['quadruletriangle',['QuadRuleTriangle',['../classHArDCore2D_1_1QuadRuleTriangle.html#a83a432b56c03fffa615ec85f5dfd57d7',1,'HArDCore2D::QuadRuleTriangle']]]
+  ['operator_28_29',['operator()',['../classHArDCore2D_1_1UVector.html#afede4bb5d9e9d4ea1255f84911217ef1',1,'HArDCore2D::UVector']]],
+  ['operator_2b',['operator+',['../classHArDCore2D_1_1UVector.html#a4e485116ef8d2bbdbdffaab1b3377ba5',1,'HArDCore2D::UVector']]],
+  ['operator_2d',['operator-',['../classHArDCore2D_1_1UVector.html#a6256a41660c0ca12280dfc93f7cc890d',1,'HArDCore2D::UVector']]]
 ];

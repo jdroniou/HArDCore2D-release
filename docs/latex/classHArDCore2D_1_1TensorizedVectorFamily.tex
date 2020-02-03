@@ -1,0 +1,80 @@
+\hypertarget{classHArDCore2D_1_1TensorizedVectorFamily}{}\section{H\+Ar\+D\+Core2D\+:\+:Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$ Class Template Reference}
+\label{classHArDCore2D_1_1TensorizedVectorFamily}\index{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$@{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$}}
+
+
+{\ttfamily \#include $<$basis.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a55ec3e0805c4dd4a6758a94d04924520}\label{classHArDCore2D_1_1TensorizedVectorFamily_a55ec3e0805c4dd4a6758a94d04924520}} 
+typedef Eigen\+::\+Matrix$<$ double, N, 1 $>$ {\bfseries Function\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a03e55037df352b512c181687d4526b11}\label{classHArDCore2D_1_1TensorizedVectorFamily_a03e55037df352b512c181687d4526b11}} 
+typedef Eigen\+::\+Matrix$<$ double, N, dimspace $>$ {\bfseries Gradient\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a88c7890d4b589d1e2cbe582445e638bb}\label{classHArDCore2D_1_1TensorizedVectorFamily_a88c7890d4b589d1e2cbe582445e638bb}} 
+typedef Vector\+Rd {\bfseries Curl\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_ab1dda1064d631768943c7658d2e69edd}\label{classHArDCore2D_1_1TensorizedVectorFamily_ab1dda1064d631768943c7658d2e69edd}} 
+typedef double {\bfseries Divergence\+Value}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_ad1c8c80da131a654a1a91a43e379cc57}\label{classHArDCore2D_1_1TensorizedVectorFamily_ad1c8c80da131a654a1a91a43e379cc57}} 
+typedef Scalar\+Family\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_afbbde5d4b671418870cbbd903a0a409b}\label{classHArDCore2D_1_1TensorizedVectorFamily_afbbde5d4b671418870cbbd903a0a409b}} 
+{\bfseries Tensorized\+Vector\+Family} (const Scalar\+Family\+Type \&scalar\+\_\+family)
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_abdcbe0043887c0aa46065409f1731a83}\label{classHArDCore2D_1_1TensorizedVectorFamily_abdcbe0043887c0aa46065409f1731a83}} 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily_abdcbe0043887c0aa46065409f1731a83}{dimension} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a52d9aaac677abb3a81b32c5542e55ea4}\label{classHArDCore2D_1_1TensorizedVectorFamily_a52d9aaac677abb3a81b32c5542e55ea4}} 
+Function\+Value \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily_a52d9aaac677abb3a81b32c5542e55ea4}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a46500da07e2cb4cfe8ead5ffe8dbc586}\label{classHArDCore2D_1_1TensorizedVectorFamily_a46500da07e2cb4cfe8ead5ffe8dbc586}} 
+Gradient\+Value \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily_a46500da07e2cb4cfe8ead5ffe8dbc586}{gradient} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a187befd7daa85ec049e41706ea1d5de2}\label{classHArDCore2D_1_1TensorizedVectorFamily_a187befd7daa85ec049e41706ea1d5de2}} 
+Curl\+Value \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily_a187befd7daa85ec049e41706ea1d5de2}{curl} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a6e852fda44755e4ca0a8ffac94d97d16}\label{classHArDCore2D_1_1TensorizedVectorFamily_a6e852fda44755e4ca0a8ffac94d97d16}} 
+Divergence\+Value \hyperlink{classHArDCore2D_1_1TensorizedVectorFamily_a6e852fda44755e4ca0a8ffac94d97d16}{divergence} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_aada1d8a90047badc9910b9b312e6300e}\label{classHArDCore2D_1_1TensorizedVectorFamily_aada1d8a90047badc9910b9b312e6300e}} 
+static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a11bea467eab12156126ffc5d296ffecc}\label{classHArDCore2D_1_1TensorizedVectorFamily_a11bea467eab12156126ffc5d296ffecc}} 
+static const bool {\bfseries has\+Function} = Scalar\+Family\+Type\+::has\+Function
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a118c8e9bbbe5d63d2ce9575adf4e02eb}\label{classHArDCore2D_1_1TensorizedVectorFamily_a118c8e9bbbe5d63d2ce9575adf4e02eb}} 
+static const bool {\bfseries has\+Gradient} = Scalar\+Family\+Type\+::has\+Gradient
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a67fc626998e10c80c40b9419e013e538}\label{classHArDCore2D_1_1TensorizedVectorFamily_a67fc626998e10c80c40b9419e013e538}} 
+static const bool {\bfseries has\+Divergence} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1TensorizedVectorFamily_a440a12913a7f63653b9766e4180c5884}\label{classHArDCore2D_1_1TensorizedVectorFamily_a440a12913a7f63653b9766e4180c5884}} 
+static const bool {\bfseries has\+Curl} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Scalar\+Family\+Type, size\+\_\+t N$>$\newline
+class H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$}
+
+Vector family obtained by tensorization of a scalar family The tensorization is done the following way\+: if (f\+\_\+1,...,f\+\_\+r) is the family of scalar functions, the tensorized family of rank N is given by (where all vectors are columns of size N)\+:
+
+$\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)$
+
+The gradient values are therefore matrices of size N$\ast$r, where the gradients of the scalar functions are put in rows\+:
+
+$\left(\begin{array}{c}(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_1)^t\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_r)^t\end{array}\right)$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/basis.\+hpp\end{DoxyCompactItemize}

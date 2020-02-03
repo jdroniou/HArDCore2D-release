@@ -45,6 +45,7 @@ namespace HArDCore2D {
       // Do nothing
     }
 
+    /// Returns the quadrature point as an Eigen vector
     inline Eigen::Vector2d vector() const {
       return Eigen::Vector2d(x,y);
     }

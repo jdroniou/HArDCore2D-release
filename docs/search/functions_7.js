@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['i_5fcell',['i_cell',['../classHArDCore2D_1_1Mesh.html#aee5a30682d86cd7c130667fd4fdf395f',1,'HArDCore2D::Mesh']]],
-  ['i_5fedge',['i_edge',['../classHArDCore2D_1_1Mesh.html#acc84a2329361880a2f821d567149a1e8',1,'HArDCore2D::Mesh']]],
-  ['i_5fvertex',['i_vertex',['../classHArDCore2D_1_1Mesh.html#a58578f5f723f5e589ba498f74ddcbf08',1,'HArDCore2D::Mesh']]],
-  ['integrate_5fover_5fcell',['integrate_over_cell',['../group__HybridCore.html#ga64ffbc44306e06018efe3cea5a62f652',1,'HArDCore2D::HybridCore']]],
-  ['integrate_5fover_5fdomain',['integrate_over_domain',['../group__HybridCore.html#gab058c4e54d1e33c49e537b8d0f602848',1,'HArDCore2D::HybridCore']]],
-  ['integrate_5fover_5fedge',['integrate_over_edge',['../group__HybridCore.html#ga03f276ea9c905d64662c39b7555d560c',1,'HArDCore2D::HybridCore']]],
-  ['interpolate',['interpolate',['../group__HybridCore.html#ga71c953efc96f467cb24faa1b60ee9bb2',1,'HArDCore2D::HybridCore']]],
-  ['is_5fboundary',['is_boundary',['../group__Mesh.html#ga710ded03b7741c8377e0b2dda2395b46',1,'HArDCore2D::Cell::is_boundary()'],['../group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee',1,'HArDCore2D::Edge::is_boundary()'],['../group__Mesh.html#gaea5f04b0b268e3de29d3de7d9034b4fc',1,'HArDCore2D::Vertex::is_boundary()']]],
-  ['is_5fneighbour',['is_neighbour',['../classHArDCore2D_1_1Cell.html#ac752606c3c705df6140e20d3c7ae45a2',1,'HArDCore2D::Cell']]]
+  ['h1norm',['H1norm',['../classHArDCore2D_1_1HybridCore.html#ad6672e0691764ec5752eb1a9a7257792',1,'HArDCore2D::HybridCore']]],
+  ['h_5fmax',['h_max',['../group__Mesh.html#ga5f08b04ebac390a2ab8dfe956a90ebbf',1,'HArDCore2D::Mesh']]],
+  ['hess_5fsol',['hess_sol',['../classTestCase.html#aadf1375364b34ad3b9fa651eae5baa1e',1,'TestCase::hess_sol()'],['../classTestCaseStefanPME.html#a54e4ead2ac700269fd940dcdd739f517',1,'TestCaseStefanPME::hess_sol()']]],
+  ['hho_5fdiffusion',['HHO_Diffusion',['../group__HHO__Diffusion.html#ga5dd0238ced5e1ace4c0581d779e4e76d',1,'HArDCore2D::HHO_Diffusion']]],
+  ['hho_5flocvardiff',['HHO_LocVarDiff',['../group__HHO__LocVarDiff.html#ga82ef4509a6352116618e6753b5440e1d',1,'HArDCore2D::HHO_LocVarDiff']]],
+  ['hybridcore',['HybridCore',['../classHArDCore2D_1_1HybridCore.html#ac6d3499861364085cc61cdde5c2c1241',1,'HArDCore2D::HybridCore']]]
 ];

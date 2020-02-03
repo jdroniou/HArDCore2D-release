@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hho_5fdiffusion',['HHO_Diffusion',['../classHArDCore2D_1_1HHO__Diffusion.html',1,'HArDCore2D']]],
-  ['hho_5flocvardiff',['HHO_LocVarDiff',['../classHArDCore2D_1_1HHO__LocVarDiff.html',1,'HArDCore2D']]],
-  ['hybridcore',['HybridCore',['../classHArDCore2D_1_1HybridCore.html',1,'HArDCore2D']]]
+  ['edge',['Edge',['../classHArDCore2D_1_1Edge.html',1,'HArDCore2D']]],
+  ['elementquad',['ElementQuad',['../classHArDCore2D_1_1ElementQuad.html',1,'HArDCore2D']]],
+  ['evaluate_5fquad',['evaluate_quad',['../structHArDCore2D_1_1evaluate__quad.html',1,'HArDCore2D']]]
 ];

@@ -8,18 +8,24 @@ outdir=$dirall"/outputs/";
 
 
 # Check parameter
-if [[ $# -ne 1 ]]; then
+if [[ $# == 0 ]]; then
   exit;
 fi;
 scheme=$1;
 # Load data
-. data.sh
+datafile=$(readlink -f data.sh);
+if [ $# == 2 ]; then
+  datafile=$(readlink -f $2);
+fi
+echo -e "Using data file $datafile\n"
+. $datafile
 
 # Create/clean output directory
-if [ ! -d $outdir ]; then
-  mkdir $outdir
+if [ -d $outdir ]; then
+	\rm -r $outdir
 fi
-\rm -r $outdir/*
+mkdir $outdir
+
 
 # Go the scheme directory
 cd ../$scheme;
@@ -29,8 +35,8 @@ pwd;
 cp data.sh save-data.sh;
 
 # To determine the bounds of l: boundsl='all' if from k-1 to k+1, otherwise just l=k
-boundsl="all";
-#boundsl="k";
+#boundsl="all";
+boundsl="k";
 
 # Run the scheme for all values of k,l
 for (( k=0; k<=$kmax; k++))
@@ -48,7 +54,7 @@ do
   do
     if [[ $l -le $lmax ]];  then
       echo "k=$k, l=$l";
-      cat $dirall"/data.sh" | sed s/'^kmax=.'/'k='$k/ | sed s/'^lmax=.'/'l='$l/ > data.sh;
+      cat $datafile | sed s/'^kmax=.'/'k='$k/ | sed s/'^lmax=.'/'l='$l/ > data.sh;
       cp data.sh outputs/;
       ./runseries.sh > alloutput.k$k.l$l.txt;
       mv alloutput.k$k.l$l.txt outputs/;

@@ -2,27 +2,29 @@
 #
 
 # Edge and cell degrees
-kmax=2
-lmax=2
+kmax=1
+lmax=1
 
-# Choice basis
-#choice_basis="Mon"
-choice_basis="ON"
+# Use threads
+use_threads="true"
+
+# Export matrix
+export_matrix="true"
 
 # Boundary conditions (0=Dirichlet, 1=Neumann)
-bc=0
+bc="D"
 
 # Test case
 tcsol=2
-tcdiff=2
+tcdiff=1
 
 # Solver
 solver_type="bicgstab"
 #solver_type="ma41"
 
 # Meshes (without .typ2)
-#mesh[1]="cart10x10"
-#mesh[2]="cart20x20"
+mesh[1]="cart10x10"
+mesh[2]="cart20x20"
 #mesh[3]="cart40x40"
 #mesh[4]="cart80x80"
 
@@ -31,9 +33,9 @@ solver_type="bicgstab"
 #mesh[3]="mesh1_4"
 #mesh[4]="mesh1_5"
 
-mesh[1]="hexa1_1"
-mesh[2]="hexa1_2"
-mesh[3]="hexa1_3"
+#mesh[1]="hexa1_1"
+#mesh[2]="hexa1_2"
+#mesh[3]="hexa1_3"
 #mesh[4]="hexa1_4"
 #mesh[5]="hexa1_5"
 
