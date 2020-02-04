@@ -13,7 +13,7 @@ TARGET_LINK_LIBRARIES(hho-locvardiff mesh quadrature hybridcore plot ${Boost_LIB
 TARGET_INCLUDE_DIRECTORIES(hho-locvardiff PUBLIC ${EIGEN3_INCLUDE_DIR})
 
 # Bubble Polytopal Non-conforming for Stefan/PME
-ADD_EXECUTABLE(bpnc-stefanpme $<TARGET_OBJECTS:TestCase> $<TARGET_OBJECTS:TestCaseStefanPME> BPNC/BPNC_StefanPME.cpp)
-TARGET_LINK_LIBRARIES(bpnc-stefanpme mesh quadrature hybridcore plot ${Boost_LIBRARIES})
-TARGET_INCLUDE_DIRECTORIES(bpnc-stefanpme PUBLIC ${EIGEN3_INCLUDE_DIR})
+ADD_EXECUTABLE(lepnc-stefanpme $<TARGET_OBJECTS:TestCase> $<TARGET_OBJECTS:TestCaseStefanPME> LEPNC/LEPNC_StefanPME.cpp)
+TARGET_LINK_LIBRARIES(lepnc-stefanpme mesh quadrature hybridcore plot ${Boost_LIBRARIES})
+TARGET_INCLUDE_DIRECTORIES(lepnc-stefanpme PUBLIC ${EIGEN3_INCLUDE_DIR})
 
