@@ -134,7 +134,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga5c6454782d8290f926940267271951bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3a5604879e905ecb08cbf4dda5d9a33c"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
 <tr class="memitem:ga3a5604879e905ecb08cbf4dda5d9a33c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; BasisType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga3a5604879e905ecb08cbf4dda5d9a33c">HArDCore2D::l2_orthonormalize</a> (const BasisType &amp;basis, const QuadratureRule &amp;qr, boost::multi_array&lt; typename BasisType::FunctionValue, 2 &gt; &amp;basis_quad)</td></tr>
-<tr class="memdesc:ga3a5604879e905ecb08cbf4dda5d9a33c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><img class="formulaInl" alt="$L^2$" src="form_76.png"/>-orthonormalization: simply consists in using <a class="el" href="group__Basis.html#ga9ea7809705d01c7cf6bca57a457a44a4">gram_schmidt()</a> with the specific l2 inner product  <a href="group__Basis.html#ga3a5604879e905ecb08cbf4dda5d9a33c">More...</a><br /></td></tr>
+<tr class="memdesc:ga3a5604879e905ecb08cbf4dda5d9a33c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><img class="formulaInl" alt="$L^2$" src="form_63.png"/>-orthonormalization: simply consists in using <a class="el" href="group__Basis.html#ga9ea7809705d01c7cf6bca57a457a44a4">gram_schmidt()</a> with the specific l2 inner product  <a href="group__Basis.html#ga3a5604879e905ecb08cbf4dda5d9a33c">More...</a><br /></td></tr>
 <tr class="separator:ga3a5604879e905ecb08cbf4dda5d9a33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga29885facf8b5a576e7e0b609d1e3124f"><td class="memTemplParams" colspan="2">template&lt;typename FunctionValue &gt; </td></tr>
 <tr class="memitem:ga29885facf8b5a576e7e0b609d1e3124f"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga29885facf8b5a576e7e0b609d1e3124f">HArDCore2D::compute_gram_matrix</a> (const boost::multi_array&lt; FunctionValue, 2 &gt; &amp;B1, const boost::multi_array&lt; FunctionValue, 2 &gt; &amp;B2, const QuadratureRule &amp;qr, const size_t nrows, const size_t ncols, const std::string sym=&quot;nonsym&quot;)</td></tr>
@@ -636,7 +636,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gram-Schmidt algorithm to ortonormalize a basis. The matrix <img class="formulaInl" alt="$M$" src="form_57.png"/> returned by this function gives the coefficients in the original basis of the orthonormalised basis. If <img class="formulaInl" alt="$(f_1,...,f_r)$" src="form_54.png"/> is the original basis, the orthonormalised basis is <img class="formulaInl" alt="$(\phi_1,...,\phi_r)$" src="form_74.png"/> where <img class="formulaInl" alt="$\phi_i = \sum_j M_{ij}f_j$" src="form_75.png"/>.</p>
+<p>Gram-Schmidt algorithm to ortonormalize a basis. The matrix <img class="formulaInl" alt="$M$" src="form_44.png"/> returned by this function gives the coefficients in the original basis of the orthonormalised basis. If <img class="formulaInl" alt="$(f_1,...,f_r)$" src="form_41.png"/> is the original basis, the orthonormalised basis is <img class="formulaInl" alt="$(\phi_1,...,\phi_r)$" src="form_61.png"/> where <img class="formulaInl" alt="$\phi_i = \sum_j M_{ij}f_j$" src="form_62.png"/>.</p>
 <p>The function also modifies the variable basis_eval so that it contains the evaluation on at quadrature nodes of the new orthonormalised basis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -728,7 +728,7 @@ template&lt;typename BasisType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><img class="formulaInl" alt="$L^2$" src="form_76.png"/>-orthonormalization: simply consists in using <a class="el" href="group__Basis.html#ga9ea7809705d01c7cf6bca57a457a44a4">gram_schmidt()</a> with the specific l2 inner product </p>
+<p><img class="formulaInl" alt="$L^2$" src="form_63.png"/>-orthonormalization: simply consists in using <a class="el" href="group__Basis.html#ga9ea7809705d01c7cf6bca57a457a44a4">gram_schmidt()</a> with the specific l2 inner product </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">basis</td><td>basis to orthonormalise </td></tr>

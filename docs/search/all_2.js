@@ -2,8 +2,8 @@ var searchData=
 [
   ['calc_5fcell_5fgeometry_5ffactors',['calc_cell_geometry_factors',['../classHArDCore2D_1_1Cell.html#a6dfa6d2f4a0c971bc760538b73880a1c',1,'HArDCore2D::Cell']]],
   ['cell',['Cell',['../classHArDCore2D_1_1Cell.html',1,'HArDCore2D::Cell'],['../classHArDCore2D_1_1Cell.html#a419647e4f50c110f473ada556ef7a944',1,'HArDCore2D::Cell::Cell()'],['../classHArDCore2D_1_1Edge.html#ad4be0bfb981ccf2c1e02e870772dbdc3',1,'HArDCore2D::Edge::cell()'],['../classHArDCore2D_1_1Mesh.html#ae07b938c57cf57e3bb9c76d3df1eb549',1,'HArDCore2D::Mesh::cell()'],['../classHArDCore2D_1_1Vertex.html#a5054b903ff91506cc7d75afa44fd864b',1,'HArDCore2D::Vertex::cell()']]],
-  ['cell_5fbasis_5ftype',['cell_basis_type',['../classHArDCore2D_1_1BPNCCore.html#a3aa8544d9ea9ae31d70e65aaefb0e9c8',1,'HArDCore2D::BPNCCore']]],
-  ['cell_5fgradient_5ftype',['cell_gradient_type',['../classHArDCore2D_1_1BPNCCore.html#a3e1f027c19acfc768851fbdbb00f2eec',1,'HArDCore2D::BPNCCore']]],
+  ['cell_5fbasis_5ftype',['cell_basis_type',['../classHArDCore2D_1_1LEPNCCore.html#aa109ebacac881c65c20a3a80cfeffba7',1,'HArDCore2D::LEPNCCore']]],
+  ['cell_5fgradient_5ftype',['cell_gradient_type',['../classHArDCore2D_1_1LEPNCCore.html#a55bedecd14cffb98f57020923c968e89',1,'HArDCore2D::LEPNCCore']]],
   ['cellbasis',['CellBasis',['../classHArDCore2D_1_1HybridCore.html#afb3e4d056b781b2fff5e46466d47e0f3',1,'HArDCore2D::HybridCore']]],
   ['celldegree',['CellDegree',['../classHArDCore2D_1_1HybridCore.html#a39e2fbe7da3ab2425544b31fab6963f1',1,'HArDCore2D::HybridCore']]],
   ['center_5fmass',['center_mass',['../group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b',1,'HArDCore2D::Cell::center_mass()'],['../group__Mesh.html#ga41ebc04d2b292197a02a9afd25a76a18',1,'HArDCore2D::Edge::center_mass()']]],

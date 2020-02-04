@@ -12,14 +12,13 @@ As an example, when creating a mass matrix, the library requires the user to fir
 
 
 \begin{DoxyCode}
-std::vector<HybridCore::qrule> quadT = hho.cell\_qrule(iT, doe);<br>
-std::vector<Eigen::ArrayXd> phi\_quadT = hho.basis\_quad('T', iT, quadT, nb\_basis\_functions);<br>
-Eigen::MatrixXd MTT = hho.gram\_matrix(phi\_quadT, phi\_quadT, nb\_basis\_functions, nb\_basis\_functions, quadT,
-       true);
+QuadratureRule quadT = generate\_quadrature\_rule(T, 2*m\_K);<br>
+boost::multi\_array<double, 2> phiT\_quadT = evaluate\_quad<Function>::compute(basisT, quadT);<br>
+Eigen::MatrixXd MTT = compute\_gram\_matrix(phiT\_quadT, quadT);
 \end{DoxyCode}
 
 
-Note that the {\ttfamily Cell\+Edge\+Quad} class offers a convenient way to compute and store the quadrature rules and values of basis functions at the nodes, and makes it easy to pass these data to functions. More details and examples are provided in the documentation.
+Note that the {\ttfamily Element\+Quad} class offers a convenient way to compute and store the quadrature rules and values of basis functions at the nodes, and makes it easy to pass these data to functions. More details and examples are provided in the documentation.
 
 The implementations in this library follow general principles described in the appendix of the book \char`\"{}$\ast$\+The Hybrid High-\/\+Order Method for Polytopal Meshes\+: Design, Analysis, and Applications$\ast$\char`\"{} (D. A. Di Pietro and J. Droniou. 2019, 516p. url\+: \href{https://hal.archives-ouvertes.fr/hal-02151813}{\tt https\+://hal.\+archives-\/ouvertes.\+fr/hal-\/02151813}). High-\/order methods with hybrid unknowns have certain specificities which sometimes require fine choices, e.\+g. of basis functions (hierarchical, orthonormalised or not), etc. We refer to the aformentioned manuscript for discussion on these specificities. If using the code provided here, or part thereof, for a scientific publication, please refer to this book for details on the implementation choices.
 

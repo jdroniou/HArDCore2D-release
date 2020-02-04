@@ -5,7 +5,7 @@ var searchData=
   ['edgebasis',['EdgeBasis',['../classHArDCore2D_1_1HybridCore.html#a9394b577ae67c9aa2289095bfedc38e2',1,'HArDCore2D::HybridCore']]],
   ['edgedegree',['EdgeDegree',['../classHArDCore2D_1_1HybridCore.html#a58775081d94627e58f88f6043ed87bec',1,'HArDCore2D::HybridCore']]],
   ['elementquad',['ElementQuad',['../classHArDCore2D_1_1ElementQuad.html',1,'HArDCore2D::ElementQuad'],['../classHArDCore2D_1_1ElementQuad.html#a0d27ba99f9f3e6f2a3e5311e6be19eba',1,'HArDCore2D::ElementQuad::ElementQuad()']]],
-  ['energynorm',['EnergyNorm',['../group__BPNC.html#ga494151015dbd833a691e50f78966c82d',1,'HArDCore2D::BPNC_StefanPME::EnergyNorm()'],['../group__HHO__Diffusion.html#ga9f9382eebdf3542db2e11d7770e90565',1,'HArDCore2D::HHO_Diffusion::EnergyNorm()'],['../group__HHO__LocVarDiff.html#ga11896824f2d3a743fd7caabeb396f158',1,'HArDCore2D::HHO_LocVarDiff::EnergyNorm()']]],
+  ['energynorm',['EnergyNorm',['../group__HHO__Diffusion.html#ga9f9382eebdf3542db2e11d7770e90565',1,'HArDCore2D::HHO_Diffusion::EnergyNorm()'],['../group__HHO__LocVarDiff.html#ga11896824f2d3a743fd7caabeb396f158',1,'HArDCore2D::HHO_LocVarDiff::EnergyNorm()'],['../group__LEPNC.html#ga764da9fe2d73272eb3630f6009c992ec',1,'HArDCore2D::LEPNC_StefanPME::EnergyNorm()']]],
   ['evaluate_5fin_5fcell',['evaluate_in_cell',['../classHArDCore2D_1_1HybridCore.html#a9c76abf42a1d56fbf863d8258690497c',1,'HArDCore2D::HybridCore']]],
   ['evaluate_5fin_5fedge',['evaluate_in_edge',['../classHArDCore2D_1_1HybridCore.html#ab43816ad8a9a91f841fdb4cea0781f54',1,'HArDCore2D::HybridCore']]],
   ['evaluate_5fquad',['evaluate_quad',['../structHArDCore2D_1_1evaluate__quad.html',1,'HArDCore2D']]]

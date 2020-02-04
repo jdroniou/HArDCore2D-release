@@ -8,6 +8,6 @@ var searchData=
   ['shared_5fedge',['shared_edge',['../classHArDCore2D_1_1Cell.html#a80ddbe4dea925baeec6da304a0873a2c',1,'HArDCore2D::Cell']]],
   ['shiftedbasis',['ShiftedBasis',['../classHArDCore2D_1_1ShiftedBasis.html#adb935c3f74623dbd29c124c0c6dc605e',1,'HArDCore2D::ShiftedBasis']]],
   ['sol',['sol',['../classTestCase.html#aede719dac81c460c713d930a379c537e',1,'TestCase::sol()'],['../classTestCaseStefanPME.html#adb724181b45dfacc154d6bbc2fe66aed',1,'TestCaseStefanPME::sol()']]],
-  ['solve',['solve',['../group__BPNC.html#ga8729ab99cd04c0ef4c6b2556805d1e8d',1,'HArDCore2D::BPNC_StefanPME']]],
+  ['solve',['solve',['../group__LEPNC.html#gad11f3d66f37d4811e1c58ac860f60e38',1,'HArDCore2D::LEPNC_StefanPME']]],
   ['source',['source',['../classTestCase.html#a5b2e54e9f17ac2ec9c1d675f97fbe335',1,'TestCase::source()'],['../classTestCaseStefanPME.html#a674169b5716f534375eabde0b5b2e7f3',1,'TestCaseStefanPME::source()']]]
 ];

@@ -178,10 +178,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>radial</b> (const d
 
 <p>Returns the diffusion matrix at the points x, y. </p>
 <p>iTCS[1]=1: Diff = Id</p>
-<p>iTCS[1]=2: Diff = <img class="formulaInl" alt="$\left[\begin{array}{cc}y^2+1 &amp; -xy\\ -xy &amp; x^2+1\end{array}\right]$" src="form_19.png"/></p>
-<p>iTCS[1]=3: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_20.png"/> if <img class="formulaInl" alt="$y&lt;1/2$" src="form_21.png"/>, Diff=Id if <img class="formulaInl" alt="$y\ge 1/2$" src="form_22.png"/>. Only valid with iTCS[0]=2 ( <img class="formulaInl" alt="$\partial_x u$" src="form_23.png"/> must vanish along <img class="formulaInl" alt="$y=1/2$" src="form_24.png"/>).</p>
-<p>iTCS[1]=4: rotating diffusion. Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 &amp; (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} &amp; \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$" src="form_25.png"/>, where <img class="formulaInl" alt="$\bar{x}=x+0.1$" src="form_26.png"/> and <img class="formulaInl" alt="$\bar{y}=y+0.1$" src="form_27.png"/>.</p>
-<p>iTCS[1]=5: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_20.png"/>. </p>
+<p>iTCS[1]=2: Diff = <img class="formulaInl" alt="$\left[\begin{array}{cc}y^2+1 &amp; -xy\\ -xy &amp; x^2+1\end{array}\right]$" src="form_16.png"/></p>
+<p>iTCS[1]=3: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_17.png"/> if <img class="formulaInl" alt="$y&lt;1/2$" src="form_18.png"/>, Diff=Id if <img class="formulaInl" alt="$y\ge 1/2$" src="form_19.png"/>. Only valid with iTCS[0]=2 ( <img class="formulaInl" alt="$\partial_x u$" src="form_20.png"/> must vanish along <img class="formulaInl" alt="$y=1/2$" src="form_21.png"/>).</p>
+<p>iTCS[1]=4: rotating diffusion. Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 &amp; (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} &amp; \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$" src="form_22.png"/>, where <img class="formulaInl" alt="$\bar{x}=x+0.1$" src="form_23.png"/> and <img class="formulaInl" alt="$\bar{y}=y+0.1$" src="form_24.png"/>.</p>
+<p>iTCS[1]=5: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_17.png"/>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
@@ -344,9 +344,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>radial</b> (const d
 </div><div class="memdoc">
 
 <p>Returns the exact solution at the points x, y. </p>
-<p>iTCS[0]=-1, <img class="formulaInl" alt="$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$" src="form_49.png"/> if <img class="formulaInl" alt="$\frac{x+y}{\sqrt{2}}&gt;\gamma$" src="form_50.png"/>.</p>
-<p>iTCS[0]=-2, <img class="formulaInl" alt="$u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$" src="form_51.png"/>.</p>
-<p>iTCS[0]=-3, <img class="formulaInl" alt="$u=max(\rho - r^2, 0)$" src="form_52.png"/> where <img class="formulaInl" alt="$r^2=(x-.5)^2+(y-.5)^2$" src="form_53.png"/>. </p>
+<p>iTCS[0]=-1, <img class="formulaInl" alt="$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$" src="form_36.png"/> if <img class="formulaInl" alt="$\frac{x+y}{\sqrt{2}}&gt;\gamma$" src="form_37.png"/>.</p>
+<p>iTCS[0]=-2, <img class="formulaInl" alt="$u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$" src="form_38.png"/>.</p>
+<p>iTCS[0]=-3, <img class="formulaInl" alt="$u=max(\rho - r^2, 0)$" src="form_39.png"/> where <img class="formulaInl" alt="$r^2=(x-.5)^2+(y-.5)^2$" src="form_40.png"/>. </p>
 
 </div>
 </div>

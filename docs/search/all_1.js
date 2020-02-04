@@ -10,8 +10,5 @@ var searchData=
   ['basis_5fevaluation_5ftraits_3c_20basistype_2c_20function_20_3e',['basis_evaluation_traits&lt; BasisType, Function &gt;',['../structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Function_01_4.html',1,'HArDCore2D::detail']]],
   ['basis_5fevaluation_5ftraits_3c_20basistype_2c_20gradient_20_3e',['basis_evaluation_traits&lt; BasisType, Gradient &gt;',['../structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Gradient_01_4.html',1,'HArDCore2D::detail']]],
   ['boundaryconditions',['BoundaryConditions',['../classBoundaryConditions.html',1,'BoundaryConditions'],['../classBoundaryConditions.html#a5f9b50ca35f0fcee51e84e015223396c',1,'BoundaryConditions::BoundaryConditions()']]],
-  ['bpnc',['BPNC',['../group__BPNC.html',1,'']]],
-  ['bpnc_5fstefanpme',['BPNC_StefanPME',['../classHArDCore2D_1_1BPNC__StefanPME.html',1,'HArDCore2D::BPNC_StefanPME'],['../group__BPNC.html#ga85e80578aa553215feae11284549b354',1,'HArDCore2D::BPNC_StefanPME::BPNC_StefanPME()']]],
-  ['bpnccore',['BPNCCore',['../classHArDCore2D_1_1BPNCCore.html',1,'HArDCore2D::BPNCCore'],['../group__BPNC.html#ga063bc1a24f9fbe136809f447fc25a486',1,'HArDCore2D::BPNCCore::BPNCCore()']]],
   ['build_5fthe_5fmesh',['build_the_mesh',['../classHArDCore2D_1_1MeshBuilder.html#a0ef4a78ac64d1bcb6380317ea866758d',1,'HArDCore2D::MeshBuilder']]]
 ];

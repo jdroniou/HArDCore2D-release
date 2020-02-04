@@ -5,7 +5,7 @@ var searchData=
   ['mesh',['Mesh',['../classHArDCore2D_1_1Mesh.html',1,'HArDCore2D::Mesh'],['../classHArDCore2D_1_1Mesh.html#a2af137f1571af89172b9c102302c416b',1,'HArDCore2D::Mesh::Mesh()'],['../group__Mesh.html',1,'(Global Namespace)']]],
   ['meshbuilder',['MeshBuilder',['../classHArDCore2D_1_1MeshBuilder.html',1,'HArDCore2D::MeshBuilder'],['../classHArDCore2D_1_1MeshBuilder.html#a13fe22fd14a85f789dc9d7d4a8d2419d',1,'HArDCore2D::MeshBuilder::MeshBuilder()']]],
   ['meshreadertyp2',['MeshReaderTyp2',['../classHArDCore2D_1_1MeshReaderTyp2.html',1,'HArDCore2D::MeshReaderTyp2'],['../classHArDCore2D_1_1MeshReaderTyp2.html#a0b4f74d0e71a0efba9699e6960d43205',1,'HArDCore2D::MeshReaderTyp2::MeshReaderTyp2()']]],
-  ['ml_5fnode',['ml_node',['../group__BPNC.html#ga554c5835189ff791d8db8f0e31c222dd',1,'HArDCore2D::BPNCCore']]],
+  ['ml_5fnode',['ml_node',['../group__LEPNC.html#gaa71668de00ffbeccdd06b605737b0a74',1,'HArDCore2D::LEPNCCore']]],
   ['monomialscalarbasiscell',['MonomialScalarBasisCell',['../classHArDCore2D_1_1MonomialScalarBasisCell.html',1,'HArDCore2D::MonomialScalarBasisCell'],['../classHArDCore2D_1_1MonomialScalarBasisCell.html#a077d11dc2b2d74d11b72f165dc8d033a',1,'HArDCore2D::MonomialScalarBasisCell::MonomialScalarBasisCell()']]],
   ['monomialscalarbasisedge',['MonomialScalarBasisEdge',['../classHArDCore2D_1_1MonomialScalarBasisEdge.html',1,'HArDCore2D::MonomialScalarBasisEdge'],['../classHArDCore2D_1_1MonomialScalarBasisEdge.html#a1794a48fbd89584ed844950e0057f513',1,'HArDCore2D::MonomialScalarBasisEdge::MonomialScalarBasisEdge()']]]
 ];

@@ -66,7 +66,7 @@ The following schemes are currently available in H\+Ar\+D\+::\+Core2D. The Hybri
 \begin{DoxyItemize}
 \item \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+diffusion}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
 \item \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+locvardiff}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
-\item \hyperlink{classHArDCore2D_1_1BPNC__StefanPME}{B\+P\+N\+C\+\_\+\+Stefan\+P\+ME}\+: Bubble Polytopal Non-\/\+Conforming method for the nonlinear Stefan/\+P\+ME problem $u-\mathrm{div}(K\nabla \zeta(u))=f$, for Dirichlet or mixed boundary conditions.
+\item B\+P\+N\+C\+\_\+\+Stefan\+P\+ME\+: Bubble Polytopal Non-\/\+Conforming method for the nonlinear Stefan/\+P\+ME problem $u-\mathrm{div}(K\nabla \zeta(u))=f$, for Dirichlet or mixed boundary conditions.
 \end{DoxyItemize}
 
 The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.
