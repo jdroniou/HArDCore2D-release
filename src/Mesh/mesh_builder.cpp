@@ -80,8 +80,8 @@ void MeshBuilder::build_boundary(Mesh* mesh) {
       // boundary edges are boundary vertices
       if (cell->is_boundary()) {
         for (auto& vertex : cell->get_vertices())  {
-          for (size_t i = 0; i < 2; i++){
-            if (vertex->edge(i)->is_boundary()){
+          for (auto& edge : vertex->get_edges()){
+            if (edge->is_boundary()){
               vertex->set_boundary(true);
               mesh->add_b_vertex(vertex);
             }
