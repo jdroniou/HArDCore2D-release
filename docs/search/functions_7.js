@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['h1norm',['H1norm',['../classHArDCore2D_1_1HybridCore.html#ad6672e0691764ec5752eb1a9a7257792',1,'HArDCore2D::HybridCore']]],
-  ['h_5fmax',['h_max',['../group__Mesh.html#ga5f08b04ebac390a2ab8dfe956a90ebbf',1,'HArDCore2D::Mesh']]],
-  ['hess_5fsol',['hess_sol',['../classTestCase.html#aadf1375364b34ad3b9fa651eae5baa1e',1,'TestCase::hess_sol()'],['../classTestCaseStefanPME.html#a54e4ead2ac700269fd940dcdd739f517',1,'TestCaseStefanPME::hess_sol()']]],
-  ['hho_5fdiffusion',['HHO_Diffusion',['../group__HHO__Diffusion.html#ga5dd0238ced5e1ace4c0581d779e4e76d',1,'HArDCore2D::HHO_Diffusion']]],
-  ['hho_5flocvardiff',['HHO_LocVarDiff',['../group__HHO__LocVarDiff.html#ga82ef4509a6352116618e6753b5440e1d',1,'HArDCore2D::HHO_LocVarDiff']]],
-  ['hybridcore',['HybridCore',['../classHArDCore2D_1_1HybridCore.html#ac6d3499861364085cc61cdde5c2c1241',1,'HArDCore2D::HybridCore']]]
+  ['h1norm_389',['H1norm',['../group__HybridCore.html#gad6672e0691764ec5752eb1a9a7257792',1,'HArDCore2D::HybridCore']]],
+  ['h_5fmax_390',['h_max',['../group__Mesh.html#ga5f08b04ebac390a2ab8dfe956a90ebbf',1,'HArDCore2D::Mesh']]],
+  ['hess_5fsol_391',['hess_sol',['../classTestCase.html#a8d2fc512e04ba2c3386080bd29d062e2',1,'TestCase::hess_sol()'],['../classTestCaseStefanPME.html#a54e4ead2ac700269fd940dcdd739f517',1,'TestCaseStefanPME::hess_sol()']]],
+  ['hess_5fsolution_392',['hess_solution',['../classTestCaseTransient.html#a83574cdc83abd0467726a36b94d8101d',1,'TestCaseTransient']]],
+  ['hho2d_393',['HHO2D',['../group__HHO2D.html#gab534cd4aa13a7c8e7208c20430bf6385',1,'HHO2D']]],
+  ['hho_5fdiffusion_394',['HHO_Diffusion',['../group__HHO__Diffusion.html#gae9a554427cd4b91768d3bcdc77456267',1,'HArDCore2D::HHO_Diffusion']]],
+  ['hho_5flocvardiff_395',['HHO_LocVarDiff',['../group__HHO__LocVarDiff.html#ga426d431a09113a934bc5dfc574a329fe',1,'HArDCore2D::HHO_LocVarDiff']]],
+  ['hmm_5fstefanpme_5ftransient_396',['HMM_StefanPME_Transient',['../group__HMM.html#ga9125706316ce9597dd80515a0d34ce5a',1,'HArDCore2D::HMM_StefanPME_Transient']]],
+  ['hybridcore_397',['HybridCore',['../group__HybridCore.html#gaa13efbb29aa29dd4cf42f5881020616c',1,'HArDCore2D::HybridCore']]]
 ];

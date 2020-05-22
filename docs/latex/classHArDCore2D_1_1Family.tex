@@ -1,99 +1,61 @@
-\hypertarget{classHArDCore2D_1_1Family}{}\section{H\+Ar\+D\+Core2D\+:\+:Family$<$ Basis\+Type $>$ Class Template Reference}
-\label{classHArDCore2D_1_1Family}\index{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$@{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}}
+\hypertarget{classHArDCore2D_1_1Family}{}\doxysection{H\+Ar\+D\+Core2D\+::Family$<$ Basis\+Type $>$ Class Template Reference}
+\label{classHArDCore2D_1_1Family}\index{HArDCore2D::Family$<$ BasisType $>$@{HArDCore2D::Family$<$ BasisType $>$}}
 
 
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
-\subsection*{Public Types}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a152a59e1b0aa753e65bb6553be665bdd}\label{classHArDCore2D_1_1Family_a152a59e1b0aa753e65bb6553be665bdd}} 
 typedef Basis\+Type\+::\+Function\+Value {\bfseries Function\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a063c30fe4fcd2174052072b1e255e7b3}\label{classHArDCore2D_1_1Family_a063c30fe4fcd2174052072b1e255e7b3}} 
 typedef Basis\+Type\+::\+Gradient\+Value {\bfseries Gradient\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_abeb4fac2009a5491c66a9f426b372b32}\label{classHArDCore2D_1_1Family_abeb4fac2009a5491c66a9f426b372b32}} 
 typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a26b41c8bd34a7bbd4543f931c27d7115}\label{classHArDCore2D_1_1Family_a26b41c8bd34a7bbd4543f931c27d7115}} 
 typedef double {\bfseries Divergence\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a25780d2074b4184b02f14aed12cb7bd1}\label{classHArDCore2D_1_1Family_a25780d2074b4184b02f14aed12cb7bd1}} 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1Family_a2e8f09ecc2cfd226ebb6539b34934d6a}{Family} (const Basis\+Type \&basis, const Eigen\+::\+Matrix\+Xd \&\hyperlink{classHArDCore2D_1_1Family_aaf8f501609f30a03b0b167e381f6ac23}{matrix})
+\mbox{\hyperlink{group__Basis_ga2e8f09ecc2cfd226ebb6539b34934d6a}{Family}} (const Basis\+Type \&basis, const Eigen\+::\+Matrix\+Xd \&\mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{matrix}})
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a385bf99cf8c3888a150ed53f410ae39f}\label{classHArDCore2D_1_1Family_a385bf99cf8c3888a150ed53f410ae39f}} 
-size\+\_\+t \hyperlink{classHArDCore2D_1_1Family_a385bf99cf8c3888a150ed53f410ae39f}{dimension} () const
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga385bf99cf8c3888a150ed53f410ae39f}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Dimension of the family. This is actually the number of functions in the family, not necessarily linearly independent. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a15a1f56b9bb54f849ebaf4a66f75907d}\label{classHArDCore2D_1_1Family_a15a1f56b9bb54f849ebaf4a66f75907d}} 
-Function\+Value \hyperlink{classHArDCore2D_1_1Family_a15a1f56b9bb54f849ebaf4a66f75907d}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+Function\+Value \mbox{\hyperlink{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a05b9845ad5b44a743ae7e8223a897447}\label{classHArDCore2D_1_1Family_a05b9845ad5b44a743ae7e8223a897447}} 
-Gradient\+Value \hyperlink{classHArDCore2D_1_1Family_a05b9845ad5b44a743ae7e8223a897447}{gradient} (size\+\_\+t i, const Vector\+Rd \&x) const
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a9f44b487b46df0e9cf83b175ae0ae3b3}\label{classHArDCore2D_1_1Family_a9f44b487b46df0e9cf83b175ae0ae3b3}} 
-Curl\+Value \hyperlink{classHArDCore2D_1_1Family_a9f44b487b46df0e9cf83b175ae0ae3b3}{curl} (size\+\_\+t i, const Vector\+Rd \&x) const
+Curl\+Value \mbox{\hyperlink{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a86a0fd0d5391607f156b3c27be6d7164}\label{classHArDCore2D_1_1Family_a86a0fd0d5391607f156b3c27be6d7164}} 
-Divergence\+Value \hyperlink{classHArDCore2D_1_1Family_a86a0fd0d5391607f156b3c27be6d7164}{divergence} (size\+\_\+t i, const Vector\+Rd \&x) const
+Divergence\+Value \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_aaf8f501609f30a03b0b167e381f6ac23}\label{classHArDCore2D_1_1Family_aaf8f501609f30a03b0b167e381f6ac23}} 
-const Eigen\+::\+Matrix\+Xd \& \hyperlink{classHArDCore2D_1_1Family_aaf8f501609f30a03b0b167e381f6ac23}{matrix} () const
+const Eigen\+::\+Matrix\+Xd \& \mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{matrix}} () const
 \begin{DoxyCompactList}\small\item\em Return the coefficient matrix. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a1f618ff125041ebcfb88db2f4373d37e}\label{classHArDCore2D_1_1Family_a1f618ff125041ebcfb88db2f4373d37e}} 
-const Basis\+Type \& \hyperlink{classHArDCore2D_1_1Family_a1f618ff125041ebcfb88db2f4373d37e}{ancestor} () const
+const Basis\+Type \& \mbox{\hyperlink{group__Basis_ga1f618ff125041ebcfb88db2f4373d37e}{ancestor}} () const
 \begin{DoxyCompactList}\small\item\em Return the ancestor. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_ae7a0bf7e235f447facbea1470237a09e}\label{classHArDCore2D_1_1Family_ae7a0bf7e235f447facbea1470237a09e}} 
 static const Tensor\+RankE {\bfseries tensor\+Rank} = Basis\+Type\+::tensor\+Rank
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_adadcc5cd716933a3b1d54794b860bdcc}\label{classHArDCore2D_1_1Family_adadcc5cd716933a3b1d54794b860bdcc}} 
 static const bool {\bfseries has\+Function} = Basis\+Type\+::has\+Function
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_ae39bd5582b1fa4926b4f6eb2143cb8b7}\label{classHArDCore2D_1_1Family_ae39bd5582b1fa4926b4f6eb2143cb8b7}} 
 static const bool {\bfseries has\+Gradient} = Basis\+Type\+::has\+Gradient
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_aa6193ca9c9f178fe6bfa2f0d85ba86b1}\label{classHArDCore2D_1_1Family_aa6193ca9c9f178fe6bfa2f0d85ba86b1}} 
 static const bool {\bfseries has\+Curl} = Basis\+Type\+::has\+Curl
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a4704c8206eb8a68ec251b10a9f90b54b}\label{classHArDCore2D_1_1Family_a4704c8206eb8a68ec251b10a9f90b54b}} 
 static const bool {\bfseries has\+Divergence} = Basis\+Type\+::has\+Divergence
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
 class H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}
 
-\hyperlink{classHArDCore2D_1_1Family}{Family} of functions expressed as linear combination of the functions of a given basis. If $(f_1,...,f_r)$ is the basis, then the family is $(\phi_1,...,\phi_l)$ where $\phi_i = \sum_j M_ij f_j$. The matrix $M$ is the member m\+\_\+matrix. 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1Family_a2e8f09ecc2cfd226ebb6539b34934d6a}\label{classHArDCore2D_1_1Family_a2e8f09ecc2cfd226ebb6539b34934d6a}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Family@{H\+Ar\+D\+Core2\+D\+::\+Family}!Family@{Family}}
-\index{Family@{Family}!H\+Ar\+D\+Core2\+D\+::\+Family@{H\+Ar\+D\+Core2\+D\+::\+Family}}
-\subsubsection{\texorpdfstring{Family()}{Family()}}
-{\footnotesize\ttfamily template$<$typename Basis\+Type$>$ \\
-\hyperlink{classHArDCore2D_1_1Family}{H\+Ar\+D\+Core2\+D\+::\+Family}$<$ Basis\+Type $>$\+::\hyperlink{classHArDCore2D_1_1Family}{Family} (\begin{DoxyParamCaption}\item[{const Basis\+Type \&}]{basis,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Constructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em basis} & The basis in which the family is expressed \\
-\hline
-{\em matrix} & The coefficient matrix whose i-\/th line contains the coefficient of the expansion of the i-\/th function of the family in the basis \\
-\hline
-\end{DoxyParams}
-
+\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of functions expressed as linear combination of the functions of a given basis. If $(f_1,...,f_r)$ is the basis, then the family is $(\phi_1,...,\phi_l)$ where $\phi_i = \sum_j M_ij f_j$. The matrix $M$ is the member m\+\_\+matrix. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

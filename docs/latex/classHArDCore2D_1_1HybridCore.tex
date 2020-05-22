@@ -1,153 +1,67 @@
-\hypertarget{classHArDCore2D_1_1HybridCore}{}\section{H\+Ar\+D\+Core2D\+:\+:Hybrid\+Core Class Reference}
-\label{classHArDCore2D_1_1HybridCore}\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
+\hypertarget{classHArDCore2D_1_1HybridCore}{}\doxysection{H\+Ar\+D\+Core2D\+::Hybrid\+Core Class Reference}
+\label{classHArDCore2D_1_1HybridCore}\index{HArDCore2D::HybridCore@{HArDCore2D::HybridCore}}
 
 
 {\ttfamily \#include $<$hybridcore.\+hpp$>$}
 
 
 
-Inheritance diagram for H\+Ar\+D\+Core2D\+:\+:Hybrid\+Core\+:\nopagebreak
+Inheritance diagram for H\+Ar\+D\+Core2D\+::Hybrid\+Core\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=216pt]{classHArDCore2D_1_1HybridCore__inherit__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Types}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a66e8eccfa5bfc2788b2aec903bd64d4a}\label{classHArDCore2D_1_1HybridCore_a66e8eccfa5bfc2788b2aec903bd64d4a}} 
-typedef \hyperlink{classHArDCore2D_1_1Family}{Family}$<$ \hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell} $>$ \hyperlink{classHArDCore2D_1_1HybridCore_a66e8eccfa5bfc2788b2aec903bd64d4a}{Poly\+Cell\+Basis\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ \mbox{\hyperlink{group__HybridCore_ga66e8eccfa5bfc2788b2aec903bd64d4a}{Poly\+Cell\+Basis\+Type}}
 \begin{DoxyCompactList}\small\item\em type for cell basis \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a76550d672e82b1b9e49ea90054b8cc6d}\label{classHArDCore2D_1_1HybridCore_a76550d672e82b1b9e49ea90054b8cc6d}} 
-typedef \hyperlink{classHArDCore2D_1_1Family}{Family}$<$ \hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge} $>$ \hyperlink{classHArDCore2D_1_1HybridCore_a76550d672e82b1b9e49ea90054b8cc6d}{Poly\+Edge\+Basis\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}} $>$ \mbox{\hyperlink{group__HybridCore_ga76550d672e82b1b9e49ea90054b8cc6d}{Poly\+Edge\+Basis\+Type}}
 \begin{DoxyCompactList}\small\item\em type for edge basis \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1HybridCore_ac6d3499861364085cc61cdde5c2c1241}{Hybrid\+Core} (const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh\+\_\+ptr, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg, const bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__HybridCore_gaa13efbb29aa29dd4cf42f5881020616c}{Hybrid\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$mesh\+\_\+ptr, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg, const bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout, const bool ortho=true)
 \begin{DoxyCompactList}\small\item\em Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a8e87aec0e4162f6307eef0c04216a6cd}\label{classHArDCore2D_1_1HybridCore_a8e87aec0e4162f6307eef0c04216a6cd}} 
-const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$ \hyperlink{classHArDCore2D_1_1HybridCore_a8e87aec0e4162f6307eef0c04216a6cd}{get\+\_\+mesh} () const
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$ \mbox{\hyperlink{group__HybridCore_ga8e87aec0e4162f6307eef0c04216a6cd}{get\+\_\+mesh}} () const
 \begin{DoxyCompactList}\small\item\em Returns a pointer to the mesh. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a39e2fbe7da3ab2425544b31fab6963f1}\label{classHArDCore2D_1_1HybridCore_a39e2fbe7da3ab2425544b31fab6963f1}} 
-const int \hyperlink{classHArDCore2D_1_1HybridCore_a39e2fbe7da3ab2425544b31fab6963f1}{Cell\+Degree} () const
+const int \mbox{\hyperlink{group__HybridCore_ga39e2fbe7da3ab2425544b31fab6963f1}{Cell\+Degree}} () const
 \begin{DoxyCompactList}\small\item\em Return the degree of cell polynomials. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a2840c8c1113b389fbee0cbf3090cee1c}\label{classHArDCore2D_1_1HybridCore_a2840c8c1113b389fbee0cbf3090cee1c}} 
 const int {\bfseries Cell\+Degree\+Pos} () const
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a58775081d94627e58f88f6043ed87bec}\label{classHArDCore2D_1_1HybridCore_a58775081d94627e58f88f6043ed87bec}} 
-const size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_a58775081d94627e58f88f6043ed87bec}{Edge\+Degree} () const
+const size\+\_\+t \mbox{\hyperlink{group__HybridCore_ga58775081d94627e58f88f6043ed87bec}{Edge\+Degree}} () const
 \begin{DoxyCompactList}\small\item\em Return the degree of edge polynomials. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_afb3e4d056b781b2fff5e46466d47e0f3}\label{classHArDCore2D_1_1HybridCore_afb3e4d056b781b2fff5e46466d47e0f3}} 
-const \hyperlink{classHArDCore2D_1_1HybridCore_a66e8eccfa5bfc2788b2aec903bd64d4a}{Poly\+Cell\+Basis\+Type} \& \hyperlink{classHArDCore2D_1_1HybridCore_afb3e4d056b781b2fff5e46466d47e0f3}{Cell\+Basis} (size\+\_\+t iT) const
+const \mbox{\hyperlink{group__HybridCore_ga66e8eccfa5bfc2788b2aec903bd64d4a}{Poly\+Cell\+Basis\+Type}} \& \mbox{\hyperlink{group__HybridCore_gafb3e4d056b781b2fff5e46466d47e0f3}{Cell\+Basis}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Return cell basis for element with global index iT. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a9394b577ae67c9aa2289095bfedc38e2}\label{classHArDCore2D_1_1HybridCore_a9394b577ae67c9aa2289095bfedc38e2}} 
-const \hyperlink{classHArDCore2D_1_1HybridCore_a76550d672e82b1b9e49ea90054b8cc6d}{Poly\+Edge\+Basis\+Type} \& \hyperlink{classHArDCore2D_1_1HybridCore_a9394b577ae67c9aa2289095bfedc38e2}{Edge\+Basis} (size\+\_\+t iE) const
+const \mbox{\hyperlink{group__HybridCore_ga76550d672e82b1b9e49ea90054b8cc6d}{Poly\+Edge\+Basis\+Type}} \& \mbox{\hyperlink{group__HybridCore_ga9394b577ae67c9aa2289095bfedc38e2}{Edge\+Basis}} (size\+\_\+t iE) const
 \begin{DoxyCompactList}\small\item\em Return edge basis for edge with global index iE. \end{DoxyCompactList}\item 
-double \hyperlink{classHArDCore2D_1_1HybridCore_ab37ab89bf946e237821dd978f475b7c8}{L2norm} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&Xh) const
+double \mbox{\hyperlink{group__HybridCore_gab37ab89bf946e237821dd978f475b7c8}{L2norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute L2 norm of a discrete function (using cell values) \end{DoxyCompactList}\item 
-double \hyperlink{classHArDCore2D_1_1HybridCore_ad6672e0691764ec5752eb1a9a7257792}{H1norm} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&Xh) const
+double \mbox{\hyperlink{group__HybridCore_gad6672e0691764ec5752eb1a9a7257792}{H1norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute discrete H1 norm of a discrete function. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Continuous\+Function $>$ }\\\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \hyperlink{group__HybridCore_ga7d6af50952aa59143ac364dd1dc4118e}{interpolate} (const Continuous\+Function \&f, const int deg\+\_\+cell, const size\+\_\+t deg\+\_\+edge, size\+\_\+t doe) const
+{\footnotesize template$<$typename Continuous\+Function $>$ }\\\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HybridCore_ga7d6af50952aa59143ac364dd1dc4118e}{interpolate}} (const Continuous\+Function \&f, const int deg\+\_\+cell, const size\+\_\+t deg\+\_\+edge, size\+\_\+t doe) const
 \begin{DoxyCompactList}\small\item\em Compute the interpolant in the discrete space of a continuous function. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}\label{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}} 
-Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}{compute\+\_\+weights} (size\+\_\+t iT) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HybridCore_ga06825c5d156026d465a2798389aa952b}{compute\+\_\+weights}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Computes the weights to get cell values from edge values when l=-\/1. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a9c76abf42a1d56fbf863d8258690497c}\label{classHArDCore2D_1_1HybridCore_a9c76abf42a1d56fbf863d8258690497c}} 
-double \hyperlink{classHArDCore2D_1_1HybridCore_a9c76abf42a1d56fbf863d8258690497c}{evaluate\+\_\+in\+\_\+cell} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} Xh, size\+\_\+t iT, Vector\+Rd x) const
+double \mbox{\hyperlink{group__HybridCore_ga9c76abf42a1d56fbf863d8258690497c}{evaluate\+\_\+in\+\_\+cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} Xh, size\+\_\+t iT, Vector\+Rd x) const
 \begin{DoxyCompactList}\small\item\em Evaluates a discrete function in the cell iT at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ab43816ad8a9a91f841fdb4cea0781f54}\label{classHArDCore2D_1_1HybridCore_ab43816ad8a9a91f841fdb4cea0781f54}} 
-double \hyperlink{classHArDCore2D_1_1HybridCore_ab43816ad8a9a91f841fdb4cea0781f54}{evaluate\+\_\+in\+\_\+edge} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} Xh, size\+\_\+t iE, Vector\+Rd x) const
+double \mbox{\hyperlink{group__HybridCore_gab43816ad8a9a91f841fdb4cea0781f54}{evaluate\+\_\+in\+\_\+edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} Xh, size\+\_\+t iE, Vector\+Rd x) const
 \begin{DoxyCompactList}\small\item\em Evaluates a discrete function on the edge iE at point x. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a1d33ec0786b8127a161384ecf8f04018}{Vertex\+Values} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} Xh, const std\+::string from\+\_\+dofs)
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HybridCore_ga1d33ec0786b8127a161384ecf8f04018}{Vertex\+Values}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} Xh, const std\+::string from\+\_\+dofs)
 \begin{DoxyCompactList}\small\item\em From a hybrid function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} class provides an interface for generating polynomial basis functions on cell and edges, interpolation of continuous functions, discrete norms of vectors of coefficients, and methods to evaluate discrete functions (given by vectors of coefficients) in the cells, on the edges, or at vertices (averaged of cell or edge values)
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} class provides an interface for generating polynomial basis functions on cell and edges, interpolation of continuous functions, discrete norms of vectors of coefficients, and methods to evaluate discrete functions (given by vectors of coefficients) in the cells, on the edges, or at vertices (averaged of cell or edge values)
 
 The current implementation has the following behaviours/expectations\+:
 \begin{DoxyItemize}
-\item \hyperlink{classHArDCore2D_1_1Edge}{Edge} polynomials must be at least of degree 0, and edge basis functions are always generated
-\item \hyperlink{classHArDCore2D_1_1Cell}{Cell} polynomials could be of degree -\/1, or 0+. In the former case, basis functions of degree 0 are generated, but a function is provided to compute weights to express the cell values in terms of linearly exact averages of edge values. This function is used, e.\+g., when interpolating a continuous function. 
+\item \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} polynomials must be at least of degree 0, and edge basis functions are always generated
+\item \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} polynomials could be of degree -\/1, or 0+. In the former case, basis functions of degree 0 are generated, but a function is provided to compute weights to express the cell values in terms of linearly exact averages of edge values. This function is used, e.\+g., when interpolating a continuous function. 
 \end{DoxyItemize}
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ac6d3499861364085cc61cdde5c2c1241}\label{classHArDCore2D_1_1HybridCore_ac6d3499861364085cc61cdde5c2c1241}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!Hybrid\+Core@{Hybrid\+Core}}
-\index{Hybrid\+Core@{Hybrid\+Core}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
-\subsubsection{\texorpdfstring{Hybrid\+Core()}{HybridCore()}}
-{\footnotesize\ttfamily Hybrid\+Core\+::\+Hybrid\+Core (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh\+\_\+ptr,  }\item[{const int}]{cell\+\_\+deg,  }\item[{const size\+\_\+t}]{edge\+\_\+deg,  }\item[{const bool}]{use\+\_\+threads = {\ttfamily true},  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
-
-
-
-Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. 
-
-The orthonormalisation comes at a cost in terms of manipulation of the basis functions. This should only be used when the polynomial degree is large and/or the cell is distorted. However, in these cases, it can make a huge difference on the observed convergence rate. 
-\begin{DoxyParams}{Parameters}
-{\em mesh\+\_\+ptr} & A pointer to the loaded mesh \\
-\hline
-{\em cell\+\_\+deg} & The degree of the cell polynomials \\
-\hline
-{\em edge\+\_\+deg} & The degree of the edge polynomials \\
-\hline
-{\em use\+\_\+threads} & Optional argument to indicate if threads should be used \\
-\hline
-{\em output} & Optional argument for specifying outputs of messages. \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ad6672e0691764ec5752eb1a9a7257792}\label{classHArDCore2D_1_1HybridCore_ad6672e0691764ec5752eb1a9a7257792}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!H1norm@{H1norm}}
-\index{H1norm@{H1norm}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
-\subsubsection{\texorpdfstring{H1norm()}{H1norm()}}
-{\footnotesize\ttfamily double Hybrid\+Core\+::\+H1norm (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&}]{Xh }\end{DoxyParamCaption}) const}
-
-
-
-Compute discrete H1 norm of a discrete function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Xh} & Vector of unknowns \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_ab37ab89bf946e237821dd978f475b7c8}\label{classHArDCore2D_1_1HybridCore_ab37ab89bf946e237821dd978f475b7c8}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!L2norm@{L2norm}}
-\index{L2norm@{L2norm}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
-\subsubsection{\texorpdfstring{L2norm()}{L2norm()}}
-{\footnotesize\ttfamily double Hybrid\+Core\+::\+L2norm (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&}]{Xh }\end{DoxyParamCaption}) const}
-
-
-
-Compute L2 norm of a discrete function (using cell values) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Xh} & Vector of unknowns \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a1d33ec0786b8127a161384ecf8f04018}\label{classHArDCore2D_1_1HybridCore_a1d33ec0786b8127a161384ecf8f04018}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!Vertex\+Values@{Vertex\+Values}}
-\index{Vertex\+Values@{Vertex\+Values}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
-\subsubsection{\texorpdfstring{Vertex\+Values()}{VertexValues()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd Hybrid\+Core\+::\+Vertex\+Values (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}}]{Xh,  }\item[{const std\+::string}]{from\+\_\+dofs }\end{DoxyParamCaption})}
-
-
-
-From a hybrid function, computes a vector of values at the vertices of the mesh. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Xh} & vector of discrete unknowns on cell and edge polynomials \\
-\hline
-{\em from\+\_\+dofs} & Type of unknowns to use\+: \char`\"{}cell\char`\"{} or \char`\"{}edge\char`\"{} \\
-\hline
-\end{DoxyParams}
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

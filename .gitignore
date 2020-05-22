@@ -1,6 +1,11 @@
 description/
 build/
+TODO.txt
+old/
 outputs/
 COMPUTE_RATES
+test/
 directories.sh
+P1FE/
+resultats_dermod
 *~

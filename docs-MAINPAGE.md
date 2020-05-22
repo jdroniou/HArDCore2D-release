@@ -24,31 +24,14 @@ using namespace HArDCore2D;
 
 int main() {
 
-	// Mesh file to read
-	std::string mesh_file = "../../typ2_meshes/cart5x5.typ2";
+  // Build mesh
+  MeshBuilder builder = MeshBuilder(mesh_file);
+  std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh();
 
-  // Read the mesh file
-  MeshReaderTyp2 mesh(mesh_file);
-
-  std::vector<std::vector<double> > vertices;
-  std::vector<std::vector<size_t> > cells;
-  std::vector<std::vector<double> > centers;
-  if (mesh.read_mesh(vertices, cells, centers) == false) {
-    std::cout << "Could not open file" << std::endl;
-    return false;
-  };
-
-  // Build the mesh
-  MeshBuilder builder = MeshBuilder();
-  std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh(vertices, cells);
-  if (mesh_ptr.get() == NULL) {
-    printf(
-      "Mesh cannot be created!\n Check the input file contains \n "
-      "Vertices "
-      "and cells with the correct tags");
-    return 0;
-  } 
-	std::cout << "There are " << mesh_ptr->n_cells() << " cells in the mesh.\n";
+  // Get the BC and re-order the edges (useful to set BC for hybrid schemes)
+  std::string bc_id = vm["bc_id"].as<std::string>();
+  BoundaryConditions BC(bc_id, *mesh_ptr.get());
+  BC.reorder_edges();
 
 	// Create an HybridCore instance
   HybridCore hho(mesh_ptr.get(), K+1, K, use_threads, output);
@@ -66,16 +49,21 @@ However, the builder assumes that each cell is star-shaped with respect to the i
 
 The following schemes are currently available in HArD::Core2D. The Hybrid High-Order schemes follow the implementation principles described in Appendix B of the book available at https://hal.archives-ouvertes.fr/hal-02151813.
 
- - [HHO_diffusion](@ref HArDCore2D::HHO_Diffusion): Hybrid High-Order for \f$-\mathrm{div}(K\nabla u)=f\f$, for Dirichlet, Neumann or mixed boundary conditions, with \f$K\f$ a diffusion tensor that is piecewise constant on the mesh.
+ - [HHO_diffusion](@ref HHO_Diffusion): Hybrid High-Order (HHO) for \f$-\mathrm{div}(K\nabla u)=f\f$, for Dirichlet, Neumann or mixed boundary conditions, with \f$K\f$ a diffusion tensor that is piecewise constant on the mesh.
 
- - [HHO_locvardiff](@ref HArDCore2D::HHO_LocVarDiff): Hybrid High-Order for \f$-\mathrm{div}(K\nabla u)=f\f$, for Dirichlet, Neumann or mixed boundary conditions, with \f$K\f$ a diffusion tensor that can vary in each cell.
+ - [HHO_locvardiff](@ref HHO_LocVarDiff): HHO for \f$-\mathrm{div}(K\nabla u)=f\f$, for Dirichlet, Neumann or mixed boundary conditions, with \f$K\f$ a diffusion tensor that can vary in each cell.
 
- - [BPNC_StefanPME](@ref HArDCore2D::BPNC_StefanPME): Bubble Polytopal Non-Conforming method for the nonlinear Stefan/PME problem \f$u-\mathrm{div}(K\nabla \zeta(u))=f\f$, for Dirichlet or mixed boundary conditions.
+ - [HHO_diffadvecreac](@ref HHO_DiffAdvecReac): Hybrid High-Order (HHO) for \f$-\mathrm{div}(K\nabla u+\beta u)+\mu u=f\f$, for Dirichlet or mixed boundary conditions, with \f$K\f$ a diffusion tensor that is piecewise constant on the mesh.
 
+ - [LEPNC_StefanPME](@ref HArDCore2D::LEPNC_StefanPME), in module [LEPNC](@ref LEPNC): Locally Enriched Polytopal Non-Conforming (LEPNC) method for the stationnary Stefan/PME problem \f$u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
+
+ - [LEPNC_StefanPME_Transient](@ref HArDCore2D::LEPNC_StefanPME_Transient), in module [LEPNC](@ref LEPNC): LEPNC for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
+
+ - [HMM_StefanPME_Transient](@ref HArDCore2D::HMM_StefanPME_Transient), in module [HMM](@ref HMM): Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
 
 The directory `runs` contains BASH to run series of tests on families of meshes. The files `data.sh` describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the `output` directory, including a pdf file `rate.pdf` describing the rates of convergence in various energy norms.
 
-To run the scripts as they are, you will need `pdflatex` and a FORTRAN compiler, and to adjust the `Makefile` to your compiler, to run `compute_rates.f90` and compute the rates of convergence in the various norms.
+To run the scripts as they are, you will need `pdflatex` and (for the LEPNC and HMM schemes) a FORTRAN compiler (adjust the `Makefile` to your compiler).
 
 
 

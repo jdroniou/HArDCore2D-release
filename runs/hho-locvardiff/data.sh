@@ -9,7 +9,7 @@ l=1
 use_threads="true"
 
 # Export matrix
-export_matrix="true"
+export_matrix="false"
 
 # Boundary conditions (D, N, Mx)
 bc="M0"

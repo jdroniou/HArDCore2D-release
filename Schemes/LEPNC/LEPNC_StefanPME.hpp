@@ -281,6 +281,7 @@ Eigen::VectorXd LEPNC_StefanPME::solve() {
     //  is Dirichlet homogeneous, and we just select the non-dirichlet edges (first ones in the list)
     size_t n_edge_unknowns = mesh->n_edges() - m_BC.n_dir_edges();
 		Eigen::SparseMatrix<double> A = GlobMat.topLeftCorner(n_edge_unknowns, n_edge_unknowns);
+//std::cout << "Number non-zero terms in matrix: " << A.nonZeros() << "\n";
 		Eigen::VectorXd B = GlobRHS.head(n_edge_unknowns);
 
 		// Solve condensed system and recover cell unknowns. dX = X^{k+1}-X^k//

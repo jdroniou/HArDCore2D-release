@@ -11,9 +11,10 @@
  * please mention the following book as a reference for the underlying principles
  * of HHO schemes:
  *
- * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
- * D. A. Di Pietro and J. Droniou. 2019, 516p. 
- * url: https://hal.archives-ouvertes.fr/hal-02151813.
+ * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications. 
+ *  D. A. Di Pietro and J. Droniou. Modeling, Simulation and Applications, vol. 19. 
+ *  Springer International Publishing, 2020, xxxi + 525p. doi: 10.1007/978-3-030-37203-3. 
+ *  url: https://hal.archives-ouvertes.fr/hal-02151813.
  *
  */
 

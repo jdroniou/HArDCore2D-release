@@ -1,60 +1,24 @@
-\hypertarget{structHArDCore2D_1_1evaluate__quad}{}\section{H\+Ar\+D\+Core2D\+:\+:evaluate\+\_\+quad$<$ Basis\+Function $>$ Struct Template Reference}
-\label{structHArDCore2D_1_1evaluate__quad}\index{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$@{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}}
+\hypertarget{structHArDCore2D_1_1evaluate__quad}{}\doxysection{H\+Ar\+D\+Core2D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$ Struct Template Reference}
+\label{structHArDCore2D_1_1evaluate__quad}\index{HArDCore2D::evaluate\_quad$<$ BasisFunction $>$@{HArDCore2D::evaluate\_quad$<$ BasisFunction $>$}}
 
 
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
-\subsection*{Static Public Member Functions}
+\doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}$<$ Basis\+Type, Basis\+Function $>$\+::Return\+Value, 2 $>$ \hyperlink{structHArDCore2D_1_1evaluate__quad_a687c3c9504c4b10c5a18654530980086}{compute} (const Basis\+Type \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ Basis\+Type, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga687c3c9504c4b10c5a18654530980086}{compute}} (const Basis\+Type \&basis, const Quadrature\+Rule \&quad)
 \begin{DoxyCompactList}\small\item\em Generic basis evaluation. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}$<$ \hyperlink{classHArDCore2D_1_1Family}{Family}$<$ Basis\+Type $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \hyperlink{structHArDCore2D_1_1evaluate__quad_a06cedf0c3440b94b9974922c72ea7c11}{compute} (const \hyperlink{classHArDCore2D_1_1Family}{Family}$<$ Basis\+Type $>$ \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \&basis, const Quadrature\+Rule \&quad)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 \subsubsection*{template$<$Basis\+FunctionE Basis\+Function$>$\newline
 struct H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}
 
-Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} determines what kind of value we want to evaluate (the function value of the basis, their gradients, etc.). 
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{structHArDCore2D_1_1evaluate__quad_a687c3c9504c4b10c5a18654530980086}\label{structHArDCore2D_1_1evaluate__quad_a687c3c9504c4b10c5a18654530980086}} 
-\index{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad@{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}!compute@{compute}}
-\index{compute@{compute}!H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad@{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}
-\subsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
-template$<$typename Basis\+Type $>$ \\
-static boost\+::multi\+\_\+array$<$typename \hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}$<$Basis\+Type, Basis\+Function$>$\+::Return\+Value, 2$>$ \hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const Basis\+Type \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Generic basis evaluation. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em basis} & The basis \\
-\hline
-{\em quad} & The quadrature rule \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{structHArDCore2D_1_1evaluate__quad_a06cedf0c3440b94b9974922c72ea7c11}\label{structHArDCore2D_1_1evaluate__quad_a06cedf0c3440b94b9974922c72ea7c11}} 
-\index{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad@{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}!compute@{compute}}
-\index{compute@{compute}!H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad@{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}
-\subsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
-template$<$typename Basis\+Type $>$ \\
-static boost\+::multi\+\_\+array$<$typename \hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}$<$\hyperlink{classHArDCore2D_1_1Family}{Family}$<$Basis\+Type$>$, Basis\+Function$>$\+::Return\+Value, 2$>$ \hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Family}{Family}$<$ Basis\+Type $>$ \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-Evaluate a family at quadrature nodes. Same as \textquotesingle{}\hyperlink{structHArDCore2D_1_1evaluate__quad}{evaluate\+\_\+quad}\textquotesingle{} but applied to a family given by an ancestor basis and a matrix (see class \textquotesingle{}\hyperlink{classHArDCore2D_1_1Family}{Family}\textquotesingle{}) 
-\begin{DoxyParams}{Parameters}
-{\em basis} & The family \\
-\hline
-{\em quad} & The quadrature rule \\
-\hline
-\end{DoxyParams}
-
+Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} determines what kind of value we want to evaluate (the function value of the basis, their gradients, etc.). ~\newline
+ 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

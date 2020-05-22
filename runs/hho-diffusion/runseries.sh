@@ -218,6 +218,7 @@ cd ..
 echo "data file: $datafile" > $outdir/allrates.txt
 echo "k=$k, l=$l" >> $outdir/allrates.txt
 echo "Mesh 1: ${mesh[1]}" >> $outdir/allrates.txt
-make compute_rates_run | tee -a $outdir/allrates.txt
-
-
+if [ ! -f ./compute_rates ]; then
+  g++ compute_rates.cpp -o compute_rates
+fi
+./compute_rates | tee -a $outdir/allrates.txt

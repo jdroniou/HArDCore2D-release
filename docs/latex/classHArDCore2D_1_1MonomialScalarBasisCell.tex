@@ -1,5 +1,5 @@
-\hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell}{}\section{H\+Ar\+D\+Core2D\+:\+:Monomial\+Scalar\+Basis\+Cell Class Reference}
-\label{classHArDCore2D_1_1MonomialScalarBasisCell}\index{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell}}
+\hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell}{}\doxysection{H\+Ar\+D\+Core2D\+::Monomial\+Scalar\+Basis\+Cell Class Reference}
+\label{classHArDCore2D_1_1MonomialScalarBasisCell}\index{HArDCore2D::MonomialScalarBasisCell@{HArDCore2D::MonomialScalarBasisCell}}
 
 
 Scalar monomial basis on a cell.  
@@ -9,80 +9,47 @@ Scalar monomial basis on a cell.
 
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
-\subsection*{Public Types}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a9a3ca323e3bd9968a90e8e3f9a3a6863}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a9a3ca323e3bd9968a90e8e3f9a3a6863}} 
 typedef double {\bfseries Function\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_ad052f1f44cea110341eb1f86c2b732a9}\label{classHArDCore2D_1_1MonomialScalarBasisCell_ad052f1f44cea110341eb1f86c2b732a9}} 
 typedef Vector\+Rd {\bfseries Gradient\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_affa9f1b9379558ebef24a3a0d99ef3fd}\label{classHArDCore2D_1_1MonomialScalarBasisCell_affa9f1b9379558ebef24a3a0d99ef3fd}} 
 typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a1b25ab56ff038e78ea0f27fb1b1082f2}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a1b25ab56ff038e78ea0f27fb1b1082f2}} 
 typedef double {\bfseries Divergence\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a524ce4487f4f5163950b88a63d8e4025}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a524ce4487f4f5163950b88a63d8e4025}} 
-typedef \hyperlink{classHArDCore2D_1_1Cell}{Cell} {\bfseries Geometric\+Support}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell_a077d11dc2b2d74d11b72f165dc8d033a}{Monomial\+Scalar\+Basis\+Cell} (const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&T, size\+\_\+t degree)
+\mbox{\hyperlink{group__Basis_ga077d11dc2b2d74d11b72f165dc8d033a}{Monomial\+Scalar\+Basis\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, size\+\_\+t degree)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a79a3220472fbc88d100be37ea1503d3e}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a79a3220472fbc88d100be37ea1503d3e}} 
-size\+\_\+t \hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell_a79a3220472fbc88d100be37ea1503d3e}{dimension} () const
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga79a3220472fbc88d100be37ea1503d3e}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a82562e20ba49b9e72e04c6a7660b1d3c}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a82562e20ba49b9e72e04c6a7660b1d3c}} 
-Function\+Value \hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell_a82562e20ba49b9e72e04c6a7660b1d3c}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+Function\+Value \mbox{\hyperlink{group__Basis_ga82562e20ba49b9e72e04c6a7660b1d3c}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a34784e2233789bed6214488ff9e4166d}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a34784e2233789bed6214488ff9e4166d}} 
-Gradient\+Value \hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell_a34784e2233789bed6214488ff9e4166d}{gradient} (size\+\_\+t i, const Vector\+Rd \&x) const
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga34784e2233789bed6214488ff9e4166d}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_aa2e7be051d395b2467975540f83d2665}\label{classHArDCore2D_1_1MonomialScalarBasisCell_aa2e7be051d395b2467975540f83d2665}} 
 static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_ac0f6b3726df8161c638761d398a4aa4e}\label{classHArDCore2D_1_1MonomialScalarBasisCell_ac0f6b3726df8161c638761d398a4aa4e}} 
 static const bool {\bfseries has\+Function} = true
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_adb26517e60d4ab841e21ca4a71a9c685}\label{classHArDCore2D_1_1MonomialScalarBasisCell_adb26517e60d4ab841e21ca4a71a9c685}} 
 static const bool {\bfseries has\+Gradient} = true
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_af1c39fee1ff92d9a2c6654dcff408b13}\label{classHArDCore2D_1_1MonomialScalarBasisCell_af1c39fee1ff92d9a2c6654dcff408b13}} 
 static const bool {\bfseries has\+Curl} = false
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a188cf489655ee1dcbf4fcf52060d457c}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a188cf489655ee1dcbf4fcf52060d457c}} 
 static const bool {\bfseries has\+Divergence} = false
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Scalar monomial basis on a cell. 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisCell_a077d11dc2b2d74d11b72f165dc8d033a}\label{classHArDCore2D_1_1MonomialScalarBasisCell_a077d11dc2b2d74d11b72f165dc8d033a}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell}!Monomial\+Scalar\+Basis\+Cell@{Monomial\+Scalar\+Basis\+Cell}}
-\index{Monomial\+Scalar\+Basis\+Cell@{Monomial\+Scalar\+Basis\+Cell}!H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell}}
-\subsubsection{\texorpdfstring{Monomial\+Scalar\+Basis\+Cell()}{MonomialScalarBasisCell()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::\+Monomial\+Scalar\+Basis\+Cell (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} \&}]{T,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption})}
-
-
-
-Constructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em T} & A mesh cell \\
-\hline
-{\em degree} & The maximum polynomial degree to be considered \\
-\hline
-\end{DoxyParams}
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

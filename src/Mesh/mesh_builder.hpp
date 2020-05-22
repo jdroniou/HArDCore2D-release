@@ -13,6 +13,7 @@
 #include <vector>
 #include <Eigen/Dense>
 #include <memory>
+#include "import_mesh.hpp"
 
 #include <stdlib.h>     /* exit, EXIT_FAILURE */
 
@@ -35,6 +36,10 @@ public:
     */
     MeshBuilder();
     /**
+    * Overloaded constructor for MeshBuilder so import_mesh can be called from build_the_mesh().
+    */
+    MeshBuilder(const std::string mesh_file);
+    /**
     * Build a Mesh from vertices and cells
     *
     * @param vertices vector containing the coordinates of the vertices ordered
@@ -46,10 +51,13 @@ public:
     */
     std::unique_ptr<Mesh> build_the_mesh(std::vector<std::vector<double> > vertices,
                            std::vector<std::vector<size_t> > cells);  ///< construct the connectivity in the mesh
-
+     /**
+    * Overloaded mesh builder that also imports the mesh
+    */
+    std::unique_ptr<Mesh> build_the_mesh();
 private:
     void build_boundary(Mesh* mesh);  ///< identifies boundary cells and vertices, and compute lists of boundary cells, edges and vertices
-
+    const std::string _mesh_file;
 };
 
 /*@}*/

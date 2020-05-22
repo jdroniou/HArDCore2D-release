@@ -1,68 +1,38 @@
-\hypertarget{classHArDCore2D_1_1UVector}{}\section{H\+Ar\+D\+Core2D\+:\+:U\+Vector Class Reference}
-\label{classHArDCore2D_1_1UVector}\index{H\+Ar\+D\+Core2\+D\+::\+U\+Vector@{H\+Ar\+D\+Core2\+D\+::\+U\+Vector}}
+\hypertarget{classHArDCore2D_1_1UVector}{}\doxysection{H\+Ar\+D\+Core2D\+::U\+Vector Class Reference}
+\label{classHArDCore2D_1_1UVector}\index{HArDCore2D::UVector@{HArDCore2D::UVector}}
 
 
 {\ttfamily \#include $<$hybridcore.\+hpp$>$}
 
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1UVector_ac4eb49bfec491212a818bd6f6ef48e8d}{U\+Vector} (const Eigen\+::\+Vector\+Xd values, const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} \&mesh, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg)
+\mbox{\hyperlink{group__HybridCore_gac4eb49bfec491212a818bd6f6ef48e8d}{U\+Vector}} (const Eigen\+::\+Vector\+Xd values, const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&mesh, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg)
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a38b36a187519471f6cbe4719f14c5bd1}\label{classHArDCore2D_1_1UVector_a38b36a187519471f6cbe4719f14c5bd1}} 
-Eigen\+::\+Vector\+Xd \& \hyperlink{classHArDCore2D_1_1UVector_a38b36a187519471f6cbe4719f14c5bd1}{as\+Vector\+Xd} () const
+Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__HybridCore_ga38b36a187519471f6cbe4719f14c5bd1}{as\+Vector\+Xd}} () const
 \begin{DoxyCompactList}\small\item\em Return the values as an Eigen vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a57600052c8a5e1cf831982cc432376cb}\label{classHArDCore2D_1_1UVector_a57600052c8a5e1cf831982cc432376cb}} 
-const int \hyperlink{classHArDCore2D_1_1UVector_a57600052c8a5e1cf831982cc432376cb}{get\+\_\+cell\+\_\+deg} () const
+const int \mbox{\hyperlink{group__HybridCore_ga57600052c8a5e1cf831982cc432376cb}{get\+\_\+cell\+\_\+deg}} () const
 \begin{DoxyCompactList}\small\item\em Return the cell degree. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a277b6f37671f574cf5b6726146513967}\label{classHArDCore2D_1_1UVector_a277b6f37671f574cf5b6726146513967}} 
-const size\+\_\+t \hyperlink{classHArDCore2D_1_1UVector_a277b6f37671f574cf5b6726146513967}{get\+\_\+edge\+\_\+deg} () const
+const size\+\_\+t \mbox{\hyperlink{group__HybridCore_ga277b6f37671f574cf5b6726146513967}{get\+\_\+edge\+\_\+deg}} () const
 \begin{DoxyCompactList}\small\item\em Return the edge degree. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a7a60116ab5a3e30a4bfdae0f59b0b56a}\label{classHArDCore2D_1_1UVector_a7a60116ab5a3e30a4bfdae0f59b0b56a}} 
-const size\+\_\+t \hyperlink{classHArDCore2D_1_1UVector_a7a60116ab5a3e30a4bfdae0f59b0b56a}{n\+\_\+cell\+\_\+dofs} () const
+const size\+\_\+t \mbox{\hyperlink{group__HybridCore_ga7a60116ab5a3e30a4bfdae0f59b0b56a}{n\+\_\+cell\+\_\+dofs}} () const
 \begin{DoxyCompactList}\small\item\em Number of dofs in each cell. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_ad9c8979d99d1b65198460b9e2cd0e46a}\label{classHArDCore2D_1_1UVector_ad9c8979d99d1b65198460b9e2cd0e46a}} 
-const size\+\_\+t \hyperlink{classHArDCore2D_1_1UVector_ad9c8979d99d1b65198460b9e2cd0e46a}{n\+\_\+edge\+\_\+dofs} () const
+const size\+\_\+t \mbox{\hyperlink{group__HybridCore_gad9c8979d99d1b65198460b9e2cd0e46a}{n\+\_\+edge\+\_\+dofs}} () const
 \begin{DoxyCompactList}\small\item\em Number of dofs on each edge. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a351f3c7fa4646c35964f1e42d26adb6f}\label{classHArDCore2D_1_1UVector_a351f3c7fa4646c35964f1e42d26adb6f}} 
-const size\+\_\+t \hyperlink{classHArDCore2D_1_1UVector_a351f3c7fa4646c35964f1e42d26adb6f}{n\+\_\+total\+\_\+cell\+\_\+dofs} () const
+const size\+\_\+t \mbox{\hyperlink{group__HybridCore_ga351f3c7fa4646c35964f1e42d26adb6f}{n\+\_\+total\+\_\+cell\+\_\+dofs}} () const
 \begin{DoxyCompactList}\small\item\em Total number of cell dofs (in the vector, this is where the edge dofs start) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a24a0a68f8f1e8bdc4845bee48b7ce8d2}\label{classHArDCore2D_1_1UVector_a24a0a68f8f1e8bdc4845bee48b7ce8d2}} 
-Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1UVector_a24a0a68f8f1e8bdc4845bee48b7ce8d2}{restr} (size\+\_\+t iT) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HybridCore_ga24a0a68f8f1e8bdc4845bee48b7ce8d2}{restr}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Extract the restriction of the unknowns corresponding to cell iT and its edges. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a4e485116ef8d2bbdbdffaab1b3377ba5}\label{classHArDCore2D_1_1UVector_a4e485116ef8d2bbdbdffaab1b3377ba5}} 
-\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \hyperlink{classHArDCore2D_1_1UVector_a4e485116ef8d2bbdbdffaab1b3377ba5}{operator+} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&b)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HybridCore_ga4e485116ef8d2bbdbdffaab1b3377ba5}{operator+}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&b)
 \begin{DoxyCompactList}\small\item\em Overloads the addition\+: adds the coefficients. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_a6256a41660c0ca12280dfc93f7cc890d}\label{classHArDCore2D_1_1UVector_a6256a41660c0ca12280dfc93f7cc890d}} 
-\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \hyperlink{classHArDCore2D_1_1UVector_a6256a41660c0ca12280dfc93f7cc890d}{operator-\/} (const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} \&b)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HybridCore_ga6256a41660c0ca12280dfc93f7cc890d}{operator-\/}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&b)
 \begin{DoxyCompactList}\small\item\em Overloads the subtraction\+: subtracts the coefficients. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_afede4bb5d9e9d4ea1255f84911217ef1}\label{classHArDCore2D_1_1UVector_afede4bb5d9e9d4ea1255f84911217ef1}} 
-double \hyperlink{classHArDCore2D_1_1UVector_afede4bb5d9e9d4ea1255f84911217ef1}{operator()} (size\+\_\+t index) const
+double \mbox{\hyperlink{group__HybridCore_gafede4bb5d9e9d4ea1255f84911217ef1}{operator()}} (size\+\_\+t index) const
 \begin{DoxyCompactList}\small\item\em Overloads the ()\+: returns the corresponding coefficient. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} class describes a vector of unknowns for discrete functions defined by polynomials in the cells and polynomials on the edges (polynomials on the edges are not taken into account yet, but this can easily be changed). The class describes the respective degrees of cell and edges polynomials considered. In the values stored in an element of this class, the coefficients on the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1UVector_ac4eb49bfec491212a818bd6f6ef48e8d}\label{classHArDCore2D_1_1UVector_ac4eb49bfec491212a818bd6f6ef48e8d}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+U\+Vector@{H\+Ar\+D\+Core2\+D\+::\+U\+Vector}!U\+Vector@{U\+Vector}}
-\index{U\+Vector@{U\+Vector}!H\+Ar\+D\+Core2\+D\+::\+U\+Vector@{H\+Ar\+D\+Core2\+D\+::\+U\+Vector}}
-\subsubsection{\texorpdfstring{U\+Vector()}{UVector()}}
-{\footnotesize\ttfamily U\+Vector\+::\+U\+Vector (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{values,  }\item[{const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} \&}]{mesh,  }\item[{const int}]{cell\+\_\+deg,  }\item[{const size\+\_\+t}]{edge\+\_\+deg }\end{DoxyParamCaption})}
-
-
-\begin{DoxyParams}{Parameters}
-{\em values} & values of the vector \\
-\hline
-{\em mesh} & reference to the mesh \\
-\hline
-{\em cell\+\_\+deg} & polynomial degrees in cell \\
-\hline
-{\em edge\+\_\+deg} & polynomial degrees on edge \\
-\hline
-\end{DoxyParams}
-
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} class describes a vector of unknowns for discrete functions defined by polynomials in the cells and polynomials on the edges (polynomials on the edges are not taken into account yet, but this can easily be changed). The class describes the respective degrees of cell and edges polynomials considered. In the values stored in an element of this class, the coefficients on the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

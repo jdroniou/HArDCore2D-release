@@ -1,42 +1,78 @@
-\hypertarget{group__HHO__Diffusion}{}\section{H\+H\+O\+\_\+\+Diffusion}
-\label{group__HHO__Diffusion}\index{H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}}
+\hypertarget{group__HHO__Diffusion}{}\doxysection{H\+H\+O\+\_\+\+Diffusion}
+\label{group__HHO__Diffusion}\index{HHO\_Diffusion@{HHO\_Diffusion}}
 
 
-H\+HO scheme for diffusion equation -\/div(Diff grad u)=f, with Diff piecewise constant.  
+H\+HO scheme for diffusion equation -\/div(\+Diff grad u)=f, with Diff piecewise constant.  
 
 
-\subsection*{Classes}
+\doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+\+Diffusion} class provides tools to implement the H\+HO method for the diffusion problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
+class \mbox{\hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+\+Diffusion}} class provides tools to implement the H\+HO method for the diffusion problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{group__HHO__Diffusion_ga5dd0238ced5e1ace4c0581d779e4e76d}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+H\+H\+O\+\_\+\+Diffusion} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, size\+\_\+t K, int L, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a5c4f7bf42c46d5bd8fde47396c2a9de5}{tensor\+\_\+function\+\_\+type} kappa, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_afc8040de1122421f070bb19231db5431}{source\+\_\+function\+\_\+type} source, \hyperlink{classBoundaryConditions}{Boundary\+Conditions} BC, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ad64a9a3249e7345e7dbaafb7b578f524}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a9f9412bc2a0a28033591d2e8a5750d90}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, bool use\+\_\+threads, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__HHO__Diffusion_gae9a554427cd4b91768d3bcdc77456267}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+H\+H\+O\+\_\+\+Diffusion}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hho, size\+\_\+t K, int L, Cell\+F\+Type$<$ Matrix\+Rd $>$ kappa, Cell\+F\+Type$<$ double $>$ source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ exact\+\_\+solution, Cell\+F\+Type$<$ Vector\+Rd $>$ grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, bool use\+\_\+threads, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__HHO__Diffusion_gaa78a74bda050f0773e920c00c297c858}\label{group__HHO__Diffusion_gaa78a74bda050f0773e920c00c297c858}} 
-void \hyperlink{group__HHO__Diffusion_gaa78a74bda050f0773e920c00c297c858}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::assemble} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+void \mbox{\hyperlink{group__HHO__Diffusion_gaa78a74bda050f0773e920c00c297c858}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::assemble}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hho)
 \begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__HHO__Diffusion_ga512e1affea54022987a1be1cdd9a5dd3}\label{group__HHO__Diffusion_ga512e1affea54022987a1be1cdd9a5dd3}} 
-\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} {\bfseries H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} {\bfseries H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::solve} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hho)
 \item 
 \mbox{\Hypertarget{group__HHO__Diffusion_ga9f9382eebdf3542db2e11d7770e90565}\label{group__HHO__Diffusion_ga9f9382eebdf3542db2e11d7770e90565}} 
-double \hyperlink{group__HHO__Diffusion_ga9f9382eebdf3542db2e11d7770e90565}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+Energy\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const \hyperlink{classHArDCore2D_1_1UVector}{U\+Vector} Xh)
-\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) of an hybrid function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+double \mbox{\hyperlink{group__HHO__Diffusion_ga9f9382eebdf3542db2e11d7770e90565}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+Energy\+Norm}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hho, const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} Xh)
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) of an hybrid function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga2f9d10916800747ae977e901931309da}\label{group__HHO__Diffusion_ga2f9d10916800747ae977e901931309da}} 
+Eigen\+::\+Sparse\+Matrix$<$ double $>$ \mbox{\hyperlink{group__HHO__Diffusion_ga2f9d10916800747ae977e901931309da}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+\+Sys\+Mat}} ()
+\begin{DoxyCompactList}\small\item\em Return the (statically condensed) matrix system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga4b67f061d06b1aea5a626792a2bddd1e}\label{group__HHO__Diffusion_ga4b67f061d06b1aea5a626792a2bddd1e}} 
+double \mbox{\hyperlink{group__HHO__Diffusion_ga4b67f061d06b1aea5a626792a2bddd1e}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+assembly\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga0ba01c42bc116f962b6982b27e95b471}\label{group__HHO__Diffusion_ga0ba01c42bc116f962b6982b27e95b471}} 
+double \mbox{\hyperlink{group__HHO__Diffusion_ga0ba01c42bc116f962b6982b27e95b471}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+solving\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_gad53ffa4a52af7bf6803e28f36c7e3365}\label{group__HHO__Diffusion_gad53ffa4a52af7bf6803e28f36c7e3365}} 
+double \mbox{\hyperlink{group__HHO__Diffusion_gad53ffa4a52af7bf6803e28f36c7e3365}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+solving\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga43051dfce03a9f75c33903f1736f4e1a}\label{group__HHO__Diffusion_ga43051dfce03a9f75c33903f1736f4e1a}} 
+double \mbox{\hyperlink{group__HHO__Diffusion_ga43051dfce03a9f75c33903f1736f4e1a}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+itime}} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga256bb752aa0cfa95590e7fc527df79af}\label{group__HHO__Diffusion_ga256bb752aa0cfa95590e7fc527df79af}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_ga256bb752aa0cfa95590e7fc527df79af}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+nlocal\+\_\+cell\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Number of D\+O\+Fs in each cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga11f28c7a5bc9eec0cf98b08bdb522f26}\label{group__HHO__Diffusion_ga11f28c7a5bc9eec0cf98b08bdb522f26}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_ga11f28c7a5bc9eec0cf98b08bdb522f26}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+nlocal\+\_\+edge\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Number of D\+O\+Fs on each edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_gadf4594eefb906f71afb354a06242366b}\label{group__HHO__Diffusion_gadf4594eefb906f71afb354a06242366b}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_gadf4594eefb906f71afb354a06242366b}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+nhighorder\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Number of D\+O\+Fs per cell for high-\/order (K+1) polynomials. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_gad1d44ea24b4d4bb67e7038958871a142}\label{group__HHO__Diffusion_gad1d44ea24b4d4bb67e7038958871a142}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_gad1d44ea24b4d4bb67e7038958871a142}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+ntotal\+\_\+cell\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Total number of cell D\+O\+Fs over the entire mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga06eefd287e888b735c2c601c730e9db2}\label{group__HHO__Diffusion_ga06eefd287e888b735c2c601c730e9db2}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_ga06eefd287e888b735c2c601c730e9db2}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+ntotal\+\_\+edge\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Total number of edge D\+O\+Fs over the entire mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga1bd1705bbdc60336d3f9f62412b7d54e}\label{group__HHO__Diffusion_ga1bd1705bbdc60336d3f9f62412b7d54e}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_ga1bd1705bbdc60336d3f9f62412b7d54e}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+ndir\+\_\+edge\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Total number of edge D\+O\+Fs for Dirichlet edges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HHO__Diffusion_ga83730cd62e94ef4736562d77c4f3dc5e}\label{group__HHO__Diffusion_ga83730cd62e94ef4736562d77c4f3dc5e}} 
+const size\+\_\+t \mbox{\hyperlink{group__HHO__Diffusion_ga83730cd62e94ef4736562d77c4f3dc5e}{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::get\+\_\+ntotal\+\_\+dofs}} ()
+\begin{DoxyCompactList}\small\item\em Total number of degrees of freedom over the entire mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-H\+HO scheme for diffusion equation -\/div(Diff grad u)=f, with Diff piecewise constant. 
+\doxysubsection{Detailed Description}
+H\+HO scheme for diffusion equation -\/div(\+Diff grad u)=f, with Diff piecewise constant. 
 
 
 
-\subsection{Function Documentation}
-\mbox{\Hypertarget{group__HHO__Diffusion_ga5dd0238ced5e1ace4c0581d779e4e76d}\label{group__HHO__Diffusion_ga5dd0238ced5e1ace4c0581d779e4e76d}} 
-\index{H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}!H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}}
-\index{H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}!H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}}
-\subsubsection{\texorpdfstring{H\+H\+O\+\_\+\+Diffusion()}{HHO\_Diffusion()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+H\+H\+O\+\_\+\+Diffusion (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&}]{hho,  }\item[{size\+\_\+t}]{K,  }\item[{int}]{L,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_a5c4f7bf42c46d5bd8fde47396c2a9de5}{tensor\+\_\+function\+\_\+type}}]{kappa,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_afc8040de1122421f070bb19231db5431}{source\+\_\+function\+\_\+type}}]{source,  }\item[{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}]{BC,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_ad64a9a3249e7345e7dbaafb7b578f524}{solution\+\_\+function\+\_\+type}}]{exact\+\_\+solution,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_a9f9412bc2a0a28033591d2e8a5750d90}{grad\+\_\+function\+\_\+type}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{bool}]{use\+\_\+threads,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__HHO__Diffusion_gae9a554427cd4b91768d3bcdc77456267}\label{group__HHO__Diffusion_gae9a554427cd4b91768d3bcdc77456267}} 
+\index{HHO\_Diffusion@{HHO\_Diffusion}!HHO\_Diffusion@{HHO\_Diffusion}}
+\index{HHO\_Diffusion@{HHO\_Diffusion}!HHO\_Diffusion@{HHO\_Diffusion}}
+\doxysubsubsection{\texorpdfstring{HHO\_Diffusion()}{HHO\_Diffusion()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+H\+H\+O\+\_\+\+Diffusion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&}]{hho,  }\item[{size\+\_\+t}]{K,  }\item[{int}]{L,  }\item[{Cell\+F\+Type$<$ Matrix\+Rd $>$}]{kappa,  }\item[{Cell\+F\+Type$<$ double $>$}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$}]{exact\+\_\+solution,  }\item[{Cell\+F\+Type$<$ Vector\+Rd $>$}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{bool}]{use\+\_\+threads,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 

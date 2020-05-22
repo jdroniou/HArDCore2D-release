@@ -1,49 +1,76 @@
-\hypertarget{classTestCase}{}\section{Test\+Case Class Reference}
-\label{classTestCase}\index{Test\+Case@{Test\+Case}}
+\hypertarget{classTestCase}{}\doxysection{Test\+Case Class Reference}
+\label{classTestCase}\index{TestCase@{TestCase}}
 
 
-The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases.  
+The \mbox{\hyperlink{classTestCase}{Test\+Case}} class provides definition of test cases.  
 
 
 
 
 {\ttfamily \#include $<$Test\+Case.\+hpp$>$}
 
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classTestCase_aa4ad29533416ee515205db87002a1bf1}{Test\+Case} (const std\+::vector$<$ int $>$ i\+TC)
+\mbox{\hyperlink{classTestCase_a89135d3d44b1eedf9efcb6ce421d9269}{Test\+Case}} (std\+::vector$<$ int $>$ i\+TC)
 \begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
-double \hyperlink{classTestCase_aede719dac81c460c713d930a379c537e}{sol} (const double x, const double y)
-\begin{DoxyCompactList}\small\item\em Returns the exact solution at the points x, y. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector2d \hyperlink{classTestCase_a2e3004705b74b232dc54d84652ec88ae}{grad\+\_\+sol} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns the gradient of the exact solution at the points x, y. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix2d \hyperlink{classTestCase_aadf1375364b34ad3b9fa651eae5baa1e}{hess\+\_\+sol} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns the Hessian of the exact solution at the points x, y. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix2d \hyperlink{classTestCase_aaf745f4815ce0e9c16d8bded9f9b3596}{diff} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector2d \hyperlink{classTestCase_aa32221ff5dd860c050a28661406a87dc}{div\+\_\+diff} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns the divergence by row of the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
-double \hyperlink{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}{source} (const double x, const double y, const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns the source term at the points x, y. \end{DoxyCompactList}\item 
-double \hyperlink{group__TestCases_gabb42d3b206c5e89d34ed34f5fe2546e0}{get\+\_\+lambda} ()
+\mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \mbox{\hyperlink{classTestCase_af43950f065a64745f2ee52fad86106eb}{sol}} ()
+\begin{DoxyCompactList}\small\item\em Returns the exact solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_aae90a2722c30bdccb51c947c5a200857}\label{classTestCase_aae90a2722c30bdccb51c947c5a200857}} 
+Cell\+F\+Type$<$ Vector\+Rd $>$ \mbox{\hyperlink{classTestCase_aae90a2722c30bdccb51c947c5a200857}{grad\+\_\+sol}} ()
+\begin{DoxyCompactList}\small\item\em Returns the gradient of the exact solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a8d2fc512e04ba2c3386080bd29d062e2}\label{classTestCase_a8d2fc512e04ba2c3386080bd29d062e2}} 
+Cell\+F\+Type$<$ Matrix\+Rd $>$ \mbox{\hyperlink{classTestCase_a8d2fc512e04ba2c3386080bd29d062e2}{hess\+\_\+sol}} ()
+\begin{DoxyCompactList}\small\item\em Returns the Hessian of the exact solution. \end{DoxyCompactList}\item 
+Cell\+F\+Type$<$ Matrix\+Rd $>$ \mbox{\hyperlink{classTestCase_aee1572eb56a3bc9c34393b035b8088c8}{diff}} ()
+\begin{DoxyCompactList}\small\item\em Returns the diffusion matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_ad34d8c38931709727c1c02e1016a9ff3}\label{classTestCase_ad34d8c38931709727c1c02e1016a9ff3}} 
+Cell\+F\+Type$<$ Vector\+Rd $>$ \mbox{\hyperlink{classTestCase_ad34d8c38931709727c1c02e1016a9ff3}{div\+\_\+diff}} ()
+\begin{DoxyCompactList}\small\item\em Returns the divergence by row of the diffusion matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_aaa22fd22946c745ac7b8a93b892dbd52}\label{classTestCase_aaa22fd22946c745ac7b8a93b892dbd52}} 
+Cell\+F\+Type$<$ Vector\+Rd $>$ \mbox{\hyperlink{classTestCase_aaa22fd22946c745ac7b8a93b892dbd52}{advec}} ()
+\begin{DoxyCompactList}\small\item\em Returns the advection term. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a8958384f20a6b4ddfaf401d6f467a9e5}\label{classTestCase_a8958384f20a6b4ddfaf401d6f467a9e5}} 
+Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_a8958384f20a6b4ddfaf401d6f467a9e5}{div\+\_\+advec}} ()
+\begin{DoxyCompactList}\small\item\em Returns the divergence of the advection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_aa76112b47b6831c46fcd2aa672b5de4e}\label{classTestCase_aa76112b47b6831c46fcd2aa672b5de4e}} 
+Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_aa76112b47b6831c46fcd2aa672b5de4e}{reac}} ()
+\begin{DoxyCompactList}\small\item\em Returns the reaction term. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a474960b565b24b73a7c09666f4400804}\label{classTestCase_a474960b565b24b73a7c09666f4400804}} 
+Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_a474960b565b24b73a7c09666f4400804}{diff\+\_\+source}} ()
+\begin{DoxyCompactList}\small\item\em Returns the diffusion source term. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}\label{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}} 
+Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}{diff\+\_\+advec\+\_\+reac\+\_\+source}} ()
+\begin{DoxyCompactList}\small\item\em Returns the diffusion-\/advection-\/reaction source term. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}\label{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}} 
+double \mbox{\hyperlink{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}{get\+\_\+lambda}} ()
 \begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}\label{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}} 
-void \hyperlink{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}{validate} ()
+void \mbox{\hyperlink{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}{validate}} ()
 \begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\item 
-size\+\_\+t \hyperlink{group__TestCases_ga3dd2daaebb012281b252ab65db0045b2}{get\+\_\+deg\+\_\+diff} ()
-\begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classTestCase_a3dd2daaebb012281b252ab65db0045b2}\label{classTestCase_a3dd2daaebb012281b252ab65db0045b2}} 
+size\+\_\+t \mbox{\hyperlink{classTestCase_a3dd2daaebb012281b252ab65db0045b2}{get\+\_\+deg\+\_\+diff}} ()
+\begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a22ef4ff91927238fd0a6c071bcb0f508}\label{classTestCase_a22ef4ff91927238fd0a6c071bcb0f508}} 
+bool \mbox{\hyperlink{classTestCase_a22ef4ff91927238fd0a6c071bcb0f508}{is\+\_\+reac\+\_\+const}} ()
+\begin{DoxyCompactList}\small\item\em Returns a flag to check if reaction is constant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a4fa8797b5182b65d8da9597c6eed1094}\label{classTestCase_a4fa8797b5182b65d8da9597c6eed1094}} 
+bool \mbox{\hyperlink{classTestCase_a4fa8797b5182b65d8da9597c6eed1094}{is\+\_\+div\+\_\+advec\+\_\+zero}} ()
+\begin{DoxyCompactList}\small\item\em Returns a flag to check if divergence of advection is zero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a9c3503ee179285ec671f6465ffaee93c}\label{classTestCase_a9c3503ee179285ec671f6465ffaee93c}} 
+bool \mbox{\hyperlink{classTestCase_a9c3503ee179285ec671f6465ffaee93c}{is\+\_\+div\+\_\+advec\+\_\+const}} ()
+\begin{DoxyCompactList}\small\item\em Returns a flag to check if divergence of advection is constant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases. 
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classTestCase}{Test\+Case}} class provides definition of test cases. 
 
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classTestCase_aa4ad29533416ee515205db87002a1bf1}\label{classTestCase_aa4ad29533416ee515205db87002a1bf1}} 
-\index{Test\+Case@{Test\+Case}!Test\+Case@{Test\+Case}}
-\index{Test\+Case@{Test\+Case}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{Test\+Case()}{TestCase()}}
-{\footnotesize\ttfamily Test\+Case\+::\+Test\+Case (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$}]{i\+TC }\end{DoxyParamCaption})}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTestCase_a89135d3d44b1eedf9efcb6ce421d9269}\label{classTestCase_a89135d3d44b1eedf9efcb6ce421d9269}} 
+\index{TestCase@{TestCase}!TestCase@{TestCase}}
+\index{TestCase@{TestCase}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{TestCase()}{TestCase()}}
+{\footnotesize\ttfamily Test\+Case\+::\+Test\+Case (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{i\+TC }\end{DoxyParamCaption})}
 
 
 
@@ -56,16 +83,16 @@ Initialise data.
 \end{DoxyParams}
 
 
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classTestCase_aaf745f4815ce0e9c16d8bded9f9b3596}\label{classTestCase_aaf745f4815ce0e9c16d8bded9f9b3596}} 
-\index{Test\+Case@{Test\+Case}!diff@{diff}}
-\index{diff@{diff}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{diff()}{diff()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+::diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCase_aee1572eb56a3bc9c34393b035b8088c8}\label{classTestCase_aee1572eb56a3bc9c34393b035b8088c8}} 
+\index{TestCase@{TestCase}!diff@{diff}}
+\index{diff@{diff}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily Cell\+F\+Type$<$ Matrix\+Rd $>$ Test\+Case\+::diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Returns the diffusion matrix at the points x, y. 
+Returns the diffusion matrix. 
 
 i\+TC\mbox{[}1\mbox{]}=1\+: Diff = Id
 
@@ -75,65 +102,15 @@ i\+TC\mbox{[}1\mbox{]}=3\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\en
 
 i\+TC\mbox{[}1\mbox{]}=4\+: rotating diffusion. Diff= $\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 & (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} & \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$, where $\bar{x}=x+0.1$ and $\bar{y}=y+0.1$.
 
-i\+TC\mbox{[}1\mbox{]}=5\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$. 
-\begin{DoxyParams}{Parameters}
-{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classTestCase_aa32221ff5dd860c050a28661406a87dc}\label{classTestCase_aa32221ff5dd860c050a28661406a87dc}} 
-\index{Test\+Case@{Test\+Case}!div\+\_\+diff@{div\+\_\+diff}}
-\index{div\+\_\+diff@{div\+\_\+diff}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{div\+\_\+diff()}{div\_diff()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+::div\+\_\+diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+i\+TC\mbox{[}1\mbox{]}=5\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$.\mbox{\Hypertarget{classTestCase_af43950f065a64745f2ee52fad86106eb}\label{classTestCase_af43950f065a64745f2ee52fad86106eb}} 
+\index{TestCase@{TestCase}!sol@{sol}}
+\index{sol@{sol}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{sol()}{sol()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ Test\+Case\+::sol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Returns the divergence by row of the diffusion matrix at the points x, y. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classTestCase_a2e3004705b74b232dc54d84652ec88ae}\label{classTestCase_a2e3004705b74b232dc54d84652ec88ae}} 
-\index{Test\+Case@{Test\+Case}!grad\+\_\+sol@{grad\+\_\+sol}}
-\index{grad\+\_\+sol@{grad\+\_\+sol}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{grad\+\_\+sol()}{grad\_sol()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+::grad\+\_\+sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
-
-
-
-Returns the gradient of the exact solution at the points x, y. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classTestCase_aadf1375364b34ad3b9fa651eae5baa1e}\label{classTestCase_aadf1375364b34ad3b9fa651eae5baa1e}} 
-\index{Test\+Case@{Test\+Case}!hess\+\_\+sol@{hess\+\_\+sol}}
-\index{hess\+\_\+sol@{hess\+\_\+sol}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{hess\+\_\+sol()}{hess\_sol()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+::hess\+\_\+sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
-
-
-
-Returns the Hessian of the exact solution at the points x, y. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classTestCase_aede719dac81c460c713d930a379c537e}\label{classTestCase_aede719dac81c460c713d930a379c537e}} 
-\index{Test\+Case@{Test\+Case}!sol@{sol}}
-\index{sol@{sol}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{sol()}{sol()}}
-{\footnotesize\ttfamily double Test\+Case\+::sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y }\end{DoxyParamCaption})}
-
-
-
-Returns the exact solution at the points x, y. 
+Returns the exact solution. 
 
 i\+TC\mbox{[}0\mbox{]}=1\+: $u(x,y)=sin(\pi x) sin(\pi y)$
 
@@ -145,22 +122,17 @@ i\+TC\mbox{[}0\mbox{]}=4\+: $u(x,y)= y$
 
 i\+TC\mbox{[}0\mbox{]}=5\+: $u(x,y)= x^2 + y^2$
 
-i\+TC\mbox{[}0\mbox{]}=6\+: $u(x,y)= e^x \sin(pi x) \cos(\pi x)$ \mbox{\Hypertarget{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}\label{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}} 
-\index{Test\+Case@{Test\+Case}!source@{source}}
-\index{source@{source}!Test\+Case@{Test\+Case}}
-\subsubsection{\texorpdfstring{source()}{source()}}
-{\footnotesize\ttfamily double Test\+Case\+::source (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+i\+TC\mbox{[}0\mbox{]}=6\+: $u(x,y)= e^x \sin(\pi x) \sin(\pi y)$
 
+i\+TC\mbox{[}0\mbox{]}=7\+: $u(x,y)= \frac{1}{4} \sin(2 \pi x) \sin(2 \pi y)$
 
+i\+TC\mbox{[}0\mbox{]}=8\+: $u(x,y)= 5 x y (x-1) (y-1)$
 
-Returns the source term at the points x, y. 
+i\+TC\mbox{[}0\mbox{]}=9\+: $u(x,y)= \frac{1}{2} - \frac{1}{2}e^{\sin(\pi x) \sin(\pi y)}$
 
+i\+TC\mbox{[}0\mbox{]}=10\+: $u(x,y)= 1 - e^{\frac{1}{4} \sin(2 \pi x) \sin(2 \pi y)}$
 
-\begin{DoxyParams}{Parameters}
-{\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
-\hline
-\end{DoxyParams}
-
+i\+TC\mbox{[}0\mbox{]}=11\+: $u(x,y)= 5 - 5e^{x y (x-1) (y-1)}$
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

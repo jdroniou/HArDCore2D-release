@@ -1,74 +1,60 @@
-H\+Ar\+D\+::\+Core (sources\+: \href{https://github.com/jdroniou/HArDCore}{\tt https\+://github.\+com/jdroniou/\+H\+Ar\+D\+Core}) provides a suite of C++ tools to implement numerical schemes whose unknowns are polynomials in the cells, on the edges, and on the faces. The focus is on dealing on generic polytopal meshes. This document addresses the 2D version of H\+Ar\+D\+::\+Core. The tools are similar in 2D and 3D, and we refer to the main page of documentation of the 3D version for a more thorough introduction to the library. We only present here the specific way of loading a 2D mesh structure (which differs from the 3D version), and a brief description of the schemes available in this 2D library.
+H\+Ar\+D\+::\+Core (sources\+: \href{https://github.com/jdroniou/HArDCore}{\texttt{ https\+://github.\+com/jdroniou/\+H\+Ar\+D\+Core}}) provides a suite of C++ tools to implement numerical schemes whose unknowns are polynomials in the cells, on the edges, and on the faces. The focus is on dealing on generic polytopal meshes. This document addresses the 2D version of H\+Ar\+D\+::\+Core. The tools are similar in 2D and 3D, and we refer to the main page of documentation of the 3D version for a more thorough introduction to the library. We only present here the specific way of loading a 2D mesh structure (which differs from the 3D version), and a brief description of the schemes available in this 2D library.
 
-Transferring a scheme\textquotesingle{}s implementation from 3D to 2D or vice-\/versa is very straightforward, provided that the scheme\textquotesingle{}s mathematical definition does not depend on the dimension and that the generic types provided in {\ttfamily \hyperlink{basis_8hpp_source}{basis.\+hpp}} are used; see R\+E\+A\+D\+ME file of the H\+Ar\+D\+::\+Core github depository \href{https://github.com/jdroniou/HArDCore}{\tt https\+://github.\+com/jdroniou/\+H\+Ar\+D\+Core}.
+Transferring a scheme\textquotesingle{}s implementation from 3D to 2D or vice-\/versa is very straightforward, provided that the scheme\textquotesingle{}s mathematical definition does not depend on the dimension and that the generic types provided in {\ttfamily \mbox{\hyperlink{basis_8hpp_source}{basis.\+hpp}}} are used; see R\+E\+A\+D\+ME file of the H\+Ar\+D\+::\+Core github depository \href{https://github.com/jdroniou/HArDCore}{\texttt{ https\+://github.\+com/jdroniou/\+H\+Ar\+D\+Core}}.
 
 
 \begin{DoxyItemize}
-\item \href{#mesh}{\tt Loading a 2D mesh} -- How to load a mesh.
-\item \href{#schemes}{\tt Schemes} -- The list of schemes currently implemented in H\+Ar\+D\+::\+Core2D, and scripts to run them.
+\item \href{\#mesh}{\texttt{ Loading a 2D mesh}} -- How to load a mesh.
+\item \href{\#schemes}{\texttt{ Schemes}} -- The list of schemes currently implemented in H\+Ar\+D\+::\+Core2D, and scripts to run them.
 \end{DoxyItemize}
 
 \label{_mesh}%
- \hypertarget{index_loading_mesh}{}\section{Loading a mesh}\label{index_loading_mesh}
-H\+Ar\+D\+Core2D currently reads meshes in the {\ttfamily typ2} format designed for the \href{https://www.i2m.univ-amu.fr/fvca5/benchmark/index.html}{\tt F\+V\+C\+A5 Benchmark}. A short documentation describing this format is provided in the {\ttfamily typ2\+\_\+meshes} directory (see R\+E\+A\+D\+M\+E.\+pdf therein). Several meshes can also be found in this directory.
+ \hypertarget{index_loading_mesh}{}\doxysection{Loading a mesh}\label{index_loading_mesh}
+H\+Ar\+D\+Core2D currently reads meshes in the {\ttfamily typ2} format designed for the \href{https://www.i2m.univ-amu.fr/fvca5/benchmark/index.html}{\texttt{ F\+V\+C\+A5 Benchmark}}. A short documentation describing this format is provided in the {\ttfamily typ2\+\_\+meshes} directory (see R\+E\+A\+D\+M\+E.\+pdf therein). Several meshes can also be found in this directory.
 
 A mesh file must be read using an instance of the {\ttfamily Mesh\+Reader\+Typ2} class, and then built using {\ttfamily Mesh\+Builder}. A working example is given below (assuming the executable will be in {\ttfamily build/\+Schemes} for example).
 
 
-\begin{DoxyCode}
-\textcolor{preprocessor}{#include "mesh.hpp"}
-\textcolor{preprocessor}{#include "import\_mesh.hpp"}
-\textcolor{preprocessor}{#include "mesh\_builder.hpp"}
-
-\textcolor{keyword}{using namespace }\hyperlink{namespaceHArDCore2D}{HArDCore2D};
-
-\textcolor{keywordtype}{int} main() \{
-
-    \textcolor{comment}{// Mesh file to read}
-    std::string mesh\_file = \textcolor{stringliteral}{"../../typ2\_meshes/cart5x5.typ2"};
-
-  \textcolor{comment}{// Read the mesh file}
-  \hyperlink{classHArDCore2D_1_1MeshReaderTyp2}{MeshReaderTyp2} mesh(mesh\_file);
-
-  std::vector<std::vector<double> > vertices;
-  std::vector<std::vector<size\_t> > cells;
-  std::vector<std::vector<double> > centers;
-  \textcolor{keywordflow}{if} (mesh.read\_mesh(vertices, cells, centers) == \textcolor{keyword}{false}) \{
-    std::cout << \textcolor{stringliteral}{"Could not open file"} << std::endl;
-    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-  \};
-
-  \textcolor{comment}{// Build the mesh}
-  \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder} builder = \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}();
-  std::unique\_ptr<Mesh> mesh\_ptr = builder.\hyperlink{classHArDCore2D_1_1MeshBuilder_a0ef4a78ac64d1bcb6380317ea866758d}{build\_the\_mesh}(vertices, cells);
-  \textcolor{keywordflow}{if} (mesh\_ptr.get() == NULL) \{
-    printf(
-      \textcolor{stringliteral}{"Mesh cannot be created!\(\backslash\)n Check the input file contains \(\backslash\)n "}
-      \textcolor{stringliteral}{"Vertices "}
-      \textcolor{stringliteral}{"and cells with the correct tags"});
-    \textcolor{keywordflow}{return} 0;
-  \} 
-    std::cout << \textcolor{stringliteral}{"There are "} << mesh\_ptr->n\_cells() << \textcolor{stringliteral}{" cells in the mesh.\(\backslash\)n"};
-
-    \textcolor{comment}{// Create an HybridCore instance}
-  \hyperlink{classHArDCore2D_1_1HybridCore}{HybridCore} hho(mesh\_ptr.get(), K+1, K, use\_threads, output);
-\}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "mesh.hpp"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "import\_mesh.hpp"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "mesh\_builder.hpp"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }HArDCore2D;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{// Build mesh}}
+\DoxyCodeLine{  \mbox{\hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}} builder = \mbox{\hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}}(mesh\_file);}
+\DoxyCodeLine{  std::unique\_ptr<Mesh> mesh\_ptr = builder.\mbox{\hyperlink{group__Mesh_ga0ef4a78ac64d1bcb6380317ea866758d}{build\_the\_mesh}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{comment}{// Get the BC and re-\/order the edges (useful to set BC for hybrid schemes)}}
+\DoxyCodeLine{  std::string bc\_id = vm[\textcolor{stringliteral}{"bc\_id"}].as<std::string>();}
+\DoxyCodeLine{  \mbox{\hyperlink{classBoundaryConditions}{BoundaryConditions}} BC(bc\_id, *mesh\_ptr.get());}
+\DoxyCodeLine{  BC.reorder\_edges();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Create an HybridCore instance}}
+\DoxyCodeLine{  \mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{HybridCore}} hho(mesh\_ptr.get(), K+1, K, use\_threads, output);}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
 
 
 {\itshape Note}\+: the {\ttfamily typ2} format allows for meshes with very generic polygonal cells, including non-\/convex cells. However, the builder assumes that each cell is star-\/shaped with respect to the isobarycenter of its vertices -- otherwise, the calculation of the center of mass may be incorrect. Similarly, the quadrature rules assume that each cell is star-\/shaped with respect to its center of mass.
 
 \label{_schemes}%
- \hypertarget{index_schemes}{}\section{Schemes}\label{index_schemes}
-The following schemes are currently available in H\+Ar\+D\+::\+Core2D. The Hybrid High-\/\+Order schemes follow the implementation principles described in Appendix B of the book available at \href{https://hal.archives-ouvertes.fr/hal-02151813}{\tt https\+://hal.\+archives-\/ouvertes.\+fr/hal-\/02151813}.
+ \hypertarget{index_schemes}{}\doxysection{Schemes}\label{index_schemes}
+The following schemes are currently available in H\+Ar\+D\+::\+Core2D. The Hybrid High-\/\+Order schemes follow the implementation principles described in Appendix B of the book available at \href{https://hal.archives-ouvertes.fr/hal-02151813}{\texttt{ https\+://hal.\+archives-\/ouvertes.\+fr/hal-\/02151813}}.
 
 
 \begin{DoxyItemize}
-\item \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+diffusion}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
-\item \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+locvardiff}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
-\item B\+P\+N\+C\+\_\+\+Stefan\+P\+ME\+: Bubble Polytopal Non-\/\+Conforming method for the nonlinear Stefan/\+P\+ME problem $u-\mathrm{div}(K\nabla \zeta(u))=f$, for Dirichlet or mixed boundary conditions.
+\item \mbox{\hyperlink{group__HHO__Diffusion}{H\+H\+O\+\_\+diffusion}}\+: Hybrid High-\/\+Order (H\+HO) for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
+\item \mbox{\hyperlink{group__HHO__LocVarDiff}{H\+H\+O\+\_\+locvardiff}}\+: H\+HO for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet, Neumann or mixed boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
+\item \mbox{\hyperlink{group__HHO__DiffAdvecReac}{H\+H\+O\+\_\+diffadvecreac}}\+: Hybrid High-\/\+Order (H\+HO) for $-\mathrm{div}(K\nabla u+\beta u)+\mu u=f$, for Dirichlet or mixed boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
+\item \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME}{L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}}, in module \mbox{\hyperlink{group__LEPNC}{L\+E\+P\+NC}}\+: Locally Enriched Polytopal Non-\/\+Conforming (L\+E\+P\+NC) method for the stationnary Stefan/\+P\+ME problem $u-\mathrm{div}(K\nabla\zeta(u))=f$.
+\item \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}, in module \mbox{\hyperlink{group__LEPNC}{L\+E\+P\+NC}}\+: L\+E\+P\+NC for the transient Stefan/\+P\+ME problem $\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$.
+\item \mbox{\hyperlink{classHArDCore2D_1_1HMM__StefanPME__Transient}{H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}, in module \mbox{\hyperlink{group__HMM}{H\+MM}}\+: Hybrid Mimetic Mixed (H\+MM) method for the transient Stefan/\+P\+ME problem $\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$.
 \end{DoxyItemize}
 
 The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.
 
-To run the scripts as they are, you will need {\ttfamily pdflatex} and a F\+O\+R\+T\+R\+AN compiler, and to adjust the {\ttfamily Makefile} to your compiler, to run {\ttfamily compute\+\_\+rates.\+f90} and compute the rates of convergence in the various norms. 
+To run the scripts as they are, you will need {\ttfamily pdflatex} and (for the L\+E\+P\+NC and H\+MM schemes) a F\+O\+R\+T\+R\+AN compiler (adjust the {\ttfamily Makefile} to your compiler). 

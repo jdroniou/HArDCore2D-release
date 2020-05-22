@@ -1,5 +1,5 @@
-\hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge}{}\section{H\+Ar\+D\+Core2D\+:\+:Monomial\+Scalar\+Basis\+Edge Class Reference}
-\label{classHArDCore2D_1_1MonomialScalarBasisEdge}\index{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge}}
+\hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge}{}\doxysection{H\+Ar\+D\+Core2D\+::Monomial\+Scalar\+Basis\+Edge Class Reference}
+\label{classHArDCore2D_1_1MonomialScalarBasisEdge}\index{HArDCore2D::MonomialScalarBasisEdge@{HArDCore2D::MonomialScalarBasisEdge}}
 
 
 Scalar monomial basis on an edge.  
@@ -9,80 +9,47 @@ Scalar monomial basis on an edge.
 
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
-\subsection*{Public Types}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_af889760ab19dd5bd19e8780fe4378d25}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_af889760ab19dd5bd19e8780fe4378d25}} 
 typedef double {\bfseries Function\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_ac660ec4df6c23e7d383d2ccc5f06935b}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_ac660ec4df6c23e7d383d2ccc5f06935b}} 
 typedef Vector\+Rd {\bfseries Gradient\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a0e51387f5ec1db65ed5f6a744026a6a2}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a0e51387f5ec1db65ed5f6a744026a6a2}} 
 typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a9ddce9d9620387e1273d1f71f7cd4f8f}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a9ddce9d9620387e1273d1f71f7cd4f8f}} 
 typedef double {\bfseries Divergence\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_af296f0d9a155a2d4599512f96b3967cf}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_af296f0d9a155a2d4599512f96b3967cf}} 
-typedef \hyperlink{classHArDCore2D_1_1Edge}{Edge} {\bfseries Geometric\+Support}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge_a1794a48fbd89584ed844950e0057f513}{Monomial\+Scalar\+Basis\+Edge} (const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&E, size\+\_\+t degree)
+\mbox{\hyperlink{group__Basis_ga1794a48fbd89584ed844950e0057f513}{Monomial\+Scalar\+Basis\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, size\+\_\+t degree)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_ae546ece15c11ddb4382aa47c50fdd53c}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_ae546ece15c11ddb4382aa47c50fdd53c}} 
-size\+\_\+t \hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge_ae546ece15c11ddb4382aa47c50fdd53c}{dimension} () const
+size\+\_\+t \mbox{\hyperlink{group__Basis_gae546ece15c11ddb4382aa47c50fdd53c}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_af3ea5893997d96a77ea5a22d80777360}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_af3ea5893997d96a77ea5a22d80777360}} 
-Function\+Value \hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge_af3ea5893997d96a77ea5a22d80777360}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+Function\+Value \mbox{\hyperlink{group__Basis_gaf3ea5893997d96a77ea5a22d80777360}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a46fbc56b645a745e1ffef6995decc5cd}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a46fbc56b645a745e1ffef6995decc5cd}} 
-Gradient\+Value \hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge_a46fbc56b645a745e1ffef6995decc5cd}{gradient} (size\+\_\+t i, const Vector\+Rd \&x) const
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga46fbc56b645a745e1ffef6995decc5cd}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_afad80154f0c46b6132980c3edf9378a0}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_afad80154f0c46b6132980c3edf9378a0}} 
 static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a069544258c246a19a7574f22074fa4ee}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a069544258c246a19a7574f22074fa4ee}} 
 static const bool {\bfseries has\+Function} = true
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a98b138ce500257ca01b37a6cc62cced7}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a98b138ce500257ca01b37a6cc62cced7}} 
 static const bool {\bfseries has\+Gradient} = true
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a361073f6de474dfbc1c4aaa685220245}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a361073f6de474dfbc1c4aaa685220245}} 
 static const bool {\bfseries has\+Curl} = false
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a351c69a9068b7cae877fd1d4d369fabb}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a351c69a9068b7cae877fd1d4d369fabb}} 
 static const bool {\bfseries has\+Divergence} = false
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Scalar monomial basis on an edge. 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge_a1794a48fbd89584ed844950e0057f513}\label{classHArDCore2D_1_1MonomialScalarBasisEdge_a1794a48fbd89584ed844950e0057f513}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge}!Monomial\+Scalar\+Basis\+Edge@{Monomial\+Scalar\+Basis\+Edge}}
-\index{Monomial\+Scalar\+Basis\+Edge@{Monomial\+Scalar\+Basis\+Edge}!H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge}}
-\subsubsection{\texorpdfstring{Monomial\+Scalar\+Basis\+Edge()}{MonomialScalarBasisEdge()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge\+::\+Monomial\+Scalar\+Basis\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{classHArDCore2D_1_1Edge}{Edge} \&}]{E,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption})}
-
-
-
-Constructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em E} & A mesh edge \\
-\hline
-{\em degree} & The maximum polynomial degree to be considered \\
-\hline
-\end{DoxyParams}
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

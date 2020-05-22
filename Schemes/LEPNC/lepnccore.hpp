@@ -11,7 +11,7 @@
 
 /*!	
 * @defgroup LEPNC 
-* @brief Tools to implement the Locally Enriched Polytopal Non-Conforming method
+* @brief Locally Enriched Polytopal Non-Conforming method
 */
 
 namespace HArDCore2D {

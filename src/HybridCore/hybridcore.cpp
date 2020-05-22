@@ -49,17 +49,18 @@ Eigen::VectorXd UVector::restr(size_t iT) const{
 
 // Creation class
 
-HybridCore::HybridCore(const Mesh* mesh_ptr, const int cell_deg, const size_t edge_deg, const bool use_threads, std::ostream & output)
+HybridCore::HybridCore(const Mesh* mesh_ptr, const int cell_deg, const size_t edge_deg, const bool use_threads, std::ostream & output, const bool ortho)
   : m_mesh(mesh_ptr),
     m_cell_deg(cell_deg),
     m_cell_deg_pos(std::max(cell_deg,0)),
     m_edge_deg(edge_deg),
     m_use_threads(use_threads),
     m_output(output),
+    m_ortho(ortho),
     m_cell_basis(mesh_ptr->n_cells()),
     m_edge_basis(mesh_ptr->n_edges()),
     _offset_doe(0)        {
-  m_output << "[HybridCore] Construction" << (m_use_threads ? " (using multi-threading)" : "") << "\n";
+  m_output << "[HybridCore] Construction" << (m_use_threads ? " (multi-threading)" : "") << (m_ortho ? " (orthonormalised basis functions)" : "") << "\n";
   // Create cell bases
   std::function<void(size_t, size_t)> construct_all_cell_basis
     =[&] (size_t start, size_t end)->void 
@@ -91,23 +92,42 @@ HybridCore::PolyCellBasisType HybridCore::_construct_cell_basis(size_t iT)
 {
   const Cell & T = *m_mesh->cell(iT);
 
+  // Basis of monomials
   MonomialScalarBasisCell basis_mono_T(T, m_cell_deg_pos);
-  QuadratureRule quadT = generate_quadrature_rule(T, 2 * m_cell_deg_pos);
-  auto basis_mono_T_quadT = evaluate_quad<Function>::compute(basis_mono_T, quadT);
 
-  // orthonormalize and return
-  return PolyCellBasisType(l2_orthonormalize(basis_mono_T, quadT, basis_mono_T_quadT));   
+  // We construct the non-orthonormalised basis (same as above but as a "Family")
+  Eigen::MatrixXd B = Eigen::MatrixXd::Identity(basis_mono_T.dimension(), basis_mono_T.dimension());
+  PolyCellBasisType CellBasis(basis_mono_T, B);
+  
+  // Orthonormalisation
+  if (m_ortho){
+    QuadratureRule quadT = generate_quadrature_rule(T, 2 * m_cell_deg_pos);
+    auto basis_mono_T_quadT = evaluate_quad<Function>::compute(basis_mono_T, quadT);
+    CellBasis = l2_orthonormalize(basis_mono_T, quadT, basis_mono_T_quadT);
+  }
+
+  return CellBasis;
 }
 
 HybridCore::PolyEdgeBasisType HybridCore::_construct_edge_basis(size_t iE)
 {
   const Edge & E = *m_mesh->edge(iE);
-  MonomialScalarBasisEdge basis_mono_E(E, m_edge_deg);
-  QuadratureRule quadE = generate_quadrature_rule(E, 2 * m_edge_deg);
-  auto basis_mono_E_quadE = evaluate_quad<Function>::compute(basis_mono_E, quadE);
 
-  // orthonormalize and return
-  return PolyEdgeBasisType(l2_orthonormalize(basis_mono_E, quadE, basis_mono_E_quadE));   
+  // Basis of monomials
+  MonomialScalarBasisEdge basis_mono_E(E, m_edge_deg);
+
+  // We construct the non-orthonormalised basis (same as above but as a "Family")
+  Eigen::MatrixXd B = Eigen::MatrixXd::Identity(basis_mono_E.dimension(), basis_mono_E.dimension());
+  PolyEdgeBasisType EdgeBasis(basis_mono_E, B);
+
+  // Orthonormalisation
+  if (m_ortho){
+    QuadratureRule quadE = generate_quadrature_rule(E, 2 * m_edge_deg);
+    auto basis_mono_E_quadE = evaluate_quad<Function>::compute(basis_mono_E, quadE);
+    EdgeBasis = l2_orthonormalize(basis_mono_E, quadE, basis_mono_E_quadE);
+  }
+
+  return EdgeBasis;
 }
 
 

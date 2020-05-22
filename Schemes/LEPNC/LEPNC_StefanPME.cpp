@@ -117,11 +117,11 @@ int main(int argc, const char* argv[]) {
 	TestCaseStefanPME tcase(id_tcase);
 
 	int id_tcaseNL = vm["testcaseNL"].as<int>();
-	int mPME = vm["powerPME"].as<double>();
+	double mPME = vm["powerPME"].as<double>();
 	TestCaseNonLinearity tcaseNL(id_tcaseNL, mPME);
 
 	double weight = vm["weight"].as<double>();
-	double source = vm["source"].as<int>();
+	int source = vm["source"].as<int>();
 
 	// Nonlinearity zeta(u)
 	TestCaseNonLinearity::nonlinearity_function_type zeta = [&tcaseNL](double s, std::string type){

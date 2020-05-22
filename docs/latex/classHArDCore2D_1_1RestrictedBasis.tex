@@ -1,93 +1,57 @@
-\hypertarget{classHArDCore2D_1_1RestrictedBasis}{}\section{H\+Ar\+D\+Core2D\+:\+:Restricted\+Basis$<$ Basis\+Type $>$ Class Template Reference}
-\label{classHArDCore2D_1_1RestrictedBasis}\index{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$@{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$}}
+\hypertarget{classHArDCore2D_1_1RestrictedBasis}{}\doxysection{H\+Ar\+D\+Core2D\+::Restricted\+Basis$<$ Basis\+Type $>$ Class Template Reference}
+\label{classHArDCore2D_1_1RestrictedBasis}\index{HArDCore2D::RestrictedBasis$<$ BasisType $>$@{HArDCore2D::RestrictedBasis$<$ BasisType $>$}}
 
 
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
-\subsection*{Public Types}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a5772db07ac87c68788744dc652317540}\label{classHArDCore2D_1_1RestrictedBasis_a5772db07ac87c68788744dc652317540}} 
 typedef Basis\+Type\+::\+Function\+Value {\bfseries Function\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a2fd05335aff5beae7d23d274ccf95496}\label{classHArDCore2D_1_1RestrictedBasis_a2fd05335aff5beae7d23d274ccf95496}} 
 typedef Basis\+Type\+::\+Gradient\+Value {\bfseries Gradient\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a76c22157064e9c58e0e45c3dfcfc8e19}\label{classHArDCore2D_1_1RestrictedBasis_a76c22157064e9c58e0e45c3dfcfc8e19}} 
 typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a841d7df7cd3379bd3f774206dd1009d1}\label{classHArDCore2D_1_1RestrictedBasis_a841d7df7cd3379bd3f774206dd1009d1}} 
 typedef double {\bfseries Divergence\+Value}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_ac1568c98b6dcfe1198d237669218e85c}\label{classHArDCore2D_1_1RestrictedBasis_ac1568c98b6dcfe1198d237669218e85c}} 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1RestrictedBasis_a3c6a0bd9f6d2d6411762613b363f1716}{Restricted\+Basis} (const Basis\+Type \&basis, const size\+\_\+t \&\hyperlink{classHArDCore2D_1_1RestrictedBasis_a5128f2da3cb58784d6ee7f4dffcacb90}{dimension})
+\mbox{\hyperlink{group__Basis_ga3c6a0bd9f6d2d6411762613b363f1716}{Restricted\+Basis}} (const Basis\+Type \&basis, const size\+\_\+t \&\mbox{\hyperlink{group__Basis_ga5128f2da3cb58784d6ee7f4dffcacb90}{dimension}})
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a5128f2da3cb58784d6ee7f4dffcacb90}\label{classHArDCore2D_1_1RestrictedBasis_a5128f2da3cb58784d6ee7f4dffcacb90}} 
-size\+\_\+t \hyperlink{classHArDCore2D_1_1RestrictedBasis_a5128f2da3cb58784d6ee7f4dffcacb90}{dimension} () const
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga5128f2da3cb58784d6ee7f4dffcacb90}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Return the dimension of the basis. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a1d2d6afdd27878c524490c2e4a9f0bc7}\label{classHArDCore2D_1_1RestrictedBasis_a1d2d6afdd27878c524490c2e4a9f0bc7}} 
-Function\+Value \hyperlink{classHArDCore2D_1_1RestrictedBasis_a1d2d6afdd27878c524490c2e4a9f0bc7}{function} (size\+\_\+t i, const Vector\+Rd \&x) const
+Function\+Value \mbox{\hyperlink{group__Basis_ga1d2d6afdd27878c524490c2e4a9f0bc7}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a8e3093c0bd8ca48ef8d37d8f7d302fed}\label{classHArDCore2D_1_1RestrictedBasis_a8e3093c0bd8ca48ef8d37d8f7d302fed}} 
-Gradient\+Value \hyperlink{classHArDCore2D_1_1RestrictedBasis_a8e3093c0bd8ca48ef8d37d8f7d302fed}{gradient} (size\+\_\+t i, const Vector\+Rd \&x) const
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga8e3093c0bd8ca48ef8d37d8f7d302fed}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a81e5a6c78223c5fe9a1e05d47a7798f1}\label{classHArDCore2D_1_1RestrictedBasis_a81e5a6c78223c5fe9a1e05d47a7798f1}} 
-Curl\+Value \hyperlink{classHArDCore2D_1_1RestrictedBasis_a81e5a6c78223c5fe9a1e05d47a7798f1}{curl} (size\+\_\+t i, const Vector\+Rd \&x) const
+Curl\+Value \mbox{\hyperlink{group__Basis_ga81e5a6c78223c5fe9a1e05d47a7798f1}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_aa273301688a05d4f7e38cda0d1277212}\label{classHArDCore2D_1_1RestrictedBasis_aa273301688a05d4f7e38cda0d1277212}} 
-Divergence\+Value \hyperlink{classHArDCore2D_1_1RestrictedBasis_aa273301688a05d4f7e38cda0d1277212}{divergence} (size\+\_\+t i, const Vector\+Rd \&x) const
+Divergence\+Value \mbox{\hyperlink{group__Basis_gaa273301688a05d4f7e38cda0d1277212}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a7ac0d24bac4b90d8f97562a6f7aa5de5}\label{classHArDCore2D_1_1RestrictedBasis_a7ac0d24bac4b90d8f97562a6f7aa5de5}} 
 static const Tensor\+RankE {\bfseries tensor\+Rank} = Basis\+Type\+::tensor\+Rank
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_ace08c56ba0963f5148c3ae82bc820453}\label{classHArDCore2D_1_1RestrictedBasis_ace08c56ba0963f5148c3ae82bc820453}} 
 static const bool {\bfseries has\+Function} = Basis\+Type\+::has\+Function
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a61cf97a1a52871887797bb46c15f0ba4}\label{classHArDCore2D_1_1RestrictedBasis_a61cf97a1a52871887797bb46c15f0ba4}} 
 static const bool {\bfseries has\+Gradient} = Basis\+Type\+::has\+Gradient
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a929c9098450f73e3f7f5a315ac23b1fe}\label{classHArDCore2D_1_1RestrictedBasis_a929c9098450f73e3f7f5a315ac23b1fe}} 
 static const bool {\bfseries has\+Curl} = Basis\+Type\+::has\+Curl
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a0c2322e7e67b5ca1f562db511b1e6154}\label{classHArDCore2D_1_1RestrictedBasis_a0c2322e7e67b5ca1f562db511b1e6154}} 
 static const bool {\bfseries has\+Divergence} = Basis\+Type\+::has\+Divergence
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
 class H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$}
 
 Generate a basis restricted to the first \char`\"{}dimension\char`\"{} functions. This can be useful, e.\+g., to form bases of subspaces of a given space from a hierarchical basis of the latter 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1RestrictedBasis_a3c6a0bd9f6d2d6411762613b363f1716}\label{classHArDCore2D_1_1RestrictedBasis_a3c6a0bd9f6d2d6411762613b363f1716}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis@{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis}!Restricted\+Basis@{Restricted\+Basis}}
-\index{Restricted\+Basis@{Restricted\+Basis}!H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis@{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis}}
-\subsubsection{\texorpdfstring{Restricted\+Basis()}{RestrictedBasis()}}
-{\footnotesize\ttfamily template$<$typename Basis\+Type $>$ \\
-\hyperlink{classHArDCore2D_1_1RestrictedBasis}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis}$<$ Basis\+Type $>$\+::\hyperlink{classHArDCore2D_1_1RestrictedBasis}{Restricted\+Basis} (\begin{DoxyParamCaption}\item[{const Basis\+Type \&}]{basis,  }\item[{const size\+\_\+t \&}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Constructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em basis} & A basis \\
-\hline
-{\em dimension} & The dimension of the restricted basis \\
-\hline
-\end{DoxyParams}
-
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

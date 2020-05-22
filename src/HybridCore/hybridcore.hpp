@@ -12,9 +12,10 @@
  * please mention the following book as a reference for the underlying principles
  * of HHO schemes:
  *
- * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
- * D. A. Di Pietro and J. Droniou. 2019, 516p. 
- * url: https://hal.archives-ouvertes.fr/hal-02151813.
+ * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications. 
+ *  D. A. Di Pietro and J. Droniou. Modeling, Simulation and Applications, vol. 19. 
+ *  Springer International Publishing, 2020, xxxi + 525p. doi: 10.1007/978-3-030-37203-3. 
+ *  url: https://hal.archives-ouvertes.fr/hal-02151813.
  *
  */
 
@@ -176,7 +177,8 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
 	       const int cell_deg, ///< The degree of the cell polynomials 
 	       const size_t edge_deg, ///< The degree of the edge polynomials 
 	       const bool use_threads = true, ///< Optional argument to indicate if threads should be used
-	       std::ostream & output = std::cout ///< Optional argument for specifying outputs of messages.
+	       std::ostream & output = std::cout, ///< Optional argument for specifying outputs of messages
+	       const bool ortho = true ///< Optional argument for choosing to orthonormalise or not the basis functions
 	       ); 
 
     //---- Basis functions types -----//
@@ -255,6 +257,8 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     const bool m_use_threads;
     // Output stream
     std::ostream & m_output;
+    // Orthonormalise or not the basis functions
+    const bool & m_ortho;
 
     // Cell and edges bases
     std::vector<std::unique_ptr<PolyCellBasisType>> m_cell_basis;

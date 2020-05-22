@@ -10,9 +10,10 @@
 * please mention the following book as a reference for the underlying principles
 * of HHO schemes:
 *
-* The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
-* D. A. Di Pietro and J. Droniou. 2019, 516p. 
-* url: https://hal.archives-ouvertes.fr/hal-02151813.
+* The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications. 
+*  D. A. Di Pietro and J. Droniou. Modeling, Simulation and Applications, vol. 19. 
+*  Springer International Publishing, 2020, xxxi + 525p. doi: 10.1007/978-3-030-37203-3. 
+*  url: https://hal.archives-ouvertes.fr/hal-02151813.
 *
 */
 
@@ -44,7 +45,7 @@ public:
     *
     * @param mesh pointer to the mesh
     */
-    VtuWriter(Mesh* mesh); 
+    VtuWriter(const Mesh* mesh); 
 
     /// Writes the vtu file  
     bool write_to_vtu(
@@ -72,7 +73,7 @@ private:
                                      std::string name); /// <\brief writes all of the point data to the vtk file
     void write_footer(FILE* pFile); /// <\brief add the footer to the vtk file
 
-    Mesh* _mesh;
+    const Mesh* _mesh;
 
 };
 

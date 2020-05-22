@@ -10,6 +10,7 @@
 
 using namespace HArDCore2D;
 MeshBuilder::MeshBuilder() {}
+MeshBuilder::MeshBuilder(const std::string mesh_file) : _mesh_file(mesh_file) {}
 std::unique_ptr<Mesh> MeshBuilder::build_the_mesh(
     std::vector<std::vector<double> > vertices,
     std::vector<std::vector<size_t> > cells) {
@@ -60,6 +61,19 @@ std::unique_ptr<Mesh> MeshBuilder::build_the_mesh(
         }
     }
     return NULL;
+}
+
+std::unique_ptr<Mesh> MeshBuilder::build_the_mesh()
+{
+    MeshReaderTyp2 mesh_ptr(_mesh_file);
+
+    std::vector<std::vector<double>> vertices;
+    std::vector<std::vector<size_t>> cells;
+    std::vector<std::vector<double>> centers;
+
+    mesh_ptr.read_mesh(vertices, cells, centers);
+
+    return build_the_mesh(vertices, cells);
 }
 
 void MeshBuilder::build_boundary(Mesh* mesh) {

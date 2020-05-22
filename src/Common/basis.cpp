@@ -223,4 +223,42 @@ namespace HArDCore2D
     }
 
 
+  Eigen::MatrixXd compute_weighted_gram_matrix(const FType<VectorRd> &f, const BasisQuad<VectorRd> &B1, const BasisQuad<double> &B2, const QuadratureRule &qr, size_t n_rows, size_t n_cols)
+  {
+    // If default, set n_rows and n_cols to size of families
+    if (n_rows == 0 && n_cols == 0)
+    {
+      n_rows = B1.shape()[0];
+      n_cols = B2.shape()[0];
+    }
+
+    // Number of quadrature nodes
+    const size_t num_quads = qr.size();
+    // Check number of quadrature nodes is compatible with B1 and B2
+    assert(num_quads == B1.shape()[1] && num_quads == B2.shape()[1]);
+    // Check that we don't ask for more members of family than available
+    assert(n_rows <= B1.shape()[0] && n_cols <= B2.shape()[0]);
+
+    Eigen::MatrixXd M = Eigen::MatrixXd::Zero(n_rows, n_cols);
+    for (size_t iqn = 0; iqn < num_quads; iqn++)
+    {
+      double qr_weight = qr[iqn].w;
+      VectorRd f_on_qr = f(qr[iqn].vector());
+      for (size_t i = 0; i < n_rows; i++)
+      {
+        double f_dot_B1 = f_on_qr.dot(B1[i][iqn]);
+        for (size_t j = 0; j < n_cols; j++)
+        {
+          M(i, j) += qr_weight * f_dot_B1 * B2[j][iqn];
+        }
+      }
+    }
+    return M;
+  }
+
+  Eigen::MatrixXd compute_weighted_gram_matrix(const FType<VectorRd> &f, const BasisQuad<double> &B1, const BasisQuad<VectorRd> &B2, const QuadratureRule &qr, size_t n_rows, size_t n_cols)
+  {
+    return compute_weighted_gram_matrix(f, B2, B1, qr, n_cols, n_rows).transpose();
+  }
+
 } // end of namespace HArDCore2D

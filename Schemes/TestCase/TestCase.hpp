@@ -17,114 +17,117 @@
 *
 */
 
-
 #ifndef _TEST_CASE_HPP
 #define _TEST_CASE_HPP
 
-#include <functional>
-#include <memory>
-#include <string>
-#include <vector>
+#include "basis.hpp"
 
-#include <Eigen/Dense>
-
-namespace HArDCore2D {		// Forward declaration
-	class Cell;
+namespace HArDCore2D
+{ // Forward declaration
+class Cell;
 }
 
 using namespace HArDCore2D;
-
 
 /*!
 * @defgroup TestCases
 *	@brief Defines test cases (exact solutions, source terms, boundary condition, etc.)
 */
 
+// @addtogroup TestCases
+//@{
+
+// Types
+template <typename T>
+using CellFType = std::function<T(const VectorRd &, const Cell *)>; ///< type for function of a point, that could be discontinuous between cells. T is the type of value of the function
+
 // ----------------------------------------------------------------------------
 //                            Class definition
 // ----------------------------------------------------------------------------
 
-// @addtogroup TestCases
-//@{
-
 /// The TestCase class provides definition of test cases
-class TestCase {
+class TestCase
+{
 
 public:
-  /// Initialise data
-  TestCase(
-    const std::vector<int> iTC  ///< The vector id of the test case: (id of solution, id of diffusion)
-  );
+     /// Initialise data
+     TestCase(
+         std::vector<int> iTC ///< The vector id of the test case: (id of solution, id of diffusion)
+     );
 
-	/// Returns the exact solution at the points x, y
-	double sol(
-		const double x,
-		const double y
-	);
+     /// Returns the exact solution
+     FType<double> sol();
 
-	/// Returns the gradient of the exact solution at the points x, y
-	Eigen::Vector2d grad_sol(
-		const double x,
-		const double y,
-		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
-	);
+     /// Returns the gradient of the exact solution
+     CellFType<VectorRd> grad_sol();
 
-	/// Returns the Hessian of the exact solution at the points x, y
-	Eigen::Matrix2d hess_sol(
-		const double x,
-		const double y,
-		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
-	);
+     /// Returns the Hessian of the exact solution
+     CellFType<MatrixRd> hess_sol();
 
+     /// Returns the diffusion matrix
+     CellFType<MatrixRd> diff();
 
-	/// Returns the diffusion matrix at the points x, y
-	Eigen::Matrix2d diff(
-		const double x,
-		const double y,
-		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
-	);
+     /// Returns the divergence by row of the diffusion matrix
+     CellFType<VectorRd> div_diff();
 
-	/// Returns the divergence by row of the diffusion matrix at the points x, y
-	Eigen::Vector2d div_diff(
-		const double x,
-		const double y,
-		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
-	);
+     /// Returns the advection term
+     CellFType<VectorRd> advec();
 
-	/// Returns the source term at the points x, y
-	double source(
-		const double x,
-		const double y,
-		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
-	);
+     /// Returns the divergence of the advection
+     CellFType<double> div_advec();
 
-  /// Returns the value of the parameter lambda
-	inline double get_lambda();
+     /// Returns the reaction term
+     CellFType<double> reac();
 
-	/// Check if the provided test cases are valid (within range, and combination of solution/diffusion valid)
-	void validate();
+     /// Returns the diffusion source term
+     CellFType<double> diff_source();
 
-	/// Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree)
-	inline size_t get_deg_diff();
+     /// Returns the diffusion-advection-reaction source term
+     CellFType<double> diff_advec_reac_source();
+
+     /// Returns the value of the parameter lambda
+     inline double get_lambda();
+
+     /// Check if the provided test cases are valid (within range, and combination of solution/diffusion valid)
+     void validate();
+
+     /// Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree)
+     inline size_t get_deg_diff();
+
+     /// Returns a flag to check if reaction is constant
+     inline bool is_reac_const();
+
+     /// Returns a flag to check if divergence of advection is zero
+     inline bool is_div_advec_zero();
+
+     /// Returns a flag to check if divergence of advection is constant
+     inline bool is_div_advec_const();
 
 private:
-  // Parameters: id of test case, pi
-  const std::vector<int> m_iTC;
-	const double pi = acos(-1);
-	const double sqrt2 = std::pow(2,0.5);
-	const double gamma = 1.0/3.0;
-	const double eps = 1e-5;		// constant for rotating diffusion case
+     // Parameters: id of test case, pi
+     std::vector<int> m_iTC;
+     const double pi = acos(-1);
+     const double sqrt2 = std::pow(2, 0.5);
+     const double gamma = 1.0 / 3.0;
+     const double eps = 1e-5; // constant for rotating diffusion case
 
-	size_t _deg_diff;
-  // Generic parameter (e.g. for changing anisotropy etc.)
-  double _lambda;
+     bool reac_const = true;
 
+     bool div_advec_zero = true;
+     bool div_advec_const = true;
 
+     size_t _deg_diff;
+     // Generic parameter (e.g. for changing anisotropy etc.)
+     double _lambda;
 };
 
 inline size_t TestCase::get_deg_diff() { return _deg_diff; };
 inline double TestCase::get_lambda() { return _lambda; };
 
-//@}
+inline bool TestCase::is_reac_const() { return reac_const; };
+inline bool TestCase::is_div_advec_zero() { return div_advec_zero; };
+inline bool TestCase::is_div_advec_const() { return div_advec_const; };
+
+     //@}
 
 #endif //_TEST_CASE_HPP

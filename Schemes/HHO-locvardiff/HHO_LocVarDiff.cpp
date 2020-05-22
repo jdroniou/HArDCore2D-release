@@ -20,7 +20,6 @@
 #include "mesh_builder.hpp"
 
 #include "HHO_LocVarDiff.hpp"
-#include "TestCase/TestCase.hpp"
 #include "vtu_writer.hpp"
 
 using namespace HArDCore2D;
@@ -73,7 +72,7 @@ int main(int argc, const char* argv[]) {
   // Select solver type
   std::string solver_type = vm["solver_type"].as<std::string>();
 
-  // Select multithreadingsolver type
+  // Select multithreading or not
   bool use_threads = vm["use_threads"].as<bool>();
 
   // Checks
@@ -88,32 +87,14 @@ int main(int argc, const char* argv[]) {
   //                        Create the HHO data structure
   // --------------------------------------------------------------------------
 
-  // Read the mesh file
-  MeshReaderTyp2 mesh(mesh_file);
+  // Build mesh
+  MeshBuilder builder = MeshBuilder(mesh_file);
+  std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh();
 
-  std::vector<std::vector<double> > vertices;
-  std::vector<std::vector<size_t> > cells;
-  std::vector<std::vector<double> > centers;
-  if (mesh.read_mesh(vertices, cells, centers) == false) {
-    std::cout << "Could not open file" << std::endl;
-    return false;
-  };
-
-  // Build the mesh
-  MeshBuilder builder = MeshBuilder();
-  std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh(vertices, cells);
-  if (mesh_ptr.get() == NULL) {
-    printf(
-      "Mesh cannot be created!\n Check the input file contains \n "
-      "Vertices "
-      "and cells with the correct tags");
-    return 0;
-  } 
-  // Re-index the mesh edges, to facilitate treatment of boundary conditions (the Dirichlet edges are put at the end)
-  // Get boundary conditions and re-order edges
+  // Get the BC and re-order the edges
   std::string bc_id = vm["bc_id"].as<std::string>();
   BoundaryConditions BC(bc_id, *mesh_ptr.get());
-  BC.reorder_edges(); 
+  BC.reorder_edges();
  
   // Create the HHO structure: need basis in Poly{K+1} on cells and Poly{K} on faces
   HybridCore hho(mesh_ptr.get(), K+1, K, use_threads, output);
@@ -126,24 +107,12 @@ int main(int argc, const char* argv[]) {
   std::vector<int> id_tcase = (vm.count("testcase") ? vm["testcase"].as<std::vector<int>>() : default_id_tcase);
   TestCase tcase(id_tcase);
 
-  // Diffusion tensor
-  HHO_LocVarDiff::tensor_function_type kappa = [&](VectorRd p, Cell* cell) {
-    return tcase.diff(p.x(),p.y(),cell);
-  };
+  // Diffusion tensor, source term, solution and gradient
+  CellFType<MatrixRd> kappa = tcase.diff();
   size_t deg_kappa = tcase.get_deg_diff();
-
-  // Source term
-  HHO_LocVarDiff::source_function_type source = [&](VectorRd p, Cell* cell) {
-    return tcase.source(p.x(),p.y(),cell);
-  };
-
-  // Exact solution and gradient
-  HHO_LocVarDiff::solution_function_type exact_solution = [&](VectorRd p) {
-    return tcase.sol(p.x(),p.y());
-  };
-  HHO_LocVarDiff::grad_function_type grad_exact_solution = [&](VectorRd p, Cell* cell) {
-    return tcase.grad_sol(p.x(),p.y(),cell);
-  };
+  CellFType<double> source = tcase.diff_source();
+  FType<double> exact_solution = tcase.sol();
+  CellFType<VectorRd> grad_exact_solution = tcase.grad_sol();
 
   // Create the model equation
   HHO_LocVarDiff model(hho, K, L, kappa, deg_kappa, source, BC, exact_solution, grad_exact_solution, solver_type, use_threads, output);
@@ -174,7 +143,8 @@ int main(int argc, const char* argv[]) {
   output << "\n[Scheme] Solving." << std::endl;
   UVector u = model.solve(hho);
   // To export the matrix (can be read in Octave/Matlab using script mmread)
-  if (vm.count("export_matrix")) {
+  bool export_matrix = (vm.count("export_matrix") ? vm["export_matrix"].as<bool>() : false);
+  if (export_matrix) {
     output << "  Exporting matrix to Matrix Market format\n" << std::endl;
     saveMarket(model.get_SysMat(), "SystemMatrix.mtx");
   }

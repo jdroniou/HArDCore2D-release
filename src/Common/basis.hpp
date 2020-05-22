@@ -15,9 +15,10 @@
  * please mention the following book as a reference for the underlying principles
  * of HHO schemes:
  *
- * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
- * D. A. Di Pietro and J. Droniou. 2019, 516p. 
- * url: https://hal.archives-ouvertes.fr/hal-02151813.
+ * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications. 
+ *  D. A. Di Pietro and J. Droniou. Modeling, Simulation and Applications, vol. 19. 
+ *  Springer International Publishing, 2020, xxxi + 525p. doi: 10.1007/978-3-030-37203-3. 
+ *  url: https://hal.archives-ouvertes.fr/hal-02151813.
  *
  */
 
@@ -48,9 +49,15 @@ namespace HArDCore2D
 
   /// Dimension, and generic types for vector in correct dimension (makes it easier to translate a code between 2D and 3D)
   constexpr int dimspace = 2;
+  typedef Eigen::Matrix2d MatrixRd;
   typedef Eigen::Vector2d VectorRd;   
   typedef Eigen::Vector2i VectorZd;   
   
+  template <typename T>
+  using BasisQuad = boost::multi_array<T, 2>; ///< type for a family of basis functions evaluated on quadrature nodes
+
+  template <typename T>
+  using FType = std::function<T(const VectorRd &)>; ///< type for function of point. T is the type of value of the function
 
   enum TensorRankE {
                     Scalar = 0,
@@ -921,25 +928,127 @@ namespace HArDCore2D
 				      );
 
   /// Compute the integral of a given function against all functions from a family
-  template<typename T>
+  template <typename T>
   Eigen::VectorXd integrate(
-			    const std::function<T(const VectorRd &)> & f, ///< Function
-			    const boost::multi_array<T, 2> & B,           ///< Family at quadrature nodes
-			    const QuadratureRule & qr                     ///< Quadrature rule used for evaluation
-			    )
+      const FType<T> &f,        ///< Function to be integrated. Possible types of T are double and VectorRd
+      const BasisQuad<T> &B,    ///< Family of basis functions at quadrature nodes. Possible types of T are double and VectorRd
+      const QuadratureRule &qr, ///< Quadrature rule
+      size_t n_rows = 0         ///< Optional argument for number of basis functions to be integrated. Default integrates all in the family.
+  )
   {
-    assert( qr.size() == B.shape()[1] );
-    
-    Eigen::VectorXd V = Eigen::VectorXd::Zero(B.shape()[0]);
+    // If default, set n_rows to size of family
+    if (n_rows == 0)
+    {
+      n_rows = B.shape()[0];
+    }
 
-    for (size_t i = 0; i < B.shape()[0]; i++) {
-      for (size_t iqn = 0; iqn < qr.size(); iqn++) {
-      	V(i) += qr[iqn].w * scalar_product(B[i][iqn], f(qr[iqn].vector()));
-      } // for iqn
-    } // for i
+    // Number of quadrature nodes
+    const size_t num_quads = qr.size();
+
+    // Check number of quadrature nodes is compatible with B
+    assert(num_quads == B.shape()[1]);
+
+    // Check that we don't ask for more members of family than available
+    assert(n_rows <= B.shape()[0]);
+
+    Eigen::VectorXd V = Eigen::VectorXd::Zero(n_rows);
+
+    for (size_t iqn = 0; iqn < num_quads; iqn++)
+    {
+      double qr_weight = qr[iqn].w;
+      T f_on_qr = f(qr[iqn].vector());
+      for (size_t i = 0; i < n_rows; i++)
+      {
+        V(i) += qr_weight * scalar_product(B[i][iqn], f_on_qr);
+      }
+    }
 
     return V;
   }
+
+  /// Computes the Gram-like matrix of integrals (f phi_i, phi_j)
+  template <typename T, typename U>
+  Eigen::MatrixXd compute_weighted_gram_matrix(
+      const FType<U> &f,               ///< Weight function. Posible types of U are MatrixRd and double - must be compatible with T
+      const BasisQuad<T> &B1,          ///< First family of basis functions at quadrature nodes. Posible types of T are VectorRd and double
+      const BasisQuad<T> &B2,          ///< Second family of basis functions at quadrature nodes. Posible types of T are VectorRd and double
+      const QuadratureRule &qr,        ///< Quadrature rule
+      size_t n_rows = 0,               ///< Optional argument for number of functions from first family to be integrated against. Default integrates whole family
+      size_t n_cols = 0,               ///< Optional argument for number of functions from second family to be integrated against. Default integrates whole family
+      const std::string sym = "nonsym" ///< Optional argument if matrix is symmetric to increase efficiency
+  )
+  {
+    // If default, set n_rows and n_cols to size of families
+    if (n_rows == 0 && n_cols == 0)
+    {
+      n_rows = B1.shape()[0];
+      n_cols = B2.shape()[0];
+    }
+
+    // Number of quadrature nodes
+    const size_t num_quads = qr.size();
+    // Check number of quadrature nodes is compatible with B1 and B2
+    assert(num_quads == B1.shape()[1] && num_quads == B2.shape()[1]);
+    // Check that we don't ask for more members of family than available
+    assert(n_rows <= B1.shape()[0] && n_cols <= B2.shape()[0]);
+
+    Eigen::MatrixXd M = Eigen::MatrixXd::Zero(n_rows, n_cols);
+    for (size_t iqn = 0; iqn < num_quads; iqn++)
+    {
+      double qr_weight = qr[iqn].w;
+      U f_on_qr = f(qr[iqn].vector());
+      for (size_t i = 0; i < n_rows; i++)
+      {
+        T f_B1 = f_on_qr * B1[i][iqn];
+        size_t jcut = 0;
+        if (sym == "sym")
+          jcut = i;
+        for (size_t j = 0; j < jcut; j++)
+        {
+          M(i, j) = M(j, i);
+        }
+        for (size_t j = jcut; j < n_cols; j++)
+        {
+          M(i, j) += qr_weight * scalar_product(f_B1, B2[j][iqn]);
+        }
+      }
+    }
+    return M;
+  }
+
+  /// Computes the Gram-like matrix of integrals (f phi_i, phi_j)
+  template <typename T, typename U>
+  Eigen::MatrixXd compute_weighted_gram_matrix(
+      const FType<U> &f,        ///< Weight function. Posible types of U are MatrixRd and double - must be compatible with T
+      const BasisQuad<T> &B1,   ///< First family of basis functions at quadrature nodes. Posible types of T are VectorRd and double
+      const BasisQuad<T> &B2,   ///< Second family of basis functions at quadrature nodes. Posible types of T are VectorRd and double
+      const QuadratureRule &qr, ///< Quadrature rule
+      const std::string sym     ///< Argument if matrix is symmetric to increase efficiency
+  )
+  {
+    return compute_weighted_gram_matrix(f, B1, B2, qr, B1.shape()[0], B2.shape()[0], sym);
+  }
+
+  /// Computes the Gram-like matrix of integrals (f dot phi_i, phi_j)
+  Eigen::MatrixXd compute_weighted_gram_matrix(
+      const FType<VectorRd> &f,      ///< Weight function
+      const BasisQuad<VectorRd> &B1, ///< Family of vector basis functions at quadrature nodes
+      const BasisQuad<double> &B2,   ///< Family of scalar basis functions at quadrature nodes
+      const QuadratureRule &qr,      ///< Quadrature rule
+      size_t n_rows = 0,             ///< Optional argument for number of functions from vector family to be integrated against. Default integrates whole family
+      size_t n_cols = 0              ///< Optional argument for number of functions from scalar family to be integrated against. Default integrates whole family
+  );
+  
+
+  /// Computes the Gram-like matrix of integrals (phi_i, f dot phi_j)
+  Eigen::MatrixXd compute_weighted_gram_matrix(
+      const FType<VectorRd> &f,      ///< Weight function
+      const BasisQuad<double> &B1,   ///< Family of scalar basis functions at quadrature nodes
+      const BasisQuad<VectorRd> &B2, ///< Family of vector basis functions at quadrature nodes
+      const QuadratureRule &qr,      ///< Quadrature rule
+      size_t n_rows = 0,             ///< Optional argument for number of functions from scalar family to be integrated against. Default integrates whole family
+      size_t n_cols = 0              ///< Optional argument for number of functions from vector family to be integrated against. Default integrates whole family
+  );
 
   //------------------------------------------------------------------------------
   //        L2 projection of a function

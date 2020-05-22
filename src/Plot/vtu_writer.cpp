@@ -11,7 +11,7 @@
 
 using namespace HArDCore2D;
 
-VtuWriter::VtuWriter(Mesh* mesh) : _mesh(mesh) {}
+VtuWriter::VtuWriter(const Mesh* mesh) : _mesh(mesh) {}
 
 void VtuWriter::write_header(FILE* pFile) {
     fprintf(pFile, "%s", "<VTKFile type=\"UnstructuredGrid\"");

@@ -1,59 +1,29 @@
-\hypertarget{classHArDCore2D_1_1MeshBuilder}{}\section{H\+Ar\+D\+Core2D\+:\+:Mesh\+Builder Class Reference}
-\label{classHArDCore2D_1_1MeshBuilder}\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder}}
+\hypertarget{classHArDCore2D_1_1MeshBuilder}{}\doxysection{H\+Ar\+D\+Core2D\+::Mesh\+Builder Class Reference}
+\label{classHArDCore2D_1_1MeshBuilder}\index{HArDCore2D::MeshBuilder@{HArDCore2D::MeshBuilder}}
 
 
-The \hyperlink{classHArDCore2D_1_1MeshBuilder}{Mesh\+Builder} class provides build tools to create a full mesh with all connectivities.  
+The \mbox{\hyperlink{classHArDCore2D_1_1MeshBuilder}{Mesh\+Builder}} class provides build tools to create a full mesh with all connectivities.  
 
 
 
 
 {\ttfamily \#include $<$mesh\+\_\+builder.\+hpp$>$}
 
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHArDCore2D_1_1MeshBuilder_a13fe22fd14a85f789dc9d7d4a8d2419d}{Mesh\+Builder} ()
+\mbox{\hyperlink{group__Mesh_ga13fe22fd14a85f789dc9d7d4a8d2419d}{Mesh\+Builder}} ()
 \item 
-std\+::unique\+\_\+ptr$<$ \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $>$ \hyperlink{classHArDCore2D_1_1MeshBuilder_a0ef4a78ac64d1bcb6380317ea866758d}{build\+\_\+the\+\_\+mesh} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ vertices, std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ cells)
-\begin{DoxyCompactList}\small\item\em construct the connectivity in the mesh \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{group__Mesh_gafdc2fc6bdd57c06db5be137f455ab651}{Mesh\+Builder}} (const std\+::string mesh\+\_\+file)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $>$ \mbox{\hyperlink{group__Mesh_ga0ef4a78ac64d1bcb6380317ea866758d}{build\+\_\+the\+\_\+mesh}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ vertices, std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ cells)
+\begin{DoxyCompactList}\small\item\em construct the connectivity in the mesh \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $>$ \mbox{\hyperlink{group__Mesh_ga208c94e8cb6490226215b59eb67e7911}{build\+\_\+the\+\_\+mesh}} ()
+\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The \hyperlink{classHArDCore2D_1_1MeshBuilder}{Mesh\+Builder} class provides build tools to create a full mesh with all connectivities. 
-
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1MeshBuilder_a13fe22fd14a85f789dc9d7d4a8d2419d}\label{classHArDCore2D_1_1MeshBuilder_a13fe22fd14a85f789dc9d7d4a8d2419d}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder}!Mesh\+Builder@{Mesh\+Builder}}
-\index{Mesh\+Builder@{Mesh\+Builder}!H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder}}
-\subsubsection{\texorpdfstring{Mesh\+Builder()}{MeshBuilder()}}
-{\footnotesize\ttfamily Mesh\+Builder\+::\+Mesh\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Constructor for \hyperlink{classHArDCore2D_1_1MeshBuilder}{Mesh\+Builder}. 
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classHArDCore2D_1_1MeshBuilder_a0ef4a78ac64d1bcb6380317ea866758d}\label{classHArDCore2D_1_1MeshBuilder_a0ef4a78ac64d1bcb6380317ea866758d}} 
-\index{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder}!build\+\_\+the\+\_\+mesh@{build\+\_\+the\+\_\+mesh}}
-\index{build\+\_\+the\+\_\+mesh@{build\+\_\+the\+\_\+mesh}!H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder@{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder}}
-\subsubsection{\texorpdfstring{build\+\_\+the\+\_\+mesh()}{build\_the\_mesh()}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $>$ Mesh\+Builder\+::build\+\_\+the\+\_\+mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$}]{vertices,  }\item[{std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$}]{cells }\end{DoxyParamCaption})}
-
-
-
-construct the connectivity in the mesh 
-
-Build a \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} from vertices and cells
-
-
-\begin{DoxyParams}{Parameters}
-{\em vertices} & vector containing the coordinates of the vertices ordered using the global ordering. Note that indexes start at 0 in c++ \\
-\hline
-{\em cells} & vector containing vectors with the global indexes of vertices making up a cell\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-a pointer to the mesh that was build 
-\end{DoxyReturn}
-
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classHArDCore2D_1_1MeshBuilder}{Mesh\+Builder}} class provides build tools to create a full mesh with all connectivities. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

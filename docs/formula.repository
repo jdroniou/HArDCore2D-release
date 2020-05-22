@@ -1,65 +1,75 @@
-\form#0:$-\mathrm{div}(K\nabla u)=f$
-\form#1:$K$
-\form#2:$u-\mathrm{div}(K\nabla \zeta(u))=f$
-\form#3:$\zeta(u)$
-\form#4:$\phi^{nc}_i$
-\form#5:$(\nabla \phi_i^{nc})_{i\in I}$
-\form#6:$(\phi_i^{nc})_{i\in I}$
-\form#7:$\nabla \phi_i^{nc}$
-\form#8:$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
-\form#9:$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
-\form#10:$u(x,y)=sin(\pi x) sin(\pi y)$
-\form#11:$u(x,y)=cos(\pi x) cos(\pi y)$
-\form#12:$u(x,y)= x$
-\form#13:$u(x,y)= y$
-\form#14:$u(x,y)= x^2 + y^2$
-\form#15:$u(x,y)= e^x \sin(pi x) \cos(\pi x)$
-\form#16:$\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
-\form#17:$\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$
-\form#18:$y<1/2$
-\form#19:$y\ge 1/2$
-\form#20:$\partial_x u$
-\form#21:$y=1/2$
-\form#22:$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 & (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} & \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$
-\form#23:$\bar{x}=x+0.1$
-\form#24:$\bar{y}=y+0.1$
-\form#25:$f(u)=0$
-\form#26:$f(u)=u$
-\form#27:$f(u)=|u|^{m-1}u = |u|^m sign(u)$
-\form#28:$f(u)=max(u,0)^2$
-\form#29:$f(u)=(u+th)^+-th + eps u$
-\form#30:$f(s)=s$
-\form#31:$s<0$
-\form#32:$f(s)=0$
-\form#33:$0\le s\le 1$
-\form#34:$f(s)=s-1$
-\form#35:$s>1$
-\form#36:$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$
-\form#37:$\frac{x+y}{\sqrt{2}}>\gamma$
-\form#38:$u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$
-\form#39:$u=max(\rho - r^2, 0)$
-\form#40:$r^2=(x-.5)^2+(y-.5)^2$
-\form#41:$(f_1,...,f_r)$
-\form#42:$(\phi_1,...,\phi_l)$
-\form#43:$\phi_i = \sum_j M_ij f_j$
-\form#44:$M$
-\form#45:$\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)$
-\form#46:$\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)$
-\form#47:$\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)$
-\form#48:$\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)$
-\form#49:$\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)$
-\form#50:$\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)$
-\form#51:$\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)$
-\form#52:$\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)$
-\form#53:$\left(\begin{array}{c}(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$
-\form#54:$\left(\begin{array}{c}(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$
-\form#55:$\left(\begin{array}{c}(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$
-\form#56:$\left(\begin{array}{c}0\\(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$
-\form#57:$\left(\begin{array}{c}0\\(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$
-\form#58:$\left(\begin{array}{c}0\\(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$
-\form#59:$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_1)^t\end{array}\right)$
-\form#60:$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_r)^t\end{array}\right)$
-\form#61:$(\phi_1,...,\phi_r)$
-\form#62:$\phi_i = \sum_j M_{ij}f_j$
-\form#63:$L^2$
-\form#64:$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$
+\_form#0:$-\mathrm{div}(K\nabla u)=f$
+\_form#1:$K$
+\_form#2:$-\mathrm{div}(K\nabla u+\beta u)+\mu u=f$
+\_form#3:$u-\mathrm{div}(K\nabla\zeta(u))=f$
+\_form#4:$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$
+\_form#5:$\zeta(u)$
+\_form#6:$\phi^{nc}_i$
+\_form#7:$(\nabla \phi_i^{nc})_{i\in I}$
+\_form#8:$(\phi_i^{nc})_{i\in I}$
+\_form#9:$\nabla \phi_i^{nc}$
+\_form#10:$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\_form#11:$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\_form#12:$u(x,y)=sin(\pi x) sin(\pi y)$
+\_form#13:$u(x,y)=cos(\pi x) cos(\pi y)$
+\_form#14:$u(x,y)= x$
+\_form#15:$u(x,y)= y$
+\_form#16:$u(x,y)= x^2 + y^2$
+\_form#17:$u(x,y)= e^x \sin(\pi x) \sin(\pi y)$
+\_form#18:$u(x,y)= \frac{1}{4} \sin(2 \pi x) \sin(2 \pi y)$
+\_form#19:$u(x,y)= 5 x y (x-1) (y-1)$
+\_form#20:$u(x,y)= \frac{1}{2} - \frac{1}{2}e^{\sin(\pi x) \sin(\pi y)}$
+\_form#21:$u(x,y)= 1 - e^{\frac{1}{4} \sin(2 \pi x) \sin(2 \pi y)}$
+\_form#22:$u(x,y)= 5 - 5e^{x y (x-1) (y-1)}$
+\_form#23:$\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
+\_form#24:$\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\end{array}\right]$
+\_form#25:$y<1/2$
+\_form#26:$y\ge 1/2$
+\_form#27:$\partial_x u$
+\_form#28:$y=1/2$
+\_form#29:$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 & (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} & \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$
+\_form#30:$\bar{x}=x+0.1$
+\_form#31:$\bar{y}=y+0.1$
+\_form#32:$f(u)=0$
+\_form#33:$f(u)=u$
+\_form#34:$f(u)=|u|^{m-1}u = |u|^m sign(u)$
+\_form#35:$f(u)=max(u,0)^2$
+\_form#36:$f(u)=(u+th)^+-th + eps u$
+\_form#37:$f(s)=s$
+\_form#38:$s<0$
+\_form#39:$f(s)=0$
+\_form#40:$0\le s\le 1$
+\_form#41:$f(s)=s-1$
+\_form#42:$s>1$
+\_form#43:$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$
+\_form#44:$\frac{x+y}{\sqrt{2}}>\gamma$
+\_form#45:$u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$
+\_form#46:$u=max(\rho - r^2, 0)$
+\_form#47:$r^2=(x-.5)^2+(y-.5)^2$
+\_form#48:$u(x,y)=cos(t) sin(\pi x) sin(\pi y)$
+\_form#49:$u(x,y)=cos(t) cos(\pi x) cos(\pi y)$
+\_form#50:$u(x,y)= (1-t) x$
+\_form#51:$(f_1,...,f_r)$
+\_form#52:$(\phi_1,...,\phi_l)$
+\_form#53:$\phi_i = \sum_j M_ij f_j$
+\_form#54:$M$
+\_form#55:$\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)$
+\_form#56:$\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)$
+\_form#57:$\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)$
+\_form#58:$\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)$
+\_form#59:$\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)$
+\_form#60:$\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)$
+\_form#61:$\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)$
+\_form#62:$\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)$
+\_form#63:$\left(\begin{array}{c}(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#64:$\left(\begin{array}{c}(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#65:$\left(\begin{array}{c}(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#66:$\left(\begin{array}{c}0\\(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#67:$\left(\begin{array}{c}0\\(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#68:$\left(\begin{array}{c}0\\(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)$
+\_form#69:$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_1)^t\end{array}\right)$
+\_form#70:$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_r)^t\end{array}\right)$
+\_form#71:$(\phi_1,...,\phi_r)$
+\_form#72:$\phi_i = \sum_j M_{ij}f_j$
+\_form#73:$L^2$
+\_form#74:$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['grad_5ffunction_5ftype',['grad_function_type',['../classHArDCore2D_1_1HHO__Diffusion.html#a9f9412bc2a0a28033591d2e8a5750d90',1,'HArDCore2D::HHO_Diffusion::grad_function_type()'],['../classHArDCore2D_1_1HHO__LocVarDiff.html#ae0ce0c1a88fe08ddd972cbed5a9e4837',1,'HArDCore2D::HHO_LocVarDiff::grad_function_type()'],['../classHArDCore2D_1_1LEPNC__StefanPME.html#acd93c2714bba358b33c2055e40c4aa21',1,'HArDCore2D::LEPNC_StefanPME::grad_function_type()']]]
+  ['cell_5fbasis_5ftype_500',['cell_basis_type',['../group__LEPNC.html#gaa109ebacac881c65c20a3a80cfeffba7',1,'HArDCore2D::LEPNCCore']]],
+  ['cell_5fgradient_5ftype_501',['cell_gradient_type',['../group__LEPNC.html#ga55bedecd14cffb98f57020923c968e89',1,'HArDCore2D::LEPNCCore']]]
 ];
