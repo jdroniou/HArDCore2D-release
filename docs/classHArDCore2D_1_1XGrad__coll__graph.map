@@ -1,0 +1,6 @@
+<map id="HArDCore2D::XGrad" name="HArDCore2D::XGrad">
+<area shape="rect" id="node1" title="Discrete H1 space: local operators, L2 product and global interpolator." alt="" coords="20,247,165,273"/>
+<area shape="rect" id="node2" href="$classHArDCore2D_1_1DDRSpace.html" title="Base class for DDR spaces. Provides functions to manipulate global DOFs (the local version being prov..." alt="" coords="5,171,180,197"/>
+<area shape="rect" id="node3" href="$classHArDCore2D_1_1DOFSpace.html" title="Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to t..." alt="" coords="6,95,179,121"/>
+<area shape="rect" id="node4" href="$classHArDCore2D_1_1Mesh.html" title="The Mesh class provides description of a mesh." alt="" coords="23,5,163,32"/>
+</map>

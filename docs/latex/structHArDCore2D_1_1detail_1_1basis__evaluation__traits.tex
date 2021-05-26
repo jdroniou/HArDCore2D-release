@@ -2,7 +2,7 @@
 \label{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}\index{HArDCore2D::detail::basis\_evaluation\_traits$<$ BasisType, BasisFunction $>$@{HArDCore2D::detail::basis\_evaluation\_traits$<$ BasisType, BasisFunction $>$}}
 
 
-Basis evaluation traits. Only specializations are meaningful.  
+Basis evaluation traits. Only specialization of \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value we want to evaluate.  
 
 
 
@@ -15,7 +15,9 @@ Basis evaluation traits. Only specializations are meaningful.
 \subsubsection*{template$<$typename Basis\+Type, Basis\+FunctionE Basis\+Function$>$\newline
 struct H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Basis\+Function $>$}
 
-Basis evaluation traits. Only specializations are meaningful. 
+Basis evaluation traits. Only specialization of \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value we want to evaluate. 
+
+Provides a uniform way of evaluating the value, gradient, curl or divergence of functions in a basis. Specializations for \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}} is also provided as it includes some additional information on the ancestor basis; this information is useful to optimise eval\+\_\+quad for tensorized bases. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

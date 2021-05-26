@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -71,22 +78,41 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Locally Enriched Polytopal Non-Conforming method.  
+<p>Implementations of the Locally Enriched Polytopal Non-Conforming method.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LEPNC__diffusion.html">HArDCore2D::LEPNC_diffusion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classHArDCore2D_1_1LEPNC__diffusion.html" title="The LEPNC_diffusion class provides an implementation of the LEPNC method for the stationnary diffusio...">LEPNC_diffusion</a> class provides an implementation of the LEPNC method for the stationnary diffusion problem \(-div(K\nabla u)=f\).  <a href="classHArDCore2D_1_1LEPNC__diffusion.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME.html">HArDCore2D::LEPNC_StefanPME</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>, depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>. Otherwise, they represent u.  <a href="classHArDCore2D_1_1LEPNC__StefanPME.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LEPNC scheme for diffusion equation \(u - \div(K \nabla(\zeta(u))) = f\).  <a href="classHArDCore2D_1_1LEPNC__StefanPME.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html">HArDCore2D::LEPNC_StefanPME_Transient</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>, depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>. Otherwise, they represent u.  <a href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LEPNC scheme for diffusion equation \(\partial_t u - \div(K \nabla(\zeta(u))) = f\).  <a href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LEPNCCore.html">HArDCore2D::LEPNCCore</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:gaaa5b13bc0eaacce6b494fedc3d7b0d37"><td class="memItemLeft" align="right" valign="top"><a id="gaaa5b13bc0eaacce6b494fedc3d7b0d37"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gaaa5b13bc0eaacce6b494fedc3d7b0d37">HArDCore2D::LEPNC_diffusion::solution_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
+<tr class="memdesc:gaaa5b13bc0eaacce6b494fedc3d7b0d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for solution <br /></td></tr>
+<tr class="separator:gaaa5b13bc0eaacce6b494fedc3d7b0d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae128bf98004abb3e21bbce3a6465b37e"><td class="memItemLeft" align="right" valign="top"><a id="gae128bf98004abb3e21bbce3a6465b37e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gae128bf98004abb3e21bbce3a6465b37e">HArDCore2D::LEPNC_diffusion::source_function_type</a> = std::function&lt; double(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:gae128bf98004abb3e21bbce3a6465b37e"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for source <br /></td></tr>
+<tr class="separator:gae128bf98004abb3e21bbce3a6465b37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga131fb280800f4892b2961ef00c671804"><td class="memItemLeft" align="right" valign="top"><a id="ga131fb280800f4892b2961ef00c671804"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga131fb280800f4892b2961ef00c671804">HArDCore2D::LEPNC_diffusion::grad_function_type</a> = std::function&lt; VectorRd(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:ga131fb280800f4892b2961ef00c671804"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for gradient <br /></td></tr>
+<tr class="separator:ga131fb280800f4892b2961ef00c671804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25aa9d13834504ef0e51893732c88b01"><td class="memItemLeft" align="right" valign="top"><a id="ga25aa9d13834504ef0e51893732c88b01"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga25aa9d13834504ef0e51893732c88b01">HArDCore2D::LEPNC_diffusion::tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:ga25aa9d13834504ef0e51893732c88b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for diffusion tensor <br /></td></tr>
+<tr class="separator:ga25aa9d13834504ef0e51893732c88b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga528592275ee4a7f49fcf27bb2803b38e"><td class="memItemLeft" align="right" valign="top"><a id="ga528592275ee4a7f49fcf27bb2803b38e"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga528592275ee4a7f49fcf27bb2803b38e">HArDCore2D::LEPNC_StefanPME::solution_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
 <tr class="memdesc:ga528592275ee4a7f49fcf27bb2803b38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for solution <br /></td></tr>
@@ -130,6 +156,33 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gaae0d28247979eb271b77e4cc694f6d75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gaae0d28247979eb271b77e4cc694f6d75">HArDCore2D::LEPNC_diffusion::LEPNC_diffusion</a> (<a class="el" href="classHArDCore2D_1_1LEPNCCore.html">LEPNCCore</a> &amp;nc, <a class="el" href="group__LEPNC.html#ga25aa9d13834504ef0e51893732c88b01">tensor_function_type</a> kappa, size_t deg_kappa, <a class="el" href="group__LEPNC.html#gae128bf98004abb3e21bbce3a6465b37e">source_function_type</a> source, <a class="el" href="classBoundaryConditions.html">BoundaryConditions</a> BC, <a class="el" href="group__LEPNC.html#gaaa5b13bc0eaacce6b494fedc3d7b0d37">solution_function_type</a> exact_solution, <a class="el" href="group__LEPNC.html#ga131fb280800f4892b2961ef00c671804">grad_function_type</a> grad_exact_solution, std::string solver_type, std::ostream &amp;output=std::cout)</td></tr>
+<tr class="memdesc:gaae0d28247979eb271b77e4cc694f6d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__LEPNC.html#gaae0d28247979eb271b77e4cc694f6d75">More...</a><br /></td></tr>
+<tr class="separator:gaae0d28247979eb271b77e4cc694f6d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccda4582608ee1306b03ba442e8d1fa2"><td class="memItemLeft" align="right" valign="top"><a id="gaccda4582608ee1306b03ba442e8d1fa2"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gaccda4582608ee1306b03ba442e8d1fa2">HArDCore2D::LEPNC_diffusion::solve</a> ()</td></tr>
+<tr class="memdesc:gaccda4582608ee1306b03ba442e8d1fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble and solve the scheme. <br /></td></tr>
+<tr class="separator:gaccda4582608ee1306b03ba442e8d1fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3a86bb47a3a740ea5116d3b31e80251"><td class="memItemLeft" align="right" valign="top"><a id="gae3a86bb47a3a740ea5116d3b31e80251"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gae3a86bb47a3a740ea5116d3b31e80251">HArDCore2D::LEPNC_diffusion::EnergyNorm</a> (const Eigen::VectorXd Xh) const</td></tr>
+<tr class="memdesc:gae3a86bb47a3a740ea5116d3b31e80251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discrete energy norm (associated to the diffusion operator) <br /></td></tr>
+<tr class="separator:gae3a86bb47a3a740ea5116d3b31e80251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad745cd64930414f3f35dc3791f18e3bd"><td class="memItemLeft" align="right" valign="top"><a id="gad745cd64930414f3f35dc3791f18e3bd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#gad745cd64930414f3f35dc3791f18e3bd">HArDCore2D::LEPNC_diffusion::get_assembly_time</a> () const</td></tr>
+<tr class="memdesc:gad745cd64930414f3f35dc3791f18e3bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">cpu time to assemble the scheme <br /></td></tr>
+<tr class="separator:gad745cd64930414f3f35dc3791f18e3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga859f049e096188319a39357ce87efedc"><td class="memItemLeft" align="right" valign="top"><a id="ga859f049e096188319a39357ce87efedc"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga859f049e096188319a39357ce87efedc">HArDCore2D::LEPNC_diffusion::get_solving_time</a> () const</td></tr>
+<tr class="memdesc:ga859f049e096188319a39357ce87efedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">cpu time to solve the scheme <br /></td></tr>
+<tr class="separator:ga859f049e096188319a39357ce87efedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga687ee21792292c5d7be6b2493188e86a"><td class="memItemLeft" align="right" valign="top"><a id="ga687ee21792292c5d7be6b2493188e86a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga687ee21792292c5d7be6b2493188e86a">HArDCore2D::LEPNC_diffusion::get_solving_error</a> () const</td></tr>
+<tr class="memdesc:ga687ee21792292c5d7be6b2493188e86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">residual after solving the scheme <br /></td></tr>
+<tr class="separator:ga687ee21792292c5d7be6b2493188e86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2192fab8a7521f0d2ca5521d0e111f01"><td class="memItemLeft" align="right" valign="top"><a id="ga2192fab8a7521f0d2ca5521d0e111f01"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga2192fab8a7521f0d2ca5521d0e111f01">HArDCore2D::LEPNC_diffusion::get_itime</a> (size_t idx) const</td></tr>
+<tr class="memdesc:ga2192fab8a7521f0d2ca5521d0e111f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">various intermediate assembly times <br /></td></tr>
+<tr class="separator:ga2192fab8a7521f0d2ca5521d0e111f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3b61172d0528de628227d64dac41e398"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga3b61172d0528de628227d64dac41e398">HArDCore2D::LEPNC_StefanPME::LEPNC_StefanPME</a> (<a class="el" href="classHArDCore2D_1_1LEPNCCore.html">LEPNCCore</a> &amp;nc, <a class="el" href="group__LEPNC.html#ga52caf522e75a28e63f86cda8cb811143">tensor_function_type</a> kappa, size_t deg_kappa, <a class="el" href="group__LEPNC.html#gaa89044901a4abb21d8600c6887a6a676">source_function_type</a> source, <a class="el" href="classBoundaryConditions.html">BoundaryConditions</a> BC, <a class="el" href="group__LEPNC.html#ga528592275ee4a7f49fcf27bb2803b38e">solution_function_type</a> exact_solution, <a class="el" href="group__LEPNC.html#gacd93c2714bba358b33c2055e40c4aa21">grad_function_type</a> grad_exact_solution, <a class="el" href="classTestCaseNonLinearity.html#a3d8a5c89c517dd0d9c835b7441ee9b07">TestCaseNonLinearity::nonlinearity_function_type</a> zeta, double weight, std::string solver_type, std::ostream &amp;output=std::cout)</td></tr>
 <tr class="memdesc:ga3b61172d0528de628227d64dac41e398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__LEPNC.html#ga3b61172d0528de628227d64dac41e398">More...</a><br /></td></tr>
 <tr class="separator:ga3b61172d0528de628227d64dac41e398"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,7 +280,7 @@ Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memdesc:ga26cf2df3130caf5758845f5c63d9e677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes non-conforming basis functions at the given quadrature nodes.  <a href="group__LEPNC.html#ga26cf2df3130caf5758845f5c63d9e677">More...</a><br /></td></tr>
 <tr class="separator:ga26cf2df3130caf5758845f5c63d9e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga45ee3494e636432ae9077f582c0d53c0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">HArDCore2D::LEPNCCore::grad_nc_basis_quad</a> (const size_t iT, const QuadratureRule quad) const</td></tr>
-<tr class="memdesc:ga45ee3494e636432ae9077f582c0d53c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <img class="formulaInl" alt="$(\nabla \phi_i^{nc})_{i\in I}$" src="form_7.png"/> at the quadrature nodes, where <img class="formulaInl" alt="$(\phi_i^{nc})_{i\in I}$" src="form_8.png"/> are the cell basis functions.  <a href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">More...</a><br /></td></tr>
+<tr class="memdesc:ga45ee3494e636432ae9077f582c0d53c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute \((\nabla \phi_i^{nc})_{i\in I}\) at the quadrature nodes, where \((\phi_i^{nc})_{i\in I}\) are the cell basis functions.  <a href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">More...</a><br /></td></tr>
 <tr class="separator:ga45ee3494e636432ae9077f582c0d53c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1741161cc8f8fa172bc5d5e4e2573e05"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga1741161cc8f8fa172bc5d5e4e2573e05">HArDCore2D::LEPNCCore::gram_matrix</a> (const std::vector&lt; Eigen::ArrayXd &gt; &amp;f_quad, const std::vector&lt; Eigen::ArrayXd &gt; &amp;g_quad, const size_t &amp;nrows, const size_t &amp;ncols, const QuadratureRule &amp;quad, const bool &amp;sym, std::vector&lt; double &gt; L2weight={}) const</td></tr>
 <tr class="separator:ga1741161cc8f8fa172bc5d5e4e2573e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,7 +320,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga138ab0f00010464e6354c22a649a4955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Locally Enriched Polytopal Non-Conforming method. </p>
+<p>Implementations of the Locally Enriched Polytopal Non-Conforming method. </p>
+<p>Locally Enriched Polytopal Non-Conforming method.</p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga45ee3494e636432ae9077f582c0d53c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga45ee3494e636432ae9077f582c0d53c0">&#9670;&nbsp;</a></span>grad_nc_basis_quad()</h2>
@@ -295,8 +349,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
       </table>
 </div><div class="memdoc">
 
-<p>Compute <img class="formulaInl" alt="$(\nabla \phi_i^{nc})_{i\in I}$" src="form_7.png"/> at the quadrature nodes, where <img class="formulaInl" alt="$(\phi_i^{nc})_{i\in I}$" src="form_8.png"/> are the cell basis functions. </p>
-<dl class="section return"><dt>Returns</dt><dd>Dnc_phi_quad[i]: array of size 2*nbq (where nbq=nb of quadrature nodes), with each column being <img class="formulaInl" alt="$\nabla \phi_i^{nc}$" src="form_9.png"/> at the corresponding quadrature node </dd></dl>
+<p>Compute \((\nabla \phi_i^{nc})_{i\in I}\) at the quadrature nodes, where \((\phi_i^{nc})_{i\in I}\) are the cell basis functions. </p>
+<dl class="section return"><dt>Returns</dt><dd>Dnc_phi_quad[i]: array of size 2*nbq (where nbq=nb of quadrature nodes), with each column being \(\nabla \phi_i^{nc}\) at the corresponding quadrature node </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iT</td><td>global index of the cell </td></tr>
@@ -362,7 +416,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create the matrix of L2 products of two families (f_i) and (g_j) of functions (this is not really a Gram matrix, unless the two families are the same) </p><dl class="section return"><dt>Returns</dt><dd>The matrix <img class="formulaInl" alt="$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$" src="form_10.png"/></dd></dl>
+<p>Create the matrix of L2 products of two families (f_i) and (g_j) of functions (this is not really a Gram matrix, unless the two families are the same) </p><dl class="section return"><dt>Returns</dt><dd>The matrix \((\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}\)</dd></dl>
 <p>Create the matrix of L2 products of two families (f_i) and (g_j) of functions (this is not really a Gram matrix, unless the two families are the same) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -436,7 +490,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 </div><div class="memdoc">
 
 <p>Overloaded version of the previous one for vector-valued functions: the functions (F_i) and (G_j) are vector-valued functions. </p>
-<dl class="section return"><dt>Returns</dt><dd>The matrix <img class="formulaInl" alt="$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$" src="form_11.png"/> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The matrix \((\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}\) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">F_quad</td><td>Values of functions (F1,F2,...) at the quadrature nodes </td></tr>
@@ -490,6 +544,92 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
     <tr><td class="paramname">tps</td><td>current time (for computing source) </td></tr>
     <tr><td class="paramname">dt</td><td>time step </td></tr>
     <tr><td class="paramname">Xn</td><td>Unkown at previous time step </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaae0d28247979eb271b77e4cc694f6d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaae0d28247979eb271b77e4cc694f6d75">&#9670;&nbsp;</a></span>LEPNC_diffusion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HArDCore2D::LEPNC_diffusion::LEPNC_diffusion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1LEPNCCore.html">LEPNCCore</a> &amp;&#160;</td>
+          <td class="paramname"><em>nc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__LEPNC.html#ga25aa9d13834504ef0e51893732c88b01">tensor_function_type</a>&#160;</td>
+          <td class="paramname"><em>kappa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>deg_kappa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__LEPNC.html#gae128bf98004abb3e21bbce3a6465b37e">source_function_type</a>&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBoundaryConditions.html">BoundaryConditions</a>&#160;</td>
+          <td class="paramname"><em>BC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__LEPNC.html#gaaa5b13bc0eaacce6b494fedc3d7b0d37">solution_function_type</a>&#160;</td>
+          <td class="paramname"><em>exact_solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__LEPNC.html#ga131fb280800f4892b2961ef00c671804">grad_function_type</a>&#160;</td>
+          <td class="paramname"><em>grad_exact_solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>solver_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>output</em> = <code>std::cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor of the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nc</td><td>instance of the core nonconforming class (with basis functions, etc.) </td></tr>
+    <tr><td class="paramname">kappa</td><td>diffusion tensor </td></tr>
+    <tr><td class="paramname">deg_kappa</td><td>polynomial degree of the diffusion tensor </td></tr>
+    <tr><td class="paramname">source</td><td>source term </td></tr>
+    <tr><td class="paramname">BC</td><td>type of boundary conditions </td></tr>
+    <tr><td class="paramname">exact_solution</td><td>exact solution </td></tr>
+    <tr><td class="paramname">grad_exact_solution</td><td>gradient of the exact solution </td></tr>
+    <tr><td class="paramname">solver_type</td><td>type of solver to use for the global system (bicgstab at the moment) </td></tr>
+    <tr><td class="paramname">output</td><td>optional argument for output of messages </td></tr>
   </table>
   </dd>
 </dl>
@@ -865,7 +1005,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 </div><div class="memdoc">
 
 <p>Computes non-conforming basis functions at the given quadrature nodes. </p>
-<dl class="section return"><dt>Returns</dt><dd>nc_phi_quad[i] = array listing the nbq (=nb of quadrature nodes) values of the nonconforming <img class="formulaInl" alt="$\phi^{nc}_i$" src="form_6.png"/> basis function at the quadrature nodes </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>nc_phi_quad[i] = array listing the nbq (=nb of quadrature nodes) values of the nonconforming \(\phi^{nc}_i\) basis function at the quadrature nodes </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iT</td><td>global index of the cell/edge </td></tr>

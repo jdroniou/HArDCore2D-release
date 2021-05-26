@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -119,6 +126,14 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> * &gt
 <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gadddfffa330938bd8ab624349722a0e4e">neighbour</a> (size_t iL) const</td></tr>
 <tr class="memdesc:gadddfffa330938bd8ab624349722a0e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the iL-th neighbour of the cell <br /></td></tr>
 <tr class="separator:gadddfffa330938bd8ab624349722a0e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga64aa8d1d212339dc8e3222d36dc4c99f">index_edge</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> *E) const</td></tr>
+<tr class="memdesc:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of edge(i): returns the local index of edge E in the cell <br /></td></tr>
+<tr class="separator:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97bc25d7764d00e93d3d2260636debed"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga97bc25d7764d00e93d3d2260636debed">index_vertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *V) const</td></tr>
+<tr class="memdesc:ga97bc25d7764d00e93d3d2260636debed"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of vertex(i): returns the local index of vertex V in the cell <br /></td></tr>
+<tr class="separator:ga97bc25d7764d00e93d3d2260636debed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga710ded03b7741c8377e0b2dda2395b46"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga710ded03b7741c8377e0b2dda2395b46">is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga710ded03b7741c8377e0b2dda2395b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true if cell touches the boundary <br /></td></tr>
@@ -131,14 +146,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga84c743487088ebb64ca0c860329c7162">diam</a> () const</td></tr>
 <tr class="memdesc:ga84c743487088ebb64ca0c860329c7162"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns diameter of cell <br /></td></tr>
 <tr class="separator:ga84c743487088ebb64ca0c860329c7162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf55d7a602439110ebbb3c9aee1895580"><td class="memItemLeft" align="right" valign="top">
-Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaf55d7a602439110ebbb3c9aee1895580">edge_normal</a> (size_t i)</td></tr>
-<tr class="memdesc:gaf55d7a602439110ebbb3c9aee1895580"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the outer normal to the i-th edge <br /></td></tr>
-<tr class="separator:gaf55d7a602439110ebbb3c9aee1895580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad9bc371c5c2669b3d3948e353f714f8"><td class="memItemLeft" align="right" valign="top">
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaad9bc371c5c2669b3d3948e353f714f8">edge_normal</a> (size_t i) const</td></tr>
+<tr class="memdesc:gaad9bc371c5c2669b3d3948e353f714f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the outer normal to the i-th edge <br /></td></tr>
+<tr class="separator:gaad9bc371c5c2669b3d3948e353f714f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66b278b12266d5c5bfee8699886cc89b"><td class="memItemLeft" align="right" valign="top">
 Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b">center_mass</a> () const</td></tr>
 <tr class="memdesc:ga66b278b12266d5c5bfee8699886cc89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the center of mass of the cell <br /></td></tr>
 <tr class="separator:ga66b278b12266d5c5bfee8699886cc89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga27a8932bdc987ee15a17a628d4cfe60e">edge_orientation</a> (size_t i) const</td></tr>
+<tr class="memdesc:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -1 otherwise). <br /></td></tr>
+<tr class="separator:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6dfa6d2f4a0c971bc760538b73880a1c"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga6dfa6d2f4a0c971bc760538b73880a1c">calc_cell_geometry_factors</a> ()</td></tr>
 <tr class="memdesc:ga6dfa6d2f4a0c971bc760538b73880a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate cell diam, area etc <br /></td></tr>

@@ -1,0 +1,4 @@
+<map id="HArDCore2D::DOFSpace" name="HArDCore2D::DOFSpace">
+<area shape="rect" id="node1" title="Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to t..." alt="" coords="5,95,179,121"/>
+<area shape="rect" id="node2" href="$classHArDCore2D_1_1Mesh.html" title="The Mesh class provides description of a mesh." alt="" coords="22,5,162,32"/>
+</map>

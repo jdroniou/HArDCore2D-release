@@ -1,0 +1,45 @@
+\hypertarget{structHArDCore2D_1_1DDRCore_1_1CellBases}{}\doxysection{H\+Ar\+D\+Core2D\+::D\+D\+R\+Core\+::Cell\+Bases Struct Reference}
+\label{structHArDCore2D_1_1DDRCore_1_1CellBases}\index{HArDCore2D::DDRCore::CellBases@{HArDCore2D::DDRCore::CellBases}}
+
+
+Structure to store element bases.  
+
+
+
+
+{\ttfamily \#include $<$ddrcore.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \mbox{\hyperlink{group__DDRCore_gacfb0f718679ed7e9d33165eed07b5164}{Geometric\+Support}}
+\begin{DoxyCompactList}\small\item\em Geometric support. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$ {\bfseries Polykpo}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1RestrictedBasis}{Restricted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$ $>$ {\bfseries Polyk}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1RestrictedBasis}{Restricted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$ $>$ {\bfseries Polykmo}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Poly2\+Basis\+Cell\+Type}} $>$ {\bfseries Polyk2}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Roly\+Basis\+Cell\+Type}} $>$ {\bfseries Rolykmo}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Roly\+Compl\+Basis\+Cell\+Type}} $>$ {\bfseries Roly\+Complk}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Roly\+Compl\+Basis\+Cell\+Type}} $>$ {\bfseries Roly\+Complkp2}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store element bases. 
+
+\textquotesingle{}Poly\textquotesingle{}\+: basis of polynomial space; \textquotesingle{}Goly\textquotesingle{}\+: gradient basis; \textquotesingle{}Roly\textquotesingle{}\+: curl basis.~\newline
+\textquotesingle{}k\textquotesingle{}, \textquotesingle{}kmo\textquotesingle{} (k-\/1) and \textquotesingle{}kpo\textquotesingle{} (k+1) determines the degree.~\newline
+\textquotesingle{}Compl\textquotesingle{} for the complement of the corresponding \textquotesingle{}Goly\textquotesingle{} or \textquotesingle{}Roly\textquotesingle{} in the \textquotesingle{}Poly\textquotesingle{} space 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+D\+D\+R\+Core/ddrcore.\+hpp\end{DoxyCompactItemize}

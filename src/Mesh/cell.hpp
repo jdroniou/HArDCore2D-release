@@ -49,13 +49,17 @@ public:
     Edge *edge(size_t iL) const;  ///< returns the iL-th edge of the cell
     Vertex *vertex(size_t iL) const;   ///< returns the iL-th edge of the cell
     Cell *neighbour(size_t iL) const; ///< returns the iL-th neighbour of the cell
+    size_t index_edge(const Edge* E) const; ///< reciprocal of edge(i): returns the local index of edge E in the cell
+    size_t index_vertex(const Vertex* V) const; ///< reciprocal of vertex(i): returns the local index of vertex V in the cell
 
     inline bool is_boundary() const; ///< returns true if cell touches the boundary
 
     inline double measure() const; ///< returns area of cell
     inline double diam() const;  ///< returns diameter of cell
-    Vector2d edge_normal(size_t i);  ///< returns the outer normal to the i-th edge
+    Vector2d edge_normal(size_t i) const;  ///< returns the outer normal to the i-th edge
     inline Vector2d center_mass() const;  ///< returns the center of mass of the cell
+    int edge_orientation(size_t i) const; ///< returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -1 otherwise).
+    
     bool calc_cell_geometry_factors();  ///< calculate cell diam, area etc
 
     bool add_neighbour(Cell *neigh);  ///< add a cell to the neighbour
@@ -103,6 +107,7 @@ double Cell::measure() const { return _cell_area; }
 size_t Cell::global_index() const { return _iC; }
 size_t Cell::n_edges() const { return _edges.size(); }
 size_t Cell::n_vertices() const { return _vertices.size(); }
+
 
 /*@}*/
 }

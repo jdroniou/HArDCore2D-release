@@ -2,21 +2,35 @@
 \label{group__LEPNC}\index{LEPNC@{LEPNC}}
 
 
-Locally Enriched Polytopal Non-\/\+Conforming method.  
+Implementations of the Locally Enriched Polytopal Non-\/\+Conforming method.  
 
 
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{L\+E\+P\+N\+C\+\_\+diffusion}} class provides an implementation of the L\+E\+P\+NC method for the stationnary diffusion problem $-div(K\nabla u)=f$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}}
-\begin{DoxyCompactList}\small\item\em The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em L\+E\+P\+NC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}
-\begin{DoxyCompactList}\small\item\em The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em L\+E\+P\+NC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}\label{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}} 
+using \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}\label{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}} 
+using \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::source\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_ga131fb280800f4892b2961ef00c671804}\label{group__LEPNC_ga131fb280800f4892b2961ef00c671804}} 
+using \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}\label{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}} 
+using \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}\label{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}} 
 using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
@@ -50,6 +64,26 @@ using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{H\+Ar\+D
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+L\+E\+P\+N\+C\+\_\+diffusion}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}\label{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}} 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::solve}} ()
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}\label{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}} 
+double \mbox{\hyperlink{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}\label{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}} 
+double \mbox{\hyperlink{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+assembly\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_ga859f049e096188319a39357ce87efedc}\label{group__LEPNC_ga859f049e096188319a39357ce87efedc}} 
+double \mbox{\hyperlink{group__LEPNC_ga859f049e096188319a39357ce87efedc}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+solving\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}\label{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}} 
+double \mbox{\hyperlink{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+solving\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}\label{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}} 
+double \mbox{\hyperlink{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+itime}} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__LEPNC_ga3b61172d0528de628227d64dac41e398}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}\label{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}} 
@@ -150,9 +184,9 @@ Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga138ab0f00010464e6354c22a64
 
 
 \doxysubsection{Detailed Description}
-Locally Enriched Polytopal Non-\/\+Conforming method. 
+Implementations of the Locally Enriched Polytopal Non-\/\+Conforming method. 
 
-
+Locally Enriched Polytopal Non-\/\+Conforming method.
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}\label{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}} 
@@ -248,6 +282,37 @@ Execute one time iteration.
 {\em dt} & time step \\
 \hline
 {\em Xn} & Unkown at previous time step \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}\label{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}} 
+\index{LEPNC@{LEPNC}!LEPNC\_diffusion@{LEPNC\_diffusion}}
+\index{LEPNC\_diffusion@{LEPNC\_diffusion}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{LEPNC\_diffusion()}{LEPNC\_diffusion()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+L\+E\+P\+N\+C\+\_\+diffusion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nc} & instance of the core nonconforming class (with basis functions, etc.) \\
+\hline
+{\em kappa} & diffusion tensor \\
+\hline
+{\em deg\+\_\+kappa} & polynomial degree of the diffusion tensor \\
+\hline
+{\em source} & source term \\
+\hline
+{\em BC} & type of boundary conditions \\
+\hline
+{\em exact\+\_\+solution} & exact solution \\
+\hline
+{\em grad\+\_\+exact\+\_\+solution} & gradient of the exact solution \\
+\hline
+{\em solver\+\_\+type} & type of solver to use for the global system (bicgstab at the moment) \\
+\hline
+{\em output} & optional argument for output of messages \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__LEPNC_ga3b61172d0528de628227d64dac41e398}\label{group__LEPNC_ga3b61172d0528de628227d64dac41e398}} 

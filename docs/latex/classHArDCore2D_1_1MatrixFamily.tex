@@ -1,0 +1,73 @@
+\hypertarget{classHArDCore2D_1_1MatrixFamily}{}\doxysection{H\+Ar\+D\+Core2D\+::Matrix\+Family$<$ Scalar\+Family\+Type, N $>$ Class Template Reference}
+\label{classHArDCore2D_1_1MatrixFamily}\index{HArDCore2D::MatrixFamily$<$ ScalarFamilyType, N $>$@{HArDCore2D::MatrixFamily$<$ ScalarFamilyType, N $>$}}
+
+
+Matrix family obtained from a scalar family.  
+
+
+
+
+{\ttfamily \#include $<$basis.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Eigen\+::\+Matrix$<$ double, N, N $>$ {\bfseries Function\+Value}
+\item 
+typedef Eigen\+::\+Matrix$<$ double, N, N $\ast$dimspace $>$ {\bfseries Gradient\+Value}
+\item 
+typedef Vector\+Rd {\bfseries Curl\+Value}
+\item 
+typedef Eigen\+::\+Matrix$<$ double, N, 1 $>$ {\bfseries Divergence\+Value}
+\item 
+typedef Scalar\+Family\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Matrix\+Family} (const Scalar\+Family\+Type \&scalar\+\_\+family)
+\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga18ef022103db3d80a1d39684e3242877}{dimension}} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the family. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_ga7e4a38cfabb6e1301d8c9241cc54e0c8}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_ga97e08484cdfdf79eb3486f2bf36d41fa}{function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+Divergence\+Value \mbox{\hyperlink{group__Basis_gab2df4ed5712456cdb4b95898dec32921}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Divergence\+Value \mbox{\hyperlink{group__Basis_ga422fbebf3d2c594f579e5cb4be4d5cf0}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_ga1f42eedda4151c70b63b234d64383de0}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\item 
+const size\+\_\+t \mbox{\hyperlink{group__Basis_ga122dd6f2961cc930054d97b9f9d1474c}{matrix\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the matrices in the family. \end{DoxyCompactList}\item 
+const Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga4bfc1eb9f0a137b88637cd8f7d9d506b}{transpose\+Operator}} () const
+\begin{DoxyCompactList}\small\item\em Return the transpose operator, the r\+N$^\wedge$2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the transpose. \end{DoxyCompactList}\item 
+const Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga408bbdd71b59bb9c1a09da8d240f346d}{symmetrise\+Operator}} () const
+\begin{DoxyCompactList}\small\item\em Return the symmetrisation operator, the r\+N$^\wedge$2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the symmetrised matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Tensor\+RankE {\bfseries tensor\+Rank} = Matrix
+\item 
+static const bool {\bfseries has\+Function} = Scalar\+Family\+Type\+::has\+Function
+\item 
+static const bool {\bfseries has\+Gradient} = false
+\item 
+static const bool {\bfseries has\+Divergence} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
+\item 
+static const bool {\bfseries has\+Curl} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Scalar\+Family\+Type, size\+\_\+t N$>$\newline
+class H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$}
+
+Matrix family obtained from a scalar family. 
+
+The transformation into matrix is done the following way\+: if $(f_1,\ldots,f_r)$ is the family of scalar functions, and $(E_1,\ldots,E_N)$ is the canonical basis of the space of NxN matrices, the matrix family is $(f_1E_1,f_2E_1,\ldots,f_rE_1,f_1E_2,\ldots...)$. The divergence is taken along each row. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/basis.\+hpp\end{DoxyCompactItemize}

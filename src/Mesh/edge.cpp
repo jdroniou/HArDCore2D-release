@@ -49,6 +49,18 @@ Vertex *Edge::vertex(size_t i) const {
     }
 }
 
+size_t Edge::index_vertex(const Vertex* V) const {
+  size_t i = 0;
+  while(i < 2 && vertex(i) != V){
+    i++;
+  }
+  if (i >= 2 || vertex(i) != V){
+    throw "Vertex does not belong to edge";
+  }
+  return i;
+}
+
+
 /// Measure and diameter are the same for an edge, but for consistency with the way schemes
 /// are usually defined, we provide two functions. For translation of each scheme's code to 3D (with
 /// edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected

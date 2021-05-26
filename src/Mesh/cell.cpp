@@ -79,7 +79,32 @@ Cell *Cell::neighbour(size_t i) const {
     }
 }
 
-Vector2d Cell::edge_normal(size_t i) {
+size_t Cell::index_edge(const Edge* E) const {
+  size_t i = 0;
+  size_t nedg = n_edges();
+  while(i < nedg && edge(i) != E){
+    i++;
+  }
+  if (i >= nedg || edge(i) != E){
+    throw "Edge does not belong to cell";
+  }
+  return i;
+}
+
+size_t Cell::index_vertex(const Vertex* V) const {
+  size_t i = 0;
+  size_t nvert = n_vertices();
+  while(i < nvert && vertex(i) != V){
+    i++;
+  }
+  if (i >= nvert || vertex(i) != V){
+    throw "Vertex does not belong to cell";
+  }
+  return i;
+}
+
+
+Vector2d Cell::edge_normal(size_t i) const {
     //because we need to know the order of the indices in the cell we should just recreate the edge indicies here!
     size_t k = i;
     size_t j = i+1;
@@ -91,6 +116,10 @@ Vector2d Cell::edge_normal(size_t i) {
 
     Vector2d normal = Vector2d((v2 - v1).y(), -(v2 - v1).x());
     return normal.normalized();
+}
+
+int Cell::edge_orientation(size_t i) const { 
+    return ( (_edges[i]->normal()).dot(edge_normal(i)) > 0 ? 1 : -1);
 }
 
 Vector2d Cell::ari_coords() const {

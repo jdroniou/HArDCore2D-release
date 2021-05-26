@@ -32,7 +32,9 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_ga79a3220472fbc88d100be37ea1503d3e}{di
 Function\+Value \mbox{\hyperlink{group__Basis_ga82562e20ba49b9e72e04c6a7660b1d3c}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga34784e2233789bed6214488ff9e4166d}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Curl\+Value \mbox{\hyperlink{group__Basis_ga962166d89641683136654a3e27773c1c}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl (vector rot) of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,7 +44,7 @@ static const bool {\bfseries has\+Function} = true
 \item 
 static const bool {\bfseries has\+Gradient} = true
 \item 
-static const bool {\bfseries has\+Curl} = false
+static const bool {\bfseries has\+Curl} = true
 \item 
 static const bool {\bfseries has\+Divergence} = false
 \end{DoxyCompactItemize}

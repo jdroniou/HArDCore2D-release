@@ -1,0 +1,55 @@
+\hypertarget{classHArDCore2D_1_1GolyComplBasisCell}{}\doxysection{H\+Ar\+D\+Core2D\+::Goly\+Compl\+Basis\+Cell Class Reference}
+\label{classHArDCore2D_1_1GolyComplBasisCell}\index{HArDCore2D::GolyComplBasisCell@{HArDCore2D::GolyComplBasisCell}}
+
+
+Basis for the complement G$^\wedge$\{c,k\}(T) in P$^\wedge$k(F)$^\wedge$2 of the range of the gradient on a face.  
+
+
+
+
+{\ttfamily \#include $<$basis.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Vector\+Rd {\bfseries Function\+Value}
+\item 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Gradient\+Value}
+\item 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Curl\+Value}
+\item 
+typedef double {\bfseries Divergence\+Value}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries Geometric\+Support}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Basis_ga9d294c963cda7efe0b10bd82bc9b0b91}{Goly\+Compl\+Basis\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, size\+\_\+t degree)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga55d9d9b8fd25fb21696fc89cd8a06537}{dimension}} () const
+\begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_ga3d2d8a3b77a082575c44237bed02c842}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+static const bool {\bfseries has\+Function} = true
+\item 
+static const bool {\bfseries has\+Gradient} = false
+\item 
+static const bool {\bfseries has\+Curl} = false
+\item 
+static const bool {\bfseries has\+Divergence} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basis for the complement G$^\wedge$\{c,k\}(T) in P$^\wedge$k(F)$^\wedge$2 of the range of the gradient on a face. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/basis.\+hpp\item 
+src/\+Common/basis.\+cpp\end{DoxyCompactItemize}

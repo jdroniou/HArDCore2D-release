@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classHArDCore2D_1_1LEPNC__StefanPME.html" title="The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown..." alt="" coords="5,5,232,32"/>
+<area shape="rect" id="node1" href="$classHArDCore2D_1_1DOFSpace.html" title="Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to t..." alt="" coords="5,56,179,83"/>
+<area shape="rect" id="node2" href="$classHArDCore2D_1_1DDRSpace.html" title="Base class for DDR spaces. Provides functions to manipulate global DOFs (the local version being prov..." alt="" coords="227,56,401,83"/>
+<area shape="rect" id="node3" href="$classHArDCore2D_1_1EXCurl.html" title="Extended XCurl space, with vector&#45;valued polynomials on the edges." alt="" coords="449,5,600,32"/>
+<area shape="rect" id="node4" href="$classHArDCore2D_1_1XCurl.html" title="Discrete Hcurl space: local operators, L2 product and global interpolator." alt="" coords="454,56,595,83"/>
+<area shape="rect" id="node5" href="$classHArDCore2D_1_1XGrad.html" title="Discrete H1 space: local operators, L2 product and global interpolator." alt="" coords="452,107,597,133"/>
 </map>

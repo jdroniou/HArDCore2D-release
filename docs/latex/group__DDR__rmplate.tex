@@ -1,0 +1,187 @@
+\hypertarget{group__DDR__rmplate}{}\doxysection{D\+D\+R\+\_\+rmplate}
+\label{group__DDR__rmplate}\index{DDR\_rmplate@{DDR\_rmplate}}
+
+
+Implementation of the D\+DR scheme for the Reissner-\/\+Mindlin plate problem.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters}}
+\begin{DoxyCompactList}\small\item\em Structure to store model data. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1ReissnerMindlin}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin}}
+\begin{DoxyCompactList}\small\item\em Assemble a RM problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gaa9a4d88f680494b1f20b9371706acc8f}\label{group__DDR__rmplate_gaa9a4d88f680494b1f20b9371706acc8f}} 
+typedef Eigen\+::\+Sparse\+Matrix$<$ double $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+System\+Matrix\+Type}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga286e0e446761053854978017a7d1289f}\label{group__DDR__rmplate_ga286e0e446761053854978017a7d1289f}} 
+typedef std\+::function$<$ double(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+Forcing\+Term\+Type}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga0b1f648acb8fa6f33c94b210f73b8772}\label{group__DDR__rmplate_ga0b1f648acb8fa6f33c94b210f73b8772}} 
+typedef std\+::function$<$ Eigen\+::\+Vector2d(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+Solution\+Rotation\+Type}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga1605dd666672cc0c9f7ff5e087016a6b}\label{group__DDR__rmplate_ga1605dd666672cc0c9f7ff5e087016a6b}} 
+typedef std\+::function$<$ Eigen\+::\+Matrix2d(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+Gradient\+Rotation\+Type}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga561e8da4a3e67d09dc717821f7136a03}\label{group__DDR__rmplate_ga561e8da4a3e67d09dc717821f7136a03}} 
+typedef std\+::function$<$ double(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+Solution\+Displacement\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gaf6e413adf6b6af56dc5a5ded692afe38}\label{group__DDR__rmplate_gaf6e413adf6b6af56dc5a5ded692afe38}} 
+\mbox{\hyperlink{group__DDR__rmplate_gaf6e413adf6b6af56dc5a5ded692afe38}{H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::\+R\+M\+Parameters}} (const double thickness, const double young\+\_\+modulus, const double poisson\+\_\+ratio)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__DDR__rmplate_ga1438e95b7f8586a7a81fe734e132daad}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::\+Reissner\+Mindlin}} (const \mbox{\hyperlink{classHArDCore2D_1_1DDRCore}{D\+D\+R\+Core}} \&ddrcore, const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&\mbox{\hyperlink{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}{para}}, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&B\+C\+\_\+theta, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&B\+C\+\_\+u, bool use\+\_\+threads, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DDR__rmplate_gac1e5d4e0dad7dc0d0b0b704cd46d14b3}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::assemble\+Linear\+System}} (const Forcing\+Term\+Type \&f, const Solution\+Rotation\+Type \&theta, const Gradient\+Rotation\+Type \&grad\+\_\+theta, const Solution\+Displacement\+Type \&u)
+\begin{DoxyCompactList}\small\item\em Assemble the global system ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gae1532454da484ab96193b1e9a64a8509}\label{group__DDR__rmplate_gae1532454da484ab96193b1e9a64a8509}} 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_gae1532454da484ab96193b1e9a64a8509}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::dimension\+Space}} () const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the rotation + displacement space (with BC) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga8e4aadcb8a7290c6353f11d57e84f422}\label{group__DDR__rmplate_ga8e4aadcb8a7290c6353f11d57e84f422}} 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_ga8e4aadcb8a7290c6353f11d57e84f422}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::nb\+\_\+bdry\+D\+O\+Fs}} () const
+\begin{DoxyCompactList}\small\item\em Returns the nb of D\+O\+Fs for BC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gadfb063d6f81a9fbc06c2239e097bdc52}\label{group__DDR__rmplate_gadfb063d6f81a9fbc06c2239e097bdc52}} 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_gadfb063d6f81a9fbc06c2239e097bdc52}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::size\+System}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size of the system without BC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gaeb93147454ed45094a85392e96615c1e}\label{group__DDR__rmplate_gaeb93147454ed45094a85392e96615c1e}} 
+const std\+::vector$<$ std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ $>$ \& \mbox{\hyperlink{group__DDR__rmplate_gaeb93147454ed45094a85392e96615c1e}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::loc\+U\+KN}} () const
+\begin{DoxyCompactList}\small\item\em Returns the location of the unknowns among the D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gac56ce1552c3fc15cb09410d601140658}\label{group__DDR__rmplate_gac56ce1552c3fc15cb09410d601140658}} 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{group__DDR__rmplate_gac56ce1552c3fc15cb09410d601140658}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::global\+D\+O\+F\+Indices}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Create the vector of D\+OF indices for cell T, which combines the D\+O\+Fs for the spaces E\+Xcurl and Xgrad. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}\label{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}} 
+const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \& \mbox{\hyperlink{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::para}} () const
+\begin{DoxyCompactList}\small\item\em Returns the parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga3e6cd91295861863b6be731c009be276}\label{group__DDR__rmplate_ga3e6cd91295861863b6be731c009be276}} 
+const \mbox{\hyperlink{classHArDCore2D_1_1EXCurl}{E\+X\+Curl}} \& \mbox{\hyperlink{group__DDR__rmplate_ga3e6cd91295861863b6be731c009be276}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::ex\+Curl}} () const
+\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1EXCurl}{E\+X\+Curl}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga1bc47d92ac45366335845e3e9820151f}\label{group__DDR__rmplate_ga1bc47d92ac45366335845e3e9820151f}} 
+const \mbox{\hyperlink{classHArDCore2D_1_1XGrad}{X\+Grad}} \& \mbox{\hyperlink{group__DDR__rmplate_ga1bc47d92ac45366335845e3e9820151f}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::x\+Grad}} () const
+\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1XGrad}{X\+Grad}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gabff3d753150dfa9500b8a7ccdb35595b}\label{group__DDR__rmplate_gabff3d753150dfa9500b8a7ccdb35595b}} 
+const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_gabff3d753150dfa9500b8a7ccdb35595b}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::system\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga0f493d0ad5124794c6349cc3fc9aa57b}\label{group__DDR__rmplate_ga0f493d0ad5124794c6349cc3fc9aa57b}} 
+System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_ga0f493d0ad5124794c6349cc3fc9aa57b}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::system\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga243500e437dfdfa13a94f59600fba11a}\label{group__DDR__rmplate_ga243500e437dfdfa13a94f59600fba11a}} 
+const Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_ga243500e437dfdfa13a94f59600fba11a}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::system\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga0c878f3ffe5f7f5a5a2904ec652abb27}\label{group__DDR__rmplate_ga0c878f3ffe5f7f5a5a2904ec652abb27}} 
+Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_ga0c878f3ffe5f7f5a5a2904ec652abb27}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::system\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga5a6e5a1be72b79e5a14fbb26bb2b0da6}\label{group__DDR__rmplate_ga5a6e5a1be72b79e5a14fbb26bb2b0da6}} 
+const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_ga5a6e5a1be72b79e5a14fbb26bb2b0da6}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::bdry\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Matrix for BC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gabaac2b3b4447cb407982c5c5c2c5ee56}\label{group__DDR__rmplate_gabaac2b3b4447cb407982c5c5c2c5ee56}} 
+const Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_gabaac2b3b4447cb407982c5c5c2c5ee56}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::bdry\+Values}} () const
+\begin{DoxyCompactList}\small\item\em Returns the boundary values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gaa49781c3a4be9f91ad719cd6377dd30c}\label{group__DDR__rmplate_gaa49781c3a4be9f91ad719cd6377dd30c}} 
+const double \& \mbox{\hyperlink{group__DDR__rmplate_gaa49781c3a4be9f91ad719cd6377dd30c}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::stabilization\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gab4d9e85868fa833083c5b27265bbf47e}\label{group__DDR__rmplate_gab4d9e85868fa833083c5b27265bbf47e}} 
+double \& \mbox{\hyperlink{group__DDR__rmplate_gab4d9e85868fa833083c5b27265bbf47e}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::stabilization\+Parameter}} ()
+\begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__DDR__rmplate_ga3268244dd67ba2c9e430ced1b7676fbd}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::compute\+Norm}} (const Eigen\+::\+Vector\+Xd \&v) const
+\begin{DoxyCompactList}\small\item\em Compute the discrete norm. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gab320487fda348344d86064d1f5e0b6d8}\label{group__DDR__rmplate_gab320487fda348344d86064d1f5e0b6d8}} 
+{\footnotesize template$<$typename out\+Value , typename Fct $>$ }\\std\+::function$<$ out\+Value(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__rmplate_gab320487fda348344d86064d1f5e0b6d8}{H\+Ar\+D\+Core2\+D\+::\+Reissner\+Mindlin\+::contract\+Para}} (const Fct \&F) const
+\begin{DoxyCompactList}\small\item\em Takes a function dependent on R\+M\+Parameter and a position x, and returns a function depending only on x (using the parameters of this class) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gac4d0a3116ab2ff83505435ee5538bb96}\label{group__DDR__rmplate_gac4d0a3116ab2ff83505435ee5538bb96}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::t}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga0f8940fac8b12067faaf44c95a188650}\label{group__DDR__rmplate_ga0f8940fac8b12067faaf44c95a188650}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::E}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga42100ae777e7824121a9e133917052f5}\label{group__DDR__rmplate_ga42100ae777e7824121a9e133917052f5}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::nu}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gae73a15104897bf70e8ae1309a44fe66f}\label{group__DDR__rmplate_gae73a15104897bf70e8ae1309a44fe66f}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::beta0}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_ga9017303752b45d6b7e566253e906dba7}\label{group__DDR__rmplate_ga9017303752b45d6b7e566253e906dba7}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::beta1}
+\item 
+\mbox{\Hypertarget{group__DDR__rmplate_gabfe4888e2b8bdb2b4aed62369834e8d5}\label{group__DDR__rmplate_gabfe4888e2b8bdb2b4aed62369834e8d5}} 
+double {\bfseries H\+Ar\+D\+Core2\+D\+::\+R\+M\+Parameters\+::kappa}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the D\+DR scheme for the Reissner-\/\+Mindlin plate problem. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__DDR__rmplate_gac1e5d4e0dad7dc0d0b0b704cd46d14b3}\label{group__DDR__rmplate_gac1e5d4e0dad7dc0d0b0b704cd46d14b3}} 
+\index{DDR\_rmplate@{DDR\_rmplate}!assembleLinearSystem@{assembleLinearSystem}}
+\index{assembleLinearSystem@{assembleLinearSystem}!DDR\_rmplate@{DDR\_rmplate}}
+\doxysubsubsection{\texorpdfstring{assembleLinearSystem()}{assembleLinearSystem()}}
+{\footnotesize\ttfamily void Reissner\+Mindlin\+::assemble\+Linear\+System (\begin{DoxyParamCaption}\item[{const Forcing\+Term\+Type \&}]{f,  }\item[{const Solution\+Rotation\+Type \&}]{theta,  }\item[{const Gradient\+Rotation\+Type \&}]{grad\+\_\+theta,  }\item[{const Solution\+Displacement\+Type \&}]{u }\end{DoxyParamCaption})}
+
+
+
+Assemble the global system ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Forcing term \\
+\hline
+{\em theta} & Boundary value \\
+\hline
+{\em grad\+\_\+theta} & Boundary value \\
+\hline
+{\em u} & Boundary value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__DDR__rmplate_ga3268244dd67ba2c9e430ced1b7676fbd}\label{group__DDR__rmplate_ga3268244dd67ba2c9e430ced1b7676fbd}} 
+\index{DDR\_rmplate@{DDR\_rmplate}!computeNorm@{computeNorm}}
+\index{computeNorm@{computeNorm}!DDR\_rmplate@{DDR\_rmplate}}
+\doxysubsubsection{\texorpdfstring{computeNorm()}{computeNorm()}}
+{\footnotesize\ttfamily double Reissner\+Mindlin\+::compute\+Norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{v }\end{DoxyParamCaption}) const}
+
+
+
+Compute the discrete norm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__DDR__rmplate_ga1438e95b7f8586a7a81fe734e132daad}\label{group__DDR__rmplate_ga1438e95b7f8586a7a81fe734e132daad}} 
+\index{DDR\_rmplate@{DDR\_rmplate}!ReissnerMindlin@{ReissnerMindlin}}
+\index{ReissnerMindlin@{ReissnerMindlin}!DDR\_rmplate@{DDR\_rmplate}}
+\doxysubsubsection{\texorpdfstring{ReissnerMindlin()}{ReissnerMindlin()}}
+{\footnotesize\ttfamily Reissner\+Mindlin\+::\+Reissner\+Mindlin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1DDRCore}{D\+D\+R\+Core}} \&}]{ddrcore,  }\item[{const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&}]{para,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{B\+C\+\_\+theta,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{B\+C\+\_\+u,  }\item[{bool}]{use\+\_\+threads,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ddrcore} & Core for the D\+DR space sequence \\
+\hline
+{\em para} & Physical parameters \\
+\hline
+{\em B\+C\+\_\+theta} & Boundary conditions for rotation \\
+\hline
+{\em B\+C\+\_\+u} & Boundary conditions for displacement \\
+\hline
+{\em use\+\_\+threads} & True for parallel execution, false for sequential execution \\
+\hline
+{\em output} & Output stream to print status messages \\
+\hline
+\end{DoxyParams}

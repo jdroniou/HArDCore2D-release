@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -125,15 +132,15 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga38e8f0bf1414441ceef7e3b39526ac23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gae31711c40d2d9888a6e8ca906bd2cbea">n_i_cells</a> () const</td></tr>
-<tr class="memdesc:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary cells <br /></td></tr>
+<tr class="memdesc:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior cells <br /></td></tr>
 <tr class="separator:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7650c95dec763d4aa3fcb44644229f0e"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga7650c95dec763d4aa3fcb44644229f0e">n_i_edges</a> () const</td></tr>
-<tr class="memdesc:ga7650c95dec763d4aa3fcb44644229f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary edges <br /></td></tr>
+<tr class="memdesc:ga7650c95dec763d4aa3fcb44644229f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior edges <br /></td></tr>
 <tr class="separator:ga7650c95dec763d4aa3fcb44644229f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga209126a0e22bea2f597dbc844110123c"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga209126a0e22bea2f597dbc844110123c">n_i_vertices</a> () const</td></tr>
-<tr class="memdesc:ga209126a0e22bea2f597dbc844110123c"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary vertices <br /></td></tr>
+<tr class="memdesc:ga209126a0e22bea2f597dbc844110123c"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior vertices <br /></td></tr>
 <tr class="separator:ga209126a0e22bea2f597dbc844110123c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabae9df200fe23a302b3d01e4ff13f921"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gabae9df200fe23a302b3d01e4ff13f921">get_cells</a> () const</td></tr>
@@ -207,6 +214,10 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *
 <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga58578f5f723f5e589ba498f74ddcbf08">i_vertex</a> (size_t iV) const</td></tr>
 <tr class="memdesc:ga58578f5f723f5e589ba498f74ddcbf08"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a constant pointer to the iV-th interior vertex <br /></td></tr>
 <tr class="separator:ga58578f5f723f5e589ba498f74ddcbf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33ae13c577fbafd510f0406a986b61ce"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga33ae13c577fbafd510f0406a986b61ce">find_cell</a> (const Vector2d &amp;x)</td></tr>
+<tr class="memdesc:ga33ae13c577fbafd510f0406a986b61ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the index of a cell that contains x (this function is a bit expensive) <br /></td></tr>
+<tr class="separator:ga33ae13c577fbafd510f0406a986b61ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga59082af6b1da515cdb99c4daacf5e2fd"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga59082af6b1da515cdb99c4daacf5e2fd">add_cell</a> (<a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *<a class="el" href="group__Mesh.html#gae07b938c57cf57e3bb9c76d3df1eb549">cell</a>)</td></tr>
 <tr class="memdesc:ga59082af6b1da515cdb99c4daacf5e2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a cell to the mesh <br /></td></tr>

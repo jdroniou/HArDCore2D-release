@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -135,6 +142,14 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> * &gt
 <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gadddfffa330938bd8ab624349722a0e4e">HArDCore2D::Cell::neighbour</a> (size_t iL) const</td></tr>
 <tr class="memdesc:gadddfffa330938bd8ab624349722a0e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the iL-th neighbour of the cell <br /></td></tr>
 <tr class="separator:gadddfffa330938bd8ab624349722a0e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="memItemLeft" align="right" valign="top"><a id="ga64aa8d1d212339dc8e3222d36dc4c99f"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga64aa8d1d212339dc8e3222d36dc4c99f">HArDCore2D::Cell::index_edge</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> *E) const</td></tr>
+<tr class="memdesc:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of edge(i): returns the local index of edge E in the cell <br /></td></tr>
+<tr class="separator:ga64aa8d1d212339dc8e3222d36dc4c99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97bc25d7764d00e93d3d2260636debed"><td class="memItemLeft" align="right" valign="top"><a id="ga97bc25d7764d00e93d3d2260636debed"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga97bc25d7764d00e93d3d2260636debed">HArDCore2D::Cell::index_vertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *V) const</td></tr>
+<tr class="memdesc:ga97bc25d7764d00e93d3d2260636debed"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of vertex(i): returns the local index of vertex V in the cell <br /></td></tr>
+<tr class="separator:ga97bc25d7764d00e93d3d2260636debed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga710ded03b7741c8377e0b2dda2395b46"><td class="memItemLeft" align="right" valign="top"><a id="ga710ded03b7741c8377e0b2dda2395b46"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga710ded03b7741c8377e0b2dda2395b46">HArDCore2D::Cell::is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga710ded03b7741c8377e0b2dda2395b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true if cell touches the boundary <br /></td></tr>
@@ -147,14 +162,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga84c743487088ebb64ca0c860329c7162">HArDCore2D::Cell::diam</a> () const</td></tr>
 <tr class="memdesc:ga84c743487088ebb64ca0c860329c7162"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns diameter of cell <br /></td></tr>
 <tr class="separator:ga84c743487088ebb64ca0c860329c7162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf55d7a602439110ebbb3c9aee1895580"><td class="memItemLeft" align="right" valign="top"><a id="gaf55d7a602439110ebbb3c9aee1895580"></a>
-Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaf55d7a602439110ebbb3c9aee1895580">HArDCore2D::Cell::edge_normal</a> (size_t i)</td></tr>
-<tr class="memdesc:gaf55d7a602439110ebbb3c9aee1895580"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the outer normal to the i-th edge <br /></td></tr>
-<tr class="separator:gaf55d7a602439110ebbb3c9aee1895580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad9bc371c5c2669b3d3948e353f714f8"><td class="memItemLeft" align="right" valign="top"><a id="gaad9bc371c5c2669b3d3948e353f714f8"></a>
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaad9bc371c5c2669b3d3948e353f714f8">HArDCore2D::Cell::edge_normal</a> (size_t i) const</td></tr>
+<tr class="memdesc:gaad9bc371c5c2669b3d3948e353f714f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the outer normal to the i-th edge <br /></td></tr>
+<tr class="separator:gaad9bc371c5c2669b3d3948e353f714f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66b278b12266d5c5bfee8699886cc89b"><td class="memItemLeft" align="right" valign="top"><a id="ga66b278b12266d5c5bfee8699886cc89b"></a>
 Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b">HArDCore2D::Cell::center_mass</a> () const</td></tr>
 <tr class="memdesc:ga66b278b12266d5c5bfee8699886cc89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the center of mass of the cell <br /></td></tr>
 <tr class="separator:ga66b278b12266d5c5bfee8699886cc89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memItemLeft" align="right" valign="top"><a id="ga27a8932bdc987ee15a17a628d4cfe60e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga27a8932bdc987ee15a17a628d4cfe60e">HArDCore2D::Cell::edge_orientation</a> (size_t i) const</td></tr>
+<tr class="memdesc:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -1 otherwise). <br /></td></tr>
+<tr class="separator:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6dfa6d2f4a0c971bc760538b73880a1c"><td class="memItemLeft" align="right" valign="top"><a id="ga6dfa6d2f4a0c971bc760538b73880a1c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga6dfa6d2f4a0c971bc760538b73880a1c">HArDCore2D::Cell::calc_cell_geometry_factors</a> ()</td></tr>
 <tr class="memdesc:ga6dfa6d2f4a0c971bc760538b73880a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate cell diam, area etc <br /></td></tr>
@@ -206,6 +225,10 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *
 <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gade257bc049ec1f43751fc647e07ec052">HArDCore2D::Edge::vertex</a> (size_t i) const</td></tr>
 <tr class="memdesc:gade257bc049ec1f43751fc647e07ec052"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a pointer to the i-th vertex of the edge <br /></td></tr>
 <tr class="separator:gade257bc049ec1f43751fc647e07ec052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9a42bef442e3c99fc204218266b71ca"><td class="memItemLeft" align="right" valign="top"><a id="gae9a42bef442e3c99fc204218266b71ca"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gae9a42bef442e3c99fc204218266b71ca">HArDCore2D::Edge::index_vertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *V) const</td></tr>
+<tr class="memdesc:gae9a42bef442e3c99fc204218266b71ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of vertex(i): returns the local index of vertex V in the edge <br /></td></tr>
+<tr class="separator:gae9a42bef442e3c99fc204218266b71ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">HArDCore2D::Edge::measure</a> () const</td></tr>
 <tr class="memdesc:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the edge  <a href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">More...</a><br /></td></tr>
 <tr class="separator:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,6 +243,10 @@ Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7">HArDCore2D::Edge::tangent</a> () const</td></tr>
 <tr class="memdesc:ga3362368ff28f1e128bbc46615fd24cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a normalised tangent to the edge, from the first vertex to the second <br /></td></tr>
 <tr class="separator:ga3362368ff28f1e128bbc46615fd24cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb458c39a11b58778bd7001b22272d3d"><td class="memItemLeft" align="right" valign="top"><a id="gaeb458c39a11b58778bd7001b22272d3d"></a>
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaeb458c39a11b58778bd7001b22272d3d">HArDCore2D::Edge::normal</a> () const</td></tr>
+<tr class="memdesc:gaeb458c39a11b58778bd7001b22272d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a unit normal to the edge, rotation by +pi/2 of <a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7" title="get a normalised tangent to the edge, from the first vertex to the second">tangent()</a> <br /></td></tr>
+<tr class="separator:gaeb458c39a11b58778bd7001b22272d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga10424f4b99793ab359b5dd099f9255ee"><td class="memItemLeft" align="right" valign="top"><a id="ga10424f4b99793ab359b5dd099f9255ee"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">HArDCore2D::Edge::is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga10424f4b99793ab359b5dd099f9255ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter to see if edge is boundary edge <br /></td></tr>
@@ -282,15 +309,15 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga38e8f0bf1414441ceef7e3b39526ac23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="memItemLeft" align="right" valign="top"><a id="gae31711c40d2d9888a6e8ca906bd2cbea"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gae31711c40d2d9888a6e8ca906bd2cbea">HArDCore2D::Mesh::n_i_cells</a> () const</td></tr>
-<tr class="memdesc:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary cells <br /></td></tr>
+<tr class="memdesc:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior cells <br /></td></tr>
 <tr class="separator:gae31711c40d2d9888a6e8ca906bd2cbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7650c95dec763d4aa3fcb44644229f0e"><td class="memItemLeft" align="right" valign="top"><a id="ga7650c95dec763d4aa3fcb44644229f0e"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga7650c95dec763d4aa3fcb44644229f0e">HArDCore2D::Mesh::n_i_edges</a> () const</td></tr>
-<tr class="memdesc:ga7650c95dec763d4aa3fcb44644229f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary edges <br /></td></tr>
+<tr class="memdesc:ga7650c95dec763d4aa3fcb44644229f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior edges <br /></td></tr>
 <tr class="separator:ga7650c95dec763d4aa3fcb44644229f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga209126a0e22bea2f597dbc844110123c"><td class="memItemLeft" align="right" valign="top"><a id="ga209126a0e22bea2f597dbc844110123c"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga209126a0e22bea2f597dbc844110123c">HArDCore2D::Mesh::n_i_vertices</a> () const</td></tr>
-<tr class="memdesc:ga209126a0e22bea2f597dbc844110123c"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundary vertices <br /></td></tr>
+<tr class="memdesc:ga209126a0e22bea2f597dbc844110123c"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of interior vertices <br /></td></tr>
 <tr class="separator:ga209126a0e22bea2f597dbc844110123c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabae9df200fe23a302b3d01e4ff13f921"><td class="memItemLeft" align="right" valign="top"><a id="gabae9df200fe23a302b3d01e4ff13f921"></a>
 std::vector&lt; <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gabae9df200fe23a302b3d01e4ff13f921">HArDCore2D::Mesh::get_cells</a> () const</td></tr>
@@ -364,6 +391,10 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *
 <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga58578f5f723f5e589ba498f74ddcbf08">HArDCore2D::Mesh::i_vertex</a> (size_t iV) const</td></tr>
 <tr class="memdesc:ga58578f5f723f5e589ba498f74ddcbf08"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a constant pointer to the iV-th interior vertex <br /></td></tr>
 <tr class="separator:ga58578f5f723f5e589ba498f74ddcbf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33ae13c577fbafd510f0406a986b61ce"><td class="memItemLeft" align="right" valign="top"><a id="ga33ae13c577fbafd510f0406a986b61ce"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga33ae13c577fbafd510f0406a986b61ce">HArDCore2D::Mesh::find_cell</a> (const Vector2d &amp;x)</td></tr>
+<tr class="memdesc:ga33ae13c577fbafd510f0406a986b61ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the index of a cell that contains x (this function is a bit expensive) <br /></td></tr>
+<tr class="separator:ga33ae13c577fbafd510f0406a986b61ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga59082af6b1da515cdb99c4daacf5e2fd"><td class="memItemLeft" align="right" valign="top"><a id="ga59082af6b1da515cdb99c4daacf5e2fd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga59082af6b1da515cdb99c4daacf5e2fd">HArDCore2D::Mesh::add_cell</a> (<a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *<a class="el" href="group__Mesh.html#gae07b938c57cf57e3bb9c76d3df1eb549">cell</a>)</td></tr>
 <tr class="memdesc:ga59082af6b1da515cdb99c4daacf5e2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a cell to the mesh <br /></td></tr>

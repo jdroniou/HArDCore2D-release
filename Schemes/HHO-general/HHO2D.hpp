@@ -11,7 +11,7 @@
 #include <elementquad.hpp>
 
 #include <TestCase/TestCase.hpp>
-#include <TestCase/BoundaryConditions.hpp>
+#include <BoundaryConditions/BoundaryConditions.hpp>
 
 #include <boost/timer/timer.hpp>
 #include "vtu_writer.hpp"

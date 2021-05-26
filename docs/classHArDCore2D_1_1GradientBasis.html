@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -76,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Basis for the space of gradients of polynomials.  
+ <a href="classHArDCore2D_1_1GradientBasis.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="basis_8hpp_source.html">basis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -133,7 +143,8 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDiver
 <div class="textblock"><h3>template&lt;typename BasisType&gt;<br />
 class HArDCore2D::GradientBasis&lt; BasisType &gt;</h3>
 
-<p>Basis for the space of gradients of polynomials. It assumes that the first function of the scalar basis is constant </p>
+<p>Basis for the space of gradients of polynomials. </p>
+<p>To construct a basis of G^k, this assumes that the scalar basis it is constructed from is a basis of P^{k+1}/P^0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.g. polynomials with zero average, or a hierarchical basis of P^{k+1} in which we have removed the first, constant, polynomial) </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

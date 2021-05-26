@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -75,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>, depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>. Otherwise, they represent u.  
+<p>The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to \(\zeta(u)\), depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent \(\zeta(u)\). Otherwise, they represent u.  
  <a href="classHArDCore2D_1_1HMM__StefanPME__Transient.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HMM__StefanPME__transient_8hpp_source.html">HMM_StefanPME_transient.hpp</a>&gt;</code></p>
@@ -152,7 +159,7 @@ Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="separator:ga5e2a0d4729533d485a81b916e6766188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>, depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent <img class="formulaInl" alt="$\zeta(u)$" src="form_5.png"/>. Otherwise, they represent u. </p>
+<div class="textblock"><p>The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to \(\zeta(u)\), depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent \(\zeta(u)\). Otherwise, they represent u. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Schemes/HMM/<a class="el" href="HMM__StefanPME__transient_8hpp_source.html">HMM_StefanPME_transient.hpp</a></li>
 </ul>

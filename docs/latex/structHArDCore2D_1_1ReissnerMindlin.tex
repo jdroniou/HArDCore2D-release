@@ -1,0 +1,77 @@
+\hypertarget{structHArDCore2D_1_1ReissnerMindlin}{}\doxysection{H\+Ar\+D\+Core2D\+::Reissner\+Mindlin Struct Reference}
+\label{structHArDCore2D_1_1ReissnerMindlin}\index{HArDCore2D::ReissnerMindlin@{HArDCore2D::ReissnerMindlin}}
+
+
+Assemble a RM problem.  
+
+
+
+
+{\ttfamily \#include $<$ddr-\/rmplate.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Eigen\+::\+Sparse\+Matrix$<$ double $>$ {\bfseries System\+Matrix\+Type}
+\item 
+typedef std\+::function$<$ double(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries Forcing\+Term\+Type}
+\item 
+typedef std\+::function$<$ Eigen\+::\+Vector2d(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries Solution\+Rotation\+Type}
+\item 
+typedef std\+::function$<$ Eigen\+::\+Matrix2d(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries Gradient\+Rotation\+Type}
+\item 
+typedef std\+::function$<$ double(const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&, const Eigen\+::\+Vector2d \&)$>$ {\bfseries Solution\+Displacement\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__DDR__rmplate_ga1438e95b7f8586a7a81fe734e132daad}{Reissner\+Mindlin}} (const \mbox{\hyperlink{classHArDCore2D_1_1DDRCore}{D\+D\+R\+Core}} \&ddrcore, const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \&\mbox{\hyperlink{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}{para}}, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&B\+C\+\_\+theta, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&B\+C\+\_\+u, bool use\+\_\+threads, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DDR__rmplate_gac1e5d4e0dad7dc0d0b0b704cd46d14b3}{assemble\+Linear\+System}} (const Forcing\+Term\+Type \&f, const Solution\+Rotation\+Type \&theta, const Gradient\+Rotation\+Type \&grad\+\_\+theta, const Solution\+Displacement\+Type \&u)
+\begin{DoxyCompactList}\small\item\em Assemble the global system ~\newline
+ \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_gae1532454da484ab96193b1e9a64a8509}{dimension\+Space}} () const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the rotation + displacement space (with BC) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_ga8e4aadcb8a7290c6353f11d57e84f422}{nb\+\_\+bdry\+D\+O\+Fs}} () const
+\begin{DoxyCompactList}\small\item\em Returns the nb of D\+O\+Fs for BC. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__DDR__rmplate_gadfb063d6f81a9fbc06c2239e097bdc52}{size\+System}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size of the system without BC. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ $>$ \& \mbox{\hyperlink{group__DDR__rmplate_gaeb93147454ed45094a85392e96615c1e}{loc\+U\+KN}} () const
+\begin{DoxyCompactList}\small\item\em Returns the location of the unknowns among the D\+O\+Fs. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{group__DDR__rmplate_gac56ce1552c3fc15cb09410d601140658}{global\+D\+O\+F\+Indices}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Create the vector of D\+OF indices for cell T, which combines the D\+O\+Fs for the spaces E\+Xcurl and Xgrad. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1RMParameters}{R\+M\+Parameters}} \& \mbox{\hyperlink{group__DDR__rmplate_ga0d2fb2a08ac2446f83336cb6aa8b3820}{para}} () const
+\begin{DoxyCompactList}\small\item\em Returns the parameters. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1EXCurl}{E\+X\+Curl}} \& \mbox{\hyperlink{group__DDR__rmplate_ga3e6cd91295861863b6be731c009be276}{ex\+Curl}} () const
+\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1EXCurl}{E\+X\+Curl}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1XGrad}{X\+Grad}} \& \mbox{\hyperlink{group__DDR__rmplate_ga1bc47d92ac45366335845e3e9820151f}{x\+Grad}} () const
+\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1XGrad}{X\+Grad}}. \end{DoxyCompactList}\item 
+const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_gabff3d753150dfa9500b8a7ccdb35595b}{system\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
+System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_ga0f493d0ad5124794c6349cc3fc9aa57b}{system\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
+const Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_ga243500e437dfdfa13a94f59600fba11a}{system\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_ga0c878f3ffe5f7f5a5a2904ec652abb27}{system\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
+const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__rmplate_ga5a6e5a1be72b79e5a14fbb26bb2b0da6}{bdry\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Matrix for BC. \end{DoxyCompactList}\item 
+const Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__rmplate_gabaac2b3b4447cb407982c5c5c2c5ee56}{bdry\+Values}} () const
+\begin{DoxyCompactList}\small\item\em Returns the boundary values. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{group__DDR__rmplate_gaa49781c3a4be9f91ad719cd6377dd30c}{stabilization\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{group__DDR__rmplate_gab4d9e85868fa833083c5b27265bbf47e}{stabilization\+Parameter}} ()
+\begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__DDR__rmplate_ga3268244dd67ba2c9e430ced1b7676fbd}{compute\+Norm}} (const Eigen\+::\+Vector\+Xd \&v) const
+\begin{DoxyCompactList}\small\item\em Compute the discrete norm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename out\+Value , typename Fct $>$ }\\std\+::function$<$ out\+Value(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__rmplate_gab320487fda348344d86064d1f5e0b6d8}{contract\+Para}} (const Fct \&F) const
+\begin{DoxyCompactList}\small\item\em Takes a function dependent on R\+M\+Parameter and a position x, and returns a function depending only on x (using the parameters of this class) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Assemble a RM problem. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+D\+D\+R-\/rmplate/ddr-\/rmplate.\+hpp\item 
+Schemes/\+D\+D\+R-\/rmplate/ddr-\/rmplate.\+cpp\end{DoxyCompactItemize}

@@ -55,11 +55,15 @@ The following schemes are currently available in HArD::Core2D. The Hybrid High-O
 
  - [HHO_diffadvecreac](@ref HHO_DiffAdvecReac): Hybrid High-Order (HHO) for \f$-\mathrm{div}(K\nabla u+\beta u)+\mu u=f\f$, for Dirichlet or mixed boundary conditions, with \f$K\f$ a diffusion tensor that is piecewise constant on the mesh.
 
+ - [LEPNC_diffusion](@ref HArDCore2D::LEPNC_diffusion), in module [LEPNC](@ref LEPNC): Locally Enriched Polytopal Non-Conforming (LEPNC) method for the pure diffusion problem \f$-\mathrm{div}(K\nabla\zeta(u))=f\f$.
+
  - [LEPNC_StefanPME](@ref HArDCore2D::LEPNC_StefanPME), in module [LEPNC](@ref LEPNC): Locally Enriched Polytopal Non-Conforming (LEPNC) method for the stationnary Stefan/PME problem \f$u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
 
  - [LEPNC_StefanPME_Transient](@ref HArDCore2D::LEPNC_StefanPME_Transient), in module [LEPNC](@ref LEPNC): LEPNC for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
 
  - [HMM_StefanPME_Transient](@ref HArDCore2D::HMM_StefanPME_Transient), in module [HMM](@ref HMM): Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
+
+ - [DDR_rmplate](@ref DDR_rmplate): Discrete de Rham (DDR) scheme for the Reissner-Mindlin plate bending problem.
 
 The directory `runs` contains BASH to run series of tests on families of meshes. The files `data.sh` describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the `output` directory, including a pdf file `rate.pdf` describing the rates of convergence in various energy norms.
 

@@ -26,6 +26,8 @@ std\+::vector$<$ \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$ $>$
 \begin{DoxyCompactList}\small\item\em returns pointer to the i-\/th cell neighbour of the edge \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$ \mbox{\hyperlink{group__Mesh_gade257bc049ec1f43751fc647e07ec052}{vertex}} (size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em returns a pointer to the i-\/th vertex of the edge \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Mesh_gae9a42bef442e3c99fc204218266b71ca}{index\+\_\+vertex}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$V) const
+\begin{DoxyCompactList}\small\item\em reciprocal of vertex(i)\+: returns the local index of vertex V in the edge \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__Mesh_ga6c00cbb57ddc2e80e3c07849eadc68a8}{measure}} () const
 \begin{DoxyCompactList}\small\item\em length of the edge \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__Mesh_gad558804a7493cb6a6d968f48bb4f4742}{diam}} () const
@@ -34,6 +36,8 @@ Vector2d \mbox{\hyperlink{group__Mesh_ga41ebc04d2b292197a02a9afd25a76a18}{center
 \begin{DoxyCompactList}\small\item\em get the midpoint of the edge \end{DoxyCompactList}\item 
 Vector2d \mbox{\hyperlink{group__Mesh_ga3362368ff28f1e128bbc46615fd24cd7}{tangent}} () const
 \begin{DoxyCompactList}\small\item\em get a normalised tangent to the edge, from the first vertex to the second \end{DoxyCompactList}\item 
+Vector2d \mbox{\hyperlink{group__Mesh_gaeb458c39a11b58778bd7001b22272d3d}{normal}} () const
+\begin{DoxyCompactList}\small\item\em get a unit normal to the edge, rotation by +pi/2 of \mbox{\hyperlink{group__Mesh_ga3362368ff28f1e128bbc46615fd24cd7}{tangent()}} \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}{is\+\_\+boundary}} () const
 \begin{DoxyCompactList}\small\item\em getter to see if edge is boundary edge \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__Mesh_ga364bacf89dfa0be36abbbadbb2dd4f78}{add\+\_\+cell}} (\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$\mbox{\hyperlink{group__Mesh_gad4be0bfb981ccf2c1e02e870772dbdc3}{cell}})

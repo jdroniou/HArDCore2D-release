@@ -1,0 +1,35 @@
+\hypertarget{structHArDCore2D_1_1IntegralWeight}{}\doxysection{H\+Ar\+D\+Core2D\+::Integral\+Weight Struct Reference}
+\label{structHArDCore2D_1_1IntegralWeight}\index{HArDCore2D::IntegralWeight@{HArDCore2D::IntegralWeight}}
+
+
+Structure for weights (scalar, at the moment) in integral.  
+
+
+
+
+{\ttfamily \#include $<$integralweight.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Common_gacbbe5cbad494656c2acb347966770bce}{Integral\+Weight}} (const std\+::function$<$ double(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const Eigen\+::\+Vector2d \&x)$>$ \+\_\+value, std\+::function$<$ size\+\_\+t(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T)$>$ \+\_\+deg)
+\item 
+{\bfseries Integral\+Weight} (double val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ double(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const Eigen\+::\+Vector2d \&x)$>$ {\bfseries value}
+\item 
+std\+::function$<$ size\+\_\+t(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T)$>$ {\bfseries deg}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for weights (scalar, at the moment) in integral. 
+
+Each weight is represented as a piecewise function defined cell-\/by-\/cell, together with its local polynomial degree to determine the offset for quadrature rules (degree=0 means that the weight is constant and some calculations are easier) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/integralweight.\+hpp\end{DoxyCompactItemize}

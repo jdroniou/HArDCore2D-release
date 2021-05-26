@@ -29,7 +29,7 @@
 #include "quad2d.hpp"
 #include "TestCase/TestCaseNonLinearity.hpp"
 #include "TestCase/TestCaseStefanPME.hpp"
-#include "TestCase/BoundaryConditions.hpp"
+#include "BoundaryConditions/BoundaryConditions.hpp"
 
 /*!
 * @defgroup LEPNC
@@ -53,6 +53,8 @@ namespace HArDCore2D {
 * url:
 *
 */
+/// LEPNC scheme for diffusion equation \f$\partial_t u - \div(K \nabla(\zeta(u))) = f\f$
+
 /// The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to \f$\zeta(u)\f$, depending on the choice of weight of mass-lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent \f$\zeta(u)\f$. Otherwise, they represent u.
 
 class LEPNC_StefanPME_Transient { 

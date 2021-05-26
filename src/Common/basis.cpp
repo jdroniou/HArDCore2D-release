@@ -13,14 +13,12 @@ namespace HArDCore2D
   MonomialScalarBasisCell::MonomialScalarBasisCell(const Cell & T, size_t degree)
     : m_degree(degree),
       m_xT(T.center_mass()),
-      m_hT(T.diam())
+      m_hT(T.diam()),
+      m_powers(MonomialPowers<Cell>::compute(degree))
   {
-    m_powers.reserve(dimension());
-    for (size_t l = 0; l <= m_degree; l++) {
-      for (size_t i = 0; i <= l; i++) {
-          m_powers.push_back(VectorZd(i, l-i));
-      } // for i
-    } // for l
+     // create rotation pi/2 for curl
+     m_rot.row(0) << 0., 1.;
+     m_rot.row(1) << -1., 0.;
   }
 
   MonomialScalarBasisCell::FunctionValue MonomialScalarBasisCell::function(size_t i, const VectorRd & x) const
@@ -40,6 +38,10 @@ namespace HArDCore2D
     return grad / m_hT;
   }  
 
+  MonomialScalarBasisCell::CurlValue MonomialScalarBasisCell::curl(size_t i, const VectorRd & x) const
+  {
+    return m_rot * gradient(i, x);
+  }  
 
   //------------------------------------------------------------------------------
   // Scalar monomial basis on an edge
@@ -65,6 +67,57 @@ namespace HArDCore2D
   }
 
   //------------------------------------------------------------------------------
+  // Basis for R^{c,k}(T)
+  //------------------------------------------------------------------------------
+
+  RolyComplBasisCell::RolyComplBasisCell(const Cell &T, size_t degree)
+      : m_degree(degree),
+        m_xT(T.center_mass()),
+        m_hT(T.diam())
+  {
+    // Monomial powers for P^{k-1}(T)
+    if (m_degree >= 1){
+      m_powers = MonomialPowers<Cell>::compute(m_degree-1);
+    }else{
+      std::cout << "Attempting to construct RckT with degree 0, stopping" << std::endl;
+      exit(1);
+    }
+  }
+
+  RolyComplBasisCell::FunctionValue RolyComplBasisCell::function(size_t i, const VectorRd &x) const
+  {
+    VectorRd y = _coordinate_transform(x);
+    const VectorZd &powers = m_powers[i];
+    return std::pow(y(0), powers(0)) * std::pow(y(1), powers(1)) * y;
+  }
+  
+  RolyComplBasisCell::DivergenceValue RolyComplBasisCell::divergence(size_t i, const VectorRd &x) const
+  {
+    VectorRd y = _coordinate_transform(x);
+    const VectorZd &powers = m_powers[i];
+    return (powers(0)+powers(1)+2) * std::pow(y(0), powers(0)) * std::pow(y(1), powers(1)) / m_hT;
+  }
+
+  //------------------------------------------------------------------------------
+  // Basis for G^{c,k}(T)
+  //------------------------------------------------------------------------------
+  
+  GolyComplBasisCell::GolyComplBasisCell(const Cell &T, size_t degree)
+      : m_degree(degree)
+  {
+    m_rot.row(0) << 0., 1.;
+    m_rot.row(1) << -1., 0.;
+    m_Rck_basis.reset(new RolyComplBasisCell(T, degree));
+  }
+
+  GolyComplBasisCell::FunctionValue GolyComplBasisCell::function(size_t i, const VectorRd &x) const
+  {
+    // The basis of Gck(T) is a simple rotation of the basis of Rck
+    return m_rot * m_Rck_basis->function(i, x);
+  }
+
+
+  //------------------------------------------------------------------------------
   // A common notion of scalar product for scalars and vectors
   //------------------------------------------------------------------------------
   
@@ -76,26 +129,13 @@ namespace HArDCore2D
     return x.dot(y);
   }
 
-  boost::multi_array<double, 2>
-  scalar_product(
-		 const boost::multi_array<VectorRd, 2> & basis_quad,
-		 const VectorRd & v
-		 )
-  {
-    boost::multi_array<double, 2> basis_dot_v_quad( boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]] );
-    std::transform(basis_quad.origin(), basis_quad.origin() + basis_quad.num_elements(),
-		   basis_dot_v_quad.origin(), [&v](const VectorRd & x)->double { return x.dot(v); });
-    return basis_dot_v_quad;
-  }
-
-
   //------------------------------------------------------------------------------
   //      Gram matrices
   //------------------------------------------------------------------------------
 
-  // Vector2d for B1, tensorialised double for B2
+  // Vector2d for B1, tensorised double for B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1,
-				      const boost::multi_array<double, 2> & B2,
+				                              const boost::multi_array<double, 2> & B2,
                                       const QuadratureRule & qr)
   {
     // Check that the basis evaluation and quadrature rule are coherent

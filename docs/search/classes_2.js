@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['edge_252',['Edge',['../classHArDCore2D_1_1Edge.html',1,'HArDCore2D']]],
-  ['elementquad_253',['ElementQuad',['../classHArDCore2D_1_1ElementQuad.html',1,'HArDCore2D']]],
-  ['evaluate_5fquad_254',['evaluate_quad',['../structHArDCore2D_1_1evaluate__quad.html',1,'HArDCore2D']]]
+  ['ddrcore_354',['DDRCore',['../classHArDCore2D_1_1DDRCore.html',1,'HArDCore2D']]],
+  ['ddrspace_355',['DDRSpace',['../classHArDCore2D_1_1DDRSpace.html',1,'HArDCore2D']]],
+  ['dofspace_356',['DOFSpace',['../classHArDCore2D_1_1DOFSpace.html',1,'HArDCore2D']]]
 ];

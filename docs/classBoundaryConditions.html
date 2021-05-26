@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -66,7 +73,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classBoundaryConditions-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BoundaryConditions Class Reference</div>  </div>
+<div class="title">BoundaryConditions Class Reference<div class="ingroups"><a class="el" href="group__BoundaryConditions.html">BoundaryConditions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -77,96 +84,41 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f9b50ca35f0fcee51e84e015223396c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html#a5f9b50ca35f0fcee51e84e015223396c">BoundaryConditions</a> (const std::string bc_id, <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;mesh)</td></tr>
-<tr class="memdesc:a5f9b50ca35f0fcee51e84e015223396c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise data.  <a href="classBoundaryConditions.html#a5f9b50ca35f0fcee51e84e015223396c">More...</a><br /></td></tr>
-<tr class="separator:a5f9b50ca35f0fcee51e84e015223396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaeb77c2484042f248639f1806fe8e72"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html#abaeb77c2484042f248639f1806fe8e72">type</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;edge) const</td></tr>
-<tr class="memdesc:abaeb77c2484042f248639f1806fe8e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the boundary condition of an edge.  <a href="classBoundaryConditions.html#abaeb77c2484042f248639f1806fe8e72">More...</a><br /></td></tr>
-<tr class="separator:abaeb77c2484042f248639f1806fe8e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3c69b47183027c427ff6404875da645"><td class="memItemLeft" align="right" valign="top"><a id="ad3c69b47183027c427ff6404875da645"></a>
-const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html#ad3c69b47183027c427ff6404875da645">n_dir_edges</a> () const</td></tr>
-<tr class="memdesc:ad3c69b47183027c427ff6404875da645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of Dirichlet edges. <br /></td></tr>
-<tr class="separator:ad3c69b47183027c427ff6404875da645"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3609733d5e7e43e9240d0a8b05d17ba"><td class="memItemLeft" align="right" valign="top"><a id="ac3609733d5e7e43e9240d0a8b05d17ba"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html#ac3609733d5e7e43e9240d0a8b05d17ba">name</a> () const</td></tr>
-<tr class="memdesc:ac3609733d5e7e43e9240d0a8b05d17ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the complete name of the boundary condition. <br /></td></tr>
-<tr class="separator:ac3609733d5e7e43e9240d0a8b05d17ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3d79d4870a388b5e796c3bb25891e59"><td class="memItemLeft" align="right" valign="top"><a id="ad3d79d4870a388b5e796c3bb25891e59"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryConditions.html#ad3d79d4870a388b5e796c3bb25891e59">reorder_edges</a> ()</td></tr>
-<tr class="memdesc:ad3d79d4870a388b5e796c3bb25891e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-order edges of the mesh to put the Dirichlet edges at the end. <br /></td></tr>
-<tr class="separator:ad3d79d4870a388b5e796c3bb25891e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f9b50ca35f0fcee51e84e015223396c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#ga5f9b50ca35f0fcee51e84e015223396c">BoundaryConditions</a> (const std::string bc_id, <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;mesh)</td></tr>
+<tr class="memdesc:ga5f9b50ca35f0fcee51e84e015223396c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise data.  <a href="group__BoundaryConditions.html#ga5f9b50ca35f0fcee51e84e015223396c">More...</a><br /></td></tr>
+<tr class="separator:ga5f9b50ca35f0fcee51e84e015223396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabaeb77c2484042f248639f1806fe8e72"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#gabaeb77c2484042f248639f1806fe8e72">type</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;edge) const</td></tr>
+<tr class="memdesc:gabaeb77c2484042f248639f1806fe8e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the boundary condition of an edge.  <a href="group__BoundaryConditions.html#gabaeb77c2484042f248639f1806fe8e72">More...</a><br /></td></tr>
+<tr class="separator:gabaeb77c2484042f248639f1806fe8e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dc82aaef165f9ff5b6bdde4e4905af3"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#ga4dc82aaef165f9ff5b6bdde4e4905af3">type</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;vertex) const</td></tr>
+<tr class="memdesc:ga4dc82aaef165f9ff5b6bdde4e4905af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the boundary condition of a vertex.  <a href="group__BoundaryConditions.html#ga4dc82aaef165f9ff5b6bdde4e4905af3">More...</a><br /></td></tr>
+<tr class="separator:ga4dc82aaef165f9ff5b6bdde4e4905af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3c69b47183027c427ff6404875da645"><td class="memItemLeft" align="right" valign="top">
+const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#gad3c69b47183027c427ff6404875da645">n_dir_edges</a> () const</td></tr>
+<tr class="memdesc:gad3c69b47183027c427ff6404875da645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of Dirichlet edges. <br /></td></tr>
+<tr class="separator:gad3c69b47183027c427ff6404875da645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3876e8bea5b2ef490e21cf1c0aa0f8db"><td class="memItemLeft" align="right" valign="top">
+const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#ga3876e8bea5b2ef490e21cf1c0aa0f8db">n_dir_vertices</a> () const</td></tr>
+<tr class="memdesc:ga3876e8bea5b2ef490e21cf1c0aa0f8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of Dirichlet vertices. <br /></td></tr>
+<tr class="separator:ga3876e8bea5b2ef490e21cf1c0aa0f8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3609733d5e7e43e9240d0a8b05d17ba"><td class="memItemLeft" align="right" valign="top">
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#gac3609733d5e7e43e9240d0a8b05d17ba">name</a> () const</td></tr>
+<tr class="memdesc:gac3609733d5e7e43e9240d0a8b05d17ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the complete name of the boundary condition. <br /></td></tr>
+<tr class="separator:gac3609733d5e7e43e9240d0a8b05d17ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga934f841a6ca35deabb477e1d8bec11f1"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#ga934f841a6ca35deabb477e1d8bec11f1">reorder_edges</a> (const std::string pos=&quot;end&quot;)</td></tr>
+<tr class="memdesc:ga934f841a6ca35deabb477e1d8bec11f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-order edges of the mesh to put the Dirichlet edges at the position "pos" (=end or start) <br /></td></tr>
+<tr class="separator:ga934f841a6ca35deabb477e1d8bec11f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ee363c04fc84158c58de54d5eccd95d"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__BoundaryConditions.html#ga4ee363c04fc84158c58de54d5eccd95d">reorder_vertices</a> (const std::string pos=&quot;end&quot;)</td></tr>
+<tr class="memdesc:ga4ee363c04fc84158c58de54d5eccd95d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-order vertices of the mesh to put the Dirichlet vertices at the position "pos" (=end or start) <br /></td></tr>
+<tr class="separator:ga4ee363c04fc84158c58de54d5eccd95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classBoundaryConditions.html" title="The BoundaryConditions class provides definition of boundary conditions.">BoundaryConditions</a> class provides definition of boundary conditions. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5f9b50ca35f0fcee51e84e015223396c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f9b50ca35f0fcee51e84e015223396c">&#9670;&nbsp;</a></span>BoundaryConditions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BoundaryConditions::BoundaryConditions </td>
-          <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>bc_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;&#160;</td>
-          <td class="paramname"><em>mesh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialise data. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bc_id</td><td>The identifier for the boundary condition (D, N or Mx) </td></tr>
-    <tr><td class="paramname">mesh</td><td>reference to the mesh </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="abaeb77c2484042f248639f1806fe8e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaeb77c2484042f248639f1806fe8e72">&#9670;&nbsp;</a></span>type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string BoundaryConditions::type </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
-          <td class="paramname"><em>edge</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Test the boundary condition of an edge. </p>
-<dl class="section return"><dt>Returns</dt><dd>"dir" or "neu" depending if the edge is a Dirichlet or Neumann boundary condition, as determined by m_bc_id below. For an internal edge, returns "int". m_bc_id = "D": all edges are Dirichlet m_bc_id = "N": all edges are Neumann m_bc_id = "Mx" (x=0,1,...): various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">edge</td><td>Edge on which to check the boundary condition </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>Schemes/TestCase/<a class="el" href="BoundaryConditions_8hpp_source.html">BoundaryConditions.hpp</a></li>
-<li>Schemes/TestCase/BoundaryConditions.cpp</li>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>Schemes/BoundaryConditions/<a class="el" href="BoundaryConditions_8hpp_source.html">BoundaryConditions.hpp</a></li>
+<li>Schemes/BoundaryConditions/BoundaryConditions.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -76,30 +83,63 @@ $(function() {
 , <a class="el" href="group__Mesh.html#gae07b938c57cf57e3bb9c76d3df1eb549">HArDCore2D::Mesh</a>
 , <a class="el" href="group__Mesh.html#ga5054b903ff91506cc7d75afa44fd864b">HArDCore2D::Vertex</a>
 </li>
+<li>cellBases()
+: <a class="el" href="group__DDRCore.html#ga6db513396328a503e520d2337c6adb4a">HArDCore2D::DDRCore</a>
+, <a class="el" href="group__DDRCore.html#ga8f739724257032d6f54cefd56a7f6a2a">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#gad793948bb140d6cc092b02ea91445d5a">HArDCore2D::XCurl</a>
+, <a class="el" href="group__DDRCore.html#ga7b53905ddfd6b99115491c3e100cf5d4">HArDCore2D::XGrad</a>
+</li>
 <li>CellBasis()
 : <a class="el" href="group__HybridCore.html#gafb3e4d056b781b2fff5e46466d47e0f3">HArDCore2D::HybridCore</a>
 </li>
 <li>CellDegree()
 : <a class="el" href="group__HybridCore.html#ga39e2fbe7da3ab2425544b31fab6963f1">HArDCore2D::HybridCore</a>
 </li>
+<li>cellOperators()
+: <a class="el" href="group__DDRCore.html#gace43187ecf13f0017a12b2ef2d9db27e">HArDCore2D::XCurl</a>
+, <a class="el" href="group__DDRCore.html#gae74c8646965daffce5032bd5412c4346">HArDCore2D::XGrad</a>
+</li>
 <li>center_mass()
 : <a class="el" href="group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b">HArDCore2D::Cell</a>
 , <a class="el" href="group__Mesh.html#ga41ebc04d2b292197a02a9afd25a76a18">HArDCore2D::Edge</a>
 </li>
 <li>compute()
-: <a class="el" href="group__Basis.html#ga06cedf0c3440b94b9974922c72ea7c11">HArDCore2D::evaluate_quad&lt; BasisFunction &gt;</a>
+: <a class="el" href="group__Basis.html#ga687c3c9504c4b10c5a18654530980086">HArDCore2D::evaluate_quad&lt; BasisFunction &gt;</a>
 </li>
 <li>compute_weights()
 : <a class="el" href="group__HybridCore.html#ga06825c5d156026d465a2798389aa952b">HArDCore2D::HybridCore</a>
+</li>
+<li>computeL2Product()
+: <a class="el" href="group__DDRCore.html#ga283488621191610568995d7f155e0ad2">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#ga54125e72fef1f4e08275fa8cf80a7635">HArDCore2D::XCurl</a>
+, <a class="el" href="group__DDRCore.html#ga6dabd0bfb09f39ede54dafdab4a47f9e">HArDCore2D::XGrad</a>
+</li>
+<li>computeL2Product_with_Ops()
+: <a class="el" href="group__DDRCore.html#ga01997c2be0aec05d90af8a288a42b430">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#gaf058370aec7218d61ec58a15daf12daf">HArDCore2D::XCurl</a>
+</li>
+<li>computeL2ProductGradient()
+: <a class="el" href="group__DDRCore.html#ga639b3b757dd26607ab5d25cb77be3076">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#ga6119ef75026aa367102ce0e53629b7dd">HArDCore2D::XCurl</a>
+</li>
+<li>computeNorm()
+: <a class="el" href="group__DDR__rmplate.html#ga3268244dd67ba2c9e430ced1b7676fbd">HArDCore2D::ReissnerMindlin</a>
+</li>
+<li>contractPara()
+: <a class="el" href="group__DDR__rmplate.html#gab320487fda348344d86064d1f5e0b6d8">HArDCore2D::ReissnerMindlin</a>
 </li>
 <li>coords()
 : <a class="el" href="group__Mesh.html#gade92964c93627c034b021c1d23075a79">HArDCore2D::Vertex</a>
 </li>
 <li>curl()
 : <a class="el" href="group__Basis.html#ga9f44b487b46df0e9cf83b175ae0ae3b3">HArDCore2D::Family&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga962166d89641683136654a3e27773c1c">HArDCore2D::MonomialScalarBasisCell</a>
 , <a class="el" href="group__Basis.html#ga81e5a6c78223c5fe9a1e05d47a7798f1">HArDCore2D::RestrictedBasis&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga7cb372f9d9384f30cecd1beb4b5d62b7">HArDCore2D::ShiftedBasis&lt; BasisType &gt;</a>
-, <a class="el" href="group__Basis.html#ga187befd7daa85ec049e41706ea1d5de2">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
+, <a class="el" href="group__Basis.html#gae373e3441fd48abe9ff957b9e2d0503f">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
+</li>
+<li>CurlBasis()
+: <a class="el" href="group__Basis.html#ga1ee54a87a2ae24213f0362fb673aeb65">HArDCore2D::CurlBasis&lt; BasisType &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

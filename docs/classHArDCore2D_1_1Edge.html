@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -107,6 +114,10 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *
 <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gade257bc049ec1f43751fc647e07ec052">vertex</a> (size_t i) const</td></tr>
 <tr class="memdesc:gade257bc049ec1f43751fc647e07ec052"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a pointer to the i-th vertex of the edge <br /></td></tr>
 <tr class="separator:gade257bc049ec1f43751fc647e07ec052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9a42bef442e3c99fc204218266b71ca"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gae9a42bef442e3c99fc204218266b71ca">index_vertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *V) const</td></tr>
+<tr class="memdesc:gae9a42bef442e3c99fc204218266b71ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal of vertex(i): returns the local index of vertex V in the edge <br /></td></tr>
+<tr class="separator:gae9a42bef442e3c99fc204218266b71ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">measure</a> () const</td></tr>
 <tr class="memdesc:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the edge  <a href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">More...</a><br /></td></tr>
 <tr class="separator:ga6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,6 +132,10 @@ Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7">tangent</a> () const</td></tr>
 <tr class="memdesc:ga3362368ff28f1e128bbc46615fd24cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a normalised tangent to the edge, from the first vertex to the second <br /></td></tr>
 <tr class="separator:ga3362368ff28f1e128bbc46615fd24cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb458c39a11b58778bd7001b22272d3d"><td class="memItemLeft" align="right" valign="top">
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gaeb458c39a11b58778bd7001b22272d3d">normal</a> () const</td></tr>
+<tr class="memdesc:gaeb458c39a11b58778bd7001b22272d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a unit normal to the edge, rotation by +pi/2 of <a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7" title="get a normalised tangent to the edge, from the first vertex to the second">tangent()</a> <br /></td></tr>
+<tr class="separator:gaeb458c39a11b58778bd7001b22272d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga10424f4b99793ab359b5dd099f9255ee"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga10424f4b99793ab359b5dd099f9255ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter to see if edge is boundary edge <br /></td></tr>

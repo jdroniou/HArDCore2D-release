@@ -1,0 +1,47 @@
+\hypertarget{classHArDCore2D_1_1LEPNC__diffusion}{}\doxysection{H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+\_\+diffusion Class Reference}
+\label{classHArDCore2D_1_1LEPNC__diffusion}\index{HArDCore2D::LEPNC\_diffusion@{HArDCore2D::LEPNC\_diffusion}}
+
+
+The \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{L\+E\+P\+N\+C\+\_\+diffusion}} class provides an implementation of the L\+E\+P\+NC method for the stationnary diffusion problem $-div(K\nabla u)=f$.  
+
+
+
+
+{\ttfamily \#include $<$L\+E\+P\+N\+C\+\_\+diffusion.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}{L\+E\+P\+N\+C\+\_\+diffusion}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}{solve}} ()
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}{Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
+\begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}{get\+\_\+assembly\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__LEPNC_ga859f049e096188319a39357ce87efedc}{get\+\_\+solving\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}{get\+\_\+solving\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}{get\+\_\+itime}} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{L\+E\+P\+N\+C\+\_\+diffusion}} class provides an implementation of the L\+E\+P\+NC method for the stationnary diffusion problem $-div(K\nabla u)=f$. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+L\+E\+P\+N\+C/L\+E\+P\+N\+C\+\_\+diffusion.\+hpp\end{DoxyCompactItemize}

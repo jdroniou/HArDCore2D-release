@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -181,10 +188,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>radial</b> (const d
 
 <p>Returns the diffusion matrix at the points x, y. </p>
 <p>iTCS[1]=1: Diff = Id</p>
-<p>iTCS[1]=2: Diff = <img class="formulaInl" alt="$\left[\begin{array}{cc}y^2+1 &amp; -xy\\ -xy &amp; x^2+1\end{array}\right]$" src="form_23.png"/></p>
-<p>iTCS[1]=3: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_24.png"/> if <img class="formulaInl" alt="$y&lt;1/2$" src="form_25.png"/>, Diff=Id if <img class="formulaInl" alt="$y\ge 1/2$" src="form_26.png"/>. Only valid with iTCS[0]=2 ( <img class="formulaInl" alt="$\partial_x u$" src="form_27.png"/> must vanish along <img class="formulaInl" alt="$y=1/2$" src="form_28.png"/>).</p>
-<p>iTCS[1]=4: rotating diffusion. Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 &amp; (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} &amp; \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]$" src="form_29.png"/>, where <img class="formulaInl" alt="$\bar{x}=x+0.1$" src="form_30.png"/> and <img class="formulaInl" alt="$\bar{y}=y+0.1$" src="form_31.png"/>.</p>
-<p>iTCS[1]=5: Diff= <img class="formulaInl" alt="$\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]$" src="form_24.png"/>.</p>
+<p>iTCS[1]=2: Diff = \(\left[\begin{array}{cc}y^2+1 &amp; -xy\\ -xy &amp; x^2+1\end{array}\right]\)</p>
+<p>iTCS[1]=3: Diff= \(\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]\) if \(y&lt;1/2\), Diff=Id if \(y\ge 1/2\). Only valid with iTCS[0]=2 ( \(\partial_x u\) must vanish along \(y=1/2\)).</p>
+<p>iTCS[1]=4: rotating diffusion. Diff= \(\left[\begin{array}{cc}\epsilon \bar{x}^2 + \bar{y}^2 &amp; (\epsilon-1)\bar{x}\bar{y}\\ (\epsilon-1)\bar{x}\bar{y} &amp; \bar{x}^2+\epsilon \bar{y}^2\end{array}\right]\), where \(\bar{x}=x+0.1\) and \(\bar{y}=y+0.1\).</p>
+<p>iTCS[1]=5: Diff= \(\left[\begin{array}{cc}\lambda &amp; 0\\ 0 &amp; 1\end{array}\right]\).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
@@ -347,9 +354,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>radial</b> (const d
 </div><div class="memdoc">
 
 <p>Returns the exact solution at the points x, y. </p>
-<p>iTCS[0]=-1, <img class="formulaInl" alt="$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma$" src="form_43.png"/> if <img class="formulaInl" alt="$\frac{x+y}{\sqrt{2}}&gt;\gamma$" src="form_44.png"/>.</p>
-<p>iTCS[0]=-2, <img class="formulaInl" alt="$u=(\frac{x+y}{\sqrt{2}}-\frac12)^3$" src="form_45.png"/>.</p>
-<p>iTCS[0]=-3, <img class="formulaInl" alt="$u=max(\rho - r^2, 0)$" src="form_46.png"/> where <img class="formulaInl" alt="$r^2=(x-.5)^2+(y-.5)^2$" src="form_47.png"/>.</p>
+<p>iTCS[0]=-1, \(u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma\) if \(\frac{x+y}{\sqrt{2}}&gt;\gamma\).</p>
+<p>iTCS[0]=-2, \(u=(\frac{x+y}{\sqrt{2}}-\frac12)^3\).</p>
+<p>iTCS[0]=-3, \(u=max(\rho - r^2, 0)\) where \(r^2=(x-.5)^2+(y-.5)^2\).</p>
 
 </div>
 </div>

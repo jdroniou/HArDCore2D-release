@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -116,6 +123,10 @@ FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 GradientValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga34784e2233789bed6214488ff9e4166d">gradient</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga34784e2233789bed6214488ff9e4166d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th basis function at point x. <br /></td></tr>
 <tr class="separator:ga34784e2233789bed6214488ff9e4166d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga962166d89641683136654a3e27773c1c"><td class="memItemLeft" align="right" valign="top">
+CurlValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga962166d89641683136654a3e27773c1c">curl</a> (size_t i, const VectorRd &amp;x) const</td></tr>
+<tr class="memdesc:ga962166d89641683136654a3e27773c1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the curl (vector rot) of the i-th basis function at point x. <br /></td></tr>
+<tr class="separator:ga962166d89641683136654a3e27773c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -129,7 +140,7 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunct
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasGradient</b> = true</td></tr>
 <tr class="separator:gadb26517e60d4ab841e21ca4a71a9c685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf1c39fee1ff92d9a2c6654dcff408b13"><td class="memItemLeft" align="right" valign="top">
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl</b> = false</td></tr>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl</b> = true</td></tr>
 <tr class="separator:gaf1c39fee1ff92d9a2c6654dcff408b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga188cf489655ee1dcbf4fcf52060d457c"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = false</td></tr>

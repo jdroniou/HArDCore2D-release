@@ -1,0 +1,80 @@
+\hypertarget{classHArDCore2D_1_1XCurl}{}\doxysection{H\+Ar\+D\+Core2D\+::X\+Curl Class Reference}
+\label{classHArDCore2D_1_1XCurl}\index{HArDCore2D::XCurl@{HArDCore2D::XCurl}}
+
+
+Discrete Hcurl space\+: local operators, L2 product and global interpolator.  
+
+
+
+
+{\ttfamily \#include $<$xcurl.\+hpp$>$}
+
+
+
+Inheritance diagram for H\+Ar\+D\+Core2D\+::X\+Curl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classHArDCore2D_1_1XCurl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for H\+Ar\+D\+Core2D\+::X\+Curl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classHArDCore2D_1_1XCurl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1XCurl_1_1LocalOperators}{Local\+Operators}}
+\begin{DoxyCompactList}\small\item\em A structure to store the local operators (curl and potential) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::function$<$ Eigen\+::\+Vector2d(const Eigen\+::\+Vector2d \&)$>$ {\bfseries Function\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__DDRCore_gac5383b922f0967c25438f268f41a706c}{X\+Curl}} (const \mbox{\hyperlink{classHArDCore2D_1_1DDRCore}{D\+D\+R\+Core}} \&ddr\+\_\+core, bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__DDRCore_gaa0157f5d673a15cbf68c23ad68f219bc}{mesh}} () const
+\begin{DoxyCompactList}\small\item\em Return the mesh. \end{DoxyCompactList}\item 
+const size\+\_\+t \& \mbox{\hyperlink{group__DDRCore_ga8560e1e82f0ecc592523e36f8e753b95}{degree}} () const
+\begin{DoxyCompactList}\small\item\em Return the polynomial degree. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__DDRCore_gad52044c8acfd327f2161ce45958e3cc4}{interpolate}} (const Function\+Type \&v, const int deg\+\_\+quad=-\/1) const
+\begin{DoxyCompactList}\small\item\em Interpolator of a continuous function. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1XCurl_1_1LocalOperators}{Local\+Operators}} \& \mbox{\hyperlink{group__DDRCore_ga57eab076e80f5d51ff7d692b64f8c05d}{cell\+Operators}} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Return cell operators for the cell of index iT. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1XCurl_1_1LocalOperators}{Local\+Operators}} \& \mbox{\hyperlink{group__DDRCore_gace43187ecf13f0017a12b2ef2d9db27e}{cell\+Operators}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Return cell operators for cell T. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1CellBases}{D\+D\+R\+Core\+::\+Cell\+Bases}} \& \mbox{\hyperlink{group__DDRCore_gad793948bb140d6cc092b02ea91445d5a}{cell\+Bases}} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Return cell bases for the cell of index iT. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1CellBases}{D\+D\+R\+Core\+::\+Cell\+Bases}} \& \mbox{\hyperlink{group__DDRCore_ga8ded67375535d6b8f27e6033cf37cc65}{cell\+Bases}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Return cell bases for cell T. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1EdgeBases}{D\+D\+R\+Core\+::\+Edge\+Bases}} \& \mbox{\hyperlink{group__DDRCore_ga4764931d1d4b98280627b186a73d12b4}{edge\+Bases}} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em Return edge bases for the edge of index iE. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1EdgeBases}{D\+D\+R\+Core\+::\+Edge\+Bases}} \& \mbox{\hyperlink{group__DDRCore_gaabf76d2e4033a3a4454e161c2ebfa79c}{edge\+Bases}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+\begin{DoxyCompactList}\small\item\em Return edge bases for edge E. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__DDRCore_ga54125e72fef1f4e08275fa8cf80a7635}{compute\+L2\+Product}} (const size\+\_\+t iT, const double \&penalty\+\_\+factor=1., const Eigen\+::\+Matrix\+Xd \&mass\+\_\+\+Pk2\+\_\+T=Eigen\+::\+Matrix\+Xd\+::\+Zero(1, 1), const \mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{Integral\+Weight}} \&weight=\mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{Integral\+Weight}}(1.)) const
+\begin{DoxyCompactList}\small\item\em Compute the matrix of the (weighted) L2-\/product for the cell of index iT. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__DDRCore_ga6119ef75026aa367102ce0e53629b7dd}{compute\+L2\+Product\+Gradient}} (const size\+\_\+t iT, const \mbox{\hyperlink{classHArDCore2D_1_1XGrad}{X\+Grad}} \&x\+\_\+grad, const std\+::string \&side, const double \&penalty\+\_\+factor=1., const Eigen\+::\+Matrix\+Xd \&mass\+\_\+\+Pk2\+\_\+T=Eigen\+::\+Matrix\+Xd\+::\+Zero(1, 1), const \mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{Integral\+Weight}} \&weight=\mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{Integral\+Weight}}(1.)) const
+\begin{DoxyCompactList}\small\item\em Compute the matrix of the (weighted) L2-\/product as \textquotesingle{}compute\+L2\+Product\textquotesingle{}, with application of the discrete gradient on the left/right/both sides (depending on argument \char`\"{}side\char`\"{}). \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__DDRCore_gaf058370aec7218d61ec58a15daf12daf}{compute\+L2\+Product\+\_\+with\+\_\+\+Ops}} (const size\+\_\+t iT, const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&left\+Op, const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&right\+Op, const double \&penalty\+\_\+factor, const Eigen\+::\+Matrix\+Xd \&w\+\_\+mass\+\_\+\+Pk2\+\_\+T, const \mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{Integral\+Weight}} \&weight) const
+\begin{DoxyCompactList}\small\item\em Compute the matrix of the L2 product, applying left\+Op and right\+Op to the variables. Probably not directly called, mostly invoked through the wrappers compute\+L2\+Product and compute\+L2\+Product\+Gradient. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Discrete Hcurl space\+: local operators, L2 product and global interpolator. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+D\+D\+R\+Core/xcurl.\+hpp\item 
+src/\+D\+D\+R\+Core/xcurl.\+cpp\end{DoxyCompactItemize}

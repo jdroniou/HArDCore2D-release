@@ -8,6 +8,10 @@ Classes and functions for polynomial basis creation and manipulation.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1MonomialPowers}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Powers$<$ Geometric\+Support $>$}}
+\begin{DoxyCompactList}\small\item\em Compute vectors listing the powers of monomial basis functions (for a cell, only this specialization is relevant) up to a certain degree. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1MonomialPowers_3_01Cell_01_4}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Powers$<$ Cell $>$}}
+\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell}}
 \begin{DoxyCompactList}\small\item\em Scalar monomial basis on a cell. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge}}
@@ -15,15 +19,25 @@ class \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{H\+Ar\+D\+Cor
 class \mbox{\hyperlink{classHArDCore2D_1_1Family}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}}
 \item 
 class \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Vector family obtained by tensorization of a scalar family. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$}}
+\begin{DoxyCompactList}\small\item\em Matrix family obtained from a scalar family. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1TangentFamily}{H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Vector family for polynomial functions that are tangent to an edge (determined by the generator) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{H\+Ar\+D\+Core2\+D\+::\+Shifted\+Basis$<$ Basis\+Type $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Generate a basis where the function indices are shifted. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1RestrictedBasis}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Generate a basis restricted to the first \char`\"{}dimension\char`\"{} functions. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classHArDCore2D_1_1GradientBasis}{H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Basis for the space of gradients of polynomials. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1CurlBasis}{H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Basis for the space of curls (vectorial rot) of polynomials. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1RolyComplBasisCell}{H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell}}
+\begin{DoxyCompactList}\small\item\em Basis for the complement R$^\wedge$\{c,k\}(T) in P$^\wedge$k(T)$^\wedge$2 of the range of the vectorial rotational on a face. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1GolyComplBasisCell}{H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell}}
+\begin{DoxyCompactList}\small\item\em Basis for the complement G$^\wedge$\{c,k\}(T) in P$^\wedge$k(F)$^\wedge$2 of the range of the gradient on a face. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Basis\+Function $>$}}
-\begin{DoxyCompactList}\small\item\em Basis evaluation traits. Only specializations are meaningful. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Basis evaluation traits. Only specialization of \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value we want to evaluate. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Function_01_4}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Function $>$}}
 \item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Gradient_01_4}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Gradient $>$}}
@@ -32,8 +46,20 @@ struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_
 \item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Divergence_01_4}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Divergence $>$}}
 \item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBas627650c20ab630e5c0556c2092847348}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$}}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBas69e65344def2843597d7b9dee040221a}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$}}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBasd31a2a2e033dc1a2d8bfb1bebdbae788}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$}}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBase4be975204623d9c87fef8e9fa91274e}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$}}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01MatrixFamily_3_01ScalarBasisType_00_01N_01_4_00_01Function_01_4}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$}}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01MatrixFamily_3_01ScalarBasisType_00_01N_01_4_00_01Divergence_01_4}{H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$}}
+\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -112,6 +138,36 @@ typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ 
 \mbox{\Hypertarget{group__Basis_gad1c8c80da131a654a1a91a43e379cc57}\label{group__Basis_gad1c8c80da131a654a1a91a43e379cc57}} 
 typedef Scalar\+Family\+Type\+::\+Geometric\+Support {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Geometric\+Support}
 \item 
+\mbox{\Hypertarget{group__Basis_gabacacf4726893d73cd761a25b99e163a}\label{group__Basis_gabacacf4726893d73cd761a25b99e163a}} 
+typedef Eigen\+::\+Matrix$<$ double, N, N $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga441e6bba24d66ea1bef6dcba8c563ba7}\label{group__Basis_ga441e6bba24d66ea1bef6dcba8c563ba7}} 
+typedef Eigen\+::\+Matrix$<$ double, N, N $\ast$dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Gradient\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gaa0850c534992d381353a08ce60f46299}\label{group__Basis_gaa0850c534992d381353a08ce60f46299}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Curl\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gaf5ff33a66c54b1590e6d6d2f7c57a60e}\label{group__Basis_gaf5ff33a66c54b1590e6d6d2f7c57a60e}} 
+typedef Eigen\+::\+Matrix$<$ double, N, 1 $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Divergence\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga7c0a0cf49808e9429cb3893764f33289}\label{group__Basis_ga7c0a0cf49808e9429cb3893764f33289}} 
+typedef Scalar\+Family\+Type\+::\+Geometric\+Support {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Geometric\+Support}
+\item 
+\mbox{\Hypertarget{group__Basis_ga7577afe21686e8161aba7003863b07e7}\label{group__Basis_ga7577afe21686e8161aba7003863b07e7}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga8f46ceba9b7132c3df0c5277fe045d08}\label{group__Basis_ga8f46ceba9b7132c3df0c5277fe045d08}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Gradient\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga28edbb2171a9f19d54d651d72ca52d43}\label{group__Basis_ga28edbb2171a9f19d54d651d72ca52d43}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Curl\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga3c6e2ee0d7420c48bcf6194b8bcba615}\label{group__Basis_ga3c6e2ee0d7420c48bcf6194b8bcba615}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Divergence\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga40743f46b74fc3a37455f3e0968d0156}\label{group__Basis_ga40743f46b74fc3a37455f3e0968d0156}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Geometric\+Support}
+\item 
 \mbox{\Hypertarget{group__Basis_ga723910be19a99d8ce0273b83b8f5e867}\label{group__Basis_ga723910be19a99d8ce0273b83b8f5e867}} 
 typedef Basis\+Type\+::\+Function\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::\+Shifted\+Basis$<$ Basis\+Type $>$\+::\+Function\+Value}
 \item 
@@ -157,6 +213,51 @@ typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type
 \mbox{\Hypertarget{group__Basis_gad7aeabadc1694d72f9a7ec37924b86b7}\label{group__Basis_gad7aeabadc1694d72f9a7ec37924b86b7}} 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$\+::\+Geometric\+Support}
 \item 
+\mbox{\Hypertarget{group__Basis_ga8954d1fe222ab25708605f1939a85260}\label{group__Basis_ga8954d1fe222ab25708605f1939a85260}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga2dd0ffc5ec9759fe76baccc17364ff94}\label{group__Basis_ga2dd0ffc5ec9759fe76baccc17364ff94}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Gradient\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga2cb7793ae3fc65142f3d0f4bc9e8eb6a}\label{group__Basis_ga2cb7793ae3fc65142f3d0f4bc9e8eb6a}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Curl\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gacc0c2ec9740feae9684f010d2ff723de}\label{group__Basis_gacc0c2ec9740feae9684f010d2ff723de}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Divergence\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga1b4cf4e9972b888848398dd5535f94b9}\label{group__Basis_ga1b4cf4e9972b888848398dd5535f94b9}} 
+typedef Basis\+Type\+::\+Geometric\+Support {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Geometric\+Support}
+\item 
+\mbox{\Hypertarget{group__Basis_ga0c75ea7c7dba0a1a4421436a6d6cc4ac}\label{group__Basis_ga0c75ea7c7dba0a1a4421436a6d6cc4ac}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gab475dfeb91197d5b5b758126089b8c97}\label{group__Basis_gab475dfeb91197d5b5b758126089b8c97}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Gradient\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gafcfe1adb4d84e18dbb366fa040d7e5d3}\label{group__Basis_gafcfe1adb4d84e18dbb366fa040d7e5d3}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Curl\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga8e7d9d1ff3483325b2a1f45a4dd6bda8}\label{group__Basis_ga8e7d9d1ff3483325b2a1f45a4dd6bda8}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Divergence\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga991edabe23e5d73c4b543f9e7c2e92c9}\label{group__Basis_ga991edabe23e5d73c4b543f9e7c2e92c9}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Geometric\+Support}
+\item 
+\mbox{\Hypertarget{group__Basis_ga492fb49f04bb76c93a89fa1b801dfa97}\label{group__Basis_ga492fb49f04bb76c93a89fa1b801dfa97}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gac648600c31d099b3d4eea3436f2e5dc9}\label{group__Basis_gac648600c31d099b3d4eea3436f2e5dc9}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Gradient\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga884a0d375cbf0fd26a976aecf6dc66a7}\label{group__Basis_ga884a0d375cbf0fd26a976aecf6dc66a7}} 
+typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Curl\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga6b8fc6f6a7bbcc502a2bea1c7ae1be4e}\label{group__Basis_ga6b8fc6f6a7bbcc502a2bea1c7ae1be4e}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Divergence\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga4b95ed339d886310f0082adcfd502d5d}\label{group__Basis_ga4b95ed339d886310f0082adcfd502d5d}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Geometric\+Support}
+\item 
 \mbox{\Hypertarget{group__Basis_ga169e5809bf5bdd0b38087e155398861e}\label{group__Basis_ga169e5809bf5bdd0b38087e155398861e}} 
 typedef Basis\+Type\+::\+Function\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Function $>$\+::\+Return\+Value}
 \item 
@@ -168,6 +269,42 @@ typedef Basis\+Type\+::\+Curl\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::
 \item 
 \mbox{\Hypertarget{group__Basis_ga629fb65115831ee4fec373cac0698337}\label{group__Basis_ga629fb65115831ee4fec373cac0698337}} 
 typedef Basis\+Type\+::\+Divergence\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Divergence $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga90c6822e492637cd8fef5974bd9b97b4}\label{group__Basis_ga90c6822e492637cd8fef5974bd9b97b4}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Function\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gad54e03607d8e42f7d80cad107e168675}\label{group__Basis_gad54e03607d8e42f7d80cad107e168675}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Ancestor\+Basis\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gae881fc01578d22d3aa3bc2fd3fe46239}\label{group__Basis_gae881fc01578d22d3aa3bc2fd3fe46239}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Gradient\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga868d3a49f1fdd72b05abd1d2a3c85ea5}\label{group__Basis_ga868d3a49f1fdd72b05abd1d2a3c85ea5}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$\+::\+Ancestor\+Basis\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga27ca67e4e712e4770d94f6b9307c2517}\label{group__Basis_ga27ca67e4e712e4770d94f6b9307c2517}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Curl\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gaa1316e371be4206dbcdb95a0dc3bb7e3}\label{group__Basis_gaa1316e371be4206dbcdb95a0dc3bb7e3}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$\+::\+Ancestor\+Basis\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga3b279a6fb0d5b01fd53ff2cdf3e613e3}\label{group__Basis_ga3b279a6fb0d5b01fd53ff2cdf3e613e3}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Divergence\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga8e3bcb767e26265ce0c703d6d45a50e0}\label{group__Basis_ga8e3bcb767e26265ce0c703d6d45a50e0}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Ancestor\+Basis\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gab6abce82facf70745d61f3de925f55ce}\label{group__Basis_gab6abce82facf70745d61f3de925f55ce}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Function\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga7ddbfcbca5b6e1c6b85f87b50477d4ae}\label{group__Basis_ga7ddbfcbca5b6e1c6b85f87b50477d4ae}} 
+typedef double {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Ancestor\+Basis\+Function\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_ga75f2ffc4c5b7c4a2f70db20d4acc9e16}\label{group__Basis_ga75f2ffc4c5b7c4a2f70db20d4acc9e16}} 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$\+::Divergence\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Return\+Value}
+\item 
+\mbox{\Hypertarget{group__Basis_gaee83448214d082e4ebf52bedbae71ab8}\label{group__Basis_gaee83448214d082e4ebf52bedbae71ab8}} 
+typedef Vector\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Ancestor\+Basis\+Function\+Value}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -188,6 +325,9 @@ enum {\bfseries Basis\+FunctionE} \{ {\bfseries Function},
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{group__Basis_ga603c7e69393f4cc4f0a378e08273785d}\label{group__Basis_ga603c7e69393f4cc4f0a378e08273785d}} 
+static std\+::vector$<$ Vector\+Zd $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Powers$<$ Cell $>$\+::compute} (size\+\_\+t degree)
+\item 
 \mbox{\hyperlink{group__Basis_ga077d11dc2b2d74d11b72f165dc8d033a}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::\+Monomial\+Scalar\+Basis\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, size\+\_\+t degree)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga79a3220472fbc88d100be37ea1503d3e}\label{group__Basis_ga79a3220472fbc88d100be37ea1503d3e}} 
@@ -199,6 +339,9 @@ Function\+Value \mbox{\hyperlink{group__Basis_ga82562e20ba49b9e72e04c6a7660b1d3c
 \mbox{\Hypertarget{group__Basis_ga34784e2233789bed6214488ff9e4166d}\label{group__Basis_ga34784e2233789bed6214488ff9e4166d}} 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga34784e2233789bed6214488ff9e4166d}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga962166d89641683136654a3e27773c1c}\label{group__Basis_ga962166d89641683136654a3e27773c1c}} 
+Curl\+Value \mbox{\hyperlink{group__Basis_ga962166d89641683136654a3e27773c1c}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl (vector rot) of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__Basis_ga1794a48fbd89584ed844950e0057f513}{H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Edge\+::\+Monomial\+Scalar\+Basis\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, size\+\_\+t degree)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_gae546ece15c11ddb4382aa47c50fdd53c}\label{group__Basis_gae546ece15c11ddb4382aa47c50fdd53c}} 
@@ -218,15 +361,27 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_ga385bf99cf8c3888a150ed53f410ae39f}{H\
 \mbox{\Hypertarget{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}\label{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}} 
 Function\+Value \mbox{\hyperlink{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}\label{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}} 
+Function\+Value \mbox{\hyperlink{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}\label{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}} 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga525278d350aa0742fef160f3592b5de6}\label{group__Basis_ga525278d350aa0742fef160f3592b5de6}} 
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga525278d350aa0742fef160f3592b5de6}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::gradient}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Gradient\+Value, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}\label{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}} 
 Curl\+Value \mbox{\hyperlink{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}\label{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}} 
+Curl\+Value \mbox{\hyperlink{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::curl}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Curl\+Value, 2 $>$ \&ancestor\+\_\+curl\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at a quadrature point iqn, knowing all the curls of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}\label{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}} 
 Divergence\+Value \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}\label{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}} 
+Divergence\+Value \mbox{\hyperlink{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Divergence\+Value, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}\label{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}} 
 const Eigen\+::\+Matrix\+Xd \& \mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$\+::matrix}} () const
 \begin{DoxyCompactList}\small\item\em Return the coefficient matrix. \end{DoxyCompactList}\item 
@@ -242,15 +397,68 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_gabdcbe0043887c0aa46065409f1731a83}{H\
 \mbox{\Hypertarget{group__Basis_ga52d9aaac677abb3a81b32c5542e55ea4}\label{group__Basis_ga52d9aaac677abb3a81b32c5542e55ea4}} 
 Function\+Value \mbox{\hyperlink{group__Basis_ga52d9aaac677abb3a81b32c5542e55ea4}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga56bd4a69ff41c065b5b0a9ec5b4457be}\label{group__Basis_ga56bd4a69ff41c065b5b0a9ec5b4457be}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga56bd4a69ff41c065b5b0a9ec5b4457be}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga46500da07e2cb4cfe8ead5ffe8dbc586}\label{group__Basis_ga46500da07e2cb4cfe8ead5ffe8dbc586}} 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga46500da07e2cb4cfe8ead5ffe8dbc586}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga523305be1bbffd1a6bf90b51646f9b47}\label{group__Basis_ga523305be1bbffd1a6bf90b51646f9b47}} 
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga523305be1bbffd1a6bf90b51646f9b47}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::gradient}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga187befd7daa85ec049e41706ea1d5de2}\label{group__Basis_ga187befd7daa85ec049e41706ea1d5de2}} 
 Curl\+Value \mbox{\hyperlink{group__Basis_ga187befd7daa85ec049e41706ea1d5de2}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gae373e3441fd48abe9ff957b9e2d0503f}\label{group__Basis_gae373e3441fd48abe9ff957b9e2d0503f}} 
+Curl\+Value \mbox{\hyperlink{group__Basis_gae373e3441fd48abe9ff957b9e2d0503f}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::curl}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga6e852fda44755e4ca0a8ffac94d97d16}\label{group__Basis_ga6e852fda44755e4ca0a8ffac94d97d16}} 
 Divergence\+Value \mbox{\hyperlink{group__Basis_ga6e852fda44755e4ca0a8ffac94d97d16}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga1357e7679d97f88adb2c0aebe882c8e0}\label{group__Basis_ga1357e7679d97f88adb2c0aebe882c8e0}} 
+Divergence\+Value \mbox{\hyperlink{group__Basis_ga1357e7679d97f88adb2c0aebe882c8e0}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gacde0742ba8202c8303151e37cd4212d2}\label{group__Basis_gacde0742ba8202c8303151e37cd4212d2}} 
+const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_gacde0742ba8202c8303151e37cd4212d2}{H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga99a8fcb66e357e174c6c65f19395f497}\label{group__Basis_ga99a8fcb66e357e174c6c65f19395f497}} 
+{\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::\+Matrix\+Family} (const Scalar\+Family\+Type \&scalar\+\_\+family)
+\item 
+\mbox{\Hypertarget{group__Basis_ga18ef022103db3d80a1d39684e3242877}\label{group__Basis_ga18ef022103db3d80a1d39684e3242877}} 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga18ef022103db3d80a1d39684e3242877}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga7e4a38cfabb6e1301d8c9241cc54e0c8}\label{group__Basis_ga7e4a38cfabb6e1301d8c9241cc54e0c8}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga7e4a38cfabb6e1301d8c9241cc54e0c8}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga97e08484cdfdf79eb3486f2bf36d41fa}\label{group__Basis_ga97e08484cdfdf79eb3486f2bf36d41fa}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga97e08484cdfdf79eb3486f2bf36d41fa}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gab2df4ed5712456cdb4b95898dec32921}\label{group__Basis_gab2df4ed5712456cdb4b95898dec32921}} 
+Divergence\+Value \mbox{\hyperlink{group__Basis_gab2df4ed5712456cdb4b95898dec32921}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga422fbebf3d2c594f579e5cb4be4d5cf0}\label{group__Basis_ga422fbebf3d2c594f579e5cb4be4d5cf0}} 
+Divergence\+Value \mbox{\hyperlink{group__Basis_ga422fbebf3d2c594f579e5cb4be4d5cf0}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga1f42eedda4151c70b63b234d64383de0}\label{group__Basis_ga1f42eedda4151c70b63b234d64383de0}} 
+const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_ga1f42eedda4151c70b63b234d64383de0}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga122dd6f2961cc930054d97b9f9d1474c}\label{group__Basis_ga122dd6f2961cc930054d97b9f9d1474c}} 
+const size\+\_\+t \mbox{\hyperlink{group__Basis_ga122dd6f2961cc930054d97b9f9d1474c}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::matrix\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the matrices in the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga4bfc1eb9f0a137b88637cd8f7d9d506b}\label{group__Basis_ga4bfc1eb9f0a137b88637cd8f7d9d506b}} 
+const Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga4bfc1eb9f0a137b88637cd8f7d9d506b}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::transpose\+Operator}} () const
+\begin{DoxyCompactList}\small\item\em Return the transpose operator, the r\+N$^\wedge$2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the transpose. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga408bbdd71b59bb9c1a09da8d240f346d}\label{group__Basis_ga408bbdd71b59bb9c1a09da8d240f346d}} 
+const Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga408bbdd71b59bb9c1a09da8d240f346d}{H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::symmetrise\+Operator}} () const
+\begin{DoxyCompactList}\small\item\em Return the symmetrisation operator, the r\+N$^\wedge$2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the symmetrised matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Basis_ga6cc5c5f1642d42f7479ba5907961811c}{H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::\+Tangent\+Family}} (const Scalar\+Family\+Type \&scalar\+\_\+family, const Vector\+Rd \&generator)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga0d1966f512373c5dafb83eaaa863e780}\label{group__Basis_ga0d1966f512373c5dafb83eaaa863e780}} 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga0d1966f512373c5dafb83eaaa863e780}{H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Return the dimension of the family. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga6d7faeb3a4b06a79f495202fc9dbf4c2}\label{group__Basis_ga6d7faeb3a4b06a79f495202fc9dbf4c2}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga6d7faeb3a4b06a79f495202fc9dbf4c2}{H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__Basis_gadb935c3f74623dbd29c124c0c6dc605e}{H\+Ar\+D\+Core2\+D\+::\+Shifted\+Basis$<$ Basis\+Type $>$\+::\+Shifted\+Basis}} (const Basis\+Type \&basis, const int shift)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga74ebe98de6bd42447c4743c784e8c601}\label{group__Basis_ga74ebe98de6bd42447c4743c784e8c601}} 
@@ -273,6 +481,9 @@ Divergence\+Value \mbox{\hyperlink{group__Basis_ga84d8719be3260330c3c2e80dbf1b4e
 \mbox{\Hypertarget{group__Basis_ga5128f2da3cb58784d6ee7f4dffcacb90}\label{group__Basis_ga5128f2da3cb58784d6ee7f4dffcacb90}} 
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga5128f2da3cb58784d6ee7f4dffcacb90}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$\+::dimension}} () const
 \begin{DoxyCompactList}\small\item\em Return the dimension of the basis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gaf2c3c2be0cc528838e96a09ff1c0fe8d}\label{group__Basis_gaf2c3c2be0cc528838e96a09ff1c0fe8d}} 
+const Basis\+Type \& \mbox{\hyperlink{group__Basis_gaf2c3c2be0cc528838e96a09ff1c0fe8d}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$\+::ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the underlying complete basis. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_ga1d2d6afdd27878c524490c2e4a9f0bc7}\label{group__Basis_ga1d2d6afdd27878c524490c2e4a9f0bc7}} 
 Function\+Value \mbox{\hyperlink{group__Basis_ga1d2d6afdd27878c524490c2e4a9f0bc7}{H\+Ar\+D\+Core2\+D\+::\+Restricted\+Basis$<$ Basis\+Type $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
@@ -294,22 +505,104 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_ga013a7a8c18e05623b1c9f6562f80c9e6}{H\
 \mbox{\Hypertarget{group__Basis_ga5e054975f7e1247ba66f08fa159dcf84}\label{group__Basis_ga5e054975f7e1247ba66f08fa159dcf84}} 
 Function\+Value \mbox{\hyperlink{group__Basis_ga5e054975f7e1247ba66f08fa159dcf84}{H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga1ee54a87a2ae24213f0362fb673aeb65}\label{group__Basis_ga1ee54a87a2ae24213f0362fb673aeb65}} 
+\mbox{\hyperlink{group__Basis_ga1ee54a87a2ae24213f0362fb673aeb65}{H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::\+Curl\+Basis}} (const Basis\+Type \&basis)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gabcda5adad24a9e075e75817a1f9726d6}\label{group__Basis_gabcda5adad24a9e075e75817a1f9726d6}} 
+size\+\_\+t \mbox{\hyperlink{group__Basis_gabcda5adad24a9e075e75817a1f9726d6}{H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga40093b82cad53b9e0c03b405ae2b90df}\label{group__Basis_ga40093b82cad53b9e0c03b405ae2b90df}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga40093b82cad53b9e0c03b405ae2b90df}{H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Basis_gaef4345fecb3ca455b8d489b7ba52a1bd}{H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Roly\+Compl\+Basis\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, size\+\_\+t degree)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga6fb047c68c998f2592196b6caf5a837f}\label{group__Basis_ga6fb047c68c998f2592196b6caf5a837f}} 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga6fb047c68c998f2592196b6caf5a837f}{H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga98c802c785e2b6ba96dd338c0ea079fd}\label{group__Basis_ga98c802c785e2b6ba96dd338c0ea079fd}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga98c802c785e2b6ba96dd338c0ea079fd}{H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_gac105c6743fce4e5fb3fc799d80086bbf}\label{group__Basis_gac105c6743fce4e5fb3fc799d80086bbf}} 
+Divergence\+Value \mbox{\hyperlink{group__Basis_gac105c6743fce4e5fb3fc799d80086bbf}{H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Basis_ga9d294c963cda7efe0b10bd82bc9b0b91}{H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Goly\+Compl\+Basis\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, size\+\_\+t degree)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga55d9d9b8fd25fb21696fc89cd8a06537}\label{group__Basis_ga55d9d9b8fd25fb21696fc89cd8a06537}} 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga55d9d9b8fd25fb21696fc89cd8a06537}{H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Basis_ga3d2d8a3b77a082575c44237bed02c842}\label{group__Basis_ga3d2d8a3b77a082575c44237bed02c842}} 
+Function\+Value \mbox{\hyperlink{group__Basis_ga3d2d8a3b77a082575c44237bed02c842}{H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename out\+Value , typename in\+Value , typename Function\+Type $>$ }\\boost\+::multi\+\_\+array$<$ out\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga45a16ffb93f83f41efa6f59659fd1544}{H\+Ar\+D\+Core2\+D\+::transform\+\_\+values\+\_\+quad}} (const boost\+::multi\+\_\+array$<$ in\+Value, 2 $>$ \&B\+\_\+quad, const Function\+Type \&F)
+\begin{DoxyCompactList}\small\item\em Takes an array B\+\_\+quad of values at quadrature nodes and applies the function F to all of them. F must take in\+Value and return out\+Value. The function must be called with out\+Value as template argument\+: transform\+\_\+values\+\_\+quad$<$out\+Value$>$(...) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Basis_gad1b1bedb394bfa0843347da693760691}\label{group__Basis_gad1b1bedb394bfa0843347da693760691}} 
 static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Function $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_gad2991f0bf6c39fcc1ca9cc586235a84c}\label{group__Basis_gad2991f0bf6c39fcc1ca9cc586235a84c}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Function $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Return\+Value, 2 $>$ \&ancestor\+\_\+value\+\_\+quad)
 \item 
 \mbox{\Hypertarget{group__Basis_gafb1c26e922916f159b9e1eb123a0b53a}\label{group__Basis_gafb1c26e922916f159b9e1eb123a0b53a}} 
 static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Gradient $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, const Vector\+Rd \&x)
 \item 
+\mbox{\Hypertarget{group__Basis_gace98edd94d6c29e818930dff7a2e07bd}\label{group__Basis_gace98edd94d6c29e818930dff7a2e07bd}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Gradient $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Return\+Value, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad)
+\item 
 \mbox{\Hypertarget{group__Basis_gaa8e4677d16945866dc5ffc6d77de750e}\label{group__Basis_gaa8e4677d16945866dc5ffc6d77de750e}} 
 static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Curl $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_ga33eabf8cc8a0a0d49f31bcd36bd83137}\label{group__Basis_ga33eabf8cc8a0a0d49f31bcd36bd83137}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Curl $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Return\+Value, 2 $>$ \&ancestor\+\_\+curl\+\_\+quad)
 \item 
 \mbox{\Hypertarget{group__Basis_gacbc363ebd4854186c0ed682d098158bc}\label{group__Basis_gacbc363ebd4854186c0ed682d098158bc}} 
 static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Divergence $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, const Vector\+Rd \&x)
 \item 
+\mbox{\Hypertarget{group__Basis_ga29bd9b33da8c88e0aa4f916cbd8b57e4}\label{group__Basis_ga29bd9b33da8c88e0aa4f916cbd8b57e4}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Basis\+Type, Divergence $>$\+::evaluate} (const Basis\+Type \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Return\+Value, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_ga8307d361c356c200cd7fe5458e165de1}\label{group__Basis_ga8307d361c356c200cd7fe5458e165de1}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_gaf3f2b984f80a3b91f5aacd04d8f90e4e}\label{group__Basis_gaf3f2b984f80a3b91f5aacd04d8f90e4e}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_ga00734228471bd7fb7221abaf057cad62}\label{group__Basis_ga00734228471bd7fb7221abaf057cad62}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_ga70439cf358cf50fbb42ce7f8581488ba}\label{group__Basis_ga70439cf358cf50fbb42ce7f8581488ba}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_ga9fd5ef14846ad86b831b820fd00e103a}\label{group__Basis_ga9fd5ef14846ad86b831b820fd00e103a}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_ga81b8a5e841b0326b67345c01081e4dc9}\label{group__Basis_ga81b8a5e841b0326b67345c01081e4dc9}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_gaaf4b8143a2c820ee1f49f561e693a926}\label{group__Basis_gaaf4b8143a2c820ee1f49f561e693a926}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_ga5f21d7405088b600f0ea2ecd74fcb5ff}\label{group__Basis_ga5f21d7405088b600f0ea2ecd74fcb5ff}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_ga736832acc897d00fc7e2a9c8ae2f3cf3}\label{group__Basis_ga736832acc897d00fc7e2a9c8ae2f3cf3}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_ga3a67b30471c1cb7d79fc8849d40df527}\label{group__Basis_ga3a67b30471c1cb7d79fc8849d40df527}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
+\mbox{\Hypertarget{group__Basis_ga169af1134195c1284cca13579c78bfa4}\label{group__Basis_ga169af1134195c1284cca13579c78bfa4}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, const Vector\+Rd \&x)
+\item 
+\mbox{\Hypertarget{group__Basis_gaf5af1a61d38b626383dfef1b161b4b88}\label{group__Basis_gaf5af1a61d38b626383dfef1b161b4b88}} 
+static Return\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::evaluate} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Basis\+Type, N $>$ \&basis, size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+basis\+\_\+quad)
+\item 
 {\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ Basis\+Type, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga687c3c9504c4b10c5a18654530980086}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$\+::compute}} (const Basis\+Type \&basis, const Quadrature\+Rule \&quad)
 \begin{DoxyCompactList}\small\item\em Generic basis evaluation. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$\+::compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \&basis, const Quadrature\+Rule \&quad)
-\item 
+\begin{DoxyCompactList}\small\item\em Evaluate a \textquotesingle{}\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}\textquotesingle{} of functions at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga2e707628cf7f51dd4ecf63182eea847a}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$\+::compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$ \&basis, const Quadrature\+Rule \&quad)
+\begin{DoxyCompactList}\small\item\em Evaluate a tensorized family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga77e7551793be854d7b654addf292aa6b}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$\+::compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$ \&basis, const Quadrature\+Rule \&quad)
+\begin{DoxyCompactList}\small\item\em Evaluate a Matrix family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}{H\+Ar\+D\+Core2\+D\+::gram\+\_\+schmidt}} (boost\+::multi\+\_\+array$<$ T, 2 $>$ \&basis\+\_\+eval, const std\+::function$<$ double(size\+\_\+t, size\+\_\+t)$>$ \&inner\+\_\+product)
 \item 
 \mbox{\Hypertarget{group__Basis_ga5363b354f8dce20ca199459fe4074fda}\label{group__Basis_ga5363b354f8dce20ca199459fe4074fda}} 
@@ -318,26 +611,31 @@ double \mbox{\hyperlink{group__Basis_ga5363b354f8dce20ca199459fe4074fda}{H\+Ar\+
 \mbox{\Hypertarget{group__Basis_gad1566133b908e08f82d4598114bf10f3}\label{group__Basis_gad1566133b908e08f82d4598114bf10f3}} 
 double \mbox{\hyperlink{group__Basis_gad1566133b908e08f82d4598114bf10f3}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product}} (const Vector\+Rd \&x, const Vector\+Rd \&y)
 \begin{DoxyCompactList}\small\item\em Scalar product between two vectors. \end{DoxyCompactList}\item 
-boost\+::multi\+\_\+array$<$ double, 2 $>$ \mbox{\hyperlink{group__Basis_ga5c6454782d8290f926940267271951bf}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&basis\+\_\+quad, const Vector\+Rd \&v)
-\item 
+\mbox{\Hypertarget{group__Basis_ga25065a0ea49bad672154b0a695923f22}\label{group__Basis_ga25065a0ea49bad672154b0a695923f22}} 
+{\footnotesize template$<$int N$>$ }\\double \mbox{\hyperlink{group__Basis_ga25065a0ea49bad672154b0a695923f22}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product}} (const Eigen\+::\+Matrix$<$ double, N, N $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, N $>$ \&y)
+\begin{DoxyCompactList}\small\item\em Scalar product between two matrices. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value $>$ }\\boost\+::multi\+\_\+array$<$ double, 2 $>$ \mbox{\hyperlink{group__Basis_ga2f8b571925236c4b7ebe6afd77d5e4b5}{H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product}} (const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&basis\+\_\+quad, const Value \&v)
+\begin{DoxyCompactList}\small\item\em This overloading of the scalar\+\_\+product function computes the scalar product between an evaluation of a basis and a constant value; both basis values and constant value must be of type Value. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Basis\+Type $>$ }\\\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \mbox{\hyperlink{group__Basis_ga3a5604879e905ecb08cbf4dda5d9a33c}{H\+Ar\+D\+Core2\+D\+::l2\+\_\+orthonormalize}} (const Basis\+Type \&basis, const Quadrature\+Rule \&qr, boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&basis\+\_\+quad)
 \begin{DoxyCompactList}\small\item\em $L^2$-\/orthonormalization\+: simply consists in using \mbox{\hyperlink{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}{gram\+\_\+schmidt()}} with the specific l2 inner product \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym=\char`\"{}nonsym\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This templated function is very generic, and thus not the most efficient. More efficient overloads are provided for double-\/ or Vector2d-\/valued families. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym=\char`\"{}nonsym\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version calls the generic one with nrows = nb of elements in family B1 and ncols = nb of elements in family B2. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Function\+Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&B, const Quadrature\+Rule \&qr)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the Gram matrix given the evaluation of one family of functions at quadrature nodes. Consists in calling the generic templated version with B1=B2. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr)
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga4172a9ecfd889368855cf0715211e394}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym)
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym)
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym)
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given a family of vector-\/valued and one of scalar-\/valued functions by tensorizing the latter. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga90eb6f12ab8129f7a8307bcd827b2f00}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for double-\/valued families, more efficient than the generic templated version. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga16b838fc438f0935a5fc7706d83cf662}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the double-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga81188afa6341cae65e11dcd3c560d027}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const size\+\_\+t nrows, const size\+\_\+t ncols, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for Vector2d-\/valued families, more efficient than the generic templated version. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_gaf355214aec1e4ef71621a7d339415ae1}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B1, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&B2, const Quadrature\+Rule \&qr, const std\+::string sym=\char`\"{}nonsym\char`\"{})
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the Vector2d-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar\+Family\+Type , size\+\_\+t N$>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga1edb7f00f8048d22ce79e63a202a8594}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix}} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Family\+Type, N $>$ \&Mat\+Fam, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&scalar\+\_\+family\+\_\+quad, const Quadrature\+Rule \&qr)
+\begin{DoxyCompactList}\small\item\em Compute the Gram-\/like matrix for a \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}. This overload is more efficient than the generic function as it only computes the gram matrix of the underlying scalar family, and then creates the bloc-\/diagonal gram matrix of the \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}} (which is indeed bloc diagonal given the choice of m\+\_\+E elements in this class). \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Basis_gad1f24a4a88d877b43abcd2df0592f1c2}{H\+Ar\+D\+Core2\+D\+::integrate}} (const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ T $>$ \&f, const \mbox{\hyperlink{group__Basis_ga41970d25ff5ffdc77e1368ee5ce03bd4}{Basis\+Quad}}$<$ T $>$ \&B, const Quadrature\+Rule \&qr, size\+\_\+t n\+\_\+rows=0)
 \begin{DoxyCompactList}\small\item\em Compute the integral of a given function against all functions from a family. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , typename U $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_gac450f5f0e9ac39ef61e8b3fda75c8931}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+weighted\+\_\+gram\+\_\+matrix}} (const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ U $>$ \&f, const \mbox{\hyperlink{group__Basis_ga41970d25ff5ffdc77e1368ee5ce03bd4}{Basis\+Quad}}$<$ T $>$ \&B1, const \mbox{\hyperlink{group__Basis_ga41970d25ff5ffdc77e1368ee5ce03bd4}{Basis\+Quad}}$<$ T $>$ \&B2, const Quadrature\+Rule \&qr, size\+\_\+t n\+\_\+rows=0, size\+\_\+t n\+\_\+cols=0, const std\+::string sym=\char`\"{}nonsym\char`\"{})
@@ -348,6 +646,12 @@ Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga720d988c2c8cdf49c96687d63c
 \begin{DoxyCompactList}\small\item\em Computes the Gram-\/like matrix of integrals (f dot phi\+\_\+i, phi\+\_\+j) \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_gad8ed4f83013c1957b10c920a57021406}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+weighted\+\_\+gram\+\_\+matrix}} (const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ Vector\+Rd $>$ \&f, const \mbox{\hyperlink{group__Basis_ga41970d25ff5ffdc77e1368ee5ce03bd4}{Basis\+Quad}}$<$ double $>$ \&B1, const \mbox{\hyperlink{group__Basis_ga41970d25ff5ffdc77e1368ee5ce03bd4}{Basis\+Quad}}$<$ Vector\+Rd $>$ \&B2, const Quadrature\+Rule \&qr, size\+\_\+t n\+\_\+rows=0, size\+\_\+t n\+\_\+cols=0)
 \begin{DoxyCompactList}\small\item\em Computes the Gram-\/like matrix of integrals (phi\+\_\+i, f dot phi\+\_\+j) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga1d085bfe7e819ade34b54ec812919dda}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&f\+\_\+quad, const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&g\+\_\+quad, const Quadrature\+Rule \&qr\+\_\+f, const Quadrature\+Rule \&qr\+\_\+g)
+\begin{DoxyCompactList}\small\item\em Computes closure equation matrices, from evaluations at quadrature nodes. For two families of functions $(f_i)$ and $(g_j)$ with values in some space E, this routine computes the matrix $(\int f_i)\cdot(\int g_j)$ where $\cdot$ is the dot product in E. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga28c35940e00abae0be3c53c3d37cdb63}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&f\+\_\+quad, const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&g\+\_\+quad, const Quadrature\+Rule \&qr)
+\begin{DoxyCompactList}\small\item\em Computes closure equation matrices. Overload of the previous one when qr\+\_\+f=qr\+\_\+g. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value $>$ }\\Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Basis_ga423a192827899636b148ba6c2857ea35}{H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix}} (const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&f\+\_\+quad, const Quadrature\+Rule \&qr)
+\begin{DoxyCompactList}\small\item\em Computes closure equation matrices. Overload of the previous one when f=g. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Basis\+Type $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Basis_ga650f15db9b781f0ad398e54d96a5ba39}{H\+Ar\+D\+Core2\+D\+::l2\+\_\+projection}} (const std\+::function$<$ typename Basis\+Type\+::\+Function\+Value(const Vector\+Rd \&)$>$ \&f, const Basis\+Type \&basis, Quadrature\+Rule \&quad, const boost\+::multi\+\_\+array$<$ typename Basis\+Type\+::\+Function\+Value, 2 $>$ \&basis\+\_\+quad)
 \begin{DoxyCompactList}\small\item\em Compute the L2-\/projection of a function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -366,7 +670,7 @@ static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Ce
 static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::has\+Gradient} = true
 \item 
 \mbox{\Hypertarget{group__Basis_gaf1c39fee1ff92d9a2c6654dcff408b13}\label{group__Basis_gaf1c39fee1ff92d9a2c6654dcff408b13}} 
-static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::has\+Curl} = false
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::has\+Curl} = true
 \item 
 \mbox{\Hypertarget{group__Basis_ga188cf489655ee1dcbf4fcf52060d457c}\label{group__Basis_ga188cf489655ee1dcbf4fcf52060d457c}} 
 static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Monomial\+Scalar\+Basis\+Cell\+::has\+Divergence} = false
@@ -416,6 +720,36 @@ static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$
 \mbox{\Hypertarget{group__Basis_ga440a12913a7f63653b9766e4180c5884}\label{group__Basis_ga440a12913a7f63653b9766e4180c5884}} 
 static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$\+::has\+Curl} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
 \item 
+\mbox{\Hypertarget{group__Basis_ga72e72931956a8f0ad4a6c9408629bd75}\label{group__Basis_ga72e72931956a8f0ad4a6c9408629bd75}} 
+static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::tensor\+Rank} = Matrix
+\item 
+\mbox{\Hypertarget{group__Basis_ga79682c4e308e6722f1d465343730fde7}\label{group__Basis_ga79682c4e308e6722f1d465343730fde7}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::has\+Function} = Scalar\+Family\+Type\+::has\+Function
+\item 
+\mbox{\Hypertarget{group__Basis_gac8bca41c983ba6b2388c1b6cc3f5525b}\label{group__Basis_gac8bca41c983ba6b2388c1b6cc3f5525b}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga813c8c3c68b514f97bb10019a5032aa4}\label{group__Basis_ga813c8c3c68b514f97bb10019a5032aa4}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::has\+Divergence} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
+\item 
+\mbox{\Hypertarget{group__Basis_ga63014965059264071bf6c4c3623aa349}\label{group__Basis_ga63014965059264071bf6c4c3623aa349}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Matrix\+Family$<$ Scalar\+Family\+Type, N $>$\+::has\+Curl} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga932efd1bb07555f7423935e77dbbe4e9}\label{group__Basis_ga932efd1bb07555f7423935e77dbbe4e9}} 
+static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{group__Basis_ga78dba683e6b13847056f29e3796e04a1}\label{group__Basis_ga78dba683e6b13847056f29e3796e04a1}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::has\+Function} = true
+\item 
+\mbox{\Hypertarget{group__Basis_ga2d94919b89e559bd1b1d765638be18ba}\label{group__Basis_ga2d94919b89e559bd1b1d765638be18ba}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga37be45e6490a03fa16b72e3b9ed7c09a}\label{group__Basis_ga37be45e6490a03fa16b72e3b9ed7c09a}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::has\+Curl} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga255712ad2ff1461993f8c43754c44061}\label{group__Basis_ga255712ad2ff1461993f8c43754c44061}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family$<$ Scalar\+Family\+Type $>$\+::has\+Divergence} = false
+\item 
 \mbox{\Hypertarget{group__Basis_ga699c8451fd81d74301b1a2513ae34df0}\label{group__Basis_ga699c8451fd81d74301b1a2513ae34df0}} 
 static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Shifted\+Basis$<$ Basis\+Type $>$\+::tensor\+Rank} = Basis\+Type\+::tensor\+Rank
 \item 
@@ -460,6 +794,69 @@ static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+T
 \item 
 \mbox{\Hypertarget{group__Basis_gaccec3fbf49f52c17ba38e873de7ac6ca}\label{group__Basis_gaccec3fbf49f52c17ba38e873de7ac6ca}} 
 static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$\+::has\+Divergence} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga15ec98e78dc07d6f3e4aa4188b725258}\label{group__Basis_ga15ec98e78dc07d6f3e4aa4188b725258}} 
+static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{group__Basis_gabcdc4792cb79ef019fc444ddc01f3da9}\label{group__Basis_gabcdc4792cb79ef019fc444ddc01f3da9}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::has\+Function} = true
+\item 
+\mbox{\Hypertarget{group__Basis_ga295c63864e7ca7884a51d823471af2bc}\label{group__Basis_ga295c63864e7ca7884a51d823471af2bc}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{group__Basis_gabf7023f30610f144c79ece361f898d6e}\label{group__Basis_gabf7023f30610f144c79ece361f898d6e}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::has\+Curl} = false
+\item 
+\mbox{\Hypertarget{group__Basis_gaba59f1a7f2c43108be3745452a5e1a23}\label{group__Basis_gaba59f1a7f2c43108be3745452a5e1a23}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Curl\+Basis$<$ Basis\+Type $>$\+::has\+Divergence} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga74b72cff2f104e3b0785cc467ed26fdb}\label{group__Basis_ga74b72cff2f104e3b0785cc467ed26fdb}} 
+static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{group__Basis_ga958bf6227cd160a397e0c30b5f66894a}\label{group__Basis_ga958bf6227cd160a397e0c30b5f66894a}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::has\+Function} = true
+\item 
+\mbox{\Hypertarget{group__Basis_ga04353045d25fa7d03c19fea4545b7765}\label{group__Basis_ga04353045d25fa7d03c19fea4545b7765}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{group__Basis_gaab43a33e791273f67904626f7d759d63}\label{group__Basis_gaab43a33e791273f67904626f7d759d63}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::has\+Curl} = false
+\item 
+\mbox{\Hypertarget{group__Basis_gae74cf99bd4e012774f9384510ec9acc2}\label{group__Basis_gae74cf99bd4e012774f9384510ec9acc2}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::has\+Divergence} = true
+\item 
+\mbox{\Hypertarget{group__Basis_gac47dccec11529b9758b3c41a88db57e1}\label{group__Basis_gac47dccec11529b9758b3c41a88db57e1}} 
+static const Tensor\+RankE {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::tensor\+Rank} = Vector
+\item 
+\mbox{\Hypertarget{group__Basis_gae966be110375f3eb1bcd261bf138c3c7}\label{group__Basis_gae966be110375f3eb1bcd261bf138c3c7}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::has\+Function} = true
+\item 
+\mbox{\Hypertarget{group__Basis_ga873732292d598abcfcacf0548910604a}\label{group__Basis_ga873732292d598abcfcacf0548910604a}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::has\+Gradient} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga3a6c3a1e146f428129caa931b425f4c3}\label{group__Basis_ga3a6c3a1e146f428129caa931b425f4c3}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::has\+Curl} = false
+\item 
+\mbox{\Hypertarget{group__Basis_gaf71b19a568d6b205e9bae793287e1907}\label{group__Basis_gaf71b19a568d6b205e9bae793287e1907}} 
+static const bool {\bfseries H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::has\+Divergence} = false
+\item 
+\mbox{\Hypertarget{group__Basis_ga3a56c20c343120be9f4e6b312f4123ea}\label{group__Basis_ga3a56c20c343120be9f4e6b312f4123ea}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Ancestor\+Basis\+Function} = Function
+\item 
+\mbox{\Hypertarget{group__Basis_ga29841916fb8f5baf31298b5fbad2296b}\label{group__Basis_ga29841916fb8f5baf31298b5fbad2296b}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Gradient $>$\+::\+Ancestor\+Basis\+Function} = Gradient
+\item 
+\mbox{\Hypertarget{group__Basis_ga0f9dd18dd7764250655745f8612ba77f}\label{group__Basis_ga0f9dd18dd7764250655745f8612ba77f}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Curl $>$\+::\+Ancestor\+Basis\+Function} = Gradient
+\item 
+\mbox{\Hypertarget{group__Basis_gaf55f539c5795292088a97b9a7b68d9fe}\label{group__Basis_gaf55f539c5795292088a97b9a7b68d9fe}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Tensorized\+Vector\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Ancestor\+Basis\+Function} = Gradient
+\item 
+\mbox{\Hypertarget{group__Basis_ga900ad8ce7fe097a18dbd3fed81c038ee}\label{group__Basis_ga900ad8ce7fe097a18dbd3fed81c038ee}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Function $>$\+::\+Ancestor\+Basis\+Function} = Function
+\item 
+\mbox{\Hypertarget{group__Basis_gacb16563c87f18ad28449efd30754bfe3}\label{group__Basis_gacb16563c87f18ad28449efd30754bfe3}} 
+static const Basis\+FunctionE {\bfseries H\+Ar\+D\+Core2\+D\+::detail\+::basis\+\_\+evaluation\+\_\+traits$<$ Matrix\+Family$<$ Scalar\+Basis\+Type, N $>$, Divergence $>$\+::\+Ancestor\+Basis\+Function} = Gradient
 \end{DoxyCompactItemize}
 
 
@@ -472,7 +869,7 @@ Classes and functions for polynomial basis creation and manipulation.
 \mbox{\Hypertarget{group__Basis_ga687c3c9504c4b10c5a18654530980086}\label{group__Basis_ga687c3c9504c4b10c5a18654530980086}} 
 \index{Basis@{Basis}!compute@{compute}}
 \index{compute@{compute}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
 template$<$typename Basis\+Type $>$ \\
 static boost\+::multi\+\_\+array$<$typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$Basis\+Type, Basis\+Function$>$\+::Return\+Value, 2$>$ \mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const Basis\+Type \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
@@ -491,25 +888,131 @@ Generic basis evaluation.
 \mbox{\Hypertarget{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}\label{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}} 
 \index{Basis@{Basis}!compute@{compute}}
 \index{compute@{compute}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
 template$<$typename Basis\+Type $>$ \\
 static boost\+::multi\+\_\+array$<$typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$Basis\+Type$>$, Basis\+Function$>$\+::Return\+Value, 2$>$ \mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Evaluate a family at quadrature nodes. Same as \textquotesingle{}\mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{evaluate\+\_\+quad}}\textquotesingle{} but applied to a family given by an ancestor basis and a matrix (see class \textquotesingle{}\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}\textquotesingle{}) 
+
+
+Evaluate a \textquotesingle{}\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}\textquotesingle{} of functions at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) 
+
+
 \begin{DoxyParams}{Parameters}
 {\em basis} & The family \\
 \hline
 {\em quad} & The quadrature rule \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Basis_ga4172a9ecfd889368855cf0715211e394}\label{group__Basis_ga4172a9ecfd889368855cf0715211e394}} 
+\mbox{\Hypertarget{group__Basis_ga77e7551793be854d7b654addf292aa6b}\label{group__Basis_ga77e7551793be854d7b654addf292aa6b}} 
+\index{Basis@{Basis}!compute@{compute}}
+\index{compute@{compute}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
+template$<$typename Basis\+Type , size\+\_\+t N$>$ \\
+static boost\+::multi\+\_\+array$<$typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$\mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$Basis\+Type, N$>$, Basis\+Function$>$\+::Return\+Value, 2$>$ \mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$ \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Evaluate a Matrix family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em basis} & The family \\
+\hline
+{\em quad} & The quadrature rule \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga2e707628cf7f51dd4ecf63182eea847a}\label{group__Basis_ga2e707628cf7f51dd4ecf63182eea847a}} 
+\index{Basis@{Basis}!compute@{compute}}
+\index{compute@{compute}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$Basis\+FunctionE Basis\+Function$>$ \\
+template$<$typename Basis\+Type , size\+\_\+t N$>$ \\
+static boost\+::multi\+\_\+array$<$typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$\mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$Basis\+Type, N$>$, Basis\+Function$>$\+::Return\+Value, 2$>$ \mbox{\hyperlink{structHArDCore2D_1_1evaluate__quad}{H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad}}$<$ Basis\+Function $>$\+::compute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$ \&}]{basis,  }\item[{const Quadrature\+Rule \&}]{quad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Evaluate a tensorized family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em basis} & The family \\
+\hline
+{\em quad} & The quadrature rule \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga28c35940e00abae0be3c53c3d37cdb63}\label{group__Basis_ga28c35940e00abae0be3c53c3d37cdb63}} 
+\index{Basis@{Basis}!compute\_closure\_matrix@{compute\_closure\_matrix}}
+\index{compute\_closure\_matrix@{compute\_closure\_matrix}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute\_closure\_matrix()}{compute\_closure\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{f\+\_\+quad,  }\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{g\+\_\+quad,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
+
+
+
+Computes closure equation matrices. Overload of the previous one when qr\+\_\+f=qr\+\_\+g. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+quad} & Evaluations of the functions $(f_i)$ at the quadrature nodes \\
+\hline
+{\em g\+\_\+quad} & Evaluations of the functions $(g_j)$ at the quadrature nodes \\
+\hline
+{\em qr} & quadrature rule for integration \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga1d085bfe7e819ade34b54ec812919dda}\label{group__Basis_ga1d085bfe7e819ade34b54ec812919dda}} 
+\index{Basis@{Basis}!compute\_closure\_matrix@{compute\_closure\_matrix}}
+\index{compute\_closure\_matrix@{compute\_closure\_matrix}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute\_closure\_matrix()}{compute\_closure\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{f\+\_\+quad,  }\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{g\+\_\+quad,  }\item[{const Quadrature\+Rule \&}]{qr\+\_\+f,  }\item[{const Quadrature\+Rule \&}]{qr\+\_\+g }\end{DoxyParamCaption})}
+
+
+
+Computes closure equation matrices, from evaluations at quadrature nodes. For two families of functions $(f_i)$ and $(g_j)$ with values in some space E, this routine computes the matrix $(\int f_i)\cdot(\int g_j)$ where $\cdot$ is the dot product in E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+quad} & Evaluations of the functions $(f_i)$ at the quadrature nodes \\
+\hline
+{\em g\+\_\+quad} & Evaluations of the functions $(g_j)$ at the quadrature nodes \\
+\hline
+{\em qr\+\_\+f} & quadrature rule for integration of f\+\_\+i \\
+\hline
+{\em qr\+\_\+g} & quadrature rule for integration of g\+\_\+i \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga423a192827899636b148ba6c2857ea35}\label{group__Basis_ga423a192827899636b148ba6c2857ea35}} 
+\index{Basis@{Basis}!compute\_closure\_matrix@{compute\_closure\_matrix}}
+\index{compute\_closure\_matrix@{compute\_closure\_matrix}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute\_closure\_matrix()}{compute\_closure\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+closure\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{f\+\_\+quad,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
+
+
+
+Computes closure equation matrices. Overload of the previous one when f=g. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+quad} & Evaluations of the functions $(f_i)$ at the quadrature nodes \\
+\hline
+{\em qr} & quadrature rule for integration \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga90eb6f12ab8129f7a8307bcd827b2f00}\label{group__Basis_ga90eb6f12ab8129f7a8307bcd827b2f00}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym }\end{DoxyParamCaption})}
+
+
 
 Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for double-\/valued families, more efficient than the generic templated version. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -524,13 +1027,17 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 {\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}\label{group__Basis_ga7eda4d0d1366297ea84390f07c0a64ee}} 
+\mbox{\Hypertarget{group__Basis_ga16b838fc438f0935a5fc7706d83cf662}\label{group__Basis_ga16b838fc438f0935a5fc7706d83cf662}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym }\end{DoxyParamCaption})}
 
-Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the double-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2 
+
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the double-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -544,11 +1051,15 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 \mbox{\Hypertarget{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}\label{group__Basis_ga0c65c290a977d9d35ae51d6edde392a8}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
 {\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
 Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
 Compute the Gram matrix given the evaluation of one family of functions at quadrature nodes. Consists in calling the generic templated version with B1=B2. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B} & \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} at quadrature nodes \\
 \hline
@@ -558,11 +1069,15 @@ Compute the Gram matrix given the evaluation of one family of functions at quadr
 \mbox{\Hypertarget{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}\label{group__Basis_ga29885facf8b5a576e7e0b609d1e3124f}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
 {\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
 Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
 
-Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This templated function is very generic, and thus not the most efficient. More efficient overloads are provided for double-\/ or Vector2d-\/valued families 
+
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This templated function is very generic, and thus not the most efficient. More efficient overloads are provided for double-\/ or Vector2d-\/valued families. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -580,11 +1095,15 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 \mbox{\Hypertarget{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}\label{group__Basis_gafea1bf5033abb255fd6b73a3a30bf09e}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
 {\footnotesize\ttfamily template$<$typename Function\+Value $>$ \\
 Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
 
+
+
 Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version calls the generic one with nrows = nb of elements in family B1 and ncols = nb of elements in family B2. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -598,10 +1117,14 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 \mbox{\Hypertarget{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}\label{group__Basis_ga56ea5a2eec9e5f2534c5ea34c6f8e973}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
 
-Compute the Gram-\/like matrix given a family of vector-\/valued and one of scalar-\/valued functions by tensorizing the latter 
+
+
+Compute the Gram-\/like matrix given a family of vector-\/valued and one of scalar-\/valued functions by tensorizing the latter. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -610,13 +1133,17 @@ Compute the Gram-\/like matrix given a family of vector-\/valued and one of scal
 {\em qr} & Quadrature rule used for evaluation \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}\label{group__Basis_ga1183170eea0f44386e8a16ab1cdaf81a}} 
+\mbox{\Hypertarget{group__Basis_ga81188afa6341cae65e11dcd3c560d027}\label{group__Basis_ga81188afa6341cae65e11dcd3c560d027}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const size\+\_\+t}]{nrows,  }\item[{const size\+\_\+t}]{ncols,  }\item[{const std\+::string}]{sym }\end{DoxyParamCaption})}
+
+
 
 Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for Vector2d-\/valued families, more efficient than the generic templated version. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -631,13 +1158,17 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 {\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}\label{group__Basis_gafe22102ff7c7e6dbeb63498396f2b54c}} 
+\mbox{\Hypertarget{group__Basis_gaf355214aec1e4ef71621a7d339415ae1}\label{group__Basis_gaf355214aec1e4ef71621a7d339415ae1}} 
 \index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
 \index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
-\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym = {\ttfamily \char`\"{}nonsym\char`\"{}} }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B1,  }\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{B2,  }\item[{const Quadrature\+Rule \&}]{qr,  }\item[{const std\+::string}]{sym }\end{DoxyParamCaption})}
 
-Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the Vector2d-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2 
+
+
+Compute the Gram-\/like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the Vector2d-\/valued version with nrows = nb of elements in B1, ncols = nb of elements in B2. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em B1} & First family at quadrature nodes \\
 \hline
@@ -646,6 +1177,26 @@ Compute the Gram-\/like matrix given the evaluation of two families of functions
 {\em qr} & Quadrature rule used for evaluation \\
 \hline
 {\em sym} & Optional. \char`\"{}sym\char`\"{} to indicate that the matrix is symmetric (B1=B2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga1edb7f00f8048d22ce79e63a202a8594}\label{group__Basis_ga1edb7f00f8048d22ce79e63a202a8594}} 
+\index{Basis@{Basis}!compute\_gram\_matrix@{compute\_gram\_matrix}}
+\index{compute\_gram\_matrix@{compute\_gram\_matrix}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{compute\_gram\_matrix()}{compute\_gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily template$<$typename Scalar\+Family\+Type , size\+\_\+t N$>$ \\
+Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::compute\+\_\+gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Scalar\+Family\+Type, N $>$ \&}]{Mat\+Fam,  }\item[{const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&}]{scalar\+\_\+family\+\_\+quad,  }\item[{const Quadrature\+Rule \&}]{qr }\end{DoxyParamCaption})}
+
+
+
+Compute the Gram-\/like matrix for a \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}. This overload is more efficient than the generic function as it only computes the gram matrix of the underlying scalar family, and then creates the bloc-\/diagonal gram matrix of the \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}} (which is indeed bloc diagonal given the choice of m\+\_\+E elements in this class). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mat\+Fam} & Matrix family \\
+\hline
+{\em scalar\+\_\+family\+\_\+quad} & values of the underlying scalar family at quadrature nodes \\
+\hline
+{\em qr} & Quadrature rule used for evaluation \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{group__Basis_ga167107aa2e92a2656ded2e8cafa7e59d}\label{group__Basis_ga167107aa2e92a2656ded2e8cafa7e59d}} 
@@ -768,6 +1319,23 @@ Constructor.
 {\em matrix} & The coefficient matrix whose i-\/th line contains the coefficient of the expansion of the i-\/th function of the family in the basis \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga9d294c963cda7efe0b10bd82bc9b0b91}\label{group__Basis_ga9d294c963cda7efe0b10bd82bc9b0b91}} 
+\index{Basis@{Basis}!GolyComplBasisCell@{GolyComplBasisCell}}
+\index{GolyComplBasisCell@{GolyComplBasisCell}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{GolyComplBasisCell()}{GolyComplBasisCell()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+Goly\+Compl\+Basis\+Cell\+::\+Goly\+Compl\+Basis\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&}]{T,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & A mesh element \\
+\hline
+{\em degree} & The maximum polynomial degree to be considered \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}\label{group__Basis_ga9ea7809705d01c7cf6bca57a457a44a4}} 
 \index{Basis@{Basis}!gram\_schmidt@{gram\_schmidt}}
 \index{gram\_schmidt@{gram\_schmidt}!Basis@{Basis}}
@@ -795,11 +1363,11 @@ Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::integrate (\begin{DoxyParamCaption}\
 
 Compute the integral of a given function against all functions from a family. 
 
-
+Possible types for T are those for which we have a \char`\"{}scalar\+\_\+product\char`\"{} function (currently\+: double, Vector\+Rd, Matrix\+Rd) 
 \begin{DoxyParams}{Parameters}
-{\em f} & Function to be integrated. Possible types of T are double and Vector\+Rd \\
+{\em f} & Function to be integrated. \\
 \hline
-{\em B} & \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of basis functions at quadrature nodes. Possible types of T are double and Vector\+Rd \\
+{\em B} & \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of basis functions at quadrature nodes. \\
 \hline
 {\em qr} & Quadrature rule \\
 \hline
@@ -900,13 +1468,35 @@ Constructor.
 {\em dimension} & The dimension of the restricted basis \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{group__Basis_ga5c6454782d8290f926940267271951bf}\label{group__Basis_ga5c6454782d8290f926940267271951bf}} 
+\mbox{\Hypertarget{group__Basis_gaef4345fecb3ca455b8d489b7ba52a1bd}\label{group__Basis_gaef4345fecb3ca455b8d489b7ba52a1bd}} 
+\index{Basis@{Basis}!RolyComplBasisCell@{RolyComplBasisCell}}
+\index{RolyComplBasisCell@{RolyComplBasisCell}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{RolyComplBasisCell()}{RolyComplBasisCell()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+Roly\+Compl\+Basis\+Cell\+::\+Roly\+Compl\+Basis\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&}]{T,  }\item[{size\+\_\+t}]{degree }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & A mesh element \\
+\hline
+{\em degree} & The maximum polynomial degree to be considered \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga2f8b571925236c4b7ebe6afd77d5e4b5}\label{group__Basis_ga2f8b571925236c4b7ebe6afd77d5e4b5}} 
 \index{Basis@{Basis}!scalar\_product@{scalar\_product}}
 \index{scalar\_product@{scalar\_product}!Basis@{Basis}}
 \doxysubsubsection{\texorpdfstring{scalar\_product()}{scalar\_product()}}
-{\footnotesize\ttfamily boost\+::multi\+\_\+array$<$ double, 2 $>$ H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&}]{basis\+\_\+quad,  }\item[{const Vector\+Rd \&}]{v }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+boost\+::multi\+\_\+array$<$double, 2$>$ H\+Ar\+D\+Core2\+D\+::scalar\+\_\+product (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ Value, 2 $>$ \&}]{basis\+\_\+quad,  }\item[{const Value \&}]{v }\end{DoxyParamCaption})}
 
-This overloading of the scalar\+\_\+product function computes the scalar product between an evaluation of a basis and a constant vector 
+
+
+This overloading of the scalar\+\_\+product function computes the scalar product between an evaluation of a basis and a constant value; both basis values and constant value must be of type Value. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em basis\+\_\+quad} & The basis evaluation \\
 \hline
@@ -929,5 +1519,41 @@ Constructor.
 {\em basis} & A basis \\
 \hline
 {\em shift} & The shift \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga6cc5c5f1642d42f7479ba5907961811c}\label{group__Basis_ga6cc5c5f1642d42f7479ba5907961811c}} 
+\index{Basis@{Basis}!TangentFamily@{TangentFamily}}
+\index{TangentFamily@{TangentFamily}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{TangentFamily()}{TangentFamily()}}
+{\footnotesize\ttfamily template$<$typename Scalar\+Family\+Type $>$ \\
+\mbox{\hyperlink{classHArDCore2D_1_1TangentFamily}{H\+Ar\+D\+Core2\+D\+::\+Tangent\+Family}}$<$ Scalar\+Family\+Type $>$\+::\mbox{\hyperlink{classHArDCore2D_1_1TangentFamily}{Tangent\+Family}} (\begin{DoxyParamCaption}\item[{const Scalar\+Family\+Type \&}]{scalar\+\_\+family,  }\item[{const Vector\+Rd \&}]{generator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar\+\_\+family} & A basis for the scalar space \\
+\hline
+{\em generator} & One generator of the edge \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Basis_ga45a16ffb93f83f41efa6f59659fd1544}\label{group__Basis_ga45a16ffb93f83f41efa6f59659fd1544}} 
+\index{Basis@{Basis}!transform\_values\_quad@{transform\_values\_quad}}
+\index{transform\_values\_quad@{transform\_values\_quad}!Basis@{Basis}}
+\doxysubsubsection{\texorpdfstring{transform\_values\_quad()}{transform\_values\_quad()}}
+{\footnotesize\ttfamily template$<$typename out\+Value , typename in\+Value , typename Function\+Type $>$ \\
+boost\+::multi\+\_\+array$<$out\+Value, 2$>$ H\+Ar\+D\+Core2\+D\+::transform\+\_\+values\+\_\+quad (\begin{DoxyParamCaption}\item[{const boost\+::multi\+\_\+array$<$ in\+Value, 2 $>$ \&}]{B\+\_\+quad,  }\item[{const Function\+Type \&}]{F }\end{DoxyParamCaption})}
+
+
+
+Takes an array B\+\_\+quad of values at quadrature nodes and applies the function F to all of them. F must take in\+Value and return out\+Value. The function must be called with out\+Value as template argument\+: transform\+\_\+values\+\_\+quad$<$out\+Value$>$(...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em B\+\_\+quad} & Evaluations to be transformed \\
+\hline
+{\em F} & Transformation \\
 \hline
 \end{DoxyParams}

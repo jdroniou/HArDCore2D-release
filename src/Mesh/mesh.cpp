@@ -249,3 +249,51 @@ void Mesh::renum(const char B, const std::vector<size_t> new_to_old){
 
 }
 
+size_t Mesh::find_cell(const Vector2d & x){
+
+  // Locate neighbouring cells
+  std::vector<size_t> neighbouring_cells;
+  for (Cell * T : get_cells()){
+    if ( (T->center_mass() - x).norm() <= T->diam() ){
+      neighbouring_cells.push_back(T->global_index());
+    }
+  }
+  
+  // In neighbouring cells, find one such that x is contained in one of the subtriangles
+  size_t i=0;
+  bool found=false;
+  size_t iT=0;
+  while(i<neighbouring_cells.size() && !found){
+    iT = neighbouring_cells[i];
+    Cell * T = cell(iT);
+    size_t nvert = T->n_vertices();
+
+    // Matrix to compute barycentric coordinates    
+    Vector2d xT = T->center_mass();
+    Eigen::Matrix3d M;
+    M.col(0) << 1., xT.x(), xT.y();
+    
+    Vector2d v0 = T->vertex(nvert-1)->coords();
+    for (size_t iV=0; iV<nvert; iV++){
+      // compute barycentric coordinates of x w.r.t. vertices and center of mass
+      Vector2d v1 = T->vertex(iV)->coords();
+      M.col(1) << 1., v0.x(), v0.y();
+      M.col(2) << 1., v1.x(), v1.y();
+      Eigen::Vector3d lambda = M.inverse() * Eigen::Vector3d(1., x.x(), x.y());
+      if (lambda(0)>-1e-12 && lambda(1)>-1e-12 && lambda(2)>-1e-12){
+        found = true;
+        break;
+      }      
+      // Update vertex
+      v0 = v1;
+    }
+    ++i;
+  }
+  if (i>=neighbouring_cells.size() && !found){
+    std::cout << "Error in findCell, could not find cell for " << x << std::endl;
+    exit(1);
+  }
+
+  return iT;
+
+}

@@ -75,9 +75,9 @@ public:
     size_t n_b_cells() const;           ///< number of boundary cells
     size_t n_b_edges() const;           ///< number of boundary edges
     size_t n_b_vertices() const;        ///< number of boundary vertices
-    size_t n_i_cells() const;           ///< number of boundary cells
-    size_t n_i_edges() const;           ///< number of boundary edges
-    size_t n_i_vertices() const;        ///< number of boundary vertices
+    size_t n_i_cells() const;           ///< number of interior cells
+    size_t n_i_edges() const;           ///< number of interior edges
+    size_t n_i_vertices() const;        ///< number of interior vertices
 
     inline std::vector<Cell*> get_cells() const;  ///< lists the cells in the mesh.
     inline std::vector<Edge*> get_edges() const;  ///< lists the edges in the mesh.
@@ -99,6 +99,8 @@ public:
     Cell* i_cell(size_t iC) const;  ///< get a constant pointer to the iC-th interior cell
     Edge* i_edge(size_t iE) const;   ///< get a constant pointer to the iE-th interior edge
     Vertex* i_vertex(size_t iV) const;   ///< get a constant pointer to the iV-th interior vertex
+
+    size_t find_cell(const Vector2d & x);   ///< returns the index of a cell that contains x (this function is a bit expensive)
 
     inline bool add_cell(Cell* cell);  ///<  adds a cell to the mesh
     inline bool add_vertex(Vertex* vertex);  ///<  adds a vertex to the mesh

@@ -29,7 +29,7 @@
 #include "quad2d.hpp"
 #include "TestCase/TestCaseNonLinearity.hpp"
 #include "TestCase/TestCaseStefanPME.hpp"
-#include "TestCase/BoundaryConditions.hpp"
+#include "BoundaryConditions/BoundaryConditions.hpp"
 
 /*!
 * @defgroup HMM 

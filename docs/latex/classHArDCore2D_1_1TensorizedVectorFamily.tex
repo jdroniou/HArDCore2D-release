@@ -2,6 +2,11 @@
 \label{classHArDCore2D_1_1TensorizedVectorFamily}\index{HArDCore2D::TensorizedVectorFamily$<$ ScalarFamilyType, N $>$@{HArDCore2D::TensorizedVectorFamily$<$ ScalarFamilyType, N $>$}}
 
 
+Vector family obtained by tensorization of a scalar family.  
+
+
+
+
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
 \doxysubsection*{Public Types}
@@ -26,12 +31,22 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_gabdcbe0043887c0aa46065409f1731a83}{di
 \begin{DoxyCompactList}\small\item\em Return the dimension of the family. \end{DoxyCompactList}\item 
 Function\+Value \mbox{\hyperlink{group__Basis_ga52d9aaac677abb3a81b32c5542e55ea4}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_ga56bd4a69ff41c065b5b0a9ec5b4457be}{function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ double, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga46500da07e2cb4cfe8ead5ffe8dbc586}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga523305be1bbffd1a6bf90b51646f9b47}{gradient}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Curl\+Value \mbox{\hyperlink{group__Basis_ga187befd7daa85ec049e41706ea1d5de2}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Curl\+Value \mbox{\hyperlink{group__Basis_gae373e3441fd48abe9ff957b9e2d0503f}{curl}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Divergence\+Value \mbox{\hyperlink{group__Basis_ga6e852fda44755e4ca0a8ffac94d97d16}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Divergence\+Value \mbox{\hyperlink{group__Basis_ga1357e7679d97f88adb2c0aebe882c8e0}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_gacde0742ba8202c8303151e37cd4212d2}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,7 +66,9 @@ static const bool {\bfseries has\+Curl} = ( Scalar\+Family\+Type\+::has\+Gradien
 \subsubsection*{template$<$typename Scalar\+Family\+Type, size\+\_\+t N$>$\newline
 class H\+Ar\+D\+Core2\+D\+::\+Tensorized\+Vector\+Family$<$ Scalar\+Family\+Type, N $>$}
 
-Vector family obtained by tensorization of a scalar family The tensorization is done the following way\+: if (f\+\_\+1,...,f\+\_\+r) is the family of scalar functions, the tensorized family of rank N is given by (where all vectors are columns of size N)\+:
+Vector family obtained by tensorization of a scalar family. 
+
+The tensorization is done the following way\+: if $(f_1,...,f_r)$ is the family of scalar functions, the tensorized family of rank N is given by (where all vectors are columns of size N)\+:
 
 $\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)$; $\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)$;...; $\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)$
 

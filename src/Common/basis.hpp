@@ -2,7 +2,7 @@
 //
 // Provides:
 //  - Full and partial polynomial spaces on the element and edges
-//  - Generic routines to create quadrature nodes over cells and faces of the mesh
+//  - Generic routines to create quadrature nodes over cells and edges of the mesh
 //
 // Authors: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr)
 //          Jerome Droniou (jerome.droniou@monash.edu)
@@ -30,6 +30,8 @@
 #include <cell.hpp>
 #include <edge.hpp>
 #include <iostream>
+
+#include <polynomialspacedimension.hpp>
 
 #include <quadraturerule.hpp>
 
@@ -59,11 +61,49 @@ namespace HArDCore2D
   template <typename T>
   using FType = std::function<T(const VectorRd &)>; ///< type for function of point. T is the type of value of the function
 
-  enum TensorRankE {
-                    Scalar = 0,
-                    Vector = 1,
-                    Matrix = 2
+  enum TensorRankE 
+  {
+    Scalar = 0,
+    Vector = 1,
+    Matrix = 2
   };
+
+
+  //-----------------------------------------------------------------------------
+  //                Powers of monomial basis
+  //-----------------------------------------------------------------------------
+
+  /// Compute vectors listing the powers of monomial basis functions (for a cell, only this specialization is relevant) up to a certain degree
+  template<typename GeometricSupport>
+  struct MonomialPowers
+  {
+    // Only specializations are relevant
+  };
+  
+  template<>
+  struct MonomialPowers<Cell>
+  {
+    static std::vector<VectorZd> compute(size_t degree)
+    {
+      std::vector<VectorZd> powers;
+      powers.reserve( PolynomialSpaceDimension<Cell>::Poly(degree) );
+      for (size_t l = 0; l <= degree; l++)
+      {
+        for (size_t i = 0; i <= l; i++)
+        {
+          powers.push_back(VectorZd(i, l - i));
+        } // for i
+      }   // for l
+
+      return powers;
+    }
+  };
+
+  //----------------------------------------------------------------------
+  //----------------------------------------------------------------------
+  //          SCALAR MONOMIAL BASIS
+  //----------------------------------------------------------------------
+  //----------------------------------------------------------------------
 
   /// Scalar monomial basis on a cell
   class MonomialScalarBasisCell
@@ -79,7 +119,7 @@ namespace HArDCore2D
     static const TensorRankE tensorRank = Scalar;
     static const bool hasFunction = true;
     static const bool hasGradient = true;
-    static const bool hasCurl = false;
+    static const bool hasCurl = true;
     static const bool hasDivergence = false;
     
     /// Constructor
@@ -99,6 +139,9 @@ namespace HArDCore2D
 
     /// Evaluate the gradient of the i-th basis function at point x
     GradientValue gradient(size_t i, const VectorRd & x) const;
+
+    /// Evaluate the curl (vector rot) of the i-th basis function at point x
+    CurlValue curl(size_t i, const VectorRd & x) const;
     
   private:
     /// Coordinate transformation
@@ -111,6 +154,7 @@ namespace HArDCore2D
     VectorRd m_xT;
     double m_hT;
     std::vector<VectorZd> m_powers;
+    Eigen::Matrix2d m_rot; // rotation pi/2
   };
 
   //------------------------------------------------------------------------------
@@ -162,8 +206,16 @@ namespace HArDCore2D
   };
   
   //------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
+  //          DERIVED BASIS
+  //------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
+  
 
-  /// Family of functions expressed as linear combination of the functions of a given basis.
+  //----------------------------FAMILY------------------------------------------
+  //
+  /// Family of functions expressed as linear combination of the functions of a given basis
+  ///
   /// If \f$(f_1,...,f_r)\f$ is the basis, then the family is \f$(\phi_1,...,\phi_l)\f$ where
   ///     \f$\phi_i = \sum_j M_ij f_j\f$.
   /// The matrix \f$M\f$ is the member m_matrix.
@@ -212,6 +264,20 @@ namespace HArDCore2D
       return f;
     }
     
+    /// Evaluate the i-th function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    FunctionValue function(size_t i, size_t iqn, const boost::multi_array<FunctionValue, 2> &ancestor_value_quad) const
+    {
+      static_assert(hasFunction, "Call to function() not available");
+
+      FunctionValue f = m_matrix(i, 0) * ancestor_value_quad[0][iqn];
+      for (auto j = 1; j < m_matrix.cols(); j++)
+      {
+        f += m_matrix(i, j) * ancestor_value_quad[j][iqn];
+      } // for j
+      return f;
+    }
+
+    
     /// Evaluate the gradient of the i-th function at point x
     GradientValue gradient(size_t i, const VectorRd & x) const
     {
@@ -223,6 +289,20 @@ namespace HArDCore2D
       } // for j
       return G;
     }
+    
+    /// Evaluate the gradient of the i-th function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    GradientValue gradient(size_t i, size_t iqn, const boost::multi_array<GradientValue, 2> &ancestor_gradient_quad) const
+    {
+      static_assert(hasGradient, "Call to gradient() not available");
+
+      GradientValue G = m_matrix(i, 0) * ancestor_gradient_quad[0][iqn];
+      for (auto j = 1; j < m_matrix.cols(); j++)
+      {
+        G += m_matrix(i, j) * ancestor_gradient_quad[j][iqn];
+      } // for j
+      return G;
+    }
+
 
     /// Evaluate the curl of the i-th function at point x
     CurlValue curl(size_t i, const VectorRd & x) const
@@ -236,6 +316,20 @@ namespace HArDCore2D
       return C;
     }
 
+    /// Evaluate the curl of the i-th function at a quadrature point iqn, knowing all the curls of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    CurlValue curl(size_t i, size_t iqn, const boost::multi_array<CurlValue, 2> &ancestor_curl_quad) const
+    {
+      static_assert(hasCurl, "Call to curl() not available");
+
+      CurlValue C = m_matrix(i, 0) * ancestor_curl_quad[0][iqn];
+      for (auto j = 1; j < m_matrix.cols(); j++)
+      {
+        C += m_matrix(i, j) * ancestor_curl_quad[j][iqn];
+      } // for j
+      return C;
+    }
+
+
     /// Evaluate the divergence of the i-th function at point x
     DivergenceValue divergence(size_t i, const VectorRd & x) const
     {
@@ -248,6 +342,20 @@ namespace HArDCore2D
       return D;
     }
     
+    /// Evaluate the divergence of the i-th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    DivergenceValue divergence(size_t i, size_t iqn, const boost::multi_array<DivergenceValue, 2> &ancestor_divergence_quad) const
+    {
+      static_assert(hasDivergence, "Call to divergence() not available");
+
+      DivergenceValue D = m_matrix(i, 0) * ancestor_divergence_quad[0][iqn];
+      for (auto j = 1; j < m_matrix.cols(); j++)
+      {
+        D += m_matrix(i, j) * ancestor_divergence_quad[j][iqn];
+      } // for j
+      return D;
+    }
+
+
     /// Return the coefficient matrix
     inline const Eigen::MatrixXd & matrix() const
     {
@@ -264,32 +372,33 @@ namespace HArDCore2D
     Eigen::MatrixXd m_matrix;
   };
 
-  //------------------------------------------------------------------------------
+  //----------------------TENSORIZED--------------------------------------------------------
 
   /// Vector family obtained by tensorization of a scalar family
-  /// The tensorization is done the following way: if (f_1,...,f_r) is the family of scalar functions,
-  /// the tensorized family of rank N is given by (where all vectors are columns of size N):
-  ///
-  ///   \f$\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)\f$
-  ///
-  /// The gradient values are therefore matrices of size N*r, where the gradients of the scalar functions are put
-  /// in rows:
-  ///
-  ///   \f$\left(\begin{array}{c}(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}0\\(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)\f$;
-  ///   \f$\left(\begin{array}{c}0\\(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_1)^t\end{array}\right)\f$;...;
-  ///   \f$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_r)^t\end{array}\right)\f$
+  /** The tensorization is done the following way: if \f$(f_1,...,f_r)\f$ is the family of scalar functions,
+   the tensorized family of rank N is given by (where all vectors are columns of size N):
+  
+     \f$\left(\begin{array}{c}f_1\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}f_2\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}f_r\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}0\\f_1\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}0\\f_2\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\f_r\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\\vdots\\0\\f_1\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\\vdots\\0\\f_r\end{array}\right)\f$
+  
+   The gradient values are therefore matrices of size N*r, where the gradients of the scalar functions are put
+   in rows:
+  
+     \f$\left(\begin{array}{c}(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}0\\(\nabla f_1)^t\\0\\\vdots\\0\end{array}\right)\f$;
+     \f$\left(\begin{array}{c}0\\(\nabla f_2)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\(\nabla f_r)^t\\0\\\vdots\\0\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_1)^t\end{array}\right)\f$;...;
+     \f$\left(\begin{array}{c}0\\\vdots\\0\\(\nabla f_r)^t\end{array}\right)\f$
+  */
   template<typename ScalarFamilyType, size_t N>
   class TensorizedVectorFamily
   {
@@ -313,6 +422,9 @@ namespace HArDCore2D
     {
       static_assert(ScalarFamilyType::tensorRank == Scalar,
 		    "Vector family can only be constructed from scalar families");
+      m_rot.row(0) << 0., 1.;
+      m_rot.row(1) << -1., 0.;
+
     }
 
     /// Return the dimension of the family
@@ -329,6 +441,17 @@ namespace HArDCore2D
       FunctionValue ek = Eigen::Matrix<double, N, 1>::Zero(); ek(i / m_scalar_family.dimension()) = 1.;
       return ek * m_scalar_family.function(i % m_scalar_family.dimension(), x);
     }
+    
+    /// Evaluate the i-th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    FunctionValue function(size_t i, size_t iqn, const boost::multi_array<double, 2> &ancestor_value_quad) const
+    {
+      static_assert(hasFunction, "Call to function() not available");
+
+      FunctionValue ek = Eigen::Matrix<double, N, 1>::Zero();
+      ek(i / m_scalar_family.dimension()) = 1.;
+      return ek * ancestor_value_quad[i % m_scalar_family.dimension()][iqn];
+    }
+
 
     /// Evaluate the gradient of the i-th basis function at point x
     GradientValue gradient(size_t i, const VectorRd & x) const
@@ -339,18 +462,35 @@ namespace HArDCore2D
       G.row(i / m_scalar_family.dimension()) = m_scalar_family.gradient(i % m_scalar_family.dimension(), x);
       return G;
     }
+    
+    /// Evaluate the gradient of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    GradientValue gradient(size_t i, size_t iqn, const boost::multi_array<VectorRd, 2> &ancestor_gradient_quad) const
+    {
+      static_assert(hasGradient, "Call to gradient() not available");
+
+      GradientValue G = Eigen::Matrix<double, N, dimspace>::Zero();
+      G.row(i / m_scalar_family.dimension()) = ancestor_gradient_quad[i % m_scalar_family.dimension()][iqn];
+      return G;
+    }
+
 
     /// Evaluate the curl of the i-th basis function at point x
     CurlValue curl(size_t i, const VectorRd & x) const
     {
       static_assert(hasCurl, "Call to curl() not available");
       
-      Eigen::Matrix<double, dimspace, dimspace> rot;
-      rot.row(0) << 0., 1.;
-      rot.row(1) << -1., 0.;
-      return rot * gradient(i, x);
+      return m_rot * gradient(i, x);
     }
 
+    /// Evaluate the curl of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    CurlValue curl(size_t i, size_t iqn, const boost::multi_array<VectorRd, 2> &ancestor_gradient_quad) const
+    {
+      static_assert(hasCurl, "Call to curl() not available");
+
+      return m_rot * ancestor_gradient_quad[i][iqn];
+    }
+    
+    
     /// Evaluate the divergence of the i-th basis function at point x
     DivergenceValue divergence(size_t i, const VectorRd & x) const
     {
@@ -359,14 +499,207 @@ namespace HArDCore2D
       return m_scalar_family.gradient(i % m_scalar_family.dimension(), x)(i / m_scalar_family.dimension());
     }
     
+    /// Evaluate the divergence of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    DivergenceValue divergence(size_t i, size_t iqn, const boost::multi_array<VectorRd, 2> &ancestor_gradient_quad) const
+    {
+      static_assert(hasDivergence, "Call to divergence() not available");
+
+      return ancestor_gradient_quad[i % m_scalar_family.dimension()][iqn](i / m_scalar_family.dimension());      
+    }
+
+    /// Return the ancestor (family that has been tensorized)
+    inline const ScalarFamilyType &ancestor() const
+    {
+      return m_scalar_family;
+    }
+    
+    
   private:
     ScalarFamilyType m_scalar_family;
+    Eigen::Matrix2d m_rot;  // Rotation of pi/2
+  };
+  
+  //----------------------MATRIX FAMILY--------------------------------------------------------
+
+  /// Matrix family obtained from a scalar family
+  /** The transformation into matrix is done the following way: if \f$(f_1,\ldots,f_r)\f$ is the family of scalar functions,
+   and \f$(E_1,\ldots,E_N)\f$ is the canonical basis of the space of NxN matrices, the matrix family is 
+   \f$(f_1E_1,f_2E_1,\ldots,f_rE_1,f_1E_2,\ldots...)\f$.
+   The divergence is taken along each row.
+  */
+  // Useful formulas to manipulate this basis (all indices starting from 0):
+  //      the i-th element in the basis is f_{i%r} E_{i/r}
+  //      the matrix E_m has 1 at position (m%N, m/N)
+  //      the element f_aE_b is the i-th in the family with i = ( [b/N]N + [b%N] )r + a
+  template<typename ScalarFamilyType, size_t N>
+  class MatrixFamily
+  {
+  public:
+    typedef typename Eigen::Matrix<double, N, N> FunctionValue;
+    typedef typename Eigen::Matrix<double, N, N*dimspace> GradientValue;
+    typedef VectorRd CurlValue;
+    typedef typename Eigen::Matrix<double, N, 1> DivergenceValue;
+
+    typedef typename ScalarFamilyType::GeometricSupport GeometricSupport;
+
+    static const TensorRankE tensorRank = Matrix;
+    static const bool hasFunction = ScalarFamilyType::hasFunction;
+    static const bool hasGradient = false;
+    static const bool hasDivergence = ( ScalarFamilyType::hasGradient && N==dimspace );
+    static const bool hasCurl = false;
+   
+    MatrixFamily(const ScalarFamilyType & scalar_family)
+      : m_scalar_family(scalar_family),
+        m_E(N*N),
+        m_transposeOperator(Eigen::MatrixXd::Zero(scalar_family.dimension()*N*N, scalar_family.dimension()*N*N))
+    {
+      static_assert(ScalarFamilyType::tensorRank == Scalar,
+		    "Vector family can only be constructed from scalar families");
+		    
+      // Construct the basis for NxN matrices
+      for (size_t j = 0; j < N; j++){
+        for (size_t i = 0; i < N; i++){
+          m_E[j*N + i] = Eigen::Matrix<double, N, N>::Zero();
+          m_E[j*N + i](i,j) = 1.;
+        }        
+      }
+      
+      // Construct the transpose operator
+      for (size_t i = 0; i < dimension(); i++){
+        // The i-th basis element is sent to the j-th basis element s.t. j%r=i%r, (j/r)%N=(i/r)/N, (j/r)/N=(i/r)%N
+        size_t r = m_scalar_family.dimension();
+        size_t j = ( ( (i/r)%N )*N + (i/r)/N ) * r + (i%r);
+        m_transposeOperator(i,j) = 1.;
+      }
+    }
+
+    /// Return the dimension of the family
+    inline size_t dimension() const
+    {
+      return m_scalar_family.dimension() * N * N;
+    }
+
+    /// Evaluate the i-th basis function at point x
+    FunctionValue function(size_t i, const VectorRd & x) const
+    {
+      static_assert(hasFunction, "Call to function() not available");
+	    
+      return m_scalar_family.function(i % m_scalar_family.dimension(), x) * m_E[i / m_scalar_family.dimension()];
+    }
+    
+    /// Evaluate the i-th basis function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    FunctionValue function(size_t i, size_t iqn, const boost::multi_array<double, 2> &ancestor_value_quad) const
+    {
+      static_assert(hasFunction, "Call to function() not available");
+
+      return ancestor_value_quad[i % m_scalar_family.dimension()][iqn] * m_E[i / m_scalar_family.dimension()];
+    }
+
+    /// Evaluate the divergence of the i-th basis function at point x
+    DivergenceValue divergence(size_t i, const VectorRd & x) const
+    {
+      static_assert(hasDivergence, "Call to divergence() not available");
+
+      Eigen::Matrix<double, N, 1> V = m_E[i/m_scalar_family.dimension()].col( (i/m_scalar_family.dimension()) /N);
+      return m_scalar_family.gradient(i % m_scalar_family.dimension(), x)( (i / m_scalar_family.dimension()) / N) * V;
+    }
+    
+    /// Evaluate the divergence of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad)
+    DivergenceValue divergence(size_t i, size_t iqn, const boost::multi_array<VectorRd, 2> &ancestor_gradient_quad) const
+    {
+      static_assert(hasDivergence, "Call to divergence() not available");
+
+      Eigen::Matrix<double, N, 1> V = m_E[i/m_scalar_family.dimension()].col( (i/m_scalar_family.dimension()) /N);
+      return ancestor_gradient_quad[i % m_scalar_family.dimension()][iqn]( (i / m_scalar_family.dimension()) / N) * V;      
+    }
+
+    /// Return the ancestor (family that has been tensorized)
+    inline const ScalarFamilyType &ancestor() const
+    {
+      return m_scalar_family;
+    }
+    
+    /// Return the dimension of the matrices in the family
+    inline const size_t matrixSize() const
+    {
+      return N;
+    }
+    
+    /// Return the transpose operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the transpose
+    inline const Eigen::MatrixXd transposeOperator() const
+    {
+      return m_transposeOperator;
+    }
+    
+    /// Return the symmetrisation operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the symmetrised matrix
+    inline const Eigen::MatrixXd symmetriseOperator() const
+    {
+      return (Eigen::MatrixXd::Identity(dimension(), dimension()) + m_transposeOperator)/2;
+    }
+
+  private:
+    ScalarFamilyType m_scalar_family;
+    std::vector<Eigen::Matrix<double, N, N>> m_E;
+    Eigen::MatrixXd m_transposeOperator;
   };
 
-  //------------------------------------------------------------------------------
+  
+  //----------------------TANGENT FAMILY--------------------------------------------------------
 
-  /// Generate a basis where the function indices are shifted. Can be used, e.g.,
-  /// to ignore the constant function in scalar bases
+  /// Vector family for polynomial functions that are tangent to an edge (determined by the generator)
+  template <typename ScalarFamilyType>
+  class TangentFamily
+  {
+  public:
+    typedef VectorRd FunctionValue;
+    typedef VectorRd GradientValue;
+    typedef VectorRd CurlValue;
+    typedef double DivergenceValue;
+
+    typedef Edge GeometricSupport;
+
+    static const TensorRankE tensorRank = Vector;
+    static const bool hasFunction = true;
+    static const bool hasGradient = false;
+    static const bool hasCurl = false;
+    static const bool hasDivergence = false;
+
+    /// Constructor
+    TangentFamily(
+        const ScalarFamilyType &scalar_family,    ///< A basis for the scalar space
+        const VectorRd &generator                   ///< One generator of the edge
+        )
+        : m_scalar_family(scalar_family),
+          m_generator(generator)
+    {
+      static_assert(ScalarFamilyType::hasFunction, "Call to function() not available");
+      static_assert(std::is_same<typename ScalarFamilyType::GeometricSupport, Edge>::value,
+                    "Tangent families can only be defined on edges");
+    }
+
+    /// Return the dimension of the family
+    inline size_t dimension() const
+    {
+      return m_scalar_family.dimension();
+    }
+
+    /// Evaluate the i-th basis function at point x
+    inline FunctionValue function(size_t i, const VectorRd &x) const
+    {
+      return m_scalar_family.function(i, x) * m_generator;
+    }
+
+
+  private:
+    ScalarFamilyType m_scalar_family;
+    VectorRd m_generator;
+  };
+
+
+  //--------------------SHIFTED BASIS----------------------------------------------------------
+
+  /// Generate a basis where the function indices are shifted. 
+  /** Can be used, e.g., to ignore the constant function in a hierarchical scalar basis */
   template<typename BasisType>
   class ShiftedBasis
   {
@@ -438,11 +771,10 @@ namespace HArDCore2D
     int m_shift;
   };
 
-  //------------------------------------------------------------------------------
+  //-----------------------RESTRICTED BASIS-------------------------------------------------------
 
   /// Generate a basis restricted to the first "dimension" functions.
-  /// This can be useful, e.g., to form bases of subspaces of a given space from a
-  /// hierarchical basis of the latter
+  /** This can be useful, e.g., to form bases of subspaces of a given space from a hierarchical basis of the latter */
   template<typename BasisType>
   class RestrictedBasis
   {
@@ -477,6 +809,12 @@ namespace HArDCore2D
     inline size_t dimension() const
     {
       return m_dimension;
+    }
+    
+    /// Return the underlying complete basis
+    inline const BasisType &ancestor() const
+    {
+      return m_basis;
     }
     
     /// Evaluate the i-th basis function at point x
@@ -516,10 +854,10 @@ namespace HArDCore2D
     size_t m_dimension;
   };
 
-  //------------------------------------------------------------------------------
+  //--------------------GRADIENT BASIS----------------------------------------------------------
 
-  /// Basis for the space of gradients of polynomials. It assumes that the first
-  /// function of the scalar basis is constant
+  /// Basis for the space of gradients of polynomials.
+  /** To construct a basis of G^k, this assumes that the scalar basis it is constructed from is a basis of P^{k+1}/P^0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.g. polynomials with zero average, or a hierarchical basis of P^{k+1} in which we have removed the first, constant, polynomial) */
   template<typename BasisType>
   class GradientBasis
   {
@@ -564,6 +902,146 @@ namespace HArDCore2D
     BasisType m_scalar_basis;
   };
 
+  //-------------------CURL BASIS-----------------------------------------------------------
+
+  /// Basis for the space of curls (vectorial rot) of polynomials.
+  /** To construct a basis of R^k, assumes that the vector basis from which it is constructed is a basis for P^{k+1}/P^0 */
+  template <typename BasisType>
+  class CurlBasis
+  {
+  public:
+    typedef VectorRd FunctionValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> GradientValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> CurlValue;
+    typedef double DivergenceValue;
+
+    typedef typename BasisType::GeometricSupport GeometricSupport;
+
+    static const TensorRankE tensorRank = Vector;
+    static const bool hasFunction = true;
+    static const bool hasGradient = false;
+    static const bool hasCurl = false;
+    static const bool hasDivergence = false;
+
+    /// Constructor
+    CurlBasis(const BasisType &basis)
+        : m_basis(basis)
+    {
+      static_assert(BasisType::tensorRank == Scalar && std::is_same<typename BasisType::GeometricSupport, Cell>::value,
+                    "Curl basis can only be constructed starting from scalar bases on elements");
+      static_assert(BasisType::hasCurl,
+                    "Curl basis requires curl() for the original basis to be available");
+    }
+
+    /// Compute the dimension of the basis
+    inline size_t dimension() const
+    {
+      return m_basis.dimension();
+    }
+
+    /// Evaluate the i-th basis function at point x
+    inline FunctionValue function(size_t i, const VectorRd &x) const
+    {
+      return m_basis.curl(i, x);
+    }
+
+  private:
+    size_t m_degree;
+    BasisType m_basis;
+  };
+
+
+  //---------------------------------------------------------------------
+  //      BASES FOR THE KOSZUL COMPLEMENTS OF G^k, R^k 
+  //---------------------------------------------------------------------
+  /// Basis for the complement R^{c,k}(T) in P^k(T)^2 of the range of the vectorial rotational on a face
+  class RolyComplBasisCell
+  {
+  public:
+    typedef VectorRd FunctionValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> GradientValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> CurlValue;
+    typedef double DivergenceValue;
+
+    typedef Cell GeometricSupport;
+
+    static const TensorRankE tensorRank = Vector;
+    static const bool hasFunction = true;
+    static const bool hasGradient = false;
+    static const bool hasCurl = false;
+    static const bool hasDivergence = true;
+
+    /// Constructor
+    RolyComplBasisCell(
+        const Cell &T, ///< A mesh element
+        size_t degree  ///< The maximum polynomial degree to be considered
+    );
+
+    /// Dimension of the basis
+    inline size_t dimension() const
+    {
+      return PolynomialSpaceDimension<Cell>::RolyCompl(m_degree);
+    }
+
+    /// Evaluate the i-th basis function at point x
+    FunctionValue function(size_t i, const VectorRd &x) const;
+
+    /// Evaluate the divergence of the i-th basis function at point x
+    DivergenceValue divergence(size_t i, const VectorRd &x) const;
+
+
+  private:
+    /// Coordinate transformation
+    inline VectorRd _coordinate_transform(const VectorRd &x) const
+    {
+      return (x - m_xT) / m_hT;
+    }
+
+    size_t m_degree;
+    VectorRd m_xT;
+    double m_hT;
+    std::vector<VectorZd> m_powers;
+  };
+
+
+  /// Basis for the complement G^{c,k}(T) in P^k(F)^2 of the range of the gradient on a face.
+  class GolyComplBasisCell
+  {
+  public:
+    typedef VectorRd FunctionValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> GradientValue;
+    typedef Eigen::Matrix<double, dimspace, dimspace> CurlValue;
+    typedef double DivergenceValue;
+
+    typedef Cell GeometricSupport;
+
+    static const TensorRankE tensorRank = Vector;
+    static const bool hasFunction = true;
+    static const bool hasGradient = false;
+    static const bool hasCurl = false;
+    static const bool hasDivergence = false;
+
+    /// Constructor
+    GolyComplBasisCell(
+        const Cell &T, ///< A mesh element
+        size_t degree  ///< The maximum polynomial degree to be considered
+    );
+
+    /// Dimension of the basis
+    inline size_t dimension() const
+    {
+      return PolynomialSpaceDimension<Cell>::GolyCompl(m_degree);
+    }
+
+    /// Evaluate the i-th basis function at point x
+    FunctionValue function(size_t i, const VectorRd &x) const;
+
+  private:
+    size_t m_degree;
+    Eigen::Matrix2d m_rot;  // Rotation of pi/2: the basis of Gck is the rotated basis of Rck
+    std::shared_ptr<RolyComplBasisCell> m_Rck_basis;  // A basis of Rck, whose rotation gives a basis of Gck
+  };
+
 
   //------------------------------------------------------------------------------
   // Free functions
@@ -576,14 +1054,41 @@ namespace HArDCore2D
 		       Divergence
   };
 
+  /// Takes an array B_quad of values at quadrature nodes and applies the function F to all of them. F must take inValue and return outValue. The function must be called with outValue as template argument: transform_values_quad<outValue>(...)
+  template <typename outValue, typename inValue, typename FunctionType>
+  boost::multi_array<outValue, 2> transform_values_quad(
+          const boost::multi_array<inValue, 2> &B_quad,   ///< Evaluations to be transformed
+          const FunctionType &F                          ///< Transformation
+          )
+  {
+    boost::multi_array<outValue, 2> transformed_B_quad( boost::extents[B_quad.shape()[0]][B_quad.shape()[1]] );
+    
+    std::transform( B_quad.origin(), B_quad.origin() + B_quad.num_elements(), transformed_B_quad.origin(), F);
+
+    return transformed_B_quad;
+  };
+
+
+  /// Function to symmetrise a matrix (useful together with transform_values_quad)
+  inline static std::function<Eigen::MatrixXd(const Eigen::MatrixXd &)> 
+        symmetrise_matrix = [](const Eigen::MatrixXd & x)->Eigen::MatrixXd { return 0.5*(x+x.transpose());};
+
+  /// Function to skew-symmetrise a matrix (useful together with transform_values_quad)
+  inline static std::function<Eigen::MatrixXd(const Eigen::MatrixXd &)> 
+        skew_symmetrise_matrix = [](const Eigen::MatrixXd & x)->Eigen::MatrixXd { return 0.5*(x-x.transpose());};
+
   //------------------------------------------------------------------------------
-  // Basis evaluation
+  //        BASIS EVALUATION
+  //------------------------------------------------------------------------------
   
   namespace detail {
-    /// Basis evaluation traits. Only specializations are meaningful
+    /// Basis evaluation traits. Only specialization of 'BasisFunction' (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value  we want to evaluate.
+    /**  Provides a uniform way of evaluating the value, gradient, curl or divergence of functions in a basis. Specializations for TensorizedVectorFamily is also provided as it includes some additional information on the ancestor basis; this information is useful to optimise eval_quad for tensorized bases. */
     template<typename BasisType, BasisFunctionE BasisFunction>
     struct basis_evaluation_traits {};
 
+    //---------- GENERIC EVALUATION TRAITS -----------------------------------------
+    // Evaluate the function value at x
     template<typename BasisType>
     struct basis_evaluation_traits<BasisType, Function>
     {
@@ -593,8 +1098,21 @@ namespace HArDCore2D
       {
       	return basis.function(i, x);
       }
+           
+      // Computes function value at quadrature node iqn, knowing values of ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const BasisType &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<ReturnValue, 2> &ancestor_value_quad
+                    )
+      {
+        return basis.function(i, iqn, ancestor_value_quad);
+      }
+
     };
 
+    // Evaluate the gradient value at x
     template<typename BasisType>
     struct basis_evaluation_traits<BasisType, Gradient>
     {
@@ -604,8 +1122,20 @@ namespace HArDCore2D
       {
       	return basis.gradient(i, x);
       }
+      
+      // Computes gradient value at quadrature node iqn, knowing gradients of ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const BasisType &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<ReturnValue, 2> &ancestor_gradient_quad
+                    )
+      {
+        return basis.gradient(i, iqn, ancestor_gradient_quad);
+      }
     };
 
+    // Evaluate the curl value at x
     template<typename BasisType>
     struct basis_evaluation_traits<BasisType, Curl>
     {
@@ -615,8 +1145,20 @@ namespace HArDCore2D
       {
       	return basis.curl(i, x);
       }
+      
+      // Computes curl value at quadrature node iqn, knowing curls of ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const BasisType &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<ReturnValue, 2> &ancestor_curl_quad
+                    )
+      {
+        return basis.curl(i, iqn, ancestor_curl_quad);
+      }
     };
 
+    // Evaluate the divergence value at x
     template<typename BasisType>
     struct basis_evaluation_traits<BasisType, Divergence>
     {
@@ -626,12 +1168,222 @@ namespace HArDCore2D
       {
       	return basis.divergence(i, x);
       }
+      
+      // Computes divergence value at quadrature node iqn, knowing divergences of ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const BasisType &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<ReturnValue, 2> &ancestor_divergence_quad
+                    )
+      {
+        return basis.divergence(i, iqn, ancestor_divergence_quad);
+      }
     };
+    
+    //---------- TENSORIZED FAMILY EVALUATION TRAITS -----------------------------------------
+    // Evaluate the value at x of a TensorizedVectorFamily (includes information on the ancestor basis, to optimise eval_quad for tensorized bases)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<TensorizedVectorFamily<ScalarBasisType, N>, Function>
+    {
+      static_assert(TensorizedVectorFamily<ScalarBasisType, N>::hasFunction, "Call to function not available");
+      
+      typedef typename TensorizedVectorFamily<ScalarBasisType, N>::FunctionValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Function; // Type of values needed from ancestor basis
+      typedef double AncestorBasisFunctionValue; 
+      
+      // Computes function values at x
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.function(i, x);
+      }
+      
+      // Computes function value at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<double, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.function(i, iqn, ancestor_basis_quad);
+      }
+    };
+
+    // Evaluate the gradient at x of a TensorizedVectorFamily (includes information on the ancestor basis, to optimise eval_quad for tensorized bases)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<TensorizedVectorFamily<ScalarBasisType, N>, Gradient>
+    {
+      static_assert(TensorizedVectorFamily<ScalarBasisType, N>::hasGradient, "Call to gradient not available");
+      
+      typedef typename TensorizedVectorFamily<ScalarBasisType, N>::GradientValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Gradient; // Type of values needed from ancestor basis
+      typedef VectorRd AncestorBasisFunctionValue;
+          
+      // Computes gradient value at x
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.gradient(i, x);
+      }
+
+      // Computes gradient value at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<VectorRd, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.gradient(i, iqn, ancestor_basis_quad);
+      }
+    };
+
+    // Evaluate the curl at x of a TensorizedVectorFamily (includes information on the ancestor basis, to optimise eval_quad for tensorized bases)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<TensorizedVectorFamily<ScalarBasisType, N>, Curl>
+    {
+      static_assert(TensorizedVectorFamily<ScalarBasisType, N>::hasCurl, "Call to curl not available");
+      
+      typedef typename TensorizedVectorFamily<ScalarBasisType, N>::CurlValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Gradient; // Type of values needed from ancestor basis
+      typedef VectorRd AncestorBasisFunctionValue;
+
+      // Computes curl values at x
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.curl(i, x);
+      }
+
+      // Computes curl values at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<VectorRd, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.curl(i, iqn, ancestor_basis_quad);
+      }
+      
+    };
+
+    // Evaluate the divergence at x of a TensorizedVectorFamily (includes information on the ancestor basis, to optimise eval_quad for tensorized bases)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<TensorizedVectorFamily<ScalarBasisType, N>, Divergence>
+    {
+      static_assert(TensorizedVectorFamily<ScalarBasisType, N>::hasDivergence, "Call to divergence not available");
+      
+      typedef typename TensorizedVectorFamily<ScalarBasisType, N>::DivergenceValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Gradient; // Type of values needed from ancestor basis
+      typedef VectorRd AncestorBasisFunctionValue;
+
+      // Computes divergence value at x
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.divergence(i, x);
+      }
+
+      // Computes divergence value at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const TensorizedVectorFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<VectorRd, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.divergence(i, iqn, ancestor_basis_quad);
+      }
+      
+    };
+
+    //---------- MATRIX FAMILY EVALUATION TRAITS -----------------------------------------
+    // Evaluate the value at x of a MatrixFamily (includes information on the ancestor basis, to optimise eval_quad for matrix families)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<MatrixFamily<ScalarBasisType, N>, Function>
+    {
+      static_assert(MatrixFamily<ScalarBasisType, N>::hasFunction, "Call to function not available");
+      
+      typedef typename MatrixFamily<ScalarBasisType, N>::FunctionValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Function; // Type of values needed from ancestor basis
+      typedef double AncestorBasisFunctionValue; 
+      
+      // Computes function values at x
+      static inline ReturnValue evaluate(
+                    const MatrixFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.function(i, x);
+      }
+      
+      // Computes function value at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const MatrixFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<double, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.function(i, iqn, ancestor_basis_quad);
+      }
+    };
+
+    // Evaluate the divergence at x of a MatrixFamily (includes information on the ancestor basis, to optimise eval_quad for matrix families)
+    template <typename ScalarBasisType, size_t N>
+    struct basis_evaluation_traits<MatrixFamily<ScalarBasisType, N>, Divergence>
+    {
+      static_assert(MatrixFamily<ScalarBasisType, N>::hasDivergence, "Call to divergence not available");
+      
+      typedef typename MatrixFamily<ScalarBasisType, N>::DivergenceValue ReturnValue;
+      static const BasisFunctionE AncestorBasisFunction = Gradient; // Type of values needed from ancestor basis
+      typedef VectorRd AncestorBasisFunctionValue;
+
+      // Computes divergence value at x
+      static inline ReturnValue evaluate(
+                    const MatrixFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    const VectorRd &x
+                    )
+      {
+        return basis.divergence(i, x);
+      }
+
+      // Computes divergence value at quadrature node iqn, knowing ancestor basis at quadrature nodes
+      static inline ReturnValue evaluate(
+                    const MatrixFamily<ScalarBasisType, N> &basis, 
+                    size_t i, 
+                    size_t iqn,
+                    const boost::multi_array<VectorRd, 2> &ancestor_basis_quad
+                    )
+      {
+        return basis.divergence(i, iqn, ancestor_basis_quad);
+      }
+      
+    };
+
   } // end of namespace detail
 
 
-  /// Evaluate a basis at quadrature nodes. 'BasisFunction' determines what kind of value we want to evaluate
-  /// (the function value of the basis, their gradients, etc.). 
+  //-----------------------------------EVALUATE_QUAD--------------------------------------
+  
+    /// Evaluate a basis at quadrature nodes. 'BasisFunction' (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate.
   template<BasisFunctionE BasisFunction>
   struct evaluate_quad {
     /// Generic basis evaluation
@@ -645,7 +1397,7 @@ namespace HArDCore2D
       typedef detail::basis_evaluation_traits<BasisType, BasisFunction> traits;
 
       boost::multi_array<typename traits::ReturnValue, 2>
-	basis_quad( boost::extents[basis.dimension()][quad.size()] );
+	      basis_quad( boost::extents[basis.dimension()][quad.size()] );
       
       for (size_t i = 0; i < basis.dimension(); i++) {
         for (size_t iqn = 0; iqn < quad.size(); iqn++) {
@@ -656,8 +1408,7 @@ namespace HArDCore2D
       return basis_quad;
     }
 
-    /// Evaluate a family at quadrature nodes. Same as 'evaluate_quad' but applied to a family given by
-    /// an ancestor basis and a matrix (see class 'Family')
+     /// Evaluate a 'Family' of functions at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)
     template<typename BasisType>
     static boost::multi_array<typename detail::basis_evaluation_traits<Family<BasisType>, BasisFunction>::ReturnValue, 2>
     compute(
@@ -668,12 +1419,12 @@ namespace HArDCore2D
       typedef detail::basis_evaluation_traits<Family<BasisType>, BasisFunction> traits;
 
       boost::multi_array<typename traits::ReturnValue, 2>
-	basis_quad( boost::extents[basis.dimension()][quad.size()] );
+	      basis_quad( boost::extents[basis.dimension()][quad.size()] );
 
       // Compute values at quadrature note on ancestor basis, and then do a transformation
       const auto & ancestor_basis = basis.ancestor();
       boost::multi_array<typename traits::ReturnValue, 2>
-	ancestor_basis_quad = evaluate_quad<BasisFunction>::compute(ancestor_basis, quad);
+	      ancestor_basis_quad = evaluate_quad<BasisFunction>::compute(ancestor_basis, quad);
   
       Eigen::MatrixXd M = basis.matrix();
       for (size_t i = 0; i < size_t(M.rows()); i++) {
@@ -689,8 +1440,60 @@ namespace HArDCore2D
    
       return basis_quad;
     }
-  };
+    
+    /// Evaluate a tensorized family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)
+    template <typename BasisType, size_t N>
+    static boost::multi_array<typename detail::basis_evaluation_traits<TensorizedVectorFamily<BasisType, N>, BasisFunction>::ReturnValue, 2>
+    compute(
+        const TensorizedVectorFamily<BasisType, N> &basis, ///< The family
+        const QuadratureRule &quad      ///< The quadrature rule
+    )
+    {
+      typedef detail::basis_evaluation_traits<TensorizedVectorFamily<BasisType, N>, BasisFunction> traits;
+
+      boost::multi_array<typename traits::ReturnValue, 2>
+          basis_quad(boost::extents[basis.dimension()][quad.size()]);
+
+      const auto &ancestor_basis = basis.ancestor();
+      const boost::multi_array<typename traits::AncestorBasisFunctionValue, 2> ancestor_basis_quad 
+                = evaluate_quad<traits::AncestorBasisFunction>::compute(ancestor_basis, quad);
+
+      for (size_t i = 0; i < basis.dimension(); i++){
+        for (size_t iqn = 0; iqn < quad.size(); iqn++){
+          basis_quad[i][iqn] = traits::evaluate(basis, i, iqn, ancestor_basis_quad);
+        }
+      }
+      return basis_quad;
+    }
   
+    /// Evaluate a Matrix family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)
+    template <typename BasisType, size_t N>
+    static boost::multi_array<typename detail::basis_evaluation_traits<MatrixFamily<BasisType, N>, BasisFunction>::ReturnValue, 2>
+    compute(
+        const MatrixFamily<BasisType, N> &basis, ///< The family
+        const QuadratureRule &quad      ///< The quadrature rule
+    )
+    {
+      typedef detail::basis_evaluation_traits<MatrixFamily<BasisType, N>, BasisFunction> traits;
+
+      boost::multi_array<typename traits::ReturnValue, 2>
+          basis_quad(boost::extents[basis.dimension()][quad.size()]);
+
+      const auto &ancestor_basis = basis.ancestor();
+      const boost::multi_array<typename traits::AncestorBasisFunctionValue, 2> ancestor_basis_quad 
+                = evaluate_quad<traits::AncestorBasisFunction>::compute(ancestor_basis, quad);
+
+      for (size_t i = 0; i < basis.dimension(); i++){
+        for (size_t iqn = 0; iqn < quad.size(); iqn++){
+          basis_quad[i][iqn] = traits::evaluate(basis, i, iqn, ancestor_basis_quad);
+        }
+      }
+      return basis_quad;
+    }
+  };
+
+  //------------------------------------------------------------------------------
+  //          ORTHONORMALISATION
   //------------------------------------------------------------------------------
 
   /// Gram-Schmidt algorithm to ortonormalize a basis.
@@ -764,13 +1567,25 @@ namespace HArDCore2D
   /// Scalar product between two vectors
   double scalar_product(const VectorRd & x, const VectorRd & y);
 
-  /// This overloading of the scalar_product function computes the scalar product
-  /// between an evaluation of a basis and a constant vector
-  boost::multi_array<double, 2>
-  scalar_product(
-		 const boost::multi_array<VectorRd, 2> & basis_quad, ///< The basis evaluation
-		 const VectorRd & v                                  ///< The vector to take the scalar product with
-		 );
+  /// Scalar product between two matrices
+  template<int N>
+  double scalar_product(const Eigen::Matrix<double, N, N> & x, const Eigen::Matrix<double, N, N> & y)
+  {
+    return (x.transpose() * y).trace();
+  }
+
+  /// This overloading of the scalar_product function computes the scalar product between an evaluation of a basis and a constant value; both basis values and constant value must be of type Value
+  template <typename Value>
+  boost::multi_array<double, 2> scalar_product(
+          const boost::multi_array<Value, 2> &basis_quad, ///< The basis evaluation
+          const Value &v                                  ///< The vector to take the scalar product with
+          )
+  {
+    boost::multi_array<double, 2> basis_dot_v_quad(boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]]);
+    std::transform(basis_quad.origin(), basis_quad.origin() + basis_quad.num_elements(),
+                   basis_dot_v_quad.origin(), [&v](const Value &x) -> double { return scalar_product(x,v); });
+    return basis_dot_v_quad;
+  }
   
   /// \f$L^2\f$-orthonormalization: simply consists in using gram_schmidt() with the specific l2 inner product
   template<typename BasisType>
@@ -800,12 +1615,10 @@ namespace HArDCore2D
   }
 
   //------------------------------------------------------------------------------
-  //      Gram matrices
+  //      GRAM MATRICES
   //------------------------------------------------------------------------------
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. This templated function is very generic, and thus not
-  /// the most efficient. More efficient overloads are provided for double- or Vector2d-valued families
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. This templated function is very generic, and thus not the most efficient. More efficient overloads are provided for double- or Vector2d-valued families
   template<typename FunctionValue>
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<FunctionValue, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<FunctionValue, 2> & B2, ///< Second family at quadrature nodes
@@ -857,9 +1670,7 @@ namespace HArDCore2D
     return M;
   }
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. This version calls the generic one with nrows = nb of elements in family B1
-  /// and ncols = nb of elements in family B2.
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. This version calls the generic one with nrows = nb of elements in family B1 and ncols = nb of elements in family B2.
   template<typename FunctionValue>
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<FunctionValue, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<FunctionValue, 2> & B2, ///< Second family at quadrature nodes
@@ -870,8 +1681,7 @@ namespace HArDCore2D
     return compute_gram_matrix<FunctionValue>(B1, B2, qr, B1.shape()[0], B2.shape()[0], sym);
   }
 
-  /// Compute the Gram matrix given the evaluation of one family of functions
-  /// at quadrature nodes. Consists in calling the generic templated version with B1=B2.
+  /// Compute the Gram matrix given the evaluation of one family of functions at quadrature nodes. Consists in calling the generic templated version with B1=B2.
   template<typename FunctionValue>
   inline Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<FunctionValue, 2> & B, ///< Family at quadrature nodes
 				      const QuadratureRule & qr        ///< Quadrature rule used for evaluation
@@ -880,16 +1690,13 @@ namespace HArDCore2D
     return compute_gram_matrix<FunctionValue>(B, B, qr, "sym");
   }
 
-  /// Compute the Gram-like matrix given a family of vector-valued and one of
-  /// scalar-valued functions by tensorizing the latter
+  /// Compute the Gram-like matrix given a family of vector-valued and one of scalar-valued functions by tensorizing the latter
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1,  ///< First family at quadrature nodes
 				      const boost::multi_array<double, 2> & B2,         ///< Second family (to be tensorized) at quadrature nodes
 				      const QuadratureRule & qr                  ///< Quadrature rule used for evaluation
 				      );
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. This version is an overload for double-valued families, more efficient
-  /// than the generic templated version.
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for double-valued families, more efficient than the generic templated version.
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<double, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<double, 2> & B2, ///< Second family at quadrature nodes
 				      const QuadratureRule & qr,        ///< Quadrature rule used for evaluation
@@ -898,18 +1705,14 @@ namespace HArDCore2D
 				      const std::string sym = "nonsym"     ///< Optional. "sym" to indicate that the matrix is symmetric (B1=B2)
 				      );
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. Consists in calling the double-valued version with nrows = nb of elements in B1, 
-  /// ncols = nb of elements in B2
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the double-valued version with nrows = nb of elements in B1, ncols = nb of elements in B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<double, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<double, 2> & B2, ///< Second family at quadrature nodes
 				      const QuadratureRule & qr,        ///< Quadrature rule used for evaluation
 				      const std::string sym = "nonsym"     ///< Optional. "sym" to indicate that the matrix is symmetric (B1=B2)
 				      );
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. This version is an overload for Vector2d-valued families, more efficient
-  /// than the generic templated version.
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. This version is an overload for Vector2d-valued families, more efficient than the generic templated version.
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<VectorRd, 2> & B2, ///< Second family at quadrature nodes
 				      const QuadratureRule & qr,        ///< Quadrature rule used for evaluation
@@ -918,20 +1721,38 @@ namespace HArDCore2D
 				      const std::string sym = "nonsym"     ///< Optional. "sym" to indicate that the matrix is symmetric (B1=B2)
 				      );
 
-  /// Compute the Gram-like matrix given the evaluation of two families of
-  /// functions at quadrature nodes. Consists in calling the Vector2d-valued version with nrows = nb of elements in B1, 
-  /// ncols = nb of elements in B2
+  /// Compute the Gram-like matrix given the evaluation of two families of functions at quadrature nodes. Consists in calling the Vector2d-valued version with nrows = nb of elements in B1, ncols = nb of elements in B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1, ///< First family at quadrature nodes
 				      const boost::multi_array<VectorRd, 2> & B2, ///< Second family at quadrature nodes
 				      const QuadratureRule & qr,        ///< Quadrature rule used for evaluation
 				      const std::string sym = "nonsym"     ///< Optional. "sym" to indicate that the matrix is symmetric (B1=B2)
 				      );
+				      
+  /// Compute the Gram-like matrix for a MatrixFamily. This overload is more efficient than the generic function as it only computes the gram matrix of the underlying scalar family, and then creates the bloc-diagonal gram matrix of the MatrixFamily (which is indeed bloc diagonal given the choice of m_E elements in this class).
+  template<typename ScalarFamilyType, size_t N>
+  Eigen::MatrixXd compute_gram_matrix(const MatrixFamily<ScalarFamilyType, N> & MatFam, ///< Matrix family
+              const boost::multi_array<double, 2> & scalar_family_quad, ///< values of the underlying scalar family at quadrature nodes
+				      const QuadratureRule & qr        ///< Quadrature rule used for evaluation
+				     )
+	{
+	  Eigen::MatrixXd Gram = Eigen::MatrixXd::Zero(MatFam.dimension(), MatFam.dimension());
+	
+	  // Gram matrix of the scalar family
+    Eigen::MatrixXd scalarGram = compute_gram_matrix<double>(scalar_family_quad, qr);
+    for (size_t i = 0; i < MatFam.dimension(); i = i+scalarGram.rows()){
+  	  Gram.block(i, i, scalarGram.rows(), scalarGram.cols()) = scalarGram;
+    }	
+    
+    return Gram;
+	}
+				      
 
-  /// Compute the integral of a given function against all functions from a family
+  /// Compute the integral of a given function against all functions from a family. 
+  /** Possible types for T are those for which we have a "scalar_product" function (currently: double, VectorRd, MatrixRd) **/
   template <typename T>
   Eigen::VectorXd integrate(
-      const FType<T> &f,        ///< Function to be integrated. Possible types of T are double and VectorRd
-      const BasisQuad<T> &B,    ///< Family of basis functions at quadrature nodes. Possible types of T are double and VectorRd
+      const FType<T> &f,        ///< Function to be integrated.
+      const BasisQuad<T> &B,    ///< Family of basis functions at quadrature nodes.
       const QuadratureRule &qr, ///< Quadrature rule
       size_t n_rows = 0         ///< Optional argument for number of basis functions to be integrated. Default integrates all in the family.
   )
@@ -1049,6 +1870,65 @@ namespace HArDCore2D
       size_t n_rows = 0,             ///< Optional argument for number of functions from scalar family to be integrated against. Default integrates whole family
       size_t n_cols = 0              ///< Optional argument for number of functions from vector family to be integrated against. Default integrates whole family
   );
+  
+  /// Computes closure equation matrices, from evaluations at quadrature nodes. For two families of functions \f$(f_i)\f$ and \f$(g_j)\f$ with values in some space E, this routine computes the matrix \f$(\int f_i)\cdot(\int g_j)\f$ where \f$\cdot\f$ is the dot product in E
+  template <typename Value>
+  Eigen::MatrixXd compute_closure_matrix(
+      const boost::multi_array<Value, 2> & f_quad, ///< Evaluations of the functions \f$(f_i)\f$ at the quadrature nodes
+      const boost::multi_array<Value, 2> & g_quad, ///< Evaluations of the functions \f$(g_j)\f$ at the quadrature nodes
+      const QuadratureRule & qr_f,                 ///< quadrature rule for integration of f_i
+      const QuadratureRule & qr_g                  ///< quadrature rule for integration of g_i
+      )
+  {
+    const size_t dimf = f_quad.shape()[0];
+    const size_t dimg = g_quad.shape()[0];
+    Eigen::MatrixXd M = Eigen::MatrixXd::Zero(dimf, dimg);
+  
+    std::vector<Value> int_f(dimf);
+    for (size_t i = 0; i < dimf; i++){
+      int_f[i] = qr_f[0].w * f_quad[i][0];
+      for (size_t iqn = 1; iqn < qr_f.size(); iqn++){
+        int_f[i] += qr_f[iqn].w * f_quad[i][iqn];
+      }      
+    }
+    std::vector<Value> int_g(dimg);
+    for (size_t j = 0; j < dimg; j++){
+      int_g[j] = qr_g[0].w * g_quad[j][0];
+      for (size_t iqn = 1; iqn < qr_g.size(); iqn++){
+        int_g[j] += qr_g[iqn].w * g_quad[j][iqn];
+      }      
+    }
+    
+    // Compute (int w_i) and create dot product with (int w_j) for j<=i, then fill in M by symmetry
+    for (size_t i = 0; i < dimf; i++){
+      for (size_t j = 0; j < dimg; j++){
+        M(i,j) = scalar_product(int_f[i], int_g[j]);
+      }
+    }
+  
+    return M;  
+  }
+
+  /// Computes closure equation matrices. Overload of the previous one when qr_f=qr_g
+  template <typename Value>
+  Eigen::MatrixXd compute_closure_matrix(
+      const boost::multi_array<Value, 2> & f_quad, ///< Evaluations of the functions \f$(f_i)\f$ at the quadrature nodes
+      const boost::multi_array<Value, 2> & g_quad, ///< Evaluations of the functions \f$(g_j)\f$ at the quadrature nodes
+      const QuadratureRule & qr                    ///< quadrature rule for integration
+      )
+  {
+    return compute_closure_matrix(f_quad, g_quad, qr, qr);
+  }
+
+  /// Computes closure equation matrices. Overload of the previous one when f=g
+  template <typename Value>
+  Eigen::MatrixXd compute_closure_matrix(
+      const boost::multi_array<Value, 2> & f_quad, ///< Evaluations of the functions \f$(f_i)\f$ at the quadrature nodes
+      const QuadratureRule & qr                    ///< quadrature rule for integration
+      )
+  {
+    return compute_closure_matrix(f_quad, f_quad, qr, qr);
+  }
 
   //------------------------------------------------------------------------------
   //        L2 projection of a function
@@ -1067,7 +1947,7 @@ namespace HArDCore2D
     Eigen::VectorXd b = Eigen::VectorXd::Zero(basis.dimension());
     for (size_t i = 0; i < basis.dimension(); i++) {
       for (size_t iqn = 0; iqn < quad.size(); iqn++) {
-	b(i) += quad[iqn].w * scalar_product(f(quad[iqn].vector()), basis_quad[i][iqn]);
+	      b(i) += quad[iqn].w * scalar_product(f(quad[iqn].vector()), basis_quad[i][iqn]);
       } // for iqn
     } // for i
     return cholesky_mass.solve(b);

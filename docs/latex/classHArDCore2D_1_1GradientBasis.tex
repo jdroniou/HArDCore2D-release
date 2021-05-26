@@ -2,6 +2,11 @@
 \label{classHArDCore2D_1_1GradientBasis}\index{HArDCore2D::GradientBasis$<$ BasisType $>$@{HArDCore2D::GradientBasis$<$ BasisType $>$}}
 
 
+Basis for the space of gradients of polynomials.  
+
+
+
+
 {\ttfamily \#include $<$basis.\+hpp$>$}
 
 \doxysubsection*{Public Types}
@@ -45,7 +50,9 @@ static const bool {\bfseries has\+Divergence} = false
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
 class H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}
 
-Basis for the space of gradients of polynomials. It assumes that the first function of the scalar basis is constant 
+Basis for the space of gradients of polynomials. 
+
+To construct a basis of G$^\wedge$k, this assumes that the scalar basis it is constructed from is a basis of P$^\wedge$\{k+1\}/\+P$^\wedge$0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.\+g. polynomials with zero average, or a hierarchical basis of P$^\wedge$\{k+1\} in which we have removed the first, constant, polynomial) 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

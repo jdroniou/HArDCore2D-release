@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -128,7 +135,7 @@ const boost::multi_array&lt; VectorRd, 2 &gt; &amp;&#160;</td><td class="memItem
 <tr class="memdesc:gaada65c8bf767b946fe72c466071698f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns values of gradients of cell basis functions at edge quadrature nodes, for edge with local number ilF. <br /></td></tr>
 <tr class="separator:gaada65c8bf767b946fe72c466071698f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3c549d43c0a5171d0c14f6b56ffc843d"><td class="memItemLeft" align="right" valign="top">boost::multi_array&lt; VectorRd, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga3c549d43c0a5171d0c14f6b56ffc843d">HArDCore2D::ElementQuad::get_vec_phiT_quadT</a> (size_t degree) const</td></tr>
-<tr class="memdesc:ga3c549d43c0a5171d0c14f6b56ffc843d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: <img class="formulaInl" alt="$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$" src="form_74.png"/>.  <a href="group__HybridCore.html#ga3c549d43c0a5171d0c14f6b56ffc843d">More...</a><br /></td></tr>
+<tr class="memdesc:ga3c549d43c0a5171d0c14f6b56ffc843d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: \((\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)\).  <a href="group__HybridCore.html#ga3c549d43c0a5171d0c14f6b56ffc843d">More...</a><br /></td></tr>
 <tr class="separator:ga3c549d43c0a5171d0c14f6b56ffc843d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad470965a0f66f62c1ffed045e2dd49fc"><td class="memItemLeft" align="right" valign="top">boost::multi_array&lt; VectorRd, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gad470965a0f66f62c1ffed045e2dd49fc">HArDCore2D::ElementQuad::get_vec_phiT_quadF</a> (size_t ilF, size_t degree) const</td></tr>
 <tr class="memdesc:gad470965a0f66f62c1ffed045e2dd49fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds on the fly the values of vector cell basis functions at edge quadrature nodes. The vector basis is obtained by tensorization of the scalar one as in get_vec_phiT_quadT.  <a href="group__HybridCore.html#gad470965a0f66f62c1ffed045e2dd49fc">More...</a><br /></td></tr>
@@ -459,7 +466,7 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: <img class="formulaInl" alt="$(\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)$" src="form_74.png"/>. </p>
+<p>Builds on the fly the values of vector cell basis functions at cell quadrature nodes. The vector basis is obtained by tensorization of the scalar one: \((\phi_1,0), (\phi_2,0), ..., (\phi_N,0), (0,\phi_1), (0,\phi_2) ... (0,\phi_N)\). </p>
 <dl class="section return"><dt>Returns</dt><dd>vec_phiT_quadT such that, for r=0,..,dim-1 and i=0,..,DimPoly&lt;Cell&gt;(degree)-1, vec_phiT_quadT[r*DimPoly&lt;Cell&gt;(degree)-1 + i] has, on its row r, the values of the i-th scalar basis function at the quadrature nodes, and 0 on its other rows. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

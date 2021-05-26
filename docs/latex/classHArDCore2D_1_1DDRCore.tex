@@ -1,0 +1,57 @@
+\hypertarget{classHArDCore2D_1_1DDRCore}{}\doxysection{H\+Ar\+D\+Core2D\+::D\+D\+R\+Core Class Reference}
+\label{classHArDCore2D_1_1DDRCore}\index{HArDCore2D::DDRCore@{HArDCore2D::DDRCore}}
+
+
+Construct all polynomial spaces for the D\+DR sequence.  
+
+
+
+
+{\ttfamily \#include $<$ddrcore.\+hpp$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1CellBases}{Cell\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store element bases. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1EdgeBases}{Edge\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store edge bases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ {\bfseries Poly\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1RestrictedBasis}{Restricted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$, 2 $>$ {\bfseries Poly2\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1GradientBasis}{Gradient\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ $>$ $>$ {\bfseries Goly\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1GolyComplBasisCell}{Goly\+Compl\+Basis\+Cell}} $>$ {\bfseries Goly\+Compl\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1CurlBasis}{Curl\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ $>$ $>$ {\bfseries Roly\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1RolyComplBasisCell}{Roly\+Compl\+Basis\+Cell}} $>$ {\bfseries Roly\+Compl\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}} $>$ {\bfseries Poly\+Edge\+Basis\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__DDRCore_ga5f49b71bcd21c0c569a59ade78f05fdd}{D\+D\+R\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__DDRCore_gad091132d4dbad9ef23e7f2e8ba2a42a4}{mesh}}, size\+\_\+t K, bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__DDRCore_gad091132d4dbad9ef23e7f2e8ba2a42a4}{mesh}} () const
+\begin{DoxyCompactList}\small\item\em Return a const reference to the mesh. \end{DoxyCompactList}\item 
+const size\+\_\+t \& \mbox{\hyperlink{group__DDRCore_ga726d75f4ccb5670a6af8a3d967b6dc04}{degree}} () const
+\begin{DoxyCompactList}\small\item\em Return the polynomial degree. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1CellBases}{Cell\+Bases}} \& \mbox{\hyperlink{group__DDRCore_ga6db513396328a503e520d2337c6adb4a}{cell\+Bases}} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Return cell bases for element iT. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1DDRCore_1_1EdgeBases}{Edge\+Bases}} \& \mbox{\hyperlink{group__DDRCore_gade4ac7d6dd662308a7bfe86f158ca2d1}{edge\+Bases}} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em Return edge bases for edge iE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Construct all polynomial spaces for the D\+DR sequence. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+D\+D\+R\+Core/ddrcore.\+hpp\item 
+src/\+D\+D\+R\+Core/ddrcore.\+cpp\end{DoxyCompactItemize}

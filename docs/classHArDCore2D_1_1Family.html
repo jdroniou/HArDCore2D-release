@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -109,18 +116,34 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga15a1f56b9bb54f849ebaf4a66f75907d">function</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga15a1f56b9bb54f849ebaf4a66f75907d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th function at point x. <br /></td></tr>
 <tr class="separator:ga15a1f56b9bb54f849ebaf4a66f75907d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac54950ab44f2fbd6e95a6f1e196fcf53"><td class="memItemLeft" align="right" valign="top">
+FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gac54950ab44f2fbd6e95a6f1e196fcf53">function</a> (size_t i, size_t iqn, const boost::multi_array&lt; FunctionValue, 2 &gt; &amp;ancestor_value_quad) const</td></tr>
+<tr class="memdesc:gac54950ab44f2fbd6e95a6f1e196fcf53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
+<tr class="separator:gac54950ab44f2fbd6e95a6f1e196fcf53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga05b9845ad5b44a743ae7e8223a897447"><td class="memItemLeft" align="right" valign="top">
 GradientValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga05b9845ad5b44a743ae7e8223a897447">gradient</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga05b9845ad5b44a743ae7e8223a897447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th function at point x. <br /></td></tr>
 <tr class="separator:ga05b9845ad5b44a743ae7e8223a897447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga525278d350aa0742fef160f3592b5de6"><td class="memItemLeft" align="right" valign="top">
+GradientValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga525278d350aa0742fef160f3592b5de6">gradient</a> (size_t i, size_t iqn, const boost::multi_array&lt; GradientValue, 2 &gt; &amp;ancestor_gradient_quad) const</td></tr>
+<tr class="memdesc:ga525278d350aa0742fef160f3592b5de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
+<tr class="separator:ga525278d350aa0742fef160f3592b5de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9f44b487b46df0e9cf83b175ae0ae3b3"><td class="memItemLeft" align="right" valign="top">
 CurlValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga9f44b487b46df0e9cf83b175ae0ae3b3">curl</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga9f44b487b46df0e9cf83b175ae0ae3b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the curl of the i-th function at point x. <br /></td></tr>
 <tr class="separator:ga9f44b487b46df0e9cf83b175ae0ae3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3e001e54bd8f3b2d272ceefeb4f23b6"><td class="memItemLeft" align="right" valign="top">
+CurlValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gab3e001e54bd8f3b2d272ceefeb4f23b6">curl</a> (size_t i, size_t iqn, const boost::multi_array&lt; CurlValue, 2 &gt; &amp;ancestor_curl_quad) const</td></tr>
+<tr class="memdesc:gab3e001e54bd8f3b2d272ceefeb4f23b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the curl of the i-th function at a quadrature point iqn, knowing all the curls of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
+<tr class="separator:gab3e001e54bd8f3b2d272ceefeb4f23b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86a0fd0d5391607f156b3c27be6d7164"><td class="memItemLeft" align="right" valign="top">
 DivergenceValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga86a0fd0d5391607f156b3c27be6d7164">divergence</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga86a0fd0d5391607f156b3c27be6d7164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the divergence of the i-th function at point x. <br /></td></tr>
 <tr class="separator:ga86a0fd0d5391607f156b3c27be6d7164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0744d69d4277d2251248d9bbfe5ae97"><td class="memItemLeft" align="right" valign="top">
+DivergenceValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gab0744d69d4277d2251248d9bbfe5ae97">divergence</a> (size_t i, size_t iqn, const boost::multi_array&lt; DivergenceValue, 2 &gt; &amp;ancestor_divergence_quad) const</td></tr>
+<tr class="memdesc:gab0744d69d4277d2251248d9bbfe5ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the divergence of the i-th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
+<tr class="separator:gab0744d69d4277d2251248d9bbfe5ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaf8f501609f30a03b0b167e381f6ac23"><td class="memItemLeft" align="right" valign="top">
 const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gaaf8f501609f30a03b0b167e381f6ac23">matrix</a> () const</td></tr>
 <tr class="memdesc:gaaf8f501609f30a03b0b167e381f6ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the coefficient matrix. <br /></td></tr>
@@ -152,7 +175,8 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDiver
 <div class="textblock"><h3>template&lt;typename BasisType&gt;<br />
 class HArDCore2D::Family&lt; BasisType &gt;</h3>
 
-<p><a class="el" href="classHArDCore2D_1_1Family.html">Family</a> of functions expressed as linear combination of the functions of a given basis. If <img class="formulaInl" alt="$(f_1,...,f_r)$" src="form_51.png"/> is the basis, then the family is <img class="formulaInl" alt="$(\phi_1,...,\phi_l)$" src="form_52.png"/> where <img class="formulaInl" alt="$\phi_i = \sum_j M_ij f_j$" src="form_53.png"/>. The matrix <img class="formulaInl" alt="$M$" src="form_54.png"/> is the member m_matrix. </p>
+<p><a class="el" href="classHArDCore2D_1_1Family.html">Family</a> of functions expressed as linear combination of the functions of a given basis</p>
+<p>If \((f_1,...,f_r)\) is the basis, then the family is \((\phi_1,...,\phi_l)\) where \(\phi_i = \sum_j M_ij f_j\). The matrix \(M\) is the member m_matrix. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

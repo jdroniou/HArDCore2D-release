@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -160,13 +167,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Nonlinearity. </p>
-<p>iTCR[0]=-1: <img class="formulaInl" alt="$f(u)=0$" src="form_32.png"/></p>
-<p>iTCR[0]=1: <img class="formulaInl" alt="$f(u)=u$" src="form_33.png"/></p>
-<p>iTCR[0]=2: <img class="formulaInl" alt="$f(u)=|u|^{m-1}u = |u|^m sign(u)$" src="form_34.png"/></p>
-<p>iTCR[0]=3: <img class="formulaInl" alt="$f(u)=max(u,0)^2$" src="form_35.png"/></p>
-<p>iTCR[0]=4: <img class="formulaInl" alt="$f(u)=(u+th)^+-th + eps u$" src="form_36.png"/></p>
-<p>iTCR[0]=5: <img class="formulaInl" alt="$f(u)=u$" src="form_33.png"/> truncated at 0 and th</p>
-<p>iTCR[0]=6: Classical Stefan <img class="formulaInl" alt="$f(s)=s$" src="form_37.png"/> if <img class="formulaInl" alt="$s&lt;0$" src="form_38.png"/>, <img class="formulaInl" alt="$f(s)=0$" src="form_39.png"/> if <img class="formulaInl" alt="$0\le s\le 1$" src="form_40.png"/>, <img class="formulaInl" alt="$f(s)=s-1$" src="form_41.png"/> if <img class="formulaInl" alt="$s&gt;1$" src="form_42.png"/>.</p>
+<p>iTCR[0]=-1: \(f(u)=0\)</p>
+<p>iTCR[0]=1: \(f(u)=u\)</p>
+<p>iTCR[0]=2: \(f(u)=|u|^{m-1}u = |u|^m sign(u)\)</p>
+<p>iTCR[0]=3: \(f(u)=max(u,0)^2\)</p>
+<p>iTCR[0]=4: \(f(u)=(u+th)^+-th + eps u\)</p>
+<p>iTCR[0]=5: \(f(u)=u\) truncated at 0 and th</p>
+<p>iTCR[0]=6: Classical Stefan \(f(s)=s\) if \(s&lt;0\), \(f(s)=0\) if \(0\le s\le 1\), \(f(s)=s-1\) if \(s&gt;1\).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>"type" = "fct" for the function itself, "nlin" for the nonlinear part gamma such that fct(u) = gamma(u) u, "der" for derivative, "hess" for 2nd derivative </td></tr>

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -133,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ga26cf2df3130caf5758845f5c63d9e677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes non-conforming basis functions at the given quadrature nodes.  <a href="group__LEPNC.html#ga26cf2df3130caf5758845f5c63d9e677">More...</a><br /></td></tr>
 <tr class="separator:ga26cf2df3130caf5758845f5c63d9e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga45ee3494e636432ae9077f582c0d53c0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; Eigen::ArrayXXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">grad_nc_basis_quad</a> (const size_t iT, const QuadratureRule quad) const</td></tr>
-<tr class="memdesc:ga45ee3494e636432ae9077f582c0d53c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <img class="formulaInl" alt="$(\nabla \phi_i^{nc})_{i\in I}$" src="form_7.png"/> at the quadrature nodes, where <img class="formulaInl" alt="$(\phi_i^{nc})_{i\in I}$" src="form_8.png"/> are the cell basis functions.  <a href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">More...</a><br /></td></tr>
+<tr class="memdesc:ga45ee3494e636432ae9077f582c0d53c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute \((\nabla \phi_i^{nc})_{i\in I}\) at the quadrature nodes, where \((\phi_i^{nc})_{i\in I}\) are the cell basis functions.  <a href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">More...</a><br /></td></tr>
 <tr class="separator:ga45ee3494e636432ae9077f582c0d53c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1741161cc8f8fa172bc5d5e4e2573e05"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LEPNC.html#ga1741161cc8f8fa172bc5d5e4e2573e05">gram_matrix</a> (const std::vector&lt; Eigen::ArrayXd &gt; &amp;f_quad, const std::vector&lt; Eigen::ArrayXd &gt; &amp;g_quad, const size_t &amp;nrows, const size_t &amp;ncols, const QuadratureRule &amp;quad, const bool &amp;sym, std::vector&lt; double &gt; L2weight={}) const</td></tr>
 <tr class="separator:ga1741161cc8f8fa172bc5d5e4e2573e05"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -65,6 +72,24 @@ $(function() {
 &#160;
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>DDRCore()
+: <a class="el" href="group__DDRCore.html#ga5f49b71bcd21c0c569a59ade78f05fdd">HArDCore2D::DDRCore</a>
+</li>
+<li>ddrCurl()
+: <a class="el" href="group__DDRCore.html#ga196a3264a48eb9a643163a9c6bd746b2">HArDCore2D::EXCurl</a>
+</li>
+<li>ddrPotential()
+: <a class="el" href="group__DDRCore.html#ga6450ac0be8a3787c35c71fc56bdb41b5">HArDCore2D::EXCurl</a>
+</li>
+<li>DDRSpace()
+: <a class="el" href="group__DDRCore.html#ga313575745306b3d8ba6089fba6a5fec0">HArDCore2D::DDRSpace</a>
+</li>
+<li>degree()
+: <a class="el" href="group__DDRCore.html#ga726d75f4ccb5670a6af8a3d967b6dc04">HArDCore2D::DDRCore</a>
+, <a class="el" href="group__DDRCore.html#gadd60a444cd3b2f5725d2e80343ff0a9e">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#ga8560e1e82f0ecc592523e36f8e753b95">HArDCore2D::XCurl</a>
+, <a class="el" href="group__DDRCore.html#ga30bfa0ba4c48c5a033bff6fbdee91e0f">HArDCore2D::XGrad</a>
+</li>
 <li>delt_solution()
 : <a class="el" href="classTestCaseTransient.html#ad7322854a22226263136288ae6c3a6a3">TestCaseTransient</a>
 </li>
@@ -87,13 +112,31 @@ $(function() {
 : <a class="el" href="group__Mesh.html#gaecd909db5f3ab863010382cf6b71ec58">HArDCore2D::Mesh</a>
 </li>
 <li>dimension()
-: <a class="el" href="group__Basis.html#ga385bf99cf8c3888a150ed53f410ae39f">HArDCore2D::Family&lt; BasisType &gt;</a>
+: <a class="el" href="group__Basis.html#gabcda5adad24a9e075e75817a1f9726d6">HArDCore2D::CurlBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Common.html#ga4be3d02fb87a2959b02875b99a8ad0f8">HArDCore2D::DOFSpace</a>
+, <a class="el" href="group__Basis.html#ga385bf99cf8c3888a150ed53f410ae39f">HArDCore2D::Family&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga55d9d9b8fd25fb21696fc89cd8a06537">HArDCore2D::GolyComplBasisCell</a>
 , <a class="el" href="group__Basis.html#ga013a7a8c18e05623b1c9f6562f80c9e6">HArDCore2D::GradientBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga18ef022103db3d80a1d39684e3242877">HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</a>
 , <a class="el" href="group__Basis.html#ga79a3220472fbc88d100be37ea1503d3e">HArDCore2D::MonomialScalarBasisCell</a>
 , <a class="el" href="group__Basis.html#gae546ece15c11ddb4382aa47c50fdd53c">HArDCore2D::MonomialScalarBasisEdge</a>
 , <a class="el" href="group__Basis.html#ga5128f2da3cb58784d6ee7f4dffcacb90">HArDCore2D::RestrictedBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga6fb047c68c998f2592196b6caf5a837f">HArDCore2D::RolyComplBasisCell</a>
 , <a class="el" href="group__Basis.html#ga74ebe98de6bd42447c4743c784e8c601">HArDCore2D::ShiftedBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga0d1966f512373c5dafb83eaaa863e780">HArDCore2D::TangentFamily&lt; ScalarFamilyType &gt;</a>
 , <a class="el" href="group__Basis.html#gabdcbe0043887c0aa46065409f1731a83">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
+</li>
+<li>dimensionCell()
+: <a class="el" href="group__Common.html#ga323aa42f83110b711b7bb9534a076e5d">HArDCore2D::DOFSpace</a>
+</li>
+<li>dimensionEdge()
+: <a class="el" href="group__Common.html#gac60b2f599ca2dcb2cd93bbcb95db0dac">HArDCore2D::DOFSpace</a>
+</li>
+<li>dimensionSpace()
+: <a class="el" href="group__DDR__rmplate.html#gae1532454da484ab96193b1e9a64a8509">HArDCore2D::ReissnerMindlin</a>
+</li>
+<li>dimensionVertex()
+: <a class="el" href="group__Common.html#ga99aa396da2fc535a937124288f1a2518">HArDCore2D::DOFSpace</a>
 </li>
 <li>div_advec()
 : <a class="el" href="classTestCase.html#a8958384f20a6b4ddfaf401d6f467a9e5">TestCase</a>
@@ -107,10 +150,15 @@ $(function() {
 : <a class="el" href="classTestCaseTransient.html#a13c99ab8100baf9f6df01c595e6c47bf">TestCaseTransient</a>
 </li>
 <li>divergence()
-: <a class="el" href="group__Basis.html#ga86a0fd0d5391607f156b3c27be6d7164">HArDCore2D::Family&lt; BasisType &gt;</a>
+: <a class="el" href="group__Basis.html#gab0744d69d4277d2251248d9bbfe5ae97">HArDCore2D::Family&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga422fbebf3d2c594f579e5cb4be4d5cf0">HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</a>
 , <a class="el" href="group__Basis.html#gaa273301688a05d4f7e38cda0d1277212">HArDCore2D::RestrictedBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#gac105c6743fce4e5fb3fc799d80086bbf">HArDCore2D::RolyComplBasisCell</a>
 , <a class="el" href="group__Basis.html#ga84d8719be3260330c3c2e80dbf1b4eed">HArDCore2D::ShiftedBasis&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga6e852fda44755e4ca0a8ffac94d97d16">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
+</li>
+<li>DOFSpace()
+: <a class="el" href="group__Common.html#ga7fa424982691351012ebeb83aff71127">HArDCore2D::DOFSpace</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -26,12 +26,20 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_ga385bf99cf8c3888a150ed53f410ae39f}{di
 \begin{DoxyCompactList}\small\item\em Dimension of the family. This is actually the number of functions in the family, not necessarily linearly independent. \end{DoxyCompactList}\item 
 Function\+Value \mbox{\hyperlink{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at point x. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}{function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at point x. \end{DoxyCompactList}\item 
+Gradient\+Value \mbox{\hyperlink{group__Basis_ga525278d350aa0742fef160f3592b5de6}{gradient}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Gradient\+Value, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Curl\+Value \mbox{\hyperlink{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at point x. \end{DoxyCompactList}\item 
+Curl\+Value \mbox{\hyperlink{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}{curl}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Curl\+Value, 2 $>$ \&ancestor\+\_\+curl\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at a quadrature point iqn, knowing all the curls of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 Divergence\+Value \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at point x. \end{DoxyCompactList}\item 
+Divergence\+Value \mbox{\hyperlink{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Divergence\+Value, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 const Eigen\+::\+Matrix\+Xd \& \mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{matrix}} () const
 \begin{DoxyCompactList}\small\item\em Return the coefficient matrix. \end{DoxyCompactList}\item 
 const Basis\+Type \& \mbox{\hyperlink{group__Basis_ga1f618ff125041ebcfb88db2f4373d37e}{ancestor}} () const
@@ -55,7 +63,9 @@ static const bool {\bfseries has\+Divergence} = Basis\+Type\+::has\+Divergence
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
 class H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}
 
-\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of functions expressed as linear combination of the functions of a given basis. If $(f_1,...,f_r)$ is the basis, then the family is $(\phi_1,...,\phi_l)$ where $\phi_i = \sum_j M_ij f_j$. The matrix $M$ is the member m\+\_\+matrix. 
+\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of functions expressed as linear combination of the functions of a given basis
+
+If $(f_1,...,f_r)$ is the basis, then the family is $(\phi_1,...,\phi_l)$ where $\phi_i = \sum_j M_ij f_j$. The matrix $M$ is the member m\+\_\+matrix. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

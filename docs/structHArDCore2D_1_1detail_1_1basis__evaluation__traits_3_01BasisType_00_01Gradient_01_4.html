@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -86,6 +93,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:gafb1c26e922916f159b9e1eb123a0b53a"><td class="memItemLeft" align="right" valign="top">
 static ReturnValue&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const BasisType &amp;basis, size_t i, const VectorRd &amp;x)</td></tr>
 <tr class="separator:gafb1c26e922916f159b9e1eb123a0b53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace98edd94d6c29e818930dff7a2e07bd"><td class="memItemLeft" align="right" valign="top">
+static ReturnValue&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const BasisType &amp;basis, size_t i, size_t iqn, const boost::multi_array&lt; ReturnValue, 2 &gt; &amp;ancestor_gradient_quad)</td></tr>
+<tr class="separator:gace98edd94d6c29e818930dff7a2e07bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>

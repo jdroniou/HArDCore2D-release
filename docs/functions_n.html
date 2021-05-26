@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -83,7 +90,10 @@ $(function() {
 , <a class="el" href="group__Mesh.html#gaae4e6a646ff79f705428c9063736aee1">HArDCore2D::Vertex</a>
 </li>
 <li>n_dir_edges()
-: <a class="el" href="classBoundaryConditions.html#ad3c69b47183027c427ff6404875da645">BoundaryConditions</a>
+: <a class="el" href="group__BoundaryConditions.html#gad3c69b47183027c427ff6404875da645">BoundaryConditions</a>
+</li>
+<li>n_dir_vertices()
+: <a class="el" href="group__BoundaryConditions.html#ga3876e8bea5b2ef490e21cf1c0aa0f8db">BoundaryConditions</a>
 </li>
 <li>n_edge_dofs()
 : <a class="el" href="group__HybridCore.html#gad9c8979d99d1b65198460b9e2cd0e46a">HArDCore2D::UVector</a>
@@ -111,7 +121,10 @@ $(function() {
 , <a class="el" href="group__Mesh.html#ga64033a69394a8fa757ca097407ab5e0a">HArDCore2D::Vertex</a>
 </li>
 <li>name()
-: <a class="el" href="classBoundaryConditions.html#ac3609733d5e7e43e9240d0a8b05d17ba">BoundaryConditions</a>
+: <a class="el" href="group__BoundaryConditions.html#gac3609733d5e7e43e9240d0a8b05d17ba">BoundaryConditions</a>
+</li>
+<li>nb_bdryDOFs()
+: <a class="el" href="group__DDR__rmplate.html#ga8e4aadcb8a7290c6353f11d57e84f422">HArDCore2D::ReissnerMindlin</a>
 </li>
 <li>nc_basis()
 : <a class="el" href="group__LEPNC.html#gaccbc6dbe66d8f292e360c1f64d77d979">HArDCore2D::LEPNCCore</a>
@@ -160,6 +173,18 @@ $(function() {
 </li>
 <li>nonlinearity_function_type
 : <a class="el" href="classTestCaseNonLinearity.html#a3d8a5c89c517dd0d9c835b7441ee9b07">TestCaseNonLinearity</a>
+</li>
+<li>normal()
+: <a class="el" href="group__Mesh.html#gaeb458c39a11b58778bd7001b22272d3d">HArDCore2D::Edge</a>
+</li>
+<li>numLocalDofsCell()
+: <a class="el" href="group__Common.html#gaba517b11c1a754d05ccfb81fe972d007">HArDCore2D::DOFSpace</a>
+</li>
+<li>numLocalDofsEdge()
+: <a class="el" href="group__Common.html#ga3d2f3318a8240ba5854db6852dca585b">HArDCore2D::DOFSpace</a>
+</li>
+<li>numLocalDofsVertex()
+: <a class="el" href="group__Common.html#ga136ed047ad69e6cee6545cade991870a">HArDCore2D::DOFSpace</a>
 </li>
 </ul>
 </div><!-- contents -->

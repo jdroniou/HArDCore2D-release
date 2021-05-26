@@ -2,7 +2,7 @@
 #
 
 # Edge and cell degrees
-k=2
+k=1
 l=1
 
 # Use threads
@@ -44,12 +44,16 @@ solver_type="bicgstab"
 #mesh[3]="mesh3_4"
 #mesh[4]="mesh3_5"
 
-mesh[1]="mesh4_1_1"
-mesh[2]="mesh4_1_2"
-mesh[3]="mesh4_1_3"
+#mesh[1]="mesh4_1_1"
+#mesh[2]="mesh4_1_2"
+#mesh[3]="mesh4_1_3"
 #mesh[4]="mesh4_1_4"
 #mesh[5]="mesh4_1_5"
 #mesh[6]="mesh4_1_6"
+
+mesh[1]="Lshape_tri1_1"
+mesh[2]="Lshape_tri1_2"
+mesh[3]="Lshape_tri1_3"
 
 
 ###

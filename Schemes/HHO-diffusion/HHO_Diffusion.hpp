@@ -42,12 +42,12 @@
 #include <hybridcore.hpp>
 #include <elementquad.hpp>
 #include <parallel_for.hpp>
-#include <TestCase/BoundaryConditions.hpp>
+#include <BoundaryConditions/BoundaryConditions.hpp>
 #include "TestCase/TestCase.hpp"
 
 /*!
  * @defgroup HHO_Diffusion
- * @brief HHO scheme for diffusion equation -div(Diff grad u)=f, with Diff piecewise constant
+ * @brief HHO scheme for diffusion equation \f$-div(K\nabla u)=f\f$, with \f$K\f$ piecewise constant
  */
 
 namespace HArDCore2D {

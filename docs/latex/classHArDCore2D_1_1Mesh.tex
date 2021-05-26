@@ -35,11 +35,11 @@ size\+\_\+t \mbox{\hyperlink{group__Mesh_gacef44edcdc9f6d4d49d1508e7bc7ed2f}{n\+
 size\+\_\+t \mbox{\hyperlink{group__Mesh_ga38e8f0bf1414441ceef7e3b39526ac23}{n\+\_\+b\+\_\+vertices}} () const
 \begin{DoxyCompactList}\small\item\em number of boundary vertices \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Mesh_gae31711c40d2d9888a6e8ca906bd2cbea}{n\+\_\+i\+\_\+cells}} () const
-\begin{DoxyCompactList}\small\item\em number of boundary cells \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em number of interior cells \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Mesh_ga7650c95dec763d4aa3fcb44644229f0e}{n\+\_\+i\+\_\+edges}} () const
-\begin{DoxyCompactList}\small\item\em number of boundary edges \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em number of interior edges \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Mesh_ga209126a0e22bea2f597dbc844110123c}{n\+\_\+i\+\_\+vertices}} () const
-\begin{DoxyCompactList}\small\item\em number of boundary vertices \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em number of interior vertices \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{group__Mesh_gabae9df200fe23a302b3d01e4ff13f921}{get\+\_\+cells}} () const
 \begin{DoxyCompactList}\small\item\em lists the cells in the mesh. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} $\ast$ $>$ \mbox{\hyperlink{group__Mesh_ga9a2d7a3f9f870455465e1a9204ee3d53}{get\+\_\+edges}} () const
@@ -76,6 +76,8 @@ std\+::vector$<$ \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$ $>$
 \begin{DoxyCompactList}\small\item\em get a constant pointer to the i\+E-\/th interior edge \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$ \mbox{\hyperlink{group__Mesh_ga58578f5f723f5e589ba498f74ddcbf08}{i\+\_\+vertex}} (size\+\_\+t iV) const
 \begin{DoxyCompactList}\small\item\em get a constant pointer to the i\+V-\/th interior vertex \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Mesh_ga33ae13c577fbafd510f0406a986b61ce}{find\+\_\+cell}} (const Vector2d \&x)
+\begin{DoxyCompactList}\small\item\em returns the index of a cell that contains x (this function is a bit expensive) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga59082af6b1da515cdb99c4daacf5e2fd}{add\+\_\+cell}} (\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$\mbox{\hyperlink{group__Mesh_gae07b938c57cf57e3bb9c76d3df1eb549}{cell}})
 \begin{DoxyCompactList}\small\item\em adds a cell to the mesh \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga9dc43dcebaa54356ddbaa45fbd94fa1a}{add\+\_\+vertex}} (\mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$\mbox{\hyperlink{group__Mesh_gad099224c697c05a57fad6a47fdcd9e76}{vertex}})

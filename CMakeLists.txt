@@ -46,12 +46,14 @@ INCLUDE_DIRECTORIES(src/Quadrature)
 INCLUDE_DIRECTORIES(src/Common)
 INCLUDE_DIRECTORIES(src/HybridCore)
 INCLUDE_DIRECTORIES(src/Plot)
+INCLUDE_DIRECTORIES(src/DDRCore)
 
 ADD_SUBDIRECTORY(src/Mesh)
 ADD_SUBDIRECTORY(src/Quadrature)
 ADD_SUBDIRECTORY(src/Common)
 ADD_SUBDIRECTORY(src/HybridCore)
 ADD_SUBDIRECTORY(src/Plot)
+ADD_SUBDIRECTORY(src/DDRCore)
 
 #------------------------------------------------------------------------------#
 #                             Directories for schemes

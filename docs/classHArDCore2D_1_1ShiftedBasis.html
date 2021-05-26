@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -75,6 +82,9 @@ $(function() {
 <div class="title">HArDCore2D::ShiftedBasis&lt; BasisType &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__Basis.html">Basis</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Generate a basis where the function indices are shifted.  
+ <a href="classHArDCore2D_1_1ShiftedBasis.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="basis_8hpp_source.html">basis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -144,7 +154,8 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDiver
 <div class="textblock"><h3>template&lt;typename BasisType&gt;<br />
 class HArDCore2D::ShiftedBasis&lt; BasisType &gt;</h3>
 
-<p>Generate a basis where the function indices are shifted. Can be used, e.g., to ignore the constant function in scalar bases </p>
+<p>Generate a basis where the function indices are shifted. </p>
+<p>Can be used, e.g., to ignore the constant function in a hierarchical scalar basis </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

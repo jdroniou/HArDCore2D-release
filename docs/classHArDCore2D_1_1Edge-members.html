@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -81,9 +88,11 @@ $(function() {
   <tr><td class="entry"><a class="el" href="group__Mesh.html#ga72bedde2003c68d015c70326924b6d7f">get_cells</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#ga5315c7fa0058509166d75175660ed542">get_vertices</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="group__Mesh.html#ga774e975ebad5e6bdccf549215293d624">global_index</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">is_boundary</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">measure</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#ga0926b705b6169b73293e60e0c48e85f8">n_cells</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#gae9a42bef442e3c99fc204218266b71ca">index_vertex</a>(const Vertex *V) const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">is_boundary</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#ga6c00cbb57ddc2e80e3c07849eadc68a8">measure</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="group__Mesh.html#ga0926b705b6169b73293e60e0c48e85f8">n_cells</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#gaeb458c39a11b58778bd7001b22272d3d">normal</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="group__Mesh.html#ga150b8b31cd1b608d6ce8b020227a6db2">set_global_index</a>(size_t idx)</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7">tangent</a>() const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="group__Mesh.html#gade257bc049ec1f43751fc647e07ec052">vertex</a>(size_t i) const</td><td class="entry"><a class="el" href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></td><td class="entry"></td></tr>

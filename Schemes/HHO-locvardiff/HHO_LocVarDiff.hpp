@@ -42,7 +42,7 @@
 #include <hybridcore.hpp>
 #include <elementquad.hpp>
 #include <parallel_for.hpp>
-#include <TestCase/BoundaryConditions.hpp>
+#include <BoundaryConditions/BoundaryConditions.hpp>
 #include "TestCase/TestCase.hpp"
 
 /*!

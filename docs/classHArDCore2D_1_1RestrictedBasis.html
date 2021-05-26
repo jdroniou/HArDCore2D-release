@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -76,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Generate a basis restricted to the first "dimension" functions.  
+ <a href="classHArDCore2D_1_1RestrictedBasis.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="basis_8hpp_source.html">basis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -105,6 +115,10 @@ Public Member Functions</h2></td></tr>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga5128f2da3cb58784d6ee7f4dffcacb90">dimension</a> () const</td></tr>
 <tr class="memdesc:ga5128f2da3cb58784d6ee7f4dffcacb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the dimension of the basis. <br /></td></tr>
 <tr class="separator:ga5128f2da3cb58784d6ee7f4dffcacb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2c3c2be0cc528838e96a09ff1c0fe8d"><td class="memItemLeft" align="right" valign="top">
+const BasisType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gaf2c3c2be0cc528838e96a09ff1c0fe8d">ancestor</a> () const</td></tr>
+<tr class="memdesc:gaf2c3c2be0cc528838e96a09ff1c0fe8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the underlying complete basis. <br /></td></tr>
+<tr class="separator:gaf2c3c2be0cc528838e96a09ff1c0fe8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1d2d6afdd27878c524490c2e4a9f0bc7"><td class="memItemLeft" align="right" valign="top">
 FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga1d2d6afdd27878c524490c2e4a9f0bc7">function</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga1d2d6afdd27878c524490c2e4a9f0bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th basis function at point x. <br /></td></tr>
@@ -144,7 +158,8 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDiver
 <div class="textblock"><h3>template&lt;typename BasisType&gt;<br />
 class HArDCore2D::RestrictedBasis&lt; BasisType &gt;</h3>
 
-<p>Generate a basis restricted to the first "dimension" functions. This can be useful, e.g., to form bases of subspaces of a given space from a hierarchical basis of the latter </p>
+<p>Generate a basis restricted to the first "dimension" functions. </p>
+<p>This can be useful, e.g., to form bases of subspaces of a given space from a hierarchical basis of the latter </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

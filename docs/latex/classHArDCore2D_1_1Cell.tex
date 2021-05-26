@@ -32,16 +32,22 @@ std\+::vector$<$ \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$ $>$ \mb
 \begin{DoxyCompactList}\small\item\em returns the i\+L-\/th edge of the cell \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{group__Mesh_gadddfffa330938bd8ab624349722a0e4e}{neighbour}} (size\+\_\+t iL) const
 \begin{DoxyCompactList}\small\item\em returns the i\+L-\/th neighbour of the cell \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Mesh_ga64aa8d1d212339dc8e3222d36dc4c99f}{index\+\_\+edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} $\ast$E) const
+\begin{DoxyCompactList}\small\item\em reciprocal of edge(i)\+: returns the local index of edge E in the cell \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Mesh_ga97bc25d7764d00e93d3d2260636debed}{index\+\_\+vertex}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} $\ast$V) const
+\begin{DoxyCompactList}\small\item\em reciprocal of vertex(i)\+: returns the local index of vertex V in the cell \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga710ded03b7741c8377e0b2dda2395b46}{is\+\_\+boundary}} () const
 \begin{DoxyCompactList}\small\item\em returns true if cell touches the boundary \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__Mesh_gac19ec98507a18d255bd54b1e55b16653}{measure}} () const
 \begin{DoxyCompactList}\small\item\em returns area of cell \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__Mesh_ga84c743487088ebb64ca0c860329c7162}{diam}} () const
 \begin{DoxyCompactList}\small\item\em returns diameter of cell \end{DoxyCompactList}\item 
-Vector2d \mbox{\hyperlink{group__Mesh_gaf55d7a602439110ebbb3c9aee1895580}{edge\+\_\+normal}} (size\+\_\+t i)
+Vector2d \mbox{\hyperlink{group__Mesh_gaad9bc371c5c2669b3d3948e353f714f8}{edge\+\_\+normal}} (size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em returns the outer normal to the i-\/th edge \end{DoxyCompactList}\item 
 Vector2d \mbox{\hyperlink{group__Mesh_ga66b278b12266d5c5bfee8699886cc89b}{center\+\_\+mass}} () const
 \begin{DoxyCompactList}\small\item\em returns the center of mass of the cell \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Mesh_ga27a8932bdc987ee15a17a628d4cfe60e}{edge\+\_\+orientation}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns the relative orientation of the i-\/th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -\/1 otherwise). \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga6dfa6d2f4a0c971bc760538b73880a1c}{calc\+\_\+cell\+\_\+geometry\+\_\+factors}} ()
 \begin{DoxyCompactList}\small\item\em calculate cell diam, area etc \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga6e29b140b5f4a286ed694f2851fe76e1}{add\+\_\+neighbour}} (\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$neigh)

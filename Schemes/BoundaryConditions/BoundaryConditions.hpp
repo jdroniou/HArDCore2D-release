@@ -28,16 +28,18 @@
 using namespace HArDCore2D;
 
 /*!
-* @defgroup TestCases
-*	@brief Defines test cases (exact solutions, source terms, boundary condition, etc.)
+* @defgroup BoundaryConditions
+*	@brief Classes and functions to handle boundary conditions and associated numbering of unknowns
 */
 
 // ----------------------------------------------------------------------------
 //                            Class definition
 // ----------------------------------------------------------------------------
 
-// @addtogroup TestCases
-//@{
+  /*!
+   *	\addtogroup BoundaryConditions
+   * @{
+   */
 
 /// The BoundaryConditions class provides definition of boundary conditions
 class BoundaryConditions {
@@ -59,9 +61,19 @@ public:
     m_bc_id = "Mx" (x=0,1,...): various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman.
    **/
 
+	/// Test the boundary condition of a vertex
+	const std::string type(
+		const Vertex& vertex    ///< Vertex on which to check the boundary condition
+	) const ;
+
   /// Returns the number of Dirichlet edges
   inline const size_t n_dir_edges() const {
     return m_n_dir_edges;
+  };
+
+  /// Returns the number of Dirichlet vertices
+  inline const size_t n_dir_vertices() const {
+    return m_n_dir_vertices;
   };
 
   /// Returns the complete name of the boundary condition
@@ -77,16 +89,20 @@ public:
     exit(1);
   };
 
-  /// Re-order edges of the mesh to put the Dirichlet edges at the end
-  void reorder_edges();
+  /// Re-order edges of the mesh to put the Dirichlet edges at the position "pos" (=end or start)
+  void reorder_edges(const std::string pos = "end");
+
+  /// Re-order vertices of the mesh to put the Dirichlet vertices at the position "pos" (=end or start)
+  void reorder_vertices(const std::string pos = "end");
 
 private:
   // Parameters: id of boundary condition, reference to mesh
   const std::string m_bc_id;
   Mesh& m_mesh;
 
-  // Number of Dirichlet edges
+  // Number of Dirichlet edges and vertices
   size_t m_n_dir_edges;
+  size_t m_n_dir_vertices;
 
 };
 

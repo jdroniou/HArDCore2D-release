@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -108,12 +115,14 @@ Loading a mesh</h1>
 Schemes</h1>
 <p>The following schemes are currently available in HArD::Core2D. The Hybrid High-Order schemes follow the implementation principles described in Appendix B of the book available at <a href="https://hal.archives-ouvertes.fr/hal-02151813">https://hal.archives-ouvertes.fr/hal-02151813</a>.</p>
 <ul>
-<li><a class="el" href="group__HHO__Diffusion.html">HHO_diffusion</a>: Hybrid High-Order (HHO) for <img class="formulaInl" alt="$-\mathrm{div}(K\nabla u)=f$" src="form_0.png"/>, for Dirichlet, Neumann or mixed boundary conditions, with <img class="formulaInl" alt="$K$" src="form_1.png"/> a diffusion tensor that is piecewise constant on the mesh.</li>
-<li><a class="el" href="group__HHO__LocVarDiff.html">HHO_locvardiff</a>: HHO for <img class="formulaInl" alt="$-\mathrm{div}(K\nabla u)=f$" src="form_0.png"/>, for Dirichlet, Neumann or mixed boundary conditions, with <img class="formulaInl" alt="$K$" src="form_1.png"/> a diffusion tensor that can vary in each cell.</li>
-<li><a class="el" href="group__HHO__DiffAdvecReac.html">HHO_diffadvecreac</a>: Hybrid High-Order (HHO) for <img class="formulaInl" alt="$-\mathrm{div}(K\nabla u+\beta u)+\mu u=f$" src="form_2.png"/>, for Dirichlet or mixed boundary conditions, with <img class="formulaInl" alt="$K$" src="form_1.png"/> a diffusion tensor that is piecewise constant on the mesh.</li>
-<li><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME.html">LEPNC_StefanPME</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: Locally Enriched Polytopal Non-Conforming (LEPNC) method for the stationnary Stefan/PME problem <img class="formulaInl" alt="$u-\mathrm{div}(K\nabla\zeta(u))=f$" src="form_3.png"/>.</li>
-<li><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html">LEPNC_StefanPME_Transient</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: LEPNC for the transient Stefan/PME problem <img class="formulaInl" alt="$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$" src="form_4.png"/>.</li>
-<li><a class="el" href="classHArDCore2D_1_1HMM__StefanPME__Transient.html">HMM_StefanPME_Transient</a>, in module <a class="el" href="group__HMM.html">HMM</a>: Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem <img class="formulaInl" alt="$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$" src="form_4.png"/>.</li>
+<li><a class="el" href="group__HHO__Diffusion.html">HHO_diffusion</a>: Hybrid High-Order (HHO) for \(-\mathrm{div}(K\nabla u)=f\), for Dirichlet, Neumann or mixed boundary conditions, with \(K\) a diffusion tensor that is piecewise constant on the mesh.</li>
+<li><a class="el" href="group__HHO__LocVarDiff.html">HHO_locvardiff</a>: HHO for \(-\mathrm{div}(K\nabla u)=f\), for Dirichlet, Neumann or mixed boundary conditions, with \(K\) a diffusion tensor that can vary in each cell.</li>
+<li><a class="el" href="group__HHO__DiffAdvecReac.html">HHO_diffadvecreac</a>: Hybrid High-Order (HHO) for \(-\mathrm{div}(K\nabla u+\beta u)+\mu u=f\), for Dirichlet or mixed boundary conditions, with \(K\) a diffusion tensor that is piecewise constant on the mesh.</li>
+<li><a class="el" href="classHArDCore2D_1_1LEPNC__diffusion.html">LEPNC_diffusion</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: Locally Enriched Polytopal Non-Conforming (LEPNC) method for the pure diffusion problem \(-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
+<li><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME.html">LEPNC_StefanPME</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: Locally Enriched Polytopal Non-Conforming (LEPNC) method for the stationnary Stefan/PME problem \(u-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
+<li><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html">LEPNC_StefanPME_Transient</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: LEPNC for the transient Stefan/PME problem \(\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
+<li><a class="el" href="classHArDCore2D_1_1HMM__StefanPME__Transient.html">HMM_StefanPME_Transient</a>, in module <a class="el" href="group__HMM.html">HMM</a>: Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem \(\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
+<li><a class="el" href="group__DDR__rmplate.html">DDR_rmplate</a>: Discrete de Rham (DDR) scheme for the Reissner-Mindlin plate bending problem.</li>
 </ul>
 <p>The directory <code>runs</code> contains BASH to run series of tests on families of meshes. The files <code>data.sh</code> describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the <code>output</code> directory, including a pdf file <code>rate.pdf</code> describing the rates of convergence in various energy norms.</p>
 <p>To run the scripts as they are, you will need <code>pdflatex</code> and (for the LEPNC and HMM schemes) a FORTRAN compiler (adjust the <code>Makefile</code> to your compiler). </p>
@@ -122,7 +131,7 @@ Schemes</h1>
 <div class="ttc" id="agroup__Mesh_html_ga0ef4a78ac64d1bcb6380317ea866758d"><div class="ttname"><a href="group__Mesh.html#ga0ef4a78ac64d1bcb6380317ea866758d">HArDCore2D::MeshBuilder::build_the_mesh</a></div><div class="ttdeci">std::unique_ptr&lt; Mesh &gt; build_the_mesh(std::vector&lt; std::vector&lt; double &gt; &gt; vertices, std::vector&lt; std::vector&lt; size_t &gt; &gt; cells)</div><div class="ttdoc">construct the connectivity in the mesh</div><div class="ttdef"><b>Definition:</b> mesh_builder.cpp:14</div></div>
 <div class="ttc" id="aclassHArDCore2D_1_1HybridCore_html"><div class="ttname"><a href="classHArDCore2D_1_1HybridCore.html">HArDCore2D::HybridCore</a></div><div class="ttdef"><b>Definition:</b> hybridcore.hpp:167</div></div>
 <div class="ttc" id="aclassHArDCore2D_1_1MeshBuilder_html"><div class="ttname"><a href="classHArDCore2D_1_1MeshBuilder.html">HArDCore2D::MeshBuilder</a></div><div class="ttdoc">The MeshBuilder class provides build tools to create a full mesh with all connectivities.</div><div class="ttdef"><b>Definition:</b> mesh_builder.hpp:32</div></div>
-<div class="ttc" id="aclassBoundaryConditions_html"><div class="ttname"><a href="classBoundaryConditions.html">BoundaryConditions</a></div><div class="ttdoc">The BoundaryConditions class provides definition of boundary conditions.</div><div class="ttdef"><b>Definition:</b> BoundaryConditions.hpp:43</div></div>
+<div class="ttc" id="aclassBoundaryConditions_html"><div class="ttname"><a href="classBoundaryConditions.html">BoundaryConditions</a></div><div class="ttdoc">The BoundaryConditions class provides definition of boundary conditions.</div><div class="ttdef"><b>Definition:</b> BoundaryConditions.hpp:45</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

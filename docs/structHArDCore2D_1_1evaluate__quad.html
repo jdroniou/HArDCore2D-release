@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -74,6 +81,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Evaluate a basis at quadrature nodes. 'BasisFunction' (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate.  
+ <a href="structHArDCore2D_1_1evaluate__quad.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="basis_8hpp_source.html">basis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -84,14 +94,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ga687c3c9504c4b10c5a18654530980086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga06cedf0c3440b94b9974922c72ea7c11"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
 <tr class="memitem:ga06cedf0c3440b94b9974922c72ea7c11"><td class="memTemplItemLeft" align="right" valign="top">static boost::multi_array&lt; typename <a class="el" href="structHArDCore2D_1_1detail_1_1basis__evaluation__traits.html">detail::basis_evaluation_traits</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; BasisType &gt;, BasisFunction &gt;::ReturnValue, 2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga06cedf0c3440b94b9974922c72ea7c11">compute</a> (const <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; BasisType &gt; &amp;basis, const QuadratureRule &amp;quad)</td></tr>
+<tr class="memdesc:ga06cedf0c3440b94b9974922c72ea7c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a '<a class="el" href="classHArDCore2D_1_1Family.html">Family</a>' of functions at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)  <a href="group__Basis.html#ga06cedf0c3440b94b9974922c72ea7c11">More...</a><br /></td></tr>
 <tr class="separator:ga06cedf0c3440b94b9974922c72ea7c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e707628cf7f51dd4ecf63182eea847a"><td class="memTemplParams" colspan="2">template&lt;typename BasisType , size_t N&gt; </td></tr>
+<tr class="memitem:ga2e707628cf7f51dd4ecf63182eea847a"><td class="memTemplItemLeft" align="right" valign="top">static boost::multi_array&lt; typename <a class="el" href="structHArDCore2D_1_1detail_1_1basis__evaluation__traits.html">detail::basis_evaluation_traits</a>&lt; <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType, N &gt;, BasisFunction &gt;::ReturnValue, 2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga2e707628cf7f51dd4ecf63182eea847a">compute</a> (const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType, N &gt; &amp;basis, const QuadratureRule &amp;quad)</td></tr>
+<tr class="memdesc:ga2e707628cf7f51dd4ecf63182eea847a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a tensorized family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)  <a href="group__Basis.html#ga2e707628cf7f51dd4ecf63182eea847a">More...</a><br /></td></tr>
+<tr class="separator:ga2e707628cf7f51dd4ecf63182eea847a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77e7551793be854d7b654addf292aa6b"><td class="memTemplParams" colspan="2">template&lt;typename BasisType , size_t N&gt; </td></tr>
+<tr class="memitem:ga77e7551793be854d7b654addf292aa6b"><td class="memTemplItemLeft" align="right" valign="top">static boost::multi_array&lt; typename <a class="el" href="structHArDCore2D_1_1detail_1_1basis__evaluation__traits.html">detail::basis_evaluation_traits</a>&lt; <a class="el" href="classHArDCore2D_1_1MatrixFamily.html">MatrixFamily</a>&lt; BasisType, N &gt;, BasisFunction &gt;::ReturnValue, 2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga77e7551793be854d7b654addf292aa6b">compute</a> (const <a class="el" href="classHArDCore2D_1_1MatrixFamily.html">MatrixFamily</a>&lt; BasisType, N &gt; &amp;basis, const QuadratureRule &amp;quad)</td></tr>
+<tr class="memdesc:ga77e7551793be854d7b654addf292aa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a Matrix family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes)  <a href="group__Basis.html#ga77e7551793be854d7b654addf292aa6b">More...</a><br /></td></tr>
+<tr class="separator:ga77e7551793be854d7b654addf292aa6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;BasisFunctionE BasisFunction&gt;<br />
 struct HArDCore2D::evaluate_quad&lt; BasisFunction &gt;</h3>
 
-<p>Evaluate a basis at quadrature nodes. 'BasisFunction' determines what kind of value we want to evaluate (the function value of the basis, their gradients, etc.). <br  />
- </p>
+<p>Evaluate a basis at quadrature nodes. 'BasisFunction' (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

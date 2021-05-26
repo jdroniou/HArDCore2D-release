@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -71,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Basis evaluation traits. Only specializations are meaningful.  
+<p>Basis evaluation traits. Only specialization of 'BasisFunction' (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value we want to evaluate.  
  <a href="structHArDCore2D_1_1detail_1_1basis__evaluation__traits.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="basis_8hpp_source.html">basis.hpp</a>&gt;</code></p>
@@ -79,7 +86,8 @@ $(function() {
 <div class="textblock"><h3>template&lt;typename BasisType, BasisFunctionE BasisFunction&gt;<br />
 struct HArDCore2D::detail::basis_evaluation_traits&lt; BasisType, BasisFunction &gt;</h3>
 
-<p>Basis evaluation traits. Only specializations are meaningful. </p>
+<p>Basis evaluation traits. Only specialization of 'BasisFunction' (=Function, Gradient, Curl or Divergence) are relevant, and determines what kind of value we want to evaluate. </p>
+<p>Provides a uniform way of evaluating the value, gradient, curl or divergence of functions in a basis. Specializations for <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html" title="Vector family obtained by tensorization of a scalar family.">TensorizedVectorFamily</a> is also provided as it includes some additional information on the ancestor basis; this information is useful to optimise eval_quad for tensorized bases. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

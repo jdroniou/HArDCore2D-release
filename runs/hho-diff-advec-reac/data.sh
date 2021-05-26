@@ -11,8 +11,8 @@ tcreac=1
 plotfile="plot"
 
 # Order
-k=2
-l=2
+k=1
+l=1
 
 # Various
 use_threads="true"

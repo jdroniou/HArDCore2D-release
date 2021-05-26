@@ -184,7 +184,9 @@
 \chapter{Class Index}
 \input{annotated}
 \chapter{Module Documentation}
-\input{group__HHO__DiffAdvecReac}
+\input{group__BoundaryConditions}
+\include{group__DDR__rmplate}
+\include{group__HHO__DiffAdvecReac}
 \include{group__HHO__Diffusion}
 \include{group__HHO2D}
 \include{group__HHO__LocVarDiff}
@@ -192,6 +194,8 @@
 \include{group__LEPNC}
 \include{group__TestCases}
 \include{group__Basis}
+\include{group__Common}
+\include{group__DDRCore}
 \include{group__HybridCore}
 \include{group__Mesh}
 \include{group__Plot}
@@ -202,32 +206,61 @@
 \input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Divergence_01_4}
 \input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Function_01_4}
 \input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01BasisType_00_01Gradient_01_4}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01MatrixFamily_3_01ScalarBasisType_00_01N_01_4_00_01Divergence_01_4}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01MatrixFamily_3_01ScalarBasisType_00_01N_01_4_00_01Function_01_4}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBasd31a2a2e033dc1a2d8bfb1bebdbae788}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBase4be975204623d9c87fef8e9fa91274e}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBas627650c20ab630e5c0556c2092847348}
+\input{structHArDCore2D_1_1detail_1_1basis__evaluation__traits_3_01TensorizedVectorFamily_3_01ScalarBas69e65344def2843597d7b9dee040221a}
 \input{classBoundaryConditions}
 \input{classHArDCore2D_1_1Cell}
+\input{structHArDCore2D_1_1DDRCore_1_1CellBases}
+\input{classHArDCore2D_1_1CurlBasis}
+\input{classHArDCore2D_1_1DDRCore}
+\input{classHArDCore2D_1_1DDRSpace}
+\input{classHArDCore2D_1_1DOFSpace}
 \input{classHArDCore2D_1_1Edge}
+\input{structHArDCore2D_1_1DDRCore_1_1EdgeBases}
 \input{classHArDCore2D_1_1ElementQuad}
 \input{structHArDCore2D_1_1evaluate__quad}
+\input{classHArDCore2D_1_1EXCurl}
 \input{classHArDCore2D_1_1Family}
+\input{classHArDCore2D_1_1GolyComplBasisCell}
 \input{classHArDCore2D_1_1GradientBasis}
 \input{classHHO2D}
 \input{classHArDCore2D_1_1HHO__Diffusion}
 \input{classHArDCore2D_1_1HHO__LocVarDiff}
+\input{structHArDCore2D_1_1EXCurl_1_1hhoLocalOperators}
 \input{classHArDCore2D_1_1HMM__StefanPME__Transient}
 \input{classHArDCore2D_1_1HybridCore}
+\input{structHArDCore2D_1_1IntegralWeight}
 \input{classHArDCore2D_1_1LegendreGauss}
+\input{classHArDCore2D_1_1LEPNC__diffusion}
 \input{classHArDCore2D_1_1LEPNC__StefanPME}
 \input{classHArDCore2D_1_1LEPNC__StefanPME__Transient}
 \input{classHArDCore2D_1_1LEPNCCore}
+\input{structHArDCore2D_1_1XGrad_1_1LocalOperators}
+\input{structHArDCore2D_1_1XCurl_1_1LocalOperators}
+\input{classHArDCore2D_1_1MatrixFamily}
 \input{classHArDCore2D_1_1Mesh}
 \input{classHArDCore2D_1_1MeshBuilder}
 \input{classHArDCore2D_1_1MeshReaderTyp2}
+\input{structHArDCore2D_1_1MonomialPowers}
+\input{structHArDCore2D_1_1MonomialPowers_3_01Cell_01_4}
 \input{classHArDCore2D_1_1MonomialScalarBasisCell}
 \input{classHArDCore2D_1_1MonomialScalarBasisEdge}
+\input{structHArDCore2D_1_1PolynomialSpaceDimension}
+\input{structHArDCore2D_1_1PolynomialSpaceDimension_3_01Cell_01_4}
+\input{structHArDCore2D_1_1PolynomialSpaceDimension_3_01Edge_01_4}
 \input{structHArDCore2D_1_1QuadratureNode}
 \input{classHArDCore2D_1_1QuadRuleEdge}
 \input{classHArDCore2D_1_1QuadRuleTriangle}
+\input{structHArDCore2D_1_1ReissnerMindlin}
 \input{classHArDCore2D_1_1RestrictedBasis}
+\input{structHArDCore2D_1_1RMParameters}
+\input{classHArDCore2D_1_1RolyComplBasisCell}
 \input{classHArDCore2D_1_1ShiftedBasis}
+\input{classHArDCore2D_1_1TangentFamily}
 \input{classHArDCore2D_1_1TensorizedVectorFamily}
 \input{classTestCase}
 \input{classTestCaseNonLinearity}
@@ -236,6 +269,8 @@
 \input{classHArDCore2D_1_1UVector}
 \input{classHArDCore2D_1_1Vertex}
 \input{classHArDCore2D_1_1VtuWriter}
+\input{classHArDCore2D_1_1XCurl}
+\input{classHArDCore2D_1_1XGrad}
 %--- End generated contents ---
 
 % Index

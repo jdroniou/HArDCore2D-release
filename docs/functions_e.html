@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -76,13 +83,25 @@ $(function() {
 , <a class="el" href="group__Mesh.html#ga782d7982e24169c50ea4631ffd3d9b55">HArDCore2D::Vertex</a>
 </li>
 <li>edge_normal()
-: <a class="el" href="group__Mesh.html#gaf55d7a602439110ebbb3c9aee1895580">HArDCore2D::Cell</a>
+: <a class="el" href="group__Mesh.html#gaad9bc371c5c2669b3d3948e353f714f8">HArDCore2D::Cell</a>
+</li>
+<li>edge_orientation()
+: <a class="el" href="group__Mesh.html#ga27a8932bdc987ee15a17a628d4cfe60e">HArDCore2D::Cell</a>
+</li>
+<li>edgeBases()
+: <a class="el" href="group__DDRCore.html#gade4ac7d6dd662308a7bfe86f158ca2d1">HArDCore2D::DDRCore</a>
+, <a class="el" href="group__DDRCore.html#ga43a3a04993edd049edfe7dd6016685bd">HArDCore2D::EXCurl</a>
+, <a class="el" href="group__DDRCore.html#ga4764931d1d4b98280627b186a73d12b4">HArDCore2D::XCurl</a>
+, <a class="el" href="group__DDRCore.html#ga3dab1c9f657a6267f449023b2fd7e5e0">HArDCore2D::XGrad</a>
 </li>
 <li>EdgeBasis()
 : <a class="el" href="group__HybridCore.html#ga9394b577ae67c9aa2289095bfedc38e2">HArDCore2D::HybridCore</a>
 </li>
 <li>EdgeDegree()
 : <a class="el" href="group__HybridCore.html#ga58775081d94627e58f88f6043ed87bec">HArDCore2D::HybridCore</a>
+</li>
+<li>edgeOperators()
+: <a class="el" href="group__DDRCore.html#ga224505999788a7e48a85df3cae9e5fbc">HArDCore2D::XGrad</a>
 </li>
 <li>ElementQuad()
 : <a class="el" href="group__HybridCore.html#ga0d27ba99f9f3e6f2a3e5311e6be19eba">HArDCore2D::ElementQuad</a>
@@ -94,6 +113,7 @@ $(function() {
 : <a class="el" href="group__HHO__Diffusion.html#ga9f9382eebdf3542db2e11d7770e90565">HArDCore2D::HHO_Diffusion</a>
 , <a class="el" href="group__HHO__LocVarDiff.html#ga11896824f2d3a743fd7caabeb396f158">HArDCore2D::HHO_LocVarDiff</a>
 , <a class="el" href="group__HMM.html#gad2fe6ff7af615d9f4b71874db050aeb3">HArDCore2D::HMM_StefanPME_Transient</a>
+, <a class="el" href="group__LEPNC.html#gae3a86bb47a3a740ea5116d3b31e80251">HArDCore2D::LEPNC_diffusion</a>
 , <a class="el" href="group__LEPNC.html#ga764da9fe2d73272eb3630f6009c992ec">HArDCore2D::LEPNC_StefanPME</a>
 , <a class="el" href="group__LEPNC.html#ga631747810e7659029ea929e2f6c85307">HArDCore2D::LEPNC_StefanPME_Transient</a>
 </li>
@@ -102,6 +122,18 @@ $(function() {
 </li>
 <li>evaluate_in_edge()
 : <a class="el" href="group__HybridCore.html#gab43816ad8a9a91f841fdb4cea0781f54">HArDCore2D::HybridCore</a>
+</li>
+<li>evaluatePotential()
+: <a class="el" href="group__DDRCore.html#ga75e0bc8016b4675b7823538d47f1f456">HArDCore2D::XGrad</a>
+</li>
+<li>EXCurl()
+: <a class="el" href="group__DDRCore.html#gaf2ec34ba269263d97c3d8bf692fbb7da">HArDCore2D::EXCurl</a>
+</li>
+<li>exCurl()
+: <a class="el" href="group__DDR__rmplate.html#ga3e6cd91295861863b6be731c009be276">HArDCore2D::ReissnerMindlin</a>
+</li>
+<li>extendOperator()
+: <a class="el" href="group__DDRCore.html#ga9824954470f62049f40e4d5cc2a66e6e">HArDCore2D::DDRSpace</a>
 </li>
 </ul>
 </div><!-- contents -->

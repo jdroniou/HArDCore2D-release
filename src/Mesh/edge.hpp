@@ -52,11 +52,13 @@ public:
     std::vector<Vertex *> get_vertices() const; ///< list of vertices of the edge
     Cell *cell(size_t i) const;  ///< returns pointer to the i-th cell neighbour of the edge
     Vertex *vertex(size_t i) const;  ///< returns a pointer to the i-th vertex of the edge
+    size_t index_vertex(const Vertex* V) const; ///< reciprocal of vertex(i): returns the local index of vertex V in the edge
 
     double measure() const;   ///< length of the edge
     double diam() const;   ///< length of the edge
     inline Vector2d center_mass() const;  ///< get the midpoint of the edge
     inline Vector2d tangent() const;   ///< get a normalised tangent to the edge, from the first vertex to the second
+    inline Vector2d normal() const;   ///< get a unit normal to the edge, rotation by +pi/2 of tangent()
     inline bool is_boundary() const;  ///< getter to see if edge is boundary edge
 
     void add_cell(Cell *cell);      ///< Add a new cell to the edge
@@ -85,6 +87,7 @@ bool Edge::is_boundary() const { return _boundary; }
 
 inline Vector2d Edge::center_mass() const { return _mp; }
 inline Vector2d Edge::tangent() const { return _line.normalized(); }
+inline Vector2d Edge::normal() const { return Vector2d(-tangent().y(), tangent().x()); }
 
 
 /*@}*/
