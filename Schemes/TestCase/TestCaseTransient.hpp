@@ -109,7 +109,6 @@ private:
   const std::vector<int> m_iTC;
 	const double pi = acos(-1);
 	const double sqrt2 = std::pow(2,0.5);
-	const double gamma = 1.0/3.0;
 	const double eps = 1e-5;		// constant for rotating diffusion case
 
 	size_t _deg_diff;

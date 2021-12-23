@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['reissnermindlin_392',['ReissnerMindlin',['../structHArDCore2D_1_1ReissnerMindlin.html',1,'HArDCore2D']]],
-  ['restrictedbasis_393',['RestrictedBasis',['../classHArDCore2D_1_1RestrictedBasis.html',1,'HArDCore2D']]],
-  ['rmparameters_394',['RMParameters',['../structHArDCore2D_1_1RMParameters.html',1,'HArDCore2D']]],
-  ['rolycomplbasiscell_395',['RolyComplBasisCell',['../classHArDCore2D_1_1RolyComplBasisCell.html',1,'HArDCore2D']]]
+  ['polynomialspacedimension_465',['PolynomialSpaceDimension',['../structHArDCore2D_1_1PolynomialSpaceDimension.html',1,'HArDCore2D']]],
+  ['polynomialspacedimension_3c_20cell_20_3e_466',['PolynomialSpaceDimension&lt; Cell &gt;',['../structHArDCore2D_1_1PolynomialSpaceDimension_3_01Cell_01_4.html',1,'HArDCore2D']]],
+  ['polynomialspacedimension_3c_20edge_20_3e_467',['PolynomialSpaceDimension&lt; Edge &gt;',['../structHArDCore2D_1_1PolynomialSpaceDimension_3_01Edge_01_4.html',1,'HArDCore2D']]]
 ];

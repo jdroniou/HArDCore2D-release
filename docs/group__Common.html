@@ -83,11 +83,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1DOFSpace.html">HArDCore2D::DOFSpace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity.  <a href="classHArDCore2D_1_1DOFSpace.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1GlobalDOFSpace.html">HArDCore2D::GlobalDOFSpace</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version being provided by <a class="el" href="classHArDCore2D_1_1LocalDOFSpace.html" title="Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimensio...">LocalDOFSpace</a>).  <a href="classHArDCore2D_1_1GlobalDOFSpace.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1IntegralWeight.html">HArDCore2D::IntegralWeight</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for weights (scalar, at the moment) in integral.  <a href="structHArDCore2D_1_1IntegralWeight.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LocalDOFSpace.html">HArDCore2D::LocalDOFSpace</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity.  <a href="classHArDCore2D_1_1LocalDOFSpace.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1PolynomialSpaceDimension.html">HArDCore2D::PolynomialSpaceDimension&lt; GeometricSupport &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basis dimensions for various polynomial spaces on edges/faces/elements (when relevant): Pk, Gk, Rk and complements.  <a href="structHArDCore2D_1_1PolynomialSpaceDimension.html#details">More...</a><br /></td></tr>
@@ -99,79 +102,129 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga7fa424982691351012ebeb83aff71127"><td class="memItemLeft" align="right" valign="top"><a id="ga7fa424982691351012ebeb83aff71127"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga7fa424982691351012ebeb83aff71127">HArDCore2D::DOFSpace::DOFSpace</a> (const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;<a class="el" href="group__Common.html#gab544ffa79da52a3eac3313eeffc420c6">mesh</a>, size_t n_local_vertex_dofs, size_t n_local_edge_dofs, size_t n_local_cell_dofs)</td></tr>
-<tr class="memdesc:ga7fa424982691351012ebeb83aff71127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:ga7fa424982691351012ebeb83aff71127"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab544ffa79da52a3eac3313eeffc420c6"><td class="memItemLeft" align="right" valign="top"><a id="gab544ffa79da52a3eac3313eeffc420c6"></a>
-const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gab544ffa79da52a3eac3313eeffc420c6">HArDCore2D::DOFSpace::mesh</a> () const</td></tr>
-<tr class="memdesc:gab544ffa79da52a3eac3313eeffc420c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mesh. <br /></td></tr>
-<tr class="separator:gab544ffa79da52a3eac3313eeffc420c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga136ed047ad69e6cee6545cade991870a"><td class="memItemLeft" align="right" valign="top"><a id="ga136ed047ad69e6cee6545cade991870a"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga136ed047ad69e6cee6545cade991870a">HArDCore2D::DOFSpace::numLocalDofsVertex</a> () const</td></tr>
-<tr class="memdesc:ga136ed047ad69e6cee6545cade991870a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local vertex DOFs. <br /></td></tr>
-<tr class="separator:ga136ed047ad69e6cee6545cade991870a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d2f3318a8240ba5854db6852dca585b"><td class="memItemLeft" align="right" valign="top"><a id="ga3d2f3318a8240ba5854db6852dca585b"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga3d2f3318a8240ba5854db6852dca585b">HArDCore2D::DOFSpace::numLocalDofsEdge</a> () const</td></tr>
-<tr class="memdesc:ga3d2f3318a8240ba5854db6852dca585b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local edge DOFs. <br /></td></tr>
-<tr class="separator:ga3d2f3318a8240ba5854db6852dca585b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba517b11c1a754d05ccfb81fe972d007"><td class="memItemLeft" align="right" valign="top"><a id="gaba517b11c1a754d05ccfb81fe972d007"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaba517b11c1a754d05ccfb81fe972d007">HArDCore2D::DOFSpace::numLocalDofsCell</a> () const</td></tr>
-<tr class="memdesc:gaba517b11c1a754d05ccfb81fe972d007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local cell DOFs. <br /></td></tr>
-<tr class="separator:gaba517b11c1a754d05ccfb81fe972d007"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4be3d02fb87a2959b02875b99a8ad0f8"><td class="memItemLeft" align="right" valign="top"><a id="ga4be3d02fb87a2959b02875b99a8ad0f8"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga4be3d02fb87a2959b02875b99a8ad0f8">HArDCore2D::DOFSpace::dimension</a> () const</td></tr>
-<tr class="memdesc:ga4be3d02fb87a2959b02875b99a8ad0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the global space (all DOFs for all geometric entities) <br /></td></tr>
-<tr class="separator:ga4be3d02fb87a2959b02875b99a8ad0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99aa396da2fc535a937124288f1a2518"><td class="memItemLeft" align="right" valign="top"><a id="ga99aa396da2fc535a937124288f1a2518"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga99aa396da2fc535a937124288f1a2518">HArDCore2D::DOFSpace::dimensionVertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
-<tr class="memdesc:ga99aa396da2fc535a937124288f1a2518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the vertex V. <br /></td></tr>
-<tr class="separator:ga99aa396da2fc535a937124288f1a2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga25e5f054c4370cb6db0b0810c9e4ed7a"><td class="memItemLeft" align="right" valign="top"><a id="ga25e5f054c4370cb6db0b0810c9e4ed7a"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga25e5f054c4370cb6db0b0810c9e4ed7a">HArDCore2D::DOFSpace::dimensionVertex</a> (size_t iV) const</td></tr>
-<tr class="memdesc:ga25e5f054c4370cb6db0b0810c9e4ed7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the vertex of index iV. <br /></td></tr>
-<tr class="separator:ga25e5f054c4370cb6db0b0810c9e4ed7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac60b2f599ca2dcb2cd93bbcb95db0dac"><td class="memItemLeft" align="right" valign="top"><a id="gac60b2f599ca2dcb2cd93bbcb95db0dac"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gac60b2f599ca2dcb2cd93bbcb95db0dac">HArDCore2D::DOFSpace::dimensionEdge</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
-<tr class="memdesc:gac60b2f599ca2dcb2cd93bbcb95db0dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the edge E (including vertices) <br /></td></tr>
-<tr class="separator:gac60b2f599ca2dcb2cd93bbcb95db0dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab74b2e6b657521d035353655f628fd1d"><td class="memItemLeft" align="right" valign="top"><a id="gab74b2e6b657521d035353655f628fd1d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gab74b2e6b657521d035353655f628fd1d">HArDCore2D::DOFSpace::dimensionEdge</a> (size_t iE) const</td></tr>
-<tr class="memdesc:gab74b2e6b657521d035353655f628fd1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the edge of index iE (including vertices) <br /></td></tr>
-<tr class="separator:gab74b2e6b657521d035353655f628fd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga323aa42f83110b711b7bb9534a076e5d"><td class="memItemLeft" align="right" valign="top"><a id="ga323aa42f83110b711b7bb9534a076e5d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga323aa42f83110b711b7bb9534a076e5d">HArDCore2D::DOFSpace::dimensionCell</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
-<tr class="memdesc:ga323aa42f83110b711b7bb9534a076e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the cell T (including faces, edges and vertices) <br /></td></tr>
-<tr class="separator:ga323aa42f83110b711b7bb9534a076e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62d2230bc3a893087d3d83ea0006ece3"><td class="memItemLeft" align="right" valign="top"><a id="ga62d2230bc3a893087d3d83ea0006ece3"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga62d2230bc3a893087d3d83ea0006ece3">HArDCore2D::DOFSpace::dimensionCell</a> (size_t iT) const</td></tr>
-<tr class="memdesc:ga62d2230bc3a893087d3d83ea0006ece3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices) <br /></td></tr>
-<tr class="separator:ga62d2230bc3a893087d3d83ea0006ece3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafd7b85f1679a0ba6a14991aa61fb3148"><td class="memItemLeft" align="right" valign="top"><a id="gafd7b85f1679a0ba6a14991aa61fb3148"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gafd7b85f1679a0ba6a14991aa61fb3148">HArDCore2D::DOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
-<tr class="memdesc:gafd7b85f1679a0ba6a14991aa61fb3148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the vertex V with respect to the edge E. <br /></td></tr>
-<tr class="separator:gafd7b85f1679a0ba6a14991aa61fb3148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f23e8977ee569b7da8ebfedf4ddceaf"><td class="memItemLeft" align="right" valign="top"><a id="ga3f23e8977ee569b7da8ebfedf4ddceaf"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga3f23e8977ee569b7da8ebfedf4ddceaf">HArDCore2D::DOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
-<tr class="memdesc:ga3f23e8977ee569b7da8ebfedf4ddceaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the unknowns attached to the edge E. <br /></td></tr>
-<tr class="separator:ga3f23e8977ee569b7da8ebfedf4ddceaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafda3b1da23e1289cf9509fc649156e1d"><td class="memItemLeft" align="right" valign="top"><a id="gafda3b1da23e1289cf9509fc649156e1d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gafda3b1da23e1289cf9509fc649156e1d">HArDCore2D::DOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
-<tr class="memdesc:gafda3b1da23e1289cf9509fc649156e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the vertex V with respect to the cell T. <br /></td></tr>
-<tr class="separator:gafda3b1da23e1289cf9509fc649156e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f0e55c40a836d37a02bacee43e6c9ca"><td class="memItemLeft" align="right" valign="top"><a id="ga4f0e55c40a836d37a02bacee43e6c9ca"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga4f0e55c40a836d37a02bacee43e6c9ca">HArDCore2D::DOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
-<tr class="memdesc:ga4f0e55c40a836d37a02bacee43e6c9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the edge E with respect to the cell T. <br /></td></tr>
-<tr class="separator:ga4f0e55c40a836d37a02bacee43e6c9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ebe61c2d728877d652c82ebbcb2fbf3"><td class="memItemLeft" align="right" valign="top"><a id="ga4ebe61c2d728877d652c82ebbcb2fbf3"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga4ebe61c2d728877d652c82ebbcb2fbf3">HArDCore2D::DOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
-<tr class="memdesc:ga4ebe61c2d728877d652c82ebbcb2fbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the unknowns attached to the element T. <br /></td></tr>
-<tr class="separator:ga4ebe61c2d728877d652c82ebbcb2fbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95e335408d31453fe0d247bbc7ceca25"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga95e335408d31453fe0d247bbc7ceca25">HArDCore2D::store_times</a> (boost::timer::cpu_timer &amp;timer, std::string message=&quot;&quot;)</td></tr>
+<tr class="memdesc:ga95e335408d31453fe0d247bbc7ceca25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to store and display wall/proc timers from boost::timer::cpu_timer.  <a href="group__Common.html#ga95e335408d31453fe0d247bbc7ceca25">More...</a><br /></td></tr>
+<tr class="separator:ga95e335408d31453fe0d247bbc7ceca25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2367c0e7d7a71177472588a92757ad0a"><td class="memItemLeft" align="right" valign="top"><a id="ga2367c0e7d7a71177472588a92757ad0a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga2367c0e7d7a71177472588a92757ad0a">HArDCore2D::GlobalDOFSpace::GlobalDOFSpace</a> (const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;<a class="el" href="group__Common.html#ga09bab9dce7331dae4274a37e65efdadc">mesh</a>, size_t n_local_vertex_dofs, size_t n_local_edge_dofs, size_t n_local_cell_dofs)</td></tr>
+<tr class="memdesc:ga2367c0e7d7a71177472588a92757ad0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:ga2367c0e7d7a71177472588a92757ad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ce7fa8c82711ecca59d82221351c2f9"><td class="memItemLeft" align="right" valign="top"><a id="ga5ce7fa8c82711ecca59d82221351c2f9"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga5ce7fa8c82711ecca59d82221351c2f9">HArDCore2D::GlobalDOFSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
+<tr class="memdesc:ga5ce7fa8c82711ecca59d82221351c2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the vertex V. <br /></td></tr>
+<tr class="separator:ga5ce7fa8c82711ecca59d82221351c2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac73a0a48f68c65f869ff3d1f9c634bf5"><td class="memItemLeft" align="right" valign="top"><a id="gac73a0a48f68c65f869ff3d1f9c634bf5"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gac73a0a48f68c65f869ff3d1f9c634bf5">HArDCore2D::GlobalDOFSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
+<tr class="memdesc:gac73a0a48f68c65f869ff3d1f9c634bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the edge E. <br /></td></tr>
+<tr class="separator:gac73a0a48f68c65f869ff3d1f9c634bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c1dc27f919a7b365e93b60493a3794c"><td class="memItemLeft" align="right" valign="top"><a id="ga2c1dc27f919a7b365e93b60493a3794c"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga2c1dc27f919a7b365e93b60493a3794c">HArDCore2D::GlobalDOFSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
+<tr class="memdesc:ga2c1dc27f919a7b365e93b60493a3794c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the cell T. <br /></td></tr>
+<tr class="separator:ga2c1dc27f919a7b365e93b60493a3794c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cabf022121084dd0ab57de128ba953c"><td class="memItemLeft" align="right" valign="top"><a id="ga9cabf022121084dd0ab57de128ba953c"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga9cabf022121084dd0ab57de128ba953c">HArDCore2D::GlobalDOFSpace::restrictEdge</a> (size_t iE, const Eigen::VectorXd &amp;vh) const</td></tr>
+<tr class="memdesc:ga9cabf022121084dd0ab57de128ba953c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to the edge (including its vertices) of index iE. <br /></td></tr>
+<tr class="separator:ga9cabf022121084dd0ab57de128ba953c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2485686662745c5481032a8d6058fd57"><td class="memItemLeft" align="right" valign="top"><a id="ga2485686662745c5481032a8d6058fd57"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga2485686662745c5481032a8d6058fd57">HArDCore2D::GlobalDOFSpace::restrictCell</a> (size_t iT, const Eigen::VectorXd &amp;vh) const</td></tr>
+<tr class="memdesc:ga2485686662745c5481032a8d6058fd57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to the cell (including vertices and edges) of index iT. <br /></td></tr>
+<tr class="separator:ga2485686662745c5481032a8d6058fd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d20e11b5eb2a6fa9f96c2efa5fd1053"><td class="memItemLeft" align="right" valign="top"><a id="ga8d20e11b5eb2a6fa9f96c2efa5fd1053"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga8d20e11b5eb2a6fa9f96c2efa5fd1053">HArDCore2D::GlobalDOFSpace::restrict</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const Eigen::VectorXd vh) const</td></tr>
+<tr class="memdesc:ga8d20e11b5eb2a6fa9f96c2efa5fd1053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to an edge. <br /></td></tr>
+<tr class="separator:ga8d20e11b5eb2a6fa9f96c2efa5fd1053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabe6bb761cce72864ee024f6f7e96c37"><td class="memItemLeft" align="right" valign="top"><a id="gaabe6bb761cce72864ee024f6f7e96c37"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaabe6bb761cce72864ee024f6f7e96c37">HArDCore2D::GlobalDOFSpace::restrict</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const Eigen::VectorXd vh) const</td></tr>
+<tr class="memdesc:gaabe6bb761cce72864ee024f6f7e96c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to a cell. <br /></td></tr>
+<tr class="separator:gaabe6bb761cce72864ee024f6f7e96c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf4eafe2cf13ad7f5eeb322cb9097d22"><td class="memItemLeft" align="right" valign="top"><a id="gabf4eafe2cf13ad7f5eeb322cb9097d22"></a>
+Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gabf4eafe2cf13ad7f5eeb322cb9097d22">HArDCore2D::GlobalDOFSpace::extendOperator</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const Eigen::MatrixXd &amp;opE) const</td></tr>
+<tr class="memdesc:gabf4eafe2cf13ad7f5eeb322cb9097d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend an edge operator to a cell. <br /></td></tr>
+<tr class="separator:gabf4eafe2cf13ad7f5eeb322cb9097d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga253bd7addffb9686d8a71d19db88f3f2"><td class="memItemLeft" align="right" valign="top"><a id="ga253bd7addffb9686d8a71d19db88f3f2"></a>
+std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::GlobalDOFSpace::globalDOFIndices</b> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
+<tr class="separator:ga253bd7addffb9686d8a71d19db88f3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14ce2442e4f4d5421bffe7b7ecc563d6"><td class="memItemLeft" align="right" valign="top"><a id="ga14ce2442e4f4d5421bffe7b7ecc563d6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga14ce2442e4f4d5421bffe7b7ecc563d6">HArDCore2D::GlobalDOFSpace::setLabelDOF</a> (const size_t i, const int label)</td></tr>
+<tr class="memdesc:ga14ce2442e4f4d5421bffe7b7ecc563d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a label to the DOF number i (default label is -1) <br /></td></tr>
+<tr class="separator:ga14ce2442e4f4d5421bffe7b7ecc563d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bdf6aac052f0a365bdfc127cf3d46b0"><td class="memItemLeft" align="right" valign="top"><a id="ga6bdf6aac052f0a365bdfc127cf3d46b0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga6bdf6aac052f0a365bdfc127cf3d46b0">HArDCore2D::GlobalDOFSpace::getLabelDOF</a> (const size_t i)</td></tr>
+<tr class="memdesc:ga6bdf6aac052f0a365bdfc127cf3d46b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get label of DOF number i. <br /></td></tr>
+<tr class="separator:ga6bdf6aac052f0a365bdfc127cf3d46b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacbbe5cbad494656c2acb347966770bce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gacbbe5cbad494656c2acb347966770bce">HArDCore2D::IntegralWeight::IntegralWeight</a> (const std::function&lt; double(const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const Eigen::Vector2d &amp;x)&gt; _value, std::function&lt; size_t(const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T)&gt; _deg)</td></tr>
 <tr class="separator:gacbbe5cbad494656c2acb347966770bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga761d633a9a02e0a2f940e5168ebc5303"><td class="memItemLeft" align="right" valign="top"><a id="ga761d633a9a02e0a2f940e5168ebc5303"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::IntegralWeight::IntegralWeight</b> (double val)</td></tr>
 <tr class="separator:ga761d633a9a02e0a2f940e5168ebc5303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d6a7e1447ff6f68149440e7d7561794"><td class="memItemLeft" align="right" valign="top"><a id="ga1d6a7e1447ff6f68149440e7d7561794"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga1d6a7e1447ff6f68149440e7d7561794">HArDCore2D::LocalDOFSpace::LocalDOFSpace</a> (const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;<a class="el" href="group__Common.html#ga09bab9dce7331dae4274a37e65efdadc">mesh</a>, size_t n_local_vertex_dofs, size_t n_local_edge_dofs, size_t n_local_cell_dofs)</td></tr>
+<tr class="memdesc:ga1d6a7e1447ff6f68149440e7d7561794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:ga1d6a7e1447ff6f68149440e7d7561794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09bab9dce7331dae4274a37e65efdadc"><td class="memItemLeft" align="right" valign="top"><a id="ga09bab9dce7331dae4274a37e65efdadc"></a>
+const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga09bab9dce7331dae4274a37e65efdadc">HArDCore2D::LocalDOFSpace::mesh</a> () const</td></tr>
+<tr class="memdesc:ga09bab9dce7331dae4274a37e65efdadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mesh. <br /></td></tr>
+<tr class="separator:ga09bab9dce7331dae4274a37e65efdadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf36e0a6a9baacd2f0b89e39d40ea95a"><td class="memItemLeft" align="right" valign="top"><a id="gaaf36e0a6a9baacd2f0b89e39d40ea95a"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaaf36e0a6a9baacd2f0b89e39d40ea95a">HArDCore2D::LocalDOFSpace::numLocalDofsVertex</a> () const</td></tr>
+<tr class="memdesc:gaaf36e0a6a9baacd2f0b89e39d40ea95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local vertex DOFs. <br /></td></tr>
+<tr class="separator:gaaf36e0a6a9baacd2f0b89e39d40ea95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3d79c7c574fec6f31c59b2d3be965f4"><td class="memItemLeft" align="right" valign="top"><a id="gaf3d79c7c574fec6f31c59b2d3be965f4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaf3d79c7c574fec6f31c59b2d3be965f4">HArDCore2D::LocalDOFSpace::numLocalDofsEdge</a> () const</td></tr>
+<tr class="memdesc:gaf3d79c7c574fec6f31c59b2d3be965f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local edge DOFs. <br /></td></tr>
+<tr class="separator:gaf3d79c7c574fec6f31c59b2d3be965f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71892fed68458480a6384307bef774c3"><td class="memItemLeft" align="right" valign="top"><a id="ga71892fed68458480a6384307bef774c3"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga71892fed68458480a6384307bef774c3">HArDCore2D::LocalDOFSpace::numLocalDofsCell</a> () const</td></tr>
+<tr class="memdesc:ga71892fed68458480a6384307bef774c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of local cell DOFs. <br /></td></tr>
+<tr class="separator:ga71892fed68458480a6384307bef774c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1b50a37725d552ed131d82e123b4354"><td class="memItemLeft" align="right" valign="top"><a id="gae1b50a37725d552ed131d82e123b4354"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gae1b50a37725d552ed131d82e123b4354">HArDCore2D::LocalDOFSpace::dimension</a> () const</td></tr>
+<tr class="memdesc:gae1b50a37725d552ed131d82e123b4354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the global space (all DOFs for all geometric entities) <br /></td></tr>
+<tr class="separator:gae1b50a37725d552ed131d82e123b4354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e99fe863ef82d4a8f9cbf81d42dde76"><td class="memItemLeft" align="right" valign="top"><a id="ga3e99fe863ef82d4a8f9cbf81d42dde76"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga3e99fe863ef82d4a8f9cbf81d42dde76">HArDCore2D::LocalDOFSpace::dimensionVertex</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
+<tr class="memdesc:ga3e99fe863ef82d4a8f9cbf81d42dde76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the vertex V. <br /></td></tr>
+<tr class="separator:ga3e99fe863ef82d4a8f9cbf81d42dde76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6ba2a88f43d62c6d7d8be6e80291138"><td class="memItemLeft" align="right" valign="top"><a id="gaa6ba2a88f43d62c6d7d8be6e80291138"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaa6ba2a88f43d62c6d7d8be6e80291138">HArDCore2D::LocalDOFSpace::dimensionVertex</a> (size_t iV) const</td></tr>
+<tr class="memdesc:gaa6ba2a88f43d62c6d7d8be6e80291138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the vertex of index iV. <br /></td></tr>
+<tr class="separator:gaa6ba2a88f43d62c6d7d8be6e80291138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93973e6d5e5c21b4e175dfcf4df8c027"><td class="memItemLeft" align="right" valign="top"><a id="ga93973e6d5e5c21b4e175dfcf4df8c027"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga93973e6d5e5c21b4e175dfcf4df8c027">HArDCore2D::LocalDOFSpace::dimensionEdge</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
+<tr class="memdesc:ga93973e6d5e5c21b4e175dfcf4df8c027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the edge E (including vertices) <br /></td></tr>
+<tr class="separator:ga93973e6d5e5c21b4e175dfcf4df8c027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73988896b6cde4ee75fe062fa7ba04ca"><td class="memItemLeft" align="right" valign="top"><a id="ga73988896b6cde4ee75fe062fa7ba04ca"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga73988896b6cde4ee75fe062fa7ba04ca">HArDCore2D::LocalDOFSpace::dimensionEdge</a> (size_t iE) const</td></tr>
+<tr class="memdesc:ga73988896b6cde4ee75fe062fa7ba04ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the edge of index iE (including vertices) <br /></td></tr>
+<tr class="separator:ga73988896b6cde4ee75fe062fa7ba04ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac74c832fbeb6f78e0ff71a8bcdc8480c"><td class="memItemLeft" align="right" valign="top"><a id="gac74c832fbeb6f78e0ff71a8bcdc8480c"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gac74c832fbeb6f78e0ff71a8bcdc8480c">HArDCore2D::LocalDOFSpace::dimensionCell</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
+<tr class="memdesc:gac74c832fbeb6f78e0ff71a8bcdc8480c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the cell T (including faces, edges and vertices) <br /></td></tr>
+<tr class="separator:gac74c832fbeb6f78e0ff71a8bcdc8480c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c4310bd1e71fdb4fb080103479f3555"><td class="memItemLeft" align="right" valign="top"><a id="ga0c4310bd1e71fdb4fb080103479f3555"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga0c4310bd1e71fdb4fb080103479f3555">HArDCore2D::LocalDOFSpace::dimensionCell</a> (size_t iT) const</td></tr>
+<tr class="memdesc:ga0c4310bd1e71fdb4fb080103479f3555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices) <br /></td></tr>
+<tr class="separator:ga0c4310bd1e71fdb4fb080103479f3555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42b72d383427f51dbcdb8137447e2221"><td class="memItemLeft" align="right" valign="top"><a id="ga42b72d383427f51dbcdb8137447e2221"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga42b72d383427f51dbcdb8137447e2221">HArDCore2D::LocalDOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
+<tr class="memdesc:ga42b72d383427f51dbcdb8137447e2221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the vertex V with respect to the edge E. <br /></td></tr>
+<tr class="separator:ga42b72d383427f51dbcdb8137447e2221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca235b4ae14abc3bacdb429a23d3d68a"><td class="memItemLeft" align="right" valign="top"><a id="gaca235b4ae14abc3bacdb429a23d3d68a"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gaca235b4ae14abc3bacdb429a23d3d68a">HArDCore2D::LocalDOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
+<tr class="memdesc:gaca235b4ae14abc3bacdb429a23d3d68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the unknowns attached to the edge E. <br /></td></tr>
+<tr class="separator:gaca235b4ae14abc3bacdb429a23d3d68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17e6fe3a75d9d49c2e2bf057159033f6"><td class="memItemLeft" align="right" valign="top"><a id="ga17e6fe3a75d9d49c2e2bf057159033f6"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga17e6fe3a75d9d49c2e2bf057159033f6">HArDCore2D::LocalDOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
+<tr class="memdesc:ga17e6fe3a75d9d49c2e2bf057159033f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the vertex V with respect to the cell T. <br /></td></tr>
+<tr class="separator:ga17e6fe3a75d9d49c2e2bf057159033f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7549001a2a8b7950d2b577be1f54a0fc"><td class="memItemLeft" align="right" valign="top"><a id="ga7549001a2a8b7950d2b577be1f54a0fc"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga7549001a2a8b7950d2b577be1f54a0fc">HArDCore2D::LocalDOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
+<tr class="memdesc:ga7549001a2a8b7950d2b577be1f54a0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the edge E with respect to the cell T. <br /></td></tr>
+<tr class="separator:ga7549001a2a8b7950d2b577be1f54a0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9954ff60c14e3d92152e325a526c010e"><td class="memItemLeft" align="right" valign="top"><a id="ga9954ff60c14e3d92152e325a526c010e"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga9954ff60c14e3d92152e325a526c010e">HArDCore2D::LocalDOFSpace::localOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
+<tr class="memdesc:ga9954ff60c14e3d92152e325a526c010e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local offset of the unknowns attached to the element T. <br /></td></tr>
+<tr class="separator:ga9954ff60c14e3d92152e325a526c010e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga528091d2f6373a8d213a4d3687a9b200"><td class="memItemLeft" align="right" valign="top"><a id="ga528091d2f6373a8d213a4d3687a9b200"></a>
 static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga528091d2f6373a8d213a4d3687a9b200">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Poly</a> (int k)</td></tr>
 <tr class="memdesc:ga528091d2f6373a8d213a4d3687a9b200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension of Pk(T) <br /></td></tr>
@@ -192,6 +245,14 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gac4b6a6a16efc6ce042931357dbc36562">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::RolyCompl</a> (int k)</td></tr>
 <tr class="memdesc:gac4b6a6a16efc6ce042931357dbc36562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension of Rck(T) <br /></td></tr>
 <tr class="separator:gac4b6a6a16efc6ce042931357dbc36562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd76a54010c7217fcea159809c235072"><td class="memItemLeft" align="right" valign="top"><a id="gadd76a54010c7217fcea159809c235072"></a>
+static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#gadd76a54010c7217fcea159809c235072">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Holy</a> (int k)</td></tr>
+<tr class="memdesc:gadd76a54010c7217fcea159809c235072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension of Hk(T) <br /></td></tr>
+<tr class="separator:gadd76a54010c7217fcea159809c235072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d0304d9a87065a5cc8a11fb9c010d68"><td class="memItemLeft" align="right" valign="top"><a id="ga0d0304d9a87065a5cc8a11fb9c010d68"></a>
+static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga0d0304d9a87065a5cc8a11fb9c010d68">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::HolyCompl</a> (int k)</td></tr>
+<tr class="memdesc:ga0d0304d9a87065a5cc8a11fb9c010d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension of Hck(T) <br /></td></tr>
+<tr class="separator:ga0d0304d9a87065a5cc8a11fb9c010d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga431ad0725cdc895a29903ddbe36b8a7a"><td class="memItemLeft" align="right" valign="top"><a id="ga431ad0725cdc895a29903ddbe36b8a7a"></a>
 static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">HArDCore2D::PolynomialSpaceDimension&lt; Edge &gt;::Poly</a> (int k)</td></tr>
 <tr class="memdesc:ga431ad0725cdc895a29903ddbe36b8a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension of Pk(E) <br /></td></tr>
@@ -199,24 +260,24 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gaf9d76b74c88b55c3b7eb47a76cfd183c"><td class="memItemLeft" align="right" valign="top"><a id="gaf9d76b74c88b55c3b7eb47a76cfd183c"></a>
-const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DOFSpace::m_mesh</b></td></tr>
-<tr class="separator:gaf9d76b74c88b55c3b7eb47a76cfd183c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6697a298965d2a2e0aa7309500b927fc"><td class="memItemLeft" align="right" valign="top"><a id="ga6697a298965d2a2e0aa7309500b927fc"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DOFSpace::m_n_local_vertex_dofs</b></td></tr>
-<tr class="separator:ga6697a298965d2a2e0aa7309500b927fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32aa8705cb5da2259992f50d12009c7f"><td class="memItemLeft" align="right" valign="top"><a id="ga32aa8705cb5da2259992f50d12009c7f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DOFSpace::m_n_local_edge_dofs</b></td></tr>
-<tr class="separator:ga32aa8705cb5da2259992f50d12009c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4b6c7fa4a5bc86dbee81777331906ee"><td class="memItemLeft" align="right" valign="top"><a id="gac4b6c7fa4a5bc86dbee81777331906ee"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DOFSpace::m_n_local_cell_dofs</b></td></tr>
-<tr class="separator:gac4b6c7fa4a5bc86dbee81777331906ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga48595604e6ae5c307b1c4ae8798f6f94"><td class="memItemLeft" align="right" valign="top"><a id="ga48595604e6ae5c307b1c4ae8798f6f94"></a>
 std::function&lt; double(const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const Eigen::Vector2d &amp;x)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::IntegralWeight::value</b></td></tr>
 <tr class="separator:ga48595604e6ae5c307b1c4ae8798f6f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga782d17e551742d4287ccf9b321797770"><td class="memItemLeft" align="right" valign="top"><a id="ga782d17e551742d4287ccf9b321797770"></a>
 std::function&lt; size_t(const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::IntegralWeight::deg</b></td></tr>
 <tr class="separator:ga782d17e551742d4287ccf9b321797770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65ad29c32ee0d82106de900c0713ef4b"><td class="memItemLeft" align="right" valign="top"><a id="ga65ad29c32ee0d82106de900c0713ef4b"></a>
+const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::LocalDOFSpace::m_mesh</b></td></tr>
+<tr class="separator:ga65ad29c32ee0d82106de900c0713ef4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac39c23b9077a05ce05627fdcc86f7e4d"><td class="memItemLeft" align="right" valign="top"><a id="gac39c23b9077a05ce05627fdcc86f7e4d"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::LocalDOFSpace::m_n_local_vertex_dofs</b></td></tr>
+<tr class="separator:gac39c23b9077a05ce05627fdcc86f7e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67044680c7c2ab4460ea6da5a806ec98"><td class="memItemLeft" align="right" valign="top"><a id="ga67044680c7c2ab4460ea6da5a806ec98"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::LocalDOFSpace::m_n_local_edge_dofs</b></td></tr>
+<tr class="separator:ga67044680c7c2ab4460ea6da5a806ec98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga292e7fe523887db0f8a6402daf3ac599"><td class="memItemLeft" align="right" valign="top"><a id="ga292e7fe523887db0f8a6402daf3ac599"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::LocalDOFSpace::m_n_local_cell_dofs</b></td></tr>
+<tr class="separator:ga292e7fe523887db0f8a6402daf3ac599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Various general functions and classes. </p>
@@ -258,6 +319,51 @@ std::function&lt; size_t(const <a class="el" href="classHArDCore2D_1_1Cell.html"
   <table class="params">
     <tr><td class="paramname">_value</td><td>Value of weight </td></tr>
     <tr><td class="paramname">_deg</td><td>Local degree of weight </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga95e335408d31453fe0d247bbc7ceca25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga95e335408d31453fe0d247bbc7ceca25">&#9670;&nbsp;</a></span>store_times()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;double,double&gt; HArDCore2D::store_times </td>
+          <td>(</td>
+          <td class="paramtype">boost::timer::cpu_timer &amp;&#160;</td>
+          <td class="paramname"><em>timer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to store and display wall/proc timers from boost::timer::cpu_timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>The timer </td></tr>
+    <tr><td class="paramname">message</td><td>Optional message to display with time (if not message is passed, times are not displayed) </td></tr>
   </table>
   </dd>
 </dl>

@@ -20,7 +20,11 @@ typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Curl\+Val
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef void {\bfseries Hessian\+Value}
+\item 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\item 
+typedef Basis\+Type {\bfseries Ancestor\+Type}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -30,11 +34,15 @@ typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
 size\+\_\+t \mbox{\hyperlink{group__Basis_gabcda5adad24a9e075e75817a1f9726d6}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
 Function\+Value \mbox{\hyperlink{group__Basis_ga40093b82cad53b9e0c03b405ae2b90df}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+constexpr const Basis\+Type \& \mbox{\hyperlink{group__Basis_gaa576636d6a73a35db188395dd5f8472f}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (basis that the gradient was taken of) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = true
 \item 
 static const bool {\bfseries has\+Function} = true
 \item 
@@ -43,6 +51,8 @@ static const bool {\bfseries has\+Gradient} = false
 static const bool {\bfseries has\+Curl} = false
 \item 
 static const bool {\bfseries has\+Divergence} = false
+\item 
+static const bool {\bfseries has\+Hessian} = false
 \end{DoxyCompactItemize}
 
 

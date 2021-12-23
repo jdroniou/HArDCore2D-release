@@ -41,6 +41,120 @@ using namespace HArDCore2D;
 template <typename T>
 using CellFType = std::function<T(const VectorRd &, const Cell *)>; ///< type for function of a point, that could be discontinuous between cells. T is the type of value of the function
 
+/// Structure to store a solution and its derivatives
+struct Solution
+  {
+    // Constructor
+    Solution(
+      const FType<double> value,       /// Solution
+      const CellFType<VectorRd> gradient,  /// Gradient of the solution
+      const CellFType<MatrixRd> hessian    /// Hessian of the solution
+    )
+    : value(value),
+      gradient(gradient),
+      hessian(hessian)
+    {
+      // Do nothing
+    }
+    
+    // Members
+    const FType<double> value;
+    const CellFType<VectorRd> gradient;
+    const CellFType<MatrixRd> hessian;
+  };
+
+/// Structure to store a diffusion tensor and its row-wise divergence
+struct Diffusion
+  {
+    // Constructor
+    Diffusion(
+      const CellFType<MatrixRd> value,       /// Diffusion tensor
+      const CellFType<VectorRd> divergence,  /// Divergence, taken row by row
+      const size_t degree                    /// Polynomial degree of the tensor
+    )
+    : value(value),
+      divergence(divergence),
+      degree(degree)
+    {
+      // Do nothing
+    }
+    
+    // Members
+    const CellFType<MatrixRd> value;
+    const CellFType<VectorRd> divergence;
+    const size_t degree;
+  };
+
+/// Structure to store an advection velocity and its divergence, together with various flags.
+struct Advection
+  {
+    // Constructor
+    Advection(
+      const CellFType<VectorRd> value,      /// Velocity
+      const CellFType<double> divergence,   /// Divergence of velocity
+      const bool is_zero,          /// True if velocity is zero
+      const bool is_divergence_zero,        /// True if velocity has zero divergence
+      const bool is_divergence_constant    /// True if divergence is constant
+    )
+    : value(value),
+      divergence(divergence),
+      is_zero(is_zero),
+      is_divergence_zero(is_divergence_zero),
+      is_divergence_constant(is_divergence_constant)
+    {
+      // Do nothing
+    }
+    
+    // Default constructor
+    Advection()
+      : value([](const VectorRd x, const Cell *cell) -> VectorRd { return VectorRd::Zero();}),
+        divergence([](const VectorRd x, const Cell *cell) -> double { return 0;}),
+        is_zero(true),
+        is_divergence_zero(true),
+        is_divergence_constant(true)
+    {
+      // Do nothing
+    }
+    
+    // Members
+    CellFType<VectorRd> value;
+    CellFType<double> divergence;
+    bool is_zero;
+    bool is_divergence_zero;
+    bool is_divergence_constant;
+  };
+
+/// Structure to store a reaction term, together with various flags.
+struct Reaction
+  {
+    // Constructor
+    Reaction(
+      const CellFType<double> value,   /// Reaction coefficient
+      const bool is_zero,                /// True if coefficient is zero
+      const bool is_constant             /// True if coefficient is constant
+    )
+    : value(value),
+      is_zero(is_zero),
+      is_constant(is_constant)
+    {
+      // Do nothing
+    }
+    
+    // Default constructor
+    Reaction()
+      : value([](const VectorRd x, const Cell *cell) -> double { return 0.;}),
+        is_zero(true),
+        is_constant(true)
+    {
+      // Do nothing
+    }
+    
+    // Members
+    CellFType<double> value;
+    bool is_zero;
+    bool is_constant;
+  };
+  
 // ----------------------------------------------------------------------------
 //                            Class definition
 // ----------------------------------------------------------------------------
@@ -55,29 +169,17 @@ public:
          std::vector<int> iTC ///< The vector id of the test case: (id of solution, id of diffusion)
      );
 
-     /// Returns the exact solution
-     FType<double> sol();
+     /// Returns the solution
+     inline Solution get_solution();
 
-     /// Returns the gradient of the exact solution
-     CellFType<VectorRd> grad_sol();
+     /// Returns the diffusion
+     inline Diffusion get_diffusion();
 
-     /// Returns the Hessian of the exact solution
-     CellFType<MatrixRd> hess_sol();
+     /// Returns the advection
+     inline Advection get_advection();
 
-     /// Returns the diffusion matrix
-     CellFType<MatrixRd> diff();
-
-     /// Returns the divergence by row of the diffusion matrix
-     CellFType<VectorRd> div_diff();
-
-     /// Returns the advection term
-     CellFType<VectorRd> advec();
-
-     /// Returns the divergence of the advection
-     CellFType<double> div_advec();
-
-     /// Returns the reaction term
-     CellFType<double> reac();
+     /// Returns the reaction
+     inline Reaction get_reaction();
 
      /// Returns the diffusion source term
      CellFType<double> diff_source();
@@ -91,43 +193,37 @@ public:
      /// Check if the provided test cases are valid (within range, and combination of solution/diffusion valid)
      void validate();
 
-     /// Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree)
-     inline size_t get_deg_diff();
 
-     /// Returns a flag to check if reaction is constant
-     inline bool is_reac_const();
-
-     /// Returns a flag to check if divergence of advection is zero
-     inline bool is_div_advec_zero();
-
-     /// Returns a flag to check if divergence of advection is constant
-     inline bool is_div_advec_const();
 
 private:
      // Parameters: id of test case, pi
      std::vector<int> m_iTC;
      const double pi = acos(-1);
      const double sqrt2 = std::pow(2, 0.5);
-     const double gamma = 1.0 / 3.0;
      const double eps = 1e-5; // constant for rotating diffusion case
 
-     bool reac_const = true;
-
-     bool div_advec_zero = true;
-     bool div_advec_const = true;
-
-     size_t _deg_diff;
      // Generic parameter (e.g. for changing anisotropy etc.)
      double _lambda;
+     
+     // Advection, reaction, etc and functions to create them
+     Solution m_sol;
+     Diffusion m_diff;
+     Advection m_advec;
+     Reaction m_reac;
+
+     Solution create_solution(const size_t n);
+     Diffusion create_diffusion(const size_t n);
+     Advection create_advection(const size_t n);
+     Reaction create_reaction(const size_t n);
+
 };
 
-inline size_t TestCase::get_deg_diff() { return _deg_diff; };
 inline double TestCase::get_lambda() { return _lambda; };
+inline Solution TestCase::get_solution() { return m_sol; };
+inline Diffusion TestCase::get_diffusion() { return m_diff; };
+inline Advection TestCase::get_advection() { return m_advec; };
+inline Reaction TestCase::get_reaction() { return m_reac; };
 
-inline bool TestCase::is_reac_const() { return reac_const; };
-inline bool TestCase::is_div_advec_zero() { return div_advec_zero; };
-inline bool TestCase::is_div_advec_const() { return div_advec_const; };
-
-     //@}
+//@}
 
 #endif //_TEST_CASE_HPP

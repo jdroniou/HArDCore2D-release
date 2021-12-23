@@ -20,6 +20,8 @@ typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Curl\+Val
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef void {\bfseries Hessian\+Value}
+\item 
 typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
@@ -30,11 +32,15 @@ typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} {\bfseries Geometric\+S
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga55d9d9b8fd25fb21696fc89cd8a06537}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
 Function\+Value \mbox{\hyperlink{group__Basis_ga3d2d8a3b77a082575c44237bed02c842}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1RolyComplBasisCell}{Roly\+Compl\+Basis\+Cell}} $>$ \& \mbox{\hyperlink{group__Basis_ga7d85cdac21e1c4c86f3eff124d974f03}{rck}} () const
+\begin{DoxyCompactList}\small\item\em Return the Rck basis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = false
 \item 
 static const bool {\bfseries has\+Function} = true
 \item 
@@ -43,6 +49,8 @@ static const bool {\bfseries has\+Gradient} = false
 static const bool {\bfseries has\+Curl} = false
 \item 
 static const bool {\bfseries has\+Divergence} = false
+\item 
+static const bool {\bfseries has\+Hessian} = false
 \end{DoxyCompactItemize}
 
 

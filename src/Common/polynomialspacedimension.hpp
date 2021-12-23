@@ -85,6 +85,18 @@ namespace HArDCore2D
     {
       return 2 * PolynomialSpaceDimension<Cell>::Poly(k) - PolynomialSpaceDimension<Cell>::Roly(k);
     }
+
+    /// Dimension of Hk(T)
+    static size_t Holy(int k)
+    {
+      return (k+4) * (k+3) / 2 - 3;
+    }
+
+    /// Dimension of Hck(T)
+    static size_t HolyCompl(int k)
+    {
+      return (k+1) * k;
+    }
   };
 
   template<>

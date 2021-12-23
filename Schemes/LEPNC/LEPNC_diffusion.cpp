@@ -78,7 +78,7 @@ int main(int argc, const char* argv[]) {
 	std::vector<std::vector<double> > centers;
 	if (mesh.read_mesh(vertices, cells, centers) == false) {
 		output << "Could not open file" << std::endl;
-		return false;
+		return 0;
 	};
 
 	// Build the mesh
@@ -113,21 +113,22 @@ int main(int argc, const char* argv[]) {
 	TestCase tcase(id_tcase);
 
   // Diffusion tensor
-  LEPNC_diffusion::tensor_function_type kappa = [&](double x, double y, Cell* cell) {
+   LEPNC_diffusion::tensor_function_type kappa = [&](double x, double y, Cell* cell) {
       VectorRd p = VectorRd(x,y);
-			return tcase.diff()(p,cell);
+			return tcase.get_diffusion().value(p,cell);
   };
-	size_t deg_kappa = tcase.get_deg_diff();
+	size_t deg_kappa = tcase.get_diffusion().degree;
 
   // Exact solution and gradient
   LEPNC_diffusion::solution_function_type exact_solution = [&](double x, double y) {
       VectorRd p = VectorRd(x,y);
-			return tcase.sol()(p);
+			return tcase.get_solution().value(p);
   };
   LEPNC_diffusion::grad_function_type grad_exact_solution = [&](double x, double y, Cell* cell) {
       VectorRd p = VectorRd(x,y);
-			return tcase.grad_sol()(p,cell);
+			return tcase.get_solution().gradient(p,cell);
   };
+
 	
   // Source term
   LEPNC_diffusion::source_function_type source_term = [&](double x, double y, Cell* cell) {

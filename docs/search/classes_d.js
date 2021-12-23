@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['shiftedbasis_396',['ShiftedBasis',['../classHArDCore2D_1_1ShiftedBasis.html',1,'HArDCore2D']]]
+  ['quadraturenode_468',['QuadratureNode',['../structHArDCore2D_1_1QuadratureNode.html',1,'HArDCore2D']]],
+  ['quadruleedge_469',['QuadRuleEdge',['../classHArDCore2D_1_1QuadRuleEdge.html',1,'HArDCore2D']]],
+  ['quadruletriangle_470',['QuadRuleTriangle',['../classHArDCore2D_1_1QuadRuleTriangle.html',1,'HArDCore2D']]]
 ];

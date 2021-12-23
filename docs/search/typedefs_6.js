@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['polycellbasistype_710',['PolyCellBasisType',['../group__HybridCore.html#ga66e8eccfa5bfc2788b2aec903bd64d4a',1,'HArDCore2D::HybridCore']]],
-  ['polyedgebasistype_711',['PolyEdgeBasisType',['../group__HybridCore.html#ga76550d672e82b1b9e49ea90054b8cc6d',1,'HArDCore2D::HybridCore']]]
+  ['nonlinearity_5ffunction_5ftype_855',['nonlinearity_function_type',['../classTestCaseNonLinearity.html#a3d8a5c89c517dd0d9c835b7441ee9b07',1,'TestCaseNonLinearity']]]
 ];

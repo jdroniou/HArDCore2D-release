@@ -770,5 +770,3 @@ double ReissnerMindlin::computeNorm(const Eigen::VectorXd & v ) const
   
   return std::sqrt(std::abs(local_sqnorms.sum()));
 }
-
-

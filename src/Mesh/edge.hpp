@@ -60,6 +60,8 @@ public:
     inline Vector2d tangent() const;   ///< get a normalised tangent to the edge, from the first vertex to the second
     inline Vector2d normal() const;   ///< get a unit normal to the edge, rotation by +pi/2 of tangent()
     inline bool is_boundary() const;  ///< getter to see if edge is boundary edge
+    int vertex_orientation(size_t i) const; ///< returns the relative orientation of the i-th vertex with respect to the edge (that is, +1 if the tangent to the edge points toward the vertex, -1 otherwise).
+
 
     void add_cell(Cell *cell);      ///< Add a new cell to the edge
     void set_global_index(size_t idx);  ///< Set the global index of the edge to idx. Used to re-index the edges, should essentially only be used inside Mesh::renum

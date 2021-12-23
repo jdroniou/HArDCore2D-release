@@ -27,11 +27,6 @@ namespace HArDCore2D {
 
 /** The LEPNCCore class provides basis functions for non-conforming schemes on generic polygonal meshes
 *
-* If using this code in a scientific publication, please cite the reference for the LEPNC:
-*
-* Non-conforming finite elements on polytopal mesh,
-* J. Droniou, R. Eymard, T. Gallouët and R. Herbin
-* url:
 *
 **/
 
@@ -621,7 +616,7 @@ Eigen::VectorXd LEPNCCore::nc_interpolate_moments(const Function& f, size_t doe)
     Eigen::VectorXd bT = Eigen::VectorXd::Zero(DimPoly<Cell>(1));
     for (size_t i = 0; i < DimPoly<Cell>(1); i++) {
       const auto& phi_i = nc_basis(iT, i);
-			std::function<double(double,double)> adjusted_f = [&phi_i, &f, &edgesT, &Xh, &offset_edges, &iT, this](double x, double y) {
+			std::function<double(double,double)> adjusted_f = [&f, &edgesT, &Xh, &offset_edges, &iT, this](double x, double y) {
 				double val = f(x,y);
 				for (size_t ilF = 0; ilF < edgesT.size(); ilF++){
 					size_t iF = edgesT[ilF]->global_index();

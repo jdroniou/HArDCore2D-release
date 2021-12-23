@@ -52,12 +52,12 @@ namespace HArDCore2D
   
   /// Function to assemble global matrix and right-hand side from a procedure that compute local triplets and rhs contributions
   static inline std::pair<Eigen::SparseMatrix<double>, Eigen::VectorXd>
-         parallel_assembly_system(
-            size_t nb_elements, //< nb of elements over which the threading will be done
-            size_t size_system, //< size of the system to assemble
-            std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets, Eigen::VectorXd * rhs)> batch_local_assembly, //< procedure to compute all the local contributions to the matrix (put in the triplets) and rhs (put in the vector) between start and end points (e.g. elements indices) 
-            bool use_threads = true //< determine if threaded process is used or not
-        )
+  parallel_assembly_system(
+                           size_t nb_elements, //< nb of elements over which the threading will be done
+                           size_t size_system, //< size of the system to assemble
+                           std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets, Eigen::VectorXd * rhs)> batch_local_assembly, //< procedure to compute all the local contributions to the matrix (put in the triplets) and rhs (put in the vector) between start and end points (e.g. elements indices) 
+                           bool use_threads = true //< determine if threaded process is used or not
+                           )
   {
     // Matrix and rhs
     Eigen::SparseMatrix<double> A(size_system, size_system);
@@ -117,15 +117,15 @@ namespace HArDCore2D
     return std::make_pair(A, b);  
   }
   
-   /// Function to assemble a two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that compute local triplets and rhs contributions
+  /// Function to assemble a two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that compute local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>>
-         parallel_assembly_system(
-            size_t nb_elements, //< nb of elements over which the threading will be done
-            size_t size_system1, //< size of the system 1 to assemble (must be square, corresponds to first matrix and vector=rhs)
-            std::pair<size_t, size_t> size_Mat2, //< size of the second matrix to assemble (can be rectangular)
-            std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets1, Eigen::VectorXd * vec1, std::list<Eigen::Triplet<double>> * triplets2)> batch_local_assembly, //< procedure to compute all the local contributions to the matrices (put in the triplets) and vectors between start and end points (e.g. elements indices) 
-            bool use_threads = true //< determine if threaded process is used or not
-        )
+  parallel_assembly_system(
+                           size_t nb_elements, //< nb of elements over which the threading will be done
+                           size_t size_system1, //< size of the system 1 to assemble (must be square, corresponds to first matrix and vector=rhs)
+                           std::pair<size_t, size_t> size_Mat2, //< size of the second matrix to assemble (can be rectangular)
+                           std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets1, Eigen::VectorXd * vec1, std::list<Eigen::Triplet<double>> * triplets2)> batch_local_assembly, //< procedure to compute all the local contributions to the matrices (put in the triplets) and vectors between start and end points (e.g. elements indices) 
+                           bool use_threads = true //< determine if threaded process is used or not
+                           )
   {
     // Matrices and vectors
     Eigen::SparseMatrix<double> A1(size_system1, size_system1);
@@ -206,14 +206,14 @@ namespace HArDCore2D
 
   /// Function to assemble a two global matrices and vectors (such as: system and static condensation operator) from a procedure that compute local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>, Eigen::VectorXd>
-         parallel_assembly_system(
-            size_t nb_elements, //< nb of elements over which the threading will be done
-            size_t size_system1, //< size of the system 1 to assemble (must be square, corresponds to first matrix and vector=rhs)
-            std::pair<size_t, size_t> size_Mat2, //< size of the second matrix to assemble (can be rectangular)
-            size_t size_b2, //< size of second vector
-            std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets1, Eigen::VectorXd * vec1, std::list<Eigen::Triplet<double>> * triplets2, Eigen::VectorXd * vec2)> batch_local_assembly, //< procedure to compute all the local contributions to the matrices (put in the triplets) and vectors between start and end points (e.g. elements indices) 
-            bool use_threads = true //< determine if threaded process is used or not
-        )
+  parallel_assembly_system(
+                           size_t nb_elements, //< nb of elements over which the threading will be done
+                           size_t size_system1, //< size of the system 1 to assemble (must be square, corresponds to first matrix and vector=rhs)
+                           std::pair<size_t, size_t> size_Mat2, //< size of the second matrix to assemble (can be rectangular)
+                           size_t size_b2, //< size of second vector
+                           std::function<void(size_t start, size_t end, std::list<Eigen::Triplet<double>> * triplets1, Eigen::VectorXd * vec1, std::list<Eigen::Triplet<double>> * triplets2, Eigen::VectorXd * vec2)> batch_local_assembly, //< procedure to compute all the local contributions to the matrices (put in the triplets) and vectors between start and end points (e.g. elements indices) 
+                           bool use_threads = true //< determine if threaded process is used or not
+                           )
   {
     // Matrices and vectors
     Eigen::SparseMatrix<double> A1(size_system1, size_system1);

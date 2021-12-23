@@ -172,7 +172,7 @@ Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:ga66b278b12266d5c5bfee8699886cc89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memItemLeft" align="right" valign="top"><a id="ga27a8932bdc987ee15a17a628d4cfe60e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga27a8932bdc987ee15a17a628d4cfe60e">HArDCore2D::Cell::edge_orientation</a> (size_t i) const</td></tr>
-<tr class="memdesc:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -1 otherwise). <br /></td></tr>
+<tr class="memdesc:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the edge is the outer normal to the cell, -1 otherwise). <br /></td></tr>
 <tr class="separator:ga27a8932bdc987ee15a17a628d4cfe60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6dfa6d2f4a0c971bc760538b73880a1c"><td class="memItemLeft" align="right" valign="top"><a id="ga6dfa6d2f4a0c971bc760538b73880a1c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga6dfa6d2f4a0c971bc760538b73880a1c">HArDCore2D::Cell::calc_cell_geometry_factors</a> ()</td></tr>
@@ -251,6 +251,10 @@ Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">HArDCore2D::Edge::is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga10424f4b99793ab359b5dd099f9255ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter to see if edge is boundary edge <br /></td></tr>
 <tr class="separator:ga10424f4b99793ab359b5dd099f9255ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaa4cd6eb0a028cce4b2c28b067fcfea"><td class="memItemLeft" align="right" valign="top"><a id="gacaa4cd6eb0a028cce4b2c28b067fcfea"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gacaa4cd6eb0a028cce4b2c28b067fcfea">HArDCore2D::Edge::vertex_orientation</a> (size_t i) const</td></tr>
+<tr class="memdesc:gacaa4cd6eb0a028cce4b2c28b067fcfea"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the relative orientation of the i-th vertex with respect to the edge (that is, +1 if the tangent to the edge points toward the vertex, -1 otherwise). <br /></td></tr>
+<tr class="separator:gacaa4cd6eb0a028cce4b2c28b067fcfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga364bacf89dfa0be36abbbadbb2dd4f78"><td class="memItemLeft" align="right" valign="top"><a id="ga364bacf89dfa0be36abbbadbb2dd4f78"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga364bacf89dfa0be36abbbadbb2dd4f78">HArDCore2D::Edge::add_cell</a> (<a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *<a class="el" href="group__Mesh.html#gad4be0bfb981ccf2c1e02e870772dbdc3">cell</a>)</td></tr>
 <tr class="memdesc:ga364bacf89dfa0be36abbbadbb2dd4f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new cell to the edge. <br /></td></tr>
@@ -450,8 +454,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga0ef4a78ac64d1bcb6380317ea866758d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga208c94e8cb6490226215b59eb67e7911"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga208c94e8cb6490226215b59eb67e7911">HArDCore2D::MeshBuilder::build_the_mesh</a> ()</td></tr>
 <tr class="separator:ga208c94e8cb6490226215b59eb67e7911"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab33652b8567bb0f58514262839506ec4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gab33652b8567bb0f58514262839506ec4">HArDCore2D::Vertex::Vertex</a> (size_t iV, Vector2d <a class="el" href="group__Mesh.html#gade92964c93627c034b021c1d23075a79">coords</a>, <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> *mesh)</td></tr>
-<tr class="separator:gab33652b8567bb0f58514262839506ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31936095a41665b07323fc0d44113510"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga31936095a41665b07323fc0d44113510">HArDCore2D::Vertex::Vertex</a> (size_t iV, Vector2d <a class="el" href="group__Mesh.html#gade92964c93627c034b021c1d23075a79">coords</a>)</td></tr>
+<tr class="separator:ga31936095a41665b07323fc0d44113510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad19d3dca11de693ac4a454b2263eb179"><td class="memItemLeft" align="right" valign="top"><a id="gad19d3dca11de693ac4a454b2263eb179"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#gad19d3dca11de693ac4a454b2263eb179">HArDCore2D::Vertex::global_index</a> () const</td></tr>
 <tr class="memdesc:gad19d3dca11de693ac4a454b2263eb179"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the edges global index <br /></td></tr>
@@ -943,8 +947,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 
 </div>
 </div>
-<a id="gab33652b8567bb0f58514262839506ec4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab33652b8567bb0f58514262839506ec4">&#9670;&nbsp;</a></span>Vertex()</h2>
+<a id="ga31936095a41665b07323fc0d44113510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31936095a41665b07323fc0d44113510">&#9670;&nbsp;</a></span>Vertex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -959,13 +963,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Vector2d&#160;</td>
-          <td class="paramname"><em>coords</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> *&#160;</td>
-          <td class="paramname"><em>mesh</em>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

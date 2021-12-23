@@ -2,6 +2,8 @@
 
 #include <ddrcore.hpp>
 #include <parallel_for.hpp>
+#include <GMpoly_cell.hpp>
+#include <GMpoly_edge.hpp>
 
 using namespace HArDCore2D;
 
@@ -49,39 +51,43 @@ DDRCore::CellBases DDRCore::_construct_cell_bases(size_t iT)
 
   CellBases bases_T;
   
+  MonomialCellIntegralsType int_monoT_2kp4 = IntegrateCellMonomials(T, 2*(m_K+2));
+    
   //------------------------------------------------------------------------------
-  // Basis for Pk+1(T)
+  // Basis for Pk+1(T), Pk(T), Pk-1(T) and Pk(T)^2
+  //    We do not use 'RestrictedBasis' because the construction is quite 
+  //    fast already with GramMatrix, and it simplifies the management
+  //    of these bases afterwards
   //------------------------------------------------------------------------------
   
   MonomialScalarBasisCell basis_Pkpo_T(T, m_K + 1);
-  QuadratureRule quad_2kpo_T = generate_quadrature_rule(T, 2 * (m_K + 1));
-  boost::multi_array<double, 2> on_basis_Pkpo_T_quad = evaluate_quad<Function>::compute(basis_Pkpo_T, quad_2kpo_T);
-  // Orthonormalize and store
-  bases_T.Polykpo.reset( new PolyBasisCellType(l2_orthonormalize(basis_Pkpo_T, quad_2kpo_T, on_basis_Pkpo_T_quad)) );   
-  // Check that we got the dimension right
+  bases_T.Polykpo.reset( new PolyBasisCellType(l2_orthonormalize(basis_Pkpo_T, GramMatrix(T, basis_Pkpo_T, int_monoT_2kp4))) );  
+
+  MonomialScalarBasisCell basis_Pk_T(T, m_K);
+  bases_T.Polyk.reset( new PolyBasisCellType(l2_orthonormalize(basis_Pk_T, GramMatrix(T, basis_Pk_T, int_monoT_2kp4))) );  
+
+  // Check that we got the dimensions right
   assert( bases_T.Polykpo->dimension() == PolynomialSpaceDimension<Cell>::Poly(m_K + 1) );
+  assert( bases_T.Polyk->dimension() == PolynomialSpaceDimension<Cell>::Poly(m_K) );
 
-  //------------------------------------------------------------------------------
-  // Basis for Pk(T), Pk-1(T) and Pk(T)^2
-  //------------------------------------------------------------------------------
-
-  // Given that the basis for Pk+1(T) is hierarchical, bases for Pk(T) and
-  // Pk-1(T) can be obtained by restricting the former
-  bases_T.Polyk.reset( new RestrictedBasis<PolyBasisCellType>(*bases_T.Polykpo, PolynomialSpaceDimension<Cell>::Poly(m_K)) );  
-  bases_T.Polyk2.reset( new Poly2BasisCellType(*bases_T.Polyk) );
   if (PolynomialSpaceDimension<Cell>::Poly(m_K - 1) > 0) {
-    bases_T.Polykmo.reset( new RestrictedBasis<PolyBasisCellType>(*bases_T.Polykpo, PolynomialSpaceDimension<Cell>::Poly(m_K - 1)) );
+    MonomialScalarBasisCell basis_Pkmo_T(T, m_K-1);
+    bases_T.Polykmo.reset( new PolyBasisCellType(l2_orthonormalize(basis_Pkmo_T, GramMatrix(T, basis_Pkmo_T, int_monoT_2kp4))) );  
+    assert( bases_T.Polykmo->dimension() == PolynomialSpaceDimension<Cell>::Poly(m_K - 1) );
   }
-  // Check dimension Pk(T)^2
+  
+  //------------------------------------------------------------------------------
+  // Basis Pk(T)^2
+  //------------------------------------------------------------------------------
+
+  bases_T.Polyk2.reset( new Poly2BasisCellType(*bases_T.Polyk) );
+
+  // Check dimension
   assert( bases_T.Polyk2->dimension() == 2 * PolynomialSpaceDimension<Cell>::Poly(m_K) );
   
   //------------------------------------------------------------------------------
   // Basis for Rk-1(T)
   //------------------------------------------------------------------------------
-
-  // Quadrature useful for various spaces to follow (degree might be too large in certain cases, but that is
-  // not a major additional cost in 2D)
-  QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2 * m_K);
 
   if (PolynomialSpaceDimension<Cell>::Roly(m_K - 1) > 0) {
     // Non-orthonormalised basis of Rk-1(T). 
@@ -89,8 +95,7 @@ DDRCore::CellBases DDRCore::_construct_cell_bases(size_t iT)
     ShiftedBasis<MonomialScalarBasisCell> basis_Pk0_T(basis_Pk_T,1);
     CurlBasis<ShiftedBasis<MonomialScalarBasisCell>> basis_Rkmo_T(basis_Pk0_T);
     // Orthonormalise, store and check dimension
-    auto basis_Rkmo_T_quad = evaluate_quad<Function>::compute(basis_Rkmo_T, quad_2k_T);
-    bases_T.Rolykmo.reset( new RolyBasisCellType(l2_orthonormalize(basis_Rkmo_T, quad_2k_T, basis_Rkmo_T_quad)) );
+    bases_T.Rolykmo.reset( new RolyBasisCellType(l2_orthonormalize(basis_Rkmo_T, GramMatrix(T, basis_Rkmo_T, int_monoT_2kp4))) );
     assert( bases_T.Rolykmo->dimension() == PolynomialSpaceDimension<Cell>::Roly(m_K - 1) );
   }
   
@@ -101,9 +106,8 @@ DDRCore::CellBases DDRCore::_construct_cell_bases(size_t iT)
   if (PolynomialSpaceDimension<Cell>::RolyCompl(m_K) > 0) {
     // Non-orthonormalised
     RolyComplBasisCell basis_Rck_T(T, m_K);
-    auto basis_Rck_T_quad = evaluate_quad<Function>::compute(basis_Rck_T, quad_2k_T);
     // Orthonormalise, store and check dimension
-    bases_T.RolyComplk.reset( new RolyComplBasisCellType(l2_orthonormalize(basis_Rck_T, quad_2k_T, basis_Rck_T_quad)) );
+    bases_T.RolyComplk.reset( new RolyComplBasisCellType(l2_orthonormalize(basis_Rck_T, GramMatrix(T, basis_Rck_T, int_monoT_2kp4))) );
     assert ( bases_T.RolyComplk->dimension() == PolynomialSpaceDimension<Cell>::RolyCompl(m_K) );
   }
 
@@ -113,13 +117,11 @@ DDRCore::CellBases DDRCore::_construct_cell_bases(size_t iT)
 
   // Non-orthonormalised
   RolyComplBasisCell basis_Rckp2_T(T, m_K+2);
-  QuadratureRule quad_2kp2_T = generate_quadrature_rule(T, 2 * (m_K+2) );
-  auto basis_Rckp2_T_quad = evaluate_quad<Function>::compute(basis_Rckp2_T, quad_2kp2_T);
   // Orthonormalise, store and check dimension
-  bases_T.RolyComplkp2.reset( new RolyComplBasisCellType(l2_orthonormalize(basis_Rckp2_T, quad_2kp2_T, basis_Rckp2_T_quad)) );
+  bases_T.RolyComplkp2.reset( new RolyComplBasisCellType(l2_orthonormalize(basis_Rckp2_T, GramMatrix(T, basis_Rckp2_T, int_monoT_2kp4))) );
   assert ( bases_T.RolyComplkp2->dimension() == PolynomialSpaceDimension<Cell>::RolyCompl(m_K+2) );
 
-  
+
   return bases_T;
 }
 
@@ -132,20 +134,20 @@ DDRCore::EdgeBases DDRCore::_construct_edge_bases(size_t iE)
 
   EdgeBases bases_E;
 
+  MonomialEdgeIntegralsType int_monoE_2kp2 = IntegrateEdgeMonomials(E, 2*m_K+2);
+
   // Basis for Pk+1(E)
   MonomialScalarBasisEdge basis_Pkpo_E(E, m_K + 1);
-  QuadratureRule quad_2kpo_E = generate_quadrature_rule(E, 2 * (m_K + 1));
-  auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(basis_Pkpo_E, quad_2kpo_E);
-  bases_E.Polykpo.reset( new PolyEdgeBasisType(l2_orthonormalize(basis_Pkpo_E, quad_2kpo_E, basis_Pkpo_E_quad)) );
+  bases_E.Polykpo.reset( new PolyBasisEdgeType(l2_orthonormalize(basis_Pkpo_E, GramMatrix(E, basis_Pkpo_E, int_monoE_2kp2))) );  
 
   // Basis for Pk(E)
-  bases_E.Polyk.reset( new RestrictedBasis<PolyEdgeBasisType>(*bases_E.Polykpo, PolynomialSpaceDimension<Edge>::Poly(m_K)) );
-  
+  MonomialScalarBasisEdge basis_Pk_E(E, m_K);
+  bases_E.Polyk.reset( new PolyBasisEdgeType(l2_orthonormalize(basis_Pk_E, GramMatrix(E, basis_Pk_E, int_monoE_2kp2))) );  
+
   // Basis for Pk-1(E)
   if (PolynomialSpaceDimension<Edge>::Poly(m_K - 1) > 0) {
-    // Given that the basis for Pk+1(E) is hierarchical, a basis for Pk-1(E)
-    // can be obtained by restricting the former
-    bases_E.Polykmo.reset( new RestrictedBasis<PolyEdgeBasisType>(*bases_E.Polykpo, PolynomialSpaceDimension<Edge>::Poly(m_K - 1)) );
+    MonomialScalarBasisEdge basis_Pkmo_E(E, m_K-1);
+    bases_E.Polykmo.reset( new PolyBasisEdgeType(l2_orthonormalize(basis_Pkmo_E, GramMatrix(E, basis_Pkmo_E, int_monoE_2kp2))) );  
   }
 
   return bases_E;

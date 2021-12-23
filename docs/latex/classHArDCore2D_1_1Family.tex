@@ -15,7 +15,11 @@ typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef Basis\+Type\+::\+Hessian\+Value {\bfseries Hessian\+Value}
+\item 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\item 
+typedef Basis\+Type {\bfseries Ancestor\+Type}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -40,14 +44,22 @@ Divergence\+Value \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d71
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at point x. \end{DoxyCompactList}\item 
 Divergence\+Value \mbox{\hyperlink{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Divergence\+Value, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+Hessian\+Value \mbox{\hyperlink{group__Basis_ga1177b381c53a1643c59e6c629eb92635}{hessian}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the Hessian of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+Hessian\+Value \mbox{\hyperlink{group__Basis_ga6c5490c4123089e015312925d5e0871d}{hessian}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Hessian\+Value, 2 $>$ \&ancestor\+\_\+hessian\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the hessian of the i-\/th function at a quadrature point iqn, knowing all the hessian of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 const Eigen\+::\+Matrix\+Xd \& \mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{matrix}} () const
 \begin{DoxyCompactList}\small\item\em Return the coefficient matrix. \end{DoxyCompactList}\item 
-const Basis\+Type \& \mbox{\hyperlink{group__Basis_ga1f618ff125041ebcfb88db2f4373d37e}{ancestor}} () const
-\begin{DoxyCompactList}\small\item\em Return the ancestor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+constexpr const Basis\+Type \& \mbox{\hyperlink{group__Basis_gae3c2450dfdc17ff6bc94b7cecbfa32fd}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_gad4b3b65781bb5e81935f045b635e0d85}{max\+\_\+degree}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum degree of the basis functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Basis\+Type\+::tensor\+Rank
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Basis\+Type\+::tensor\+Rank
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = true
 \item 
 static const bool {\bfseries has\+Function} = Basis\+Type\+::has\+Function
 \item 
@@ -56,6 +68,8 @@ static const bool {\bfseries has\+Gradient} = Basis\+Type\+::has\+Gradient
 static const bool {\bfseries has\+Curl} = Basis\+Type\+::has\+Curl
 \item 
 static const bool {\bfseries has\+Divergence} = Basis\+Type\+::has\+Divergence
+\item 
+static const bool {\bfseries has\+Hessian} = Basis\+Type\+::has\+Hessian
 \end{DoxyCompactItemize}
 
 

@@ -64,14 +64,14 @@ namespace HArDCore2D
   public:
     // Types for element bases
     typedef Family<MonomialScalarBasisCell> PolyBasisCellType;
-    typedef TensorizedVectorFamily<RestrictedBasis<PolyBasisCellType>, 2> Poly2BasisCellType;
+    typedef TensorizedVectorFamily<PolyBasisCellType, 2> Poly2BasisCellType;
     typedef Family<GradientBasis<ShiftedBasis<MonomialScalarBasisCell> > > GolyBasisCellType;
     typedef Family<GolyComplBasisCell> GolyComplBasisCellType;
     typedef Family<CurlBasis<ShiftedBasis<MonomialScalarBasisCell> > > RolyBasisCellType;
     typedef Family<RolyComplBasisCell> RolyComplBasisCellType;
 
     // Type for edge basis
-    typedef Family<MonomialScalarBasisEdge> PolyEdgeBasisType;
+    typedef Family<MonomialScalarBasisEdge> PolyBasisEdgeType;
 
     /// Structure to store element bases
     /** 'Poly': basis of polynomial space; 'Goly': gradient basis; 'Roly': curl basis.\n
@@ -83,8 +83,8 @@ namespace HArDCore2D
       typedef Cell GeometricSupport;
 
       std::unique_ptr<PolyBasisCellType> Polykpo;
-      std::unique_ptr<RestrictedBasis<PolyBasisCellType> > Polyk;
-      std::unique_ptr<RestrictedBasis<PolyBasisCellType> > Polykmo;
+      std::unique_ptr<PolyBasisCellType> Polyk;
+      std::unique_ptr<PolyBasisCellType> Polykmo;
       std::unique_ptr<Poly2BasisCellType> Polyk2;
       std::unique_ptr<RolyBasisCellType>  Rolykmo;
       std::unique_ptr<RolyComplBasisCellType> RolyComplk;
@@ -98,9 +98,9 @@ namespace HArDCore2D
       /// Geometric support
       typedef Edge GeometricSupport;
 
-      std::unique_ptr<PolyEdgeBasisType> Polykpo;
-      std::unique_ptr<RestrictedBasis<PolyEdgeBasisType> > Polyk;
-      std::unique_ptr<RestrictedBasis<PolyEdgeBasisType> > Polykmo;
+      std::unique_ptr<PolyBasisEdgeType> Polykpo;
+      std::unique_ptr<PolyBasisEdgeType> Polyk;
+      std::unique_ptr<PolyBasisEdgeType> Polykmo;
     };    
     
     /// Constructor

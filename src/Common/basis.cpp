@@ -14,11 +14,11 @@ namespace HArDCore2D
     : m_degree(degree),
       m_xT(T.center_mass()),
       m_hT(T.diam()),
-      m_powers(MonomialPowers<Cell>::compute(degree))
+      m_powers(MonomialPowers<Cell>::complete(degree))
   {
-     // create rotation pi/2 for curl
-     m_rot.row(0) << 0., 1.;
-     m_rot.row(1) << -1., 0.;
+    // create rotation pi/2 for curl
+    m_rot.row(0) << 0., 1.;
+    m_rot.row(1) << -1., 0.;
   }
 
   MonomialScalarBasisCell::FunctionValue MonomialScalarBasisCell::function(size_t i, const VectorRd & x) const
@@ -41,7 +41,19 @@ namespace HArDCore2D
   MonomialScalarBasisCell::CurlValue MonomialScalarBasisCell::curl(size_t i, const VectorRd & x) const
   {
     return m_rot * gradient(i, x);
-  }  
+  }
+
+  MonomialScalarBasisCell::HessianValue MonomialScalarBasisCell::hessian(size_t i, const VectorRd & x) const
+  {
+    VectorRd y = _coordinate_transform(x);
+    const VectorZd & powers = m_powers[i];
+    Eigen::Matrix2d hess = Eigen::Matrix2d::Zero();
+    hess(0, 0) = ( powers(0) < 2 ? 0. : powers(0) * (powers(0) - 1) * std::pow(y(0), powers(0)-2) * std::pow(y(1), powers(1)) );
+    hess(1, 1) = ( powers(1) < 2 ? 0. : powers(1) * (powers(1) - 1) * std::pow(y(0), powers(0)) * std::pow(y(1), powers(1)-2) );
+    hess(1, 0) = hess(0, 1) = ( powers(0) == 0 ? 0. : powers(0) * std::pow(y(0), powers(0) - 1) )
+      * ( powers(1) == 0 ? 0. : powers(1) * std::pow(y(1), powers(1) - 1) );
+    return hess / std::pow(m_hT, 2);
+  }
 
   //------------------------------------------------------------------------------
   // Scalar monomial basis on an edge
@@ -71,13 +83,13 @@ namespace HArDCore2D
   //------------------------------------------------------------------------------
 
   RolyComplBasisCell::RolyComplBasisCell(const Cell &T, size_t degree)
-      : m_degree(degree),
-        m_xT(T.center_mass()),
-        m_hT(T.diam())
+    : m_degree(degree),
+      m_xT(T.center_mass()),
+      m_hT(T.diam())
   {
     // Monomial powers for P^{k-1}(T)
     if (m_degree >= 1){
-      m_powers = MonomialPowers<Cell>::compute(m_degree-1);
+      m_powers = MonomialPowers<Cell>::complete(m_degree-1);
     }else{
       std::cout << "Attempting to construct RckT with degree 0, stopping" << std::endl;
       exit(1);
@@ -103,7 +115,7 @@ namespace HArDCore2D
   //------------------------------------------------------------------------------
   
   GolyComplBasisCell::GolyComplBasisCell(const Cell &T, size_t degree)
-      : m_degree(degree)
+    : m_degree(degree)
   {
     m_rot.row(0) << 0., 1.;
     m_rot.row(1) << -1., 0.;
@@ -116,7 +128,28 @@ namespace HArDCore2D
     return m_rot * m_Rck_basis->function(i, x);
   }
 
+  //------------------------------------------------------------------------------
+  // Basis for H^{c,k}(T)
+  //------------------------------------------------------------------------------
 
+  HolyComplBasisCell::HolyComplBasisCell(const Cell &T, size_t degree)
+    : m_degree(degree),
+      m_xT(T.center_mass()),
+      m_hT(T.diam()),
+      m_Pkmo(MonomialScalarBasisCell(T, degree - 1))
+  {   
+    // create rotation pi/2
+    m_rot.row(0) << 0., 1.;
+    m_rot.row(1) << -1., 0.;
+  }
+
+  HolyComplBasisCell::FunctionValue HolyComplBasisCell::function(size_t i, const VectorRd &x) const
+  {
+    VectorRd y = m_rot * _coordinate_transform(x);
+    Eigen::Matrix2d M = y * m_Pkmo.function(i, x).transpose();
+    return 0.5 * (M + M.transpose());
+  }
+  
   //------------------------------------------------------------------------------
   // A common notion of scalar product for scalars and vectors
   //------------------------------------------------------------------------------
@@ -135,7 +168,7 @@ namespace HArDCore2D
 
   // Vector2d for B1, tensorised double for B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1,
-				                              const boost::multi_array<double, 2> & B2,
+                                      const boost::multi_array<double, 2> & B2,
                                       const QuadratureRule & qr)
   {
     // Check that the basis evaluation and quadrature rule are coherent
@@ -158,12 +191,12 @@ namespace HArDCore2D
 
   // Gramm matrix for double-valued B1, B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<double, 2> & B1,
-				      const boost::multi_array<double, 2> & B2,
-				      const QuadratureRule & qr,
-				      const size_t nrows,
-				      const size_t ncols,
-				      const std::string sym
-				      )
+                                      const boost::multi_array<double, 2> & B2,
+                                      const QuadratureRule & qr,
+                                      const size_t nrows,
+                                      const size_t ncols,
+                                      const std::string sym
+                                      )
   {
     // Check that the basis evaluation and quadrature rule are coherent
     assert ( qr.size() == B1.shape()[1] && qr.size() == B2.shape()[1] );
@@ -202,10 +235,10 @@ namespace HArDCore2D
 
   // Gram matrix for double-valued complete family. Do not make this inline, this slows down calculations.
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<double, 2> & B1,
-				      const boost::multi_array<double, 2> & B2,
-				      const QuadratureRule & qr,
-				      const std::string sym
-				      )
+                                      const boost::multi_array<double, 2> & B2,
+                                      const QuadratureRule & qr,
+                                      const std::string sym
+                                      )
   {
     return compute_gram_matrix(B1, B2, qr, B1.shape()[0], B2.shape()[0], sym);
   }
@@ -213,12 +246,12 @@ namespace HArDCore2D
 
   // Gram matrix for Vector2d-valued B1 and B2
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1,
-				      const boost::multi_array<VectorRd, 2> & B2,
-				      const QuadratureRule & qr,
-				      const size_t nrows,
-				      const size_t ncols,
-				      const std::string sym
-				      )
+                                      const boost::multi_array<VectorRd, 2> & B2,
+                                      const QuadratureRule & qr,
+                                      const size_t nrows,
+                                      const size_t ncols,
+                                      const std::string sym
+                                      )
   {
     // Check that the basis evaluation and quadrature rule are coherent
     assert ( qr.size() == B1.shape()[1] && qr.size() == B2.shape()[1] );
@@ -254,23 +287,23 @@ namespace HArDCore2D
 
   // Gram matrix for Vector2d-valued complete family. Do not make this inline, this slows down actual calculations.
   Eigen::MatrixXd compute_gram_matrix(const boost::multi_array<VectorRd, 2> & B1, 
-				      const boost::multi_array<VectorRd, 2> & B2, 
-				      const QuadratureRule & qr,       
-				      const std::string sym
-				      )
-    {
-      return compute_gram_matrix(B1, B2, qr, B1.shape()[0], B2.shape()[0], sym);
-    }
+                                      const boost::multi_array<VectorRd, 2> & B2, 
+                                      const QuadratureRule & qr,       
+                                      const std::string sym
+                                      )
+  {
+    return compute_gram_matrix(B1, B2, qr, B1.shape()[0], B2.shape()[0], sym);
+  }
 
 
   Eigen::MatrixXd compute_weighted_gram_matrix(const FType<VectorRd> &f, const BasisQuad<VectorRd> &B1, const BasisQuad<double> &B2, const QuadratureRule &qr, size_t n_rows, size_t n_cols)
   {
     // If default, set n_rows and n_cols to size of families
     if (n_rows == 0 && n_cols == 0)
-    {
-      n_rows = B1.shape()[0];
-      n_cols = B2.shape()[0];
-    }
+      {
+        n_rows = B1.shape()[0];
+        n_cols = B2.shape()[0];
+      }
 
     // Number of quadrature nodes
     const size_t num_quads = qr.size();
@@ -281,18 +314,18 @@ namespace HArDCore2D
 
     Eigen::MatrixXd M = Eigen::MatrixXd::Zero(n_rows, n_cols);
     for (size_t iqn = 0; iqn < num_quads; iqn++)
-    {
-      double qr_weight = qr[iqn].w;
-      VectorRd f_on_qr = f(qr[iqn].vector());
-      for (size_t i = 0; i < n_rows; i++)
       {
-        double f_dot_B1 = f_on_qr.dot(B1[i][iqn]);
-        for (size_t j = 0; j < n_cols; j++)
-        {
-          M(i, j) += qr_weight * f_dot_B1 * B2[j][iqn];
-        }
+        double qr_weight = qr[iqn].w;
+        VectorRd f_on_qr = f(qr[iqn].vector());
+        for (size_t i = 0; i < n_rows; i++)
+          {
+            double f_dot_B1 = f_on_qr.dot(B1[i][iqn]);
+            for (size_t j = 0; j < n_cols; j++)
+              {
+                M(i, j) += qr_weight * f_dot_B1 * B2[j][iqn];
+              }
+          }
       }
-    }
     return M;
   }
 

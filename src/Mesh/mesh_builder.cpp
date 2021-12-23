@@ -21,7 +21,7 @@ std::unique_ptr<Mesh> MeshBuilder::build_the_mesh(
         // Create vertices
         size_t iG = 0;
         for (auto& v : vertices) {
-            Vertex* vertex = new Vertex(iG, Vector2d(v[0], v[1]), mesh.get());
+            Vertex* vertex = new Vertex(iG, Vector2d(v[0], v[1]));
             mesh->add_vertex(vertex);
             iG++;
         }

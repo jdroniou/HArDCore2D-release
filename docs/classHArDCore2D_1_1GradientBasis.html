@@ -90,9 +90,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ga88eba0d5ce79a279b6577d119c88442a"><td class="memItemLeft" align="right" valign="top">
-typedef VectorRd&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionValue</b></td></tr>
-<tr class="separator:ga88eba0d5ce79a279b6577d119c88442a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8704102521013957d91c1c4ad28a6630"><td class="memItemLeft" align="right" valign="top">
+typedef BasisType::GradientValue&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionValue</b></td></tr>
+<tr class="separator:ga8704102521013957d91c1c4ad28a6630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5ebfddada3978c4b571e667b939496c6"><td class="memItemLeft" align="right" valign="top">
 typedef Eigen::Matrix&lt; double, dimspace, dimspace &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GradientValue</b></td></tr>
 <tr class="separator:ga5ebfddada3978c4b571e667b939496c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,9 +102,15 @@ typedef VectorRd&#160;</td><td class="memItemRight" valign="bottom"><b>CurlValue
 <tr class="memitem:ga639a17eae62656583350d42bba42773c"><td class="memItemLeft" align="right" valign="top">
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>DivergenceValue</b></td></tr>
 <tr class="separator:ga639a17eae62656583350d42bba42773c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga374d8453bd9ddee6a4a8277d3fde033d"><td class="memItemLeft" align="right" valign="top">
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>HessianValue</b></td></tr>
+<tr class="separator:ga374d8453bd9ddee6a4a8277d3fde033d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad7aeabadc1694d72f9a7ec37924b86b7"><td class="memItemLeft" align="right" valign="top">
 typedef BasisType::GeometricSupport&#160;</td><td class="memItemRight" valign="bottom"><b>GeometricSupport</b></td></tr>
 <tr class="separator:gad7aeabadc1694d72f9a7ec37924b86b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab266327915fd231ff3e881583ddd186b"><td class="memItemLeft" align="right" valign="top">
+typedef BasisType&#160;</td><td class="memItemRight" valign="bottom"><b>AncestorType</b></td></tr>
+<tr class="separator:gab266327915fd231ff3e881583ddd186b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,12 +126,19 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga5e054975f7e1247ba66f08fa159dcf84">function</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga5e054975f7e1247ba66f08fa159dcf84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th basis function at point x. <br /></td></tr>
 <tr class="separator:ga5e054975f7e1247ba66f08fa159dcf84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cb955216fe191094f89ff740b08f637"><td class="memItemLeft" align="right" valign="top">
+constexpr const BasisType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga7cb955216fe191094f89ff740b08f637">ancestor</a> () const</td></tr>
+<tr class="memdesc:ga7cb955216fe191094f89ff740b08f637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ancestor (basis that the gradient was taken of) <br /></td></tr>
+<tr class="separator:ga7cb955216fe191094f89ff740b08f637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ga1acbb7bb95bd4c88fb8d5bb283df1013"><td class="memItemLeft" align="right" valign="top">
-static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
-<tr class="separator:ga1acbb7bb95bd4c88fb8d5bb283df1013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga870198d8bc7facad090da2f56d1037dc"><td class="memItemLeft" align="right" valign="top">
+constexpr static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
+<tr class="separator:ga870198d8bc7facad090da2f56d1037dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9060afdf03f18ed8edb34a7cecb82949"><td class="memItemLeft" align="right" valign="top">
+constexpr static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAncestor</b> = true</td></tr>
+<tr class="separator:ga9060afdf03f18ed8edb34a7cecb82949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3db76edf9738f960e61862e962e6bd6f"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunction</b> = true</td></tr>
 <tr class="separator:ga3db76edf9738f960e61862e962e6bd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,13 +151,16 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl<
 <tr class="memitem:gaccec3fbf49f52c17ba38e873de7ac6ca"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = false</td></tr>
 <tr class="separator:gaccec3fbf49f52c17ba38e873de7ac6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49f24ceeb426d68f8793c7ff5b8b507f"><td class="memItemLeft" align="right" valign="top">
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasHessian</b> = false</td></tr>
+<tr class="separator:ga49f24ceeb426d68f8793c7ff5b8b507f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename BasisType&gt;<br />
 class HArDCore2D::GradientBasis&lt; BasisType &gt;</h3>
 
 <p>Basis for the space of gradients of polynomials. </p>
-<p>To construct a basis of G^k, this assumes that the scalar basis it is constructed from is a basis of P^{k+1}/P^0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.g. polynomials with zero average, or a hierarchical basis of P^{k+1} in which we have removed the first, constant, polynomial) </p>
+<p>To construct a basis of G^k, this assumes that the scalar basis it is constructed from is an ancestor basis of P^{k+1}/P^0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.g. polynomials with zero average, or a hierarchical basis of P^{k+1} in which we have removed the first, constant, polynomial). This can also be used to create a family of gradients (not necessarily linearly independent, if the ancestor basis is not a basis of P^{k+1}/P^0) </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

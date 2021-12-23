@@ -102,6 +102,9 @@ typedef VectorRd&#160;</td><td class="memItemRight" valign="bottom"><b>CurlValue
 <tr class="memitem:ga9ddce9d9620387e1273d1f71f7cd4f8f"><td class="memItemLeft" align="right" valign="top">
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>DivergenceValue</b></td></tr>
 <tr class="separator:ga9ddce9d9620387e1273d1f71f7cd4f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c0af700fa8879e60a734aca77a06fa1"><td class="memItemLeft" align="right" valign="top">
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>HessianValue</b></td></tr>
+<tr class="separator:ga3c0af700fa8879e60a734aca77a06fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf296f0d9a155a2d4599512f96b3967cf"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GeometricSupport</b></td></tr>
 <tr class="separator:gaf296f0d9a155a2d4599512f96b3967cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,12 +126,19 @@ FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 GradientValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga46fbc56b645a745e1ffef6995decc5cd">gradient</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga46fbc56b645a745e1ffef6995decc5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th basis function at point x. <br /></td></tr>
 <tr class="separator:ga46fbc56b645a745e1ffef6995decc5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06af508f56cd771808f7dcb377d6fc64"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga06af508f56cd771808f7dcb377d6fc64">max_degree</a> () const</td></tr>
+<tr class="memdesc:ga06af508f56cd771808f7dcb377d6fc64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum degree of the basis functions. <br /></td></tr>
+<tr class="separator:ga06af508f56cd771808f7dcb377d6fc64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:gafad80154f0c46b6132980c3edf9378a0"><td class="memItemLeft" align="right" valign="top">
-static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Scalar</td></tr>
-<tr class="separator:gafad80154f0c46b6132980c3edf9378a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1bef570dbd3a4ec8a8be3f071fef405"><td class="memItemLeft" align="right" valign="top">
+constexpr static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Scalar</td></tr>
+<tr class="separator:gab1bef570dbd3a4ec8a8be3f071fef405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f0ee41a09c0891559392a803c49ab24"><td class="memItemLeft" align="right" valign="top">
+constexpr static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAncestor</b> = false</td></tr>
+<tr class="separator:ga3f0ee41a09c0891559392a803c49ab24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga069544258c246a19a7574f22074fa4ee"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunction</b> = true</td></tr>
 <tr class="separator:ga069544258c246a19a7574f22074fa4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +151,9 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl<
 <tr class="memitem:ga351c69a9068b7cae877fd1d4d369fabb"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = false</td></tr>
 <tr class="separator:ga351c69a9068b7cae877fd1d4d369fabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75acbe8eb7c0af6d56a021de7a57a48b"><td class="memItemLeft" align="right" valign="top">
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasHessian</b> = false</td></tr>
+<tr class="separator:ga75acbe8eb7c0af6d56a021de7a57a48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Scalar monomial basis on an edge. </p>

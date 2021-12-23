@@ -1,22 +1,22 @@
-#ifndef DDRSPACE_HPP
-#define DDRSPACE_HPP
+#ifndef GLOBALDOFSPACE_HPP
+#define GLOBALDOFSPACE_HPP
 
-#include <dofspace.hpp>
+#include <localdofspace.hpp>
 
 namespace HArDCore2D
 {
   /*!
-   * \addtogroup DDRCore
+   * \addtogroup Common
    * @{
    */
 
-  /// Base class for DDR spaces. Provides functions to manipulate global DOFs (the local version being provided by DOFSpace).
+  /// Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version being provided by LocalDOFSpace).
   /** The DOFs are organised by increasing geometric entities dimensions: DOFs of vertices, DOFs of edges, DOFs of cells. */
   
-  class DDRSpace : public DOFSpace {
+  class GlobalDOFSpace : public LocalDOFSpace {
   public:
     /// Constructor
-    DDRSpace(
+    GlobalDOFSpace(
              const Mesh & mesh,
              size_t n_local_vertex_dofs,
              size_t n_local_edge_dofs,

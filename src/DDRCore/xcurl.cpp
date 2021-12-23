@@ -1,6 +1,7 @@
 #include <xcurl.hpp>
 #include <basis.hpp>
 #include <parallel_for.hpp>
+#include <GMpoly_cell.hpp>
 
 using namespace HArDCore2D;
 
@@ -9,7 +10,7 @@ using namespace HArDCore2D;
 //------------------------------------------------------------------------------
 
 XCurl::XCurl(const DDRCore & ddr_core, bool use_threads, std::ostream & output)
-  : DDRSpace(
+  : GlobalDOFSpace(
 	     ddr_core.mesh(),
 	     0,
 	     PolynomialSpaceDimension<Edge>::Poly(ddr_core.degree()),
@@ -113,11 +114,9 @@ XCurl::LocalOperators XCurl::_compute_cell_curl_potential(size_t iT)
   //------------------------------------------------------------------------------
   // Left-hand side matrix
 
-  QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2 * degree());
-
-  auto basis_Pk_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polyk, quad_2k_T);
-  Eigen::MatrixXd MCT = compute_gram_matrix(basis_Pk_T_quad, quad_2k_T);
-  
+  MonomialCellIntegralsType int_mono_2kpo_T = IntegrateCellMonomials(T, 2*degree()+1);
+  Eigen::MatrixXd MCT = GramMatrix(T, *cellBases(iT).Polyk, int_mono_2kpo_T);
+    
   //------------------------------------------------------------------------------
   // Right-hand side matrix
 
@@ -127,23 +126,18 @@ XCurl::LocalOperators XCurl::_compute_cell_curl_potential(size_t iT)
   for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
     QuadratureRule quad_2k_E = generate_quadrature_rule(E, 2 * degree());
-    BCT.block(0, localOffset(T, E), cellBases(iT).Polyk->dimension(), edgeBases(E.global_index()).Polyk->dimension())
+    BCT.block(0, localOffset(T, E), cellBases(iT).Polyk->dimension(), edgeBases(E).Polyk->dimension())
       -= T.edge_orientation(iE) * compute_gram_matrix(
 						      evaluate_quad<Function>::compute(*cellBases(iT).Polyk, quad_2k_E),
-						      evaluate_quad<Function>::compute(*edgeBases(E.global_index()).Polyk, quad_2k_E),
+						      evaluate_quad<Function>::compute(*edgeBases(E).Polyk, quad_2k_E),
 						      quad_2k_E
 						      );
   } // for iE
 
   if (degree() > 0) {
-    QuadratureRule quad_2kmo_T = generate_quadrature_rule(T, 2 * (degree() - 1));
-
+    CurlBasis<DDRCore::PolyBasisCellType> curl_Pk_T(*cellBases(iT).Polyk);
     BCT.block(0, localOffset(T), cellBases(iT).Polyk->dimension(), cellBases(iT).Rolykmo->dimension())
-      += compute_gram_matrix(
-			     evaluate_quad<Curl>::compute(*cellBases(iT).Polyk, quad_2kmo_T),
-			     evaluate_quad<Function>::compute(*cellBases(iT).Rolykmo, quad_2kmo_T),
-			     quad_2kmo_T
-			     );
+      += GramMatrix(T, curl_Pk_T, *cellBases(iT).Rolykmo, int_mono_2kpo_T);
   } // if degree() > 0
  
   Eigen::MatrixXd CT = MCT.ldlt().solve(BCT);
@@ -152,43 +146,34 @@ XCurl::LocalOperators XCurl::_compute_cell_curl_potential(size_t iT)
   // Potential
   //------------------------------------------------------------------------------
 
-  auto basis_Pkpo0_T = ShiftedBasis<typename DDRCore::PolyBasisCellType>(*cellBases(iT).Polykpo, 1);
+  auto basis_Pkpo0_T = ShiftedBasis<DDRCore::PolyBasisCellType>(*cellBases(iT).Polykpo, 1);
 
   Eigen::MatrixXd MPT
     = Eigen::MatrixXd::Zero(cellBases(iT).Polyk2->dimension(), cellBases(iT).Polyk2->dimension());
   Eigen::MatrixXd BPT
     = Eigen::MatrixXd::Zero(cellBases(iT).Polyk2->dimension(), dimensionCell(iT));
 
-  auto basis_Pk2_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2k_T);
+  CurlBasis<ShiftedBasis<DDRCore::PolyBasisCellType>> curl_Pkpo0_T(basis_Pkpo0_T);
   MPT.topLeftCorner(basis_Pkpo0_T.dimension(), cellBases(iT).Polyk2->dimension())
-    = compute_gram_matrix(
-			  evaluate_quad<Curl>::compute(basis_Pkpo0_T, quad_2k_T),
-			  basis_Pk2_T_quad, quad_2k_T
-			  );
+    = GramMatrix(T, curl_Pkpo0_T, *cellBases(iT).Polyk2, int_mono_2kpo_T);
 
   if (degree() > 0) {
-    auto basis_Rck_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).RolyComplk, quad_2k_T);
     MPT.bottomLeftCorner(cellBases(iT).RolyComplk->dimension(), cellBases(iT).Polyk2->dimension())
-      = compute_gram_matrix(basis_Rck_T_quad, basis_Pk2_T_quad, quad_2k_T);
+      = GramMatrix(T, *cellBases(iT).RolyComplk, *cellBases(iT).Polyk2, int_mono_2kpo_T);
     BPT.bottomRightCorner(cellBases(iT).RolyComplk->dimension(), cellBases(iT).RolyComplk->dimension())
-      += compute_gram_matrix(basis_Rck_T_quad, quad_2k_T);    
+      += GramMatrix(T, *cellBases(iT).RolyComplk, int_mono_2kpo_T);    
   } // if degree() > 0
  
-  auto quad_2kpo_T = generate_quadrature_rule(T, 2 * degree() + 1);
   BPT.topLeftCorner(basis_Pkpo0_T.dimension(), dimensionCell(iT))
-    += compute_gram_matrix(
-			   evaluate_quad<Function>::compute(basis_Pkpo0_T, quad_2kpo_T),
-			   evaluate_quad<Function>::compute(*cellBases(iT).Polyk, quad_2kpo_T),
-			   quad_2kpo_T
-			   ) * CT;
- 
+    += GramMatrix(T, basis_Pkpo0_T, *cellBases(iT).Polyk, int_mono_2kpo_T) * CT;
+
   for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
     QuadratureRule quad_2kpo_E = generate_quadrature_rule(E, 2 * degree() + 1);
-    BPT.block(0, localOffset(T, E), basis_Pkpo0_T.dimension(), edgeBases(E.global_index()).Polyk->dimension())
+    BPT.block(0, localOffset(T, E), basis_Pkpo0_T.dimension(), edgeBases(E).Polyk->dimension())
       += T.edge_orientation(iE) * compute_gram_matrix(
 						      evaluate_quad<Function>::compute(basis_Pkpo0_T, quad_2kpo_E),
-						      evaluate_quad<Function>::compute(*edgeBases(E.global_index()).Polyk, quad_2kpo_E),
+						      evaluate_quad<Function>::compute(*edgeBases(E).Polyk, quad_2kpo_E),
 						      quad_2kpo_E
 						      );    
   } // for iE
@@ -216,8 +201,8 @@ Eigen::MatrixXd XCurl::computeL2Product(
     // constant weight
     if (mass_Pk2_T.rows()==1){
       // We have to compute the mass matrix
-      QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2 * degree());
-      w_mass_Pk2_T = weight.value(T, T.center_mass()) * compute_gram_matrix(evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2k_T), quad_2k_T);
+      MonomialCellIntegralsType int_mono_2kp2 = IntegrateCellMonomials(T, 2*degree()+2); 
+      w_mass_Pk2_T = weight.value(T, T.center_mass()) * GramMatrix(T, *cellBases(iT).Polyk2, int_mono_2kp2);
     }else{
       w_mass_Pk2_T = weight.value(T, T.center_mass()) * mass_Pk2_T;
     }
@@ -262,8 +247,8 @@ Eigen::MatrixXd XCurl::computeL2ProductGradient(
     // constant weight
     if (mass_Pk2_T.rows()==1){
       // We have to compute the mass matrix
-      QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2 * degree());
-      w_mass_Pk2_T = weight.value(T, T.center_mass()) * compute_gram_matrix(evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2k_T), quad_2k_T);
+      MonomialCellIntegralsType int_mono_2kp2 = IntegrateCellMonomials(T, 2*degree()+2); 
+      w_mass_Pk2_T = weight.value(T, T.center_mass()) * GramMatrix(T, *cellBases(iT).Polyk2, int_mono_2kp2);
     }else{
       w_mass_Pk2_T = weight.value(T, T.center_mass()) * mass_Pk2_T;
     }
@@ -331,7 +316,7 @@ Eigen::MatrixXd XCurl::computeL2Product_with_Ops(
   // To compute the Xcurl L2 product applied (left or right) to the discrete gradient,
   // leftOp or rightOp must list the edge, face and element (full) gradient operators.
   // All these operators must have the same domain, so possibly being extended appropriately
-  // using extendOperator from ddrspace.
+  // using extendOperator from GlobalDOFSpace.
 
   Eigen::MatrixXd L2P = Eigen::MatrixXd::Zero(leftOp[0].cols(), rightOp[0].cols());
   
@@ -356,7 +341,7 @@ Eigen::MatrixXd XCurl::computeL2Product_with_Ops(
 
     // The penalty term int_E (PT w . tE - w_E) * (PT v . tE - v_E) is computed by developping.
     auto basis_Pk2_T_dot_tE_quad = scalar_product(evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2k_E), tE);
-    auto basis_Pk_E_quad = evaluate_quad<Function>::compute(*edgeBases(E.global_index()).Polyk, quad_2k_E);
+    auto basis_Pk_E_quad = evaluate_quad<Function>::compute(*edgeBases(E).Polyk, quad_2k_E);
     Eigen::MatrixXd gram_Pk2T_dot_tE_PkE = compute_gram_matrix(basis_Pk2_T_dot_tE_quad, basis_Pk_E_quad, quad_2k_E);
     
     // Contribution of edge E

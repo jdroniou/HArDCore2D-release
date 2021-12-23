@@ -59,7 +59,8 @@ Edge *Cell::edge(size_t i) const {
     if (i < _edges.size()) {
         return _edges[i];
     } else {
-        throw "No edge at local index";
+      std::cerr << "[Cell] No edge at local index" << std::endl;
+      exit(1);
     }
 }
 
@@ -67,7 +68,8 @@ Vertex *Cell::vertex(size_t i) const {
     if (i < _vertices.size()) {
         return _vertices[i];
     } else {
-        throw "No vertex at local index";
+      std::cerr << "[Cell] No vertex at local index" << std::endl;
+      exit(1);
     }
 }
 
@@ -75,7 +77,8 @@ Cell *Cell::neighbour(size_t i) const {
     if (i < _neighbours.size()) {
         return _neighbours[i];
     } else {
-        throw "No neighbour at local index";
+      std::cerr << "[Cell] No neighbour at local index" << std::endl;
+      exit(1);
     }
 }
 
@@ -86,7 +89,8 @@ size_t Cell::index_edge(const Edge* E) const {
     i++;
   }
   if (i >= nedg || edge(i) != E){
-    throw "Edge does not belong to cell";
+    std::cerr << "[Cell] Edge does not belong to cell" << std::endl;
+    exit(1);
   }
   return i;
 }
@@ -98,7 +102,8 @@ size_t Cell::index_vertex(const Vertex* V) const {
     i++;
   }
   if (i >= nvert || vertex(i) != V){
-    throw "Vertex does not belong to cell";
+    std::cerr << "[Cell] Vertex does not belong to cell" << std::endl;
+    exit(1);
   }
   return i;
 }

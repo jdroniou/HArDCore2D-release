@@ -1,0 +1,69 @@
+\hypertarget{classHArDCore2D_1_1DivergenceBasis}{}\doxysection{H\+Ar\+D\+Core2D\+::Divergence\+Basis$<$ Basis\+Type $>$ Class Template Reference}
+\label{classHArDCore2D_1_1DivergenceBasis}\index{HArDCore2D::DivergenceBasis$<$ BasisType $>$@{HArDCore2D::DivergenceBasis$<$ BasisType $>$}}
+
+
+Basis (or rather family) of divergence of an existing basis.  
+
+
+
+
+{\ttfamily \#include $<$basis.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef double {\bfseries Function\+Value}
+\item 
+typedef Vector\+Rd {\bfseries Gradient\+Value}
+\item 
+typedef Vector\+Rd {\bfseries Curl\+Value}
+\item 
+typedef double {\bfseries Divergence\+Value}
+\item 
+typedef void {\bfseries Hessian\+Value}
+\item 
+typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\item 
+typedef Basis\+Type {\bfseries Ancestor\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__Basis_ga27af64c28975c6159049e2e2f311b652}{Divergence\+Basis}} (const Basis\+Type \&basis)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_gac0219820fc596adc797eeb3cf0310ef5}{dimension}} () const
+\begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
+Function\+Value \mbox{\hyperlink{group__Basis_gadbce400db266f6a721bd06c02006afa6}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+constexpr const Basis\+Type \& \mbox{\hyperlink{group__Basis_gadc15748ae40e988e6da4e8e3aa1fdd3f}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (basis that the gradient was taken of) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = true
+\item 
+static const bool {\bfseries has\+Function} = true
+\item 
+static const bool {\bfseries has\+Gradient} = false
+\item 
+static const bool {\bfseries has\+Curl} = false
+\item 
+static const bool {\bfseries has\+Divergence} = false
+\item 
+static const bool {\bfseries has\+Hessian} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Basis\+Type$>$\newline
+class H\+Ar\+D\+Core2\+D\+::\+Divergence\+Basis$<$ Basis\+Type $>$}
+
+Basis (or rather family) of divergence of an existing basis. 
+
+This will be a real basis of the range of divergence (which is just P$^\wedge$k) if the ancestor basis is taken as a basis of R$^\wedge$\{c,k+1\} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Common/basis.\+hpp\end{DoxyCompactItemize}

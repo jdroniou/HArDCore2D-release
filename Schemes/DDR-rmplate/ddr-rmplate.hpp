@@ -3,22 +3,6 @@
 // Author: Jerome Droniou (jerome.droniou@monash.edu)
 //
 
-/*
- * The DDR method is described in
- *
- **  An arbitrary-order method for magnetostatics on polyhedral meshes based on a discrete de Rham
- sequence. 
- **   D. A. Di Pietro and J. Droniou, 31p, 2020. url: https://arxiv.org/abs/2005.06890.
- *
- *
- * The design and analysis of the DDR scheme for the Reissner-Mindlin plate implemented here is described in
- *  
- ** A DDR method for the Reissner–Mindlin plate bending problem on polygonal meshes
- ** D. A. Di Pietro and J. Droniou, 23p, 2021. url: https://arxiv.org/abs/2105.11773
- *
- * If you use this code in a scientific publication, please mention the above articles.
- *
- */
 
 #ifndef MAGNETOSTATICS_HPP
 #define MAGNETOSTATICS_HPP
@@ -253,9 +237,6 @@ namespace HArDCore2D
     std::ostream & m_output;
     EXCurl m_excurl;
     XGrad m_xgrad;
-    double m_t;
-    double m_E;
-    double m_nu;
     BoundaryConditions m_BC_theta;
     BoundaryConditions m_BC_u;
     SystemMatrixType m_bdryMatrix;  // Matrix with columns corresponding to Dirichlet DOFs; multiplied by the boundary values, yields the modification to the system RHS for non-homogeneous BC

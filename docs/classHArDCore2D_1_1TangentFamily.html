@@ -102,13 +102,19 @@ typedef VectorRd&#160;</td><td class="memItemRight" valign="bottom"><b>CurlValue
 <tr class="memitem:ga3c6e2ee0d7420c48bcf6194b8bcba615"><td class="memItemLeft" align="right" valign="top">
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>DivergenceValue</b></td></tr>
 <tr class="separator:ga3c6e2ee0d7420c48bcf6194b8bcba615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b1610f5e68be2789c81a06fcad519bf"><td class="memItemLeft" align="right" valign="top">
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>HessianValue</b></td></tr>
+<tr class="separator:ga2b1610f5e68be2789c81a06fcad519bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga40743f46b74fc3a37455f3e0968d0156"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GeometricSupport</b></td></tr>
 <tr class="separator:ga40743f46b74fc3a37455f3e0968d0156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd9041d3fc214adef5794ce21ad1354e"><td class="memItemLeft" align="right" valign="top">
+typedef ScalarFamilyType&#160;</td><td class="memItemRight" valign="bottom"><b>AncestorType</b></td></tr>
+<tr class="separator:gabd9041d3fc214adef5794ce21ad1354e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga6cc5c5f1642d42f7479ba5907961811c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga6cc5c5f1642d42f7479ba5907961811c">TangentFamily</a> (const ScalarFamilyType &amp;scalar_family, const VectorRd &amp;generator)</td></tr>
+<tr class="memitem:ga6cc5c5f1642d42f7479ba5907961811c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga6cc5c5f1642d42f7479ba5907961811c">TangentFamily</a> (const ScalarFamilyType &amp;scalar_family, const VectorRd &amp;<a class="el" href="group__Basis.html#ga428b0ad4554a39d9205e18e166e87e0b">generator</a>)</td></tr>
 <tr class="memdesc:ga6cc5c5f1642d42f7479ba5907961811c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="group__Basis.html#ga6cc5c5f1642d42f7479ba5907961811c">More...</a><br /></td></tr>
 <tr class="separator:ga6cc5c5f1642d42f7479ba5907961811c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0d1966f512373c5dafb83eaaa863e780"><td class="memItemLeft" align="right" valign="top">
@@ -119,12 +125,27 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga6d7faeb3a4b06a79f495202fc9dbf4c2">function</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga6d7faeb3a4b06a79f495202fc9dbf4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th basis function at point x. <br /></td></tr>
 <tr class="separator:ga6d7faeb3a4b06a79f495202fc9dbf4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga712824de8ef4d87b9472a7cb42482b1b"><td class="memItemLeft" align="right" valign="top">
+constexpr const ScalarFamilyType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga712824de8ef4d87b9472a7cb42482b1b">ancestor</a> () const</td></tr>
+<tr class="memdesc:ga712824de8ef4d87b9472a7cb42482b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ancestor (family used for the tangent) <br /></td></tr>
+<tr class="separator:ga712824de8ef4d87b9472a7cb42482b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad049c88bb8800859462c230acfbafa53"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gad049c88bb8800859462c230acfbafa53">max_degree</a> () const</td></tr>
+<tr class="memdesc:gad049c88bb8800859462c230acfbafa53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum degree of the basis functions. <br /></td></tr>
+<tr class="separator:gad049c88bb8800859462c230acfbafa53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga428b0ad4554a39d9205e18e166e87e0b"><td class="memItemLeft" align="right" valign="top">
+VectorRd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga428b0ad4554a39d9205e18e166e87e0b">generator</a> () const</td></tr>
+<tr class="memdesc:ga428b0ad4554a39d9205e18e166e87e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the generator of the basis functions. <br /></td></tr>
+<tr class="separator:ga428b0ad4554a39d9205e18e166e87e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ga932efd1bb07555f7423935e77dbbe4e9"><td class="memItemLeft" align="right" valign="top">
-static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
-<tr class="separator:ga932efd1bb07555f7423935e77dbbe4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade4f6c253c3e5dd2987e624eeb6b7130"><td class="memItemLeft" align="right" valign="top">
+constexpr static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
+<tr class="separator:gade4f6c253c3e5dd2987e624eeb6b7130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae613c7a8f9433d0060210a01257791a5"><td class="memItemLeft" align="right" valign="top">
+constexpr static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAncestor</b> = true</td></tr>
+<tr class="separator:gae613c7a8f9433d0060210a01257791a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga78dba683e6b13847056f29e3796e04a1"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunction</b> = true</td></tr>
 <tr class="separator:ga78dba683e6b13847056f29e3796e04a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +158,9 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl<
 <tr class="memitem:ga255712ad2ff1461993f8c43754c44061"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = false</td></tr>
 <tr class="separator:ga255712ad2ff1461993f8c43754c44061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cc503170bd8d2755f9788a08f698b94"><td class="memItemLeft" align="right" valign="top">
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasHessian</b> = false</td></tr>
+<tr class="separator:ga2cc503170bd8d2755f9788a08f698b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ScalarFamilyType&gt;<br />

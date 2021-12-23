@@ -1,5 +1,5 @@
-#ifndef DOFSPACE_HPP
-#define DOFSPACE_HPP
+#ifndef LOCALDOFSPACE_HPP
+#define LOCALDOFSPACE_HPP
 
 #include <mesh.hpp>
 #include <vertex.hpp>
@@ -13,12 +13,12 @@ namespace HArDCore2D {
    * @{
    */
   
-  /// Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity.
+  /// Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity.
   /** In a cell T, for example, the DOFs are presented in the order: DOFs of vertices of T, DOFs of edges of T, DOFs of T. */
-  class DOFSpace {
+  class LocalDOFSpace {
   public:
     /// Constructor
-    DOFSpace(
+    LocalDOFSpace(
              const Mesh & mesh,
              size_t n_local_vertex_dofs,
              size_t n_local_edge_dofs,

@@ -87,7 +87,7 @@ int main(int argc, const char* argv[]) {
 	std::vector<std::vector<double> > centers;
 	if (mesh.read_mesh(vertices, cells, centers) == false) {
 		output << "Could not open file" << std::endl;
-		return false;
+		return 0;
 	};
 
 	// Build the mesh

@@ -84,6 +84,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1VecHash.html">HArDCore2D::VecHash</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash function for VectorZd type.  <a href="structHArDCore2D_1_1VecHash.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1QuadRuleEdge.html">HArDCore2D::QuadRuleEdge</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1LegendreGauss.html">HArDCore2D::LegendreGauss</a></td></tr>
@@ -94,12 +97,173 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ga4255c52c7d9ac1165c0a37da8970feb6"><td class="memItemLeft" align="right" valign="top"><a id="ga4255c52c7d9ac1165c0a37da8970feb6"></a>
+typedef std::unordered_map&lt; VectorZd, double, <a class="el" href="structHArDCore2D_1_1VecHash.html">VecHash</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">HArDCore2D::MonomialCellIntegralsType</a></td></tr>
+<tr class="memdesc:ga4255c52c7d9ac1165c0a37da8970feb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for list of integrals of monomials. <br /></td></tr>
+<tr class="separator:ga4255c52c7d9ac1165c0a37da8970feb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d89d9fdcd5599eefd37c35fbf28bd94"><td class="memItemLeft" align="right" valign="top"><a id="ga1d89d9fdcd5599eefd37c35fbf28bd94"></a>
+typedef std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">HArDCore2D::MonomialEdgeIntegralsType</a></td></tr>
+<tr class="memdesc:ga1d89d9fdcd5599eefd37c35fbf28bd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for list of edge integrals of monomials. <br /></td></tr>
+<tr class="separator:ga1d89d9fdcd5599eefd37c35fbf28bd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga08203d5fcf31125f46ed733ebfeac838"><td class="memItemLeft" align="right" valign="top"><a id="ga08203d5fcf31125f46ed733ebfeac838"></a>
 typedef std::vector&lt; <a class="el" href="structHArDCore2D_1_1QuadratureNode.html">QuadratureNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::QuadratureRule</b></td></tr>
 <tr class="separator:ga08203d5fcf31125f46ed733ebfeac838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga7acbdfebfab831a76a7f71f558808e3f"><td class="memItemLeft" align="right" valign="top"><a id="ga7acbdfebfab831a76a7f71f558808e3f"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::VecHash::operator()</b> (const VectorZd &amp;p) const</td></tr>
+<tr class="separator:ga7acbdfebfab831a76a7f71f558808e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a6efbbf6ebaedd4e582f4ee965ec41d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga8a6efbbf6ebaedd4e582f4ee965ec41d">HArDCore2D::IntegrateCellMonomials</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const size_t maxdeg)</td></tr>
+<tr class="memdesc:ga8a6efbbf6ebaedd4e582f4ee965ec41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all integrals on a cell of monomials up to a total degree, using vertex values.  <a href="group__Quadratures.html#ga8a6efbbf6ebaedd4e582f4ee965ec41d">More...</a><br /></td></tr>
+<tr class="separator:ga8a6efbbf6ebaedd4e582f4ee965ec41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60f346b650d4c9ee3b872c72da9c9dbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga60f346b650d4c9ee3b872c72da9c9dbf">HArDCore2D::CheckIntegralsDegree</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const size_t degree, const <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> &amp;mono_int_map={})</td></tr>
+<tr class="memdesc:ga60f346b650d4c9ee3b872c72da9c9dbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the degree of an existing list of monomial integrals is sufficient, other re-compute and return a proper list.  <a href="group__Quadratures.html#ga60f346b650d4c9ee3b872c72da9c9dbf">More...</a><br /></td></tr>
+<tr class="separator:ga60f346b650d4c9ee3b872c72da9c9dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73858a4ddac05720e2ccb5001fc6ef97"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga73858a4ddac05720e2ccb5001fc6ef97"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga73858a4ddac05720e2ccb5001fc6ef97">HArDCore2D::transformGM</a> (const <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; BasisType &gt; &amp;family_basis, const char RC, const Eigen::MatrixXd &amp;anc_GM)</td></tr>
+<tr class="memdesc:ga73858a4ddac05720e2ccb5001fc6ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a Gram Matrix from an ancestor to a family basis.  <a href="group__Quadratures.html#ga73858a4ddac05720e2ccb5001fc6ef97">More...</a><br /></td></tr>
+<tr class="separator:ga73858a4ddac05720e2ccb5001fc6ef97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8187bfc7c4a27405f770a77bb8831535"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga8187bfc7c4a27405f770a77bb8831535"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga8187bfc7c4a27405f770a77bb8831535">HArDCore2D::transformGM</a> (const <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; BasisType &gt; &amp;restr_basis, const char RC, const Eigen::MatrixXd &amp;anc_GM)</td></tr>
+<tr class="memdesc:ga8187bfc7c4a27405f770a77bb8831535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a Gram Matrix from an ancestor to a restricted basis.  <a href="group__Quadratures.html#ga8187bfc7c4a27405f770a77bb8831535">More...</a><br /></td></tr>
+<tr class="separator:ga8187bfc7c4a27405f770a77bb8831535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5426168676064ac8913c7d2c2431270a"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga5426168676064ac8913c7d2c2431270a"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga5426168676064ac8913c7d2c2431270a">HArDCore2D::transformGM</a> (const <a class="el" href="classHArDCore2D_1_1ShiftedBasis.html">ShiftedBasis</a>&lt; BasisType &gt; &amp;shifted_basis, const char RC, const Eigen::MatrixXd &amp;anc_GM)</td></tr>
+<tr class="memdesc:ga5426168676064ac8913c7d2c2431270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a Gram Matrix from an ancestor to a shifted basis.  <a href="group__Quadratures.html#ga5426168676064ac8913c7d2c2431270a">More...</a><br /></td></tr>
+<tr class="separator:ga5426168676064ac8913c7d2c2431270a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad42da5a4d0c9a05bd319723d55775266"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gad42da5a4d0c9a05bd319723d55775266">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gad42da5a4d0c9a05bd319723d55775266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a pair of local scalar monomial bases.  <a href="group__Quadratures.html#gad42da5a4d0c9a05bd319723d55775266">More...</a><br /></td></tr>
+<tr class="separator:gad42da5a4d0c9a05bd319723d55775266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c2c614308b041e3f2f1616c69ee2061"><td class="memTemplParams" colspan="2"><a id="ga2c2c614308b041e3f2f1616c69ee2061"></a>
+template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga2c2c614308b041e3f2f1616c69ee2061"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga2c2c614308b041e3f2f1616c69ee2061">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType &amp;basis, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga2c2c614308b041e3f2f1616c69ee2061"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload to simplify the call to GramMatrix in case the two bases are the same. <br /></td></tr>
+<tr class="separator:ga2c2c614308b041e3f2f1616c69ee2061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9d48397f244f7630124d4b4f0a38573"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </td></tr>
+<tr class="memitem:gae9d48397f244f7630124d4b4f0a38573"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gae9d48397f244f7630124d4b4f0a38573">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;basis1, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, N &gt; &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gae9d48397f244f7630124d4b4f0a38573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of any pair of tensorized scalar bases.  <a href="group__Quadratures.html#gae9d48397f244f7630124d4b4f0a38573">More...</a><br /></td></tr>
+<tr class="separator:gae9d48397f244f7630124d4b4f0a38573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43c5fc43fd8083f5693fea6b7f96777c"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga43c5fc43fd8083f5693fea6b7f96777c">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga43c5fc43fd8083f5693fea6b7f96777c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a pair of RolyCompl bases.  <a href="group__Quadratures.html#ga43c5fc43fd8083f5693fea6b7f96777c">More...</a><br /></td></tr>
+<tr class="separator:ga43c5fc43fd8083f5693fea6b7f96777c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa49eb423dc2b11b34801402220dd5546"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , size_t N&gt; </td></tr>
+<tr class="memitem:gaa49eb423dc2b11b34801402220dd5546"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaa49eb423dc2b11b34801402220dd5546">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;rolycompl_basis, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;tens_family, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaa49eb423dc2b11b34801402220dd5546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a RolyCompl basis and a tensorized scalar basis.  <a href="group__Quadratures.html#gaa49eb423dc2b11b34801402220dd5546">More...</a><br /></td></tr>
+<tr class="separator:gaa49eb423dc2b11b34801402220dd5546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16f1961718e9c2fc7d1145d64adc4bf8"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , size_t N&gt; </td></tr>
+<tr class="memitem:ga16f1961718e9c2fc7d1145d64adc4bf8"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga16f1961718e9c2fc7d1145d64adc4bf8">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;tens_family, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;rolycompl_basis, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga16f1961718e9c2fc7d1145d64adc4bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a tensorized scalar basis and a RolyCompl basis.  <a href="group__Quadratures.html#ga16f1961718e9c2fc7d1145d64adc4bf8">More...</a><br /></td></tr>
+<tr class="separator:ga16f1961718e9c2fc7d1145d64adc4bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed4a8b8845e12623b679076ad2224bb7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaed4a8b8845e12623b679076ad2224bb7">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1GolyComplBasisCell.html">GolyComplBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1GolyComplBasisCell.html">GolyComplBasisCell</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaed4a8b8845e12623b679076ad2224bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gram Matrix of a pair of GolyCompl bases.  <a href="group__Quadratures.html#gaed4a8b8845e12623b679076ad2224bb7">More...</a><br /></td></tr>
+<tr class="separator:gaed4a8b8845e12623b679076ad2224bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88aa870647c37965633a03996c000cd2"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga88aa870647c37965633a03996c000cd2">HArDCore2D::GMRolyComplScalar</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;rolycompl_basis, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;mono_basis, const size_t m, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map)</td></tr>
+<tr class="memdesc:ga88aa870647c37965633a03996c000cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of the mth component of a RolyCompl Basis and a monomial basis.  <a href="group__Quadratures.html#ga88aa870647c37965633a03996c000cd2">More...</a><br /></td></tr>
+<tr class="separator:ga88aa870647c37965633a03996c000cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fe74b21dbcf4950c56050bc3210d791"><td class="memTemplParams" colspan="2">template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga7fe74b21dbcf4950c56050bc3210d791"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga7fe74b21dbcf4950c56050bc3210d791">HArDCore2D::GMRolyComplScalar</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;basis1, const BasisType &amp;basis2, const size_t m, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map)</td></tr>
+<tr class="memdesc:ga7fe74b21dbcf4950c56050bc3210d791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of the mth component of a RolyCompl Basis and any basis.  <a href="group__Quadratures.html#ga7fe74b21dbcf4950c56050bc3210d791">More...</a><br /></td></tr>
+<tr class="separator:ga7fe74b21dbcf4950c56050bc3210d791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50e8f7086d44b7ecff671732ec7a686b"><td class="memTemplParams" colspan="2"><a id="ga50e8f7086d44b7ecff671732ec7a686b"></a>
+template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:ga50e8f7086d44b7ecff671732ec7a686b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga50e8f7086d44b7ecff671732ec7a686b">HArDCore2D::useAncestor</a> ()</td></tr>
+<tr class="memdesc:ga50e8f7086d44b7ecff671732ec7a686b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the ancestor of a basis will be used to compute a Gram matrix for this basis. <br /></td></tr>
+<tr class="separator:ga50e8f7086d44b7ecff671732ec7a686b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddbeb84aa508db65d7d8bf5723d2de40"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:gaddbeb84aa508db65d7d8bf5723d2de40"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaddbeb84aa508db65d7d8bf5723d2de40">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaddbeb84aa508db65d7d8bf5723d2de40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of any pair of bases.  <a href="group__Quadratures.html#gaddbeb84aa508db65d7d8bf5723d2de40">More...</a><br /></td></tr>
+<tr class="separator:gaddbeb84aa508db65d7d8bf5723d2de40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62df9455eba21fadd7a3bb612cc824fd"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga62df9455eba21fadd7a3bb612cc824fd">HArDCore2D::GMScalarDerivative</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis2, const size_t m, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga62df9455eba21fadd7a3bb612cc824fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a pair of local scalar monomial bases, taking a partial derivative of the first (w.r.t. the homogeneous coordinates, without scaling)  <a href="group__Quadratures.html#ga62df9455eba21fadd7a3bb612cc824fd">More...</a><br /></td></tr>
+<tr class="separator:ga62df9455eba21fadd7a3bb612cc824fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga185787c20259379014daf6cf8891d1bc"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga185787c20259379014daf6cf8891d1bc">HArDCore2D::GMScalarDerivative</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis2, const size_t m, const size_t l, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga185787c20259379014daf6cf8891d1bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a pair of local scalar monomial bases, taking partial derivatives of each of them (w.r.t. the homogeneous coordinates, without scaling)  <a href="group__Quadratures.html#ga185787c20259379014daf6cf8891d1bc">More...</a><br /></td></tr>
+<tr class="separator:ga185787c20259379014daf6cf8891d1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1a862ee9dfdf66d4324a3e301f355c8"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:gaa1a862ee9dfdf66d4324a3e301f355c8"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaa1a862ee9dfdf66d4324a3e301f355c8">HArDCore2D::GMScalarDerivative</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, const size_t m, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaa1a862ee9dfdf66d4324a3e301f355c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of any pair of scalar bases, taking a partial derivative of the first (w.r.t. the homogeneous coordinates, without scaling)  <a href="group__Quadratures.html#gaa1a862ee9dfdf66d4324a3e301f355c8">More...</a><br /></td></tr>
+<tr class="separator:gaa1a862ee9dfdf66d4324a3e301f355c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15f404c82e3763df19dc0f42d054fd7f"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga15f404c82e3763df19dc0f42d054fd7f"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga15f404c82e3763df19dc0f42d054fd7f">HArDCore2D::GMScalarDerivative</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, const size_t m, const size_t l, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga15f404c82e3763df19dc0f42d054fd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of any pair of scalar bases, taking partial derivatives of each of them (w.r.t. the homogeneous coordinates, without scaling)  <a href="group__Quadratures.html#ga15f404c82e3763df19dc0f42d054fd7f">More...</a><br /></td></tr>
+<tr class="separator:ga15f404c82e3763df19dc0f42d054fd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8529fc82b243f13a785e65dd7bfc68a0"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </td></tr>
+<tr class="memitem:ga8529fc82b243f13a785e65dd7bfc68a0"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga8529fc82b243f13a785e65dd7bfc68a0">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;grad_basis, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, N &gt; &amp;tens_family, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga8529fc82b243f13a785e65dd7bfc68a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a gradient basis and a tensorized scalar basis.  <a href="group__Quadratures.html#ga8529fc82b243f13a785e65dd7bfc68a0">More...</a><br /></td></tr>
+<tr class="separator:ga8529fc82b243f13a785e65dd7bfc68a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f73d95c30b86a8372fbb8b1e2e0c08a"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </td></tr>
+<tr class="memitem:ga3f73d95c30b86a8372fbb8b1e2e0c08a"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga3f73d95c30b86a8372fbb8b1e2e0c08a">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;tens_family, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;grad_basis, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga3f73d95c30b86a8372fbb8b1e2e0c08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a tensorized scalar basis and a gradient basis.  <a href="group__Quadratures.html#ga3f73d95c30b86a8372fbb8b1e2e0c08a">More...</a><br /></td></tr>
+<tr class="separator:ga3f73d95c30b86a8372fbb8b1e2e0c08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbd5897527898e51c459bc762edcc990"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:gadbd5897527898e51c459bc762edcc990"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gadbd5897527898e51c459bc762edcc990">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;grad_basis1, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;grad_basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gadbd5897527898e51c459bc762edcc990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a gradient basis and another gradient basis.  <a href="group__Quadratures.html#gadbd5897527898e51c459bc762edcc990">More...</a><br /></td></tr>
+<tr class="separator:gadbd5897527898e51c459bc762edcc990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17710ae071fd2a88fba78507057d72a4"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga17710ae071fd2a88fba78507057d72a4"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga17710ae071fd2a88fba78507057d72a4">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType1 &gt; &amp;basis1, const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType2 &gt; &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga17710ae071fd2a88fba78507057d72a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of a pair of Curl bases.  <a href="group__Quadratures.html#ga17710ae071fd2a88fba78507057d72a4">More...</a><br /></td></tr>
+<tr class="separator:ga17710ae071fd2a88fba78507057d72a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbf2996d778a016cca5de0a433ed810c"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:gafbf2996d778a016cca5de0a433ed810c"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gafbf2996d778a016cca5de0a433ed810c">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType1 &gt; &amp;curl_basis, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, 2 &gt; &amp;tens_family, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gafbf2996d778a016cca5de0a433ed810c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a curl basis and a tensorized scalar basis.  <a href="group__Quadratures.html#gafbf2996d778a016cca5de0a433ed810c">More...</a><br /></td></tr>
+<tr class="separator:gafbf2996d778a016cca5de0a433ed810c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf23238b30a3a668643d281bb4d1058a"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </td></tr>
+<tr class="memitem:gabf23238b30a3a668643d281bb4d1058a"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gabf23238b30a3a668643d281bb4d1058a">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;tens_family, const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType2 &gt; &amp;curl_basis, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gabf23238b30a3a668643d281bb4d1058a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a tensorized scalar basis and a gradient basis.  <a href="group__Quadratures.html#gabf23238b30a3a668643d281bb4d1058a">More...</a><br /></td></tr>
+<tr class="separator:gabf23238b30a3a668643d281bb4d1058a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ce8130be73467716a0860ef973ac9c2"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga8ce8130be73467716a0860ef973ac9c2"><td class="memTemplItemLeft" align="right" valign="top">boost::disable_if&lt; boost::is_same&lt; BasisType2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> &gt;, Eigen::MatrixXd &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga8ce8130be73467716a0860ef973ac9c2">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1DivergenceBasis.html">DivergenceBasis</a>&lt; BasisType1 &gt; &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga8ce8130be73467716a0860ef973ac9c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of a Divergence basis and any other basis.  <a href="group__Quadratures.html#ga8ce8130be73467716a0860ef973ac9c2">More...</a><br /></td></tr>
+<tr class="separator:ga8ce8130be73467716a0860ef973ac9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad86d675b9a66959c9af5672e6bbd1840"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename Basis2 &gt; </td></tr>
+<tr class="memitem:gad86d675b9a66959c9af5672e6bbd1840"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gad86d675b9a66959c9af5672e6bbd1840">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType1 &amp;basis1, const <a class="el" href="classHArDCore2D_1_1DivergenceBasis.html">DivergenceBasis</a>&lt; Basis2 &gt; &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gad86d675b9a66959c9af5672e6bbd1840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of any basis and a Divergence basis.  <a href="group__Quadratures.html#gad86d675b9a66959c9af5672e6bbd1840">More...</a><br /></td></tr>
+<tr class="separator:gad86d675b9a66959c9af5672e6bbd1840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f61ecdc92b839db14767e7a33f0ac18"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 &gt; </td></tr>
+<tr class="memitem:ga7f61ecdc92b839db14767e7a33f0ac18"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga7f61ecdc92b839db14767e7a33f0ac18">HArDCore2D::GramMatrixDiv</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, 2 &gt; &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga7f61ecdc92b839db14767e7a33f0ac18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of a Divergence&lt;Tensorized&gt; basis and a monomial scalar basis.  <a href="group__Quadratures.html#ga7f61ecdc92b839db14767e7a33f0ac18">More...</a><br /></td></tr>
+<tr class="separator:ga7f61ecdc92b839db14767e7a33f0ac18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccf0b34c06ff46478c7453db832aa5f7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaccf0b34c06ff46478c7453db832aa5f7">HArDCore2D::GramMatrixDiv</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaccf0b34c06ff46478c7453db832aa5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a Divergence&lt;RolyCompl&gt; basis and a monomial scalar basis.  <a href="group__Quadratures.html#gaccf0b34c06ff46478c7453db832aa5f7">More...</a><br /></td></tr>
+<tr class="separator:gaccf0b34c06ff46478c7453db832aa5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ce073e602b788098cdf24efab030ede"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga7ce073e602b788098cdf24efab030ede"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga7ce073e602b788098cdf24efab030ede">HArDCore2D::GramMatrixDiv</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga7ce073e602b788098cdf24efab030ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to compute the Gram Matrix of the divergence of any basis and any other basis.  <a href="group__Quadratures.html#ga7ce073e602b788098cdf24efab030ede">More...</a><br /></td></tr>
+<tr class="separator:ga7ce073e602b788098cdf24efab030ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64ad96ee99f7b62a7ef1757b12701323"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga64ad96ee99f7b62a7ef1757b12701323">HArDCore2D::IntegrateEdgeMonomials</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const size_t maxdeg)</td></tr>
+<tr class="memdesc:ga64ad96ee99f7b62a7ef1757b12701323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all integrals of edge monomials up to a total degree.  <a href="group__Quadratures.html#ga64ad96ee99f7b62a7ef1757b12701323">More...</a><br /></td></tr>
+<tr class="separator:ga64ad96ee99f7b62a7ef1757b12701323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga638b9609e4b26cf2fbd164018b12bccd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga638b9609e4b26cf2fbd164018b12bccd">HArDCore2D::CheckIntegralsDegree</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const size_t degree, const <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> &amp;mono_int_map={})</td></tr>
+<tr class="memdesc:ga638b9609e4b26cf2fbd164018b12bccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the degree of an existing list of monomial integrals is sufficient, other re-compute and return a proper list.  <a href="group__Quadratures.html#ga638b9609e4b26cf2fbd164018b12bccd">More...</a><br /></td></tr>
+<tr class="separator:ga638b9609e4b26cf2fbd164018b12bccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6978f567aa9a5cadb0b49bfcc2f6c5bf"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga6978f567aa9a5cadb0b49bfcc2f6c5bf">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga6978f567aa9a5cadb0b49bfcc2f6c5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a pair of local scalar monomial bases.  <a href="group__Quadratures.html#ga6978f567aa9a5cadb0b49bfcc2f6c5bf">More...</a><br /></td></tr>
+<tr class="separator:ga6978f567aa9a5cadb0b49bfcc2f6c5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34fc04e0390fca0496bf102a704a01cf"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga34fc04e0390fca0496bf102a704a01cf"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga34fc04e0390fca0496bf102a704a01cf">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga34fc04e0390fca0496bf102a704a01cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template to compute the Gram Matrix of any pair of bases.  <a href="group__Quadratures.html#ga34fc04e0390fca0496bf102a704a01cf">More...</a><br /></td></tr>
+<tr class="separator:ga34fc04e0390fca0496bf102a704a01cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd68df6b58e403a6bd8537d6bbd72ad9"><td class="memTemplParams" colspan="2"><a id="gabd68df6b58e403a6bd8537d6bbd72ad9"></a>
+template&lt;typename BasisType &gt; </td></tr>
+<tr class="memitem:gabd68df6b58e403a6bd8537d6bbd72ad9"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gabd68df6b58e403a6bd8537d6bbd72ad9">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const BasisType &amp;basis, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gabd68df6b58e403a6bd8537d6bbd72ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload to simplify the call to GramMatrix in case the two bases are the same. <br /></td></tr>
+<tr class="separator:gabd68df6b58e403a6bd8537d6bbd72ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95718eefc0efe913a4bb4b2ce2a95856"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga95718eefc0efe913a4bb4b2ce2a95856">HArDCore2D::GMDer</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;basis1, const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga95718eefc0efe913a4bb4b2ce2a95856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of the derivative of a monomial basis with another monomial basis.  <a href="group__Quadratures.html#ga95718eefc0efe913a4bb4b2ce2a95856">More...</a><br /></td></tr>
+<tr class="separator:ga95718eefc0efe913a4bb4b2ce2a95856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefd49a7b35f77c7c50a784e977186240"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:gaefd49a7b35f77c7c50a784e977186240"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#gaefd49a7b35f77c7c50a784e977186240">HArDCore2D::GMDer</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const BasisType1 &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:gaefd49a7b35f77c7c50a784e977186240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template for GMDer with derived bases.  <a href="group__Quadratures.html#gaefd49a7b35f77c7c50a784e977186240">More...</a><br /></td></tr>
+<tr class="separator:gaefd49a7b35f77c7c50a784e977186240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87117c05c9d43b8399fe6808319f3ca9"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga87117c05c9d43b8399fe6808319f3ca9"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga87117c05c9d43b8399fe6808319f3ca9">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;basis1, const BasisType2 &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga87117c05c9d43b8399fe6808319f3ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a gradient basis (considering the tangential gradient as a scalar) and a scalar basis.  <a href="group__Quadratures.html#ga87117c05c9d43b8399fe6808319f3ca9">More...</a><br /></td></tr>
+<tr class="separator:ga87117c05c9d43b8399fe6808319f3ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f769fe1855d993dc8c669866176cf33"><td class="memTemplParams" colspan="2">template&lt;typename BasisType1 , typename BasisType2 &gt; </td></tr>
+<tr class="memitem:ga5f769fe1855d993dc8c669866176cf33"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Quadratures.html#ga5f769fe1855d993dc8c669866176cf33">HArDCore2D::GramMatrix</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const BasisType1 &amp;basis1, const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;basis2, <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> mono_int_map={})</td></tr>
+<tr class="memdesc:ga5f769fe1855d993dc8c669866176cf33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Gram Matrix of a scalar basis and a gradient basis (considering the tangential gradient as a scalar)  <a href="group__Quadratures.html#ga5f769fe1855d993dc8c669866176cf33">More...</a><br /></td></tr>
+<tr class="separator:ga5f769fe1855d993dc8c669866176cf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabb254b22a706f3781b2b8a7b3fafa288"><td class="memItemLeft" align="right" valign="top"><a id="gabb254b22a706f3781b2b8a7b3fafa288"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::QuadRuleEdge::QuadRuleEdge</b> (size_t doe, bool warn)</td></tr>
 <tr class="separator:gabb254b22a706f3781b2b8a7b3fafa288"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,6 +356,94 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Classes providing quadratures on edges and in cells. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga60f346b650d4c9ee3b872c72da9c9dbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60f346b650d4c9ee3b872c72da9c9dbf">&#9670;&nbsp;</a></span>CheckIntegralsDegree() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> HArDCore2D::CheckIntegralsDegree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>degree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> &amp;&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the degree of an existing list of monomial integrals is sufficient, other re-compute and return a proper list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> </td></tr>
+    <tr><td class="paramname">degree</td><td>Expected degree </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Existing list, optional </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga638b9609e4b26cf2fbd164018b12bccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga638b9609e4b26cf2fbd164018b12bccd">&#9670;&nbsp;</a></span>CheckIntegralsDegree() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> HArDCore2D::CheckIntegralsDegree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>degree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> &amp;&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the degree of an existing list of monomial integrals is sufficient, other re-compute and return a proper list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> </td></tr>
+    <tr><td class="paramname">degree</td><td>Expected degree </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Existing list, optional </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gad8f643134b5bea1e323e14c5ac42aa74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad8f643134b5bea1e323e14c5ac42aa74">&#9670;&nbsp;</a></span>generate_quadrature_rule() <span class="overload">[1/2]</span></h2>
 
@@ -269,6 +521,1870 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::Quadrat
   <table class="params">
     <tr><td class="paramname">E</td><td>Reference to the mesh face </td></tr>
     <tr><td class="paramname">doe</td><td>Degree of exactness </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaefd49a7b35f77c7c50a784e977186240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaefd49a7b35f77c7c50a784e977186240">&#9670;&nbsp;</a></span>GMDer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMDer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template for GMDer with derived bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix), to be differentiated </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga95718eefc0efe913a4bb4b2ce2a95856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga95718eefc0efe913a4bb4b2ce2a95856">&#9670;&nbsp;</a></span>GMDer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMDer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of the derivative of a monomial basis with another monomial basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis, to be differentiated </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7fe74b21dbcf4950c56050bc3210d791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fe74b21dbcf4950c56050bc3210d791">&#9670;&nbsp;</a></span>GMRolyComplScalar() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMRolyComplScalar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of the mth component of a RolyCompl Basis and any basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">m</td><td>Differentiate basis1 with respect to the mth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga88aa870647c37965633a03996c000cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga88aa870647c37965633a03996c000cd2">&#9670;&nbsp;</a></span>GMRolyComplScalar() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMRolyComplScalar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>rolycompl_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>mono_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of the mth component of a RolyCompl Basis and a monomial basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">rolycompl_basis</td><td>First basis </td></tr>
+    <tr><td class="paramname">mono_basis</td><td>Second basis </td></tr>
+    <tr><td class="paramname">m</td><td>Add one to the power of the mth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga15f404c82e3763df19dc0f42d054fd7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga15f404c82e3763df19dc0f42d054fd7f">&#9670;&nbsp;</a></span>GMScalarDerivative() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMScalarDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of any pair of scalar bases, taking partial derivatives of each of them (w.r.t. the homogeneous coordinates, without scaling) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">m</td><td>Differentiate basis1 with respect to the mth variable </td></tr>
+    <tr><td class="paramname">l</td><td>Differentiate basis2 with respect to the lth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa1a862ee9dfdf66d4324a3e301f355c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa1a862ee9dfdf66d4324a3e301f355c8">&#9670;&nbsp;</a></span>GMScalarDerivative() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMScalarDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of any pair of scalar bases, taking a partial derivative of the first (w.r.t. the homogeneous coordinates, without scaling) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">m</td><td>Differentiate basis1 with respect to the mth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga185787c20259379014daf6cf8891d1bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga185787c20259379014daf6cf8891d1bc">&#9670;&nbsp;</a></span>GMScalarDerivative() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMScalarDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a pair of local scalar monomial bases, taking partial derivatives of each of them (w.r.t. the homogeneous coordinates, without scaling) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">m</td><td>Differentiate basis1 with respect to the mth variable </td></tr>
+    <tr><td class="paramname">l</td><td>Differentiate basis2 with respect to the lth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga62df9455eba21fadd7a3bb612cc824fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga62df9455eba21fadd7a3bb612cc824fd">&#9670;&nbsp;</a></span>GMScalarDerivative() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GMScalarDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a pair of local scalar monomial bases, taking a partial derivative of the first (w.r.t. the homogeneous coordinates, without scaling) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">m</td><td>Differentiate basis1 with respect to the mth variable </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaddbeb84aa508db65d7d8bf5723d2de40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddbeb84aa508db65d7d8bf5723d2de40">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[1/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of any pair of bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad86d675b9a66959c9af5672e6bbd1840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad86d675b9a66959c9af5672e6bbd1840">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[2/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename Basis2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1DivergenceBasis.html">DivergenceBasis</a>&lt; Basis2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of any basis and a Divergence basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (tensorized basis) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (divergence basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga17710ae071fd2a88fba78507057d72a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga17710ae071fd2a88fba78507057d72a4">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[3/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of a pair of Curl bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafbf2996d778a016cca5de0a433ed810c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafbf2996d778a016cca5de0a433ed810c">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[4/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>curl_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a curl basis and a tensorized scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">curl_basis</td><td>First basis (rows of the Gram matrix) - curl basis </td></tr>
+    <tr><td class="paramname">tens_family</td><td>Second basis (columns of the Gram matrix) - tensorized basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8ce8130be73467716a0860ef973ac9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ce8130be73467716a0860ef973ac9c2">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[5/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::disable_if&lt;boost::is_same&lt;BasisType2, <a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&gt;, Eigen::MatrixXd&gt;::type HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1DivergenceBasis.html">DivergenceBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of a Divergence basis and any other basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaed4a8b8845e12623b679076ad2224bb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaed4a8b8845e12623b679076ad2224bb7">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[6/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GolyComplBasisCell.html">GolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GolyComplBasisCell.html">GolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gram Matrix of a pair of GolyCompl bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8529fc82b243f13a785e65dd7bfc68a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8529fc82b243f13a785e65dd7bfc68a0">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[7/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grad_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a gradient basis and a tensorized scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">grad_basis</td><td>First basis (rows of the Gram matrix) - gradient basis </td></tr>
+    <tr><td class="paramname">tens_family</td><td>Second basis (columns of the Gram matrix) - tensorized basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gadbd5897527898e51c459bc762edcc990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbd5897527898e51c459bc762edcc990">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[8/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grad_basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grad_basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a gradient basis and another gradient basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">grad_basis1</td><td>First basis (rows of the Gram matrix) - gradient basis </td></tr>
+    <tr><td class="paramname">grad_basis2</td><td>Second basis (columns of the Gram matrix) - gradient basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad42da5a4d0c9a05bd319723d55775266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad42da5a4d0c9a05bd319723d55775266">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[9/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a pair of local scalar monomial bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga43c5fc43fd8083f5693fea6b7f96777c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43c5fc43fd8083f5693fea6b7f96777c">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[10/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a pair of RolyCompl bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa49eb423dc2b11b34801402220dd5546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa49eb423dc2b11b34801402220dd5546">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[11/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>rolycompl_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a RolyCompl basis and a tensorized scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">rolycompl_basis</td><td>First basis (RolyCompl basis) </td></tr>
+    <tr><td class="paramname">tens_family</td><td>Second basis (tensorized basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae9d48397f244f7630124d4b4f0a38573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9d48397f244f7630124d4b4f0a38573">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[12/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType2, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of any pair of tensorized scalar bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabf23238b30a3a668643d281bb4d1058a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf23238b30a3a668643d281bb4d1058a">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[13/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1CurlBasis.html">CurlBasis</a>&lt; BasisType2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>curl_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a tensorized scalar basis and a gradient basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">tens_family</td><td>First basis (rows of the Gram matrix) - gradient basis </td></tr>
+    <tr><td class="paramname">curl_basis</td><td>Second basis (columns of the Gram matrix) - tensorized basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3f73d95c30b86a8372fbb8b1e2e0c08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f73d95c30b86a8372fbb8b1e2e0c08a">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[14/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grad_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a tensorized scalar basis and a gradient basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">tens_family</td><td>First basis (rows of the Gram matrix) - gradient basis </td></tr>
+    <tr><td class="paramname">grad_basis</td><td>Second basis (columns of the Gram matrix) - tensorized basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga16f1961718e9c2fc7d1145d64adc4bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga16f1961718e9c2fc7d1145d64adc4bf8">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[15/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tens_family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>rolycompl_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a tensorized scalar basis and a RolyCompl basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">tens_family</td><td>First basis (tensorized basis) </td></tr>
+    <tr><td class="paramname">rolycompl_basis</td><td>Second basis (RolyCompl basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga34fc04e0390fca0496bf102a704a01cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga34fc04e0390fca0496bf102a704a01cf">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[16/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generic template to compute the Gram Matrix of any pair of bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (rows of the Gram matrix) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (columns of the Gram matrix) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5f769fe1855d993dc8c669866176cf33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f769fe1855d993dc8c669866176cf33">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[17/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a scalar basis and a gradient basis (considering the tangential gradient as a scalar) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>Scalar basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Gradient basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga87117c05c9d43b8399fe6808319f3ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga87117c05c9d43b8399fe6808319f3ca9">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[18/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; BasisType1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a gradient basis (considering the tangential gradient as a scalar) and a scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>Gradient basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Scalar basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6978f567aa9a5cadb0b49bfcc2f6c5bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6978f567aa9a5cadb0b49bfcc2f6c5bf">&#9670;&nbsp;</a></span>GramMatrix() <span class="overload">[19/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a pair of local scalar monomial bases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7ce073e602b788098cdf24efab030ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7ce073e602b788098cdf24efab030ede">&#9670;&nbsp;</a></span>GramMatrixDiv() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 , typename BasisType2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrixDiv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType1 &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BasisType2 &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of the divergence of any basis and any other basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (vector basis) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (scalar basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of the bases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaccf0b34c06ff46478c7453db832aa5f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaccf0b34c06ff46478c7453db832aa5f7">&#9670;&nbsp;</a></span>GramMatrixDiv() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrixDiv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the Gram Matrix of a Divergence&lt;RolyCompl&gt; basis and a monomial scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (RolyCompl basis) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (tensorized basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7f61ecdc92b839db14767e7a33f0ac18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f61ecdc92b839db14767e7a33f0ac18">&#9670;&nbsp;</a></span>GramMatrixDiv() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType1 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::GramMatrixDiv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; BasisType1, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>basis1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>basis2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a>&#160;</td>
+          <td class="paramname"><em>mono_int_map</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Template to compute the Gram Matrix of a Divergence&lt;Tensorized&gt; basis and a monomial scalar basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> to which the basis corresponds </td></tr>
+    <tr><td class="paramname">basis1</td><td>First basis (divergence basis) </td></tr>
+    <tr><td class="paramname">basis2</td><td>Second basis (monomial scalar basis) </td></tr>
+    <tr><td class="paramname">mono_int_map</td><td>Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8a6efbbf6ebaedd4e582f4ee965ec41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a6efbbf6ebaedd4e582f4ee965ec41d">&#9670;&nbsp;</a></span>IntegrateCellMonomials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6">MonomialCellIntegralsType</a> HArDCore2D::IntegrateCellMonomials </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>maxdeg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute all integrals on a cell of monomials up to a total degree, using vertex values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td><a class="el" href="classHArDCore2D_1_1Cell.html" title="The Cell class provides description of a cell.">Cell</a> </td></tr>
+    <tr><td class="paramname">maxdeg</td><td>Maximal total degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga64ad96ee99f7b62a7ef1757b12701323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga64ad96ee99f7b62a7ef1757b12701323">&#9670;&nbsp;</a></span>IntegrateEdgeMonomials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94">MonomialEdgeIntegralsType</a> HArDCore2D::IntegrateEdgeMonomials </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>maxdeg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute all integrals of edge monomials up to a total degree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">E</td><td><a class="el" href="classHArDCore2D_1_1Edge.html" title="The Edge class provides description of an edge.">Edge</a> </td></tr>
+    <tr><td class="paramname">maxdeg</td><td>Maximal total degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga73858a4ddac05720e2ccb5001fc6ef97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73858a4ddac05720e2ccb5001fc6ef97">&#9670;&nbsp;</a></span>transformGM() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::transformGM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; BasisType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>family_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>RC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>anc_GM</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a Gram Matrix from an ancestor to a family basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">family_basis</td><td><a class="el" href="classHArDCore2D_1_1Family.html">Family</a> </td></tr>
+    <tr><td class="paramname">RC</td><td>R if transformation applied on rows (left), C if applied on columns (right) </td></tr>
+    <tr><td class="paramname">anc_GM</td><td>Gram matrix of the ancestor basis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8187bfc7c4a27405f770a77bb8831535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8187bfc7c4a27405f770a77bb8831535">&#9670;&nbsp;</a></span>transformGM() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::transformGM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; BasisType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>restr_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>RC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>anc_GM</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a Gram Matrix from an ancestor to a restricted basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">restr_basis</td><td>Restricted basis </td></tr>
+    <tr><td class="paramname">RC</td><td>R if transformation applied on rows (left), C if applied on columns (right) </td></tr>
+    <tr><td class="paramname">anc_GM</td><td>Gram matrix of the ancestor basis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5426168676064ac8913c7d2c2431270a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5426168676064ac8913c7d2c2431270a">&#9670;&nbsp;</a></span>transformGM() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BasisType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd HArDCore2D::transformGM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1ShiftedBasis.html">ShiftedBasis</a>&lt; BasisType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shifted_basis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>RC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>anc_GM</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a Gram Matrix from an ancestor to a shifted basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shifted_basis</td><td>Shifted basis </td></tr>
+    <tr><td class="paramname">RC</td><td>R if transformation applied on rows (left), C if applied on columns (right) </td></tr>
+    <tr><td class="paramname">anc_GM</td><td>Gram matrix of the ancestor basis </td></tr>
   </table>
   </dd>
 </dl>

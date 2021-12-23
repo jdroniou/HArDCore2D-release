@@ -20,6 +20,8 @@ typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef void {\bfseries Hessian\+Value}
+\item 
 typedef \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} {\bfseries Geometric\+Support}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
@@ -32,11 +34,15 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_gae546ece15c11ddb4382aa47c50fdd53c}{di
 Function\+Value \mbox{\hyperlink{group__Basis_gaf3ea5893997d96a77ea5a22d80777360}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 Gradient\+Value \mbox{\hyperlink{group__Basis_ga46fbc56b645a745e1ffef6995decc5cd}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga06af508f56cd771808f7dcb377d6fc64}{max\+\_\+degree}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum degree of the basis functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = false
 \item 
 static const bool {\bfseries has\+Function} = true
 \item 
@@ -45,6 +51,8 @@ static const bool {\bfseries has\+Gradient} = true
 static const bool {\bfseries has\+Curl} = false
 \item 
 static const bool {\bfseries has\+Divergence} = false
+\item 
+static const bool {\bfseries has\+Hessian} = false
 \end{DoxyCompactItemize}
 
 

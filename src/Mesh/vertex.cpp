@@ -13,10 +13,9 @@
 #include <iostream>
 
 using namespace HArDCore2D;
-Vertex::Vertex(size_t iV, Vector2d coords, Mesh *mesh)
+Vertex::Vertex(size_t iV, Vector2d coords)
     : _iV(iV), 
       _coords(coords), 
-      _mesh(mesh),
       _cells(0),
       _edges(0),
       _vertices(0),

@@ -60,6 +60,11 @@ size_t Edge::index_vertex(const Vertex* V) const {
   return i;
 }
 
+int Edge::vertex_orientation(size_t i) const { 
+    return ( (_vertices[i]->coords()-_mp).dot(tangent()) > 0 ? 1 : -1);
+}
+
+
 
 /// Measure and diameter are the same for an edge, but for consistency with the way schemes
 /// are usually defined, we provide two functions. For translation of each scheme's code to 3D (with

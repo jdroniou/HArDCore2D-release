@@ -4,6 +4,12 @@ ADD_LIBRARY(TestCase OBJECT TestCase/TestCase.cpp)
 ADD_LIBRARY(TestCaseStefanPME OBJECT TestCase/TestCaseNonLinearity.cpp TestCase/TestCaseStefanPME.cpp)
 ADD_LIBRARY(TestCaseTransient OBJECT TestCase/TestCaseTransient.cpp)
 ADD_LIBRARY(hho-general OBJECT HHO-general/HHO2D.cpp)
+ADD_LIBRARY(DirectedGraph OBJECT MeshCoarsen/DirectedGraph.cpp)
+
+# Mesh Coarsen
+ADD_EXECUTABLE(mesh-coarsen $<TARGET_OBJECTS:DirectedGraph> MeshCoarsen/MeshCoarsen.cpp)
+TARGET_LINK_LIBRARIES(mesh-coarsen ${Boost_LIBRARIES})
+TARGET_INCLUDE_DIRECTORIES(mesh-coarsen PUBLIC ${EIGEN3_INCLUDE_DIR})
 
 # HHO Diffusion
 ADD_EXECUTABLE(hho-diffusion $<TARGET_OBJECTS:TestCase> $<TARGET_OBJECTS:BoundaryConditions> HHO-diffusion/HHO_Diffusion.cpp)

@@ -40,6 +40,8 @@ Vector2d \mbox{\hyperlink{group__Mesh_gaeb458c39a11b58778bd7001b22272d3d}{normal
 \begin{DoxyCompactList}\small\item\em get a unit normal to the edge, rotation by +pi/2 of \mbox{\hyperlink{group__Mesh_ga3362368ff28f1e128bbc46615fd24cd7}{tangent()}} \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}{is\+\_\+boundary}} () const
 \begin{DoxyCompactList}\small\item\em getter to see if edge is boundary edge \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Mesh_gacaa4cd6eb0a028cce4b2c28b067fcfea}{vertex\+\_\+orientation}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns the relative orientation of the i-\/th vertex with respect to the edge (that is, +1 if the tangent to the edge points toward the vertex, -\/1 otherwise). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__Mesh_ga364bacf89dfa0be36abbbadbb2dd4f78}{add\+\_\+cell}} (\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$\mbox{\hyperlink{group__Mesh_gad4be0bfb981ccf2c1e02e870772dbdc3}{cell}})
 \begin{DoxyCompactList}\small\item\em Add a new cell to the edge. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__Mesh_ga150b8b31cd1b608d6ce8b020227a6db2}{set\+\_\+global\+\_\+index}} (size\+\_\+t idx)

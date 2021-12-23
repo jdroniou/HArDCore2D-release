@@ -2,7 +2,7 @@
 #
 
 # Degree
-k=1
+k=2
 
 # Plate parameters
 t=1e-3
@@ -37,7 +37,7 @@ case ${mesh_family} in
   mesh[1]="hexa1_1"
   mesh[2]="hexa1_2"
   mesh[3]="hexa1_3"
-  mesh[4]="hexa1_4"
+#  mesh[4]="hexa1_4"
 #  mesh[5]="hexa1_5"
   ;;
     locref)

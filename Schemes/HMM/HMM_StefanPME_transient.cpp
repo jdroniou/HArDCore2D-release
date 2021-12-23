@@ -91,7 +91,7 @@ int main(int argc, const char* argv[]) {
 	std::vector<std::vector<double> > centers;
 	if (mesh.read_mesh(vertices, cells, centers) == false) {
 		output << "Could not open file" << std::endl;
-		return false;
+		return 0;
 	};
 
 	// Build the mesh
@@ -141,7 +141,6 @@ int main(int argc, const char* argv[]) {
   HMM_StefanPME_Transient::tensor_function_type kappa = [&](const double x, const double y, const Cell* cell) {
 			return tcase.diff(x,y,cell);
   };
-	size_t deg_kappa = tcase.get_deg_diff();
 
   // Exact solution, gradient and time derivative
   HMM_StefanPME_Transient::solution_function_type exact_solution = [&](const double t, const VectorRd p) {
@@ -165,7 +164,7 @@ int main(int argc, const char* argv[]) {
   };
 
   // Create the model equation
-  HMM_StefanPME_Transient StefanPME_model(hmm, kappa, deg_kappa, source_term, BC, exact_solution, grad_exact_solution, zeta, weight, solver_type);
+  HMM_StefanPME_Transient StefanPME_model(hmm, kappa, source_term, BC, exact_solution, grad_exact_solution, zeta, weight, solver_type);
 
   // --------------------------------------------------------------------------
 	// 											Recalling the mesh and parameters

@@ -4,8 +4,8 @@
 # Test case
 tcsol=1
 tcdiff=1
-tcadvec=1
-tcreac=1
+tcadvec=2
+tcreac=4
 
 # Plot File
 plotfile="plot"
@@ -43,7 +43,7 @@ bc="M0"
 mesh[1]="hexa1_1"
 mesh[2]="hexa1_2"
 mesh[3]="hexa1_3"
-mesh[4]="hexa1_4"
+#mesh[4]="hexa1_4"
 #mesh[1]="hexa1_5"
 
 # mesh[1]="mesh3_2"

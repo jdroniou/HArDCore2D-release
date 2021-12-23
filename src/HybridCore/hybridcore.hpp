@@ -258,7 +258,7 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     // Output stream
     std::ostream & m_output;
     // Orthonormalise or not the basis functions
-    const bool & m_ortho;
+    const bool m_ortho;
 
     // Cell and edges bases
     std::vector<std::unique_ptr<PolyCellBasisType>> m_cell_basis;
@@ -267,9 +267,6 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     // Creates the cell and edge bases
     PolyCellBasisType _construct_cell_basis(size_t iT);
     PolyEdgeBasisType _construct_edge_basis(size_t iF);
-
-    // offset for quadrature rules, should be 0 except for testing purposes
-    int _offset_doe;	
 
   };
 

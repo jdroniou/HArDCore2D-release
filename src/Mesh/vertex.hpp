@@ -44,7 +44,7 @@ public:
     * @param coord  coordinates of the vertex
     * @param mesh pointer to the mesh
     */
-    Vertex(size_t iV, Vector2d coords, Mesh *mesh);
+    Vertex(size_t iV, Vector2d coords);
     ~Vertex(); // destructor, nothing special
 
     inline size_t global_index() const;  ///< returns the edges global index
@@ -72,7 +72,6 @@ public:
 private:
     size_t _iV;
     Vector2d _coords;
-    Mesh *_mesh;
     std::vector<Cell *> _cells;
     std::vector<Edge *> _edges;
     std::vector<Vertex *> _vertices;

@@ -58,7 +58,7 @@ public:
     inline double diam() const;  ///< returns diameter of cell
     Vector2d edge_normal(size_t i) const;  ///< returns the outer normal to the i-th edge
     inline Vector2d center_mass() const;  ///< returns the center of mass of the cell
-    int edge_orientation(size_t i) const; ///< returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -1 otherwise).
+    int edge_orientation(size_t i) const; ///< returns the relative orientation of the i-th edge with respect to the cell (that is, +1 if the normal to the edge is the outer normal to the cell, -1 otherwise).
     
     bool calc_cell_geometry_factors();  ///< calculate cell diam, area etc
 

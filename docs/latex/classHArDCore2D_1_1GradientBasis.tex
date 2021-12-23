@@ -12,7 +12,7 @@ Basis for the space of gradients of polynomials.
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Vector\+Rd {\bfseries Function\+Value}
+typedef Basis\+Type\+::\+Gradient\+Value {\bfseries Function\+Value}
 \item 
 typedef Eigen\+::\+Matrix$<$ double, dimspace, dimspace $>$ {\bfseries Gradient\+Value}
 \item 
@@ -20,7 +20,11 @@ typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef void {\bfseries Hessian\+Value}
+\item 
 typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\item 
+typedef Basis\+Type {\bfseries Ancestor\+Type}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -30,11 +34,15 @@ typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga013a7a8c18e05623b1c9f6562f80c9e6}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
 Function\+Value \mbox{\hyperlink{group__Basis_ga5e054975f7e1247ba66f08fa159dcf84}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
-\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
+constexpr const Basis\+Type \& \mbox{\hyperlink{group__Basis_ga7cb955216fe191094f89ff740b08f637}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (basis that the gradient was taken of) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = true
 \item 
 static const bool {\bfseries has\+Function} = true
 \item 
@@ -43,6 +51,8 @@ static const bool {\bfseries has\+Gradient} = false
 static const bool {\bfseries has\+Curl} = false
 \item 
 static const bool {\bfseries has\+Divergence} = false
+\item 
+static const bool {\bfseries has\+Hessian} = false
 \end{DoxyCompactItemize}
 
 
@@ -52,7 +62,7 @@ class H\+Ar\+D\+Core2\+D\+::\+Gradient\+Basis$<$ Basis\+Type $>$}
 
 Basis for the space of gradients of polynomials. 
 
-To construct a basis of G$^\wedge$k, this assumes that the scalar basis it is constructed from is a basis of P$^\wedge$\{k+1\}/\+P$^\wedge$0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.\+g. polynomials with zero average, or a hierarchical basis of P$^\wedge$\{k+1\} in which we have removed the first, constant, polynomial) 
+To construct a basis of G$^\wedge$k, this assumes that the scalar basis it is constructed from is an ancestor basis of P$^\wedge$\{k+1\}/\+P$^\wedge$0, space of polynomials of degree k+1 without trivial polynomial with zero gradient (e.\+g. polynomials with zero average, or a hierarchical basis of P$^\wedge$\{k+1\} in which we have removed the first, constant, polynomial). This can also be used to create a family of gradients (not necessarily linearly independent, if the ancestor basis is not a basis of P$^\wedge$\{k+1\}/\+P$^\wedge$0) 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

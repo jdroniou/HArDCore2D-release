@@ -8,10 +8,12 @@ Various general functions and classes.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classHArDCore2D_1_1DOFSpace}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space}}
-\begin{DoxyCompactList}\small\item\em Base class for D\+OF spaces\+: functions to access local D\+O\+Fs (organised from the smallest dimension to the largest) associated with each geometric entity. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space}}
+\begin{DoxyCompactList}\small\item\em Base class for global D\+OF spaces. Provides functions to manipulate global D\+O\+Fs (the local version being provided by \mbox{\hyperlink{classHArDCore2D_1_1LocalDOFSpace}{Local\+D\+O\+F\+Space}}). \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1IntegralWeight}{H\+Ar\+D\+Core2\+D\+::\+Integral\+Weight}}
 \begin{DoxyCompactList}\small\item\em Structure for weights (scalar, at the moment) in integral. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1LocalDOFSpace}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space}}
+\begin{DoxyCompactList}\small\item\em Base class for local D\+OF spaces\+: functions to access local D\+O\+Fs (organised from the smallest dimension to the largest) associated with each geometric entity. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1PolynomialSpaceDimension}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Geometric\+Support $>$}}
 \begin{DoxyCompactList}\small\item\em Basis dimensions for various polynomial spaces on edges/faces/elements (when relevant)\+: Pk, Gk, Rk and complements. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structHArDCore2D_1_1PolynomialSpaceDimension_3_01Cell_01_4}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Cell $>$}}
@@ -21,62 +23,100 @@ struct \mbox{\hyperlink{structHArDCore2D_1_1PolynomialSpaceDimension_3_01Edge_01
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__Common_ga7fa424982691351012ebeb83aff71127}\label{group__Common_ga7fa424982691351012ebeb83aff71127}} 
-\mbox{\hyperlink{group__Common_ga7fa424982691351012ebeb83aff71127}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::\+D\+O\+F\+Space}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__Common_gab544ffa79da52a3eac3313eeffc420c6}{mesh}}, size\+\_\+t n\+\_\+local\+\_\+vertex\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+edge\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+cell\+\_\+dofs)
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{group__Common_ga95e335408d31453fe0d247bbc7ceca25}{H\+Ar\+D\+Core2\+D\+::store\+\_\+times}} (boost\+::timer\+::cpu\+\_\+timer \&timer, std\+::string message=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Function to store and display wall/proc timers from boost\+::timer\+::cpu\+\_\+timer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga2367c0e7d7a71177472588a92757ad0a}\label{group__Common_ga2367c0e7d7a71177472588a92757ad0a}} 
+\mbox{\hyperlink{group__Common_ga2367c0e7d7a71177472588a92757ad0a}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::\+Global\+D\+O\+F\+Space}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}}, size\+\_\+t n\+\_\+local\+\_\+vertex\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+edge\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+cell\+\_\+dofs)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gab544ffa79da52a3eac3313eeffc420c6}\label{group__Common_gab544ffa79da52a3eac3313eeffc420c6}} 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__Common_gab544ffa79da52a3eac3313eeffc420c6}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::mesh}} () const
-\begin{DoxyCompactList}\small\item\em Returns the mesh. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga136ed047ad69e6cee6545cade991870a}\label{group__Common_ga136ed047ad69e6cee6545cade991870a}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga136ed047ad69e6cee6545cade991870a}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Vertex}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local vertex D\+O\+Fs. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga3d2f3318a8240ba5854db6852dca585b}\label{group__Common_ga3d2f3318a8240ba5854db6852dca585b}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga3d2f3318a8240ba5854db6852dca585b}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Edge}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local edge D\+O\+Fs. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gaba517b11c1a754d05ccfb81fe972d007}\label{group__Common_gaba517b11c1a754d05ccfb81fe972d007}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_gaba517b11c1a754d05ccfb81fe972d007}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Cell}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local cell D\+O\+Fs. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga4be3d02fb87a2959b02875b99a8ad0f8}\label{group__Common_ga4be3d02fb87a2959b02875b99a8ad0f8}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga4be3d02fb87a2959b02875b99a8ad0f8}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension}} () const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the global space (all D\+O\+Fs for all geometric entities) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga99aa396da2fc535a937124288f1a2518}\label{group__Common_ga99aa396da2fc535a937124288f1a2518}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga99aa396da2fc535a937124288f1a2518}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Vertex}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex V. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga25e5f054c4370cb6db0b0810c9e4ed7a}\label{group__Common_ga25e5f054c4370cb6db0b0810c9e4ed7a}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga25e5f054c4370cb6db0b0810c9e4ed7a}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Vertex}} (size\+\_\+t iV) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex of index iV. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gac60b2f599ca2dcb2cd93bbcb95db0dac}\label{group__Common_gac60b2f599ca2dcb2cd93bbcb95db0dac}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_gac60b2f599ca2dcb2cd93bbcb95db0dac}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge E (including vertices) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gab74b2e6b657521d035353655f628fd1d}\label{group__Common_gab74b2e6b657521d035353655f628fd1d}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_gab74b2e6b657521d035353655f628fd1d}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Edge}} (size\+\_\+t iE) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge of index iE (including vertices) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga323aa42f83110b711b7bb9534a076e5d}\label{group__Common_ga323aa42f83110b711b7bb9534a076e5d}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga323aa42f83110b711b7bb9534a076e5d}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell T (including faces, edges and vertices) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga62d2230bc3a893087d3d83ea0006ece3}\label{group__Common_ga62d2230bc3a893087d3d83ea0006ece3}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga62d2230bc3a893087d3d83ea0006ece3}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::dimension\+Cell}} (size\+\_\+t iT) const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gafd7b85f1679a0ba6a14991aa61fb3148}\label{group__Common_gafd7b85f1679a0ba6a14991aa61fb3148}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_gafd7b85f1679a0ba6a14991aa61fb3148}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
-\begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the edge E. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga3f23e8977ee569b7da8ebfedf4ddceaf}\label{group__Common_ga3f23e8977ee569b7da8ebfedf4ddceaf}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga3f23e8977ee569b7da8ebfedf4ddceaf}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
-\begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the edge E. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_gafda3b1da23e1289cf9509fc649156e1d}\label{group__Common_gafda3b1da23e1289cf9509fc649156e1d}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_gafda3b1da23e1289cf9509fc649156e1d}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
-\begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the cell T. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga4f0e55c40a836d37a02bacee43e6c9ca}\label{group__Common_ga4f0e55c40a836d37a02bacee43e6c9ca}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga4f0e55c40a836d37a02bacee43e6c9ca}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
-\begin{DoxyCompactList}\small\item\em Returns the local offset of the edge E with respect to the cell T. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__Common_ga4ebe61c2d728877d652c82ebbcb2fbf3}\label{group__Common_ga4ebe61c2d728877d652c82ebbcb2fbf3}} 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga4ebe61c2d728877d652c82ebbcb2fbf3}{H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
-\begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the element T. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga5ce7fa8c82711ecca59d82221351c2f9}\label{group__Common_ga5ce7fa8c82711ecca59d82221351c2f9}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga5ce7fa8c82711ecca59d82221351c2f9}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::global\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+\begin{DoxyCompactList}\small\item\em Return the global offset for the unknowns on the vertex V. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gac73a0a48f68c65f869ff3d1f9c634bf5}\label{group__Common_gac73a0a48f68c65f869ff3d1f9c634bf5}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gac73a0a48f68c65f869ff3d1f9c634bf5}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::global\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+\begin{DoxyCompactList}\small\item\em Return the global offset for the unknowns on the edge E. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga2c1dc27f919a7b365e93b60493a3794c}\label{group__Common_ga2c1dc27f919a7b365e93b60493a3794c}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga2c1dc27f919a7b365e93b60493a3794c}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::global\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Return the global offset for the unknowns on the cell T. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga9cabf022121084dd0ab57de128ba953c}\label{group__Common_ga9cabf022121084dd0ab57de128ba953c}} 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Common_ga9cabf022121084dd0ab57de128ba953c}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::restrict\+Edge}} (size\+\_\+t iE, const Eigen\+::\+Vector\+Xd \&vh) const
+\begin{DoxyCompactList}\small\item\em Restrict to the edge (including its vertices) of index iE. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga2485686662745c5481032a8d6058fd57}\label{group__Common_ga2485686662745c5481032a8d6058fd57}} 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Common_ga2485686662745c5481032a8d6058fd57}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::restrict\+Cell}} (size\+\_\+t iT, const Eigen\+::\+Vector\+Xd \&vh) const
+\begin{DoxyCompactList}\small\item\em Restrict to the cell (including vertices and edges) of index iT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga8d20e11b5eb2a6fa9f96c2efa5fd1053}\label{group__Common_ga8d20e11b5eb2a6fa9f96c2efa5fd1053}} 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Common_ga8d20e11b5eb2a6fa9f96c2efa5fd1053}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::restrict}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, const Eigen\+::\+Vector\+Xd vh) const
+\begin{DoxyCompactList}\small\item\em Restrict to an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gaabe6bb761cce72864ee024f6f7e96c37}\label{group__Common_gaabe6bb761cce72864ee024f6f7e96c37}} 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__Common_gaabe6bb761cce72864ee024f6f7e96c37}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::restrict}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const Eigen\+::\+Vector\+Xd vh) const
+\begin{DoxyCompactList}\small\item\em Restrict to a cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gabf4eafe2cf13ad7f5eeb322cb9097d22}\label{group__Common_gabf4eafe2cf13ad7f5eeb322cb9097d22}} 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__Common_gabf4eafe2cf13ad7f5eeb322cb9097d22}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::extend\+Operator}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, const Eigen\+::\+Matrix\+Xd \&opE) const
+\begin{DoxyCompactList}\small\item\em Extend an edge operator to a cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga253bd7addffb9686d8a71d19db88f3f2}\label{group__Common_ga253bd7addffb9686d8a71d19db88f3f2}} 
+std\+::vector$<$ size\+\_\+t $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::global\+D\+O\+F\+Indices} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\item 
+\mbox{\Hypertarget{group__Common_ga14ce2442e4f4d5421bffe7b7ecc563d6}\label{group__Common_ga14ce2442e4f4d5421bffe7b7ecc563d6}} 
+void \mbox{\hyperlink{group__Common_ga14ce2442e4f4d5421bffe7b7ecc563d6}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::set\+Label\+D\+OF}} (const size\+\_\+t i, const int label)
+\begin{DoxyCompactList}\small\item\em Set a label to the D\+OF number i (default label is -\/1) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga6bdf6aac052f0a365bdfc127cf3d46b0}\label{group__Common_ga6bdf6aac052f0a365bdfc127cf3d46b0}} 
+int \mbox{\hyperlink{group__Common_ga6bdf6aac052f0a365bdfc127cf3d46b0}{H\+Ar\+D\+Core2\+D\+::\+Global\+D\+O\+F\+Space\+::get\+Label\+D\+OF}} (const size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Get label of D\+OF number i. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__Common_gacbbe5cbad494656c2acb347966770bce}{H\+Ar\+D\+Core2\+D\+::\+Integral\+Weight\+::\+Integral\+Weight}} (const std\+::function$<$ double(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const Eigen\+::\+Vector2d \&x)$>$ \+\_\+value, std\+::function$<$ size\+\_\+t(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T)$>$ \+\_\+deg)
 \item 
 \mbox{\Hypertarget{group__Common_ga761d633a9a02e0a2f940e5168ebc5303}\label{group__Common_ga761d633a9a02e0a2f940e5168ebc5303}} 
 {\bfseries H\+Ar\+D\+Core2\+D\+::\+Integral\+Weight\+::\+Integral\+Weight} (double val)
 \item 
+\mbox{\Hypertarget{group__Common_ga1d6a7e1447ff6f68149440e7d7561794}\label{group__Common_ga1d6a7e1447ff6f68149440e7d7561794}} 
+\mbox{\hyperlink{group__Common_ga1d6a7e1447ff6f68149440e7d7561794}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::\+Local\+D\+O\+F\+Space}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}}, size\+\_\+t n\+\_\+local\+\_\+vertex\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+edge\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+cell\+\_\+dofs)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga09bab9dce7331dae4274a37e65efdadc}\label{group__Common_ga09bab9dce7331dae4274a37e65efdadc}} 
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::mesh}} () const
+\begin{DoxyCompactList}\small\item\em Returns the mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gaaf36e0a6a9baacd2f0b89e39d40ea95a}\label{group__Common_gaaf36e0a6a9baacd2f0b89e39d40ea95a}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gaaf36e0a6a9baacd2f0b89e39d40ea95a}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of local vertex D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gaf3d79c7c574fec6f31c59b2d3be965f4}\label{group__Common_gaf3d79c7c574fec6f31c59b2d3be965f4}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gaf3d79c7c574fec6f31c59b2d3be965f4}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Edge}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of local edge D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga71892fed68458480a6384307bef774c3}\label{group__Common_ga71892fed68458480a6384307bef774c3}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga71892fed68458480a6384307bef774c3}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::num\+Local\+Dofs\+Cell}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of local cell D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gae1b50a37725d552ed131d82e123b4354}\label{group__Common_gae1b50a37725d552ed131d82e123b4354}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gae1b50a37725d552ed131d82e123b4354}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension}} () const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the global space (all D\+O\+Fs for all geometric entities) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga3e99fe863ef82d4a8f9cbf81d42dde76}\label{group__Common_ga3e99fe863ef82d4a8f9cbf81d42dde76}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga3e99fe863ef82d4a8f9cbf81d42dde76}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Vertex}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex V. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gaa6ba2a88f43d62c6d7d8be6e80291138}\label{group__Common_gaa6ba2a88f43d62c6d7d8be6e80291138}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gaa6ba2a88f43d62c6d7d8be6e80291138}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Vertex}} (size\+\_\+t iV) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex of index iV. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga93973e6d5e5c21b4e175dfcf4df8c027}\label{group__Common_ga93973e6d5e5c21b4e175dfcf4df8c027}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga93973e6d5e5c21b4e175dfcf4df8c027}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge E (including vertices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga73988896b6cde4ee75fe062fa7ba04ca}\label{group__Common_ga73988896b6cde4ee75fe062fa7ba04ca}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga73988896b6cde4ee75fe062fa7ba04ca}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Edge}} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge of index iE (including vertices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gac74c832fbeb6f78e0ff71a8bcdc8480c}\label{group__Common_gac74c832fbeb6f78e0ff71a8bcdc8480c}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gac74c832fbeb6f78e0ff71a8bcdc8480c}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell T (including faces, edges and vertices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga0c4310bd1e71fdb4fb080103479f3555}\label{group__Common_ga0c4310bd1e71fdb4fb080103479f3555}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga0c4310bd1e71fdb4fb080103479f3555}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::dimension\+Cell}} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga42b72d383427f51dbcdb8137447e2221}\label{group__Common_ga42b72d383427f51dbcdb8137447e2221}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga42b72d383427f51dbcdb8137447e2221}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+\begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the edge E. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gaca235b4ae14abc3bacdb429a23d3d68a}\label{group__Common_gaca235b4ae14abc3bacdb429a23d3d68a}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_gaca235b4ae14abc3bacdb429a23d3d68a}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+\begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the edge E. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga17e6fe3a75d9d49c2e2bf057159033f6}\label{group__Common_ga17e6fe3a75d9d49c2e2bf057159033f6}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga17e6fe3a75d9d49c2e2bf057159033f6}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+\begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the cell T. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga7549001a2a8b7950d2b577be1f54a0fc}\label{group__Common_ga7549001a2a8b7950d2b577be1f54a0fc}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga7549001a2a8b7950d2b577be1f54a0fc}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+\begin{DoxyCompactList}\small\item\em Returns the local offset of the edge E with respect to the cell T. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga9954ff60c14e3d92152e325a526c010e}\label{group__Common_ga9954ff60c14e3d92152e325a526c010e}} 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga9954ff60c14e3d92152e325a526c010e}{H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+\begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the element T. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Common_ga528091d2f6373a8d213a4d3687a9b200}\label{group__Common_ga528091d2f6373a8d213a4d3687a9b200}} 
 static size\+\_\+t \mbox{\hyperlink{group__Common_ga528091d2f6373a8d213a4d3687a9b200}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Cell $>$\+::\+Poly}} (int k)
 \begin{DoxyCompactList}\small\item\em Dimension of Pk(\+T) \end{DoxyCompactList}\item 
@@ -92,29 +132,35 @@ static size\+\_\+t \mbox{\hyperlink{group__Common_ga9c16ba772eb539541faceedc95c7
 \mbox{\Hypertarget{group__Common_gac4b6a6a16efc6ce042931357dbc36562}\label{group__Common_gac4b6a6a16efc6ce042931357dbc36562}} 
 static size\+\_\+t \mbox{\hyperlink{group__Common_gac4b6a6a16efc6ce042931357dbc36562}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Cell $>$\+::\+Roly\+Compl}} (int k)
 \begin{DoxyCompactList}\small\item\em Dimension of Rck(\+T) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_gadd76a54010c7217fcea159809c235072}\label{group__Common_gadd76a54010c7217fcea159809c235072}} 
+static size\+\_\+t \mbox{\hyperlink{group__Common_gadd76a54010c7217fcea159809c235072}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Cell $>$\+::\+Holy}} (int k)
+\begin{DoxyCompactList}\small\item\em Dimension of Hk(\+T) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Common_ga0d0304d9a87065a5cc8a11fb9c010d68}\label{group__Common_ga0d0304d9a87065a5cc8a11fb9c010d68}} 
+static size\+\_\+t \mbox{\hyperlink{group__Common_ga0d0304d9a87065a5cc8a11fb9c010d68}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Cell $>$\+::\+Holy\+Compl}} (int k)
+\begin{DoxyCompactList}\small\item\em Dimension of Hck(\+T) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Common_ga431ad0725cdc895a29903ddbe36b8a7a}\label{group__Common_ga431ad0725cdc895a29903ddbe36b8a7a}} 
 static size\+\_\+t \mbox{\hyperlink{group__Common_ga431ad0725cdc895a29903ddbe36b8a7a}{H\+Ar\+D\+Core2\+D\+::\+Polynomial\+Space\+Dimension$<$ Edge $>$\+::\+Poly}} (int k)
 \begin{DoxyCompactList}\small\item\em Dimension of Pk(\+E) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__Common_gaf9d76b74c88b55c3b7eb47a76cfd183c}\label{group__Common_gaf9d76b74c88b55c3b7eb47a76cfd183c}} 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& {\bfseries H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::m\+\_\+mesh}
-\item 
-\mbox{\Hypertarget{group__Common_ga6697a298965d2a2e0aa7309500b927fc}\label{group__Common_ga6697a298965d2a2e0aa7309500b927fc}} 
-size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+vertex\+\_\+dofs}
-\item 
-\mbox{\Hypertarget{group__Common_ga32aa8705cb5da2259992f50d12009c7f}\label{group__Common_ga32aa8705cb5da2259992f50d12009c7f}} 
-size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+edge\+\_\+dofs}
-\item 
-\mbox{\Hypertarget{group__Common_gac4b6c7fa4a5bc86dbee81777331906ee}\label{group__Common_gac4b6c7fa4a5bc86dbee81777331906ee}} 
-size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+cell\+\_\+dofs}
-\item 
 \mbox{\Hypertarget{group__Common_ga48595604e6ae5c307b1c4ae8798f6f94}\label{group__Common_ga48595604e6ae5c307b1c4ae8798f6f94}} 
 std\+::function$<$ double(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const Eigen\+::\+Vector2d \&x)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Integral\+Weight\+::value}
 \item 
 \mbox{\Hypertarget{group__Common_ga782d17e551742d4287ccf9b321797770}\label{group__Common_ga782d17e551742d4287ccf9b321797770}} 
 std\+::function$<$ size\+\_\+t(const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Integral\+Weight\+::deg}
+\item 
+\mbox{\Hypertarget{group__Common_ga65ad29c32ee0d82106de900c0713ef4b}\label{group__Common_ga65ad29c32ee0d82106de900c0713ef4b}} 
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& {\bfseries H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::m\+\_\+mesh}
+\item 
+\mbox{\Hypertarget{group__Common_gac39c23b9077a05ce05627fdcc86f7e4d}\label{group__Common_gac39c23b9077a05ce05627fdcc86f7e4d}} 
+size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+vertex\+\_\+dofs}
+\item 
+\mbox{\Hypertarget{group__Common_ga67044680c7c2ab4460ea6da5a806ec98}\label{group__Common_ga67044680c7c2ab4460ea6da5a806ec98}} 
+size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+edge\+\_\+dofs}
+\item 
+\mbox{\Hypertarget{group__Common_ga292e7fe523887db0f8a6402daf3ac599}\label{group__Common_ga292e7fe523887db0f8a6402daf3ac599}} 
+size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+Local\+D\+O\+F\+Space\+::m\+\_\+n\+\_\+local\+\_\+cell\+\_\+dofs}
 \end{DoxyCompactItemize}
 
 
@@ -135,5 +181,22 @@ Various general functions and classes.
 {\em \+\_\+value} & Value of weight \\
 \hline
 {\em \+\_\+deg} & Local degree of weight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Common_ga95e335408d31453fe0d247bbc7ceca25}\label{group__Common_ga95e335408d31453fe0d247bbc7ceca25}} 
+\index{Common@{Common}!store\_times@{store\_times}}
+\index{store\_times@{store\_times}!Common@{Common}}
+\doxysubsubsection{\texorpdfstring{store\_times()}{store\_times()}}
+{\footnotesize\ttfamily std\+::pair$<$double,double$>$ H\+Ar\+D\+Core2\+D\+::store\+\_\+times (\begin{DoxyParamCaption}\item[{boost\+::timer\+::cpu\+\_\+timer \&}]{timer,  }\item[{std\+::string}]{message = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to store and display wall/proc timers from boost\+::timer\+::cpu\+\_\+timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer \\
+\hline
+{\em message} & Optional message to display with time (if not message is passed, times are not displayed) \\
 \hline
 \end{DoxyParams}

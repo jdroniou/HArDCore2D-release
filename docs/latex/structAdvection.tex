@@ -1,0 +1,62 @@
+\hypertarget{structAdvection}{}\doxysection{Advection Struct Reference}
+\label{structAdvection}\index{Advection@{Advection}}
+
+
+Structure to store an advection velocity and its divergence, together with various flags.  
+
+
+
+
+{\ttfamily \#include $<$Test\+Case.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structAdvection_ac939c17f679f691e6e0eb97e3efe6a28}{Advection}} (const Cell\+F\+Type$<$ Vector\+Rd $>$ value, const Cell\+F\+Type$<$ double $>$ divergence, const bool is\+\_\+zero, const bool is\+\_\+divergence\+\_\+zero, const bool is\+\_\+divergence\+\_\+constant)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAdvection_a18f333460ffc5d14269c7ecdcb1024c4}\label{structAdvection_a18f333460ffc5d14269c7ecdcb1024c4}} 
+Cell\+F\+Type$<$ Vector\+Rd $>$ {\bfseries value}
+\item 
+\mbox{\Hypertarget{structAdvection_a764fd309263fad834d415e8276b72416}\label{structAdvection_a764fd309263fad834d415e8276b72416}} 
+Cell\+F\+Type$<$ double $>$ {\bfseries divergence}
+\item 
+\mbox{\Hypertarget{structAdvection_a62d5f3f25809f4abbf9d6bf88ae615b3}\label{structAdvection_a62d5f3f25809f4abbf9d6bf88ae615b3}} 
+bool {\bfseries is\+\_\+zero}
+\item 
+\mbox{\Hypertarget{structAdvection_ad78f5e06fcd2ff807a7ff5feba49671e}\label{structAdvection_ad78f5e06fcd2ff807a7ff5feba49671e}} 
+bool {\bfseries is\+\_\+divergence\+\_\+zero}
+\item 
+\mbox{\Hypertarget{structAdvection_ab0ca55c1f40c03aa7ea6e45a9fb40cb2}\label{structAdvection_ab0ca55c1f40c03aa7ea6e45a9fb40cb2}} 
+bool {\bfseries is\+\_\+divergence\+\_\+constant}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store an advection velocity and its divergence, together with various flags. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structAdvection_ac939c17f679f691e6e0eb97e3efe6a28}\label{structAdvection_ac939c17f679f691e6e0eb97e3efe6a28}} 
+\index{Advection@{Advection}!Advection@{Advection}}
+\index{Advection@{Advection}!Advection@{Advection}}
+\doxysubsubsection{\texorpdfstring{Advection()}{Advection()}}
+{\footnotesize\ttfamily Advection\+::\+Advection (\begin{DoxyParamCaption}\item[{const Cell\+F\+Type$<$ Vector\+Rd $>$}]{value,  }\item[{const Cell\+F\+Type$<$ double $>$}]{divergence,  }\item[{const bool}]{is\+\_\+zero,  }\item[{const bool}]{is\+\_\+divergence\+\_\+zero,  }\item[{const bool}]{is\+\_\+divergence\+\_\+constant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em divergence} & Velocity \\
+\hline
+{\em is\+\_\+zero} & Divergence of velocity \\
+\hline
+{\em is\+\_\+divergence\+\_\+zero} & True if velocity is zero \\
+\hline
+{\em is\+\_\+divergence\+\_\+constant} & True if velocity has zero divergence True if divergence is constant \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Test\+Case/Test\+Case.\+hpp\end{DoxyCompactItemize}

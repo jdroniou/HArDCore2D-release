@@ -108,11 +108,11 @@ int main(int argc, const char* argv[]) {
   TestCase tcase(id_tcase);
 
   // Diffusion tensor, source term, solution and gradient
-  CellFType<MatrixRd> kappa = tcase.diff();
-  size_t deg_kappa = tcase.get_deg_diff();
+  CellFType<MatrixRd> kappa = tcase.get_diffusion().value;
+  size_t deg_kappa = tcase.get_diffusion().degree;
   CellFType<double> source = tcase.diff_source();
-  FType<double> exact_solution = tcase.sol();
-  CellFType<VectorRd> grad_exact_solution = tcase.grad_sol();
+  FType<double> exact_solution = tcase.get_solution().value;
+  CellFType<VectorRd> grad_exact_solution = tcase.get_solution().gradient;
 
   // Create the model equation
   HHO_LocVarDiff model(hho, K, L, kappa, deg_kappa, source, BC, exact_solution, grad_exact_solution, solver_type, use_threads, output);

@@ -147,26 +147,38 @@ $(function() {
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">return</span> 2 * <a class="code" href="structHArDCore2D_1_1PolynomialSpaceDimension.html">PolynomialSpaceDimension&lt;Cell&gt;::Poly</a>(k) - <a class="code" href="structHArDCore2D_1_1PolynomialSpaceDimension.html">PolynomialSpaceDimension&lt;Cell&gt;::Roly</a>(k);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="structHArDCore2D_1_1PolynomialSpaceDimension_3_01Edge_01_4.html">   91</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structHArDCore2D_1_1PolynomialSpaceDimension.html">PolynomialSpaceDimension</a>&lt;<a class="code" href="classHArDCore2D_1_1Edge.html">Edge</a>&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">   94</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">Poly</a>(<span class="keywordtype">int</span> k)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> (k &gt;= 0 ? k + 1 : 0);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace HArDCore2D</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="group__Common.html#gadd76a54010c7217fcea159809c235072">   90</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#gadd76a54010c7217fcea159809c235072">Holy</a>(<span class="keywordtype">int</span> k)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keywordflow">return</span> (k+4) * (k+3) / 2 - 3;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="group__Common.html#ga0d0304d9a87065a5cc8a11fb9c010d68">   96</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#ga0d0304d9a87065a5cc8a11fb9c010d68">HolyCompl</a>(<span class="keywordtype">int</span> k)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keywordflow">return</span> (k+1) * k;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  };</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="structHArDCore2D_1_1PolynomialSpaceDimension_3_01Edge_01_4.html">  103</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structHArDCore2D_1_1PolynomialSpaceDimension.html">PolynomialSpaceDimension</a>&lt;<a class="code" href="classHArDCore2D_1_1Edge.html">Edge</a>&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  {</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">  106</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">Poly</a>(<span class="keywordtype">int</span> k)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">return</span> (k &gt;= 0 ? k + 1 : 0);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">// namespace HArDCore2D</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructHArDCore2D_1_1PolynomialSpaceDimension_html"><div class="ttname"><a href="structHArDCore2D_1_1PolynomialSpaceDimension.html">HArDCore2D::PolynomialSpaceDimension</a></div><div class="ttdoc">Basis dimensions for various polynomial spaces on edges/faces/elements (when relevant): Pk,...</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:54</div></div>
 <div class="ttc" id="agroup__Common_html_ga7b933fcc532378dab0a9330c153b5130"><div class="ttname"><a href="group__Common.html#ga7b933fcc532378dab0a9330c153b5130">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::GolyCompl</a></div><div class="ttdeci">static size_t GolyCompl(int k)</div><div class="ttdoc">Dimension of Gck(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:73</div></div>
 <div class="ttc" id="aclassHArDCore2D_1_1Cell_html"><div class="ttname"><a href="classHArDCore2D_1_1Cell.html">HArDCore2D::Cell</a></div><div class="ttdoc">The Cell class provides description of a cell.</div><div class="ttdef"><b>Definition:</b> cell.hpp:31</div></div>
+<div class="ttc" id="agroup__Common_html_gadd76a54010c7217fcea159809c235072"><div class="ttname"><a href="group__Common.html#gadd76a54010c7217fcea159809c235072">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Holy</a></div><div class="ttdeci">static size_t Holy(int k)</div><div class="ttdoc">Dimension of Hk(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:90</div></div>
 <div class="ttc" id="aclassHArDCore2D_1_1Edge_html"><div class="ttname"><a href="classHArDCore2D_1_1Edge.html">HArDCore2D::Edge</a></div><div class="ttdoc">The Edge class provides description of an edge.</div><div class="ttdef"><b>Definition:</b> edge.hpp:31</div></div>
-<div class="ttc" id="agroup__Common_html_ga431ad0725cdc895a29903ddbe36b8a7a"><div class="ttname"><a href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">HArDCore2D::PolynomialSpaceDimension&lt; Edge &gt;::Poly</a></div><div class="ttdeci">static size_t Poly(int k)</div><div class="ttdoc">Dimension of Pk(E)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:94</div></div>
+<div class="ttc" id="agroup__Common_html_ga431ad0725cdc895a29903ddbe36b8a7a"><div class="ttname"><a href="group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a">HArDCore2D::PolynomialSpaceDimension&lt; Edge &gt;::Poly</a></div><div class="ttdeci">static size_t Poly(int k)</div><div class="ttdoc">Dimension of Pk(E)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:106</div></div>
+<div class="ttc" id="agroup__Common_html_ga0d0304d9a87065a5cc8a11fb9c010d68"><div class="ttname"><a href="group__Common.html#ga0d0304d9a87065a5cc8a11fb9c010d68">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::HolyCompl</a></div><div class="ttdeci">static size_t HolyCompl(int k)</div><div class="ttdoc">Dimension of Hck(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:96</div></div>
 <div class="ttc" id="agroup__Common_html_ga9c16ba772eb539541faceedc95c7c6f4"><div class="ttname"><a href="group__Common.html#ga9c16ba772eb539541faceedc95c7c6f4">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Roly</a></div><div class="ttdeci">static size_t Roly(int k)</div><div class="ttdoc">Dimension of Rk(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:79</div></div>
 <div class="ttc" id="agroup__Common_html_ga528091d2f6373a8d213a4d3687a9b200"><div class="ttname"><a href="group__Common.html#ga528091d2f6373a8d213a4d3687a9b200">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Poly</a></div><div class="ttdeci">static size_t Poly(int k)</div><div class="ttdoc">Dimension of Pk(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:63</div></div>
 <div class="ttc" id="agroup__Common_html_ga2edb7685eaaf8714e8355ac93e214afc"><div class="ttname"><a href="group__Common.html#ga2edb7685eaaf8714e8355ac93e214afc">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Goly</a></div><div class="ttdeci">static size_t Goly(int k)</div><div class="ttdoc">Dimension of Gk(T)</div><div class="ttdef"><b>Definition:</b> polynomialspacedimension.hpp:68</div></div>

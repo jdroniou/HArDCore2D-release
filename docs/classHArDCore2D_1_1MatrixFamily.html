@@ -93,15 +93,18 @@ Public Types</h2></td></tr>
 <tr class="memitem:gabacacf4726893d73cd761a25b99e163a"><td class="memItemLeft" align="right" valign="top">
 typedef Eigen::Matrix&lt; double, N, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionValue</b></td></tr>
 <tr class="separator:gabacacf4726893d73cd761a25b99e163a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga441e6bba24d66ea1bef6dcba8c563ba7"><td class="memItemLeft" align="right" valign="top">
-typedef Eigen::Matrix&lt; double, N, N *dimspace &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GradientValue</b></td></tr>
-<tr class="separator:ga441e6bba24d66ea1bef6dcba8c563ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga533a80a30345e94d4b4f8f548c699568"><td class="memItemLeft" align="right" valign="top">
+typedef <a class="el" href="structHArDCore2D_1_1MatrixGradient.html">MatrixGradient</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GradientValue</b></td></tr>
+<tr class="separator:ga533a80a30345e94d4b4f8f548c699568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa0850c534992d381353a08ce60f46299"><td class="memItemLeft" align="right" valign="top">
 typedef VectorRd&#160;</td><td class="memItemRight" valign="bottom"><b>CurlValue</b></td></tr>
 <tr class="separator:gaa0850c534992d381353a08ce60f46299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf5ff33a66c54b1590e6d6d2f7c57a60e"><td class="memItemLeft" align="right" valign="top">
 typedef Eigen::Matrix&lt; double, N, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DivergenceValue</b></td></tr>
 <tr class="separator:gaf5ff33a66c54b1590e6d6d2f7c57a60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad616c5d61d0d9dccfc71a11452510742"><td class="memItemLeft" align="right" valign="top">
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>HessianValue</b></td></tr>
+<tr class="separator:gad616c5d61d0d9dccfc71a11452510742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7c0a0cf49808e9429cb3893764f33289"><td class="memItemLeft" align="right" valign="top">
 typedef ScalarFamilyType::GeometricSupport&#160;</td><td class="memItemRight" valign="bottom"><b>GeometricSupport</b></td></tr>
 <tr class="separator:ga7c0a0cf49808e9429cb3893764f33289"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +134,14 @@ DivergenceValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 DivergenceValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga422fbebf3d2c594f579e5cb4be4d5cf0">divergence</a> (size_t i, size_t iqn, const boost::multi_array&lt; VectorRd, 2 &gt; &amp;ancestor_gradient_quad) const</td></tr>
 <tr class="memdesc:ga422fbebf3d2c594f579e5cb4be4d5cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the divergence of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
 <tr class="separator:ga422fbebf3d2c594f579e5cb4be4d5cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c1a53bd575918a9d2cfa3109f269639"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="structHArDCore2D_1_1MatrixGradient.html">GradientValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga4c1a53bd575918a9d2cfa3109f269639">gradient</a> (size_t i, const VectorRd &amp;x) const</td></tr>
+<tr class="memdesc:ga4c1a53bd575918a9d2cfa3109f269639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th basis function at point x. <br /></td></tr>
+<tr class="separator:ga4c1a53bd575918a9d2cfa3109f269639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac54d5404a926c38cd32feba76c7acb81"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="structHArDCore2D_1_1MatrixGradient.html">GradientValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gac54d5404a926c38cd32feba76c7acb81">gradient</a> (size_t i, size_t iqn, const boost::multi_array&lt; VectorRd, 2 &gt; &amp;ancestor_gradient_quad) const</td></tr>
+<tr class="memdesc:gac54d5404a926c38cd32feba76c7acb81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the gradient of the i-th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval_quad) <br /></td></tr>
+<tr class="separator:gac54d5404a926c38cd32feba76c7acb81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1f42eedda4151c70b63b234d64383de0"><td class="memItemLeft" align="right" valign="top">
 const ScalarFamilyType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga1f42eedda4151c70b63b234d64383de0">ancestor</a> () const</td></tr>
 <tr class="memdesc:ga1f42eedda4151c70b63b234d64383de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ancestor (family that has been tensorized) <br /></td></tr>
@@ -147,17 +158,24 @@ const Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a clas
 const Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga408bbdd71b59bb9c1a09da8d240f346d">symmetriseOperator</a> () const</td></tr>
 <tr class="memdesc:ga408bbdd71b59bb9c1a09da8d240f346d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the symmetrisation operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the symmetrised matrix. <br /></td></tr>
 <tr class="separator:ga408bbdd71b59bb9c1a09da8d240f346d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf8f21db72393e07acd5b5ecde36e302"><td class="memItemLeft" align="right" valign="top">
+const Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#gacf8f21db72393e07acd5b5ecde36e302">symmetricBasis</a> () const</td></tr>
+<tr class="memdesc:gacf8f21db72393e07acd5b5ecde36e302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the matrix that can be used, in a <a class="el" href="classHArDCore2D_1_1Family.html">Family</a> of this MatrixBasis, to create a basis of the subspace of symmetric matrices. <br /></td></tr>
+<tr class="separator:gacf8f21db72393e07acd5b5ecde36e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ga72e72931956a8f0ad4a6c9408629bd75"><td class="memItemLeft" align="right" valign="top">
-static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Matrix</td></tr>
-<tr class="separator:ga72e72931956a8f0ad4a6c9408629bd75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbd5a187d0cea02aa6ee67c9a402c7b1"><td class="memItemLeft" align="right" valign="top">
+constexpr static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Matrix</td></tr>
+<tr class="separator:gacbd5a187d0cea02aa6ee67c9a402c7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c7a65151bedc3a55c2f31d357a555ed"><td class="memItemLeft" align="right" valign="top">
+constexpr static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAncestor</b> = true</td></tr>
+<tr class="separator:ga3c7a65151bedc3a55c2f31d357a555ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga79682c4e308e6722f1d465343730fde7"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunction</b> = ScalarFamilyType::hasFunction</td></tr>
 <tr class="separator:ga79682c4e308e6722f1d465343730fde7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac8bca41c983ba6b2388c1b6cc3f5525b"><td class="memItemLeft" align="right" valign="top">
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasGradient</b> = false</td></tr>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasGradient</b> = true</td></tr>
 <tr class="separator:gac8bca41c983ba6b2388c1b6cc3f5525b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga813c8c3c68b514f97bb10019a5032aa4"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = ( ScalarFamilyType::hasGradient &amp;&amp; N==dimspace )</td></tr>
@@ -165,13 +183,16 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDiver
 <tr class="memitem:ga63014965059264071bf6c4c3623aa349"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl</b> = false</td></tr>
 <tr class="separator:ga63014965059264071bf6c4c3623aa349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a831731ac10c1f4647aab2ad2801c3c"><td class="memItemLeft" align="right" valign="top">
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasHessian</b> = false</td></tr>
+<tr class="separator:ga6a831731ac10c1f4647aab2ad2801c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ScalarFamilyType, size_t N&gt;<br />
 class HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</h3>
 
 <p>Matrix family obtained from a scalar family. </p>
-<p>The transformation into matrix is done the following way: if \((f_1,\ldots,f_r)\) is the family of scalar functions, and \((E_1,\ldots,E_N)\) is the canonical basis of the space of NxN matrices, the matrix family is \((f_1E_1,f_2E_1,\ldots,f_rE_1,f_1E_2,\ldots...)\). The divergence is taken along each row. </p>
+<p>The transformation into matrix is done the following way: if \((f_1,\ldots,f_r)\) is the family of scalar functions, and \((E_1,\ldots,E_{N^2})\) is the canonical basis of the space of NxN matrices, the matrix family is \((f_1E_1,f_2E_1,\ldots,f_rE_1,f_1E_2,\ldots...)\). The divergence is taken along each row, and \(E_m\) has 1 at position (mN, m/N) </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Common/<a class="el" href="basis_8hpp_source.html">basis.hpp</a></li>
 </ul>

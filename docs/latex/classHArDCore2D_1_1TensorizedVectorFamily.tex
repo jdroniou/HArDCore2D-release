@@ -20,7 +20,11 @@ typedef Vector\+Rd {\bfseries Curl\+Value}
 \item 
 typedef double {\bfseries Divergence\+Value}
 \item 
+typedef void {\bfseries Hessian\+Value}
+\item 
 typedef Scalar\+Family\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+\item 
+typedef Scalar\+Family\+Type {\bfseries Ancestor\+Type}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -45,12 +49,16 @@ Divergence\+Value \mbox{\hyperlink{group__Basis_ga6e852fda44755e4ca0a8ffac94d97d
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 Divergence\+Value \mbox{\hyperlink{group__Basis_ga1357e7679d97f88adb2c0aebe882c8e0}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Vector\+Rd, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th basis function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
-const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_gacde0742ba8202c8303151e37cd4212d2}{ancestor}} () const
-\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\end{DoxyCompactItemize}
+constexpr const Scalar\+Family\+Type \& \mbox{\hyperlink{group__Basis_ga7bbb05e9fe8dac4798b5b046e777b783}{ancestor}} () const
+\begin{DoxyCompactList}\small\item\em Return the ancestor (family that has been tensorized) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Basis_ga63cbca1b891a38b97ebd93e851684d66}{max\+\_\+degree}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum degree of the basis functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Vector
+\item 
+constexpr static const bool {\bfseries has\+Ancestor} = true
 \item 
 static const bool {\bfseries has\+Function} = Scalar\+Family\+Type\+::has\+Function
 \item 
@@ -59,6 +67,8 @@ static const bool {\bfseries has\+Gradient} = Scalar\+Family\+Type\+::has\+Gradi
 static const bool {\bfseries has\+Divergence} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
 \item 
 static const bool {\bfseries has\+Curl} = ( Scalar\+Family\+Type\+::has\+Gradient \&\& N==dimspace )
+\item 
+static const bool {\bfseries has\+Hessian} = false
 \end{DoxyCompactItemize}
 
 

@@ -1,8 +1,8 @@
-#include "dofspace.hpp"
+#include "localdofspace.hpp"
 
 using namespace HArDCore2D;
 
-DOFSpace::DOFSpace(
+LocalDOFSpace::LocalDOFSpace(
 		               const Mesh & mesh,
 		               size_t n_local_vertex_dofs,
                    size_t n_local_edge_dofs,

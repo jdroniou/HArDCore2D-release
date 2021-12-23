@@ -102,7 +102,7 @@ std::function<VectorRd(const double&, const VectorRd&, const Cell*)> TestCaseTra
         break;
 
     case 3: 
-      grad = [this](const double t, const VectorRd p, const Cell* cell)->VectorRd {
+      grad = [](const double t, const VectorRd p, const Cell* cell)->VectorRd {
           VectorRd G = VectorRd::Zero();
           G(0) = 2.0-t;
           G(1) = 0;
@@ -166,7 +166,7 @@ std::function<double(const double &, const VectorRd &)> TestCaseTransient::delt_
       break;
 
     case 3: 
-      time_der = [this](double t, VectorRd p) -> double {
+      time_der = [](double t, VectorRd p) -> double {
         return -p.x();
       };
       break;

@@ -2,6 +2,8 @@
 #include <xgrad.hpp>
 #include <basis.hpp>
 #include <parallel_for.hpp>
+#include <GMpoly_cell.hpp>
+#include <GMpoly_edge.hpp>
 
 using namespace HArDCore2D;
 
@@ -10,7 +12,7 @@ using namespace HArDCore2D;
 //------------------------------------------------------------------------------
 
 XGrad::XGrad(const DDRCore & ddr_core, bool use_threads, std::ostream & output)
-  : DDRSpace(ddr_core.mesh(),
+  : GlobalDOFSpace(ddr_core.mesh(),
 	     1,
 	     PolynomialSpaceDimension<Edge>::Poly(ddr_core.degree() - 1),
 	     PolynomialSpaceDimension<Cell>::Poly(ddr_core.degree() - 1)
@@ -123,9 +125,8 @@ XGrad::LocalOperators XGrad::_compute_edge_gradient_potential(size_t iE)
   //------------------------------------------------------------------------------
   // Left-hand side matrix
   
-  QuadratureRule quad_2k_E = generate_quadrature_rule(E, 2 * degree());
-  auto basis_Pk_E_quad = evaluate_quad<Function>::compute(*edgeBases(iE).Polyk, quad_2k_E);
-  auto MGE = compute_gram_matrix(basis_Pk_E_quad, basis_Pk_E_quad, quad_2k_E, "sym");
+  MonomialEdgeIntegralsType int_mono_2kpo_E = IntegrateEdgeMonomials(E, 2*degree()+1);
+  auto MGE = GramMatrix(E, *edgeBases(iE).Polyk, int_mono_2kpo_E);
 
   //------------------------------------------------------------------------------
   // Right-hand side matrix
@@ -140,13 +141,9 @@ XGrad::LocalOperators XGrad::_compute_edge_gradient_potential(size_t iE)
   QuadratureRule quad_2kmo_E = generate_quadrature_rule(E, 2 * (degree() - 1));
   
   if (degree() > 0) {    
-    auto grad_Pk_tE_E_quad = scalar_product(
-                                            evaluate_quad<Gradient>::compute(*edgeBases(iE).Polyk, quad_2kmo_E),
-                                            E.tangent()
-                                            );
-    auto basis_Pkmo_E_quad = evaluate_quad<Function>::compute(*edgeBases(iE).Polykmo, quad_2kmo_E);
-    BGE.rightCols(PolynomialSpaceDimension<Edge>::Poly(degree() - 1))
-      = -compute_gram_matrix(grad_Pk_tE_E_quad, basis_Pkmo_E_quad, quad_2kmo_E);
+    GradientBasis<DDRCore::PolyBasisEdgeType> grad_Pk_E(*edgeBases(iE).Polyk);
+    BGE.rightCols(PolynomialSpaceDimension<Edge>::Poly(degree() - 1)) 
+          = -GramMatrix(E, grad_Pk_E, *edgeBases(iE).Polykmo, int_mono_2kpo_E);
   }
   
   //------------------------------------------------------------------------------
@@ -184,20 +181,13 @@ XGrad::LocalOperators XGrad::_compute_edge_gradient_potential(size_t iE)
   
   Eigen::MatrixXd MPE
     = Eigen::MatrixXd::Zero(PolynomialSpaceDimension<Edge>::Poly(degree()) + 1, PolynomialSpaceDimension<Edge>::Poly(degree() + 1));
-  auto grad_Pkpo_tE_E_quad = scalar_product(
-					    evaluate_quad<Gradient>::compute(*edgeBases(iE).Polykpo, quad_2k_E),
-					    E.tangent()
-					    );
+
+  GradientBasis<DDRCore::PolyBasisEdgeType> grad_Pkpo_E(*edgeBases(iE).Polykpo);				    
   MPE.topRows(PolynomialSpaceDimension<Edge>::Poly(degree()))
-    = compute_gram_matrix(basis_Pk_E_quad, grad_Pkpo_tE_E_quad, quad_2k_E);
-  
-  QuadratureRule quad_kpo_E = generate_quadrature_rule(E, degree() + 1);  
-  auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(iE).Polykpo, quad_kpo_E);  
-  for (size_t i = 0; i < PolynomialSpaceDimension<Edge>::Poly(degree() + 1); i++) {
-    for (size_t iqn = 0; iqn < quad_kpo_E.size(); iqn++) {
-      MPE.bottomRows(1)(0, i) += quad_kpo_E[iqn].w * basis_Pkpo_E_quad[i][iqn];
-    } // for iqn
-  } // for i
+        = GramMatrix(E, *edgeBases(iE).Polyk, grad_Pkpo_E, int_mono_2kpo_E);
+
+  MonomialScalarBasisEdge basis_P0_E(E, 0);
+  MPE.bottomRows(1) = GramMatrix(E, basis_P0_E, *edgeBases(iE).Polykpo, int_mono_2kpo_E);
   
   return LocalOperators(MGE.ldlt().solve(BGE), MPE.partialPivLu().solve(BPE));
 }
@@ -215,10 +205,9 @@ XGrad::LocalOperators XGrad::_compute_cell_gradient_potential(size_t iT)
   //------------------------------------------------------------------------------
   // Left-hand side matrix
   
-  QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2 * degree());
-  auto basis_Pk2_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2k_T);
-  auto MGT = compute_gram_matrix(basis_Pk2_T_quad, basis_Pk2_T_quad, quad_2k_T, "sym");
-
+  MonomialCellIntegralsType int_mono_2kp3_T = IntegrateCellMonomials(T, 2*degree()+3);
+  auto MGT = GramMatrix(T, *cellBases(iT).Polyk2, int_mono_2kp3_T);
+  
   //------------------------------------------------------------------------------
   // Right-hand side matrix
   
@@ -229,34 +218,22 @@ XGrad::LocalOperators XGrad::_compute_cell_gradient_potential(size_t iT)
   for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
     
-    QuadratureRule quad_2kpo_E = generate_quadrature_rule(E, 2 * (degree() + 1));
+    QuadratureRule quad_2kp2_E = generate_quadrature_rule(E, 2 * (degree() + 1));
     auto basis_Pk2_nTE_E_quad
-      = scalar_product(evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2kpo_E), T.edge_normal(iE));
-    auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(E).Polykpo, quad_2kpo_E);
-    Eigen::MatrixXd BGT_E
-      = compute_gram_matrix(basis_Pk2_nTE_E_quad, basis_Pkpo_E_quad, quad_2kpo_E) * edgeOperators(E).potential;
-
-    // Assemble local contribution
-    BGT.col(localOffset(T, *E.vertex(0))) += BGT_E.col(0);
-    BGT.col(localOffset(T, *E.vertex(1))) += BGT_E.col(1);
-    if (degree() > 0) {
-      BGT.block(0, localOffset(T, E), cellBases(iT).Polyk2->dimension(), PolynomialSpaceDimension<Edge>::Poly(degree() - 1))
-        = BGT_E.rightCols(PolynomialSpaceDimension<Edge>::Poly(degree() - 1));
-    } // if degree() > 0
+      = scalar_product(evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2kp2_E), T.edge_normal(iE));
+    auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(E).Polykpo, quad_2kp2_E);
+    Eigen::MatrixXd PE = extendOperator(T, E, edgeOperators(E).potential);
+    BGT += compute_gram_matrix(basis_Pk2_nTE_E_quad, basis_Pkpo_E_quad, quad_2kp2_E) * PE;
   } // for iE
 
   // Cell contribution
   if (degree() > 0) {
-    QuadratureRule quad_2kmo_T = generate_quadrature_rule(T, 2 * (degree() - 1));
-    auto div_Pk2_T_quad = evaluate_quad<Divergence>::compute(*cellBases(iT).Polyk2, quad_2kmo_T);
-    auto basis_Pkmo_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polykmo, quad_2kmo_T);
-
-    BGT.rightCols(PolynomialSpaceDimension<Cell>::Poly(degree() - 1))
-      -= compute_gram_matrix(div_Pk2_T_quad, basis_Pkmo_T_quad, quad_2kmo_T);
+    DivergenceBasis<DDRCore::Poly2BasisCellType> div_Pk2_T(*cellBases(iT).Polyk2);
+    BGT.rightCols(PolynomialSpaceDimension<Cell>::Poly(degree() - 1)) -= GramMatrix(T, div_Pk2_T, *cellBases(iT).Polykmo, int_mono_2kp3_T);
   } // if degree() > 0
 
   Eigen::MatrixXd GT = MGT.ldlt().solve(BGT);
-  
+
   //------------------------------------------------------------------------------
   // Potential
   //------------------------------------------------------------------------------
@@ -264,22 +241,16 @@ XGrad::LocalOperators XGrad::_compute_cell_gradient_potential(size_t iT)
   //------------------------------------------------------------------------------
   // Left-hand side matrix
   
-  QuadratureRule quad_2kpo_T = generate_quadrature_rule(T, 2 * (degree() + 1));
-  auto basis_Pkpo_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polykpo, quad_2kpo_T);
-  auto div_Rckp2_T_quad = evaluate_quad<Divergence>::compute(*cellBases(iT).RolyComplkp2, quad_2kpo_T);
-  Eigen::MatrixXd MPT = compute_gram_matrix(div_Rckp2_T_quad, basis_Pkpo_T_quad, quad_2kpo_T);
-
+  DivergenceBasis<DDRCore::RolyComplBasisCellType> div_Rckp2_T(*cellBases(iT).RolyComplkp2);
+  Eigen::MatrixXd MPT = GramMatrix(T, div_Rckp2_T, *cellBases(iT).Polykpo, int_mono_2kp3_T);
+  
   //------------------------------------------------------------------------------
   // Right-hand side matrix
 
   // Cell contribution
   Eigen::MatrixXd BPT
-    = -compute_gram_matrix(
-			   evaluate_quad<Function>::compute(*cellBases(iT).RolyComplkp2, quad_2kpo_T),
-			   evaluate_quad<Function>::compute(*cellBases(iT).Polyk2, quad_2kpo_T),
-			   quad_2kpo_T
-			   ) * GT;
-  
+    = -GramMatrix(T, *cellBases(iT).RolyComplkp2, *cellBases(iT).Polyk2, int_mono_2kp3_T) * GT;
+
   // Boundary contribution
   for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
@@ -288,16 +259,8 @@ XGrad::LocalOperators XGrad::_compute_cell_gradient_potential(size_t iT)
     auto basis_Rckp2_nTE_E_quad
       = scalar_product(evaluate_quad<Function>::compute(*cellBases(iT).RolyComplkp2, quad_2kp2_E), T.edge_normal(iE));
     auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(E).Polykpo, quad_2kp2_E);
-    Eigen::MatrixXd BPT_E
-      = compute_gram_matrix(basis_Rckp2_nTE_E_quad, basis_Pkpo_E_quad, quad_2kp2_E) * edgeOperators(E).potential;
-
-    // Assemble local contribution
-    BPT.col(localOffset(T, *E.vertex(0))) += BPT_E.col(0);
-    BPT.col(localOffset(T, *E.vertex(1))) += BPT_E.col(1);
-    if (degree() > 0) {
-      BPT.block(0, localOffset(T, E), cellBases(iT).RolyComplkp2->dimension(), PolynomialSpaceDimension<Edge>::Poly(degree() - 1))
-        += BPT_E.rightCols(PolynomialSpaceDimension<Edge>::Poly(degree() - 1));
-    } // if degree() > 0
+    Eigen::MatrixXd PE = extendOperator(T, E, edgeOperators(E).potential);
+    BPT += compute_gram_matrix(basis_Rckp2_nTE_E_quad, basis_Pkpo_E_quad, quad_2kp2_E) * PE;
   } // for iE
   
   return LocalOperators(GT, MPT.partialPivLu().solve(BPT));
@@ -323,7 +286,8 @@ Eigen::MatrixXd XGrad::computeL2Product(
     if (mass_Pkpo_T.rows()==1){
       // We have to compute the mass matrix
       QuadratureRule quad_2kpo_T = generate_quadrature_rule(T, 2 * (degree()+1));
-      w_mass_Pkpo_T = weight.value(T, T.center_mass()) * compute_gram_matrix(evaluate_quad<Function>::compute(*cellBases(iT).Polykpo, quad_2kpo_T), quad_2kpo_T);
+      MonomialCellIntegralsType int_mono_2kp2 = IntegrateCellMonomials(T, 2*degree()+2);
+      w_mass_Pkpo_T = weight.value(T, T.center_mass()) * GramMatrix(T, *cellBases(iT).Polykpo, int_mono_2kp2);
     }else{
       w_mass_Pkpo_T = weight.value(T, T.center_mass()) * mass_Pkpo_T;
     }
@@ -362,7 +326,7 @@ Eigen::MatrixXd XGrad::computeL2Product(
 
     // The penalty term int_E (PT q - q_E) * (PT r - r_E) is computed by developping.
     auto basis_Pkpo_T_quad = evaluate_quad<Function>::compute(*cellBases(iT).Polykpo, quad_2kpo_E);
-    auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(E.global_index()).Polykpo, quad_2kpo_E);
+    auto basis_Pkpo_E_quad = evaluate_quad<Function>::compute(*edgeBases(E).Polykpo, quad_2kpo_E);
     Eigen::MatrixXd gram_PkpoT_PkpoE = compute_gram_matrix(basis_Pkpo_T_quad, basis_Pkpo_E_quad, quad_2kpo_E);
     
     Eigen::MatrixXd Potential_E = extendOperator(T, E, edgeOperators(E).potential);

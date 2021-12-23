@@ -93,9 +93,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1DDRCore.html">HArDCore2D::DDRCore</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct all polynomial spaces for the DDR sequence.  <a href="classHArDCore2D_1_1DDRCore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1DDRSpace.html">HArDCore2D::DDRSpace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for DDR spaces. Provides functions to manipulate global DOFs (the local version being provided by <a class="el" href="classHArDCore2D_1_1DOFSpace.html" title="Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to t...">DOFSpace</a>).  <a href="classHArDCore2D_1_1DDRSpace.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1EXCurl_1_1hhoLocalOperators.html">HArDCore2D::EXCurl::hhoLocalOperators</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure to store the local HHO operators.  <a href="structHArDCore2D_1_1EXCurl_1_1hhoLocalOperators.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,9 +117,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ga9529dacd17b86e55d1ae75ef8bee834f"><td class="memItemLeft" align="right" valign="top"><a id="ga9529dacd17b86e55d1ae75ef8bee834f"></a>
 typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::PolyBasisCellType</b></td></tr>
 <tr class="separator:ga9529dacd17b86e55d1ae75ef8bee834f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2dc3877d7e0040879c60197c568ab117"><td class="memItemLeft" align="right" valign="top"><a id="ga2dc3877d7e0040879c60197c568ab117"></a>
-typedef <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt;, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::Poly2BasisCellType</b></td></tr>
-<tr class="separator:ga2dc3877d7e0040879c60197c568ab117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacde713c9a6c314578084e2db52f36739"><td class="memItemLeft" align="right" valign="top"><a id="gacde713c9a6c314578084e2db52f36739"></a>
+typedef <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a>, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::Poly2BasisCellType</b></td></tr>
+<tr class="separator:gacde713c9a6c314578084e2db52f36739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4625aa55d8f5eac55692dda822995280"><td class="memItemLeft" align="right" valign="top"><a id="ga4625aa55d8f5eac55692dda822995280"></a>
 typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a class="el" href="classHArDCore2D_1_1GradientBasis.html">GradientBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1ShiftedBasis.html">ShiftedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisCell.html">MonomialScalarBasisCell</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::GolyBasisCellType</b></td></tr>
 <tr class="separator:ga4625aa55d8f5eac55692dda822995280"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,9 +132,9 @@ typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a cl
 <tr class="memitem:ga040aa9b73decfb0c90e652c0e8d40f91"><td class="memItemLeft" align="right" valign="top"><a id="ga040aa9b73decfb0c90e652c0e8d40f91"></a>
 typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::RolyComplBasisCellType</b></td></tr>
 <tr class="separator:ga040aa9b73decfb0c90e652c0e8d40f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab864a7b377fee6fde18ba7244052a54e"><td class="memItemLeft" align="right" valign="top"><a id="gab864a7b377fee6fde18ba7244052a54e"></a>
-typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::PolyEdgeBasisType</b></td></tr>
-<tr class="separator:gab864a7b377fee6fde18ba7244052a54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a1a1842117e45c704e8a97c74042e1a"><td class="memItemLeft" align="right" valign="top"><a id="ga1a1a1842117e45c704e8a97c74042e1a"></a>
+typedef <a class="el" href="classHArDCore2D_1_1Family.html">Family</a>&lt; <a class="el" href="classHArDCore2D_1_1MonomialScalarBasisEdge.html">MonomialScalarBasisEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::PolyBasisEdgeType</b></td></tr>
+<tr class="separator:ga1a1a1842117e45c704e8a97c74042e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacfb0f718679ed7e9d33165eed07b5164"><td class="memItemLeft" align="right" valign="top"><a id="gacfb0f718679ed7e9d33165eed07b5164"></a>
 typedef <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#gacfb0f718679ed7e9d33165eed07b5164">HArDCore2D::DDRCore::CellBases::GeometricSupport</a></td></tr>
 <tr class="memdesc:gacfb0f718679ed7e9d33165eed07b5164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geometric support. <br /></td></tr>
@@ -149,9 +146,9 @@ typedef <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a>&#160;</td><td
 <tr class="memitem:ga00fad4982cc5835ba8077894ea3ea049"><td class="memItemLeft" align="right" valign="top"><a id="ga00fad4982cc5835ba8077894ea3ea049"></a>
 typedef std::function&lt; Eigen::Vector2d(const Eigen::Vector2d &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::EXCurl::FunctionType</b></td></tr>
 <tr class="separator:ga00fad4982cc5835ba8077894ea3ea049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaccabe8c5bdd06d7a09c5ebee9281d315"><td class="memItemLeft" align="right" valign="top"><a id="gaccabe8c5bdd06d7a09c5ebee9281d315"></a>
-typedef <a class="el" href="classHArDCore2D_1_1MatrixFamily.html">MatrixFamily</a>&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">DDRCore::PolyBasisCellType</a> &gt;, dimspace &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::EXCurl::Polyk2x2Type</b></td></tr>
-<tr class="separator:gaccabe8c5bdd06d7a09c5ebee9281d315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b66f4db7aba3a2cbee09e516d148cbb"><td class="memItemLeft" align="right" valign="top"><a id="ga7b66f4db7aba3a2cbee09e516d148cbb"></a>
+typedef <a class="el" href="classHArDCore2D_1_1MatrixFamily.html">MatrixFamily</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">DDRCore::PolyBasisCellType</a>, dimspace &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::EXCurl::Polyk2x2Type</b></td></tr>
+<tr class="separator:ga7b66f4db7aba3a2cbee09e516d148cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1c0a0f64be87c6348160793007205414"><td class="memItemLeft" align="right" valign="top"><a id="ga1c0a0f64be87c6348160793007205414"></a>
 typedef <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">TensorizedVectorFamily</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">DDRCore::PolyBasisCellType</a>, dimspace &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::EXCurl::Polykpo2Type</b></td></tr>
 <tr class="separator:ga1c0a0f64be87c6348160793007205414"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,53 +181,6 @@ const <a class="el" href="structHArDCore2D_1_1DDRCore_1_1CellBases.html">CellBas
 const <a class="el" href="structHArDCore2D_1_1DDRCore_1_1EdgeBases.html">EdgeBases</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#gade4ac7d6dd662308a7bfe86f158ca2d1">HArDCore2D::DDRCore::edgeBases</a> (size_t iE) const</td></tr>
 <tr class="memdesc:gade4ac7d6dd662308a7bfe86f158ca2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return edge bases for edge iE. <br /></td></tr>
 <tr class="separator:gade4ac7d6dd662308a7bfe86f158ca2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga313575745306b3d8ba6089fba6a5fec0"><td class="memItemLeft" align="right" valign="top"><a id="ga313575745306b3d8ba6089fba6a5fec0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga313575745306b3d8ba6089fba6a5fec0">HArDCore2D::DDRSpace::DDRSpace</a> (const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> &amp;<a class="el" href="group__Common.html#gab544ffa79da52a3eac3313eeffc420c6">mesh</a>, size_t n_local_vertex_dofs, size_t n_local_edge_dofs, size_t n_local_cell_dofs)</td></tr>
-<tr class="memdesc:ga313575745306b3d8ba6089fba6a5fec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:ga313575745306b3d8ba6089fba6a5fec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga694c76491847c8151cc8f690f346b9b6"><td class="memItemLeft" align="right" valign="top"><a id="ga694c76491847c8151cc8f690f346b9b6"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga694c76491847c8151cc8f690f346b9b6">HArDCore2D::DDRSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> &amp;V) const</td></tr>
-<tr class="memdesc:ga694c76491847c8151cc8f690f346b9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the vertex V. <br /></td></tr>
-<tr class="separator:ga694c76491847c8151cc8f690f346b9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32ee7cfafa4a82b98be336075a1f90ec"><td class="memItemLeft" align="right" valign="top"><a id="ga32ee7cfafa4a82b98be336075a1f90ec"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga32ee7cfafa4a82b98be336075a1f90ec">HArDCore2D::DDRSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E) const</td></tr>
-<tr class="memdesc:ga32ee7cfafa4a82b98be336075a1f90ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the edge E. <br /></td></tr>
-<tr class="separator:ga32ee7cfafa4a82b98be336075a1f90ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga316654120518fd34d206a8e0a6f82478"><td class="memItemLeft" align="right" valign="top"><a id="ga316654120518fd34d206a8e0a6f82478"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga316654120518fd34d206a8e0a6f82478">HArDCore2D::DDRSpace::globalOffset</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
-<tr class="memdesc:ga316654120518fd34d206a8e0a6f82478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global offset for the unknowns on the cell T. <br /></td></tr>
-<tr class="separator:ga316654120518fd34d206a8e0a6f82478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa2bf0aa56bb500a1104603593506229a"><td class="memItemLeft" align="right" valign="top"><a id="gaa2bf0aa56bb500a1104603593506229a"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#gaa2bf0aa56bb500a1104603593506229a">HArDCore2D::DDRSpace::restrictEdge</a> (size_t iE, const Eigen::VectorXd &amp;vh) const</td></tr>
-<tr class="memdesc:gaa2bf0aa56bb500a1104603593506229a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to the edge (including its vertices) of index iE. <br /></td></tr>
-<tr class="separator:gaa2bf0aa56bb500a1104603593506229a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga699cc19f55f535fd8349fe552676a525"><td class="memItemLeft" align="right" valign="top"><a id="ga699cc19f55f535fd8349fe552676a525"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga699cc19f55f535fd8349fe552676a525">HArDCore2D::DDRSpace::restrictCell</a> (size_t iT, const Eigen::VectorXd &amp;vh) const</td></tr>
-<tr class="memdesc:ga699cc19f55f535fd8349fe552676a525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to the cell (including vertices and edges) of index iT. <br /></td></tr>
-<tr class="separator:ga699cc19f55f535fd8349fe552676a525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac73d8e9c28153911861de17020ce19fe"><td class="memItemLeft" align="right" valign="top"><a id="gac73d8e9c28153911861de17020ce19fe"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#gac73d8e9c28153911861de17020ce19fe">HArDCore2D::DDRSpace::restrict</a> (const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const Eigen::VectorXd vh) const</td></tr>
-<tr class="memdesc:gac73d8e9c28153911861de17020ce19fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to an edge. <br /></td></tr>
-<tr class="separator:gac73d8e9c28153911861de17020ce19fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga122251ebb17e00dc87608ee6351c3f5d"><td class="memItemLeft" align="right" valign="top"><a id="ga122251ebb17e00dc87608ee6351c3f5d"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga122251ebb17e00dc87608ee6351c3f5d">HArDCore2D::DDRSpace::restrict</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const Eigen::VectorXd vh) const</td></tr>
-<tr class="memdesc:ga122251ebb17e00dc87608ee6351c3f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict to a cell. <br /></td></tr>
-<tr class="separator:ga122251ebb17e00dc87608ee6351c3f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9824954470f62049f40e4d5cc2a66e6e"><td class="memItemLeft" align="right" valign="top"><a id="ga9824954470f62049f40e4d5cc2a66e6e"></a>
-Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga9824954470f62049f40e4d5cc2a66e6e">HArDCore2D::DDRSpace::extendOperator</a> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T, const <a class="el" href="classHArDCore2D_1_1Edge.html">Edge</a> &amp;E, const Eigen::MatrixXd &amp;opE) const</td></tr>
-<tr class="memdesc:ga9824954470f62049f40e4d5cc2a66e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend an edge operator to a cell. <br /></td></tr>
-<tr class="separator:ga9824954470f62049f40e4d5cc2a66e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga22f398be3435e174d075617e3045d88a"><td class="memItemLeft" align="right" valign="top"><a id="ga22f398be3435e174d075617e3045d88a"></a>
-std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRSpace::globalDOFIndices</b> (const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> &amp;T) const</td></tr>
-<tr class="separator:ga22f398be3435e174d075617e3045d88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga97c3625275e8616079807d282d757bd1"><td class="memItemLeft" align="right" valign="top"><a id="ga97c3625275e8616079807d282d757bd1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga97c3625275e8616079807d282d757bd1">HArDCore2D::DDRSpace::setLabelDOF</a> (const size_t i, const int label)</td></tr>
-<tr class="memdesc:ga97c3625275e8616079807d282d757bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a label to the DOF number i (default label is -1) <br /></td></tr>
-<tr class="separator:ga97c3625275e8616079807d282d757bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaee89f545bda670d9844b295a1a92f01d"><td class="memItemLeft" align="right" valign="top"><a id="gaee89f545bda670d9844b295a1a92f01d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#gaee89f545bda670d9844b295a1a92f01d">HArDCore2D::DDRSpace::getLabelDOF</a> (const size_t i)</td></tr>
-<tr class="memdesc:gaee89f545bda670d9844b295a1a92f01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get label of DOF number i. <br /></td></tr>
-<tr class="separator:gaee89f545bda670d9844b295a1a92f01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6420431c303c193c92b4d7e64e55e0d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDRCore.html#ga6420431c303c193c92b4d7e64e55e0d1">HArDCore2D::EXCurl::hhoLocalOperators::hhoLocalOperators</a> (const Eigen::MatrixXd &amp;_gradient, const Eigen::MatrixXd &amp;_symmetric_gradient, const Eigen::MatrixXd &amp;_potential, const Eigen::MatrixXd &amp;_stabilisation)</td></tr>
 <tr class="separator:ga6420431c303c193c92b4d7e64e55e0d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf2ec34ba269263d97c3d8bf692fbb7da"><td class="memItemLeft" align="right" valign="top"><a id="gaf2ec34ba269263d97c3d8bf692fbb7da"></a>
@@ -416,12 +366,12 @@ Variables</h2></td></tr>
 <tr class="memitem:ga5cebceb5f39d1fb69a60e55b69c0430d"><td class="memItemLeft" align="right" valign="top"><a id="ga5cebceb5f39d1fb69a60e55b69c0430d"></a>
 std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polykpo</b></td></tr>
 <tr class="separator:ga5cebceb5f39d1fb69a60e55b69c0430d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57bf1df0e7b83ac04ccbd0f209d97dfa"><td class="memItemLeft" align="right" valign="top"><a id="ga57bf1df0e7b83ac04ccbd0f209d97dfa"></a>
-std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polyk</b></td></tr>
-<tr class="separator:ga57bf1df0e7b83ac04ccbd0f209d97dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gade2eac3496993570bb5bedbbbfef00b9"><td class="memItemLeft" align="right" valign="top"><a id="gade2eac3496993570bb5bedbbbfef00b9"></a>
-std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polykmo</b></td></tr>
-<tr class="separator:gade2eac3496993570bb5bedbbbfef00b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6448da3ca3caf4813a7be1125369c01"><td class="memItemLeft" align="right" valign="top"><a id="gaf6448da3ca3caf4813a7be1125369c01"></a>
+std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polyk</b></td></tr>
+<tr class="separator:gaf6448da3ca3caf4813a7be1125369c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3012b6818469430f28f7498bbd58d13"><td class="memItemLeft" align="right" valign="top"><a id="gaa3012b6818469430f28f7498bbd58d13"></a>
+std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisCellType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polykmo</b></td></tr>
+<tr class="separator:gaa3012b6818469430f28f7498bbd58d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacc26ba867d8f1c1175a37b79a6da7702"><td class="memItemLeft" align="right" valign="top"><a id="gacc26ba867d8f1c1175a37b79a6da7702"></a>
 std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1TensorizedVectorFamily.html">Poly2BasisCellType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::Polyk2</b></td></tr>
 <tr class="separator:gacc26ba867d8f1c1175a37b79a6da7702"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -434,15 +384,15 @@ std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">RolyComp
 <tr class="memitem:ga0f1006614ee5042263481f8490a99e75"><td class="memItemLeft" align="right" valign="top"><a id="ga0f1006614ee5042263481f8490a99e75"></a>
 std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">RolyComplBasisCellType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::CellBases::RolyComplkp2</b></td></tr>
 <tr class="separator:ga0f1006614ee5042263481f8490a99e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d435edccbd1c5debae878b1720be133"><td class="memItemLeft" align="right" valign="top"><a id="ga9d435edccbd1c5debae878b1720be133"></a>
-std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyEdgeBasisType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polykpo</b></td></tr>
-<tr class="separator:ga9d435edccbd1c5debae878b1720be133"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafed92e130b143c96745a793c48cd3caa"><td class="memItemLeft" align="right" valign="top"><a id="gafed92e130b143c96745a793c48cd3caa"></a>
-std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyEdgeBasisType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polyk</b></td></tr>
-<tr class="separator:gafed92e130b143c96745a793c48cd3caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga104f63cf5c94cfacf6f87ca11e8324e0"><td class="memItemLeft" align="right" valign="top"><a id="ga104f63cf5c94cfacf6f87ca11e8324e0"></a>
-std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1RestrictedBasis.html">RestrictedBasis</a>&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyEdgeBasisType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polykmo</b></td></tr>
-<tr class="separator:ga104f63cf5c94cfacf6f87ca11e8324e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga429062233027a88237af8985e646c8e9"><td class="memItemLeft" align="right" valign="top"><a id="ga429062233027a88237af8985e646c8e9"></a>
+std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisEdgeType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polykpo</b></td></tr>
+<tr class="separator:ga429062233027a88237af8985e646c8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf329b5ba932adda2e80cee1903c61b36"><td class="memItemLeft" align="right" valign="top"><a id="gaf329b5ba932adda2e80cee1903c61b36"></a>
+std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisEdgeType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polyk</b></td></tr>
+<tr class="separator:gaf329b5ba932adda2e80cee1903c61b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10de2c085067e63a3b703d14403cbba1"><td class="memItemLeft" align="right" valign="top"><a id="ga10de2c085067e63a3b703d14403cbba1"></a>
+std::unique_ptr&lt; <a class="el" href="classHArDCore2D_1_1Family.html">PolyBasisEdgeType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::DDRCore::EdgeBases::Polykmo</b></td></tr>
+<tr class="separator:ga10de2c085067e63a3b703d14403cbba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b471deaaf23fc846f98cc37f5077fe3"><td class="memItemLeft" align="right" valign="top"><a id="ga2b471deaaf23fc846f98cc37f5077fe3"></a>
 Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::EXCurl::hhoLocalOperators::gradient</b></td></tr>
 <tr class="separator:ga2b471deaaf23fc846f98cc37f5077fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>

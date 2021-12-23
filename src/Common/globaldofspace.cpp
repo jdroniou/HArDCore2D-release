@@ -1,4 +1,4 @@
-#include "ddrspace.hpp"
+#include "globaldofspace.hpp"
 
 using namespace HArDCore2D;
 
@@ -6,13 +6,13 @@ using namespace HArDCore2D;
 // Constructor
 //------------------------------------------------------------------------------
 
-DDRSpace::DDRSpace(
+GlobalDOFSpace::GlobalDOFSpace(
                    const Mesh & mesh,
                    size_t n_local_vertex_dofs,
                    size_t n_local_edge_dofs,
                    size_t n_local_cell_dofs		   
                    )
-  : DOFSpace(mesh, n_local_vertex_dofs, n_local_edge_dofs, n_local_cell_dofs),
+  : LocalDOFSpace(mesh, n_local_vertex_dofs, n_local_edge_dofs, n_local_cell_dofs),
     m_labelDOF(dimension(),0)
 {
   // Do nothing
@@ -22,7 +22,7 @@ DDRSpace::DDRSpace(
 // Restrictions
 //------------------------------------------------------------------------------
 
-Eigen::VectorXd DDRSpace::restrictEdge(size_t iE, const Eigen::VectorXd & vh) const
+Eigen::VectorXd GlobalDOFSpace::restrictEdge(size_t iE, const Eigen::VectorXd & vh) const
 {
   Eigen::VectorXd vE = Eigen::VectorXd::Zero(dimensionEdge(iE));
   const Edge & E = *m_mesh.edge(iE);
@@ -43,7 +43,7 @@ Eigen::VectorXd DDRSpace::restrictEdge(size_t iE, const Eigen::VectorXd & vh) co
 
 //------------------------------------------------------------------------------
 
-Eigen::VectorXd DDRSpace::restrictCell(size_t iT, const Eigen::VectorXd & vh) const
+Eigen::VectorXd GlobalDOFSpace::restrictCell(size_t iT, const Eigen::VectorXd & vh) const
 {
   Eigen::VectorXd vT = Eigen::VectorXd::Zero(dimensionCell(iT));
   const Cell & T = *m_mesh.cell(iT);
@@ -72,7 +72,7 @@ Eigen::VectorXd DDRSpace::restrictCell(size_t iT, const Eigen::VectorXd & vh) co
 
 //------------------------------------------------------------------------------
 
-Eigen::MatrixXd DDRSpace::extendOperator(const Cell & T, const Edge & E, const Eigen::MatrixXd & opE) const
+Eigen::MatrixXd GlobalDOFSpace::extendOperator(const Cell & T, const Edge & E, const Eigen::MatrixXd & opE) const
 {
   Eigen::MatrixXd opT = Eigen::MatrixXd::Zero(opE.rows(), dimensionCell(T));
 
@@ -95,7 +95,7 @@ Eigen::MatrixXd DDRSpace::extendOperator(const Cell & T, const Edge & E, const E
 }
 //------------------------------------------------------------------------------
 
-std::vector<size_t> DDRSpace::globalDOFIndices(const Cell & T) const
+std::vector<size_t> GlobalDOFSpace::globalDOFIndices(const Cell & T) const
 {
   std::vector<size_t> I(dimensionCell(T));
 

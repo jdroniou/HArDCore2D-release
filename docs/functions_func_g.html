@@ -72,6 +72,12 @@ $(function() {
 &#160;
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>generator()
+: <a class="el" href="group__Basis.html#ga428b0ad4554a39d9205e18e166e87e0b">HArDCore2D::TangentFamily&lt; ScalarFamilyType &gt;</a>
+</li>
+<li>get_advection()
+: <a class="el" href="classTestCase.html#a4e77d9fe331b1f1dcde9b91cd1352b30">TestCase</a>
+</li>
 <li>get_assembly_time()
 : <a class="el" href="group__HHO__Diffusion.html#ga4b67f061d06b1aea5a626792a2bddd1e">HArDCore2D::HHO_Diffusion</a>
 , <a class="el" href="group__HHO__LocVarDiff.html#ga9c37d2cf2744465d0bf50ff02fe185f9">HArDCore2D::HHO_LocVarDiff</a>
@@ -99,9 +105,11 @@ $(function() {
 , <a class="el" href="group__Mesh.html#gaff000e01e8c4bd44162ae8b526950d31">HArDCore2D::Vertex</a>
 </li>
 <li>get_deg_diff()
-: <a class="el" href="classTestCase.html#a3dd2daaebb012281b252ab65db0045b2">TestCase</a>
-, <a class="el" href="classTestCaseStefanPME.html#ad12abb16eefb6bbc83b2668dcfab4cee">TestCaseStefanPME</a>
+: <a class="el" href="classTestCaseStefanPME.html#ad12abb16eefb6bbc83b2668dcfab4cee">TestCaseStefanPME</a>
 , <a class="el" href="classTestCaseTransient.html#ae2a7aa0b43a54329c21b5a35c30b61a8">TestCaseTransient</a>
+</li>
+<li>get_diffusion()
+: <a class="el" href="classTestCase.html#a8df4ed0fde743c7c0f7a7885be318fad">TestCase</a>
 </li>
 <li>get_dphiT_quadF()
 : <a class="el" href="group__HybridCore.html#gaada65c8bf767b946fe72c466071698f6">HArDCore2D::ElementQuad</a>
@@ -184,6 +192,9 @@ $(function() {
 : <a class="el" href="group__HHO__Diffusion.html#ga06eefd287e888b735c2c601c730e9db2">HArDCore2D::HHO_Diffusion</a>
 , <a class="el" href="group__HHO__LocVarDiff.html#gad02a8f10049abe8b2c740a60e903f8d0">HArDCore2D::HHO_LocVarDiff</a>
 </li>
+<li>get_partition()
+: <a class="el" href="group__DirectedGraph.html#ga9c6c96b6359f0110be53d7eb62315510">DirectedGraph</a>
+</li>
 <li>get_phiF_quadF()
 : <a class="el" href="group__HybridCore.html#ga0289327a67759deb2c311e75d4f6ce55">HArDCore2D::ElementQuad</a>
 </li>
@@ -198,6 +209,12 @@ $(function() {
 </li>
 <li>get_quadT()
 : <a class="el" href="group__HybridCore.html#ga213822f156a19022e6bff238d438606d">HArDCore2D::ElementQuad</a>
+</li>
+<li>get_reaction()
+: <a class="el" href="classTestCase.html#ad7a00087c093d0b87e9153b7b2515473">TestCase</a>
+</li>
+<li>get_solution()
+: <a class="el" href="classTestCase.html#afca541076c5752604d5fbe6c377cc734">TestCase</a>
 </li>
 <li>get_solving_error()
 : <a class="el" href="group__HHO__Diffusion.html#gad53ffa4a52af7bf6803e28f36c7e3365">HArDCore2D::HHO_Diffusion</a>
@@ -238,7 +255,7 @@ $(function() {
 , <a class="el" href="group__Mesh.html#ga67a622b04ce68250a53bc0825487bb6e">HArDCore2D::Vertex</a>
 </li>
 <li>getLabelDOF()
-: <a class="el" href="group__DDRCore.html#gaee89f545bda670d9844b295a1a92f01d">HArDCore2D::DDRSpace</a>
+: <a class="el" href="group__Common.html#ga6bdf6aac052f0a365bdfc127cf3d46b0">HArDCore2D::GlobalDOFSpace</a>
 </li>
 <li>global_index()
 : <a class="el" href="group__Mesh.html#ga36d093e9886bcd4befae4ddf5f75f2ee">HArDCore2D::Cell</a>
@@ -248,8 +265,11 @@ $(function() {
 <li>globalDOFIndices()
 : <a class="el" href="group__DDR__rmplate.html#gac56ce1552c3fc15cb09410d601140658">HArDCore2D::ReissnerMindlin</a>
 </li>
+<li>GlobalDOFSpace()
+: <a class="el" href="group__Common.html#ga2367c0e7d7a71177472588a92757ad0a">HArDCore2D::GlobalDOFSpace</a>
+</li>
 <li>globalOffset()
-: <a class="el" href="group__DDRCore.html#ga694c76491847c8151cc8f690f346b9b6">HArDCore2D::DDRSpace</a>
+: <a class="el" href="group__Common.html#ga2c1dc27f919a7b365e93b60493a3794c">HArDCore2D::GlobalDOFSpace</a>
 </li>
 <li>Goly()
 : <a class="el" href="group__Common.html#ga2edb7685eaaf8714e8355ac93e214afc">HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;</a>
@@ -264,14 +284,14 @@ $(function() {
 : <a class="el" href="group__LEPNC.html#ga45ee3494e636432ae9077f582c0d53c0">HArDCore2D::LEPNCCore</a>
 </li>
 <li>grad_sol()
-: <a class="el" href="classTestCase.html#aae90a2722c30bdccb51c947c5a200857">TestCase</a>
-, <a class="el" href="classTestCaseStefanPME.html#a9beffb89d9ccf0e0092df1eac1beac6e">TestCaseStefanPME</a>
+: <a class="el" href="classTestCaseStefanPME.html#a9beffb89d9ccf0e0092df1eac1beac6e">TestCaseStefanPME</a>
 </li>
 <li>grad_solution()
 : <a class="el" href="classTestCaseTransient.html#a7bc67abdb78c8f49d5292b9155953ab9">TestCaseTransient</a>
 </li>
 <li>gradient()
-: <a class="el" href="group__Basis.html#ga525278d350aa0742fef160f3592b5de6">HArDCore2D::Family&lt; BasisType &gt;</a>
+: <a class="el" href="group__Basis.html#ga05b9845ad5b44a743ae7e8223a897447">HArDCore2D::Family&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#gac54d5404a926c38cd32feba76c7acb81">HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</a>
 , <a class="el" href="group__Basis.html#ga34784e2233789bed6214488ff9e4166d">HArDCore2D::MonomialScalarBasisCell</a>
 , <a class="el" href="group__Basis.html#ga46fbc56b645a745e1ffef6995decc5cd">HArDCore2D::MonomialScalarBasisEdge</a>
 , <a class="el" href="group__Basis.html#ga8e3093c0bd8ca48ef8d37d8f7d302fed">HArDCore2D::RestrictedBasis&lt; BasisType &gt;</a>
@@ -282,7 +302,10 @@ $(function() {
 : <a class="el" href="group__Basis.html#ga4177dd42cb8ac5499f6eae33965c0e69">HArDCore2D::GradientBasis&lt; BasisType &gt;</a>
 </li>
 <li>gram_matrix()
-: <a class="el" href="group__LEPNC.html#ga1741161cc8f8fa172bc5d5e4e2573e05">HArDCore2D::LEPNCCore</a>
+: <a class="el" href="group__LEPNC.html#ga2cd484e7e7659ab4a73484be17a0948e">HArDCore2D::LEPNCCore</a>
+</li>
+<li>graph_to_array()
+: <a class="el" href="group__DirectedGraph.html#gaa15ad8f4c57ddd2767c97168e57534b0">DirectedGraph</a>
 </li>
 </ul>
 </div><!-- contents -->

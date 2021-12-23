@@ -75,7 +75,7 @@ Vector2d \mbox{\hyperlink{group__Mesh_ga66b278b12266d5c5bfee8699886cc89b}{H\+Ar\
 \begin{DoxyCompactList}\small\item\em returns the center of mass of the cell \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Mesh_ga27a8932bdc987ee15a17a628d4cfe60e}\label{group__Mesh_ga27a8932bdc987ee15a17a628d4cfe60e}} 
 int \mbox{\hyperlink{group__Mesh_ga27a8932bdc987ee15a17a628d4cfe60e}{H\+Ar\+D\+Core2\+D\+::\+Cell\+::edge\+\_\+orientation}} (size\+\_\+t i) const
-\begin{DoxyCompactList}\small\item\em returns the relative orientation of the i-\/th edge with respect to the cell (that is, +1 if the normal to the face is the outer normal to the cell, -\/1 otherwise). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em returns the relative orientation of the i-\/th edge with respect to the cell (that is, +1 if the normal to the edge is the outer normal to the cell, -\/1 otherwise). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Mesh_ga6dfa6d2f4a0c971bc760538b73880a1c}\label{group__Mesh_ga6dfa6d2f4a0c971bc760538b73880a1c}} 
 bool \mbox{\hyperlink{group__Mesh_ga6dfa6d2f4a0c971bc760538b73880a1c}{H\+Ar\+D\+Core2\+D\+::\+Cell\+::calc\+\_\+cell\+\_\+geometry\+\_\+factors}} ()
 \begin{DoxyCompactList}\small\item\em calculate cell diam, area etc \end{DoxyCompactList}\item 
@@ -134,6 +134,9 @@ Vector2d \mbox{\hyperlink{group__Mesh_gaeb458c39a11b58778bd7001b22272d3d}{H\+Ar\
 \mbox{\Hypertarget{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}\label{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}} 
 bool \mbox{\hyperlink{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}{H\+Ar\+D\+Core2\+D\+::\+Edge\+::is\+\_\+boundary}} () const
 \begin{DoxyCompactList}\small\item\em getter to see if edge is boundary edge \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Mesh_gacaa4cd6eb0a028cce4b2c28b067fcfea}\label{group__Mesh_gacaa4cd6eb0a028cce4b2c28b067fcfea}} 
+int \mbox{\hyperlink{group__Mesh_gacaa4cd6eb0a028cce4b2c28b067fcfea}{H\+Ar\+D\+Core2\+D\+::\+Edge\+::vertex\+\_\+orientation}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns the relative orientation of the i-\/th vertex with respect to the edge (that is, +1 if the tangent to the edge points toward the vertex, -\/1 otherwise). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{group__Mesh_ga364bacf89dfa0be36abbbadbb2dd4f78}\label{group__Mesh_ga364bacf89dfa0be36abbbadbb2dd4f78}} 
 void \mbox{\hyperlink{group__Mesh_ga364bacf89dfa0be36abbbadbb2dd4f78}{H\+Ar\+D\+Core2\+D\+::\+Edge\+::add\+\_\+cell}} (\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$\mbox{\hyperlink{group__Mesh_gad4be0bfb981ccf2c1e02e870772dbdc3}{cell}})
 \begin{DoxyCompactList}\small\item\em Add a new cell to the edge. \end{DoxyCompactList}\item 
@@ -284,7 +287,7 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $>$ \
 \begin{DoxyCompactList}\small\item\em construct the connectivity in the mesh \end{DoxyCompactList}\item 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $>$ \mbox{\hyperlink{group__Mesh_ga208c94e8cb6490226215b59eb67e7911}{H\+Ar\+D\+Core2\+D\+::\+Mesh\+Builder\+::build\+\_\+the\+\_\+mesh}} ()
 \item 
-\mbox{\hyperlink{group__Mesh_gab33652b8567bb0f58514262839506ec4}{H\+Ar\+D\+Core2\+D\+::\+Vertex\+::\+Vertex}} (size\+\_\+t iV, Vector2d \mbox{\hyperlink{group__Mesh_gade92964c93627c034b021c1d23075a79}{coords}}, \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$mesh)
+\mbox{\hyperlink{group__Mesh_ga31936095a41665b07323fc0d44113510}{H\+Ar\+D\+Core2\+D\+::\+Vertex\+::\+Vertex}} (size\+\_\+t iV, Vector2d \mbox{\hyperlink{group__Mesh_gade92964c93627c034b021c1d23075a79}{coords}})
 \item 
 \mbox{\Hypertarget{group__Mesh_gad19d3dca11de693ac4a454b2263eb179}\label{group__Mesh_gad19d3dca11de693ac4a454b2263eb179}} 
 size\+\_\+t \mbox{\hyperlink{group__Mesh_gad19d3dca11de693ac4a454b2263eb179}{H\+Ar\+D\+Core2\+D\+::\+Vertex\+::global\+\_\+index}} () const
@@ -534,11 +537,11 @@ that shares the edge defined by the local coordinates with this cell if there is
 \doxysubsubsection{\texorpdfstring{shared\_edge()}{shared\_edge()}}
 {\footnotesize\ttfamily size\+\_\+t Cell\+::shared\+\_\+edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
 
-Returns the global index to the cell \mbox{\Hypertarget{group__Mesh_gab33652b8567bb0f58514262839506ec4}\label{group__Mesh_gab33652b8567bb0f58514262839506ec4}} 
+Returns the global index to the cell \mbox{\Hypertarget{group__Mesh_ga31936095a41665b07323fc0d44113510}\label{group__Mesh_ga31936095a41665b07323fc0d44113510}} 
 \index{Mesh@{Mesh}!Vertex@{Vertex}}
 \index{Vertex@{Vertex}!Mesh@{Mesh}}
 \doxysubsubsection{\texorpdfstring{Vertex()}{Vertex()}}
-{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iV,  }\item[{Vector2d}]{coords,  }\item[{\mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$}]{mesh }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iV,  }\item[{Vector2d}]{coords }\end{DoxyParamCaption})}
 
 A class representing a vertex of a cell for a 2D mesh. Contains a pointer to the mesh, the vertex coordinates, and cells, edges and vertices linked to that vertex. Default constructor
 

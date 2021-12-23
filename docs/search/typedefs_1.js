@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['cell_5fbasis_5ftype_703',['cell_basis_type',['../group__LEPNC.html#gaa109ebacac881c65c20a3a80cfeffba7',1,'HArDCore2D::LEPNCCore']]],
-  ['cell_5fgradient_5ftype_704',['cell_gradient_type',['../group__LEPNC.html#ga55bedecd14cffb98f57020923c968e89',1,'HArDCore2D::LEPNCCore']]]
+  ['basisquad_846',['BasisQuad',['../group__Basis.html#ga41970d25ff5ffdc77e1368ee5ce03bd4',1,'HArDCore2D']]]
 ];

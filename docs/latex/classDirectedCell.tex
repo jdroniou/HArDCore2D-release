@@ -1,0 +1,51 @@
+\hypertarget{classDirectedCell}{}\doxysection{Directed\+Cell Class Reference}
+\label{classDirectedCell}\index{DirectedCell@{DirectedCell}}
+
+
+{\ttfamily \#include $<$Directed\+Graph.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__DirectedGraph_ga225e167654e33677739daa8b4024ecec}{Directed\+Cell}} ()
+\begin{DoxyCompactList}\small\item\em Null Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__DirectedGraph_ga253ec3c1e27f3448f4c027dc939d23ca}{Directed\+Cell}} (std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__DirectedGraph_ga6d3d90db9d33b062dbc1a5bb8e3a7ac5}{$\sim$\+Directed\+Cell}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__DirectedGraph_ga543dc85ae975d688b71ceab0f66df4b4}{Directed\+Cell}} (std\+::vector$<$ \mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}} $>$ \&, std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Class Constructor\+: Initialises the cell with a vector of edges and the cell ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DirectedGraph_gabb6f938b6933dce280acf1af4937a6b3}{add\+\_\+edge}} (\mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}} \&)
+\begin{DoxyCompactList}\small\item\em Method to append an edge to the end of the cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DirectedGraph_ga371242c90d1d9d984b239bed23b21d76}{remove\+\_\+edge}} (std\+::size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Remove edge at a given position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DirectedGraph_gac0f16b824c2bafc1001458e76a406d2f}{append\+\_\+cell}} (\mbox{\hyperlink{classDirectedCell}{Directed\+Cell}} \&)
+\item 
+bool \mbox{\hyperlink{group__DirectedGraph_ga2f2a5d0f913549caed17b0e7884f2ac6}{check\+\_\+nodes}} ()
+\begin{DoxyCompactList}\small\item\em Checks for repeated or lone nodes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__DirectedGraph_ga6bee48ea60e59c3cf7bfd81eac81bcba}{is\+\_\+ordered}} ()
+\begin{DoxyCompactList}\small\item\em Tests if the edges of the cell are ordered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DirectedGraph_ga5f043663e0e175b458db30725ff0f7d5}{remove\+\_\+duplicate\+\_\+edges}} ()
+\begin{DoxyCompactList}\small\item\em Method to remove all edge -\/ antiedge pairs. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}} $>$ \mbox{\hyperlink{group__DirectedGraph_gaca6db3df9748ff29e6daa0ad77ab5fdf}{order\+\_\+edges}} ()
+\begin{DoxyCompactList}\small\item\em Orders the cell edges -\/ returns vector of edges to be removed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__DirectedGraph_ga39119c98a10fa9e6da03ea012de06694}{has\+\_\+edge}} (\mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}})
+\begin{DoxyCompactList}\small\item\em Tests if cell has an edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DirectedGraph_gaf5ae2eecc2289036fec988e6ac17b28a}{print}} ()
+\begin{DoxyCompactList}\small\item\em Prints all the edges of the cell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}} $>$ \mbox{\hyperlink{group__DirectedGraph_gafd13a4b6a0913306df1408a7994e2277}{T}}
+\begin{DoxyCompactList}\small\item\em The edges the cell consists of. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::size\+\_\+t $>$ \mbox{\hyperlink{group__DirectedGraph_ga7076a03ed5eab5b98a7d74cce0a4d4e9}{part}}
+\begin{DoxyCompactList}\small\item\em The cell ID\textquotesingle{}s of the cell\textquotesingle{}s that have formed this cell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classDirectedCell}{Directed\+Cell}} class is the defining element of a \mbox{\hyperlink{classDirectedGraph}{Directed\+Graph}}. It is defined by a vector of \mbox{\hyperlink{classDirectedEdge}{Directed\+Edge}}\textquotesingle{}s, and a vector of unsigned int\textquotesingle{}s describing the fine cells that make up the cell upon coarsening. The class contains functions related to cell manipulation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Mesh\+Coarsen/Directed\+Graph.\+hpp\item 
+Schemes/\+Mesh\+Coarsen/Directed\+Graph.\+cpp\end{DoxyCompactItemize}

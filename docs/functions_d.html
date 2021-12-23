@@ -81,9 +81,6 @@ $(function() {
 <li>ddrPotential()
 : <a class="el" href="group__DDRCore.html#ga6450ac0be8a3787c35c71fc56bdb41b5">HArDCore2D::EXCurl</a>
 </li>
-<li>DDRSpace()
-: <a class="el" href="group__DDRCore.html#ga313575745306b3d8ba6089fba6a5fec0">HArDCore2D::DDRSpace</a>
-</li>
 <li>degree()
 : <a class="el" href="group__DDRCore.html#ga726d75f4ccb5670a6af8a3d967b6dc04">HArDCore2D::DDRCore</a>
 , <a class="el" href="group__DDRCore.html#gadd60a444cd3b2f5725d2e80343ff0a9e">HArDCore2D::EXCurl</a>
@@ -98,8 +95,7 @@ $(function() {
 , <a class="el" href="group__Mesh.html#gad558804a7493cb6a6d968f48bb4f4742">HArDCore2D::Edge</a>
 </li>
 <li>diff()
-: <a class="el" href="classTestCase.html#aee1572eb56a3bc9c34393b035b8088c8">TestCase</a>
-, <a class="el" href="classTestCaseStefanPME.html#ae99d679c24d05b295bcd01538c175a6d">TestCaseStefanPME</a>
+: <a class="el" href="classTestCaseStefanPME.html#ae99d679c24d05b295bcd01538c175a6d">TestCaseStefanPME</a>
 , <a class="el" href="classTestCaseTransient.html#aaaa63538d3030cbd260102b208095e6d">TestCaseTransient</a>
 </li>
 <li>diff_advec_reac_source()
@@ -108,15 +104,21 @@ $(function() {
 <li>diff_source()
 : <a class="el" href="classTestCase.html#a474960b565b24b73a7c09666f4400804">TestCase</a>
 </li>
+<li>Diffusion()
+: <a class="el" href="structDiffusion.html#a629238035ac8a52ff3106ed0ef6a8021">Diffusion</a>
+</li>
 <li>dim()
 : <a class="el" href="group__Mesh.html#gaecd909db5f3ab863010382cf6b71ec58">HArDCore2D::Mesh</a>
 </li>
 <li>dimension()
 : <a class="el" href="group__Basis.html#gabcda5adad24a9e075e75817a1f9726d6">HArDCore2D::CurlBasis&lt; BasisType &gt;</a>
-, <a class="el" href="group__Common.html#ga4be3d02fb87a2959b02875b99a8ad0f8">HArDCore2D::DOFSpace</a>
+, <a class="el" href="group__Basis.html#gac0219820fc596adc797eeb3cf0310ef5">HArDCore2D::DivergenceBasis&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga385bf99cf8c3888a150ed53f410ae39f">HArDCore2D::Family&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga55d9d9b8fd25fb21696fc89cd8a06537">HArDCore2D::GolyComplBasisCell</a>
 , <a class="el" href="group__Basis.html#ga013a7a8c18e05623b1c9f6562f80c9e6">HArDCore2D::GradientBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga15423e83d47bc1ece6b1cc7aad394e83">HArDCore2D::HessianBasis&lt; BasisType &gt;</a>
+, <a class="el" href="group__Basis.html#ga6e0fa52ca0e9fc004a0efdbff7d5d51e">HArDCore2D::HolyComplBasisCell</a>
+, <a class="el" href="group__Common.html#gae1b50a37725d552ed131d82e123b4354">HArDCore2D::LocalDOFSpace</a>
 , <a class="el" href="group__Basis.html#ga18ef022103db3d80a1d39684e3242877">HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</a>
 , <a class="el" href="group__Basis.html#ga79a3220472fbc88d100be37ea1503d3e">HArDCore2D::MonomialScalarBasisCell</a>
 , <a class="el" href="group__Basis.html#gae546ece15c11ddb4382aa47c50fdd53c">HArDCore2D::MonomialScalarBasisEdge</a>
@@ -127,38 +129,43 @@ $(function() {
 , <a class="el" href="group__Basis.html#gabdcbe0043887c0aa46065409f1731a83">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
 </li>
 <li>dimensionCell()
-: <a class="el" href="group__Common.html#ga323aa42f83110b711b7bb9534a076e5d">HArDCore2D::DOFSpace</a>
+: <a class="el" href="group__Common.html#gac74c832fbeb6f78e0ff71a8bcdc8480c">HArDCore2D::LocalDOFSpace</a>
 </li>
 <li>dimensionEdge()
-: <a class="el" href="group__Common.html#gac60b2f599ca2dcb2cd93bbcb95db0dac">HArDCore2D::DOFSpace</a>
+: <a class="el" href="group__Common.html#ga93973e6d5e5c21b4e175dfcf4df8c027">HArDCore2D::LocalDOFSpace</a>
 </li>
 <li>dimensionSpace()
 : <a class="el" href="group__DDR__rmplate.html#gae1532454da484ab96193b1e9a64a8509">HArDCore2D::ReissnerMindlin</a>
 </li>
 <li>dimensionVertex()
-: <a class="el" href="group__Common.html#ga99aa396da2fc535a937124288f1a2518">HArDCore2D::DOFSpace</a>
+: <a class="el" href="group__Common.html#gaa6ba2a88f43d62c6d7d8be6e80291138">HArDCore2D::LocalDOFSpace</a>
 </li>
-<li>div_advec()
-: <a class="el" href="classTestCase.html#a8958384f20a6b4ddfaf401d6f467a9e5">TestCase</a>
+<li>DirectedCell()
+: <a class="el" href="group__DirectedGraph.html#ga225e167654e33677739daa8b4024ecec">DirectedCell</a>
+</li>
+<li>DirectedEdge()
+: <a class="el" href="group__DirectedGraph.html#ga25d311c43e5a5abd021ce90061bb0b7a">DirectedEdge</a>
+</li>
+<li>DirectedGraph()
+: <a class="el" href="group__DirectedGraph.html#ga7d37e393a3106ec8bc0a553bd3b3781d">DirectedGraph</a>
 </li>
 <li>div_diff()
-: <a class="el" href="classTestCase.html#ad34d8c38931709727c1c02e1016a9ff3">TestCase</a>
-, <a class="el" href="classTestCaseStefanPME.html#a8c85fa8375fbc6c42461dd4562d53ce3">TestCaseStefanPME</a>
+: <a class="el" href="classTestCaseStefanPME.html#a8c85fa8375fbc6c42461dd4562d53ce3">TestCaseStefanPME</a>
 , <a class="el" href="classTestCaseTransient.html#a6f2062d5ff86527afa8d6aefba486796">TestCaseTransient</a>
 </li>
 <li>div_diff_grad()
 : <a class="el" href="classTestCaseTransient.html#a13c99ab8100baf9f6df01c595e6c47bf">TestCaseTransient</a>
 </li>
 <li>divergence()
-: <a class="el" href="group__Basis.html#gab0744d69d4277d2251248d9bbfe5ae97">HArDCore2D::Family&lt; BasisType &gt;</a>
+: <a class="el" href="group__Basis.html#ga86a0fd0d5391607f156b3c27be6d7164">HArDCore2D::Family&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga422fbebf3d2c594f579e5cb4be4d5cf0">HArDCore2D::MatrixFamily&lt; ScalarFamilyType, N &gt;</a>
 , <a class="el" href="group__Basis.html#gaa273301688a05d4f7e38cda0d1277212">HArDCore2D::RestrictedBasis&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#gac105c6743fce4e5fb3fc799d80086bbf">HArDCore2D::RolyComplBasisCell</a>
 , <a class="el" href="group__Basis.html#ga84d8719be3260330c3c2e80dbf1b4eed">HArDCore2D::ShiftedBasis&lt; BasisType &gt;</a>
 , <a class="el" href="group__Basis.html#ga6e852fda44755e4ca0a8ffac94d97d16">HArDCore2D::TensorizedVectorFamily&lt; ScalarFamilyType, N &gt;</a>
 </li>
-<li>DOFSpace()
-: <a class="el" href="group__Common.html#ga7fa424982691351012ebeb83aff71127">HArDCore2D::DOFSpace</a>
+<li>DivergenceBasis()
+: <a class="el" href="group__Basis.html#ga27af64c28975c6159049e2e2f311b652">HArDCore2D::DivergenceBasis&lt; BasisType &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

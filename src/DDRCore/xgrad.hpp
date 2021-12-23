@@ -1,8 +1,8 @@
 #ifndef XGRAD_HPP
 #define XGRAD_HPP
 
+#include <globaldofspace.hpp>
 #include <ddrcore.hpp>
-#include <ddrspace.hpp>
 #include <integralweight.hpp>
 
 namespace HArDCore2D
@@ -13,7 +13,7 @@ namespace HArDCore2D
    */
 
   /// Discrete H1 space: local operators, L2 product and global interpolator
-  class XGrad : public DDRSpace
+  class XGrad : public GlobalDOFSpace
   {
   public:
     typedef std::function<double(const Eigen::Vector2d &)> FunctionType;

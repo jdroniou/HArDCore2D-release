@@ -102,6 +102,9 @@ typedef Eigen::Matrix&lt; double, dimspace, dimspace &gt;&#160;</td><td class="m
 <tr class="memitem:ga6b8fc6f6a7bbcc502a2bea1c7ae1be4e"><td class="memItemLeft" align="right" valign="top">
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>DivergenceValue</b></td></tr>
 <tr class="separator:ga6b8fc6f6a7bbcc502a2bea1c7ae1be4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd446607b9f4305d414327df9709778a"><td class="memItemLeft" align="right" valign="top">
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>HessianValue</b></td></tr>
+<tr class="separator:gacd446607b9f4305d414327df9709778a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b95ed339d886310f0082adcfd502d5d"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GeometricSupport</b></td></tr>
 <tr class="separator:ga4b95ed339d886310f0082adcfd502d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,12 +122,19 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 FunctionValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga3d2d8a3b77a082575c44237bed02c842">function</a> (size_t i, const VectorRd &amp;x) const</td></tr>
 <tr class="memdesc:ga3d2d8a3b77a082575c44237bed02c842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the i-th basis function at point x. <br /></td></tr>
 <tr class="separator:ga3d2d8a3b77a082575c44237bed02c842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d85cdac21e1c4c86f3eff124d974f03"><td class="memItemLeft" align="right" valign="top">
+const std::shared_ptr&lt; <a class="el" href="classHArDCore2D_1_1RolyComplBasisCell.html">RolyComplBasisCell</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basis.html#ga7d85cdac21e1c4c86f3eff124d974f03">rck</a> () const</td></tr>
+<tr class="memdesc:ga7d85cdac21e1c4c86f3eff124d974f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Rck basis. <br /></td></tr>
+<tr class="separator:ga7d85cdac21e1c4c86f3eff124d974f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:gac47dccec11529b9758b3c41a88db57e1"><td class="memItemLeft" align="right" valign="top">
-static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
-<tr class="separator:gac47dccec11529b9758b3c41a88db57e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae78d57b68b4f874efcc64d750f2fd2f8"><td class="memItemLeft" align="right" valign="top">
+constexpr static const TensorRankE&#160;</td><td class="memItemRight" valign="bottom"><b>tensorRank</b> = Vector</td></tr>
+<tr class="separator:gae78d57b68b4f874efcc64d750f2fd2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01a09d434fd314fe0469e679bc61649c"><td class="memItemLeft" align="right" valign="top">
+constexpr static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasAncestor</b> = false</td></tr>
+<tr class="separator:ga01a09d434fd314fe0469e679bc61649c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae966be110375f3eb1bcd261bf138c3c7"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFunction</b> = true</td></tr>
 <tr class="separator:gae966be110375f3eb1bcd261bf138c3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +147,9 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCurl<
 <tr class="memitem:gaf71b19a568d6b205e9bae793287e1907"><td class="memItemLeft" align="right" valign="top">
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDivergence</b> = false</td></tr>
 <tr class="separator:gaf71b19a568d6b205e9bae793287e1907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga730fef0531d578ef92fca72c3a2d6ec9"><td class="memItemLeft" align="right" valign="top">
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasHessian</b> = false</td></tr>
+<tr class="separator:ga730fef0531d578ef92fca72c3a2d6ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basis for the complement G^{c,k}(T) in P^k(F)^2 of the range of the gradient on a face. </p>
