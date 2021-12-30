@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['para_753',['para',['../group__DDR__rmplate.html#ga0d2fb2a08ac2446f83336cb6aa8b3820',1,'HArDCore2D::ReissnerMindlin']]],
-  ['plot_754',['plot',['../group__HHO2D.html#gae25ba90f5568e75217375db75768e137',1,'HHO2D']]],
-  ['plotfile_755',['plotfile',['../group__DirectedGraph.html#ga2f26c8e89557dfc44ff6473530a19d21',1,'DirectedGraph']]],
-  ['poly_756',['Poly',['../group__Common.html#ga528091d2f6373a8d213a4d3687a9b200',1,'HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;::Poly()'],['../group__Common.html#ga431ad0725cdc895a29903ddbe36b8a7a',1,'HArDCore2D::PolynomialSpaceDimension&lt; Edge &gt;::Poly()']]],
-  ['polyk2x2_757',['Polyk2x2',['../group__DDRCore.html#gad1149b6be74b9c5019df0d4098bc7d80',1,'HArDCore2D::EXCurl']]],
-  ['polykpo2_758',['Polykpo2',['../group__DDRCore.html#ga005d5e5a4091e578de4c42de27dfab66',1,'HArDCore2D::EXCurl']]],
-  ['powers_759',['powers',['../group__Basis.html#ga86999af22afdd9b89ab355027d566aee',1,'HArDCore2D::MonomialScalarBasisCell::powers()'],['../group__Basis.html#gad37e590c3f0b8f7566c8990ac7e22882',1,'HArDCore2D::RolyComplBasisCell::powers()']]],
-  ['print_760',['print',['../group__DirectedGraph.html#gaf5ae2eecc2289036fec988e6ac17b28a',1,'DirectedCell::print()'],['../group__DirectedGraph.html#gaddfdea418882de9ab843b4747e7aa7d2',1,'NodeArray::print()']]],
-  ['program_5foptions_761',['program_options',['../group__HHO__DiffAdvecReac.html#ga8c5880d59e869c99c2b73face3d582df',1,'program_options(int argc, const char *argv[], std::string &amp;mesh_name, std::string &amp;bc_id, std::vector&lt; int &gt; &amp;id_tcase, size_t &amp;L, size_t &amp;K, std::string &amp;plot_file, bool &amp;use_threads, bool &amp;export_matrix):&#160;HHO_DiffAdvecReac.cpp'],['../group__HHO__DiffAdvecReac.html#ga8c5880d59e869c99c2b73face3d582df',1,'program_options(const int, const char *[], std::string &amp;, std::string &amp;, std::vector&lt; int &gt; &amp;, size_t &amp;, size_t &amp;, std::string &amp;, bool &amp;, bool &amp;):&#160;HHO_DiffAdvecReac.cpp']]]
+  ['offsetindex_772',['offsetIndex',['../group__BoundaryConditions.html#gaf79c8c245b59ae2bd5b7110766114c4b',1,'BChandlers.hpp']]],
+  ['operator_28_29_773',['operator()',['../group__HybridCore.html#gafede4bb5d9e9d4ea1255f84911217ef1',1,'HArDCore2D::UVector']]],
+  ['operator_2a_774',['operator*',['../group__Basis.html#gadf553acac1f886459d759f647d0ce30b',1,'HArDCore2D']]],
+  ['operator_2b_775',['operator+',['../group__Basis.html#gaa41d0355c0cde4dafbd60aa3f815fdcb',1,'HArDCore2D::MatrixGradient::operator+()'],['../group__HybridCore.html#ga4e485116ef8d2bbdbdffaab1b3377ba5',1,'HArDCore2D::UVector::operator+()']]],
+  ['operator_2b_3d_776',['operator+=',['../group__Basis.html#gae8b4b4995a36934a4d853f43148d6a27',1,'HArDCore2D::MatrixGradient']]],
+  ['operator_2d_777',['operator-',['../group__Basis.html#gaf7d51f7adbcc49839facbc9dd62830e6',1,'HArDCore2D::MatrixGradient::operator-()'],['../group__HybridCore.html#ga6256a41660c0ca12280dfc93f7cc890d',1,'HArDCore2D::UVector::operator-()']]],
+  ['operator_3d_3d_778',['operator==',['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;lhs, const DirectedEdge &amp;rhs):&#160;DirectedGraph.cpp'],['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;, const DirectedEdge &amp;):&#160;DirectedGraph.cpp']]],
+  ['order_779',['order',['../group__DirectedGraph.html#ga733c67a409201b1fbcd8f81b149674e5',1,'DirectedGraph']]],
+  ['order_5fedges_780',['order_edges',['../group__DirectedGraph.html#gaca6db3df9748ff29e6daa0ad77ab5fdf',1,'DirectedCell']]]
 ];

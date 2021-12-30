@@ -123,6 +123,7 @@ Schemes</h1>
 <li><a class="el" href="classHArDCore2D_1_1LEPNC__StefanPME__Transient.html">LEPNC_StefanPME_Transient</a>, in module <a class="el" href="group__LEPNC.html">LEPNC</a>: LEPNC for the transient Stefan/PME problem \(\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
 <li><a class="el" href="classHArDCore2D_1_1HMM__StefanPME__Transient.html">HMM_StefanPME_Transient</a>, in module <a class="el" href="group__HMM.html">HMM</a>: Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem \(\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\).</li>
 <li><a class="el" href="group__DDR__rmplate.html">DDR_rmplate</a>: Discrete de Rham (DDR) scheme for the Reissner-Mindlin plate bending problem.</li>
+<li><a class="el" href="group__DDR__klplate.html">DDR_klplate</a>: Scheme for the Kirchhoff-Love plate problem based on the DDR principles (with design of a specific complex for plates).</li>
 </ul>
 <p>The directory <code>runs</code> contains BASH to run series of tests on families of meshes. The files <code>data.sh</code> describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the <code>output</code> directory, including a pdf file <code>rate.pdf</code> describing the rates of convergence in various energy norms.</p>
 <p>To run the scripts as they are, you will need <code>pdflatex</code> and (for the LEPNC and HMM schemes) a FORTRAN compiler (adjust the <code>Makefile</code> to your compiler). </p>

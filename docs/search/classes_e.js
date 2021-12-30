@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['reaction_471',['Reaction',['../structReaction.html',1,'']]],
-  ['reissnermindlin_472',['ReissnerMindlin',['../structHArDCore2D_1_1ReissnerMindlin.html',1,'HArDCore2D']]],
-  ['restrictedbasis_473',['RestrictedBasis',['../classHArDCore2D_1_1RestrictedBasis.html',1,'HArDCore2D']]],
-  ['rmparameters_474',['RMParameters',['../structHArDCore2D_1_1RMParameters.html',1,'HArDCore2D']]],
-  ['rolycomplbasiscell_475',['RolyComplBasisCell',['../classHArDCore2D_1_1RolyComplBasisCell.html',1,'HArDCore2D']]]
+  ['quadraturenode_486',['QuadratureNode',['../structHArDCore2D_1_1QuadratureNode.html',1,'HArDCore2D']]],
+  ['quadruleedge_487',['QuadRuleEdge',['../classHArDCore2D_1_1QuadRuleEdge.html',1,'HArDCore2D']]],
+  ['quadruletriangle_488',['QuadRuleTriangle',['../classHArDCore2D_1_1QuadRuleTriangle.html',1,'HArDCore2D']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dimspace_841',['dimspace',['../group__Basis.html#ga99ab631a06b5d5a5f9f9673883c92ffe',1,'HArDCore2D']]]
+  ['dimspace_874',['dimspace',['../group__Basis.html#ga99ab631a06b5d5a5f9f9673883c92ffe',1,'HArDCore2D']]]
 ];

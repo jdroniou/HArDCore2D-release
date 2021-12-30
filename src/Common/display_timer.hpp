@@ -28,7 +28,7 @@ namespace HArDCore2D
    */
    
     /// Function to store and display wall/proc timers from boost::timer::cpu_timer. 
-    /* Wall time is in the first element of the pair, proc time in the second */
+    /** Wall time is in the first element of the pair, proc time in the second */
     inline std::pair<double,double> store_times(
                               boost::timer::cpu_timer & timer,  ///< The timer
                               std::string message = ""        ///< Optional message to display with time (if not message is passed, times are not displayed)

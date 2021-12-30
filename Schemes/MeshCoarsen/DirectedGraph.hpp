@@ -35,7 +35,7 @@ typedef std::vector<std::vector<std::size_t>> Array;
 
 /** The DirectedEdge class is the defining element of a DirectedCell. It takes its two end points as parameters and
 	contains functions to assist with comparing edges.
- **/
+ */
 
 class DirectedEdge
 {

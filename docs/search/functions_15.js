@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['xcurl_831',['XCurl',['../group__DDRCore.html#gac5383b922f0967c25438f268f41a706c',1,'HArDCore2D::XCurl']]],
-  ['xgrad_832',['XGrad',['../group__DDRCore.html#gaa324e5f72366f9c2fe7326384986269c',1,'HArDCore2D::XGrad::XGrad()'],['../group__DDR__rmplate.html#ga1bc47d92ac45366335845e3e9820151f',1,'HArDCore2D::ReissnerMindlin::xGrad()']]],
-  ['xq_833',['xq',['../classHArDCore2D_1_1QuadRuleTriangle.html#a98156eda410a5aa6f9787ce920358fca',1,'HArDCore2D::QuadRuleTriangle']]]
+  ['wq_861',['wq',['../classHArDCore2D_1_1QuadRuleTriangle.html#a47725c429eec36e849a8bbf69a924303',1,'HArDCore2D::QuadRuleTriangle']]],
+  ['write_5fto_5fvtu_862',['write_to_vtu',['../group__Plot.html#ga003fe99f02fada3b80371bf442685d56',1,'HArDCore2D::VtuWriter::write_to_vtu(std::string file_name, Eigen::VectorXd sol_vertex, bool dimen=true)'],['../group__Plot.html#gaaf75193eddca3a0d369ad71c10c2be68',1,'HArDCore2D::VtuWriter::write_to_vtu(std::string file_name)']]]
 ];

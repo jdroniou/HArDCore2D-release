@@ -1,7 +1,0 @@
-<map id="HArDCore2D::DDRSpace" name="HArDCore2D::DDRSpace">
-<area shape="rect" id="node1" title="Base class for DDR spaces. Provides functions to manipulate global DOFs (the local version being prov..." alt="" coords="164,80,339,107"/>
-<area shape="rect" id="node3" href="$classHArDCore2D_1_1EXCurl.html" title="Extended XCurl space, with vector&#45;valued polynomials on the edges." alt="" coords="5,155,156,181"/>
-<area shape="rect" id="node4" href="$classHArDCore2D_1_1XCurl.html" title="Discrete Hcurl space: local operators, L2 product and global interpolator." alt="" coords="181,155,322,181"/>
-<area shape="rect" id="node5" href="$classHArDCore2D_1_1XGrad.html" title="Discrete H1 space: local operators, L2 product and global interpolator." alt="" coords="347,155,492,181"/>
-<area shape="rect" id="node2" href="$classHArDCore2D_1_1DOFSpace.html" title="Base class for DOF spaces: functions to access local DOFs (organised from the smallest dimension to t..." alt="" coords="165,5,338,32"/>
-</map>

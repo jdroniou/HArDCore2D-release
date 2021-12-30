@@ -1,0 +1,55 @@
+\hypertarget{classHArDCore2D_1_1PlatesCore}{}\doxysection{H\+Ar\+D\+Core2D\+::Plates\+Core Class Reference}
+\label{classHArDCore2D_1_1PlatesCore}\index{HArDCore2D::PlatesCore@{HArDCore2D::PlatesCore}}
+
+
+Construct all polynomial spaces for the plates sequence.  
+
+
+
+
+{\ttfamily \#include $<$platescore.\+hpp$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{Cell\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store element bases. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{Edge\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store edge bases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ {\bfseries Poly\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}}, dimspace $>$ {\bfseries Poly2\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}}, dimspace $>$ $>$ {\bfseries Poly\+Sym\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HessianBasis}{Hessian\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ $>$ $>$ {\bfseries Holy\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HolyComplBasisCell}{Holy\+Compl\+Basis\+Cell}} $>$ {\bfseries Holy\+Compl\+Basis\+Cell\+Type}
+\item 
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}} $>$ {\bfseries Poly\+Basis\+Edge\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}{Plates\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{mesh}}, size\+\_\+t K, bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{mesh}} () const
+\begin{DoxyCompactList}\small\item\em Return a const reference to the mesh. \end{DoxyCompactList}\item 
+const size\+\_\+t \& \mbox{\hyperlink{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}{degree}} () const
+\begin{DoxyCompactList}\small\item\em Return the polynomial degree. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{Cell\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}{cell\+Bases}} (size\+\_\+t iT) const
+\begin{DoxyCompactList}\small\item\em Return cell bases for element iT. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{Edge\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}{edge\+Bases}} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em Return edge bases for edge iE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Construct all polynomial spaces for the plates sequence. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+D\+D\+R\+Core/platescore.\+hpp\item 
+src/\+D\+D\+R\+Core/platescore.\+cpp\end{DoxyCompactItemize}

@@ -55,6 +55,7 @@ The following schemes are currently available in H\+Ar\+D\+::\+Core2D. The Hybri
 \item \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}, in module \mbox{\hyperlink{group__LEPNC}{L\+E\+P\+NC}}\+: L\+E\+P\+NC for the transient Stefan/\+P\+ME problem $\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$.
 \item \mbox{\hyperlink{classHArDCore2D_1_1HMM__StefanPME__Transient}{H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}, in module \mbox{\hyperlink{group__HMM}{H\+MM}}\+: Hybrid Mimetic Mixed (H\+MM) method for the transient Stefan/\+P\+ME problem $\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f$.
 \item \mbox{\hyperlink{group__DDR__rmplate}{D\+D\+R\+\_\+rmplate}}\+: Discrete de Rham (D\+DR) scheme for the Reissner-\/\+Mindlin plate bending problem.
+\item \mbox{\hyperlink{group__DDR__klplate}{D\+D\+R\+\_\+klplate}}\+: Scheme for the Kirchhoff-\/\+Love plate problem based on the D\+DR principles (with design of a specific complex for plates).
 \end{DoxyItemize}
 
 The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.

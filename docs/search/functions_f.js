@@ -1,26 +1,4 @@
 var searchData=
 [
-  ['randomise_763',['randomise',['../group__DirectedGraph.html#ga4ee0c940bce40349e65e66650793c150',1,'DirectedGraph']]],
-  ['rck_764',['rck',['../group__Basis.html#ga7d85cdac21e1c4c86f3eff124d974f03',1,'HArDCore2D::GolyComplBasisCell']]],
-  ['reaction_765',['Reaction',['../structReaction.html#a9e33b87de3290fa6cd169a199d2a82cd',1,'Reaction']]],
-  ['read_5fmesh_766',['read_mesh',['../group__Mesh.html#ga495a9de74127ecdf3c30c041863b9dd0',1,'HArDCore2D::MeshReaderTyp2']]],
-  ['regularity_767',['regularity',['../group__Mesh.html#ga530b237c8c966c21bdc3a16b4f266660',1,'HArDCore2D::Mesh']]],
-  ['reissnermindlin_768',['ReissnerMindlin',['../group__DDR__rmplate.html#ga1438e95b7f8586a7a81fe734e132daad',1,'HArDCore2D::ReissnerMindlin']]],
-  ['remove_5fcell_769',['remove_cell',['../group__DirectedGraph.html#ga628418a842a138d4f116eb896884313d',1,'DirectedGraph']]],
-  ['remove_5fduplicate_5fedges_770',['remove_duplicate_edges',['../group__DirectedGraph.html#ga5f043663e0e175b458db30725ff0f7d5',1,'DirectedCell']]],
-  ['remove_5fedge_771',['remove_edge',['../group__DirectedGraph.html#ga371242c90d1d9d984b239bed23b21d76',1,'DirectedCell']]],
-  ['renum_772',['renum',['../group__Mesh.html#gaf77873bbc892a7a5b37bf4773c55aefc',1,'HArDCore2D::Mesh']]],
-  ['renum_5fnodes_773',['renum_nodes',['../group__DirectedGraph.html#gab41f39f8493ac2ad528ce5e3037137e5',1,'NodeArray']]],
-  ['reorder_5fedges_774',['reorder_edges',['../group__BoundaryConditions.html#ga934f841a6ca35deabb477e1d8bec11f1',1,'BoundaryConditions']]],
-  ['reorder_5fvertices_775',['reorder_vertices',['../group__BoundaryConditions.html#ga4ee363c04fc84158c58de54d5eccd95d',1,'BoundaryConditions']]],
-  ['replacesectionsvector_776',['replaceSectionsVector',['../group__BoundaryConditions.html#gacefabc584af59c9f360057df98f9d74b',1,'BChandlers.hpp']]],
-  ['restr_777',['restr',['../group__HybridCore.html#ga24a0a68f8f1e8bdc4845bee48b7ce8d2',1,'HArDCore2D::UVector']]],
-  ['restrict_778',['restrict',['../group__Common.html#ga8d20e11b5eb2a6fa9f96c2efa5fd1053',1,'HArDCore2D::GlobalDOFSpace::restrict(const Edge &amp;E, const Eigen::VectorXd vh) const'],['../group__Common.html#gaabe6bb761cce72864ee024f6f7e96c37',1,'HArDCore2D::GlobalDOFSpace::restrict(const Cell &amp;T, const Eigen::VectorXd vh) const']]],
-  ['restrictcell_779',['restrictCell',['../group__Common.html#ga2485686662745c5481032a8d6058fd57',1,'HArDCore2D::GlobalDOFSpace']]],
-  ['restrictedbasis_780',['RestrictedBasis',['../group__Basis.html#ga3c6a0bd9f6d2d6411762613b363f1716',1,'HArDCore2D::RestrictedBasis']]],
-  ['restrictedge_781',['restrictEdge',['../group__Common.html#ga9cabf022121084dd0ab57de128ba953c',1,'HArDCore2D::GlobalDOFSpace']]],
-  ['rmparameters_782',['RMParameters',['../group__DDR__rmplate.html#gaf6e413adf6b6af56dc5a5ded692afe38',1,'HArDCore2D::RMParameters']]],
-  ['roly_783',['Roly',['../group__Common.html#ga9c16ba772eb539541faceedc95c7c6f4',1,'HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;']]],
-  ['rolycompl_784',['RolyCompl',['../group__Common.html#gac4b6a6a16efc6ce042931357dbc36562',1,'HArDCore2D::PolynomialSpaceDimension&lt; Cell &gt;']]],
-  ['rolycomplbasiscell_785',['RolyComplBasisCell',['../group__Basis.html#gaef4345fecb3ca455b8d489b7ba52a1bd',1,'HArDCore2D::RolyComplBasisCell']]]
+  ['quadruletriangle_792',['QuadRuleTriangle',['../classHArDCore2D_1_1QuadRuleTriangle.html#a83a432b56c03fffa615ec85f5dfd57d7',1,'HArDCore2D::QuadRuleTriangle']]]
 ];

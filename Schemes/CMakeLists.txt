@@ -51,4 +51,9 @@ ADD_EXECUTABLE(ddr-rmplate $<TARGET_OBJECTS:BoundaryConditions> DDR-rmplate/ddr-
 TARGET_LINK_LIBRARIES(ddr-rmplate mesh quadrature ddrcore plot ${EXTERNAL_LIBRARIES})
 TARGET_INCLUDE_DIRECTORIES(ddr-rmplate PUBLIC ${EXTERNAL_INCLUDES})
 
+# DDR Kirchhoff-Love
+ADD_EXECUTABLE(ddr-klplate $<TARGET_OBJECTS:BoundaryConditions> DDR-klplate/ddr-klplate.cpp)
+TARGET_LINK_LIBRARIES(ddr-klplate mesh quadrature ddrcore plot ${EXTERNAL_LIBRARIES})
+TARGET_INCLUDE_DIRECTORIES(ddr-klplate PUBLIC ${EXTERNAL_INCLUDES})
+
 

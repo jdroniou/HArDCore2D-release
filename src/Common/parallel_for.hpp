@@ -4,14 +4,13 @@
 #include <thread>
 #include <Eigen/Sparse>
 
-namespace HArDCore2D
-{
+namespace HArDCore2D {
   
   /*!
    *	\addtogroup Common
    * @{
    */
-
+   
   /// Generic function to execute threaded processes
   static inline void parallel_for(unsigned nb_elements,
                                   std::function<void(size_t start, size_t end)> functor,
@@ -50,7 +49,7 @@ namespace HArDCore2D
   }
   
   
-  /// Function to assemble global matrix and right-hand side from a procedure that compute local triplets and rhs contributions
+  /// Function to assemble global matrix and right-hand side from a procedure that computes local triplets and rhs contributions
   static inline std::pair<Eigen::SparseMatrix<double>, Eigen::VectorXd>
   parallel_assembly_system(
                            size_t nb_elements, //< nb of elements over which the threading will be done
@@ -117,7 +116,7 @@ namespace HArDCore2D
     return std::make_pair(A, b);  
   }
   
-  /// Function to assemble a two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that compute local triplets and rhs contributions
+  /// Function to assemble a two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that computes local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>>
   parallel_assembly_system(
                            size_t nb_elements, //< nb of elements over which the threading will be done
@@ -204,7 +203,7 @@ namespace HArDCore2D
   }
 
 
-  /// Function to assemble a two global matrices and vectors (such as: system and static condensation operator) from a procedure that compute local triplets and rhs contributions
+  /// Function to assemble a two global matrices and vectors (such as: system and static condensation operator) from a procedure that computes local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>, Eigen::VectorXd>
   parallel_assembly_system(
                            size_t nb_elements, //< nb of elements over which the threading will be done

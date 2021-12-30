@@ -19,6 +19,6 @@ var searchData=
   ['ari_5fcoords_16',['ari_coords',['../group__Mesh.html#ga23fe549c562fac9ca1eef82c04948546',1,'HArDCore2D::Cell']]],
   ['array_17',['Array',['../group__DirectedGraph.html#ga773decc3b1a80d48cafcc5529b4a2b52',1,'DirectedGraph.hpp']]],
   ['assemble_18',['assemble',['../group__HHO__Diffusion.html#gaa78a74bda050f0773e920c00c297c858',1,'HArDCore2D::HHO_Diffusion::assemble()'],['../group__HHO2D.html#ga047ea52da1fad2d0a290d8074a70c485',1,'HHO2D::assemble()'],['../group__HHO__LocVarDiff.html#ga5a556b259e62cf0474e2f933da569b15',1,'HArDCore2D::HHO_LocVarDiff::assemble()']]],
-  ['assemblelinearsystem_19',['assembleLinearSystem',['../group__DDR__rmplate.html#gac1e5d4e0dad7dc0d0b0b704cd46d14b3',1,'HArDCore2D::ReissnerMindlin']]],
+  ['assemblelinearsystem_19',['assembleLinearSystem',['../group__DDR__klplate.html#gae0dc9351ad36d60795b92b2f5c298322',1,'HArDCore2D::KirchhoffLove::assembleLinearSystem()'],['../group__DDR__rmplate.html#gac1e5d4e0dad7dc0d0b0b704cd46d14b3',1,'HArDCore2D::ReissnerMindlin::assembleLinearSystem()']]],
   ['asvectorxd_20',['asVectorXd',['../group__HybridCore.html#ga38b36a187519471f6cbe4719f14c5bd1',1,'HArDCore2D::UVector']]]
 ];

@@ -52,7 +52,7 @@ public:
     size_t index_edge(const Edge* E) const; ///< reciprocal of edge(i): returns the local index of edge E in the cell
     size_t index_vertex(const Vertex* V) const; ///< reciprocal of vertex(i): returns the local index of vertex V in the cell
 
-    inline bool is_boundary() const; ///< returns true if cell touches the boundary
+    inline bool is_boundary() const; ///< returns true if one of the cell edge is a boundary edge
 
     inline double measure() const; ///< returns area of cell
     inline double diam() const;  ///< returns diameter of cell

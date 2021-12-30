@@ -65,6 +65,8 @@ The following schemes are currently available in HArD::Core2D. The Hybrid High-O
 
  - [DDR_rmplate](@ref DDR_rmplate): Discrete de Rham (DDR) scheme for the Reissner-Mindlin plate bending problem.
 
+ - [DDR_klplate](@ref DDR_klplate): Scheme for the Kirchhoff-Love plate problem based on the DDR principles (with design of a specific complex for plates).
+
 The directory `runs` contains BASH to run series of tests on families of meshes. The files `data.sh` describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the `output` directory, including a pdf file `rate.pdf` describing the rates of convergence in various energy norms.
 
 To run the scripts as they are, you will need `pdflatex` and (for the LEPNC and HMM schemes) a FORTRAN compiler (adjust the `Makefile` to your compiler).
