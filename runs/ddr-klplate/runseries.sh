@@ -61,7 +61,7 @@ do
     	if [ -f exact-displacement.vtu ]; then
       	mv exact-displacement.vtu $outsubdir/mesh"$i"_exact-displacement.vtu
       fi
-    	if [ $export_matrix ]; then
+    	if [ $export_matrix != "false" ]; then
       	mv A.mtx $outsubdir/A"$i".mtx
       	mv b.mtx $outsubdir/b"$i".mtx
       fi

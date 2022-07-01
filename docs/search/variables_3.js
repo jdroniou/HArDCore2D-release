@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_875',['G',['../group__DirectedGraph.html#ga607e96aec2a7672a9ba375f38c0288dc',1,'DirectedGraph']]]
+  ['energy_885',['energy',['../group__DDR__rmplate.html#gafee622b5a0ed4d4e6894a6a507866877',1,'HArDCore2D::RMNorms']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['part_876',['part',['../group__DirectedGraph.html#ga7076a03ed5eab5b98a7d74cce0a4d4e9',1,'DirectedCell']]]
+  ['g_886',['G',['../group__DirectedGraph.html#ga607e96aec2a7672a9ba375f38c0288dc',1,'DirectedGraph']]]
 ];

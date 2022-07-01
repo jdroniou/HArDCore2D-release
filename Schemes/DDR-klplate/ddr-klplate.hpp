@@ -61,9 +61,7 @@ namespace HArDCore2D
     /// Returns the number of statically condensed DOFs (here, the cell moments DOFs)
     inline size_t nbSCDOFs() const
     {
-      return m_platescore.mesh().n_cells() * 
-          (PolynomialSpaceDimension<Cell>::HolyCompl(m_platescore.degree() - 1) 
-           + PolynomialSpaceDimension<Cell>::Holy(m_platescore.degree() - 4));
+      return m_platescore.mesh().n_cells() * m_nloc_sc_sigma;
     }
 
     /// Returns the size of the statically condensed system
@@ -150,6 +148,7 @@ namespace HArDCore2D
     XDivDiv m_xdivdiv;
     GlobalDOFSpace m_Pkm2_Th;
     
+    const size_t m_nloc_sc_sigma;     // Number of DOFs statically condensed in each cell
     SystemMatrixType m_A;   // Matrix and RHS of statically condensed system
     Eigen::VectorXd m_b;
     SystemMatrixType m_sc_A; // Static condensation operator and RHS (to recover statically condensed DOFs)
@@ -167,7 +166,7 @@ namespace HArDCore2D
                                 );
 
     /// Creates the permutation matrix and the global DOFs for the local static condensation
-    LocalStaticCondensation _compute_static_condensaton(const size_t & iT) const;
+    LocalStaticCondensation _compute_static_condensation(const size_t & iT) const;
 
     /// Assemble the local contribution for the element of index iT into the global system
     void _assemble_local_contribution(

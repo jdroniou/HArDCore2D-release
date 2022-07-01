@@ -60,6 +60,26 @@ namespace HArDCore2D
     double kappa;
   };
 
+  /// Structure to store component norms (for rotation, displacement, Kirchoff term and total energy)
+  struct RMNorms
+  {
+    /// Constructor
+    RMNorms(double norm_rotation, double norm_displacement, double norm_kirchoff):
+      rotation(norm_rotation),
+      displacement(norm_displacement),
+      kirchoff(norm_kirchoff),
+      energy(std::sqrt( std::pow(norm_rotation, 2)+std::pow(norm_displacement, 2)+std::pow(norm_kirchoff, 2) ) )
+      {
+        // do nothing
+      };
+    
+    double rotation; ///< Norm of rotation
+    double displacement; ///< Norm of displacement
+    double kirchoff; ///< Norm of kirchoff term
+    double energy; ///< Total energy
+  
+  };
+
   /// Assemble a RM problem 
   struct ReissnerMindlin
   {
@@ -185,10 +205,10 @@ namespace HArDCore2D
       return m_stab_par;
     }
 
-    /// Compute the discrete norm
-    double computeNorm(
-                       const Eigen::VectorXd & v ///< The vector
-                      ) const;
+    /// Compute the discrete norms: rotation, displacement, Kirchoff term, and complete energy
+    RMNorms computeNorms(
+                     const Eigen::VectorXd & v ///< The vector
+                    ) const;
 
     /// Takes a function dependent on RMParameter and a position x, and returns a function depending only on x (using the parameters of this class)
     template<typename outValue, typename Fct>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['cell_5fbasis_5ftype_880',['cell_basis_type',['../group__LEPNC.html#gaa109ebacac881c65c20a3a80cfeffba7',1,'HArDCore2D::LEPNCCore']]],
-  ['cell_5fgradient_5ftype_881',['cell_gradient_type',['../group__LEPNC.html#ga55bedecd14cffb98f57020923c968e89',1,'HArDCore2D::LEPNCCore']]]
+  ['cell_5fbasis_5ftype_893',['cell_basis_type',['../group__LEPNC.html#gaa109ebacac881c65c20a3a80cfeffba7',1,'HArDCore2D::LEPNCCore']]],
+  ['cell_5fgradient_5ftype_894',['cell_gradient_type',['../group__LEPNC.html#ga55bedecd14cffb98f57020923c968e89',1,'HArDCore2D::LEPNCCore']]]
 ];

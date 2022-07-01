@@ -112,52 +112,63 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      Eigen::MatrixXd AT = m_Perm * lsT.first * m_Perm.transpose();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      Eigen::VectorXd bT = m_Perm * lsT.second;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="comment">// Extract 4 blocks of AT, bT for static condensation</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      Eigen::MatrixXd A11 = AT.topLeftCorner(m_dim_sys, m_dim_sys);  </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      Eigen::MatrixXd A12 = AT.topRightCorner(m_dim_sys, m_dim_sc);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      Eigen::MatrixXd A21 = AT.bottomLeftCorner(m_dim_sc, m_dim_sys);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      Eigen::MatrixXd A22 = AT.bottomRightCorner(m_dim_sc, m_dim_sc);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      Eigen::VectorXd b1 = bT.head(m_dim_sys);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      Eigen::VectorXd b2 = bT.tail(m_dim_sc);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="comment">// Create condensed system (AT_reduced, bT_reduced) and SC recovery operator (RT, cT)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      Eigen::MatrixXd A22inv_A21 = A22.ldlt().solve(A21);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      Eigen::VectorXd A22inv_b2 = A22.ldlt().solve(b2);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      Eigen::MatrixXd AT_sys = A11 - A12 * A22inv_A21;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      Eigen::VectorXd bT_sys = b1 - A12 * A22inv_b2;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      Eigen::MatrixXd AT_sc = -A22inv_A21;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      Eigen::VectorXd bT_sc = A22inv_b2;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">return</span> std::make_tuple(AT_sys, bT_sys, AT_sc, bT_sc);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">   70</a></span>&#160;    <span class="keyword">inline</span> std::vector&lt;size_t&gt; <a class="code" href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">globalDOFs_sys</a>() { <span class="keywordflow">return</span> m_globalDOFs_sys;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">   72</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">dim_sys</a>() { <span class="keywordflow">return</span> m_dim_sys;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">   75</a></span>&#160;    <span class="keyword">inline</span> std::vector&lt;size_t&gt; <a class="code" href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">globalDOFs_sc</a>() { <span class="keywordflow">return</span> m_globalDOFs_sc;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">   77</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">dim_sc</a>() { <span class="keywordflow">return</span> m_dim_sc;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// Members</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Eigen::MatrixXd m_Perm;     </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::vector&lt;size_t&gt; m_globalDOFs_sys;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::vector&lt;size_t&gt; m_globalDOFs_sc;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">size_t</span> m_dim_sys;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">size_t</span> m_dim_sc;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  };</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      Eigen::MatrixXd AT_sys, AT_sc;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      Eigen::VectorXd bT_sys, bT_sc;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">if</span> (m_dim_sc &gt; 0){</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Extract 4 blocks of AT, bT for static condensation</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        Eigen::MatrixXd A11 = AT.topLeftCorner(m_dim_sys, m_dim_sys);  </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        Eigen::MatrixXd A12 = AT.topRightCorner(m_dim_sys, m_dim_sc);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        Eigen::MatrixXd A21 = AT.bottomLeftCorner(m_dim_sc, m_dim_sys);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        Eigen::MatrixXd A22 = AT.bottomRightCorner(m_dim_sc, m_dim_sc);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        Eigen::VectorXd b1 = bT.head(m_dim_sys);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        Eigen::VectorXd b2 = bT.tail(m_dim_sc);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Create condensed system (AT_reduced, bT_reduced) and SC recovery operator (RT, cT)</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Eigen::PartialPivLU&lt;Eigen::MatrixXd&gt; A22pivlu(A22);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        Eigen::MatrixXd A22inv_A21 = A22pivlu.solve(A21);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        Eigen::VectorXd A22inv_b2 = A22pivlu.solve(b2);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        AT_sys = A11 - A12 * A22inv_A21;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        bT_sys = b1 - A12 * A22inv_b2;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        AT_sc = -A22inv_A21;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        bT_sc = A22inv_b2;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// No static condensation</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        AT_sys = AT;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        bT_sys = bT;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        AT_sc = Eigen::MatrixXd::Zero(0,0);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        bT_sc = Eigen::VectorXd::Zero(0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">return</span> std::make_tuple(AT_sys, bT_sys, AT_sc, bT_sc);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    };</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">   81</a></span>&#160;    <span class="keyword">inline</span> std::vector&lt;size_t&gt; <a class="code" href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">globalDOFs_sys</a>() { <span class="keywordflow">return</span> m_globalDOFs_sys;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">   83</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">dim_sys</a>() { <span class="keywordflow">return</span> m_dim_sys;};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">   86</a></span>&#160;    <span class="keyword">inline</span> std::vector&lt;size_t&gt; <a class="code" href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">globalDOFs_sc</a>() { <span class="keywordflow">return</span> m_globalDOFs_sc;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">   88</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">dim_sc</a>() { <span class="keywordflow">return</span> m_dim_sc;};</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// end of namespace HArDCore2D</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Members</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    Eigen::MatrixXd m_Perm;     </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::vector&lt;size_t&gt; m_globalDOFs_sys;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::vector&lt;size_t&gt; m_globalDOFs_sc;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">size_t</span> m_dim_sys;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">size_t</span> m_dim_sc;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;} <span class="comment">// end of namespace HArDCore2D</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructHArDCore2D_1_1LocalStaticCondensation_html"><div class="ttname"><a href="structHArDCore2D_1_1LocalStaticCondensation.html">HArDCore2D::LocalStaticCondensation</a></div><div class="ttdoc">Structure to store information for, and perform, local static condensation.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:24</div></div>
 <div class="ttc" id="agroup__Common_html_ga3a6734c4e545ca2f963ad8870acab1c5"><div class="ttname"><a href="group__Common.html#ga3a6734c4e545ca2f963ad8870acab1c5">HArDCore2D::LocalStaticCondensation::LocalStaticCondensation</a></div><div class="ttdeci">LocalStaticCondensation(const Eigen::MatrixXd &amp;Perm, const std::vector&lt; size_t &gt; &amp;globalDOFs_sys, const std::vector&lt; size_t &gt; &amp;globalDOFs_sc)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:27</div></div>
-<div class="ttc" id="agroup__Common_html_ga78a9aeff222be7993266c9074f64d65c"><div class="ttname"><a href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">HArDCore2D::LocalStaticCondensation::dim_sc</a></div><div class="ttdeci">size_t dim_sc()</div><div class="ttdoc">Returns the number of DOFs that are statically condensed.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:77</div></div>
+<div class="ttc" id="agroup__Common_html_ga78a9aeff222be7993266c9074f64d65c"><div class="ttname"><a href="group__Common.html#ga78a9aeff222be7993266c9074f64d65c">HArDCore2D::LocalStaticCondensation::dim_sc</a></div><div class="ttdeci">size_t dim_sc()</div><div class="ttdoc">Returns the number of DOFs that are statically condensed.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:88</div></div>
 <div class="ttc" id="agroup__Common_html_ga352c0a57d662d195aa1083db3c932dea"><div class="ttname"><a href="group__Common.html#ga352c0a57d662d195aa1083db3c932dea">HArDCore2D::LocalStaticCondensation::compute</a></div><div class="ttdeci">std::tuple&lt; Eigen::MatrixXd, Eigen::VectorXd, Eigen::MatrixXd, Eigen::VectorXd &gt; compute(const std::pair&lt; Eigen::MatrixXd, Eigen::VectorXd &gt; &amp;lsT)</div><div class="ttdoc">Compute the local static condensation.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:44</div></div>
-<div class="ttc" id="agroup__Common_html_gaae6d268e8a606fdff18d0b0425613f96"><div class="ttname"><a href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">HArDCore2D::LocalStaticCondensation::globalDOFs_sys</a></div><div class="ttdeci">std::vector&lt; size_t &gt; globalDOFs_sys()</div><div class="ttdoc">Returns global DOFs that are not statically condensend.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:70</div></div>
-<div class="ttc" id="agroup__Common_html_gab2b33fa4498fd94e93bddc19465733b1"><div class="ttname"><a href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">HArDCore2D::LocalStaticCondensation::dim_sys</a></div><div class="ttdeci">size_t dim_sys()</div><div class="ttdoc">Returns the number of DOFs that are not statically condensed.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:72</div></div>
-<div class="ttc" id="agroup__Common_html_gaae52de87d9360349ab2cd18fedaa84ff"><div class="ttname"><a href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">HArDCore2D::LocalStaticCondensation::globalDOFs_sc</a></div><div class="ttdeci">std::vector&lt; size_t &gt; globalDOFs_sc()</div><div class="ttdoc">Returns global DOFs that are statically condensend.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:75</div></div>
+<div class="ttc" id="agroup__Common_html_gaae6d268e8a606fdff18d0b0425613f96"><div class="ttname"><a href="group__Common.html#gaae6d268e8a606fdff18d0b0425613f96">HArDCore2D::LocalStaticCondensation::globalDOFs_sys</a></div><div class="ttdeci">std::vector&lt; size_t &gt; globalDOFs_sys()</div><div class="ttdoc">Returns global DOFs that are not statically condensend.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:81</div></div>
+<div class="ttc" id="agroup__Common_html_gab2b33fa4498fd94e93bddc19465733b1"><div class="ttname"><a href="group__Common.html#gab2b33fa4498fd94e93bddc19465733b1">HArDCore2D::LocalStaticCondensation::dim_sys</a></div><div class="ttdeci">size_t dim_sys()</div><div class="ttdoc">Returns the number of DOFs that are not statically condensed.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:83</div></div>
+<div class="ttc" id="agroup__Common_html_gaae52de87d9360349ab2cd18fedaa84ff"><div class="ttname"><a href="group__Common.html#gaae52de87d9360349ab2cd18fedaa84ff">HArDCore2D::LocalStaticCondensation::globalDOFs_sc</a></div><div class="ttdeci">std::vector&lt; size_t &gt; globalDOFs_sc()</div><div class="ttdoc">Returns global DOFs that are statically condensend.</div><div class="ttdef"><b>Definition:</b> local_static_condensation.hpp:86</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

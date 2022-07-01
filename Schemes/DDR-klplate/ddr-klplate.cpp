@@ -51,7 +51,7 @@ int main(int argc, const char* argv[])
     ("bending-modulus,D", boost::program_options::value<double>()->default_value(1.), "Bending modulus")
     ("poisson-ratio,n", boost::program_options::value<double>()->default_value(0.3), "Poisson ratio")
     ("plot", boost::program_options::value<std::string>()->default_value("displacement"), "Save plot of the displacement to the given filename")
-    ("export-matrix,e", "Export matrix to Matrix Market format")
+    ("export-matrix,e", boost::program_options::value<bool>()->default_value(false), "Export matrix to Matrix Market format")
     ("iterative-solver,i", "Use iterative linear solver")
     ("stabilization-parameter,x", boost::program_options::value<double>(), "Set the stabilization parameter");;
   
@@ -167,7 +167,7 @@ int main(int argc, const char* argv[])
   std::tie(t_wall_model, t_proc_model) = store_times(timer, "[main] Time model (wall/proc) ");
 
   // Export matrix if requested  
-  if (vm.count("export-matrix")) {
+  if (vm.count("export-matrix") && vm["export-matrix"].as<bool>()) {
     std::cout << "[main] Exporting matrix to Matrix Market format" << std::endl;
     saveMarket(kl.systemMatrix(), "A.mtx");
     saveMarket(kl.systemVector(), "b.mtx");
@@ -247,7 +247,8 @@ int main(int argc, const char* argv[])
   out << "NbEdges: " << mesh_ptr->n_edges() << std::endl;
   out << "NbVertices: " << mesh_ptr->n_vertices() << std::endl;
   out << "DimXDivDiv: " << kl.xDivDiv().dimension() << std::endl;
-  out << "DimSystem: " << kl.dimensionSpace() << std::endl;
+  out << "DimPkm2: " << kl.polykm2Th().dimension() << std::endl;
+  out << "DimSCsystem: " << kl.sizeSystem() << std::endl;
   out << "Error: " << error << std::endl;
   out << "RelError: " << error/norm_sol << std::endl;
   out << "Bending modulus (D): " << D << std::endl;
@@ -281,6 +282,7 @@ KirchhoffLove::KirchhoffLove(
     m_output(output),
     m_xdivdiv(platescore, use_threads, output),
     m_Pkm2_Th(platescore.mesh(), 0, 0, PolynomialSpaceDimension<Cell>::Poly(platescore.degree() - 2)),
+    m_nloc_sc_sigma(m_xdivdiv.numLocalDofsCell()),
     m_A(sizeSystem(), sizeSystem()),
     m_b(Eigen::VectorXd::Zero(sizeSystem())),
     m_sc_A(nbSCDOFs(), sizeSystem()),
@@ -288,6 +290,8 @@ KirchhoffLove::KirchhoffLove(
     m_stab_par(1.)
 {
   m_output << "[KirchhoffLove] Initializing" << std::endl;
+  
+  // To avoid performing static condensation, initialize m_nloc_sc_sigma at 0
 }
 
 //------------------------------------------------------------------------------
@@ -365,34 +369,33 @@ KirchhoffLove::_compute_local_contribution(size_t iT,
 
 //------------------------------------------------------------------------------
 
-LocalStaticCondensation KirchhoffLove::_compute_static_condensaton(const size_t & iT) const
+LocalStaticCondensation KirchhoffLove::_compute_static_condensation(const size_t & iT) const
 {
   const Cell & T = *m_platescore.mesh().cell(iT);
   
   // Dimensions
-  size_t dim1 = m_xdivdiv.localOffset(T);    // dimension of skeletal unknowns for sigma
-  size_t dim_sc = m_xdivdiv.numLocalDofsCell();    // dimension of cell unknowns for sigma (sc DOFs)
-  size_t dim3 = m_Pkm2_Th.dimensionCell(iT);         // dimension of u
-  size_t dim_dofs = dim1+dim3;      // nb of dofs in system, remaining after SC
+  size_t dim_sigma = m_xdivdiv.dimensionCell(iT) - m_nloc_sc_sigma;    // dimension of skeletal unknowns for sigma
+  size_t dim_u = m_Pkm2_Th.dimensionCell(iT);         // dimension of u
+  size_t dim_dofs = dim_sigma+dim_u;      // nb of dofs in system, remaining after SC
 
   // Creation of permutation matrix
-  Eigen::MatrixXd Perm = Eigen::MatrixXd::Zero(dim_dofs+dim_sc, dim_dofs+dim_sc);
-  Perm.topLeftCorner(dim1, dim1) = Eigen::MatrixXd::Identity(dim1, dim1);
-  Perm.block(dim1+dim3, dim1, dim_sc, dim_sc) = Eigen::MatrixXd::Identity(dim_sc, dim_sc);
-  Perm.block(dim1, dim1+dim_sc, dim3, dim3) = Eigen::MatrixXd::Identity(dim3, dim3);
+  Eigen::MatrixXd Perm = Eigen::MatrixXd::Zero(dim_dofs+m_nloc_sc_sigma, dim_dofs+m_nloc_sc_sigma);
+  Perm.topLeftCorner(dim_sigma, dim_sigma) = Eigen::MatrixXd::Identity(dim_sigma, dim_sigma);
+  Perm.block(dim_sigma+dim_u, dim_sigma, m_nloc_sc_sigma, m_nloc_sc_sigma) = Eigen::MatrixXd::Identity(m_nloc_sc_sigma, m_nloc_sc_sigma);
+  Perm.block(dim_sigma, dim_sigma+m_nloc_sc_sigma, dim_u, dim_u) = Eigen::MatrixXd::Identity(dim_u, dim_u);
 
   // Creation of global DOFs for system
   std::vector<size_t> IT_sys(dim_dofs, 0);
   auto IT_xdivdiv = m_xdivdiv.globalDOFIndices(T);
   auto IT_Pkm2 = m_Pkm2_Th.globalDOFIndices(T);
   // put skeletal DOFs of sigma in Idofs_T
-  auto it_IT_sys = std::copy(IT_xdivdiv.begin(), IT_xdivdiv.begin()+dim1, IT_sys.begin()); 
+  auto it_IT_sys = std::copy(IT_xdivdiv.begin(), IT_xdivdiv.begin()+dim_sigma, IT_sys.begin()); 
   size_t offset = m_xdivdiv.dimension() - nbSCDOFs();   // nb total of skeletal DOFs for sigma (where global dofs of u will start)
   std::transform(IT_Pkm2.begin(), IT_Pkm2.end(), it_IT_sys, [&offset](const size_t & index) { return index + offset; });
 
   // Creation of global DOFs for SC operator      
-  std::vector<size_t> IT_sc(dim_sc, 0);
-  std::transform(IT_xdivdiv.begin()+dim1, IT_xdivdiv.end(), IT_sc.begin(), [&offset](const size_t & index) { return index - offset; });
+  std::vector<size_t> IT_sc(m_nloc_sc_sigma, 0);
+  std::transform(IT_xdivdiv.begin()+dim_sigma, IT_xdivdiv.end(), IT_sc.begin(), [&offset](const size_t & index) { return index - offset; });
   
   return LocalStaticCondensation(Perm, IT_sys, IT_sc);
 }
@@ -409,7 +412,7 @@ void KirchhoffLove::_assemble_local_contribution(
                                                  )
 {
   // Get information for local static condensation
-  LocalStaticCondensation locSC = _compute_static_condensaton(iT);
+  LocalStaticCondensation locSC = _compute_static_condensation(iT);
 
   Eigen::MatrixXd AT_sys, AT_sc;
   Eigen::VectorXd bT_sys, bT_sc;

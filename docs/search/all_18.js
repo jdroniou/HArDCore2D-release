@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['_7edirectedcell_417',['~DirectedCell',['../group__DirectedGraph.html#ga6d3d90db9d33b062dbc1a5bb8e3a7ac5',1,'DirectedCell']]],
-  ['_7edirectededge_418',['~DirectedEdge',['../group__DirectedGraph.html#gaa526fbe5d02887855ca43e67a8b3e226',1,'DirectedEdge']]],
-  ['_7edirectedgraph_419',['~DirectedGraph',['../group__DirectedGraph.html#ga176ce553205173ec161e7f8ecee538e2',1,'DirectedGraph']]],
-  ['_7enodearray_420',['~NodeArray',['../group__DirectedGraph.html#ga694137c5709b2c37eb971ab6ba796b02',1,'NodeArray']]]
+  ['_7edirectedcell_423',['~DirectedCell',['../group__DirectedGraph.html#ga6d3d90db9d33b062dbc1a5bb8e3a7ac5',1,'DirectedCell']]],
+  ['_7edirectededge_424',['~DirectedEdge',['../group__DirectedGraph.html#gaa526fbe5d02887855ca43e67a8b3e226',1,'DirectedEdge']]],
+  ['_7edirectedgraph_425',['~DirectedGraph',['../group__DirectedGraph.html#ga176ce553205173ec161e7f8ecee538e2',1,'DirectedGraph']]],
+  ['_7enodearray_426',['~NodeArray',['../group__DirectedGraph.html#ga694137c5709b2c37eb971ab6ba796b02',1,'NodeArray']]]
 ];

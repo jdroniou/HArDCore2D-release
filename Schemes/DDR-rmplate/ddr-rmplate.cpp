@@ -52,7 +52,7 @@ int main(int argc, const char* argv[])
     ("poisson-ratio,n", boost::program_options::value<double>()->default_value(0.2), "Poisson ratio")
     ("boundary-conditions,b", boost::program_options::value<std::string>()->default_value("C"), "Boundary conditions (clamped C, simply supported SS)")
     ("plot", boost::program_options::value<std::string>()->default_value("displacement"), "Save plot of the displacement to the given filename")
-    ("export-matrix,e", "Export matrix to Matrix Market format")
+    ("export-matrix,e", boost::program_options::value<bool>()->default_value(false), "Export matrix to Matrix Market format")
     ("iterative-solver,i", "Use iterative linear solver")
     ("stabilization-parameter,x", boost::program_options::value<double>(), "Set the stabilization parameter");
 
@@ -184,7 +184,7 @@ int main(int argc, const char* argv[])
   std::cout << "[main] Time model (wall/proc) " << t_wall_model << "/" << t_proc_model << std::endl;
 
   // Export matrix if requested  
-  if (vm.count("export-matrix")) {
+  if (vm.count("export-matrix")  && vm["export-matrix"].as<bool>()) {
     std::cout << "[main] Exporting matrix to Matrix Market format" << std::endl;
     saveMarket(rm.systemMatrix(), "A_rm.mtx");
     saveMarket(rm.systemVector(), "b_rm.mtx");
@@ -228,6 +228,9 @@ int main(int argc, const char* argv[])
       std::cerr << "[main] ERROR: Could not solve linear system" << std::endl;
     }
   }
+  // Norm of residual
+  std::cout << "[main] Norm of residual after solving: " << (rm.systemMatrix()*uh_int-rm.systemVector()).norm() << std::endl;
+  
   // Re-create complete vector with BC
   Eigen::VectorXd uh = replaceSectionsVector(rm.bdryValues(), uh_int, rm.locUKN());
 
@@ -242,7 +245,9 @@ int main(int argc, const char* argv[])
   uI.tail(rm.xGrad().dimension()) = rm.xGrad().interpolate(rm.contractPara<double>(u));
 
   Eigen::VectorXd eh = uh - uI;
-  double en_error = rm.computeNorm(eh) / rm.computeNorm(uI);
+  RMNorms errors = rm.computeNorms(eh);
+  RMNorms norms = rm.computeNorms(uI);
+  double en_error = errors.energy / norms.energy;
   
   VectorRd center(0.,0.);
   double area = 0.;
@@ -251,14 +256,14 @@ int main(int argc, const char* argv[])
     center += T->measure() * T->center_mass();
   }
   center /= area;
-  double exact_dis = u(para, center);
+  double exact_dis_cent = u(para, center);
   size_t iT_center = mesh_ptr->find_cell(center);
   Eigen::VectorXd uT = rm.xGrad().restrictCell(iT_center, uh.tail(rm.xGrad().dimension()));
-  double approx_dis = rm.xGrad().evaluatePotential(iT_center, uT, center);
-  double dis_error = std::abs(approx_dis - exact_dis) / std::abs(1e-15 + exact_dis);
+  double approx_dis_cent = rm.xGrad().evaluatePotential(iT_center, uT, center);
+  double dis_cent_error = std::abs(approx_dis_cent - exact_dis_cent) / std::abs(1e-15 + exact_dis_cent);
   
   std::cout << "[main] Energy error " << en_error << std::endl;
-  std::cout << "[main] Error displacement center " << dis_error << std::endl;
+  std::cout << "[main] Error displacement center " << dis_cent_error << std::endl;
   std::cout << "[main] Mesh diameter " << mesh_ptr->h_max() << std::endl;
  
   // --------------------------------------------------------------------------
@@ -291,7 +296,10 @@ int main(int argc, const char* argv[])
   out << "DimXGrad: " << rm.xGrad().dimension() << std::endl;
   out << "DimSystem: " << rm.sizeSystem() << std::endl;
   out << "EnError: " << en_error << std::endl;
-  out << "DisError: " << dis_error << std::endl;
+  out << "RotError: " << errors.rotation / norms.rotation << std::endl;
+  out << "DisError: " << errors.displacement / norms.displacement << std::endl;
+  out << "KirError: " << errors.kirchoff / norms.kirchoff << std::endl;
+  out << "DisCentError: " << dis_cent_error << std::endl;
   out << "thickness (t): " << para.t << std::endl;
   out << "Young modulus (E): " << para.E << std::endl;
   out << "Poisson ratio (nu): " << para.nu << std::endl;
@@ -711,16 +719,18 @@ void ReissnerMindlin::_assemble_local_jump_stab(
 }
 
 //------------------------------------------------------------------------------
-double ReissnerMindlin::computeNorm(const Eigen::VectorXd & v ) const
+RMNorms ReissnerMindlin::computeNorms(const Eigen::VectorXd & v ) const
 {
-  Eigen::VectorXd local_sqnorms = Eigen::VectorXd::Zero(m_ddrcore.mesh().n_cells());
+  Eigen::VectorXd sqnorms_rotation = Eigen::VectorXd::Zero(m_ddrcore.mesh().n_cells());
+  Eigen::VectorXd sqnorms_displacement = Eigen::VectorXd::Zero(m_ddrcore.mesh().n_cells());
+  Eigen::VectorXd sqnorms_kirchoff = Eigen::VectorXd::Zero(m_ddrcore.mesh().n_cells());
 
   // EXcurl correspond to the first components of v, XGrad to the last ones
   Eigen::VectorXd v_curl = v.head(m_excurl.dimension());
   Eigen::VectorXd v_grad = v.tail(m_xgrad.dimension());
   
   std::function<void(size_t, size_t)> compute_local_squarednorms
-    = [this, &v_curl, &v_grad, &local_sqnorms](size_t start, size_t end)->void
+    = [this, &v_curl, &v_grad, &sqnorms_rotation, &sqnorms_displacement, &sqnorms_kirchoff](size_t start, size_t end)->void
     {
       for (size_t iT = start; iT < end; iT++){
         Cell & T = *m_ddrcore.mesh().cell(iT);
@@ -728,45 +738,48 @@ double ReissnerMindlin::computeNorm(const Eigen::VectorXd & v ) const
         Eigen::VectorXd v_grad_T = m_xgrad.restrict(T, v_grad);
 
         QuadratureRule quad_2k_T = generate_quadrature_rule(T, 2*m_ddrcore.degree() );
-        
+
+        // ROTATION        
         // Contribution of GsT and sT
         auto basis_Pk2x2_T_quad = evaluate_quad<Function>::compute(m_excurl.Polyk2x2(iT), quad_2k_T);
         Eigen::MatrixXd mass_Pk2x2_T = compute_gram_matrix(basis_Pk2x2_T_quad, quad_2k_T);
         Eigen::VectorXd GsT_v_curl_T = m_excurl.hhoOperators(iT).symmetric_gradient * v_curl_T;
         double tmp = GsT_v_curl_T.transpose() * mass_Pk2x2_T * GsT_v_curl_T;
         tmp += v_curl_T.transpose() * m_excurl.hhoOperators(iT).stabilisation * v_curl_T;
-        local_sqnorms(iT) += m_para.beta0 * tmp;
+        sqnorms_rotation(iT) += m_para.beta0 * tmp;
+
+        // Contribution L2
+        Eigen::MatrixXd mass_Pk2_T = compute_gram_matrix(evaluate_quad<Function>::compute(*m_ddrcore.cellBases(iT).Polyk2, quad_2k_T), quad_2k_T);
+        Eigen::MatrixXd excurl_L2product = m_excurl.computeL2Product(iT, m_stab_par, mass_Pk2_T);
+        sqnorms_rotation(iT) += std::min(m_para.kappa, m_para.beta0) * v_curl_T.transpose() * excurl_L2product * v_curl_T;
 
         // Contribution divergence
         auto basis_trace_Pk2x2_T_quad = transform_values_quad<double>(basis_Pk2x2_T_quad,
                                                                  [](const Eigen::Matrix2d &m)->double { return m.trace();});
         Eigen::MatrixXd mass_trace_Polyk2x2 = compute_gram_matrix(basis_trace_Pk2x2_T_quad, quad_2k_T);
         tmp = GsT_v_curl_T.transpose() * mass_trace_Polyk2x2 * GsT_v_curl_T;
-        local_sqnorms(iT) += m_para.beta1 * tmp;
+        sqnorms_rotation(iT) += m_para.beta1 * tmp;
 
-        // Contribution norme EXcurl
-        Eigen::MatrixXd mass_Pk2_T = compute_gram_matrix(evaluate_quad<Function>::compute(*m_ddrcore.cellBases(iT).Polyk2, quad_2k_T), quad_2k_T);
-        Eigen::MatrixXd excurl_L2product = m_excurl.computeL2Product(iT, m_stab_par, mass_Pk2_T);
+        // DISPLACEMENT
         Eigen::MatrixXd excurl_L2product_grad = m_excurl.computeL2ProductGradient(iT, m_xgrad, "both", m_stab_par, mass_Pk2_T);
-        tmp = v_curl_T.transpose() * excurl_L2product * v_curl_T;
-        tmp += v_grad_T.transpose() * excurl_L2product_grad * v_grad_T;
-        local_sqnorms(iT) += std::min(m_para.kappa, m_para.beta0) * tmp;
+        sqnorms_displacement(iT) += std::min(m_para.kappa, m_para.beta0) * v_grad_T.transpose() * excurl_L2product_grad * v_grad_T;
 
-        // Contribution Kirchoff term (developed)
+        // KIRCHOFF term (developed)
         tmp =  v_curl_T.transpose() * excurl_L2product * v_curl_T;
         tmp += v_grad_T.transpose() * excurl_L2product_grad * v_grad_T;
         Eigen::MatrixXd excurl_L2product_grad_right = m_excurl.computeL2ProductGradient(iT, m_xgrad, "right", m_stab_par, mass_Pk2_T);
         tmp -= 2. * v_curl_T.transpose() * excurl_L2product_grad_right * v_grad_T;
-        local_sqnorms(iT) += (m_para.kappa / std::pow(m_para.t, 2)) * tmp;
+        sqnorms_kirchoff(iT) += (m_para.kappa / std::pow(m_para.t, 2)) * tmp;
         
 
         // Contribution of L2 norms
-//        local_sqnorms(iT) += v_curl_T.transpose() * m_excurl.computeL2Product(iT, m_stab_par, mass_Pk2_T) * v_curl_T;
-//        local_sqnorms(iT) += v_grad_T.transpose() * m_xgrad.computeL2Product(iT, m_stab_par, mass_Pk2_T) * v_grad_T;
+//        sqnorms_rotation(iT) += v_curl_T.transpose() * m_excurl.computeL2Product(iT, m_stab_par, mass_Pk2_T) * v_curl_T;
+//        sqnorms_displacement(iT) += v_grad_T.transpose() * m_xgrad.computeL2Product(iT, m_stab_par, mass_Pk2_T) * v_grad_T;
 
       }
     };
   parallel_for(m_ddrcore.mesh().n_cells(), compute_local_squarednorms, m_use_threads);
   
-  return std::sqrt(std::abs(local_sqnorms.sum()));
+  return RMNorms( std::sqrt(std::abs(sqnorms_rotation.sum())), std::sqrt(std::abs(sqnorms_displacement.sum())),
+                std::sqrt(std::abs(sqnorms_kirchoff.sum())) );
 }

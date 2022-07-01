@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['t_877',['T',['../group__DirectedGraph.html#gafd13a4b6a0913306df1408a7994e2277',1,'DirectedCell']]]
+  ['kirchoff_887',['kirchoff',['../group__DDR__rmplate.html#gae809b4bbe71018c08c87f511bef3ce12',1,'HArDCore2D::RMNorms']]]
 ];

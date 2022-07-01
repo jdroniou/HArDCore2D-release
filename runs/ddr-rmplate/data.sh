@@ -2,16 +2,16 @@
 #
 
 # Degree
-k=2
+k=1
 
 # Plate parameters
-t=1e-3
+ts="1e-1"
 E=1
 nu=0.3
 
 # Exact solution and BC
-solution=2
-BC=C
+solution=1
+BC=SS
 
 # Stabilization parameter
 stab_par=.1
@@ -39,6 +39,8 @@ case ${mesh_family} in
   mesh[3]="hexa1_3"
 #  mesh[4]="hexa1_4"
 #  mesh[5]="hexa1_5"
+#  mesh[6]="hexa1_6"
+#  mesh[7]="hexa1_7"
   ;;
     locref)
   mesh[1]="mesh3_2"
@@ -51,6 +53,27 @@ case ${mesh_family} in
     mesh[2]="mesh1_3"
     mesh[3]="mesh1_4"
     mesh[4]="mesh1_5"
+    mesh[5]="mesh1_6"
+    mesh[6]="mesh1_7"
+  ;;    
+    tri2)
+    mesh[1]="tri1_1"
+    mesh[2]="tri1_2"
+    mesh[3]="tri1_3"
+    mesh[4]="tri1_4"
+    mesh[5]="tri1_5"
+  ;;    
+    cart_refined_boundary)
+    mesh[1]="cart_refined_boundary1"
+    mesh[2]="cart_refined_boundary2"
+    mesh[3]="cart_refined_boundary3"
+#    mesh[4]="cart_refined_boundary4"
+  ;;
+    tri2_refined_boundary)
+    mesh[1]="tri2_refined_boundary1"
+    mesh[2]="tri2_refined_boundary2"
+    mesh[3]="tri2_refined_boundary3"
+#    mesh[4]="tri2_refined_boundary4"
   ;;    
 esac
 

@@ -87,6 +87,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1RMParameters.html">HArDCore2D::RMParameters</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to store model data.  <a href="structHArDCore2D_1_1RMParameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1RMNorms.html">HArDCore2D::RMNorms</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to store component norms (for rotation, displacement, Kirchoff term and total energy)  <a href="structHArDCore2D_1_1RMNorms.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHArDCore2D_1_1ReissnerMindlin.html">HArDCore2D::ReissnerMindlin</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble a RM problem.  <a href="structHArDCore2D_1_1ReissnerMindlin.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,6 +118,10 @@ Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gaf6e413adf6b6af56dc5a5ded692afe38">HArDCore2D::RMParameters::RMParameters</a> (const double thickness, const double young_modulus, const double poisson_ratio)</td></tr>
 <tr class="memdesc:gaf6e413adf6b6af56dc5a5ded692afe38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:gaf6e413adf6b6af56dc5a5ded692afe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace21aa6881ac6b56304e23a4028094a9"><td class="memItemLeft" align="right" valign="top"><a id="gace21aa6881ac6b56304e23a4028094a9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gace21aa6881ac6b56304e23a4028094a9">HArDCore2D::RMNorms::RMNorms</a> (double norm_rotation, double norm_displacement, double norm_kirchoff)</td></tr>
+<tr class="memdesc:gace21aa6881ac6b56304e23a4028094a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:gace21aa6881ac6b56304e23a4028094a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1438e95b7f8586a7a81fe734e132daad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#ga1438e95b7f8586a7a81fe734e132daad">HArDCore2D::ReissnerMindlin::ReissnerMindlin</a> (const <a class="el" href="classHArDCore2D_1_1DDRCore.html">DDRCore</a> &amp;ddrcore, const <a class="el" href="structHArDCore2D_1_1RMParameters.html">RMParameters</a> &amp;<a class="el" href="group__DDR__rmplate.html#ga0d2fb2a08ac2446f83336cb6aa8b3820">para</a>, const <a class="el" href="classBoundaryConditions.html">BoundaryConditions</a> &amp;BC_theta, const <a class="el" href="classBoundaryConditions.html">BoundaryConditions</a> &amp;BC_u, bool use_threads, std::ostream &amp;output=std::cout)</td></tr>
 <tr class="memdesc:ga1438e95b7f8586a7a81fe734e132daad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="group__DDR__rmplate.html#ga1438e95b7f8586a7a81fe734e132daad">More...</a><br /></td></tr>
 <tr class="separator:ga1438e95b7f8586a7a81fe734e132daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,9 +193,9 @@ const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gab4d9e85868fa833083c5b27265bbf47e">HArDCore2D::ReissnerMindlin::stabilizationParameter</a> ()</td></tr>
 <tr class="memdesc:gab4d9e85868fa833083c5b27265bbf47e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the stabilization parameter. <br /></td></tr>
 <tr class="separator:gab4d9e85868fa833083c5b27265bbf47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3268244dd67ba2c9e430ced1b7676fbd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#ga3268244dd67ba2c9e430ced1b7676fbd">HArDCore2D::ReissnerMindlin::computeNorm</a> (const Eigen::VectorXd &amp;v) const</td></tr>
-<tr class="memdesc:ga3268244dd67ba2c9e430ced1b7676fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the discrete norm.  <a href="group__DDR__rmplate.html#ga3268244dd67ba2c9e430ced1b7676fbd">More...</a><br /></td></tr>
-<tr class="separator:ga3268244dd67ba2c9e430ced1b7676fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4459b595885d074e25c9cfe2329334b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHArDCore2D_1_1RMNorms.html">RMNorms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#ga4459b595885d074e25c9cfe2329334b9">HArDCore2D::ReissnerMindlin::computeNorms</a> (const Eigen::VectorXd &amp;v) const</td></tr>
+<tr class="memdesc:ga4459b595885d074e25c9cfe2329334b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the discrete norms: rotation, displacement, Kirchoff term, and complete energy.  <a href="group__DDR__rmplate.html#ga4459b595885d074e25c9cfe2329334b9">More...</a><br /></td></tr>
+<tr class="separator:ga4459b595885d074e25c9cfe2329334b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab320487fda348344d86064d1f5e0b6d8"><td class="memTemplParams" colspan="2"><a id="gab320487fda348344d86064d1f5e0b6d8"></a>
 template&lt;typename outValue , typename Fct &gt; </td></tr>
 <tr class="memitem:gab320487fda348344d86064d1f5e0b6d8"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; outValue(const Eigen::Vector2d &amp;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gab320487fda348344d86064d1f5e0b6d8">HArDCore2D::ReissnerMindlin::contractPara</a> (const Fct &amp;F) const</td></tr>
@@ -215,6 +222,22 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::RMParam
 <tr class="memitem:gabfe4888e2b8bdb2b4aed62369834e8d5"><td class="memItemLeft" align="right" valign="top"><a id="gabfe4888e2b8bdb2b4aed62369834e8d5"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::RMParameters::kappa</b></td></tr>
 <tr class="separator:gabfe4888e2b8bdb2b4aed62369834e8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf588e1b7236e63be87d57d48cc6cf125"><td class="memItemLeft" align="right" valign="top"><a id="gaf588e1b7236e63be87d57d48cc6cf125"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gaf588e1b7236e63be87d57d48cc6cf125">HArDCore2D::RMNorms::rotation</a></td></tr>
+<tr class="memdesc:gaf588e1b7236e63be87d57d48cc6cf125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Norm of rotation. <br /></td></tr>
+<tr class="separator:gaf588e1b7236e63be87d57d48cc6cf125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50e526fa4558b65ba16763e228289d0a"><td class="memItemLeft" align="right" valign="top"><a id="ga50e526fa4558b65ba16763e228289d0a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#ga50e526fa4558b65ba16763e228289d0a">HArDCore2D::RMNorms::displacement</a></td></tr>
+<tr class="memdesc:ga50e526fa4558b65ba16763e228289d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Norm of displacement. <br /></td></tr>
+<tr class="separator:ga50e526fa4558b65ba16763e228289d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae809b4bbe71018c08c87f511bef3ce12"><td class="memItemLeft" align="right" valign="top"><a id="gae809b4bbe71018c08c87f511bef3ce12"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gae809b4bbe71018c08c87f511bef3ce12">HArDCore2D::RMNorms::kirchoff</a></td></tr>
+<tr class="memdesc:gae809b4bbe71018c08c87f511bef3ce12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Norm of kirchoff term. <br /></td></tr>
+<tr class="separator:gae809b4bbe71018c08c87f511bef3ce12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafee622b5a0ed4d4e6894a6a507866877"><td class="memItemLeft" align="right" valign="top"><a id="gafee622b5a0ed4d4e6894a6a507866877"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DDR__rmplate.html#gafee622b5a0ed4d4e6894a6a507866877">HArDCore2D::RMNorms::energy</a></td></tr>
+<tr class="memdesc:gafee622b5a0ed4d4e6894a6a507866877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total energy. <br /></td></tr>
+<tr class="separator:gafee622b5a0ed4d4e6894a6a507866877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implementation of the DDR scheme for the Reissner-Mindlin plate problem. </p>
@@ -271,14 +294,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::RMParam
 
 </div>
 </div>
-<a id="ga3268244dd67ba2c9e430ced1b7676fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3268244dd67ba2c9e430ced1b7676fbd">&#9670;&nbsp;</a></span>computeNorm()</h2>
+<a id="ga4459b595885d074e25c9cfe2329334b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4459b595885d074e25c9cfe2329334b9">&#9670;&nbsp;</a></span>computeNorms()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double ReissnerMindlin::computeNorm </td>
+          <td class="memname"><a class="el" href="structHArDCore2D_1_1RMNorms.html">RMNorms</a> ReissnerMindlin::computeNorms </td>
           <td>(</td>
           <td class="paramtype">const Eigen::VectorXd &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -287,7 +310,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>HArDCore2D::RMParam
       </table>
 </div><div class="memdoc">
 
-<p>Compute the discrete norm. </p>
+<p>Compute the discrete norms: rotation, displacement, Kirchoff term, and complete energy. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The vector </td></tr>
