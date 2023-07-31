@@ -1,4 +1,4 @@
-\hypertarget{structHArDCore2D_1_1KirchhoffLove}{}\doxysection{H\+Ar\+D\+Core2D\+::Kirchhoff\+Love Struct Reference}
+\hypertarget{structHArDCore2D_1_1KirchhoffLove}{}\doxysection{HAr\+DCore2D\+::Kirchhoff\+Love Struct Reference}
 \label{structHArDCore2D_1_1KirchhoffLove}\index{HArDCore2D::KirchhoffLove@{HArDCore2D::KirchhoffLove}}
 
 
@@ -12,44 +12,44 @@ Assemble a Kirchhoff-\/\+Love plate problem.
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Eigen\+::\+Sparse\+Matrix$<$ double $>$ {\bfseries System\+Matrix\+Type}
+typedef Eigen\+::\+Sparse\+Matrix$<$ double $>$ \mbox{\hyperlink{group__DDR__klplate_ga7d3dfc09f2b9c5006068d3700876f96f}{System\+Matrix\+Type}}
 \item 
-typedef std\+::function$<$ double(const Eigen\+::\+Vector2d \&)$>$ {\bfseries Forcing\+Term\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__klplate_ga8493da09871546c9d4b0ce4f710217d2}{Forcing\+Term\+Type}}
 \item 
-typedef std\+::function$<$ double(const Eigen\+::\+Vector2d \&)$>$ {\bfseries Deflection\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__klplate_gaf04dee2b5220a2c990c0e48edb049f6a}{Deflection\+Type}}
 \item 
-typedef std\+::function$<$ Eigen\+::\+Vector2d(const Eigen\+::\+Vector2d \&)$>$ {\bfseries Gradient\+Deflection\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Vector2d(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__klplate_ga7421c21f8f7747de506a9228e8a43103}{Gradient\+Deflection\+Type}}
 \item 
-typedef std\+::function$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Vector2d \&)$>$ {\bfseries Moment\+Tensor\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__DDR__klplate_gaa0cfd6d5ef9f4e2018e7bcfb412d4cbd}{Moment\+Tensor\+Type}}
 \item 
-typedef std\+::function$<$ double(const Eigen\+::\+Vector2d \&, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&)$>$ {\bfseries Moment\+Tensor\+Edge\+Derivative\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const Eigen\+::\+Vector2d \&, const Edge \&)$>$ \mbox{\hyperlink{group__DDR__klplate_gace9e45d00c79f841bb70597bfdfe5f14}{Moment\+Tensor\+Edge\+Derivative\+Type}}
 \item 
-typedef X\+Div\+Div\+::\+Constitutive\+Law\+Type {\bfseries Constitutive\+Law\+Type}
+typedef \mbox{\hyperlink{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}{XDiv\+Div\+::\+Constitutive\+Law\+Type}} \mbox{\hyperlink{group__DDR__klplate_ga0bce4b791d81d79debf784c8d4af1ff9}{Constitutive\+Law\+Type}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__DDR__klplate_ga9ac3627ea1301d80d3efc1afb5d03155}{Kirchhoff\+Love}} (const \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{Plates\+Core}} \&platescore, const Constitutive\+Law\+Type \&law, bool use\+\_\+threads, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__DDR__klplate_ga9ac3627ea1301d80d3efc1afb5d03155}{Kirchhoff\+Love}} (const \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{Plates\+Core}} \&platescore, const \mbox{\hyperlink{group__DDR__klplate_ga0bce4b791d81d79debf784c8d4af1ff9}{Constitutive\+Law\+Type}} \&law, bool \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga61c147fa3e7a4b2f35ba838ce26aa026}{use\+\_\+threads}}, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__DDR__klplate_gafb109e3e4bd8646a717c22c021a96ee6}{dimension\+Space}} () const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the moment + deflection space. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__DDR__klplate_ga7f2afa71c146da85c9433031faa04c49}{nb\+S\+C\+D\+O\+Fs}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of statically condensed D\+O\+Fs (here, the cell moments D\+O\+Fs) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__DDR__klplate_ga7f2afa71c146da85c9433031faa04c49}{nb\+SCDOFs}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of statically condensed DOFs (here, the cell moments DOFs) \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__DDR__klplate_gac4a35cfe0cd7d3f4c5408344f5eb6752}{size\+System}} () const
 \begin{DoxyCompactList}\small\item\em Returns the size of the statically condensed system. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{X\+Div\+Div}} \& \mbox{\hyperlink{group__DDR__klplate_ga1a9dee2ac5cb3da7c7c55119f9efaefe}{x\+Div\+Div}} () const
-\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{X\+Div\+Div}}. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{Global\+D\+O\+F\+Space}} \mbox{\hyperlink{group__DDR__klplate_ga4ea4485efd136f1fa4da1e765db073c6}{polykm2\+Th}} () const
+const \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{XDiv\+Div}} \& \mbox{\hyperlink{group__DDR__klplate_ga1a9dee2ac5cb3da7c7c55119f9efaefe}{x\+Div\+Div}} () const
+\begin{DoxyCompactList}\small\item\em Returns the space \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{XDiv\+Div}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{Global\+DOFSpace}} \mbox{\hyperlink{group__DDR__klplate_ga4ea4485efd136f1fa4da1e765db073c6}{polykm2\+Th}} () const
 \begin{DoxyCompactList}\small\item\em Returns the space $\mathbb{P}^{k-2}(\mathcal{T}_h)$. \end{DoxyCompactList}\item 
-const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__klplate_gacaa741da9cd8c5d421a74df329650f64}{system\+Matrix}} () const
+const \mbox{\hyperlink{group__DDR__klplate_ga7d3dfc09f2b9c5006068d3700876f96f}{System\+Matrix\+Type}} \& \mbox{\hyperlink{group__DDR__klplate_gacaa741da9cd8c5d421a74df329650f64}{system\+Matrix}} () const
 \begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
-System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__klplate_ga147f5566fc601f9e7591290e8b5041eb}{system\+Matrix}} ()
+\mbox{\hyperlink{group__DDR__klplate_ga7d3dfc09f2b9c5006068d3700876f96f}{System\+Matrix\+Type}} \& \mbox{\hyperlink{group__DDR__klplate_ga147f5566fc601f9e7591290e8b5041eb}{system\+Matrix}} ()
 \begin{DoxyCompactList}\small\item\em Returns the linear system matrix. \end{DoxyCompactList}\item 
 const Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__klplate_ga61db9f27b20efa31b70f54a8eb9cc05b}{system\+Vector}} () const
 \begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__klplate_gaf64c8a4a2ae4679633b24d2324d7e648}{system\+Vector}} ()
 \begin{DoxyCompactList}\small\item\em Returns the linear system right-\/hand side vector. \end{DoxyCompactList}\item 
-const System\+Matrix\+Type \& \mbox{\hyperlink{group__DDR__klplate_ga4c22cbd2ee084eb9c0bc30663afa79e4}{sc\+Matrix}} () const
+const \mbox{\hyperlink{group__DDR__klplate_ga7d3dfc09f2b9c5006068d3700876f96f}{System\+Matrix\+Type}} \& \mbox{\hyperlink{group__DDR__klplate_ga4c22cbd2ee084eb9c0bc30663afa79e4}{sc\+Matrix}} () const
 \begin{DoxyCompactList}\small\item\em Returns the static condensation recovery operator. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__DDR__klplate_ga91e05e84e83bea495474130511cb9311}{sc\+Vector}} ()
 \begin{DoxyCompactList}\small\item\em Returns the static condensation rhs. \end{DoxyCompactList}\item 
@@ -57,9 +57,9 @@ const double \& \mbox{\hyperlink{group__DDR__klplate_gacd7ae8f516f41dc70b8b6a31f
 \begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
 double \& \mbox{\hyperlink{group__DDR__klplate_ga22efe59ea4a0d513cebc6a2471272830}{stabilization\+Parameter}} ()
 \begin{DoxyCompactList}\small\item\em Returns the stabilization parameter. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__DDR__klplate_gae0dc9351ad36d60795b92b2f5c298322}{assemble\+Linear\+System}} (const Forcing\+Term\+Type \&f, const Deflection\+Type \&u, const Gradient\+Deflection\+Type \&grad\+\_\+u)
+void \mbox{\hyperlink{group__DDR__klplate_gae0dc9351ad36d60795b92b2f5c298322}{assemble\+Linear\+System}} (const \mbox{\hyperlink{group__DDR__klplate_ga8493da09871546c9d4b0ce4f710217d2}{Forcing\+Term\+Type}} \&f, const \mbox{\hyperlink{group__DDR__klplate_gaf04dee2b5220a2c990c0e48edb049f6a}{Deflection\+Type}} \&u, const \mbox{\hyperlink{group__DDR__klplate_ga7421c21f8f7747de506a9228e8a43103}{Gradient\+Deflection\+Type}} \&grad\+\_\+u)
 \begin{DoxyCompactList}\small\item\em Assemble the global system. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__DDR__klplate_gabab36993bdc7c32807d6ee7c83f27e9b}{interpolate\+Deflection}} (const Deflection\+Type \&u, int deg\+\_\+quad=-\/1) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__DDR__klplate_gabab36993bdc7c32807d6ee7c83f27e9b}{interpolate\+Deflection}} (const \mbox{\hyperlink{group__DDR__klplate_gaf04dee2b5220a2c990c0e48edb049f6a}{Deflection\+Type}} \&u, int deg\+\_\+quad=-\/1) const
 \begin{DoxyCompactList}\small\item\em Interpolate deflection. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__DDR__klplate_ga43f9bd4b8443c8817e137d7b2de22e36}{compute\+Norm}} (const Eigen\+::\+Vector\+Xd \&v) const
 \begin{DoxyCompactList}\small\item\em Compute the discrete norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -70,5 +70,5 @@ Assemble a Kirchhoff-\/\+Love plate problem.
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+D\+D\+R-\/klplate/ddr-\/klplate.\+hpp\item 
-Schemes/\+D\+D\+R-\/klplate/ddr-\/klplate.\+cpp\end{DoxyCompactItemize}
+Schemes/\+DDR-\/klplate/\mbox{\hyperlink{ddr-klplate_8hpp}{ddr-\/klplate.\+hpp}}\item 
+Schemes/\+DDR-\/klplate/\mbox{\hyperlink{ddr-klplate_8cpp}{ddr-\/klplate.\+cpp}}\end{DoxyCompactItemize}

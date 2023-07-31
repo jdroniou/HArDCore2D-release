@@ -1,4 +1,4 @@
-\hypertarget{classHArDCore2D_1_1LEPNCCore}{}\doxysection{H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+Core Class Reference}
+\hypertarget{classHArDCore2D_1_1LEPNCCore}{}\doxysection{HAr\+DCore2D\+::LEPNCCore Class Reference}
 \label{classHArDCore2D_1_1LEPNCCore}\index{HArDCore2D::LEPNCCore@{HArDCore2D::LEPNCCore}}
 
 
@@ -6,7 +6,7 @@
 
 
 
-Inheritance diagram for H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+Core\+:\nopagebreak
+Inheritance diagram for HAr\+DCore2D\+::LEPNCCore\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +15,7 @@ Inheritance diagram for H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+Core\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+Core\+:\nopagebreak
+Collaboration diagram for HAr\+DCore2D\+::LEPNCCore\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,33 +25,33 @@ Collaboration diagram for H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+Core\+:\nopagebreak
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for cell basis \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for gradients of cell basis \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__LEPNC_ga1f6cfe8b236b45f0a1bacdfa2f266b9a}{L\+E\+P\+N\+C\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$mesh\+\_\+ptr, const size\+\_\+t K, const size\+\_\+t L, std\+::ostream \&output=std\+::cout)
-\begin{DoxyCompactList}\small\item\em Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} class, and creates non-\/conforming basis functions (and gradients) \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_gaccbc6dbe66d8f292e360c1f64d77d979}{nc\+\_\+basis}} (size\+\_\+t iT, size\+\_\+t i) const
+\mbox{\hyperlink{group__LEPNC_ga1f6cfe8b236b45f0a1bacdfa2f266b9a}{LEPNCCore}} (const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} $\ast$mesh\+\_\+ptr, const size\+\_\+t \mbox{\hyperlink{group__HHO__DiffAdvecReac_gaf169764abf85f85bec428e43dc60274b}{K}}, const size\+\_\+t \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga91a0b997ce3aa9aa56b8cba3620fed15}{L}}, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} class, and creates non-\/conforming basis functions (and gradients) \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_gaccbc6dbe66d8f292e360c1f64d77d979}{nc\+\_\+basis}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}{nc\+\_\+gradient}} (size\+\_\+t iT, size\+\_\+t i) const
+const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}{nc\+\_\+gradient}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return a reference to the gradient of the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
-const Vector\+Rd \mbox{\hyperlink{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}{ml\+\_\+node}} (size\+\_\+t iT, size\+\_\+t i) const
+const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \mbox{\hyperlink{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}{ml\+\_\+node}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return the i\textquotesingle{}th nodal point in cell iT (for mass lumping) \end{DoxyCompactList}\item 
-const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga26cf2df3130caf5758845f5c63d9e677}{nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga26cf2df3130caf5758845f5c63d9e677}{nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} quad) const
 \begin{DoxyCompactList}\small\item\em Computes non-\/conforming basis functions at the given quadrature nodes. \end{DoxyCompactList}\item 
-const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}{grad\+\_\+nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}{grad\+\_\+nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} quad) const
 \begin{DoxyCompactList}\small\item\em Compute $(\nabla \phi_i^{nc})_{i\in I}$ at the quadrature nodes, where $(\phi_i^{nc})_{i\in I}$ are the cell basis functions. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga1741161cc8f8fa172bc5d5e4e2573e05}{gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga1741161cc8f8fa172bc5d5e4e2573e05}{gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
 \item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga2cd484e7e7659ab4a73484be17a0948e}{gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga2cd484e7e7659ab4a73484be17a0948e}{gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
 \begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}{nc\+\_\+interpolate\+\_\+moments}} (const Function \&f, size\+\_\+t doe) const
-\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}{nc\+\_\+interpolate\+\_\+ml}} (const Function \&f, size\+\_\+t doe) const
-\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}{nc\+\_\+interpolate\+\_\+moments}} (const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}{nc\+\_\+interpolate\+\_\+ml}} (const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga2b5ccb61b2dfc3b515728d77cc261d2b}{nc\+\_\+restr}} (const Eigen\+::\+Vector\+Xd \&Xh, size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Extract from a global vector Xh of unknowns the non-\/conforming unknowns corresponding to cell iT. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}{nc\+\_\+\+L2norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
@@ -60,15 +60,15 @@ double \mbox{\hyperlink{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}{nc\+\_\
 \begin{DoxyCompactList}\small\item\em Compute L2 norm of the mass-\/lumped discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}{nc\+\_\+\+H1norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute broken H1 norm of a discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}{nc\+\_\+evaluate\+\_\+in\+\_\+cell}} (const Eigen\+::\+Vector\+Xd X\+TF, size\+\_\+t iT, double x, double y) const
+double \mbox{\hyperlink{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}{nc\+\_\+evaluate\+\_\+in\+\_\+cell}} (const Eigen\+::\+Vector\+Xd XTF, size\+\_\+t iT, double x, double y) const
 \begin{DoxyCompactList}\small\item\em Evaluates a non-\/conforming discrete function in the cell iT at point (x,y) \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga138ab0f00010464e6354c22a649a4955}{nc\+\_\+\+Vertex\+Values}} (const Eigen\+::\+Vector\+Xd Xh, const double weight=0)
 \begin{DoxyCompactList}\small\item\em From a non-\/conforming discrete function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} class provides basis functions for non-\/conforming schemes on generic polygonal meshes 
+The \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} class provides basis functions for non-\/conforming schemes on generic polygonal meshes 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+L\+E\+P\+N\+C/lepnccore.\+hpp\end{DoxyCompactItemize}
+Schemes/\+LEPNC/\mbox{\hyperlink{lepnccore_8hpp}{lepnccore.\+hpp}}\end{DoxyCompactItemize}

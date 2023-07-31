@@ -3,12 +3,13 @@
 #include <boost/timer/timer.hpp>
 
 //const std::string mesh_root = "/home/liam/HHO/liamyemm/HArDCore2D-liam/typ2_meshes/";
-const std::string mesh_root = "../../typ2_meshes/";
+// const std::string mesh_root = "../../typ2_meshes/";
 
 int main(int argc, char *argv[])
 {
     std::string mesh_file = argv[1];
-    std::size_t iterations = std::stoi(argv[2]);
+    std::string output_file = argv[2];
+    std::size_t iterations = std::stoi(argv[3]);
     
     std::cout.unsetf ( std::ios::floatfield );
     std::cout.precision(4);
@@ -16,7 +17,8 @@ int main(int argc, char *argv[])
     //  Open mesh file
 
     std::ifstream inMesh;
-    inMesh.open(mesh_root + mesh_file + ".typ2");
+    // inMesh.open(mesh_root + mesh_file + ".typ2");
+    inMesh.open(mesh_file);
     if (!inMesh)
     {
         std::cerr << "Unable to open mesh file\n";
@@ -109,7 +111,7 @@ int main(int argc, char *argv[])
     // graph.plotfile(&plotout, vertices);
     // plotout.close();    
     
-    std::string partition = graph.get_partition();
+    // std::string partition = graph.get_partition();
     
     NodeArray cell_node_array = graph.graph_to_array();
 
@@ -126,21 +128,21 @@ int main(int argc, char *argv[])
 
     std::cout << "\nWriting mesh to file\n";
 
-    std::ofstream out(mesh_root + "agglomerated/" + mesh_file + ".coarse." + 			std::to_string(iterations) + ".typ2");
+    std::ofstream out(output_file);
 
     out << "Vertices"
         << "\n";
     out << n_verts << "\n";
     for (size_t iV = 0; iV < n_verts; iV++)
     {
-        out << std::setprecision(16) << vertices[iV](0);
+        out << std::setprecision(17) << vertices[iV](0);
         out << " ";
-        out << std::setprecision(16) << vertices[iV](1);
+        out << std::setprecision(17) << vertices[iV](1);
         out << "\n";
     }
     
     cell_node_array.print(&out);
-    out << partition;
+    // out << partition;
     out.close();
 
     return 0;

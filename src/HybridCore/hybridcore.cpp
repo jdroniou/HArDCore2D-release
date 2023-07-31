@@ -6,7 +6,7 @@
 
 
 #include "hybridcore.hpp"
-#include "vertex.hpp"
+#include "mesh.hpp"
 #include <quad2d.hpp>
 #include <quad1d.hpp>
 #include <Eigen/Dense>
@@ -17,7 +17,7 @@ using namespace HArDCore2D;
 //----------------------------------------------------------------------------
 //                UVector
 //----------------------------------------------------------------------------
-UVector::UVector(const Eigen::VectorXd values, const Mesh& mesh, const int cell_deg, const size_t edge_deg)
+UVector::UVector(const Eigen::VectorXd & values, const Mesh & mesh, const int cell_deg, const size_t edge_deg)
   : m_values(values),
     m_mesh(mesh), 
     m_cell_deg(cell_deg),

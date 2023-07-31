@@ -22,10 +22,10 @@
 
 #include "basis.hpp"
 
-namespace HArDCore2D
-{ // Forward declaration
-class Cell;
-}
+//namespace HArDCore2D
+//{ // Forward declaration
+//class Cell;
+//}
 
 using namespace HArDCore2D;
 

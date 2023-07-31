@@ -121,7 +121,16 @@ DDRCore::CellBases DDRCore::_construct_cell_bases(size_t iT)
   bases_T.RolyComplkp2.reset( new RolyComplBasisCellType(l2_orthonormalize(basis_Rckp2_T, GramMatrix(T, basis_Rckp2_T, int_monoT_2kp4))) );
   assert ( bases_T.RolyComplkp2->dimension() == PolynomialSpaceDimension<Cell>::RolyCompl(m_K+2) );
 
+  //------------------------------------------------------------------------------
+  // Basis for Gck+2(T)
+  //------------------------------------------------------------------------------
 
+  // Non-orthonormalised
+  GolyComplBasisCell basis_Gckp2_T(T, m_K+2);
+  // Orthonormalise, store and check dimension
+  bases_T.GolyComplkp2.reset( new GolyComplBasisCellType(l2_orthonormalize(basis_Gckp2_T, GramMatrix(T, basis_Gckp2_T, int_monoT_2kp4))) );
+  assert ( bases_T.GolyComplkp2->dimension() == PolynomialSpaceDimension<Cell>::GolyCompl(m_K+2) );
+  
   return bases_T;
 }
 

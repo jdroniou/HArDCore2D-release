@@ -1,8 +1,8 @@
-\hypertarget{structHArDCore2D_1_1evaluate__quad}{}\doxysection{H\+Ar\+D\+Core2D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$ Struct Template Reference}
+\hypertarget{structHArDCore2D_1_1evaluate__quad}{}\doxysection{HAr\+DCore2D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$ Struct Template Reference}
 \label{structHArDCore2D_1_1evaluate__quad}\index{HArDCore2D::evaluate\_quad$<$ BasisFunction $>$@{HArDCore2D::evaluate\_quad$<$ BasisFunction $>$}}
 
 
-Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate.  
+Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl, Divergence, or Rotor) determines what kind of value we want to evaluate.  
 
 
 
@@ -12,22 +12,22 @@ Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquot
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ Basis\+Type, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga687c3c9504c4b10c5a18654530980086}{compute}} (const Basis\+Type \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ Basis\+Type, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga687c3c9504c4b10c5a18654530980086}{compute}} (const Basis\+Type \&basis, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad)
 \begin{DoxyCompactList}\small\item\em Generic basis evaluation. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type $>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga06cedf0c3440b94b9974922c72ea7c11}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ Basis\+Type $>$ \&basis, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad)
 \begin{DoxyCompactList}\small\item\em Evaluate a \textquotesingle{}\mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}\textquotesingle{} of functions at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga2e707628cf7f51dd4ecf63182eea847a}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$ \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga2e707628cf7f51dd4ecf63182eea847a}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ Basis\+Type, N $>$ \&basis, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad)
 \begin{DoxyCompactList}\small\item\em Evaluate a tensorized family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga77e7551793be854d7b654addf292aa6b}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$ \&basis, const Quadrature\+Rule \&quad)
+{\footnotesize template$<$typename Basis\+Type , size\+\_\+t N$>$ }\\static boost\+::multi\+\_\+array$<$ typename \mbox{\hyperlink{structHArDCore2D_1_1detail_1_1basis__evaluation__traits}{detail\+::basis\+\_\+evaluation\+\_\+traits}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$, Basis\+Function $>$\+::Return\+Value, 2 $>$ \mbox{\hyperlink{group__Basis_ga77e7551793be854d7b654addf292aa6b}{compute}} (const \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ Basis\+Type, N $>$ \&basis, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad)
 \begin{DoxyCompactList}\small\item\em Evaluate a Matrix family at quadrature nodes (optimised compared the generic basis evaluation, to avoid computing several times the ancestor basis at the quadrature nodes) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$Basis\+FunctionE Basis\+Function$>$\newline
-struct H\+Ar\+D\+Core2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}
+struct HAr\+DCore2\+D\+::evaluate\+\_\+quad$<$ Basis\+Function $>$}
 
-Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl or Divergence) determines what kind of value we want to evaluate. 
+Evaluate a basis at quadrature nodes. \textquotesingle{}Basis\+Function\textquotesingle{} (=Function, Gradient, Curl, Divergence, or Rotor) determines what kind of value we want to evaluate. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Common/basis.\+hpp\end{DoxyCompactItemize}
+src/\+Common/\mbox{\hyperlink{basis_8hpp}{basis.\+hpp}}\end{DoxyCompactItemize}

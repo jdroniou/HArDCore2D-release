@@ -1,4 +1,4 @@
-\hypertarget{group__LEPNC}{}\doxysection{L\+E\+P\+NC}
+\hypertarget{group__LEPNC}{}\doxysection{LEPNC}
 \label{group__LEPNC}\index{LEPNC@{LEPNC}}
 
 
@@ -8,178 +8,135 @@ Implementations of the Locally Enriched Polytopal Non-\/\+Conforming method.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion}}
-\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{L\+E\+P\+N\+C\+\_\+diffusion}} class provides an implementation of the L\+E\+P\+NC method for the stationnary diffusion problem $-div(K\nabla u)=f$. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}}
-\begin{DoxyCompactList}\small\item\em L\+E\+P\+NC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}
-\begin{DoxyCompactList}\small\item\em L\+E\+P\+NC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core}}
+class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__diffusion}{LEPNC\+\_\+diffusion}} class provides an implementation of the LEPNC method for the stationnary diffusion problem $-div(K\nabla u)=f$. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME}}
+\begin{DoxyCompactList}\small\item\em LEPNC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient}}
+\begin{DoxyCompactList}\small\item\em LEPNC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{HAr\+DCore2\+D\+::\+LEPNCCore}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}\label{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}} 
-using \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}\label{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}} 
-using \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::source\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga131fb280800f4892b2961ef00c671804}\label{group__LEPNC_ga131fb280800f4892b2961ef00c671804}} 
-using \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}\label{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}} 
-using \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}\label{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}} 
-using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}\label{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}} 
-using \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::source\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}\label{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}} 
-using \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}\label{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}} 
-using \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}\label{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}} 
-using \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$
+using \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}\label{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}} 
-using \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}\label{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}} 
-using \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}\label{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}} 
-using \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(const double, const double, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const double, const double, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor (does not depend on time) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}\label{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}} 
-using \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::cell\+\_\+basis\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{HAr\+DCore2\+D\+::\+LEPNCCore\+::cell\+\_\+basis\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for cell basis \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}\label{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}} 
-using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::cell\+\_\+gradient\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{HAr\+DCore2\+D\+::\+LEPNCCore\+::cell\+\_\+gradient\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for gradients of cell basis \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+L\+E\+P\+N\+C\+\_\+diffusion}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::\+LEPNC\+\_\+diffusion}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&nc, \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}\label{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}} 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::solve}} ()
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::solve}} ()
 \begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}\label{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}} 
-double \mbox{\hyperlink{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
+double \mbox{\hyperlink{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
 \begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}\label{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}} 
-double \mbox{\hyperlink{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+assembly\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+assembly\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga859f049e096188319a39357ce87efedc}\label{group__LEPNC_ga859f049e096188319a39357ce87efedc}} 
-double \mbox{\hyperlink{group__LEPNC_ga859f049e096188319a39357ce87efedc}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+solving\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_ga859f049e096188319a39357ce87efedc}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+solving\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}\label{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}} 
-double \mbox{\hyperlink{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+solving\+\_\+error}} () const
+double \mbox{\hyperlink{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+solving\+\_\+error}} () const
 \begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}\label{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}} 
-double \mbox{\hyperlink{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::get\+\_\+itime}} (size\+\_\+t idx) const
+double \mbox{\hyperlink{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+itime}} (size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__LEPNC_ga3b61172d0528de628227d64dac41e398}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__LEPNC_ga3b61172d0528de628227d64dac41e398}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+LEPNC\+\_\+\+Stefan\+PME}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&nc, \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}\label{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}} 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::solve}} ()
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::solve}} ()
 \begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}\label{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}} 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
 \begin{DoxyCompactList}\small\item\em Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}\label{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}} 
-double \mbox{\hyperlink{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+L2\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh) const
+double \mbox{\hyperlink{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+L2\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh) const
 \begin{DoxyCompactList}\small\item\em Mass-\/lumped L2 norm of a function given by a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}\label{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}} 
-double \mbox{\hyperlink{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
+double \mbox{\hyperlink{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
 \begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}\label{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}} 
-double \mbox{\hyperlink{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+assembly\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+assembly\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaaf712a785461b54a8070552920d674ce}\label{group__LEPNC_gaaf712a785461b54a8070552920d674ce}} 
-double \mbox{\hyperlink{group__LEPNC_gaaf712a785461b54a8070552920d674ce}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+solving\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_gaaf712a785461b54a8070552920d674ce}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+solving\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}\label{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}} 
-double \mbox{\hyperlink{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+solving\+\_\+error}} () const
+double \mbox{\hyperlink{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+solving\+\_\+error}} () const
 \begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}\label{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}} 
-double \mbox{\hyperlink{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::get\+\_\+itime}} (size\+\_\+t idx) const
+double \mbox{\hyperlink{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+itime}} (size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__LEPNC_ga1af1664183475a426585bdd324629855}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__LEPNC_ga1af1664183475a426585bdd324629855}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&nc, \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga21dbcbf35ae6613a7ef46e88f81faf27}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::iterate}} (const double tps, const double dt, const Eigen\+::\+Vector\+Xd Xn)
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga21dbcbf35ae6613a7ef46e88f81faf27}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::iterate}} (const double tps, const double dt, const Eigen\+::\+Vector\+Xd Xn)
 \begin{DoxyCompactList}\small\item\em Execute one time iteration. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}\label{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}} 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
 \begin{DoxyCompactList}\small\item\em Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga412a76890caa8853b61f139a09749da1}\label{group__LEPNC_ga412a76890caa8853b61f139a09749da1}} 
-double \mbox{\hyperlink{group__LEPNC_ga412a76890caa8853b61f139a09749da1}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh) const
+double \mbox{\hyperlink{group__LEPNC_ga412a76890caa8853b61f139a09749da1}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh) const
 \begin{DoxyCompactList}\small\item\em Mass-\/lumped L2 norm of a function given by a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}\label{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}} 
-double \mbox{\hyperlink{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh, double p) const
+double \mbox{\hyperlink{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped}} (const Eigen\+::\+Vector\+Xd Xh, double p) const
 \begin{DoxyCompactList}\small\item\em Mass-\/lumped Lp norm of a function given by a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga631747810e7659029ea929e2f6c85307}\label{group__LEPNC_ga631747810e7659029ea929e2f6c85307}} 
-double \mbox{\hyperlink{group__LEPNC_ga631747810e7659029ea929e2f6c85307}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
+double \mbox{\hyperlink{group__LEPNC_ga631747810e7659029ea929e2f6c85307}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Energy\+Norm}} (const Eigen\+::\+Vector\+Xd Xh) const
 \begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gac849e27507300e210d131fa1b35d307a}\label{group__LEPNC_gac849e27507300e210d131fa1b35d307a}} 
-double \mbox{\hyperlink{group__LEPNC_gac849e27507300e210d131fa1b35d307a}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_gac849e27507300e210d131fa1b35d307a}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}\label{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}} 
-double \mbox{\hyperlink{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time}} () const
+double \mbox{\hyperlink{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}\label{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}} 
-double \mbox{\hyperlink{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+itime}} (size\+\_\+t idx) const
+double \mbox{\hyperlink{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+itime}} (size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}\label{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}} 
-double \mbox{\hyperlink{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error}} () const
+double \mbox{\hyperlink{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error}} () const
 \begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}\label{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}} 
-size\+\_\+t \mbox{\hyperlink{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton}} () const
+size\+\_\+t \mbox{\hyperlink{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton}} () const
 \begin{DoxyCompactList}\small\item\em number of Newton iterations \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}\label{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}} 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+\+MassT}} (size\+\_\+t iT) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+\+MassT}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Mass matrix in cell iT. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__LEPNC_ga1f6cfe8b236b45f0a1bacdfa2f266b9a}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::\+L\+E\+P\+N\+C\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$mesh\+\_\+ptr, const size\+\_\+t K, const size\+\_\+t L, std\+::ostream \&output=std\+::cout)
-\begin{DoxyCompactList}\small\item\em Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} class, and creates non-\/conforming basis functions (and gradients) \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_gaccbc6dbe66d8f292e360c1f64d77d979}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+basis}} (size\+\_\+t iT, size\+\_\+t i) const
+\mbox{\hyperlink{group__LEPNC_ga1f6cfe8b236b45f0a1bacdfa2f266b9a}{HAr\+DCore2\+D\+::\+LEPNCCore\+::\+LEPNCCore}} (const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} $\ast$mesh\+\_\+ptr, const size\+\_\+t \mbox{\hyperlink{group__HHO__DiffAdvecReac_gaf169764abf85f85bec428e43dc60274b}{K}}, const size\+\_\+t \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga91a0b997ce3aa9aa56b8cba3620fed15}{L}}, std\+::ostream \&output=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} class, and creates non-\/conforming basis functions (and gradients) \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{cell\+\_\+basis\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_gaccbc6dbe66d8f292e360c1f64d77d979}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+basis}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return a reference to the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+gradient}} (size\+\_\+t iT, size\+\_\+t i) const
+const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{cell\+\_\+gradient\+\_\+type}} \& \mbox{\hyperlink{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+gradient}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return a reference to the gradient of the i\textquotesingle{}th non-\/conforming basis function of the cell iT. \end{DoxyCompactList}\item 
-const Vector\+Rd \mbox{\hyperlink{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::ml\+\_\+node}} (size\+\_\+t iT, size\+\_\+t i) const
+const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \mbox{\hyperlink{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}{HAr\+DCore2\+D\+::\+LEPNCCore\+::ml\+\_\+node}} (size\+\_\+t iT, size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \begin{DoxyCompactList}\small\item\em Return the i\textquotesingle{}th nodal point in cell iT (for mass lumping) \end{DoxyCompactList}\item 
-const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga26cf2df3130caf5758845f5c63d9e677}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga26cf2df3130caf5758845f5c63d9e677}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} quad) const
 \begin{DoxyCompactList}\small\item\em Computes non-\/conforming basis functions at the given quadrature nodes. \end{DoxyCompactList}\item 
-const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \mbox{\hyperlink{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::grad\+\_\+nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const Quadrature\+Rule quad) const
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}{HAr\+DCore2\+D\+::\+LEPNCCore\+::grad\+\_\+nc\+\_\+basis\+\_\+quad}} (const size\+\_\+t iT, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} quad) const
 \begin{DoxyCompactList}\small\item\em Compute $(\nabla \phi_i^{nc})_{i\in I}$ at the quadrature nodes, where $(\phi_i^{nc})_{i\in I}$ are the cell basis functions. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga1741161cc8f8fa172bc5d5e4e2573e05}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga1741161cc8f8fa172bc5d5e4e2573e05}{HAr\+DCore2\+D\+::\+LEPNCCore\+::gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
 \item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga2cd484e7e7659ab4a73484be17a0948e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const Quadrature\+Rule \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga2cd484e7e7659ab4a73484be17a0948e}{HAr\+DCore2\+D\+::\+LEPNCCore\+::gram\+\_\+matrix}} (const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
 \begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}\label{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}} 
-{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+moments}} (const Function \&f, size\+\_\+t doe) const
-\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+ml}} (const Function \&f, size\+\_\+t doe) const
-\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga2b5ccb61b2dfc3b515728d77cc261d2b}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+restr}} (const Eigen\+::\+Vector\+Xd \&Xh, size\+\_\+t iT) const
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+interpolate\+\_\+moments}} (const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+interpolate\+\_\+ml}} (const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga2b5ccb61b2dfc3b515728d77cc261d2b}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+restr}} (const Eigen\+::\+Vector\+Xd \&Xh, size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Extract from a global vector Xh of unknowns the non-\/conforming unknowns corresponding to cell iT. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}\label{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}} 
-double \mbox{\hyperlink{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+\+L2norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
+double \mbox{\hyperlink{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+L2norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute L2 norm of a discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}\label{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}} 
-double \mbox{\hyperlink{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+\+L2norm\+\_\+ml}} (const Eigen\+::\+Vector\+Xd \&Xh) const
+double \mbox{\hyperlink{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+L2norm\+\_\+ml}} (const Eigen\+::\+Vector\+Xd \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute L2 norm of the mass-\/lumped discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}\label{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}} 
-double \mbox{\hyperlink{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+\+H1norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
+double \mbox{\hyperlink{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+H1norm}} (const Eigen\+::\+Vector\+Xd \&Xh) const
 \begin{DoxyCompactList}\small\item\em Compute broken H1 norm of a discrete function (given by coefficients on the basis functions) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}\label{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}} 
-double \mbox{\hyperlink{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+evaluate\+\_\+in\+\_\+cell}} (const Eigen\+::\+Vector\+Xd X\+TF, size\+\_\+t iT, double x, double y) const
+double \mbox{\hyperlink{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+evaluate\+\_\+in\+\_\+cell}} (const Eigen\+::\+Vector\+Xd XTF, size\+\_\+t iT, double x, double y) const
 \begin{DoxyCompactList}\small\item\em Evaluates a non-\/conforming discrete function in the cell iT at point (x,y) \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga138ab0f00010464e6354c22a649a4955}{H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+\+Vertex\+Values}} (const Eigen\+::\+Vector\+Xd Xh, const double weight=0)
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga138ab0f00010464e6354c22a649a4955}{HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+Vertex\+Values}} (const Eigen\+::\+Vector\+Xd Xh, const double weight=0)
 \begin{DoxyCompactList}\small\item\em From a non-\/conforming discrete function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -188,12 +145,345 @@ Implementations of the Locally Enriched Polytopal Non-\/\+Conforming method.
 
 Locally Enriched Polytopal Non-\/\+Conforming method.
 
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}\label{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}} 
+\index{LEPNC@{LEPNC}!cell\_basis\_type@{cell\_basis\_type}}
+\index{cell\_basis\_type@{cell\_basis\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{cell\_basis\_type}{cell\_basis\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{HAr\+DCore2\+D\+::\+LEPNCCore\+::cell\+\_\+basis\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(double, double)$>$}
+
+
+
+type for cell basis 
+
+\mbox{\Hypertarget{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}\label{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}} 
+\index{LEPNC@{LEPNC}!cell\_gradient\_type@{cell\_gradient\_type}}
+\index{cell\_gradient\_type@{cell\_gradient\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{cell\_gradient\_type}{cell\_gradient\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{HAr\+DCore2\+D\+::\+LEPNCCore\+::cell\+\_\+gradient\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$\mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double)$>$}
+
+
+
+type for gradients of cell basis 
+
+\mbox{\Hypertarget{group__LEPNC_ga131fb280800f4892b2961ef00c671804}\label{group__LEPNC_ga131fb280800f4892b2961ef00c671804}} 
+\index{LEPNC@{LEPNC}!grad\_function\_type@{grad\_function\_type}}
+\index{grad\_function\_type@{grad\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{grad\_function\_type}{grad\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::grad\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$\mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double,double,Cell$\ast$)$>$}
+
+
+
+type for gradient 
+
+\mbox{\Hypertarget{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}\label{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}} 
+\index{LEPNC@{LEPNC}!grad\_function\_type@{grad\_function\_type}}
+\index{grad\_function\_type@{grad\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{grad\_function\_type}{grad\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::grad\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$\mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double,double,Cell$\ast$)$>$}
+
+
+
+type for gradient 
+
+\mbox{\Hypertarget{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}\label{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}} 
+\index{LEPNC@{LEPNC}!grad\_function\_type@{grad\_function\_type}}
+\index{grad\_function\_type@{grad\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{grad\_function\_type}{grad\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$\mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&, const Cell$\ast$)$>$}
+
+
+
+type for gradient 
+
+\mbox{\Hypertarget{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}\label{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}} 
+\index{LEPNC@{LEPNC}!solution\_function\_type@{solution\_function\_type}}
+\index{solution\_function\_type@{solution\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{solution\_function\_type}{solution\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::solution\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(double,double)$>$}
+
+
+
+type for solution 
+
+\mbox{\Hypertarget{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}\label{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}} 
+\index{LEPNC@{LEPNC}!solution\_function\_type@{solution\_function\_type}}
+\index{solution\_function\_type@{solution\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{solution\_function\_type}{solution\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::solution\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(double,double)$>$}
+
+
+
+type for solution 
+
+\mbox{\Hypertarget{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}\label{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}} 
+\index{LEPNC@{LEPNC}!solution\_function\_type@{solution\_function\_type}}
+\index{solution\_function\_type@{solution\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{solution\_function\_type}{solution\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&)$>$}
+
+
+
+type for solution 
+
+\mbox{\Hypertarget{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}\label{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}} 
+\index{LEPNC@{LEPNC}!source\_function\_type@{source\_function\_type}}
+\index{source\_function\_type@{source\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{source\_function\_type}{source\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::source\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(double,double,Cell$\ast$)$>$}
+
+
+
+type for source 
+
+\mbox{\Hypertarget{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}\label{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}} 
+\index{LEPNC@{LEPNC}!source\_function\_type@{source\_function\_type}}
+\index{source\_function\_type@{source\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{source\_function\_type}{source\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::source\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(double,double,Cell$\ast$)$>$}
+
+
+
+type for source 
+
+\mbox{\Hypertarget{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}\label{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}} 
+\index{LEPNC@{LEPNC}!source\_function\_type@{source\_function\_type}}
+\index{source\_function\_type@{source\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{source\_function\_type}{source\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&, const Cell$\ast$)$>$}
+
+
+
+type for source 
+
+\mbox{\Hypertarget{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}\label{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}} 
+\index{LEPNC@{LEPNC}!tensor\_function\_type@{tensor\_function\_type}}
+\index{tensor\_function\_type@{tensor\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{tensor\_function\_type}{tensor\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::tensor\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(double,double,Cell$\ast$)$>$}
+
+
+
+type for diffusion tensor 
+
+\mbox{\Hypertarget{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}\label{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}} 
+\index{LEPNC@{LEPNC}!tensor\_function\_type@{tensor\_function\_type}}
+\index{tensor\_function\_type@{tensor\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{tensor\_function\_type}{tensor\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::tensor\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(double,double,Cell$\ast$)$>$}
+
+
+
+type for diffusion tensor 
+
+\mbox{\Hypertarget{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}\label{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}} 
+\index{LEPNC@{LEPNC}!tensor\_function\_type@{tensor\_function\_type}}
+\index{tensor\_function\_type@{tensor\_function\_type}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{tensor\_function\_type}{tensor\_function\_type}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(const double, const double, const Cell$\ast$)$>$}
+
+
+
+type for diffusion tensor (does not depend on time) 
+
+
+
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}\label{group__LEPNC_ga7a023d20d6d91ef4b3be9023ee2ae568}} 
+\index{LEPNC@{LEPNC}!apply\_nonlinearity@{apply\_nonlinearity}}
+\index{apply\_nonlinearity@{apply\_nonlinearity}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{apply\_nonlinearity()}{apply\_nonlinearity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::apply\+\_\+nonlinearity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Y,  }\item[{const std\+::string}]{type }\end{DoxyParamCaption}) const}
+
+
+
+Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) 
+
+\mbox{\Hypertarget{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}\label{group__LEPNC_ga00e361e91d88311ba7f690a743e9e74a}} 
+\index{LEPNC@{LEPNC}!apply\_nonlinearity@{apply\_nonlinearity}}
+\index{apply\_nonlinearity@{apply\_nonlinearity}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{apply\_nonlinearity()}{apply\_nonlinearity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Y,  }\item[{const std\+::string}]{type }\end{DoxyParamCaption}) const}
+
+
+
+Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) 
+
+\mbox{\Hypertarget{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}\label{group__LEPNC_gae3a86bb47a3a740ea5116d3b31e80251}} 
+\index{LEPNC@{LEPNC}!EnergyNorm@{EnergyNorm}}
+\index{EnergyNorm@{EnergyNorm}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{EnergyNorm()}{EnergyNorm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::\+Energy\+Norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Discrete energy norm (associated to the diffusion operator) 
+
+\mbox{\Hypertarget{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}\label{group__LEPNC_ga764da9fe2d73272eb3630f6009c992ec}} 
+\index{LEPNC@{LEPNC}!EnergyNorm@{EnergyNorm}}
+\index{EnergyNorm@{EnergyNorm}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{EnergyNorm()}{EnergyNorm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+Energy\+Norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Discrete energy norm (associated to the diffusion operator) 
+
+\mbox{\Hypertarget{group__LEPNC_ga631747810e7659029ea929e2f6c85307}\label{group__LEPNC_ga631747810e7659029ea929e2f6c85307}} 
+\index{LEPNC@{LEPNC}!EnergyNorm@{EnergyNorm}}
+\index{EnergyNorm@{EnergyNorm}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{EnergyNorm()}{EnergyNorm()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Energy\+Norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Discrete energy norm (associated to the diffusion operator) 
+
+\mbox{\Hypertarget{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}\label{group__LEPNC_gad745cd64930414f3f35dc3791f18e3bd}} 
+\index{LEPNC@{LEPNC}!get\_assembly\_time@{get\_assembly\_time}}
+\index{get\_assembly\_time@{get\_assembly\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_assembly\_time()}{get\_assembly\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+assembly\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+cpu time to assemble the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}\label{group__LEPNC_ga9dc1fbcaddaa4fc0e87f1bed4d40433f}} 
+\index{LEPNC@{LEPNC}!get\_assembly\_time@{get\_assembly\_time}}
+\index{get\_assembly\_time@{get\_assembly\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_assembly\_time()}{get\_assembly\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+assembly\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+cpu time to assemble the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_gac849e27507300e210d131fa1b35d307a}\label{group__LEPNC_gac849e27507300e210d131fa1b35d307a}} 
+\index{LEPNC@{LEPNC}!get\_assembly\_time@{get\_assembly\_time}}
+\index{get\_assembly\_time@{get\_assembly\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_assembly\_time()}{get\_assembly\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cpu time to assemble the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}\label{group__LEPNC_ga2192fab8a7521f0d2ca5521d0e111f01}} 
+\index{LEPNC@{LEPNC}!get\_itime@{get\_itime}}
+\index{get\_itime@{get\_itime}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_itime()}{get\_itime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+itime (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+various intermediate assembly times 
+
+\mbox{\Hypertarget{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}\label{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}} 
+\index{LEPNC@{LEPNC}!get\_itime@{get\_itime}}
+\index{get\_itime@{get\_itime}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_itime()}{get\_itime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+itime (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+various intermediate assembly times 
+
+\mbox{\Hypertarget{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}\label{group__LEPNC_ga8ca287c16f929fb9fa229d0386987909}} 
+\index{LEPNC@{LEPNC}!get\_itime@{get\_itime}}
+\index{get\_itime@{get\_itime}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_itime()}{get\_itime()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+itime (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+various intermediate assembly times 
+
+\mbox{\Hypertarget{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}\label{group__LEPNC_ga08dbbd6c3203d4f215e22ec6395fa656}} 
+\index{LEPNC@{LEPNC}!get\_MassT@{get\_MassT}}
+\index{get\_MassT@{get\_MassT}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_MassT()}{get\_MassT()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+\+MassT (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mass matrix in cell iT. 
+
+\mbox{\Hypertarget{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}\label{group__LEPNC_ga51d16e930dd351d79a9212097a839a24}} 
+\index{LEPNC@{LEPNC}!get\_nb\_newton@{get\_nb\_newton}}
+\index{get\_nb\_newton@{get\_nb\_newton}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_nb\_newton()}{get\_nb\_newton()}}
+{\footnotesize\ttfamily size\+\_\+t HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+number of Newton iterations 
+
+\mbox{\Hypertarget{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}\label{group__LEPNC_ga687ee21792292c5d7be6b2493188e86a}} 
+\index{LEPNC@{LEPNC}!get\_solving\_error@{get\_solving\_error}}
+\index{get\_solving\_error@{get\_solving\_error}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_error()}{get\_solving\_error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+solving\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+residual after solving the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}\label{group__LEPNC_ga3747e03c1878fc65e94bcc1667f48266}} 
+\index{LEPNC@{LEPNC}!get\_solving\_error@{get\_solving\_error}}
+\index{get\_solving\_error@{get\_solving\_error}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_error()}{get\_solving\_error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+solving\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+residual after solving the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}\label{group__LEPNC_ga9f6852492de34131b28d1f2769578bda}} 
+\index{LEPNC@{LEPNC}!get\_solving\_error@{get\_solving\_error}}
+\index{get\_solving\_error@{get\_solving\_error}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_error()}{get\_solving\_error()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+residual after solving the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga859f049e096188319a39357ce87efedc}\label{group__LEPNC_ga859f049e096188319a39357ce87efedc}} 
+\index{LEPNC@{LEPNC}!get\_solving\_time@{get\_solving\_time}}
+\index{get\_solving\_time@{get\_solving\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_time()}{get\_solving\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::get\+\_\+solving\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+cpu time to solve the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_gaaf712a785461b54a8070552920d674ce}\label{group__LEPNC_gaaf712a785461b54a8070552920d674ce}} 
+\index{LEPNC@{LEPNC}!get\_solving\_time@{get\_solving\_time}}
+\index{get\_solving\_time@{get\_solving\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_time()}{get\_solving\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::get\+\_\+solving\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+cpu time to solve the scheme 
+
+\mbox{\Hypertarget{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}\label{group__LEPNC_ga7a53e030236aee0c1a4d4aee9f735b37}} 
+\index{LEPNC@{LEPNC}!get\_solving\_time@{get\_solving\_time}}
+\index{get\_solving\_time@{get\_solving\_time}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_time()}{get\_solving\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cpu time to solve the scheme 
+
 \mbox{\Hypertarget{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}\label{group__LEPNC_ga45ee3494e636432ae9077f582c0d53c0}} 
 \index{LEPNC@{LEPNC}!grad\_nc\_basis\_quad@{grad\_nc\_basis\_quad}}
 \index{grad\_nc\_basis\_quad@{grad\_nc\_basis\_quad}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{grad\_nc\_basis\_quad()}{grad\_nc\_basis\_quad()}}
-{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::grad\+\_\+nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const Quadrature\+Rule}]{quad }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ HAr\+DCore2\+D\+::\+LEPNCCore\+::grad\+\_\+nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}}}]{quad }\end{DoxyParamCaption}) const}
 
 
 
@@ -213,7 +503,7 @@ Dnc\+\_\+phi\+\_\+quad\mbox{[}i\mbox{]}\+: array of size 2$\ast$nbq (where nbq=n
 \index{LEPNC@{LEPNC}!gram\_matrix@{gram\_matrix}}
 \index{gram\_matrix@{gram\_matrix}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{gram\_matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ double $>$}]{L2weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ double $>$}]{L2weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
 
 Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of functions (this is not really a Gram matrix, unless the two families are the same) \begin{DoxyReturn}{Returns}
 The matrix $(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
@@ -239,7 +529,7 @@ Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of fu
 \index{LEPNC@{LEPNC}!gram\_matrix@{gram\_matrix}}
 \index{gram\_matrix@{gram\_matrix}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{gram\_matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+X\+Xd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const Quadrature\+Rule \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ Eigen\+::\+Matrix2d $>$}]{L2\+Weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}} \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ Eigen\+::\+Matrix2d $>$}]{L2\+Weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
 
 
 
@@ -269,7 +559,7 @@ The matrix $(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
 \index{LEPNC@{LEPNC}!iterate@{iterate}}
 \index{iterate@{iterate}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{iterate()}{iterate()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::iterate (\begin{DoxyParamCaption}\item[{const double}]{tps,  }\item[{const double}]{dt,  }\item[{const Eigen\+::\+Vector\+Xd}]{Xn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::iterate (\begin{DoxyParamCaption}\item[{const double}]{tps,  }\item[{const double}]{dt,  }\item[{const Eigen\+::\+Vector\+Xd}]{Xn }\end{DoxyParamCaption})}
 
 
 
@@ -284,11 +574,31 @@ Execute one time iteration.
 {\em Xn} & Unkown at previous time step \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}\label{group__LEPNC_ga04a4d6e8d73abdb46464e80d2a21b2e7}} 
+\index{LEPNC@{LEPNC}!L2\_MassLumped@{L2\_MassLumped}}
+\index{L2\_MassLumped@{L2\_MassLumped}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{L2\_MassLumped()}{L2\_MassLumped()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+L2\+\_\+\+Mass\+Lumped (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Mass-\/lumped L2 norm of a function given by a vector. 
+
+\mbox{\Hypertarget{group__LEPNC_ga412a76890caa8853b61f139a09749da1}\label{group__LEPNC_ga412a76890caa8853b61f139a09749da1}} 
+\index{LEPNC@{LEPNC}!L2\_MassLumped@{L2\_MassLumped}}
+\index{L2\_MassLumped@{L2\_MassLumped}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{L2\_MassLumped()}{L2\_MassLumped()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Mass-\/lumped L2 norm of a function given by a vector. 
+
 \mbox{\Hypertarget{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}\label{group__LEPNC_gaae0d28247979eb271b77e4cc694f6d75}} 
 \index{LEPNC@{LEPNC}!LEPNC\_diffusion@{LEPNC\_diffusion}}
 \index{LEPNC\_diffusion@{LEPNC\_diffusion}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{LEPNC\_diffusion()}{LEPNC\_diffusion()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+diffusion\+::\+L\+E\+P\+N\+C\+\_\+diffusion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::\+LEPNC\+\_\+diffusion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga25aa9d13834504ef0e51893732c88b01}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gae128bf98004abb3e21bbce3a6465b37e}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_gaaa5b13bc0eaacce6b494fedc3d7b0d37}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_ga131fb280800f4892b2961ef00c671804}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 
@@ -319,7 +629,7 @@ Constructor of the class.
 \index{LEPNC@{LEPNC}!LEPNC\_StefanPME@{LEPNC\_StefanPME}}
 \index{LEPNC\_StefanPME@{LEPNC\_StefanPME}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{LEPNC\_StefanPME()}{LEPNC\_StefanPME()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::\+LEPNC\+\_\+\+Stefan\+PME (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 
@@ -354,7 +664,7 @@ Constructor of the class.
 \index{LEPNC@{LEPNC}!LEPNC\_StefanPME\_Transient@{LEPNC\_StefanPME\_Transient}}
 \index{LEPNC\_StefanPME\_Transient@{LEPNC\_StefanPME\_Transient}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{LEPNC\_StefanPME\_Transient()}{LEPNC\_StefanPME\_Transient()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&}]{nc,  }\item[{\mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{size\+\_\+t}]{deg\+\_\+kappa,  }\item[{\mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 
@@ -389,11 +699,11 @@ Constructor of the class.
 \index{LEPNC@{LEPNC}!LEPNCCore@{LEPNCCore}}
 \index{LEPNCCore@{LEPNCCore}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{LEPNCCore()}{LEPNCCore()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::\+L\+E\+P\+N\+C\+Core (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} $\ast$}]{mesh\+\_\+ptr,  }\item[{const size\+\_\+t}]{K,  }\item[{const size\+\_\+t}]{L,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+LEPNCCore\+::\+LEPNCCore (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} $\ast$}]{mesh\+\_\+ptr,  }\item[{const size\+\_\+t}]{K,  }\item[{const size\+\_\+t}]{L,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 
-Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} class, and creates non-\/conforming basis functions (and gradients) 
+Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} class, and creates non-\/conforming basis functions (and gradients) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -406,11 +716,21 @@ Class constructor\+: initialise the \mbox{\hyperlink{classHArDCore2D_1_1LEPNCCor
 {\em output} & Optional argument for specifying outputs of messages. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}\label{group__LEPNC_ga918897d726a3c13b1ba3437337ee63a7}} 
+\index{LEPNC@{LEPNC}!Lp\_MassLumped@{Lp\_MassLumped}}
+\index{Lp\_MassLumped@{Lp\_MassLumped}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{Lp\_MassLumped()}{Lp\_MassLumped()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{double}]{p }\end{DoxyParamCaption}) const}
+
+
+
+Mass-\/lumped Lp norm of a function given by a vector. 
+
 \mbox{\Hypertarget{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}\label{group__LEPNC_gaa71668de00ffbeccdd06b605737b0a74}} 
 \index{LEPNC@{LEPNC}!ml\_node@{ml\_node}}
 \index{ml\_node@{ml\_node}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{ml\_node()}{ml\_node()}}
-{\footnotesize\ttfamily const Vector\+Rd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::ml\+\_\+node (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} HAr\+DCore2\+D\+::\+LEPNCCore\+::ml\+\_\+node (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -427,7 +747,7 @@ Return the i\textquotesingle{}th nodal point in cell iT (for mass lumping)
 \index{LEPNC@{LEPNC}!nc\_basis@{nc\_basis}}
 \index{nc\_basis@{nc\_basis}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_basis()}{nc\_basis()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{L\+E\+P\+N\+C\+Core\+::cell\+\_\+basis\+\_\+type}} \& H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+basis (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{group__LEPNC_gaa109ebacac881c65c20a3a80cfeffba7}{LEPNCCore\+::cell\+\_\+basis\+\_\+type}} \& HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+basis (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -444,7 +764,7 @@ For i=Dim\+Poly$<$\+Cell$>$(1) to nedge-\/1, nc\+\_\+basis(i\+T,i) is the basis 
 \index{LEPNC@{LEPNC}!nc\_basis\_quad@{nc\_basis\_quad}}
 \index{nc\_basis\_quad@{nc\_basis\_quad}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_basis\_quad()}{nc\_basis\_quad()}}
-{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const Quadrature\+Rule}]{quad }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Array\+Xd $>$ HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+basis\+\_\+quad (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{iT,  }\item[{const \mbox{\hyperlink{group__Quadratures_ga08203d5fcf31125f46ed733ebfeac838}{Quadrature\+Rule}}}]{quad }\end{DoxyParamCaption}) const}
 
 
 
@@ -460,11 +780,21 @@ nc\+\_\+phi\+\_\+quad\mbox{[}i\mbox{]} = array listing the nbq (=nb of quadratur
 {\em quad} & quadrature nodes and weights on the cell/edge \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}\label{group__LEPNC_ga6594169cf850efddd4142cfa2e002994}} 
+\index{LEPNC@{LEPNC}!nc\_evaluate\_in\_cell@{nc\_evaluate\_in\_cell}}
+\index{nc\_evaluate\_in\_cell@{nc\_evaluate\_in\_cell}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{nc\_evaluate\_in\_cell()}{nc\_evaluate\_in\_cell()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+evaluate\+\_\+in\+\_\+cell (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{XTF,  }\item[{size\+\_\+t}]{iT,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption}) const}
+
+
+
+Evaluates a non-\/conforming discrete function in the cell iT at point (x,y) 
+
 \mbox{\Hypertarget{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}\label{group__LEPNC_ga5c66560734b4c2fe07b2e21d6cd1d5a2}} 
 \index{LEPNC@{LEPNC}!nc\_gradient@{nc\_gradient}}
 \index{nc\_gradient@{nc\_gradient}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_gradient()}{nc\_gradient()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{L\+E\+P\+N\+C\+Core\+::cell\+\_\+gradient\+\_\+type}} \& H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+gradient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{group__LEPNC_ga55bedecd14cffb98f57020923c968e89}{LEPNCCore\+::cell\+\_\+gradient\+\_\+type}} \& HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+gradient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -477,38 +807,79 @@ The gradient functions are indexed the same as the basis functions.
 {\em i} & The index of the desired basis function \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}\label{group__LEPNC_gaccf730494b67179982d6b8038e50e7fd}} 
+\index{LEPNC@{LEPNC}!nc\_H1norm@{nc\_H1norm}}
+\index{nc\_H1norm@{nc\_H1norm}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{nc\_H1norm()}{nc\_H1norm()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+H1norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Compute broken H1 norm of a discrete function (given by coefficients on the basis functions) 
+
 \mbox{\Hypertarget{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}\label{group__LEPNC_gaa86788a6f30f2a6505391795c6725834}} 
 \index{LEPNC@{LEPNC}!nc\_interpolate\_ml@{nc\_interpolate\_ml}}
 \index{nc\_interpolate\_ml@{nc\_interpolate\_ml}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_interpolate\_ml()}{nc\_interpolate\_ml()}}
 {\footnotesize\ttfamily template$<$typename Function $>$ \\
-Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+interpolate\+\_\+ml (\begin{DoxyParamCaption}\item[{const Function \&}]{f,  }\item[{size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
+Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+interpolate\+\_\+ml (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&}]{f,  }\item[{size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
 
 
 
-Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell D\+O\+Fs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge D\+O\+Fs (one for each edge) 
+Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions associated to the edges and the nodal values (corresponding to mass-\/lumping) on the cell basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) 
 
 \begin{DoxyReturn}{Returns}
-X\+TF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
+XTF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}\label{group__LEPNC_gac3b7abc3179ea83af2ee660c4e81f852}} 
+\index{LEPNC@{LEPNC}!nc\_interpolate\_moments@{nc\_interpolate\_moments}}
+\index{nc\_interpolate\_moments@{nc\_interpolate\_moments}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{nc\_interpolate\_moments()}{nc\_interpolate\_moments()}}
+{\footnotesize\ttfamily template$<$typename Function $>$ \\
+Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+interpolate\+\_\+moments (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__Basis_gga21912c7c8daa962296cd7f608150d525a1a14acde4d38992c7755a79eee79c2ae}{Function}} \&}]{f,  }\item[{size\+\_\+t}]{doe }\end{DoxyParamCaption}) const}
+
+
+
+Interpolates a continuous function on the degrees of freedom, using the moments on the basis functions. The first ones are the cell DOFs (Dim\+Poly$<$\+Cell$>$(1) for each cell), the last ones are the edge DOFs (one for each edge) 
+
+\mbox{\Hypertarget{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}\label{group__LEPNC_ga1c1faa68a13c6bcfa2778a35bfc5268e}} 
+\index{LEPNC@{LEPNC}!nc\_L2norm@{nc\_L2norm}}
+\index{nc\_L2norm@{nc\_L2norm}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{nc\_L2norm()}{nc\_L2norm()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+L2norm (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Compute L2 norm of a discrete function (given by coefficients on the basis functions) 
+
+\mbox{\Hypertarget{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}\label{group__LEPNC_gaa6e1db73269bd889a7e4311537300925}} 
+\index{LEPNC@{LEPNC}!nc\_L2norm\_ml@{nc\_L2norm\_ml}}
+\index{nc\_L2norm\_ml@{nc\_L2norm\_ml}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{nc\_L2norm\_ml()}{nc\_L2norm\_ml()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+L2norm\+\_\+ml (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Compute L2 norm of the mass-\/lumped discrete function (given by coefficients on the basis functions) 
+
 \mbox{\Hypertarget{group__LEPNC_ga2b5ccb61b2dfc3b515728d77cc261d2b}\label{group__LEPNC_ga2b5ccb61b2dfc3b515728d77cc261d2b}} 
 \index{LEPNC@{LEPNC}!nc\_restr@{nc\_restr}}
 \index{nc\_restr@{nc\_restr}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_restr()}{nc\_restr()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+restr (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh,  }\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+restr (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Xh,  }\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const}
 
 
 
 Extract from a global vector Xh of unknowns the non-\/conforming unknowns corresponding to cell iT. 
 
 \begin{DoxyReturn}{Returns}
-X\+TF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
+XTF = vector of coefficients on the basis functions; the first \char`\"{}\+Dim\+Poly$<$\+Cell$>$(1)$\ast$nb cells\char`\"{} correspond to the first three basis functions in each cell (1, x, y with adjustments for the averages on the edges and mass-\/lumping points), and the last \char`\"{}nb edges\char`\"{} to the edge basis functions. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{group__LEPNC_ga138ab0f00010464e6354c22a649a4955}\label{group__LEPNC_ga138ab0f00010464e6354c22a649a4955}} 
 \index{LEPNC@{LEPNC}!nc\_VertexValues@{nc\_VertexValues}}
 \index{nc\_VertexValues@{nc\_VertexValues}!LEPNC@{LEPNC}}
 \doxysubsubsection{\texorpdfstring{nc\_VertexValues()}{nc\_VertexValues()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+L\+E\+P\+N\+C\+Core\+::nc\+\_\+\+Vertex\+Values (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{const double}]{weight = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNCCore\+::nc\+\_\+\+Vertex\+Values (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{const double}]{weight = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 
@@ -521,3 +892,23 @@ From a non-\/conforming discrete function, computes a vector of values at the ve
 {\em weight} & weight put on the edge values when evaluating the functions at the vertices \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}\label{group__LEPNC_gaccda4582608ee1306b03ba442e8d1fa2}} 
+\index{LEPNC@{LEPNC}!solve@{solve}}
+\index{solve@{solve}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+diffusion\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Assemble and solve the scheme. 
+
+\mbox{\Hypertarget{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}\label{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}} 
+\index{LEPNC@{LEPNC}!solve@{solve}}
+\index{solve@{solve}!LEPNC@{LEPNC}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+LEPNC\+\_\+\+Stefan\+PME\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Assemble and solve the scheme. 
+

@@ -15,8 +15,8 @@
 #include <boost/timer/timer.hpp>
 
 #include "mesh.hpp"
-#include "import_mesh.hpp"
-#include "mesh_builder.hpp"
+//#include "import_mesh.hpp"
+//#include "mesh_builder.hpp"
 
 #include "LEPNC_diffusion.hpp"
 #include "TestCase/TestCase.hpp"
@@ -71,26 +71,28 @@ int main(int argc, const char* argv[]) {
   // --------------------------------------------------------------------------
 
   // Read the mesh file
-	MeshReaderTyp2 mesh(mesh_file);
+//	MeshReaderTyp2 mesh(mesh_file);
 
-	std::vector<std::vector<double> > vertices;
-	std::vector<std::vector<size_t> > cells;
-	std::vector<std::vector<double> > centers;
-	if (mesh.read_mesh(vertices, cells, centers) == false) {
-		output << "Could not open file" << std::endl;
-		return 0;
-	};
+//	std::vector<std::vector<double> > vertices;
+//	std::vector<std::vector<size_t> > cells;
+//	std::vector<std::vector<double> > centers;
+//	if (mesh.read_mesh(vertices, cells, centers) == false) {
+//		output << "Could not open file" << std::endl;
+//		return 0;
+//	};
 
-	// Build the mesh
-	MeshBuilder builder = MeshBuilder();
-	std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh(vertices, cells);
-	if (mesh_ptr.get() == NULL) {
-		printf(
-		  "Mesh cannot be created!\n Check the input file contains \n "
-		  "Vertices "
-		  "and cells with the correct tags");
-		return 0;
-	} 
+//	// Build the mesh
+//	MeshBuilder builder = MeshBuilder();
+//	std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh(vertices, cells);
+//	if (mesh_ptr.get() == NULL) {
+//		printf(
+//		  "Mesh cannot be created!\n Check the input file contains \n "
+//		  "Vertices "
+//		  "and cells with the correct tags");
+//		return 0;
+//	} 
+	MeshBuilder builder(mesh_file);
+	std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh();
 	// Re-index the mesh edges, to facilitate treatment of boundary conditions (Dirichlet boundary edges are put at the end)
   // Get boundary conditions and re-order edges
   std::string bc_id = vm["bc_id"].as<std::string>();
@@ -194,7 +196,7 @@ int main(int argc, const char* argv[]) {
 		
 		// Approximate solution
 		Eigen::VectorXd approx_sol_vertex = nc.nc_VertexValues(Xh, 0.5);
-		plotdata.write_to_vtu(filename,approx_sol_vertex,1);
+		plotdata.write_to_vtu(filename,approx_sol_vertex);
 
 		// Exact solution
 		Eigen::VectorXd exact_sol_vertex = Eigen::VectorXd::Zero(mesh_ptr->n_vertices());
@@ -202,7 +204,7 @@ int main(int argc, const char* argv[]) {
 			auto v= mesh_ptr->vertex(iV)->coords();
 			exact_sol_vertex(iV) = exact_solution(v(0),v(1));
 		}
-		plotdata.write_to_vtu(std::string("exact-")+filename,exact_sol_vertex,1);
+		plotdata.write_to_vtu(std::string("exact-")+filename,exact_sol_vertex);
 
 	}
 

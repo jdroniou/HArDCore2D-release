@@ -2,9 +2,9 @@
 #define LOCALDOFSPACE_HPP
 
 #include <mesh.hpp>
-#include <vertex.hpp>
-#include <edge.hpp>
-#include <cell.hpp>
+//#include <vertex.hpp>
+//#include <edge.hpp>
+//#include <cell.hpp>
 
 namespace HArDCore2D {
 
@@ -19,11 +19,11 @@ namespace HArDCore2D {
   public:
     /// Constructor
     LocalDOFSpace(
-             const Mesh & mesh,
-             size_t n_local_vertex_dofs,
-             size_t n_local_edge_dofs,
-             size_t n_local_cell_dofs
-             );
+                  const Mesh & mesh,
+                  size_t n_local_vertex_dofs,
+                  size_t n_local_edge_dofs,
+                  size_t n_local_cell_dofs
+                  );
 
     //------------------------------------------------------------------------------
     // Accessors

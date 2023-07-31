@@ -2,4 +2,4 @@
 
 FILE(GLOB source_list basis.* localdofspace.* globaldofspace.*)
 ADD_LIBRARY(basis ${source_list})
-TARGET_LINK_LIBRARIES(basis mesh quadrature)
+TARGET_LINK_LIBRARIES(basis mesh quadrature Eigen3::Eigen)

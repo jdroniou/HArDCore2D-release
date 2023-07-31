@@ -32,8 +32,8 @@
 #ifndef POLYNOMIALSPACEDIMENSION_HPP
 #define POLYNOMIALSPACEDIMENSION_HPP
 
-#include <cell.hpp>
-#include <edge.hpp>
+#include <mesh.hpp>
+//#include <edge.hpp>
 
 namespace HArDCore2D
 {

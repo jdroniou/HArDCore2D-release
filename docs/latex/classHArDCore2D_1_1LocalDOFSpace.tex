@@ -1,8 +1,8 @@
-\hypertarget{classHArDCore2D_1_1LocalDOFSpace}{}\doxysection{H\+Ar\+D\+Core2D\+::Local\+D\+O\+F\+Space Class Reference}
+\hypertarget{classHArDCore2D_1_1LocalDOFSpace}{}\doxysection{HAr\+DCore2D\+::Local\+DOFSpace Class Reference}
 \label{classHArDCore2D_1_1LocalDOFSpace}\index{HArDCore2D::LocalDOFSpace@{HArDCore2D::LocalDOFSpace}}
 
 
-Base class for local D\+OF spaces\+: functions to access local D\+O\+Fs (organised from the smallest dimension to the largest) associated with each geometric entity.  
+Base class for local DOF spaces\+: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity.  
 
 
 
@@ -11,7 +11,8 @@ Base class for local D\+OF spaces\+: functions to access local D\+O\+Fs (organis
 
 
 
-Inheritance diagram for H\+Ar\+D\+Core2D\+::Local\+D\+O\+F\+Space\+:\nopagebreak
+Inheritance diagram for HAr\+DCore2D\+::Local\+DOFSpace\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for H\+Ar\+D\+Core2D\+::Local\+D\+O\+F\+Space\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for H\+Ar\+D\+Core2D\+::Local\+D\+O\+F\+Space\+:\nopagebreak
+Collaboration diagram for HAr\+DCore2D\+::Local\+DOFSpace\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,59 +32,59 @@ Collaboration diagram for H\+Ar\+D\+Core2D\+::Local\+D\+O\+F\+Space\+:\nopagebre
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__Common_ga1d6a7e1447ff6f68149440e7d7561794}{Local\+D\+O\+F\+Space}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}}, size\+\_\+t n\+\_\+local\+\_\+vertex\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+edge\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+cell\+\_\+dofs)
+\mbox{\hyperlink{group__Common_ga1d6a7e1447ff6f68149440e7d7561794}{Local\+DOFSpace}} (const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}}, size\+\_\+t n\+\_\+local\+\_\+vertex\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+edge\+\_\+dofs, size\+\_\+t n\+\_\+local\+\_\+cell\+\_\+dofs)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}} () const
+const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__Common_ga09bab9dce7331dae4274a37e65efdadc}{mesh}} () const
 \begin{DoxyCompactList}\small\item\em Returns the mesh. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_gaaf36e0a6a9baacd2f0b89e39d40ea95a}{num\+Local\+Dofs\+Vertex}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local vertex D\+O\+Fs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the number of local vertex DOFs. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_gaf3d79c7c574fec6f31c59b2d3be965f4}{num\+Local\+Dofs\+Edge}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local edge D\+O\+Fs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the number of local edge DOFs. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_ga71892fed68458480a6384307bef774c3}{num\+Local\+Dofs\+Cell}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of local cell D\+O\+Fs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the number of local cell DOFs. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_gae1b50a37725d552ed131d82e123b4354}{dimension}} () const
-\begin{DoxyCompactList}\small\item\em Returns the dimension of the global space (all D\+O\+Fs for all geometric entities) \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga3e99fe863ef82d4a8f9cbf81d42dde76}{dimension\+Vertex}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the global space (all DOFs for all geometric entities) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{group__Common_ga3e99fe863ef82d4a8f9cbf81d42dde76}{dimension\+Vertex}} (const Vertex \&V) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex V. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_gaa6ba2a88f43d62c6d7d8be6e80291138}{dimension\+Vertex}} (size\+\_\+t iV) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the vertex of index iV. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga93973e6d5e5c21b4e175dfcf4df8c027}{dimension\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+size\+\_\+t \mbox{\hyperlink{group__Common_ga93973e6d5e5c21b4e175dfcf4df8c027}{dimension\+Edge}} (const Edge \&E) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge E (including vertices) \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_ga73988896b6cde4ee75fe062fa7ba04ca}{dimension\+Edge}} (size\+\_\+t iE) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the edge of index iE (including vertices) \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_gac74c832fbeb6f78e0ff71a8bcdc8480c}{dimension\+Cell}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+size\+\_\+t \mbox{\hyperlink{group__Common_gac74c832fbeb6f78e0ff71a8bcdc8480c}{dimension\+Cell}} (const Cell \&\mbox{\hyperlink{mmread_8m_a688dbf4d8b443317cfd5b5abbc137402}{T}}) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell T (including faces, edges and vertices) \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Common_ga0c4310bd1e71fdb4fb080103479f3555}{dimension\+Cell}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices) \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga42b72d383427f51dbcdb8137447e2221}{local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+size\+\_\+t \mbox{\hyperlink{group__Common_ga42b72d383427f51dbcdb8137447e2221}{local\+Offset}} (const Edge \&E, const Vertex \&V) const
 \begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the edge E. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_gaca235b4ae14abc3bacdb429a23d3d68a}{local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+size\+\_\+t \mbox{\hyperlink{group__Common_gaca235b4ae14abc3bacdb429a23d3d68a}{local\+Offset}} (const Edge \&E) const
 \begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the edge E. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga17e6fe3a75d9d49c2e2bf057159033f6}{local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&V) const
+size\+\_\+t \mbox{\hyperlink{group__Common_ga17e6fe3a75d9d49c2e2bf057159033f6}{local\+Offset}} (const Cell \&\mbox{\hyperlink{mmread_8m_a688dbf4d8b443317cfd5b5abbc137402}{T}}, const Vertex \&V) const
 \begin{DoxyCompactList}\small\item\em Returns the local offset of the vertex V with respect to the cell T. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga7549001a2a8b7950d2b577be1f54a0fc}{local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E) const
+size\+\_\+t \mbox{\hyperlink{group__Common_ga7549001a2a8b7950d2b577be1f54a0fc}{local\+Offset}} (const Cell \&\mbox{\hyperlink{mmread_8m_a688dbf4d8b443317cfd5b5abbc137402}{T}}, const Edge \&E) const
 \begin{DoxyCompactList}\small\item\em Returns the local offset of the edge E with respect to the cell T. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{group__Common_ga9954ff60c14e3d92152e325a526c010e}{local\+Offset}} (const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \&T) const
+size\+\_\+t \mbox{\hyperlink{group__Common_ga9954ff60c14e3d92152e325a526c010e}{local\+Offset}} (const Cell \&\mbox{\hyperlink{mmread_8m_a688dbf4d8b443317cfd5b5abbc137402}{T}}) const
 \begin{DoxyCompactList}\small\item\em Returns the local offset of the unknowns attached to the element T. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& {\bfseries m\+\_\+mesh}
+const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__Common_ga65ad29c32ee0d82106de900c0713ef4b}{m\+\_\+mesh}}
 \item 
-size\+\_\+t {\bfseries m\+\_\+n\+\_\+local\+\_\+vertex\+\_\+dofs}
+size\+\_\+t \mbox{\hyperlink{group__Common_gac39c23b9077a05ce05627fdcc86f7e4d}{m\+\_\+n\+\_\+local\+\_\+vertex\+\_\+dofs}}
 \item 
-size\+\_\+t {\bfseries m\+\_\+n\+\_\+local\+\_\+edge\+\_\+dofs}
+size\+\_\+t \mbox{\hyperlink{group__Common_ga67044680c7c2ab4460ea6da5a806ec98}{m\+\_\+n\+\_\+local\+\_\+edge\+\_\+dofs}}
 \item 
-size\+\_\+t {\bfseries m\+\_\+n\+\_\+local\+\_\+cell\+\_\+dofs}
+size\+\_\+t \mbox{\hyperlink{group__Common_ga292e7fe523887db0f8a6402daf3ac599}{m\+\_\+n\+\_\+local\+\_\+cell\+\_\+dofs}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Base class for local D\+OF spaces\+: functions to access local D\+O\+Fs (organised from the smallest dimension to the largest) associated with each geometric entity. 
+Base class for local DOF spaces\+: functions to access local DOFs (organised from the smallest dimension to the largest) associated with each geometric entity. 
 
-In a cell T, for example, the D\+O\+Fs are presented in the order\+: D\+O\+Fs of vertices of T, D\+O\+Fs of edges of T, D\+O\+Fs of T. 
+In a cell T, for example, the DOFs are presented in the order\+: DOFs of vertices of T, DOFs of edges of T, DOFs of T. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Common/localdofspace.\+hpp\item 
-src/\+Common/localdofspace.\+cpp\end{DoxyCompactItemize}
+src/\+Common/\mbox{\hyperlink{localdofspace_8hpp}{localdofspace.\+hpp}}\item 
+src/\+Common/\mbox{\hyperlink{localdofspace_8cpp}{localdofspace.\+cpp}}\end{DoxyCompactItemize}

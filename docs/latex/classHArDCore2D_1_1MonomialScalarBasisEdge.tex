@@ -1,4 +1,4 @@
-\hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge}{}\doxysection{H\+Ar\+D\+Core2D\+::Monomial\+Scalar\+Basis\+Edge Class Reference}
+\hypertarget{classHArDCore2D_1_1MonomialScalarBasisEdge}{}\doxysection{HAr\+DCore2D\+::Monomial\+Scalar\+Basis\+Edge Class Reference}
 \label{classHArDCore2D_1_1MonomialScalarBasisEdge}\index{HArDCore2D::MonomialScalarBasisEdge@{HArDCore2D::MonomialScalarBasisEdge}}
 
 
@@ -12,47 +12,51 @@ Scalar monomial basis on an edge.
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef double {\bfseries Function\+Value}
+typedef double \mbox{\hyperlink{group__Basis_gaf889760ab19dd5bd19e8780fe4378d25}{Function\+Value}}
 \item 
-typedef Vector\+Rd {\bfseries Gradient\+Value}
+typedef \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \mbox{\hyperlink{group__Basis_gac660ec4df6c23e7d383d2ccc5f06935b}{Gradient\+Value}}
 \item 
-typedef Vector\+Rd {\bfseries Curl\+Value}
+typedef \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \mbox{\hyperlink{group__Basis_ga0e51387f5ec1db65ed5f6a744026a6a2}{Curl\+Value}}
 \item 
-typedef double {\bfseries Divergence\+Value}
+typedef void \mbox{\hyperlink{group__Basis_ga47974e32ec8de5d1daf937e9d2c1648f}{Divergence\+Value}}
 \item 
-typedef void {\bfseries Hessian\+Value}
+typedef void \mbox{\hyperlink{group__Basis_gafe11258668d4ea399f7c9eedf6db24ff}{Rotor\+Value}}
 \item 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} {\bfseries Geometric\+Support}
+typedef void \mbox{\hyperlink{group__Basis_ga3c0af700fa8879e60a734aca77a06fa1}{Hessian\+Value}}
+\item 
+typedef Edge \mbox{\hyperlink{group__Basis_gaf296f0d9a155a2d4599512f96b3967cf}{Geometric\+Support}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__Basis_ga1794a48fbd89584ed844950e0057f513}{Monomial\+Scalar\+Basis\+Edge}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&E, size\+\_\+t degree)
+\mbox{\hyperlink{group__Basis_ga1794a48fbd89584ed844950e0057f513}{Monomial\+Scalar\+Basis\+Edge}} (const Edge \&E, size\+\_\+t degree)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Basis_gae546ece15c11ddb4382aa47c50fdd53c}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Dimension of the basis. \end{DoxyCompactList}\item 
-Function\+Value \mbox{\hyperlink{group__Basis_gaf3ea5893997d96a77ea5a22d80777360}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_gaf889760ab19dd5bd19e8780fe4378d25}{Function\+Value}} \mbox{\hyperlink{group__Basis_gaf3ea5893997d96a77ea5a22d80777360}{function}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-Gradient\+Value \mbox{\hyperlink{group__Basis_ga46fbc56b645a745e1ffef6995decc5cd}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_gac660ec4df6c23e7d383d2ccc5f06935b}{Gradient\+Value}} \mbox{\hyperlink{group__Basis_ga46fbc56b645a745e1ffef6995decc5cd}{gradient}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga06af508f56cd771808f7dcb377d6fc64}{max\+\_\+degree}} () const
 \begin{DoxyCompactList}\small\item\em Returns the maximum degree of the basis functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Scalar
+constexpr static const \mbox{\hyperlink{group__Basis_ga99c0a4ae66e5304b0bb7500c00f6e397}{Tensor\+RankE}} \mbox{\hyperlink{group__Basis_gab1bef570dbd3a4ec8a8be3f071fef405}{tensor\+Rank}} = \mbox{\hyperlink{group__Basis_gga99c0a4ae66e5304b0bb7500c00f6e397a38a5a403a9a70537da607d5f57670006}{Scalar}}
 \item 
-constexpr static const bool {\bfseries has\+Ancestor} = false
+constexpr static const bool \mbox{\hyperlink{group__Basis_ga3f0ee41a09c0891559392a803c49ab24}{has\+Ancestor}} = false
 \item 
-static const bool {\bfseries has\+Function} = true
+static const bool \mbox{\hyperlink{group__Basis_ga069544258c246a19a7574f22074fa4ee}{has\+Function}} = true
 \item 
-static const bool {\bfseries has\+Gradient} = true
+static const bool \mbox{\hyperlink{group__Basis_ga98b138ce500257ca01b37a6cc62cced7}{has\+Gradient}} = true
 \item 
-static const bool {\bfseries has\+Curl} = false
+static const bool \mbox{\hyperlink{group__Basis_ga361073f6de474dfbc1c4aaa685220245}{has\+Curl}} = false
 \item 
-static const bool {\bfseries has\+Divergence} = false
+static const bool \mbox{\hyperlink{group__Basis_ga351c69a9068b7cae877fd1d4d369fabb}{has\+Divergence}} = false
 \item 
-static const bool {\bfseries has\+Hessian} = false
+static const bool \mbox{\hyperlink{group__Basis_gac94114530619169d62ca465f18f7704e}{has\+Rotor}} = false
+\item 
+static const bool \mbox{\hyperlink{group__Basis_ga75acbe8eb7c0af6d56a021de7a57a48b}{has\+Hessian}} = false
 \end{DoxyCompactItemize}
 
 
@@ -61,5 +65,5 @@ Scalar monomial basis on an edge.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Common/basis.\+hpp\item 
-src/\+Common/basis.\+cpp\end{DoxyCompactItemize}
+src/\+Common/\mbox{\hyperlink{basis_8hpp}{basis.\+hpp}}\item 
+src/\+Common/\mbox{\hyperlink{basis_8cpp}{basis.\+cpp}}\end{DoxyCompactItemize}

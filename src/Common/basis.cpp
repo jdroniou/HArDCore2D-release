@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <basis.hpp>
-#include <vertex.hpp>
+#include <mesh.hpp>
 
 namespace HArDCore2D
 {
@@ -128,6 +128,12 @@ namespace HArDCore2D
     return m_rot * m_Rck_basis->function(i, x);
   }
 
+  GolyComplBasisCell::RotorValue GolyComplBasisCell::rotor(size_t i, const VectorRd &x) const
+  {
+    // The basis of Gck(T) is a rotation of the basis of Rck of \f$-\frac{\pi}{2}\f$, so the rotor of the \f$i\f$-th basis function of Gck is opposite of the divergence of the corresponding function in Rck
+    return -m_Rck_basis->divergence(i, x);
+  }
+  
   //------------------------------------------------------------------------------
   // Basis for H^{c,k}(T)
   //------------------------------------------------------------------------------

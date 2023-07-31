@@ -5,13 +5,11 @@
 //
 
 #include "TestCaseTransient.hpp"
-#include "cell.hpp"
+#include "mesh.hpp"
 #include <memory>
 #include <string>
 #include <vector>
 #include <iostream>
-
-#include <Eigen/Dense>
 
 using namespace HArDCore2D;
 
@@ -238,7 +236,7 @@ Eigen::Vector2d TestCaseTransient::div_diff(const double x, const double y, cons
 ///////////////////////////// SOURCE TERM ///////////////////////////
 
 // Source term
-double TestCaseTransient::div_diff_grad(const double t, const double x, const double y, const Cell* cell){
+double TestCaseTransient::minus_div_diff_grad(const double t, const double x, const double y, const Cell* cell){
 
   Eigen::Matrix2d AHu = diff(x,y,cell) * hess_solution()(t,VectorRd(x,y),cell);
 

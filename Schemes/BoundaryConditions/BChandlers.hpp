@@ -16,6 +16,9 @@
 *
 */
 
+#ifndef BCHANDLERS_HPP
+#define BCHANDLERS_HPP
+
 #include <BoundaryConditions/BoundaryConditions.hpp>
 #include <globaldofspace.hpp>
 #include <mesh.hpp>
@@ -123,7 +126,12 @@ Eigen::ArrayXi create_mapDOF(const std::vector<size_t> &c, const size_t N){
    2) insert, in a vector already containing values for Dirichlet DOFs, values calculated by solving a system on the other DOFs.
 */
 template<typename VecType>
-VecType replaceSectionsVector(const VecType &V, const VecType &Z, const std::vector<std::pair<size_t,size_t>> &sec){
+VecType replaceSectionsVector(
+                              const VecType &V,
+                              const VecType &Z,
+                              const std::vector<std::pair<size_t,size_t>> &sec
+                              )
+{
   assert ( sec[sec.size()-1].first + sec[sec.size()-1].second <= size_t(V.rows()) );
   
   VecType val = V;
@@ -139,3 +147,4 @@ VecType replaceSectionsVector(const VecType &V, const VecType &Z, const std::vec
 
 //@}
 
+#endif

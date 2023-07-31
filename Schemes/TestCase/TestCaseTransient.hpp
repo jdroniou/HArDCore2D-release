@@ -29,9 +29,9 @@
 
 #include <Eigen/Dense>
 
-namespace HArDCore2D {		// Forward declaration
-	class Cell;
-}
+//namespace HArDCore2D {		// Forward declaration
+//	class Cell;
+//}
 
 using namespace HArDCore2D;
 
@@ -87,8 +87,8 @@ public:
 		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
-	/// Returns div(diff \nabla) of the exact solution at the point t, x, y
-	double div_diff_grad(
+	/// Returns -div(diff \nabla) of the exact solution at the point t, x, y
+	double minus_div_diff_grad(
     const double t,
 		const double x,
 		const double y,

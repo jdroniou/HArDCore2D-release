@@ -14,28 +14,20 @@ The \mbox{\hyperlink{classTestCase}{Test\+Case}} class provides definition of te
 \item 
 \mbox{\hyperlink{classTestCase_a89135d3d44b1eedf9efcb6ce421d9269}{Test\+Case}} (std\+::vector$<$ int $>$ i\+TC)
 \begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_afca541076c5752604d5fbe6c377cc734}\label{classTestCase_afca541076c5752604d5fbe6c377cc734}} 
 \mbox{\hyperlink{structSolution}{Solution}} \mbox{\hyperlink{classTestCase_afca541076c5752604d5fbe6c377cc734}{get\+\_\+solution}} ()
 \begin{DoxyCompactList}\small\item\em Returns the solution. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_a8df4ed0fde743c7c0f7a7885be318fad}\label{classTestCase_a8df4ed0fde743c7c0f7a7885be318fad}} 
 \mbox{\hyperlink{structDiffusion}{Diffusion}} \mbox{\hyperlink{classTestCase_a8df4ed0fde743c7c0f7a7885be318fad}{get\+\_\+diffusion}} ()
 \begin{DoxyCompactList}\small\item\em Returns the diffusion. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_a4e77d9fe331b1f1dcde9b91cd1352b30}\label{classTestCase_a4e77d9fe331b1f1dcde9b91cd1352b30}} 
 \mbox{\hyperlink{structAdvection}{Advection}} \mbox{\hyperlink{classTestCase_a4e77d9fe331b1f1dcde9b91cd1352b30}{get\+\_\+advection}} ()
 \begin{DoxyCompactList}\small\item\em Returns the advection. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_ad7a00087c093d0b87e9153b7b2515473}\label{classTestCase_ad7a00087c093d0b87e9153b7b2515473}} 
 \mbox{\hyperlink{structReaction}{Reaction}} \mbox{\hyperlink{classTestCase_ad7a00087c093d0b87e9153b7b2515473}{get\+\_\+reaction}} ()
 \begin{DoxyCompactList}\small\item\em Returns the reaction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_a474960b565b24b73a7c09666f4400804}\label{classTestCase_a474960b565b24b73a7c09666f4400804}} 
-Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_a474960b565b24b73a7c09666f4400804}{diff\+\_\+source}} ()
+\mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \mbox{\hyperlink{classTestCase_a474960b565b24b73a7c09666f4400804}{diff\+\_\+source}} ()
 \begin{DoxyCompactList}\small\item\em Returns the diffusion source term. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}\label{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}} 
-Cell\+F\+Type$<$ double $>$ \mbox{\hyperlink{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}{diff\+\_\+advec\+\_\+reac\+\_\+source}} ()
+\mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \mbox{\hyperlink{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}{diff\+\_\+advec\+\_\+reac\+\_\+source}} ()
 \begin{DoxyCompactList}\small\item\em Returns the diffusion-\/advection-\/reaction source term. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}\label{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}} 
 double \mbox{\hyperlink{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}{get\+\_\+lambda}} ()
 \begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}\label{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}} 
 void \mbox{\hyperlink{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}{validate}} ()
 \begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -61,7 +53,90 @@ Initialise data.
 \end{DoxyParams}
 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}\label{classTestCase_ad4a71b706466d69e765ab8e3ee3450c8}} 
+\index{TestCase@{TestCase}!diff\_advec\_reac\_source@{diff\_advec\_reac\_source}}
+\index{diff\_advec\_reac\_source@{diff\_advec\_reac\_source}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{diff\_advec\_reac\_source()}{diff\_advec\_reac\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ Test\+Case\+::diff\+\_\+advec\+\_\+reac\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the diffusion-\/advection-\/reaction source term. 
+
+\mbox{\Hypertarget{classTestCase_a474960b565b24b73a7c09666f4400804}\label{classTestCase_a474960b565b24b73a7c09666f4400804}} 
+\index{TestCase@{TestCase}!diff\_source@{diff\_source}}
+\index{diff\_source@{diff\_source}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{diff\_source()}{diff\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ Test\+Case\+::diff\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the diffusion source term. 
+
+\mbox{\Hypertarget{classTestCase_a4e77d9fe331b1f1dcde9b91cd1352b30}\label{classTestCase_a4e77d9fe331b1f1dcde9b91cd1352b30}} 
+\index{TestCase@{TestCase}!get\_advection@{get\_advection}}
+\index{get\_advection@{get\_advection}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{get\_advection()}{get\_advection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdvection}{Advection}} Test\+Case\+::get\+\_\+advection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the advection. 
+
+\mbox{\Hypertarget{classTestCase_a8df4ed0fde743c7c0f7a7885be318fad}\label{classTestCase_a8df4ed0fde743c7c0f7a7885be318fad}} 
+\index{TestCase@{TestCase}!get\_diffusion@{get\_diffusion}}
+\index{get\_diffusion@{get\_diffusion}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{get\_diffusion()}{get\_diffusion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDiffusion}{Diffusion}} Test\+Case\+::get\+\_\+diffusion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the diffusion. 
+
+\mbox{\Hypertarget{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}\label{classTestCase_abb42d3b206c5e89d34ed34f5fe2546e0}} 
+\index{TestCase@{TestCase}!get\_lambda@{get\_lambda}}
+\index{get\_lambda@{get\_lambda}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{get\_lambda()}{get\_lambda()}}
+{\footnotesize\ttfamily double Test\+Case\+::get\+\_\+lambda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the value of the parameter lambda. 
+
+\mbox{\Hypertarget{classTestCase_ad7a00087c093d0b87e9153b7b2515473}\label{classTestCase_ad7a00087c093d0b87e9153b7b2515473}} 
+\index{TestCase@{TestCase}!get\_reaction@{get\_reaction}}
+\index{get\_reaction@{get\_reaction}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{get\_reaction()}{get\_reaction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReaction}{Reaction}} Test\+Case\+::get\+\_\+reaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the reaction. 
+
+\mbox{\Hypertarget{classTestCase_afca541076c5752604d5fbe6c377cc734}\label{classTestCase_afca541076c5752604d5fbe6c377cc734}} 
+\index{TestCase@{TestCase}!get\_solution@{get\_solution}}
+\index{get\_solution@{get\_solution}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{get\_solution()}{get\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSolution}{Solution}} Test\+Case\+::get\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the solution. 
+
+\mbox{\Hypertarget{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}\label{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}} 
+\index{TestCase@{TestCase}!validate@{validate}}
+\index{validate@{validate}!TestCase@{TestCase}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily void Test\+Case\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) 
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+Test\+Case/Test\+Case.\+hpp\item 
-Schemes/\+Test\+Case/Test\+Case.\+cpp\end{DoxyCompactItemize}
+Schemes/\+Test\+Case/\mbox{\hyperlink{TestCase_8hpp}{Test\+Case.\+hpp}}\item 
+Schemes/\+Test\+Case/\mbox{\hyperlink{TestCase_8cpp}{Test\+Case.\+cpp}}\end{DoxyCompactItemize}

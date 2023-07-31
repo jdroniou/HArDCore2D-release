@@ -17,7 +17,7 @@
 #ifndef INTEGRALWEIGHT_HPP
 #define INTEGRALWEIGHT_HPP
 
-#include <cell.hpp>
+#include <mesh.hpp>
 
 namespace HArDCore2D
 {

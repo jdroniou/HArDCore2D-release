@@ -10,37 +10,61 @@ namespace HArDCore2D {
    *	\addtogroup Common
    * @{
    */
-   
+    
+  /// Function to distribute elements (considered as jobs) over threads. It returns a pair of vectors indicating the start and end element of each thread
+  static std::pair<std::vector<int>, std::vector<int>> 
+    distributeLoad(size_t nb_elements, unsigned nb_threads)
+  { 
+    // Vectors of start and end indices
+    std::vector<int> start(nb_threads);
+    std::vector<int> end(nb_threads);
+
+    // Compute the batch size and the remainder
+    unsigned batch_size = nb_elements / nb_threads;
+    unsigned batch_remainder = nb_elements % nb_threads;
+
+    // Distribute the remainder over the threads to get the start and end indices for each thread
+    for (unsigned i = 0; i < nb_threads; ++i) {
+      if (i < batch_remainder){
+        start[i] = i * batch_size + i;
+        end[i] = start[i] + batch_size + 1;
+      }
+      else{
+        start[i] = i * batch_size + batch_remainder;
+        end[i] = start[i] + batch_size;
+      }
+    }
+
+    return std::make_pair(start, end);
+  }
+
   /// Generic function to execute threaded processes
-  static inline void parallel_for(unsigned nb_elements,
-                                  std::function<void(size_t start, size_t end)> functor,
-                                  bool use_threads = true)
+  static inline void parallel_for(unsigned nb_elements,   ///< Number of jobs for the functor function
+                          std::function<void(size_t start, size_t end)> functor,  ///< Function that splits the jobs between two indices of "elements"
+                          bool use_threads = true,  ///< Do we multithread or not
+                          unsigned nb_threads_max = 1e9     ///< To limit the number of cores used by the process
+                          )
   {
     unsigned nb_threads_hint = std::thread::hardware_concurrency();
     unsigned nb_threads = nb_threads_hint == 0 ? 8 : (nb_threads_hint);
+    nb_threads = std::min(nb_threads_max, nb_threads);
 
-    unsigned batch_size = nb_elements / nb_threads;
-    unsigned batch_remainder = nb_elements % nb_threads;
+    // Generate the start and end indices
+    auto [start, end] = distributeLoad(nb_elements, nb_threads);
 
     std::vector<std::thread> my_threads(nb_threads);
 
     if (use_threads) {
       // Multithread execution
       for (unsigned i = 0; i < nb_threads; ++i) {
-        int start = i * batch_size;
-        my_threads[i] = std::thread(functor, start, start + batch_size);
+          my_threads[i] = std::thread(functor, start[i], end[i]);
       }
     } else {
       // Single thread execution (for easy debugging)
       for(unsigned i = 0; i < nb_threads; ++i) {
-        int start = i * batch_size;
-        functor(start, start + batch_size);
+          functor(start[i], end[i]);
       }
     }
-
-    // Execute the elements left
-    int start = nb_threads * batch_size;
-    functor(start, start + batch_remainder);
 
     // Wait for the other thread to finish their task
     if (use_threads) {
@@ -67,28 +91,22 @@ namespace HArDCore2D {
       unsigned nb_threads_hint = std::thread::hardware_concurrency();
       unsigned nb_threads = nb_threads_hint == 0 ? 8 : (nb_threads_hint);
 
-      // Compute the batch size and the remainder
-      unsigned batch_size = nb_elements / nb_threads;
-      unsigned batch_remainder = nb_elements % nb_threads;
+      // Generate the start and end indices
+      auto [start, end] = distributeLoad(nb_elements, nb_threads);
       
       // Create vectors of triplets and vectors
-      std::vector<std::list<Eigen::Triplet<double> > > triplets(nb_threads + 1);
-      std::vector<Eigen::VectorXd> rhs(nb_threads + 1);
+      std::vector<std::list<Eigen::Triplet<double> > > triplets(nb_threads);
+      std::vector<Eigen::VectorXd> rhs(nb_threads);
 
-      for (unsigned i = 0; i < nb_threads + 1; i++) {
+      for (unsigned i = 0; i < nb_threads; i++) {
         rhs[i] = Eigen::VectorXd::Zero(size_system);
       } // for i
 
       // Assign a task to each thread
       std::vector<std::thread> my_threads(nb_threads);
       for (unsigned i = 0; i < nb_threads; ++i) {
-        int start = i * batch_size;
-        my_threads[i] = std::thread(batch_local_assembly, start, start + batch_size, &triplets[i], &rhs[i]);
+        my_threads[i] = std::thread(batch_local_assembly, start[i], end[i], &triplets[i], &rhs[i]);
       }
-
-      // Execute the elements left
-      int start = nb_threads * batch_size;
-      batch_local_assembly(start, start + batch_remainder, &triplets[nb_threads], &rhs[nb_threads]);
 
       // Wait for the other threads to finish their task
       std::for_each(my_threads.begin(), my_threads.end(), std::mem_fn(&std::thread::join));
@@ -116,7 +134,7 @@ namespace HArDCore2D {
     return std::make_pair(A, b);  
   }
   
-  /// Function to assemble a two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that computes local triplets and rhs contributions
+  /// Function to assemble two global matrices and one vector (such as: system matrix+vector and matrix for BC) from a procedure that computes local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>>
   parallel_assembly_system(
                            size_t nb_elements, //< nb of elements over which the threading will be done
@@ -136,29 +154,23 @@ namespace HArDCore2D {
       unsigned nb_threads_hint = std::thread::hardware_concurrency();
       unsigned nb_threads = nb_threads_hint == 0 ? 8 : (nb_threads_hint);
 
-      // Compute the batch size and the remainder
-      unsigned batch_size = nb_elements / nb_threads;
-      unsigned batch_remainder = nb_elements % nb_threads;
+      // Generate the start and end indices
+      auto [start, end] = distributeLoad(nb_elements, nb_threads);
       
       // Create vectors of triplets and vectors
-      std::vector<std::list<Eigen::Triplet<double> > > triplets1(nb_threads + 1);
-      std::vector<Eigen::VectorXd> vec1(nb_threads + 1);
-      std::vector<std::list<Eigen::Triplet<double> > > triplets2(nb_threads + 1);
+      std::vector<std::list<Eigen::Triplet<double> > > triplets1(nb_threads);
+      std::vector<Eigen::VectorXd> vec1(nb_threads);
+      std::vector<std::list<Eigen::Triplet<double> > > triplets2(nb_threads);
 
-      for (unsigned i = 0; i < nb_threads + 1; i++) {
+      for (unsigned i = 0; i < nb_threads; i++) {
         vec1[i] = Eigen::VectorXd::Zero(size_system1);
       } // for i
 
       // Assign a task to each thread
       std::vector<std::thread> my_threads(nb_threads);
       for (unsigned i = 0; i < nb_threads; ++i) {
-        int start = i * batch_size;
-        my_threads[i] = std::thread(batch_local_assembly, start, start + batch_size, &triplets1[i], &vec1[i], &triplets2[i]);
+        my_threads[i] = std::thread(batch_local_assembly, start[i], end[i], &triplets1[i], &vec1[i], &triplets2[i]);
       }
-
-      // Execute the elements left
-      int start = nb_threads * batch_size;
-      batch_local_assembly(start, start + batch_remainder, &triplets1[nb_threads], &vec1[nb_threads], &triplets2[nb_threads]);
 
       // Wait for the other threads to finish their task
       std::for_each(my_threads.begin(), my_threads.end(), std::mem_fn(&std::thread::join));
@@ -203,7 +215,7 @@ namespace HArDCore2D {
   }
 
 
-  /// Function to assemble a two global matrices and vectors (such as: system and static condensation operator) from a procedure that computes local triplets and rhs contributions
+  /// Function to assemble two global matrices and vectors (such as: system and static condensation operator) from a procedure that computes local triplets and rhs contributions
   static inline std::tuple<Eigen::SparseMatrix<double>, Eigen::VectorXd, Eigen::SparseMatrix<double>, Eigen::VectorXd>
   parallel_assembly_system(
                            size_t nb_elements, //< nb of elements over which the threading will be done
@@ -225,17 +237,16 @@ namespace HArDCore2D {
       unsigned nb_threads_hint = std::thread::hardware_concurrency();
       unsigned nb_threads = nb_threads_hint == 0 ? 8 : (nb_threads_hint);
 
-      // Compute the batch size and the remainder
-      unsigned batch_size = nb_elements / nb_threads;
-      unsigned batch_remainder = nb_elements % nb_threads;
+      // Generate the start and end indices
+      auto [start, end] = distributeLoad(nb_elements, nb_threads);
       
       // Create vectors of triplets and vectors
-      std::vector<std::list<Eigen::Triplet<double> > > triplets1(nb_threads + 1);
-      std::vector<Eigen::VectorXd> vec1(nb_threads + 1);
-      std::vector<std::list<Eigen::Triplet<double> > > triplets2(nb_threads + 1);
-      std::vector<Eigen::VectorXd> vec2(nb_threads + 1);
+      std::vector<std::list<Eigen::Triplet<double> > > triplets1(nb_threads);
+      std::vector<Eigen::VectorXd> vec1(nb_threads);
+      std::vector<std::list<Eigen::Triplet<double> > > triplets2(nb_threads);
+      std::vector<Eigen::VectorXd> vec2(nb_threads);
 
-      for (unsigned i = 0; i < nb_threads + 1; i++) {
+      for (unsigned i = 0; i < nb_threads; i++) {
         vec1[i] = Eigen::VectorXd::Zero(size_system1);
         vec2[i] = Eigen::VectorXd::Zero(size_b2);
       } // for i
@@ -243,13 +254,8 @@ namespace HArDCore2D {
       // Assign a task to each thread
       std::vector<std::thread> my_threads(nb_threads);
       for (unsigned i = 0; i < nb_threads; ++i) {
-        int start = i * batch_size;
-        my_threads[i] = std::thread(batch_local_assembly, start, start + batch_size, &triplets1[i], &vec1[i], &triplets2[i], &vec2[i]);
+         my_threads[i] = std::thread(batch_local_assembly, start[i], end[i], &triplets1[i], &vec1[i], &triplets2[i], &vec2[i]);
       }
-
-      // Execute the elements left
-      int start = nb_threads * batch_size;
-      batch_local_assembly(start, start + batch_remainder, &triplets1[nb_threads], &vec1[nb_threads], &triplets2[nb_threads], &vec2[nb_threads]);
 
       // Wait for the other threads to finish their task
       std::for_each(my_threads.begin(), my_threads.end(), std::mem_fn(&std::thread::join));

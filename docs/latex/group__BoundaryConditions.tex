@@ -5,45 +5,17 @@
 Classes and functions to handle boundary conditions and associated numbering of unknowns.  
 
 
-\doxysubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}
-\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} class provides definition of boundary conditions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}\label{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}} 
-void \mbox{\hyperlink{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}{set\+B\+C\+Labels}} (const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&BC, \mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{Global\+D\+O\+F\+Space}} \&globaldofspace)
-\begin{DoxyCompactList}\small\item\em Adds BC labels do Global\+D\+O\+F\+Space D\+O\+Fs. The default label is 0; we leave it 0 for internal D\+OF, -\/1 for Neumann D\+OF and 1 for Dirichlet D\+OF. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__BoundaryConditions_gaf79c8c245b59ae2bd5b7110766114c4b}{offset\+Index}} (const std\+::vector$<$ size\+\_\+t $>$ \&c, const int \&i)
+void \mbox{\hyperlink{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}{set\+BCLabels}} (const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&BC, \mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{Global\+DOFSpace}} \&globaldofspace)
+\begin{DoxyCompactList}\small\item\em Adds BC labels do Global\+DOFSpace DOFs. The default label is 0; we leave it 0 for internal DOF, -\/1 for Neumann DOF and 1 for Dirichlet DOF. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__BoundaryConditions_gaf79c8c245b59ae2bd5b7110766114c4b}{offset\+Index}} (const std\+::vector$<$ size\+\_\+t $>$ \&c, const int \&\mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}})
 \begin{DoxyCompactList}\small\item\em Function to offset and index i according to a vector c0,c1,...,c2n of increasing numbers. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}\label{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}} 
-Eigen\+::\+Array\+Xi \mbox{\hyperlink{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}{create\+\_\+map\+D\+OF}} (const std\+::vector$<$ size\+\_\+t $>$ \&c, const size\+\_\+t N)
-\begin{DoxyCompactList}\small\item\em Create a map from D\+O\+Fs 0..N-\/1 to values obtained by cutting the D\+O\+Fs corresponding to c (as per offset\+Index). \end{DoxyCompactList}\item 
+Eigen\+::\+Array\+Xi \mbox{\hyperlink{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}{create\+\_\+map\+DOF}} (const std\+::vector$<$ size\+\_\+t $>$ \&c, const size\+\_\+t N)
+\begin{DoxyCompactList}\small\item\em Create a map from DOFs 0..N-\/1 to values obtained by cutting the DOFs corresponding to c (as per offset\+Index). \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Vec\+Type $>$ }\\Vec\+Type \mbox{\hyperlink{group__BoundaryConditions_gacefabc584af59c9f360057df98f9d74b}{replace\+Sections\+Vector}} (const Vec\+Type \&V, const Vec\+Type \&Z, const std\+::vector$<$ std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$$>$ \&sec)
-\begin{DoxyCompactList}\small\item\em Replace sections of vector V by values from vector Z into vector V; the sections are determined by \textquotesingle{}sec\textquotesingle{}. The vectors are any (identical) types of Eigen\+::\+Vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__BoundaryConditions_ga5f9b50ca35f0fcee51e84e015223396c}{Boundary\+Conditions\+::\+Boundary\+Conditions}} (const std\+::string bc\+\_\+id, \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&mesh)
-\begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
-const std\+::string \mbox{\hyperlink{group__BoundaryConditions_gabaeb77c2484042f248639f1806fe8e72}{Boundary\+Conditions\+::type}} (const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&edge) const
-\begin{DoxyCompactList}\small\item\em Test the boundary condition of an edge. \end{DoxyCompactList}\item 
-const std\+::string \mbox{\hyperlink{group__BoundaryConditions_ga4dc82aaef165f9ff5b6bdde4e4905af3}{Boundary\+Conditions\+::type}} (const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&vertex) const
-\begin{DoxyCompactList}\small\item\em Test the boundary condition of a vertex. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_gad3c69b47183027c427ff6404875da645}\label{group__BoundaryConditions_gad3c69b47183027c427ff6404875da645}} 
-const size\+\_\+t \mbox{\hyperlink{group__BoundaryConditions_gad3c69b47183027c427ff6404875da645}{Boundary\+Conditions\+::n\+\_\+dir\+\_\+edges}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of Dirichlet edges. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_ga3876e8bea5b2ef490e21cf1c0aa0f8db}\label{group__BoundaryConditions_ga3876e8bea5b2ef490e21cf1c0aa0f8db}} 
-const size\+\_\+t \mbox{\hyperlink{group__BoundaryConditions_ga3876e8bea5b2ef490e21cf1c0aa0f8db}{Boundary\+Conditions\+::n\+\_\+dir\+\_\+vertices}} () const
-\begin{DoxyCompactList}\small\item\em Returns the number of Dirichlet vertices. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_gac3609733d5e7e43e9240d0a8b05d17ba}\label{group__BoundaryConditions_gac3609733d5e7e43e9240d0a8b05d17ba}} 
-const std\+::string \mbox{\hyperlink{group__BoundaryConditions_gac3609733d5e7e43e9240d0a8b05d17ba}{Boundary\+Conditions\+::name}} () const
-\begin{DoxyCompactList}\small\item\em Returns the complete name of the boundary condition. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_ga934f841a6ca35deabb477e1d8bec11f1}\label{group__BoundaryConditions_ga934f841a6ca35deabb477e1d8bec11f1}} 
-void \mbox{\hyperlink{group__BoundaryConditions_ga934f841a6ca35deabb477e1d8bec11f1}{Boundary\+Conditions\+::reorder\+\_\+edges}} (const std\+::string pos=\char`\"{}end\char`\"{})
-\begin{DoxyCompactList}\small\item\em Re-\/order edges of the mesh to put the Dirichlet edges at the position \char`\"{}pos\char`\"{} (=end or start) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__BoundaryConditions_ga4ee363c04fc84158c58de54d5eccd95d}\label{group__BoundaryConditions_ga4ee363c04fc84158c58de54d5eccd95d}} 
-void \mbox{\hyperlink{group__BoundaryConditions_ga4ee363c04fc84158c58de54d5eccd95d}{Boundary\+Conditions\+::reorder\+\_\+vertices}} (const std\+::string pos=\char`\"{}end\char`\"{})
-\begin{DoxyCompactList}\small\item\em Re-\/order vertices of the mesh to put the Dirichlet vertices at the position \char`\"{}pos\char`\"{} (=end or start) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Replace sections of vector V by values from vector Z into vector V; the sections are determined by \textquotesingle{}sec\textquotesingle{}. The vectors are any (identical) types of Eigen\+::\+Vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -52,23 +24,16 @@ Classes and functions to handle boundary conditions and associated numbering of 
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{group__BoundaryConditions_ga5f9b50ca35f0fcee51e84e015223396c}\label{group__BoundaryConditions_ga5f9b50ca35f0fcee51e84e015223396c}} 
-\index{BoundaryConditions@{BoundaryConditions}!BoundaryConditions@{BoundaryConditions}}
-\index{BoundaryConditions@{BoundaryConditions}!BoundaryConditions@{BoundaryConditions}}
-\doxysubsubsection{\texorpdfstring{BoundaryConditions()}{BoundaryConditions()}}
-{\footnotesize\ttfamily Boundary\+Conditions\+::\+Boundary\+Conditions (\begin{DoxyParamCaption}\item[{const std\+::string}]{bc\+\_\+id,  }\item[{\mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&}]{mesh }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}\label{group__BoundaryConditions_gac48734afacdaba484f692df7f25cbc6b}} 
+\index{BoundaryConditions@{BoundaryConditions}!create\_mapDOF@{create\_mapDOF}}
+\index{create\_mapDOF@{create\_mapDOF}!BoundaryConditions@{BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{create\_mapDOF()}{create\_mapDOF()}}
+{\footnotesize\ttfamily Eigen\+::\+Array\+Xi create\+\_\+map\+DOF (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{c,  }\item[{const size\+\_\+t}]{N }\end{DoxyParamCaption})}
 
 
 
-Initialise data. 
+Create a map from DOFs 0..N-\/1 to values obtained by cutting the DOFs corresponding to c (as per offset\+Index). 
 
-
-\begin{DoxyParams}{Parameters}
-{\em bc\+\_\+id} & The identifier for the boundary condition (D, N or Mx) \\
-\hline
-{\em mesh} & reference to the mesh \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{group__BoundaryConditions_gaf79c8c245b59ae2bd5b7110766114c4b}\label{group__BoundaryConditions_gaf79c8c245b59ae2bd5b7110766114c4b}} 
 \index{BoundaryConditions@{BoundaryConditions}!offsetIndex@{offsetIndex}}
 \index{offsetIndex@{offsetIndex}!BoundaryConditions@{BoundaryConditions}}
@@ -92,38 +57,15 @@ Replace sections of vector V by values from vector Z into vector V; the sections
 
 Returns a vector of same length as V, whose segments starting at sec\mbox{[}i\mbox{]}.first and with length sec\mbox{[}i\mbox{]}.second are replaced using the values (successively) of Z. Can be used to\+:
 
-1) create a map from D\+O\+Fs to unknowns\+: starting from a vector V of -\/1 of size nb of D\+O\+Fs and a linearly spaced vector Z of size the number of final unknowns, replaces the -\/1 by the unknowns. The final vector maps -\/1 for D\+O\+Fs that are eliminated (not in the \textquotesingle{}sec\textquotesingle{} positions) and linearly lists unknown numbers for the other D\+O\+Fs
+1) create a map from DOFs to unknowns\+: starting from a vector V of -\/1 of size nb of DOFs and a linearly spaced vector Z of size the number of final unknowns, replaces the -\/1 by the unknowns. The final vector maps -\/1 for DOFs that are eliminated (not in the \textquotesingle{}sec\textquotesingle{} positions) and linearly lists unknown numbers for the other DOFs
 
-2) insert, in a vector already containing values for Dirichlet D\+O\+Fs, values calculated by solving a system on the other D\+O\+Fs. \mbox{\Hypertarget{group__BoundaryConditions_gabaeb77c2484042f248639f1806fe8e72}\label{group__BoundaryConditions_gabaeb77c2484042f248639f1806fe8e72}} 
-\index{BoundaryConditions@{BoundaryConditions}!type@{type}}
-\index{type@{type}!BoundaryConditions@{BoundaryConditions}}
-\doxysubsubsection{\texorpdfstring{type()}{type()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily const std\+::string Boundary\+Conditions\+::type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&}]{edge }\end{DoxyParamCaption}) const}
-
-
-
-Test the boundary condition of an edge. 
-
-\begin{DoxyReturn}{Returns}
-\char`\"{}dir\char`\"{} or \char`\"{}neu\char`\"{} depending if the edge is a Dirichlet or Neumann boundary condition, as determined by m\+\_\+bc\+\_\+id below. For an internal edge, returns \char`\"{}int\char`\"{}. m\+\_\+bc\+\_\+id = \char`\"{}\+D\char`\"{}\+: all edges are Dirichlet m\+\_\+bc\+\_\+id = \char`\"{}\+N\char`\"{}\+: all edges are Neumann m\+\_\+bc\+\_\+id = \char`\"{}\+Mx\char`\"{} (x=0,1,...)\+: various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman. 
-\end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em edge} & Edge on which to check the boundary condition \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{group__BoundaryConditions_ga4dc82aaef165f9ff5b6bdde4e4905af3}\label{group__BoundaryConditions_ga4dc82aaef165f9ff5b6bdde4e4905af3}} 
-\index{BoundaryConditions@{BoundaryConditions}!type@{type}}
-\index{type@{type}!BoundaryConditions@{BoundaryConditions}}
-\doxysubsubsection{\texorpdfstring{type()}{type()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily const std\+::string Boundary\+Conditions\+::type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Vertex}{Vertex}} \&}]{vertex }\end{DoxyParamCaption}) const}
+2) insert, in a vector already containing values for Dirichlet DOFs, values calculated by solving a system on the other DOFs. \mbox{\Hypertarget{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}\label{group__BoundaryConditions_ga1c30c96a168297b0c93e4db27d985578}} 
+\index{BoundaryConditions@{BoundaryConditions}!setBCLabels@{setBCLabels}}
+\index{setBCLabels@{setBCLabels}!BoundaryConditions@{BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{setBCLabels()}{setBCLabels()}}
+{\footnotesize\ttfamily void set\+BCLabels (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{BC,  }\item[{\mbox{\hyperlink{classHArDCore2D_1_1GlobalDOFSpace}{Global\+DOFSpace}} \&}]{globaldofspace }\end{DoxyParamCaption})}
 
 
 
-Test the boundary condition of a vertex. 
+Adds BC labels do Global\+DOFSpace DOFs. The default label is 0; we leave it 0 for internal DOF, -\/1 for Neumann DOF and 1 for Dirichlet DOF. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em vertex} & Vertex on which to check the boundary condition \\
-\hline
-\end{DoxyParams}

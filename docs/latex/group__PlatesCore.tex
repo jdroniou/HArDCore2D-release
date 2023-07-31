@@ -2,155 +2,243 @@
 \label{group__PlatesCore}\index{PlatesCore@{PlatesCore}}
 
 
-Classes providing tools to the D\+DR sequence for plates.  
+Classes providing tools to the DDR sequence for plates.  
 
 
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases}}
-\begin{DoxyCompactList}\small\item\em Structure to store element bases. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Edge\+Bases}}
-\begin{DoxyCompactList}\small\item\em Structure to store edge bases. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core}}
+class \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{HAr\+DCore2\+D\+::\+Plates\+Core}}
 \begin{DoxyCompactList}\small\item\em Construct all polynomial spaces for the plates sequence. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structHArDCore2D_1_1XDivDiv_1_1LocalOperators}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators}}
+struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store element bases. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases}}
+\begin{DoxyCompactList}\small\item\em Structure to store edge bases. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{HAr\+DCore2\+D\+::\+XDiv\+Div}}
+\begin{DoxyCompactList}\small\item\em Discrete Hdivdiv space. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHArDCore2D_1_1XDivDiv_1_1LocalOperators}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators}}
 \begin{DoxyCompactList}\small\item\em A structure to store the local operators (divdiv and potential) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structHArDCore2D_1_1XDivDiv_1_1SymmetricMatrixBasisVertex}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex}}
-\begin{DoxyCompactList}\small\item\em Basis for the space of symmetric matrices. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classHArDCore2D_1_1XDivDiv}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div}}
-\begin{DoxyCompactList}\small\item\em Discrete Hdivdiv space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structHArDCore2D_1_1XDivDiv_1_1SymmetricMatrixBasisVertex}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex}}
+\begin{DoxyCompactList}\small\item\em Basis for the space of symmetric matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}\label{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Cell\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Cell\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}\label{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}}, dimspace $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Poly2\+Basis\+Cell\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}, \mbox{\hyperlink{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}{dimspace}} $>$ \mbox{\hyperlink{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly2\+Basis\+Cell\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}\label{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}}, dimspace $>$ $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Poly\+Sym\+Basis\+Cell\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}, \mbox{\hyperlink{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}{dimspace}} $>$ $>$ \mbox{\hyperlink{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Sym\+Basis\+Cell\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}\label{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HessianBasis}{Hessian\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ $>$ $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Holy\+Basis\+Cell\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HessianBasis}{Hessian\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}} $>$ $>$ $>$ \mbox{\hyperlink{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Holy\+Basis\+Cell\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}\label{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HolyComplBasisCell}{Holy\+Compl\+Basis\+Cell}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Holy\+Compl\+Basis\+Cell\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1HolyComplBasisCell}{Holy\+Compl\+Basis\+Cell}} $>$ \mbox{\hyperlink{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Holy\+Compl\+Basis\+Cell\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}\label{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Edge\+Type}
+typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$ \mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}} $>$ \mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Edge\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gab533063cb09825f8f20661568a119e90}\label{group__PlatesCore_gab533063cb09825f8f20661568a119e90}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} \mbox{\hyperlink{group__PlatesCore_gab533063cb09825f8f20661568a119e90}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Geometric\+Support}}
+typedef Cell \mbox{\hyperlink{group__PlatesCore_gab533063cb09825f8f20661568a119e90}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Geometric\+Support}}
 \begin{DoxyCompactList}\small\item\em Geometric support. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}\label{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}} 
-typedef \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \mbox{\hyperlink{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Geometric\+Support}}
+typedef Edge \mbox{\hyperlink{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Geometric\+Support}}
 \begin{DoxyCompactList}\small\item\em Geometric support. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}\label{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}} 
-typedef std\+::function$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Vector2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Function\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Function\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}\label{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}} 
-typedef std\+::function$<$ double(const Eigen\+::\+Vector2d \&, const \mbox{\hyperlink{classHArDCore2D_1_1Edge}{Edge}} \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Edge\+Function\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const Eigen\+::\+Vector2d \&, const Edge \&)$>$ \mbox{\hyperlink{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Edge\+Function\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}\label{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}} 
-typedef std\+::function$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Matrix2d \&)$>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Constitutive\+Law\+Type}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const Eigen\+::\+Matrix2d \&)$>$ \mbox{\hyperlink{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Constitutive\+Law\+Type}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}\label{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}} 
-typedef Matrix\+Rd {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::\+Function\+Value}
+typedef \mbox{\hyperlink{group__Basis_ga7f900870c2d2fad52b58a784576b2bfc}{Matrix\+Rd}} \mbox{\hyperlink{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::\+Function\+Value}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}\label{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}} 
-\mbox{\hyperlink{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Plates\+Core}} (const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{mesh}}, size\+\_\+t K, bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Plates\+Core}} (const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \&\mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{mesh}}, size\+\_\+t \mbox{\hyperlink{group__HHO__DiffAdvecReac_gaf169764abf85f85bec428e43dc60274b}{K}}, bool \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga61c147fa3e7a4b2f35ba838ce26aa026}{use\+\_\+threads}}=true, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}\label{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}} 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::mesh}} () const
+const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}{HAr\+DCore2\+D\+::\+Plates\+Core\+::mesh}} () const
 \begin{DoxyCompactList}\small\item\em Return a const reference to the mesh. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}\label{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}} 
-const size\+\_\+t \& \mbox{\hyperlink{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::degree}} () const
+const size\+\_\+t \& \mbox{\hyperlink{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}{HAr\+DCore2\+D\+::\+Plates\+Core\+::degree}} () const
 \begin{DoxyCompactList}\small\item\em Return the polynomial degree. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}\label{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}} 
-const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{Cell\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::cell\+Bases}} (size\+\_\+t iT) const
+const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{Cell\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}{HAr\+DCore2\+D\+::\+Plates\+Core\+::cell\+Bases}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Return cell bases for element iT. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}\label{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}} 
-const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{Edge\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}{H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::edge\+Bases}} (size\+\_\+t iE) const
+const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{Edge\+Bases}} \& \mbox{\hyperlink{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}{HAr\+DCore2\+D\+::\+Plates\+Core\+::edge\+Bases}} (size\+\_\+t iE) const
 \begin{DoxyCompactList}\small\item\em Return edge bases for edge iE. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators\+::\+Local\+Operators}} (const Eigen\+::\+Matrix\+Xd \&\+\_\+divdiv, const Eigen\+::\+Matrix\+Xd \&\+\_\+divdiv\+\_\+rhs, const Eigen\+::\+Matrix\+Xd \&\+\_\+potential)
+\mbox{\hyperlink{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::\+Local\+Operators}} (const Eigen\+::\+Matrix\+Xd \&\+\_\+divdiv, const Eigen\+::\+Matrix\+Xd \&\+\_\+divdiv\+\_\+rhs, const Eigen\+::\+Matrix\+Xd \&\+\_\+potential)
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga258f731c1d28bb89bcc6f81ec89e039c}\label{group__PlatesCore_ga258f731c1d28bb89bcc6f81ec89e039c}} 
-Function\+Value {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::function} (size\+\_\+t i) const
+\mbox{\hyperlink{group__PlatesCore_ga91af2e5362a71a2c2eb3499c4a4deedd}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::\+Symmetric\+Matrix\+Basis\+Vertex}} ()
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga7f41b1116b32223ac994853c2c6ec57f}\label{group__PlatesCore_ga7f41b1116b32223ac994853c2c6ec57f}} 
-size\+\_\+t {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::size} () const
+\mbox{\hyperlink{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}{Function\+Value}} \mbox{\hyperlink{group__PlatesCore_ga258f731c1d28bb89bcc6f81ec89e039c}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::function}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}) const
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}\label{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}} 
-\mbox{\hyperlink{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+X\+Div\+Div}} (const \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{Plates\+Core}} \&plates\+\_\+core, bool use\+\_\+threads=true, std\+::ostream \&output=std\+::cout)
+size\+\_\+t \mbox{\hyperlink{group__PlatesCore_ga7f41b1116b32223ac994853c2c6ec57f}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::size}} () const
+\item 
+\mbox{\hyperlink{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+XDiv\+Div}} (const \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{Plates\+Core}} \&plates\+\_\+core, bool \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga61c147fa3e7a4b2f35ba838ce26aa026}{use\+\_\+threads}}=true, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}\label{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}} 
-const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::mesh}} () const
+const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \& \mbox{\hyperlink{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::mesh}} () const
 \begin{DoxyCompactList}\small\item\em Return the mesh. \end{DoxyCompactList}\item 
-const size\+\_\+t \& \mbox{\hyperlink{group__PlatesCore_gabf95b9c273292bfb2f8dc57a3defbc01}{H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::degree}} () const
+const size\+\_\+t \& \mbox{\hyperlink{group__PlatesCore_gabf95b9c273292bfb2f8dc57a3defbc01}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::degree}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gad2e7d24f86cb2b5189e701edded89700}\label{group__PlatesCore_gad2e7d24f86cb2b5189e701edded89700}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykp1}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_gad2e7d24f86cb2b5189e701edded89700}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykp1}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaaaa2b5d099a50841ee58c3d9db2351f2}\label{group__PlatesCore_gaaaa2b5d099a50841ee58c3d9db2351f2}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykm2}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_gaaaa2b5d099a50841ee58c3d9db2351f2}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykm2}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga273f22ca3dabc03d2e6ce6fecc0c7d21}\label{group__PlatesCore_ga273f22ca3dabc03d2e6ce6fecc0c7d21}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Poly2\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly2km1}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}{Poly2\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_ga273f22ca3dabc03d2e6ce6fecc0c7d21}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly2km1}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gac12a4f555257380c121c6abc2ce8e647}\label{group__PlatesCore_gac12a4f555257380c121c6abc2ce8e647}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Sym\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly\+Symkm1}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}{Poly\+Sym\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_gac12a4f555257380c121c6abc2ce8e647}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly\+Symkm1}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaacf24c4496701101bd73582a97df6f9d}\label{group__PlatesCore_gaacf24c4496701101bd73582a97df6f9d}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Holy\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holykm4}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}{Holy\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_gaacf24c4496701101bd73582a97df6f9d}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holykm4}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga797ddba1aad1cd90adab161d75724297}\label{group__PlatesCore_ga797ddba1aad1cd90adab161d75724297}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Holy\+Compl\+Basis\+Cell\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holy\+Complkm1}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}{Holy\+Compl\+Basis\+Cell\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_ga797ddba1aad1cd90adab161d75724297}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holy\+Complkm1}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gaff3f986a1a67cd7ed664e5a629ebdc5b}\label{group__PlatesCore_gaff3f986a1a67cd7ed664e5a629ebdc5b}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Edge\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm1}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_gaff3f986a1a67cd7ed664e5a629ebdc5b}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm1}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga4fce5d4a74ac13e303ebfdd71fca648f}\label{group__PlatesCore_ga4fce5d4a74ac13e303ebfdd71fca648f}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Edge\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm2}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_ga4fce5d4a74ac13e303ebfdd71fca648f}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm2}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_ga9a90e892dcaa9aef7066965f0f4cbaf4}\label{group__PlatesCore_ga9a90e892dcaa9aef7066965f0f4cbaf4}} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHArDCore2D_1_1Family}{Poly\+Basis\+Edge\+Type}} $>$ {\bfseries H\+Ar\+D\+Core2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm3}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}} $>$ \mbox{\hyperlink{group__PlatesCore_ga9a90e892dcaa9aef7066965f0f4cbaf4}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm3}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gac2f93c8ce5aa658fbed2fd7a4f7dee35}\label{group__PlatesCore_gac2f93c8ce5aa658fbed2fd7a4f7dee35}} 
-Eigen\+::\+Matrix\+Xd {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators\+::divdiv}
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__PlatesCore_gac2f93c8ce5aa658fbed2fd7a4f7dee35}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::divdiv}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gab0fefd341c12530c94aff432c72a69bc}\label{group__PlatesCore_gab0fefd341c12530c94aff432c72a69bc}} 
-Eigen\+::\+Matrix\+Xd {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators\+::divdiv\+\_\+rhs}
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__PlatesCore_gab0fefd341c12530c94aff432c72a69bc}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::divdiv\+\_\+rhs}}
 \item 
-\mbox{\Hypertarget{group__PlatesCore_gafa7ddd0482c7f9ce1d289d3ee3bb65ee}\label{group__PlatesCore_gafa7ddd0482c7f9ce1d289d3ee3bb65ee}} 
-Eigen\+::\+Matrix\+Xd {\bfseries H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators\+::potential}
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__PlatesCore_gafa7ddd0482c7f9ce1d289d3ee3bb65ee}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::potential}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Classes providing tools to the D\+DR sequence for plates. 
+Classes providing tools to the DDR sequence for plates. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}\label{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}} 
+\index{PlatesCore@{PlatesCore}!ConstitutiveLawType@{ConstitutiveLawType}}
+\index{ConstitutiveLawType@{ConstitutiveLawType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{ConstitutiveLawType}{ConstitutiveLawType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(const Eigen\+::\+Matrix2d \&)$>$ \mbox{\hyperlink{group__PlatesCore_gab30b17c480684cb94cde3362943b1cdf}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Constitutive\+Law\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}\label{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}} 
+\index{PlatesCore@{PlatesCore}!EdgeFunctionType@{EdgeFunctionType}}
+\index{EdgeFunctionType@{EdgeFunctionType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{EdgeFunctionType}{EdgeFunctionType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(const Eigen\+::\+Vector2d \&, const Edge \&)$>$ \mbox{\hyperlink{group__PlatesCore_gaeb6562e5a2d15c5d816490e60a2ce566}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Edge\+Function\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}\label{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}} 
+\index{PlatesCore@{PlatesCore}!FunctionType@{FunctionType}}
+\index{FunctionType@{FunctionType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{FunctionType}{FunctionType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(const Eigen\+::\+Vector2d \&)$>$ \mbox{\hyperlink{group__PlatesCore_ga73dae9fa7ab2a314e7fa3caac8034cd9}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Function\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}\label{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}} 
+\index{PlatesCore@{PlatesCore}!FunctionValue@{FunctionValue}}
+\index{FunctionValue@{FunctionValue}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{FunctionValue}{FunctionValue}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{group__Basis_ga7f900870c2d2fad52b58a784576b2bfc}{Matrix\+Rd}} \mbox{\hyperlink{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}{HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::\+Function\+Value}}}
+
+\mbox{\Hypertarget{group__PlatesCore_gab533063cb09825f8f20661568a119e90}\label{group__PlatesCore_gab533063cb09825f8f20661568a119e90}} 
+\index{PlatesCore@{PlatesCore}!GeometricSupport@{GeometricSupport}}
+\index{GeometricSupport@{GeometricSupport}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{GeometricSupport}{GeometricSupport}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily typedef Cell \mbox{\hyperlink{group__PlatesCore_gab533063cb09825f8f20661568a119e90}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Geometric\+Support}}}
+
+
+
+Geometric support. 
+
+\mbox{\Hypertarget{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}\label{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}} 
+\index{PlatesCore@{PlatesCore}!GeometricSupport@{GeometricSupport}}
+\index{GeometricSupport@{GeometricSupport}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{GeometricSupport}{GeometricSupport}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily typedef Edge \mbox{\hyperlink{group__PlatesCore_gaa9814d6e5b6d33fe761c79742756661a}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Geometric\+Support}}}
+
+
+
+Geometric support. 
+
+\mbox{\Hypertarget{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}\label{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}} 
+\index{PlatesCore@{PlatesCore}!HolyBasisCellType@{HolyBasisCellType}}
+\index{HolyBasisCellType@{HolyBasisCellType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{HolyBasisCellType}{HolyBasisCellType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$\mbox{\hyperlink{classHArDCore2D_1_1HessianBasis}{Hessian\+Basis}}$<$\mbox{\hyperlink{classHArDCore2D_1_1ShiftedBasis}{Shifted\+Basis}}$<$\mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}}$>$ $>$ $>$ \mbox{\hyperlink{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Holy\+Basis\+Cell\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}\label{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}} 
+\index{PlatesCore@{PlatesCore}!HolyComplBasisCellType@{HolyComplBasisCellType}}
+\index{HolyComplBasisCellType@{HolyComplBasisCellType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{HolyComplBasisCellType}{HolyComplBasisCellType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$\mbox{\hyperlink{classHArDCore2D_1_1HolyComplBasisCell}{Holy\+Compl\+Basis\+Cell}}$>$ \mbox{\hyperlink{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Holy\+Compl\+Basis\+Cell\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}\label{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}} 
+\index{PlatesCore@{PlatesCore}!Poly2BasisCellType@{Poly2BasisCellType}}
+\index{Poly2BasisCellType@{Poly2BasisCellType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Poly2BasisCellType}{Poly2BasisCellType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1TensorizedVectorFamily}{Tensorized\+Vector\+Family}}$<$\mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}, \mbox{\hyperlink{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}{dimspace}}$>$ \mbox{\hyperlink{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly2\+Basis\+Cell\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}\label{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}} 
+\index{PlatesCore@{PlatesCore}!PolyBasisCellType@{PolyBasisCellType}}
+\index{PolyBasisCellType@{PolyBasisCellType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{PolyBasisCellType}{PolyBasisCellType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$\mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisCell}{Monomial\+Scalar\+Basis\+Cell}}$>$ \mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Cell\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}\label{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}} 
+\index{PlatesCore@{PlatesCore}!PolyBasisEdgeType@{PolyBasisEdgeType}}
+\index{PolyBasisEdgeType@{PolyBasisEdgeType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{PolyBasisEdgeType}{PolyBasisEdgeType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$\mbox{\hyperlink{classHArDCore2D_1_1MonomialScalarBasisEdge}{Monomial\+Scalar\+Basis\+Edge}}$>$ \mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Basis\+Edge\+Type}}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}\label{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}} 
+\index{PlatesCore@{PlatesCore}!PolySymBasisCellType@{PolySymBasisCellType}}
+\index{PolySymBasisCellType@{PolySymBasisCellType}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{PolySymBasisCellType}{PolySymBasisCellType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}}$<$\mbox{\hyperlink{classHArDCore2D_1_1MatrixFamily}{Matrix\+Family}}$<$\mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}, \mbox{\hyperlink{group__Basis_ga99ab631a06b5d5a5f9f9673883c92ffe}{dimspace}}$>$ $>$ \mbox{\hyperlink{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}{HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Poly\+Sym\+Basis\+Cell\+Type}}}
 
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}\label{group__PlatesCore_ga28e826c629c70623e131ff47eb1e917d}} 
+\index{PlatesCore@{PlatesCore}!cellBases@{cellBases}}
+\index{cellBases@{cellBases}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{cellBases()}{cellBases()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1CellBases}{Cell\+Bases}}\& HAr\+DCore2\+D\+::\+Plates\+Core\+::cell\+Bases (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return cell bases for element iT. 
+
+\mbox{\Hypertarget{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}\label{group__PlatesCore_ga2d922ad848c920d1656f98b4b631f31a}} 
+\index{PlatesCore@{PlatesCore}!degree@{degree}}
+\index{degree@{degree}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{degree()}{degree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const size\+\_\+t\& HAr\+DCore2\+D\+::\+Plates\+Core\+::degree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the polynomial degree. 
+
 \mbox{\Hypertarget{group__PlatesCore_gabf95b9c273292bfb2f8dc57a3defbc01}\label{group__PlatesCore_gabf95b9c273292bfb2f8dc57a3defbc01}} 
 \index{PlatesCore@{PlatesCore}!degree@{degree}}
 \index{degree@{degree}!PlatesCore@{PlatesCore}}
-\doxysubsubsection{\texorpdfstring{degree()}{degree()}}
-{\footnotesize\ttfamily const size\+\_\+t\& H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::degree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\doxysubsubsection{\texorpdfstring{degree()}{degree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const size\+\_\+t\& HAr\+DCore2\+D\+::\+XDiv\+Div\+::degree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Return the polynomial degree. Notice that this is the degree of the complex, not of the space (the latter being $k-1$) \mbox{\Hypertarget{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}\label{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}} 
+Return the polynomial degree. Notice that this is the degree of the complex, not of the space (the latter being $k-1$) \mbox{\Hypertarget{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}\label{group__PlatesCore_gac40a3b0429c520c8c0aaeea7c6996494}} 
+\index{PlatesCore@{PlatesCore}!edgeBases@{edgeBases}}
+\index{edgeBases@{edgeBases}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{edgeBases()}{edgeBases()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structHArDCore2D_1_1PlatesCore_1_1EdgeBases}{Edge\+Bases}}\& HAr\+DCore2\+D\+::\+Plates\+Core\+::edge\+Bases (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iE }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return edge bases for edge iE. 
+
+\mbox{\Hypertarget{group__PlatesCore_ga258f731c1d28bb89bcc6f81ec89e039c}\label{group__PlatesCore_ga258f731c1d28bb89bcc6f81ec89e039c}} 
+\index{PlatesCore@{PlatesCore}!function@{function}}
+\index{function@{function}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{function()}{function()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__PlatesCore_ga1977b847177c301f831ca25ed604888d}{Function\+Value}} HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::function (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}\label{group__PlatesCore_gac99ff3d1d5e621d2a99b34b78ac72454}} 
 \index{PlatesCore@{PlatesCore}!LocalOperators@{LocalOperators}}
 \index{LocalOperators@{LocalOperators}!PlatesCore@{PlatesCore}}
 \doxysubsubsection{\texorpdfstring{LocalOperators()}{LocalOperators()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+X\+Div\+Div\+::\+Local\+Operators\+::\+Local\+Operators (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+divdiv,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+divdiv\+\_\+rhs,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+potential }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::\+Local\+Operators (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+divdiv,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+divdiv\+\_\+rhs,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{\+\_\+potential }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -161,3 +249,130 @@ Return the polynomial degree. Notice that this is the degree of the complex, not
 {\em \+\_\+potential} & Potential operator \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}\label{group__PlatesCore_ga1dda23ecc11fc727ab833b6d89bac932}} 
+\index{PlatesCore@{PlatesCore}!mesh@{mesh}}
+\index{mesh@{mesh}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{mesh()}{mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}}\& HAr\+DCore2\+D\+::\+Plates\+Core\+::mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a const reference to the mesh. 
+
+\mbox{\Hypertarget{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}\label{group__PlatesCore_ga7467a9963e976f9e1103654629fb5d33}} 
+\index{PlatesCore@{PlatesCore}!mesh@{mesh}}
+\index{mesh@{mesh}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{mesh()}{mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}}\& HAr\+DCore2\+D\+::\+XDiv\+Div\+::mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the mesh. 
+
+\mbox{\Hypertarget{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}\label{group__PlatesCore_gaaf5bdbcc509fec30e3a1c520bb2f39d4}} 
+\index{PlatesCore@{PlatesCore}!PlatesCore@{PlatesCore}}
+\index{PlatesCore@{PlatesCore}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{PlatesCore()}{PlatesCore()}}
+{\footnotesize\ttfamily Plates\+Core\+::\+Plates\+Core (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \&}]{mesh,  }\item[{size\+\_\+t}]{K,  }\item[{bool}]{use\+\_\+threads = {\ttfamily true},  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{group__PlatesCore_ga7f41b1116b32223ac994853c2c6ec57f}\label{group__PlatesCore_ga7f41b1116b32223ac994853c2c6ec57f}} 
+\index{PlatesCore@{PlatesCore}!size@{size}}
+\index{size@{size}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{group__PlatesCore_ga91af2e5362a71a2c2eb3499c4a4deedd}\label{group__PlatesCore_ga91af2e5362a71a2c2eb3499c4a4deedd}} 
+\index{PlatesCore@{PlatesCore}!SymmetricMatrixBasisVertex@{SymmetricMatrixBasisVertex}}
+\index{SymmetricMatrixBasisVertex@{SymmetricMatrixBasisVertex}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrixBasisVertex()}{SymmetricMatrixBasisVertex()}}
+{\footnotesize\ttfamily XDiv\+Div\+::\+Symmetric\+Matrix\+Basis\+Vertex\+::\+Symmetric\+Matrix\+Basis\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}\label{group__PlatesCore_ga69c18a708a72277125f88e612ddbe2d0}} 
+\index{PlatesCore@{PlatesCore}!XDivDiv@{XDivDiv}}
+\index{XDivDiv@{XDivDiv}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{XDivDiv()}{XDivDiv()}}
+{\footnotesize\ttfamily XDiv\+Div\+::\+XDiv\+Div (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1PlatesCore}{Plates\+Core}} \&}]{plates\+\_\+core,  }\item[{bool}]{use\+\_\+threads = {\ttfamily true},  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__PlatesCore_gac2f93c8ce5aa658fbed2fd7a4f7dee35}\label{group__PlatesCore_gac2f93c8ce5aa658fbed2fd7a4f7dee35}} 
+\index{PlatesCore@{PlatesCore}!divdiv@{divdiv}}
+\index{divdiv@{divdiv}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{divdiv}{divdiv}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::divdiv}
+
+\mbox{\Hypertarget{group__PlatesCore_gab0fefd341c12530c94aff432c72a69bc}\label{group__PlatesCore_gab0fefd341c12530c94aff432c72a69bc}} 
+\index{PlatesCore@{PlatesCore}!divdiv\_rhs@{divdiv\_rhs}}
+\index{divdiv\_rhs@{divdiv\_rhs}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{divdiv\_rhs}{divdiv\_rhs}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::divdiv\+\_\+rhs}
+
+\mbox{\Hypertarget{group__PlatesCore_ga797ddba1aad1cd90adab161d75724297}\label{group__PlatesCore_ga797ddba1aad1cd90adab161d75724297}} 
+\index{PlatesCore@{PlatesCore}!HolyComplkm1@{HolyComplkm1}}
+\index{HolyComplkm1@{HolyComplkm1}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{HolyComplkm1}{HolyComplkm1}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_gaa22d82c2326e159e579ecf22dfd6c9b0}{Holy\+Compl\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holy\+Complkm1}
+
+\mbox{\Hypertarget{group__PlatesCore_gaacf24c4496701101bd73582a97df6f9d}\label{group__PlatesCore_gaacf24c4496701101bd73582a97df6f9d}} 
+\index{PlatesCore@{PlatesCore}!Holykm4@{Holykm4}}
+\index{Holykm4@{Holykm4}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Holykm4}{Holykm4}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga1b6b0d9989c88bc59da878bcaab085b5}{Holy\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Holykm4}
+
+\mbox{\Hypertarget{group__PlatesCore_ga273f22ca3dabc03d2e6ce6fecc0c7d21}\label{group__PlatesCore_ga273f22ca3dabc03d2e6ce6fecc0c7d21}} 
+\index{PlatesCore@{PlatesCore}!Poly2km1@{Poly2km1}}
+\index{Poly2km1@{Poly2km1}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Poly2km1}{Poly2km1}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga2fc7c0d4a2eea4ae484a9e627ce49b8a}{Poly2\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly2km1}
+
+\mbox{\Hypertarget{group__PlatesCore_gaff3f986a1a67cd7ed664e5a629ebdc5b}\label{group__PlatesCore_gaff3f986a1a67cd7ed664e5a629ebdc5b}} 
+\index{PlatesCore@{PlatesCore}!Polykm1@{Polykm1}}
+\index{Polykm1@{Polykm1}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Polykm1}{Polykm1}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm1}
+
+\mbox{\Hypertarget{group__PlatesCore_gaaaa2b5d099a50841ee58c3d9db2351f2}\label{group__PlatesCore_gaaaa2b5d099a50841ee58c3d9db2351f2}} 
+\index{PlatesCore@{PlatesCore}!Polykm2@{Polykm2}}
+\index{Polykm2@{Polykm2}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Polykm2}{Polykm2}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykm2}
+
+\mbox{\Hypertarget{group__PlatesCore_ga4fce5d4a74ac13e303ebfdd71fca648f}\label{group__PlatesCore_ga4fce5d4a74ac13e303ebfdd71fca648f}} 
+\index{PlatesCore@{PlatesCore}!Polykm2@{Polykm2}}
+\index{Polykm2@{Polykm2}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Polykm2}{Polykm2}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm2}
+
+\mbox{\Hypertarget{group__PlatesCore_ga9a90e892dcaa9aef7066965f0f4cbaf4}\label{group__PlatesCore_ga9a90e892dcaa9aef7066965f0f4cbaf4}} 
+\index{PlatesCore@{PlatesCore}!Polykm3@{Polykm3}}
+\index{Polykm3@{Polykm3}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Polykm3}{Polykm3}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga0bb6ebbc08dc4717e0e807afc363f1dc}{Poly\+Basis\+Edge\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Edge\+Bases\+::\+Polykm3}
+
+\mbox{\Hypertarget{group__PlatesCore_gad2e7d24f86cb2b5189e701edded89700}\label{group__PlatesCore_gad2e7d24f86cb2b5189e701edded89700}} 
+\index{PlatesCore@{PlatesCore}!Polykp1@{Polykp1}}
+\index{Polykp1@{Polykp1}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{Polykp1}{Polykp1}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga5f49890356eeae15e39ae8b34c6b13a3}{Poly\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Polykp1}
+
+\mbox{\Hypertarget{group__PlatesCore_gac12a4f555257380c121c6abc2ce8e647}\label{group__PlatesCore_gac12a4f555257380c121c6abc2ce8e647}} 
+\index{PlatesCore@{PlatesCore}!PolySymkm1@{PolySymkm1}}
+\index{PolySymkm1@{PolySymkm1}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{PolySymkm1}{PolySymkm1}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{group__PlatesCore_ga85579be44db06f2f94e4025e46869d5e}{Poly\+Sym\+Basis\+Cell\+Type}}$>$ HAr\+DCore2\+D\+::\+Plates\+Core\+::\+Cell\+Bases\+::\+Poly\+Symkm1}
+
+\mbox{\Hypertarget{group__PlatesCore_gafa7ddd0482c7f9ce1d289d3ee3bb65ee}\label{group__PlatesCore_gafa7ddd0482c7f9ce1d289d3ee3bb65ee}} 
+\index{PlatesCore@{PlatesCore}!potential@{potential}}
+\index{potential@{potential}!PlatesCore@{PlatesCore}}
+\doxysubsubsection{\texorpdfstring{potential}{potential}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+XDiv\+Div\+::\+Local\+Operators\+::potential}
+

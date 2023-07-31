@@ -38,7 +38,7 @@
 #include <Eigen/Dense>
 //#include "Eigen/MA41.cpp"
 
-#include <vertex.hpp>
+//#include <vertex.hpp>
 #include <hybridcore.hpp>
 #include <elementquad.hpp>
 #include <parallel_for.hpp>

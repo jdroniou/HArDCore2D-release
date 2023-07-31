@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['offsetindex_780',['offsetIndex',['../group__BoundaryConditions.html#gaf79c8c245b59ae2bd5b7110766114c4b',1,'BChandlers.hpp']]],
-  ['operator_28_29_781',['operator()',['../group__HybridCore.html#gafede4bb5d9e9d4ea1255f84911217ef1',1,'HArDCore2D::UVector']]],
-  ['operator_2a_782',['operator*',['../group__Basis.html#gadf553acac1f886459d759f647d0ce30b',1,'HArDCore2D']]],
-  ['operator_2b_783',['operator+',['../group__Basis.html#gaa41d0355c0cde4dafbd60aa3f815fdcb',1,'HArDCore2D::MatrixGradient::operator+()'],['../group__HybridCore.html#ga4e485116ef8d2bbdbdffaab1b3377ba5',1,'HArDCore2D::UVector::operator+()']]],
-  ['operator_2b_3d_784',['operator+=',['../group__Basis.html#gae8b4b4995a36934a4d853f43148d6a27',1,'HArDCore2D::MatrixGradient']]],
-  ['operator_2d_785',['operator-',['../group__Basis.html#gaf7d51f7adbcc49839facbc9dd62830e6',1,'HArDCore2D::MatrixGradient::operator-()'],['../group__HybridCore.html#ga6256a41660c0ca12280dfc93f7cc890d',1,'HArDCore2D::UVector::operator-()']]],
-  ['operator_3d_3d_786',['operator==',['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;lhs, const DirectedEdge &amp;rhs):&#160;DirectedGraph.cpp'],['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;, const DirectedEdge &amp;):&#160;DirectedGraph.cpp']]],
-  ['order_787',['order',['../group__DirectedGraph.html#ga733c67a409201b1fbcd8f81b149674e5',1,'DirectedGraph']]],
-  ['order_5fedges_788',['order_edges',['../group__DirectedGraph.html#gaca6db3df9748ff29e6daa0ad77ab5fdf',1,'DirectedCell']]]
+  ['offsetindex_1532',['offsetIndex',['../group__BoundaryConditions.html#gaf79c8c245b59ae2bd5b7110766114c4b',1,'BChandlers.hpp']]],
+  ['operator_28_29_1533',['operator()',['../group__Quadratures.html#ga7acbdfebfab831a76a7f71f558808e3f',1,'HArDCore2D::VecHash::operator()()'],['../group__HybridCore.html#gafede4bb5d9e9d4ea1255f84911217ef1',1,'HArDCore2D::UVector::operator()()']]],
+  ['operator_2a_1534',['operator*',['../group__Basis.html#gadf553acac1f886459d759f647d0ce30b',1,'HArDCore2D']]],
+  ['operator_2b_1535',['operator+',['../group__Basis.html#gaa41d0355c0cde4dafbd60aa3f815fdcb',1,'HArDCore2D::MatrixGradient::operator+()'],['../group__HybridCore.html#ga4e485116ef8d2bbdbdffaab1b3377ba5',1,'HArDCore2D::UVector::operator+()']]],
+  ['operator_2b_3d_1536',['operator+=',['../group__Basis.html#gae8b4b4995a36934a4d853f43148d6a27',1,'HArDCore2D::MatrixGradient::operator+=()'],['../group__HybridCore.html#ga57dea440c87824d4b0e8460cfb38362d',1,'HArDCore2D::UVector::operator+=()']]],
+  ['operator_2d_1537',['operator-',['../group__Basis.html#gaf7d51f7adbcc49839facbc9dd62830e6',1,'HArDCore2D::MatrixGradient::operator-()'],['../group__HybridCore.html#ga6256a41660c0ca12280dfc93f7cc890d',1,'HArDCore2D::UVector::operator-(const UVector &amp;b)']]],
+  ['operator_2f_3d_1538',['operator/=',['../group__HybridCore.html#gaa1973d4e04752401607251eddc650198',1,'HArDCore2D::UVector']]],
+  ['operator_3d_3d_1539',['operator==',['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;, const DirectedEdge &amp;):&#160;DirectedGraph.cpp'],['../group__DirectedGraph.html#ga66596c33c18c2016c8173c27cb655271',1,'operator==(const DirectedEdge &amp;lhs, const DirectedEdge &amp;rhs):&#160;DirectedGraph.cpp']]],
+  ['operators_1540',['operators',['../group__HHOSpace.html#gac6aa893773096707a8a3a5b3871f30f8',1,'HArDCore2D::HHOSpace::operators(const Cell &amp;T) const'],['../group__HHOSpace.html#gac98b1cffd9b1f073e6a98b9cbcd554be',1,'HArDCore2D::HHOSpace::operators(size_t iT) const']]],
+  ['order_1541',['order',['../group__DirectedGraph.html#ga733c67a409201b1fbcd8f81b149674e5',1,'DirectedGraph']]],
+  ['order_5fedges_1542',['order_edges',['../group__DirectedGraph.html#gaca6db3df9748ff29e6daa0ad77ab5fdf',1,'DirectedCell']]],
+  ['output_5frates_1543',['output_rates',['../hmm__stefanpme__transient_2compute__rates_8f90.html#af0f8de194f1713cccce0ea67430451be',1,'output_rates(nbtests, meshsize, timestep, regmail, meshaniso, error, unitfich, type_error):&#160;compute_rates.f90'],['../lepnc__diffusion_2compute__rates_8f90.html#a1130efc12f4ae822da92eb1e5eeeed56',1,'output_rates(nbtests, meshsize, regmail, meshaniso, error, unitfich, type_error):&#160;compute_rates.f90'],['../lepnc__stefanpme_2compute__rates_8f90.html#a1130efc12f4ae822da92eb1e5eeeed56',1,'output_rates(nbtests, meshsize, regmail, meshaniso, error, unitfich, type_error):&#160;compute_rates.f90'],['../lepnc__stefanpme__transient_2compute__rates_8f90.html#af0f8de194f1713cccce0ea67430451be',1,'output_rates(nbtests, meshsize, timestep, regmail, meshaniso, error, unitfich, type_error):&#160;compute_rates.f90']]]
 ];

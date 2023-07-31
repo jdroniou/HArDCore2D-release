@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Discrete Hcurl space: local operators, L2 product and global interpolator." alt="" coords="40,247,181,273"/>
 <area shape="rect" id="node2" href="$classHArDCore2D_1_1GlobalDOFSpace.html" title="Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version bei..." alt="" coords="5,171,216,197"/>
 <area shape="rect" id="node3" href="$classHArDCore2D_1_1LocalDOFSpace.html" title="Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimensio..." alt="" coords="9,95,213,121"/>
-<area shape="rect" id="node4" href="$classHArDCore2D_1_1Mesh.html" title="The Mesh class provides description of a mesh." alt="" coords="41,5,181,32"/>
+<area shape="rect" id="node4" href="$classMesh2D_1_1Mesh.html" title=" " alt="" coords="55,5,166,32"/>
 </map>

@@ -52,9 +52,9 @@ namespace HArDCore2D
     
     /// Interpolator of a continuous function
     Eigen::VectorXd interpolate(
-                const FunctionType & q, ///< The function to interpolate
-                const int deg_quad = -1 ///< The optional degre of quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
-                ) const;
+                                const FunctionType & q, ///< The function to interpolate
+                                const int deg_quad = -1 ///< The optional degre of quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
+                                ) const;
 
     /// Return edge operators for the edge of index iE
     inline const LocalOperators & edgeOperators(size_t iE) const
@@ -116,15 +116,19 @@ namespace HArDCore2D
 
     /// Evaluate the value of the potential at a point x
     double evaluatePotential(
-                            const size_t iT, ///< index of the cell in which to take the potential
-                            const Eigen::VectorXd & vT, ///< vector of local DOFs
-                            const VectorRd & x ///< point at which to evaluate the potential
-                            ) const;
+                             const size_t iT, ///< index of the cell in which to take the potential
+                             const Eigen::VectorXd & vT, ///< vector of local DOFs
+                             const VectorRd & x ///< point at which to evaluate the potential
+                             ) const;
 
+    /// Compute the L2-norm of a vector of the space
+    double computeL2Norm(const Eigen::VectorXd & v) const;    
+    
   private:    
     LocalOperators _compute_edge_gradient_potential(size_t iE);
-    LocalOperators _compute_cell_gradient_potential(size_t iT);    
-
+    LocalOperators _compute_cell_gradient_potential(size_t iT);
+    double _compute_squared_l2_norm(size_t iT, const Eigen::VectorXd & vT) const;
+    
     const DDRCore & m_ddr_core;
     bool m_use_threads;
     std::ostream & m_output;

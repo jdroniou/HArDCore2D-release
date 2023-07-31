@@ -1,7 +1,21 @@
 var searchData=
 [
-  ['_7edirectedcell_423',['~DirectedCell',['../group__DirectedGraph.html#ga6d3d90db9d33b062dbc1a5bb8e3a7ac5',1,'DirectedCell']]],
-  ['_7edirectededge_424',['~DirectedEdge',['../group__DirectedGraph.html#gaa526fbe5d02887855ca43e67a8b3e226',1,'DirectedEdge']]],
-  ['_7edirectedgraph_425',['~DirectedGraph',['../group__DirectedGraph.html#ga176ce553205173ec161e7f8ecee538e2',1,'DirectedGraph']]],
-  ['_7enodearray_426',['~NodeArray',['../group__DirectedGraph.html#ga694137c5709b2c37eb971ab6ba796b02',1,'NodeArray']]]
+  ['x_921',['x',['../group__Quadratures.html#ga628eb81f57259847bbc6250bc2fc7a47',1,'HArDCore2D::QuadratureNode']]],
+  ['xcurl_922',['XCurl',['../classHArDCore2D_1_1XCurl.html',1,'HArDCore2D::XCurl'],['../group__DDRCore.html#gac5383b922f0967c25438f268f41a706c',1,'HArDCore2D::XCurl::XCurl()']]],
+  ['xcurl_2ecpp_923',['xcurl.cpp',['../xcurl_8cpp.html',1,'']]],
+  ['xcurl_2ecpp_2eo_2ed_924',['xcurl.cpp.o.d',['../xcurl_8cpp_8o_8d.html',1,'']]],
+  ['xcurl_2ehpp_925',['xcurl.hpp',['../xcurl_8hpp.html',1,'']]],
+  ['xdivdiv_926',['XDivDiv',['../classHArDCore2D_1_1XDivDiv.html',1,'HArDCore2D']]],
+  ['xdivdiv_927',['xDivDiv',['../group__DDR__klplate.html#ga1a9dee2ac5cb3da7c7c55119f9efaefe',1,'HArDCore2D::KirchhoffLove']]],
+  ['xdivdiv_928',['XDivDiv',['../group__PlatesCore.html#ga69c18a708a72277125f88e612ddbe2d0',1,'HArDCore2D::XDivDiv']]],
+  ['xdivdiv_2ecpp_929',['xdivdiv.cpp',['../xdivdiv_8cpp.html',1,'']]],
+  ['xdivdiv_2ecpp_2eo_2ed_930',['xdivdiv.cpp.o.d',['../xdivdiv_8cpp_8o_8d.html',1,'']]],
+  ['xdivdiv_2ehpp_931',['xdivdiv.hpp',['../xdivdiv_8hpp.html',1,'']]],
+  ['xgrad_932',['XGrad',['../classHArDCore2D_1_1XGrad.html',1,'HArDCore2D']]],
+  ['xgrad_933',['xGrad',['../group__DDR__rmplate.html#ga1bc47d92ac45366335845e3e9820151f',1,'HArDCore2D::ReissnerMindlin']]],
+  ['xgrad_934',['XGrad',['../group__DDRCore.html#gaa324e5f72366f9c2fe7326384986269c',1,'HArDCore2D::XGrad']]],
+  ['xgrad_2ecpp_935',['xgrad.cpp',['../xgrad_8cpp.html',1,'']]],
+  ['xgrad_2ecpp_2eo_2ed_936',['xgrad.cpp.o.d',['../xgrad_8cpp_8o_8d.html',1,'']]],
+  ['xgrad_2ehpp_937',['xgrad.hpp',['../xgrad_8hpp.html',1,'']]],
+  ['xq_938',['xq',['../group__Quadratures.html#ga1b03cf6a6800470a027f570d44338a1f',1,'HArDCore2D::QuadRuleEdge::xq()'],['../classHArDCore2D_1_1QuadRuleTriangle.html#a98156eda410a5aa6f9787ce920358fca',1,'HArDCore2D::QuadRuleTriangle::xq()']]]
 ];

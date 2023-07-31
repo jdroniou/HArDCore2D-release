@@ -5,7 +5,6 @@
 
 #include "ddr-rmplate.hpp"
 
-#include <mesh_builder.hpp>
 #include <parallel_for.hpp>
 #include "vtu_writer.hpp"
 
@@ -18,6 +17,7 @@
 
 #ifdef WITH_MKL
 #include <Eigen/PardisoSupport>
+#include <mkl.h>
 #endif
 
 #define FORMAT(W)                                                       \
@@ -211,6 +211,9 @@ int main(int argc, const char* argv[])
   } else { 
 #ifdef WITH_MKL
     std::cout << "[main] Solving the linear system using Pardiso" << std::endl;    
+    unsigned nb_threads_hint = std::thread::hardware_concurrency();
+    mkl_set_dynamic(0);
+    mkl_set_num_threads(nb_threads_hint);
     Eigen::PardisoLU<ReissnerMindlin::SystemMatrixType> solver;
 #elif WITH_UMFPACK
     std::cout << "[main] Solving the linear system using Umfpack" << std::endl;    
@@ -599,8 +602,8 @@ void ReissnerMindlin::_assemble_local_contribution(
         }else{
           triplets_bdryMat.emplace_back(ukn_i, I_T[j], AT(i,j));
         }
-      }
-    } // for j
+      } // for j
+    }
   } // for i
 
 }

@@ -1,4 +1,5 @@
 description/
+docs/
 build/
 TODO.txt
 old/
@@ -9,4 +10,5 @@ directories.sh
 P1FE/
 resultats_dermod
 compute_rates
+.DS_Store
 *~

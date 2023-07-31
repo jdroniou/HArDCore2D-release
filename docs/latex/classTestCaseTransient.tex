@@ -12,30 +12,26 @@ The \mbox{\hyperlink{classTestCaseTransient}{Test\+Case\+Transient}} class provi
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTestCaseTransient_a1c3e4f3e229546a90860776e0ab591ec}{Test\+Case\+Transient}} (const std\+::vector$<$ int $>$ i\+TC, const double m\+P\+ME)
+\mbox{\hyperlink{classTestCaseTransient_a1c3e4f3e229546a90860776e0ab591ec}{Test\+Case\+Transient}} (const std\+::vector$<$ int $>$ i\+TC, const double m\+PME)
 \begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
-std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$ \mbox{\hyperlink{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}{solution}} ()
+\mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$ \mbox{\hyperlink{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}{solution}} ()
 \begin{DoxyCompactList}\small\item\em Returns the exact solution at time t and point p. \end{DoxyCompactList}\item 
-std\+::function$<$ Vector\+Rd(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$ \mbox{\hyperlink{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}{grad\+\_\+solution}} ()
+\mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$ \mbox{\hyperlink{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}{grad\+\_\+solution}} ()
 \item 
-std\+::function$<$ Eigen\+::\+Matrix2d(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$ \mbox{\hyperlink{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}{hess\+\_\+solution}} ()
-\begin{DoxyCompactList}\small\item\em Note\+: the Hessian for the Barenblatt solution is N\+OT computed (left at 0) as it is not useful to compute the source term. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}\label{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}} 
-std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$ \mbox{\hyperlink{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}{delt\+\_\+solution}} ()
+\mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$ \mbox{\hyperlink{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}{hess\+\_\+solution}} ()
+\begin{DoxyCompactList}\small\item\em Note\+: the Hessian for the Barenblatt solution is NOT computed (left at 0) as it is not useful to compute the source term. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$ \mbox{\hyperlink{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}{delt\+\_\+solution}} ()
 \begin{DoxyCompactList}\small\item\em Returns the time derivative of the exact solution at time t and point p. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix2d \mbox{\hyperlink{classTestCaseTransient_aaaa63538d3030cbd260102b208095e6d}{diff}} (const double x, const double y, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$cell)
+Eigen\+::\+Matrix2d \mbox{\hyperlink{classTestCaseTransient_aaaa63538d3030cbd260102b208095e6d}{diff}} (const double x, const double y, const Cell $\ast$cell)
 \begin{DoxyCompactList}\small\item\em Returns the diffusion matrix at the point x, y (not depending on time for the moment) \end{DoxyCompactList}\item 
-Eigen\+::\+Vector2d \mbox{\hyperlink{classTestCaseTransient_a6f2062d5ff86527afa8d6aefba486796}{div\+\_\+diff}} (const double x, const double y, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$cell)
+Eigen\+::\+Vector2d \mbox{\hyperlink{classTestCaseTransient_a6f2062d5ff86527afa8d6aefba486796}{div\+\_\+diff}} (const double x, const double y, const Cell $\ast$cell)
 \begin{DoxyCompactList}\small\item\em Returns the divergence by row of the diffusion matrix at the point x, y. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classTestCaseTransient_a13c99ab8100baf9f6df01c595e6c47bf}{div\+\_\+diff\+\_\+grad}} (const double t, const double x, const double y, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$cell)
-\begin{DoxyCompactList}\small\item\em Returns div(diff \textbackslash{}nabla) of the exact solution at the point t, x, y. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCaseTransient_a33433713841d599d5ac73c4ee0c2e350}\label{classTestCaseTransient_a33433713841d599d5ac73c4ee0c2e350}} 
+double \mbox{\hyperlink{classTestCaseTransient_a08683778648caa41f721494ffa3c1727}{minus\+\_\+div\+\_\+diff\+\_\+grad}} (const double t, const double x, const double y, const Cell $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Returns -\/div(diff \textbackslash{}nabla) of the exact solution at the point t, x, y. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classTestCaseTransient_a33433713841d599d5ac73c4ee0c2e350}{get\+\_\+lambda}} ()
 \begin{DoxyCompactList}\small\item\em Returns the value of the parameter lambda. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCaseTransient_aeb9966dfcac4190c171545377a261202}\label{classTestCaseTransient_aeb9966dfcac4190c171545377a261202}} 
 void \mbox{\hyperlink{classTestCaseTransient_aeb9966dfcac4190c171545377a261202}{validate}} ()
 \begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTestCaseTransient_ae2a7aa0b43a54329c21b5a35c30b61a8}\label{classTestCaseTransient_ae2a7aa0b43a54329c21b5a35c30b61a8}} 
 size\+\_\+t \mbox{\hyperlink{classTestCaseTransient_ae2a7aa0b43a54329c21b5a35c30b61a8}{get\+\_\+deg\+\_\+diff}} ()
 \begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -48,7 +44,7 @@ The \mbox{\hyperlink{classTestCaseTransient}{Test\+Case\+Transient}} class provi
 \index{TestCaseTransient@{TestCaseTransient}!TestCaseTransient@{TestCaseTransient}}
 \index{TestCaseTransient@{TestCaseTransient}!TestCaseTransient@{TestCaseTransient}}
 \doxysubsubsection{\texorpdfstring{TestCaseTransient()}{TestCaseTransient()}}
-{\footnotesize\ttfamily Test\+Case\+Transient\+::\+Test\+Case\+Transient (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$}]{i\+TC,  }\item[{const double}]{m\+P\+ME }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Test\+Case\+Transient\+::\+Test\+Case\+Transient (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$}]{i\+TC,  }\item[{const double}]{m\+PME }\end{DoxyParamCaption})}
 
 
 
@@ -58,17 +54,27 @@ Initialise data.
 \begin{DoxyParams}{Parameters}
 {\em i\+TC} & The vector id of the test case\+: (id of solution, id of diffusion) \\
 \hline
-{\em m\+P\+ME} & P\+ME power, for the Barenblatt solution \\
+{\em m\+PME} & PME power, for the Barenblatt solution \\
 \hline
 \end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}\label{classTestCaseTransient_ad7322854a22226263136288ae6c3a6a3}} 
+\index{TestCaseTransient@{TestCaseTransient}!delt\_solution@{delt\_solution}}
+\index{delt\_solution@{delt\_solution}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{delt\_solution()}{delt\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$ Test\+Case\+Transient\+::delt\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the time derivative of the exact solution at time t and point p. 
+
 \mbox{\Hypertarget{classTestCaseTransient_aaaa63538d3030cbd260102b208095e6d}\label{classTestCaseTransient_aaaa63538d3030cbd260102b208095e6d}} 
 \index{TestCaseTransient@{TestCaseTransient}!diff@{diff}}
 \index{diff@{diff}!TestCaseTransient@{TestCaseTransient}}
 \doxysubsubsection{\texorpdfstring{diff()}{diff()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+Transient\+::diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Test\+Case\+Transient\+::diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const Cell $\ast$}]{cell }\end{DoxyParamCaption})}
 
 
 
@@ -91,7 +97,7 @@ i\+TC\mbox{[}1\mbox{]}=5\+: Diff= $\left[\begin{array}{cc}\lambda & 0\\ 0 & 1\en
 \index{TestCaseTransient@{TestCaseTransient}!div\_diff@{div\_diff}}
 \index{div\_diff@{div\_diff}!TestCaseTransient@{TestCaseTransient}}
 \doxysubsubsection{\texorpdfstring{div\_diff()}{div\_diff()}}
-{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+Transient\+::div\+\_\+diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Test\+Case\+Transient\+::div\+\_\+diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const Cell $\ast$}]{cell }\end{DoxyParamCaption})}
 
 
 
@@ -102,42 +108,62 @@ Returns the divergence by row of the diffusion matrix at the point x, y.
 {\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classTestCaseTransient_a13c99ab8100baf9f6df01c595e6c47bf}\label{classTestCaseTransient_a13c99ab8100baf9f6df01c595e6c47bf}} 
-\index{TestCaseTransient@{TestCaseTransient}!div\_diff\_grad@{div\_diff\_grad}}
-\index{div\_diff\_grad@{div\_diff\_grad}!TestCaseTransient@{TestCaseTransient}}
-\doxysubsubsection{\texorpdfstring{div\_diff\_grad()}{div\_diff\_grad()}}
-{\footnotesize\ttfamily double Test\+Case\+Transient\+::div\+\_\+diff\+\_\+grad (\begin{DoxyParamCaption}\item[{const double}]{t,  }\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classTestCaseTransient_ae2a7aa0b43a54329c21b5a35c30b61a8}\label{classTestCaseTransient_ae2a7aa0b43a54329c21b5a35c30b61a8}} 
+\index{TestCaseTransient@{TestCaseTransient}!get\_deg\_diff@{get\_deg\_diff}}
+\index{get\_deg\_diff@{get\_deg\_diff}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{get\_deg\_diff()}{get\_deg\_diff()}}
+{\footnotesize\ttfamily size\+\_\+t Test\+Case\+Transient\+::get\+\_\+deg\+\_\+diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Returns div(diff \textbackslash{}nabla) of the exact solution at the point t, x, y. 
+Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) 
+
+\mbox{\Hypertarget{classTestCaseTransient_a33433713841d599d5ac73c4ee0c2e350}\label{classTestCaseTransient_a33433713841d599d5ac73c4ee0c2e350}} 
+\index{TestCaseTransient@{TestCaseTransient}!get\_lambda@{get\_lambda}}
+\index{get\_lambda@{get\_lambda}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{get\_lambda()}{get\_lambda()}}
+{\footnotesize\ttfamily double Test\+Case\+Transient\+::get\+\_\+lambda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the value of the parameter lambda. 
+
+\mbox{\Hypertarget{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}\label{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}} 
+\index{TestCaseTransient@{TestCaseTransient}!grad\_solution@{grad\_solution}}
+\index{grad\_solution@{grad\_solution}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{grad\_solution()}{grad\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$ Test\+Case\+Transient\+::grad\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the gradient of the exact solution at time t and point p In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula Note\+: the gradient for the Barenblatt solution is NOT computed (left at 0) as it is not useful to compute the source term \mbox{\Hypertarget{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}\label{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}} 
+\index{TestCaseTransient@{TestCaseTransient}!hess\_solution@{hess\_solution}}
+\index{hess\_solution@{hess\_solution}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{hess\_solution()}{hess\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$ Test\+Case\+Transient\+::hess\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Note\+: the Hessian for the Barenblatt solution is NOT computed (left at 0) as it is not useful to compute the source term. 
+
+Returns the Hessian of the exact solution at time t and point p \mbox{\Hypertarget{classTestCaseTransient_a08683778648caa41f721494ffa3c1727}\label{classTestCaseTransient_a08683778648caa41f721494ffa3c1727}} 
+\index{TestCaseTransient@{TestCaseTransient}!minus\_div\_diff\_grad@{minus\_div\_diff\_grad}}
+\index{minus\_div\_diff\_grad@{minus\_div\_diff\_grad}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{minus\_div\_diff\_grad()}{minus\_div\_diff\_grad()}}
+{\footnotesize\ttfamily double Test\+Case\+Transient\+::minus\+\_\+div\+\_\+diff\+\_\+grad (\begin{DoxyParamCaption}\item[{const double}]{t,  }\item[{const double}]{x,  }\item[{const double}]{y,  }\item[{const Cell $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Returns -\/div(diff \textbackslash{}nabla) of the exact solution at the point t, x, y. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}\label{classTestCaseTransient_a7bc67abdb78c8f49d5292b9155953ab9}} 
-\index{TestCaseTransient@{TestCaseTransient}!grad\_solution@{grad\_solution}}
-\index{grad\_solution@{grad\_solution}!TestCaseTransient@{TestCaseTransient}}
-\doxysubsubsection{\texorpdfstring{grad\_solution()}{grad\_solution()}}
-{\footnotesize\ttfamily std\+::function$<$ Vector\+Rd(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$ Test\+Case\+Transient\+::grad\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Returns the gradient of the exact solution at time t and point p In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula Note\+: the gradient for the Barenblatt solution is N\+OT computed (left at 0) as it is not useful to compute the source term \mbox{\Hypertarget{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}\label{classTestCaseTransient_a83574cdc83abd0467726a36b94d8101d}} 
-\index{TestCaseTransient@{TestCaseTransient}!hess\_solution@{hess\_solution}}
-\index{hess\_solution@{hess\_solution}!TestCaseTransient@{TestCaseTransient}}
-\doxysubsubsection{\texorpdfstring{hess\_solution()}{hess\_solution()}}
-{\footnotesize\ttfamily std\+::function$<$ Eigen\+::\+Matrix2d(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$ Test\+Case\+Transient\+::hess\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Note\+: the Hessian for the Barenblatt solution is N\+OT computed (left at 0) as it is not useful to compute the source term. 
-
-Returns the Hessian of the exact solution at time t and point p \mbox{\Hypertarget{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}\label{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}} 
+\mbox{\Hypertarget{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}\label{classTestCaseTransient_a958628e2af70a6a52f387a731918acec}} 
 \index{TestCaseTransient@{TestCaseTransient}!solution@{solution}}
 \index{solution@{solution}!TestCaseTransient@{TestCaseTransient}}
 \doxysubsubsection{\texorpdfstring{solution()}{solution()}}
-{\footnotesize\ttfamily std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$ Test\+Case\+Transient\+::solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$ Test\+Case\+Transient\+::solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -149,9 +175,19 @@ i\+TC\mbox{[}0\mbox{]}=2\+: $u(x,y)=cos(t) cos(\pi x) cos(\pi y)$
 
 i\+TC\mbox{[}0\mbox{]}=3\+: $u(x,y)= (1-t) x$
 
-i\+TC\mbox{[}0\mbox{]}=4\+: Barenblatt solution (with offset)
+i\+TC\mbox{[}0\mbox{]}=4\+: Barenblatt solution (with offset)\mbox{\Hypertarget{classTestCaseTransient_aeb9966dfcac4190c171545377a261202}\label{classTestCaseTransient_aeb9966dfcac4190c171545377a261202}} 
+\index{TestCaseTransient@{TestCaseTransient}!validate@{validate}}
+\index{validate@{validate}!TestCaseTransient@{TestCaseTransient}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily void Test\+Case\+Transient\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) 
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+Test\+Case/Test\+Case\+Transient.\+hpp\item 
-Schemes/\+Test\+Case/Test\+Case\+Transient.\+cpp\end{DoxyCompactItemize}
+Schemes/\+Test\+Case/\mbox{\hyperlink{TestCaseTransient_8hpp}{Test\+Case\+Transient.\+hpp}}\item 
+Schemes/\+Test\+Case/\mbox{\hyperlink{TestCaseTransient_8cpp}{Test\+Case\+Transient.\+cpp}}\end{DoxyCompactItemize}

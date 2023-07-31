@@ -59,13 +59,16 @@ The following schemes are currently available in HArD::Core2D. The Hybrid High-O
 
  - [LEPNC_StefanPME](@ref HArDCore2D::LEPNC_StefanPME), in module [LEPNC](@ref LEPNC): Locally Enriched Polytopal Non-Conforming (LEPNC) method for the stationnary Stefan/PME problem \f$u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
 
- - [LEPNC_StefanPME_Transient](@ref HArDCore2D::LEPNC_StefanPME_Transient), in module [LEPNC](@ref LEPNC): LEPNC for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
+ - [LEPNC_StefanPME_Transient](@ref HArDCore2D::LEPNC_StefanPME_Transient), in module [LEPNC](@ref LEPNC): LEPNC for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$ <i>(may not be working any longer due to changes in the management of quadrature rules)</i>
 
  - [HMM_StefanPME_Transient](@ref HArDCore2D::HMM_StefanPME_Transient), in module [HMM](@ref HMM): Hybrid Mimetic Mixed (HMM) method for the transient Stefan/PME problem \f$\partial_t u-\mathrm{div}(K\nabla\zeta(u))=f\f$.
 
  - [DDR_rmplate](@ref DDR_rmplate): Discrete de Rham (DDR) scheme for the Reissner-Mindlin plate bending problem.
 
  - [DDR_klplate](@ref DDR_klplate): Scheme for the Kirchhoff-Love plate problem based on the DDR principles (with design of a specific complex for plates).
+ 
+ - [HHO_fullgradientdiff](@ref HHO_fullgradientdiff): HHO scheme with full gradient; similar to [HHO_locvardiff](@ref HArDCore3D::HHO_LocVarDiff) but implemented using the HHOSpace module instead of the HybridCore module.
+
 
 The directory `runs` contains BASH to run series of tests on families of meshes. The files `data.sh` describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the `output` directory, including a pdf file `rate.pdf` describing the rates of convergence in various energy norms.
 

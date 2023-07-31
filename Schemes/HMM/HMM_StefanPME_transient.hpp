@@ -204,7 +204,7 @@ UVector HMM_StefanPME_Transient::iterate(const double tps, const double dt, cons
   // relaxation parameter
   double relax = 1;     
 	size_t iter = 0;
-	UVector Xhprev = UVector(Eigen::VectorXd::Zero(n_cell_dofs + n_edges_dofs), *hmm.get_mesh(), 0, 0);
+	UVector Xhprev = Xn;
 	UVector Xh = UVector(Eigen::VectorXd::Zero(n_cell_dofs + n_edges_dofs), *hmm.get_mesh(), 0, 0);
 
 	// Vector of Dirichlet BC, either on u (if weight>0) or zeta(u) (if weight=0)
@@ -225,7 +225,9 @@ UVector HMM_StefanPME_Transient::iterate(const double tps, const double dt, cons
 		  DirBC(n_cell_dofs + iF) /= mesh->b_edge(ibF)->measure();
     }
 	}
-	Xhprev.asVectorXd() = DirBC;
+	// Adjust initial iteration of Newton to match these BCs
+	Xhprev.asVectorXd().tail(mesh->n_b_edges()) = DirBC.tail(mesh->n_b_edges());
+
 
 	// ---- NEWTON ITERATONS ------ //
 	Eigen::VectorXd RES = residual_scheme(dt, Xhprev); 		// Scheme is F(X)=C, then RES = C - F(u_prev)

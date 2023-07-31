@@ -1,84 +1,155 @@
-\hypertarget{group__HHO2D}{}\doxysection{H\+H\+O2D}
+\hypertarget{group__HHO2D}{}\doxysection{HHO2D}
 \label{group__HHO2D}\index{HHO2D@{HHO2D}}
 
 
-Class providing helper methods and assemble and solve routines for general 2D H\+HO schemes.  
+Class providing helper methods and assemble and solve routines for general 2D HHO schemes.  
 
 
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classHHO2D}{H\+H\+O2D}}
+class \mbox{\hyperlink{classHHO2D}{HHO2D}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}\label{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}} 
-typedef std\+::function$<$ Eigen\+::\+Matrix\+Xd(\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+F\+Type}}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix\+Xd(Cell $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+FType}}
 \begin{DoxyCompactList}\small\item\em type for the global operator as a function of a Cell and an Element\+Quad \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}\label{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}} 
-typedef std\+::function$<$ Eigen\+::\+Vector\+Xd(\mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}}
+typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Vector\+Xd(Cell $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}}
 \begin{DoxyCompactList}\small\item\em type for the load vector as a function of a Cell and an Element\+Quad \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__HHO2D_gab534cd4aa13a7c8e7208c20430bf6385}{H\+H\+O2\+D\+::\+H\+H\+O2D}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&, const size\+\_\+t, const size\+\_\+t, const bool use\+\_\+threads=true, size\+\_\+t doeT=0, size\+\_\+t doeF=0)
+\mbox{\hyperlink{group__HHO2D_gab534cd4aa13a7c8e7208c20430bf6385}{HHO2\+D\+::\+HHO2D}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&, const size\+\_\+t, const size\+\_\+t, const bool \mbox{\hyperlink{group__HHO__DiffAdvecReac_ga61c147fa3e7a4b2f35ba838ce26aa026}{use\+\_\+threads}}=true, size\+\_\+t doeT=0, size\+\_\+t doeF=0)
 \begin{DoxyCompactList}\small\item\em Class constructor\+: initialises the model by providing a Hybrid\+Core object, and the exact solution and boundary conditions of the model. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}\label{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}} 
-void \mbox{\hyperlink{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}{H\+H\+O2\+D\+::assemble}} ()
+void \mbox{\hyperlink{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}{HHO2\+D\+::assemble}} ()
 \begin{DoxyCompactList}\small\item\em A general assemble routine that calculates the statically condensed matrices required by solve. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}\label{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}} 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}{H\+H\+O2\+D\+::solve}} ()
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}{HHO2\+D\+::solve}} ()
 \begin{DoxyCompactList}\small\item\em Solves the statically condensed system. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}\label{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}} 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}{H\+H\+O2\+D\+::neumann\+\_\+solve}} ()
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}{HHO2\+D\+::neumann\+\_\+solve}} ()
 \begin{DoxyCompactList}\small\item\em Solves the system when the model is ill posed (not yet running) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}\label{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}} 
-double \mbox{\hyperlink{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}{H\+H\+O2\+D\+::energy\+\_\+norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}})
-\begin{DoxyCompactList}\small\item\em Returns the energy norm of a given U\+Vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}\label{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}} 
-void \mbox{\hyperlink{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}{H\+H\+O2\+D\+::set\+\_\+global\+\_\+operator}} (const \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+F\+Type}} \&)
+double \mbox{\hyperlink{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}{HHO2\+D\+::energy\+\_\+norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}})
+\begin{DoxyCompactList}\small\item\em Returns the energy norm of a given UVector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}{HHO2\+D\+::set\+\_\+global\+\_\+operator}} (const \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+FType}} \&)
 \begin{DoxyCompactList}\small\item\em Set the global operator. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}\label{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}} 
-void \mbox{\hyperlink{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}{H\+H\+O2\+D\+::set\+\_\+load\+\_\+vector}} (const \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} \&)
+void \mbox{\hyperlink{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}{HHO2\+D\+::set\+\_\+load\+\_\+vector}} (const \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} \&)
 \begin{DoxyCompactList}\small\item\em Set the load vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__HHO2D_gae25ba90f5568e75217375db75768e137}{H\+H\+O2\+D\+::plot}} (const std\+::string, const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&, const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&)
+void \mbox{\hyperlink{group__HHO2D_gae25ba90f5568e75217375db75768e137}{HHO2\+D\+::plot}} (const std\+::string, const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&, const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&)
 \begin{DoxyCompactList}\small\item\em Plot the numerical and exact solutions. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} \mbox{\hyperlink{group__HHO2D_ga1de9ead6ca580e17dcfbfe5923ba47be}{H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector}} (const Cell\+F\+Type$<$ double $>$ \&)
+\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} \mbox{\hyperlink{group__HHO2D_ga1de9ead6ca580e17dcfbfe5923ba47be}{HHO2\+D\+::standard\+\_\+load\+\_\+vector}} (const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&)
 \begin{DoxyCompactList}\small\item\em Returns the standard load vector (f, v\+\_\+T)\+\_\+T with no Neumann boundary conditions. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} \mbox{\hyperlink{group__HHO2D_ga427bc94bbd61f142f20aed0ac3b462f5}{H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector}} (const Cell\+F\+Type$<$ double $>$ \&, const Cell\+F\+Type$<$ Vector\+Rd $>$ \&, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&)
+\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} \mbox{\hyperlink{group__HHO2D_ga427bc94bbd61f142f20aed0ac3b462f5}{HHO2\+D\+::standard\+\_\+load\+\_\+vector}} (const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&, const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} $>$ \&, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&)
 \begin{DoxyCompactList}\small\item\em Returns the standard load vector (f, v\+\_\+T)\+\_\+T. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} \mbox{\hyperlink{group__HHO2D_gad644db5dca60dacf3b9a1975ec0525cc}{H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector}} (const Cell\+F\+Type$<$ double $>$ \&, const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&)
+\mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} \mbox{\hyperlink{group__HHO2D_gad644db5dca60dacf3b9a1975ec0525cc}{HHO2\+D\+::standard\+\_\+load\+\_\+vector}} (const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&, const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&, const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&)
 \begin{DoxyCompactList}\small\item\em Returns the standard load vector (f, v\+\_\+T)\+\_\+T. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__HHO2D_ga922023216ecabb80ff260302868630ad}{H\+H\+O2\+D\+::set\+\_\+dirichlet}} (const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&, const size\+\_\+t)
+void \mbox{\hyperlink{group__HHO2D_ga922023216ecabb80ff260302868630ad}{HHO2\+D\+::set\+\_\+dirichlet}} (const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&, const size\+\_\+t)
 \begin{DoxyCompactList}\small\item\em Set the Dirichlet boundary conditions. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__HHO2D_ga2256b25a33f9f3cd1170cd3702dcbfab}{H\+H\+O2\+D\+::set\+\_\+dirichlet}} (const size\+\_\+t)
+void \mbox{\hyperlink{group__HHO2D_ga2256b25a33f9f3cd1170cd3702dcbfab}{HHO2\+D\+::set\+\_\+dirichlet}} (const size\+\_\+t)
 \begin{DoxyCompactList}\small\item\em Set the Dirichlet boundary condition to zero. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}\label{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}} 
-Eigen\+::\+Sparse\+Matrix$<$ double $>$ \mbox{\hyperlink{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}{H\+H\+O2\+D\+::get\+\_\+\+Sys\+Mat}} ()
+Eigen\+::\+Sparse\+Matrix$<$ double $>$ \mbox{\hyperlink{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}{HHO2\+D\+::get\+\_\+\+Sys\+Mat}} ()
 \begin{DoxyCompactList}\small\item\em Return the (statically condensed) matrix system. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}\label{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}} 
-double \mbox{\hyperlink{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}{H\+H\+O2\+D\+::get\+\_\+assembly\+\_\+time}} () const
-\begin{DoxyCompactList}\small\item\em C\+PU time to assemble the scheme. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}\label{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}} 
-double \mbox{\hyperlink{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}{H\+H\+O2\+D\+::get\+\_\+solving\+\_\+time}} () const
-\begin{DoxyCompactList}\small\item\em C\+PU time to solve the scheme. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}\label{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}} 
-double \mbox{\hyperlink{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}{H\+H\+O2\+D\+::get\+\_\+solving\+\_\+error}} () const
+double \mbox{\hyperlink{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}{HHO2\+D\+::get\+\_\+assembly\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em CPU time to assemble the scheme. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}{HHO2\+D\+::get\+\_\+solving\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em CPU time to solve the scheme. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}{HHO2\+D\+::get\+\_\+solving\+\_\+error}} () const
 \begin{DoxyCompactList}\small\item\em Residual after solving the scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class providing helper methods and assemble and solve routines for general 2D H\+HO schemes. 
+Class providing helper methods and assemble and solve routines for general 2D HHO schemes. 
 
-The \mbox{\hyperlink{classHHO2D}{H\+H\+O2D}} class contains methods applicable to a general 2D H\+HO model. It contains assemble and solve routines usable by any scheme. The global operator and load vector are passed to the model through setters and are then accessible by assemble and solve. The class also contains helper methods for writing H\+HO schemes. 
+The \mbox{\hyperlink{classHHO2D}{HHO2D}} class contains methods applicable to a general 2D HHO model. It contains assemble and solve routines usable by any scheme. The global operator and load vector are passed to the model through setters and are then accessible by assemble and solve. The class also contains helper methods for writing HHO schemes. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}\label{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}} 
+\index{HHO2D@{HHO2D}!MatrixFType@{MatrixFType}}
+\index{MatrixFType@{MatrixFType}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{MatrixFType}{MatrixFType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix\+Xd(Cell $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+FType}}}
+
+
+
+type for the global operator as a function of a Cell and an Element\+Quad 
+
+\mbox{\Hypertarget{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}\label{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}} 
+\index{HHO2D@{HHO2D}!VectorFType@{VectorFType}}
+\index{VectorFType@{VectorFType}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{VectorFType}{VectorFType}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Vector\+Xd(Cell $\ast$, \mbox{\hyperlink{classHArDCore2D_1_1ElementQuad}{Element\+Quad}} \&)$>$ \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}}}
+
+
+
+type for the load vector as a function of a Cell and an Element\+Quad 
+
+
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}\label{group__HHO2D_ga047ea52da1fad2d0a290d8074a70c485}} 
+\index{HHO2D@{HHO2D}!assemble@{assemble}}
+\index{assemble@{assemble}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{assemble()}{assemble()}}
+{\footnotesize\ttfamily void HHO2\+D\+::assemble (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A general assemble routine that calculates the statically condensed matrices required by solve. 
+
+\mbox{\Hypertarget{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}\label{group__HHO2D_ga8dc4a45abc36cf394c7a203a04015b96}} 
+\index{HHO2D@{HHO2D}!energy\_norm@{energy\_norm}}
+\index{energy\_norm@{energy\_norm}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{energy\_norm()}{energy\_norm()}}
+{\footnotesize\ttfamily double HHO2\+D\+::energy\+\_\+norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}}}]{Xh }\end{DoxyParamCaption})}
+
+
+
+Returns the energy norm of a given UVector. 
+
+\mbox{\Hypertarget{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}\label{group__HHO2D_gaf1ca6e96551a4afdb5c0a64054ba745e}} 
+\index{HHO2D@{HHO2D}!get\_assembly\_time@{get\_assembly\_time}}
+\index{get\_assembly\_time@{get\_assembly\_time}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{get\_assembly\_time()}{get\_assembly\_time()}}
+{\footnotesize\ttfamily double HHO2\+D\+::get\+\_\+assembly\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+CPU time to assemble the scheme. 
+
+\mbox{\Hypertarget{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}\label{group__HHO2D_ga58eb3a6db4c59958609e759077ce0bc2}} 
+\index{HHO2D@{HHO2D}!get\_solving\_error@{get\_solving\_error}}
+\index{get\_solving\_error@{get\_solving\_error}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_error()}{get\_solving\_error()}}
+{\footnotesize\ttfamily double HHO2\+D\+::get\+\_\+solving\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Residual after solving the scheme. 
+
+\mbox{\Hypertarget{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}\label{group__HHO2D_ga588ea831365cf3b5084601ae506e7afb}} 
+\index{HHO2D@{HHO2D}!get\_solving\_time@{get\_solving\_time}}
+\index{get\_solving\_time@{get\_solving\_time}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_time()}{get\_solving\_time()}}
+{\footnotesize\ttfamily double HHO2\+D\+::get\+\_\+solving\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+CPU time to solve the scheme. 
+
+\mbox{\Hypertarget{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}\label{group__HHO2D_ga92cf30167f7c988817bcf3d64d741d59}} 
+\index{HHO2D@{HHO2D}!get\_SysMat@{get\_SysMat}}
+\index{get\_SysMat@{get\_SysMat}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{get\_SysMat()}{get\_SysMat()}}
+{\footnotesize\ttfamily Eigen\+::\+Sparse\+Matrix$<$double$>$ HHO2\+D\+::get\+\_\+\+Sys\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the (statically condensed) matrix system. 
+
 \mbox{\Hypertarget{group__HHO2D_gab534cd4aa13a7c8e7208c20430bf6385}\label{group__HHO2D_gab534cd4aa13a7c8e7208c20430bf6385}} 
 \index{HHO2D@{HHO2D}!HHO2D@{HHO2D}}
 \index{HHO2D@{HHO2D}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{HHO2D()}{HHO2D()}}
-{\footnotesize\ttfamily H\+H\+O2\+D\+::\+H\+H\+O2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&}]{hho,  }\item[{const size\+\_\+t}]{L,  }\item[{const size\+\_\+t}]{K,  }\item[{const bool}]{use\+\_\+threads = {\ttfamily true},  }\item[{size\+\_\+t}]{doeT = {\ttfamily 0},  }\item[{size\+\_\+t}]{doeF = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HHO2\+D\+::\+HHO2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&}]{hho,  }\item[{const size\+\_\+t}]{L,  }\item[{const size\+\_\+t}]{K,  }\item[{const bool}]{use\+\_\+threads = {\ttfamily true},  }\item[{size\+\_\+t}]{doeT = {\ttfamily 0},  }\item[{size\+\_\+t}]{doeF = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 
@@ -99,11 +170,21 @@ Class constructor\+: initialises the model by providing a Hybrid\+Core object, a
 {\em doeF} & Optional argument to set edge quadrature degree. Default is 2 $\ast$ K + 1 \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}\label{group__HHO2D_ga7d1f0230439ddf7af20563672311cdac}} 
+\index{HHO2D@{HHO2D}!neumann\_solve@{neumann\_solve}}
+\index{neumann\_solve@{neumann\_solve}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{neumann\_solve()}{neumann\_solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} HHO2\+D\+::neumann\+\_\+solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Solves the system when the model is ill posed (not yet running) 
+
 \mbox{\Hypertarget{group__HHO2D_gae25ba90f5568e75217375db75768e137}\label{group__HHO2D_gae25ba90f5568e75217375db75768e137}} 
 \index{HHO2D@{HHO2D}!plot@{plot}}
 \index{plot@{plot}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{plot()}{plot()}}
-{\footnotesize\ttfamily void H\+H\+O2\+D\+::plot (\begin{DoxyParamCaption}\item[{const std\+::string}]{plot\+\_\+file,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&}]{sol,  }\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&}]{exact\+\_\+sol }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void HHO2\+D\+::plot (\begin{DoxyParamCaption}\item[{const std\+::string}]{plot\+\_\+file,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{sol,  }\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&}]{exact\+\_\+sol }\end{DoxyParamCaption})}
 
 
 
@@ -122,7 +203,7 @@ Plot the numerical and exact solutions.
 \index{HHO2D@{HHO2D}!set\_dirichlet@{set\_dirichlet}}
 \index{set\_dirichlet@{set\_dirichlet}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{set\_dirichlet()}{set\_dirichlet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void H\+H\+O2\+D\+::set\+\_\+dirichlet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&}]{f,  }\item[{const size\+\_\+t}]{n\+\_\+dir\+\_\+edges }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void HHO2\+D\+::set\+\_\+dirichlet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&}]{f,  }\item[{const size\+\_\+t}]{n\+\_\+dir\+\_\+edges }\end{DoxyParamCaption})}
 
 
 
@@ -139,7 +220,7 @@ Set the Dirichlet boundary conditions.
 \index{HHO2D@{HHO2D}!set\_dirichlet@{set\_dirichlet}}
 \index{set\_dirichlet@{set\_dirichlet}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{set\_dirichlet()}{set\_dirichlet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void H\+H\+O2\+D\+::set\+\_\+dirichlet (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{n\+\_\+dir\+\_\+edges }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void HHO2\+D\+::set\+\_\+dirichlet (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{n\+\_\+dir\+\_\+edges }\end{DoxyParamCaption})}
 
 
 
@@ -150,11 +231,41 @@ Set the Dirichlet boundary condition to zero.
 {\em n\+\_\+dir\+\_\+edges} & Number of Dirichlet edges \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}\label{group__HHO2D_ga7675408b976d1570eaa97c472aa772eb}} 
+\index{HHO2D@{HHO2D}!set\_global\_operator@{set\_global\_operator}}
+\index{set\_global\_operator@{set\_global\_operator}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{set\_global\_operator()}{set\_global\_operator()}}
+{\footnotesize\ttfamily void HHO2\+D\+::set\+\_\+global\+\_\+operator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__HHO2D_ga37173e331cdc5fa65f30562ccb17ca8c}{Matrix\+FType}} \&}]{AT }\end{DoxyParamCaption})}
+
+
+
+Set the global operator. 
+
+\mbox{\Hypertarget{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}\label{group__HHO2D_ga0f5f8f1b036d5c8afc3d73909ca543d9}} 
+\index{HHO2D@{HHO2D}!set\_load\_vector@{set\_load\_vector}}
+\index{set\_load\_vector@{set\_load\_vector}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{set\_load\_vector()}{set\_load\_vector()}}
+{\footnotesize\ttfamily void HHO2\+D\+::set\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} \&}]{bT }\end{DoxyParamCaption})}
+
+
+
+Set the load vector. 
+
+\mbox{\Hypertarget{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}\label{group__HHO2D_gaf5b284b0063d25abeb225aa265fc480c}} 
+\index{HHO2D@{HHO2D}!solve@{solve}}
+\index{solve@{solve}!HHO2D@{HHO2D}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} HHO2\+D\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Solves the statically condensed system. 
+
 \mbox{\Hypertarget{group__HHO2D_ga1de9ead6ca580e17dcfbfe5923ba47be}\label{group__HHO2D_ga1de9ead6ca580e17dcfbfe5923ba47be}} 
 \index{HHO2D@{HHO2D}!standard\_load\_vector@{standard\_load\_vector}}
 \index{standard\_load\_vector@{standard\_load\_vector}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{standard\_load\_vector()}{standard\_load\_vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const Cell\+F\+Type$<$ double $>$ \&}]{source }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} HHO2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&}]{source }\end{DoxyParamCaption})}
 
 
 
@@ -169,7 +280,7 @@ Returns the standard load vector (f, v\+\_\+T)\+\_\+T with no Neumann boundary c
 \index{HHO2D@{HHO2D}!standard\_load\_vector@{standard\_load\_vector}}
 \index{standard\_load\_vector@{standard\_load\_vector}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{standard\_load\_vector()}{standard\_load\_vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const Cell\+F\+Type$<$ double $>$ \&}]{source,  }\item[{const Cell\+F\+Type$<$ Vector\+Rd $>$ \&}]{f,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{BC }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} HHO2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&}]{source,  }\item[{const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} $>$ \&}]{f,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{BC }\end{DoxyParamCaption})}
 
 
 
@@ -188,7 +299,7 @@ Returns the standard load vector (f, v\+\_\+T)\+\_\+T.
 \index{HHO2D@{HHO2D}!standard\_load\_vector@{standard\_load\_vector}}
 \index{standard\_load\_vector@{standard\_load\_vector}!HHO2D@{HHO2D}}
 \doxysubsubsection{\texorpdfstring{standard\_load\_vector()}{standard\_load\_vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+F\+Type}} H\+H\+O2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const Cell\+F\+Type$<$ double $>$ \&}]{source,  }\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{F\+Type}}$<$ double $>$ \&}]{f,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{BC }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__HHO2D_ga12f4db66d2596fe2ed7e1384d412479a}{Vector\+FType}} HHO2\+D\+::standard\+\_\+load\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{TestCase_8hpp_aaae211fd5ce0d49fb184b23d924b77cc}{Cell\+FType}}$<$ double $>$ \&}]{source,  }\item[{const \mbox{\hyperlink{group__Basis_gab1e36fbf129c707351e533ee43579432}{FType}}$<$ double $>$ \&}]{f,  }\item[{const \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} \&}]{BC }\end{DoxyParamCaption})}
 
 
 

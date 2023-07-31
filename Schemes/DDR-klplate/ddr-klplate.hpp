@@ -243,7 +243,7 @@ namespace HArDCore2D
   };
 
   static KirchhoffLove::MomentTensorEdgeDerivativeType
-  trigonometric_hess_u_DE = [](const Vector2d & x, const Edge & E) -> double {
+  trigonometric_hess_u_DE = [](const VectorRd & x, const Edge & E) -> double {
 
     Eigen::Vector2d tE = E.tangent();
     Eigen::Vector2d nE = E.normal();
@@ -318,7 +318,7 @@ namespace HArDCore2D
   };
 
   static KirchhoffLove::MomentTensorEdgeDerivativeType
-  quartic_hess_u_DE = [](const Vector2d & x, const Edge & E) -> double {
+  quartic_hess_u_DE = [](const VectorRd & x, const Edge & E) -> double {
 
     Eigen::Vector2d tE = E.tangent();
     Eigen::Vector2d nE = E.normal();
@@ -391,7 +391,7 @@ namespace HArDCore2D
   };
 
   static KirchhoffLove::MomentTensorEdgeDerivativeType
-  biquartic_hess_u_DE = [](const Vector2d & x, const Edge & E) -> double {
+  biquartic_hess_u_DE = [](const VectorRd & x, const Edge & E) -> double {
 
     Eigen::Vector2d tE = E.tangent();
     Eigen::Vector2d nE = E.normal();

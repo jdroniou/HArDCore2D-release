@@ -1,4 +1,4 @@
-\hypertarget{group__HMM}{}\doxysection{H\+MM}
+\hypertarget{group__HMM}{}\doxysection{HMM}
 \label{group__HMM}\index{HMM@{HMM}}
 
 
@@ -8,62 +8,47 @@ Hybrid Mimetic Mixed method.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classHArDCore2D_1_1HMM__StefanPME__Transient}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}}
+class \mbox{\hyperlink{classHArDCore2D_1_1HMM__StefanPME__Transient}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient}}
 \begin{DoxyCompactList}\small\item\em The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__HMM_ga27d931ba11a943660c086fe00f7563f4}\label{group__HMM_ga27d931ba11a943660c086fe00f7563f4}} 
-using \mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$
+using \mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}\label{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}} 
-using \mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}\label{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}} 
-using \mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gac035f89ef163d07f90543d79e70461e6}\label{group__HMM_gac035f89ef163d07f90543d79e70461e6}} 
-using \mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(const double, const double, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const double, const double, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor (does not depend on time) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__HMM_ga658e1417f607d6512b42b44fd474fd18}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hmm, \mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{tensor\+\_\+function\+\_\+type}} kappa, \mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__HMM_ga658e1417f607d6512b42b44fd474fd18}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&hmm, \mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{tensor\+\_\+function\+\_\+type}} kappa, \mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HMM_gaab7c3c5980144d1ee3cffa4c473a2295}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::iterate}} (const double tps, const double dt, const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xn)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HMM_gaab7c3c5980144d1ee3cffa4c473a2295}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::iterate}} (const double tps, const double dt, const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&Xn)
 \begin{DoxyCompactList}\small\item\em Execute one time iteration. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gafe83136ef1875f5b33ad4065809f181a}\label{group__HMM_gafe83136ef1875f5b33ad4065809f181a}} 
-Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HMM_gafe83136ef1875f5b33ad4065809f181a}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
+Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HMM_gafe83136ef1875f5b33ad4065809f181a}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity}} (const Eigen\+::\+Vector\+Xd \&Y, const std\+::string type) const
 \begin{DoxyCompactList}\small\item\em Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga3ca595ca8cec89aee6a479574c946b3c}\label{group__HMM_ga3ca595ca8cec89aee6a479574c946b3c}} 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} {\bfseries H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::apply\+\_\+nonlinearity} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Y, const std\+::string type) const
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HMM_ga3ca595ca8cec89aee6a479574c946b3c}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&Y, const std\+::string type) const
 \item 
-\mbox{\Hypertarget{group__HMM_gad498861cdc959bff7d44ec858e299a4b}\label{group__HMM_gad498861cdc959bff7d44ec858e299a4b}} 
-double \mbox{\hyperlink{group__HMM_gad498861cdc959bff7d44ec858e299a4b}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xh) const
+double \mbox{\hyperlink{group__HMM_gad498861cdc959bff7d44ec858e299a4b}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&Xh) const
 \begin{DoxyCompactList}\small\item\em Mass-\/lumped L2 norm of a function given by a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gad481066600ecae8179ac413203278ca7}\label{group__HMM_gad481066600ecae8179ac413203278ca7}} 
-double \mbox{\hyperlink{group__HMM_gad481066600ecae8179ac413203278ca7}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xh, double p) const
+double \mbox{\hyperlink{group__HMM_gad481066600ecae8179ac413203278ca7}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&Xh, double p) const
 \begin{DoxyCompactList}\small\item\em Mass-\/lumped Lp norm of a function given by a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}\label{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}} 
-double \mbox{\hyperlink{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+Energy\+Norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&Xh) const
+double \mbox{\hyperlink{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Energy\+Norm}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&Xh) const
 \begin{DoxyCompactList}\small\item\em Discrete energy norm (associated to the diffusion operator) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga878098ff97cdccea9cb4bae92681686f}\label{group__HMM_ga878098ff97cdccea9cb4bae92681686f}} 
-double \mbox{\hyperlink{group__HMM_ga878098ff97cdccea9cb4bae92681686f}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time}} () const
+double \mbox{\hyperlink{group__HMM_ga878098ff97cdccea9cb4bae92681686f}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}\label{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}} 
-double \mbox{\hyperlink{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time}} () const
+double \mbox{\hyperlink{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time}} () const
 \begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}\label{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}} 
-double \mbox{\hyperlink{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+itime}} (size\+\_\+t idx) const
+double \mbox{\hyperlink{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+itime}} (size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}\label{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}} 
-double \mbox{\hyperlink{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error}} () const
+double \mbox{\hyperlink{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error}} () const
 \begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}\label{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}} 
-size\+\_\+t \mbox{\hyperlink{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton}} () const
+size\+\_\+t \mbox{\hyperlink{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton}} () const
 \begin{DoxyCompactList}\small\item\em number of Newton iterations \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group__HMM_ga5e2a0d4729533d485a81b916e6766188}\label{group__HMM_ga5e2a0d4729533d485a81b916e6766188}} 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__HMM_ga5e2a0d4729533d485a81b916e6766188}{H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::get\+\_\+\+MassT}} (size\+\_\+t iT) const
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__HMM_ga5e2a0d4729533d485a81b916e6766188}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+\+MassT}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Mass matrix in cell iT. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -72,12 +57,141 @@ Hybrid Mimetic Mixed method.
 
 
 
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}\label{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}} 
+\index{HMM@{HMM}!grad\_function\_type@{grad\_function\_type}}
+\index{grad\_function\_type@{grad\_function\_type}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{grad\_function\_type}{grad\_function\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::grad\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$\mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&, const Cell$\ast$)$>$}
+
+
+
+type for gradient 
+
+\mbox{\Hypertarget{group__HMM_ga27d931ba11a943660c086fe00f7563f4}\label{group__HMM_ga27d931ba11a943660c086fe00f7563f4}} 
+\index{HMM@{HMM}!solution\_function\_type@{solution\_function\_type}}
+\index{solution\_function\_type@{solution\_function\_type}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{solution\_function\_type}{solution\_function\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::solution\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&)$>$}
+
+
+
+type for solution 
+
+\mbox{\Hypertarget{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}\label{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}} 
+\index{HMM@{HMM}!source\_function\_type@{source\_function\_type}}
+\index{source\_function\_type@{source\_function\_type}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{source\_function\_type}{source\_function\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::source\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$double(const double\&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}\&, const Cell$\ast$)$>$}
+
+
+
+type for source 
+
+\mbox{\Hypertarget{group__HMM_gac035f89ef163d07f90543d79e70461e6}\label{group__HMM_gac035f89ef163d07f90543d79e70461e6}} 
+\index{HMM@{HMM}!tensor\_function\_type@{tensor\_function\_type}}
+\index{tensor\_function\_type@{tensor\_function\_type}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{tensor\_function\_type}{tensor\_function\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::tensor\+\_\+function\+\_\+type}} =  \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$Eigen\+::\+Matrix2d(const double, const double, const Cell$\ast$)$>$}
+
+
+
+type for diffusion tensor (does not depend on time) 
+
+
+
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__HMM_gafe83136ef1875f5b33ad4065809f181a}\label{group__HMM_gafe83136ef1875f5b33ad4065809f181a}} 
+\index{HMM@{HMM}!apply\_nonlinearity@{apply\_nonlinearity}}
+\index{apply\_nonlinearity@{apply\_nonlinearity}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{apply\_nonlinearity()}{apply\_nonlinearity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xd \&}]{Y,  }\item[{const std\+::string}]{type }\end{DoxyParamCaption}) const}
+
+
+
+Compute non-\/linearity on vector (depends if weight=0, weight=1 or weight\textbackslash{}in (0,1) ) 
+
+\mbox{\Hypertarget{group__HMM_ga3ca595ca8cec89aee6a479574c946b3c}\label{group__HMM_ga3ca595ca8cec89aee6a479574c946b3c}} 
+\index{HMM@{HMM}!apply\_nonlinearity@{apply\_nonlinearity}}
+\index{apply\_nonlinearity@{apply\_nonlinearity}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{apply\_nonlinearity()}{apply\_nonlinearity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::apply\+\_\+nonlinearity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{Y,  }\item[{const std\+::string}]{type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}\label{group__HMM_gad2fe6ff7af615d9f4b71874db050aeb3}} 
+\index{HMM@{HMM}!EnergyNorm@{EnergyNorm}}
+\index{EnergyNorm@{EnergyNorm}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{EnergyNorm()}{EnergyNorm()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Energy\+Norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Discrete energy norm (associated to the diffusion operator) 
+
+\mbox{\Hypertarget{group__HMM_ga878098ff97cdccea9cb4bae92681686f}\label{group__HMM_ga878098ff97cdccea9cb4bae92681686f}} 
+\index{HMM@{HMM}!get\_assembly\_time@{get\_assembly\_time}}
+\index{get\_assembly\_time@{get\_assembly\_time}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_assembly\_time()}{get\_assembly\_time()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+assembly\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cpu time to assemble the scheme 
+
+\mbox{\Hypertarget{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}\label{group__HMM_gaa19ad1d4a28f1d912f88311d8e263d82}} 
+\index{HMM@{HMM}!get\_itime@{get\_itime}}
+\index{get\_itime@{get\_itime}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_itime()}{get\_itime()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+itime (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+various intermediate assembly times 
+
+\mbox{\Hypertarget{group__HMM_ga5e2a0d4729533d485a81b916e6766188}\label{group__HMM_ga5e2a0d4729533d485a81b916e6766188}} 
+\index{HMM@{HMM}!get\_MassT@{get\_MassT}}
+\index{get\_MassT@{get\_MassT}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_MassT()}{get\_MassT()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+\+MassT (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iT }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mass matrix in cell iT. 
+
+\mbox{\Hypertarget{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}\label{group__HMM_gad5fa0cc1fac6db70510fae8ded25ba4b}} 
+\index{HMM@{HMM}!get\_nb\_newton@{get\_nb\_newton}}
+\index{get\_nb\_newton@{get\_nb\_newton}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_nb\_newton()}{get\_nb\_newton()}}
+{\footnotesize\ttfamily size\+\_\+t HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+nb\+\_\+newton (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+number of Newton iterations 
+
+\mbox{\Hypertarget{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}\label{group__HMM_ga8c9d9ff1dcc55632642990386ec98c09}} 
+\index{HMM@{HMM}!get\_solving\_error@{get\_solving\_error}}
+\index{get\_solving\_error@{get\_solving\_error}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_error()}{get\_solving\_error()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+residual after solving the scheme 
+
+\mbox{\Hypertarget{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}\label{group__HMM_gab87d1c7abb30fac36c2c44391a96c340}} 
+\index{HMM@{HMM}!get\_solving\_time@{get\_solving\_time}}
+\index{get\_solving\_time@{get\_solving\_time}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{get\_solving\_time()}{get\_solving\_time()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::get\+\_\+solving\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cpu time to solve the scheme 
+
 \mbox{\Hypertarget{group__HMM_ga658e1417f607d6512b42b44fd474fd18}\label{group__HMM_ga658e1417f607d6512b42b44fd474fd18}} 
 \index{HMM@{HMM}!HMM\_StefanPME\_Transient@{HMM\_StefanPME\_Transient}}
 \index{HMM\_StefanPME\_Transient@{HMM\_StefanPME\_Transient}!HMM@{HMM}}
 \doxysubsubsection{\texorpdfstring{HMM\_StefanPME\_Transient()}{HMM\_StefanPME\_Transient()}}
-{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&}]{hmm,  }\item[{\mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{\mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core}} \&}]{hmm,  }\item[{\mbox{\hyperlink{group__HMM_gac035f89ef163d07f90543d79e70461e6}{tensor\+\_\+function\+\_\+type}}}]{kappa,  }\item[{\mbox{\hyperlink{group__HMM_ga647dbb1f2ec569f35290a00c0a00726b}{source\+\_\+function\+\_\+type}}}]{source,  }\item[{\mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}}}]{BC,  }\item[{\mbox{\hyperlink{group__HMM_ga27d931ba11a943660c086fe00f7563f4}{solution\+\_\+function\+\_\+type}}}]{exact\+\_\+solution,  }\item[{\mbox{\hyperlink{group__HMM_ga218da0ce79b8b6a1142c06e0577e7332}{grad\+\_\+function\+\_\+type}}}]{grad\+\_\+exact\+\_\+solution,  }\item[{\mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}}}]{zeta,  }\item[{double}]{weight,  }\item[{std\+::string}]{solver\+\_\+type,  }\item[{std\+::ostream \&}]{output = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
 
 
 
@@ -110,7 +224,7 @@ Constructor of the class.
 \index{HMM@{HMM}!iterate@{iterate}}
 \index{iterate@{iterate}!HMM@{HMM}}
 \doxysubsubsection{\texorpdfstring{iterate()}{iterate()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} H\+Ar\+D\+Core2\+D\+::\+H\+M\+M\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient\+::iterate (\begin{DoxyParamCaption}\item[{const double}]{tps,  }\item[{const double}]{dt,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&}]{Xn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::iterate (\begin{DoxyParamCaption}\item[{const double}]{tps,  }\item[{const double}]{dt,  }\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{Xn }\end{DoxyParamCaption})}
 
 
 
@@ -125,3 +239,23 @@ Execute one time iteration.
 {\em Xn} & Unkown at previous time step \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{group__HMM_gad498861cdc959bff7d44ec858e299a4b}\label{group__HMM_gad498861cdc959bff7d44ec858e299a4b}} 
+\index{HMM@{HMM}!L2\_MassLumped@{L2\_MassLumped}}
+\index{L2\_MassLumped@{L2\_MassLumped}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{L2\_MassLumped()}{L2\_MassLumped()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+L2\+\_\+\+Mass\+Lumped (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{Xh }\end{DoxyParamCaption}) const}
+
+
+
+Mass-\/lumped L2 norm of a function given by a vector. 
+
+\mbox{\Hypertarget{group__HMM_gad481066600ecae8179ac413203278ca7}\label{group__HMM_gad481066600ecae8179ac413203278ca7}} 
+\index{HMM@{HMM}!Lp\_MassLumped@{Lp\_MassLumped}}
+\index{Lp\_MassLumped@{Lp\_MassLumped}!HMM@{HMM}}
+\doxysubsubsection{\texorpdfstring{Lp\_MassLumped()}{Lp\_MassLumped()}}
+{\footnotesize\ttfamily double HAr\+DCore2\+D\+::\+HMM\+\_\+\+Stefan\+PME\+\_\+\+Transient\+::\+Lp\+\_\+\+Mass\+Lumped (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&}]{Xh,  }\item[{double}]{p }\end{DoxyParamCaption}) const}
+
+
+
+Mass-\/lumped Lp norm of a function given by a vector. 
+

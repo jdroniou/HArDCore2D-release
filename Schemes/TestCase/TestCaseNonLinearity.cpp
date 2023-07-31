@@ -128,9 +128,13 @@ double TestCaseNonLinearity::nonlinearity(double s, std::string type) {
 						std::cout << "Type nonlinear function unknown: " << type << "\n";
 						exit(EXIT_FAILURE);
 					}
+  				break;
         }
-
-		default: break;
+    // Default unknown
+		default: 
+		  std::cout << "[TestCaseNonLinear] Test case " + std::to_string(m_iTCNL) + " unknown" << std::endl;
+      exit(1);
+    break;
 	}
 	
 	return val;

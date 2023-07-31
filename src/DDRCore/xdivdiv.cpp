@@ -168,7 +168,7 @@ Eigen::MatrixXd XDivDiv::_compute_edge_potential(size_t iE)
   const Vertex & V1 = *E.vertex(0);
   const Vertex & V2 = *E.vertex(1);
 
-  Vector2d nE = E.normal();
+  VectorRd nE = E.normal();
   
   Eigen::MatrixXd MPE
     = Eigen::MatrixXd::Zero(edgeBases(iE).Polykm1->dimension(), edgeBases(iE).Polykm1->dimension());
@@ -221,8 +221,8 @@ XDivDiv::LocalOperators XDivDiv::_compute_cell_divdiv_potential(size_t iT)
   for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
 
-    Vector2d tE = E.tangent();
-    Vector2d nE = E.normal();
+    VectorRd tE = E.tangent();
+    VectorRd nE = E.normal();
     double omegaTE = T.edge_orientation(iE);
 
     // Vertex terms
@@ -309,8 +309,8 @@ XDivDiv::LocalOperators XDivDiv::_compute_cell_divdiv_potential(size_t iT)
     for (size_t iE = 0; iE < T.n_edges(); iE++) {
     const Edge & E = *T.edge(iE);
 
-    Vector2d tE = E.tangent();
-    Vector2d nE = E.normal();
+    VectorRd tE = E.tangent();
+    VectorRd nE = E.normal();
     double omegaTE = T.edge_orientation(iE);
 
     // Vertex terms

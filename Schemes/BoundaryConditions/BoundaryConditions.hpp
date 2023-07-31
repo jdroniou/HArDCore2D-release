@@ -5,17 +5,17 @@
 //
 
 /*
-*
-*	This library was developed around HHO methods, although some parts of it have a more
-* general purpose. If you use this code or part of it in a scientific publication, 
-* please mention the following book as a reference for the underlying principles
-* of HHO schemes:
-*
-* The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
-* D. A. Di Pietro and J. Droniou. 2019, 516p. 
-* url: https://hal.archives-ouvertes.fr/hal-02151813.
-*
-*/
+ *
+ *      This library was developed around HHO methods, although some parts of it have a more
+ * general purpose. If you use this code or part of it in a scientific publication, 
+ * please mention the following book as a reference for the underlying principles
+ * of HHO schemes:
+ *
+ * The Hybrid High-Order Method for Polytopal Meshes: Design, Analysis, and Applications.
+ * D. A. Di Pietro and J. Droniou. 2019, 516p. 
+ * url: https://hal.archives-ouvertes.fr/hal-02151813.
+ *
+ */
 
 
 #ifndef _BOUNDARY_CONDITIONS_HPP
@@ -28,18 +28,18 @@
 using namespace HArDCore2D;
 
 /*!
-* @defgroup BoundaryConditions
-*	@brief Classes and functions to handle boundary conditions and associated numbering of unknowns
-*/
+ * @defgroup BoundaryConditions
+ *      @brief Classes and functions to handle boundary conditions and associated numbering of unknowns
+ */
 
 // ----------------------------------------------------------------------------
 //                            Class definition
 // ----------------------------------------------------------------------------
 
-  /*!
-   *	\addtogroup BoundaryConditions
-   * @{
-   */
+/*!
+ *      \addtogroup BoundaryConditions
+ * @{
+ */
 
 /// The BoundaryConditions class provides definition of boundary conditions
 class BoundaryConditions {
@@ -47,24 +47,24 @@ class BoundaryConditions {
 public:
   /// Initialise data
   BoundaryConditions(
-    const std::string bc_id,  ///< The identifier for the boundary condition (D, N or Mx)
-    Mesh& mesh          ///< reference to the mesh
-  );
+                     const std::string bc_id,  ///< The identifier for the boundary condition (D, N or Mx)
+                     Mesh& mesh          ///< reference to the mesh
+                     );
 
-	/// Test the boundary condition of an edge
-	const std::string type(
-		const Edge& edge    ///< Edge on which to check the boundary condition
-	) const ;
+  /// Test the boundary condition of an edge
+  const std::string type(
+                         const Edge& edge    ///< Edge on which to check the boundary condition
+                         ) const ;
   /**< @returns "dir" or "neu" depending if the edge is a Dirichlet or Neumann boundary condition, as determined by m_bc_id below. For an internal edge, returns "int".
-    m_bc_id = "D": all edges are Dirichlet
-    m_bc_id = "N": all edges are Neumann
-    m_bc_id = "Mx" (x=0,1,...): various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman.
-   **/
+     m_bc_id = "D": all edges are Dirichlet
+     m_bc_id = "N": all edges are Neumann
+     m_bc_id = "Mx" (x=0,1,...): various types of mixed boundary conditions, some edges will be Dirichlet and some will be Neumman.
+  **/
 
-	/// Test the boundary condition of a vertex
-	const std::string type(
-		const Vertex& vertex    ///< Vertex on which to check the boundary condition
-	) const ;
+  /// Test the boundary condition of a vertex
+  const std::string type(
+                         const Vertex& vertex    ///< Vertex on which to check the boundary condition
+                         ) const ;
 
   /// Returns the number of Dirichlet edges
   inline const size_t n_dir_edges() const {

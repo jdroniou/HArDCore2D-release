@@ -1,4 +1,4 @@
-\hypertarget{classHArDCore2D_1_1UVector}{}\doxysection{H\+Ar\+D\+Core2D\+::U\+Vector Class Reference}
+\hypertarget{classHArDCore2D_1_1UVector}{}\doxysection{HAr\+DCore2D\+::UVector Class Reference}
 \label{classHArDCore2D_1_1UVector}\index{HArDCore2D::UVector@{HArDCore2D::UVector}}
 
 
@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__HybridCore_gac4eb49bfec491212a818bd6f6ef48e8d}{U\+Vector}} (const Eigen\+::\+Vector\+Xd values, const \mbox{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh}} \&mesh, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg)
+\mbox{\hyperlink{group__HybridCore_gaaadc8d3ff19bd9462fbec52ef8fcb080}{UVector}} (const Eigen\+::\+Vector\+Xd \&values, const \mbox{\hyperlink{classMesh2D_1_1Mesh}{Mesh}} \&mesh, const int cell\+\_\+deg, const size\+\_\+t edge\+\_\+deg)
 \item 
 Eigen\+::\+Vector\+Xd \& \mbox{\hyperlink{group__HybridCore_ga38b36a187519471f6cbe4719f14c5bd1}{as\+Vector\+Xd}} () const
 \begin{DoxyCompactList}\small\item\em Return the values as an Eigen vector. \end{DoxyCompactList}\item 
@@ -23,18 +23,22 @@ const size\+\_\+t \mbox{\hyperlink{group__HybridCore_ga351f3c7fa4646c35964f1e42d
 \begin{DoxyCompactList}\small\item\em Total number of cell dofs (in the vector, this is where the edge dofs start) \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__HybridCore_ga24a0a68f8f1e8bdc4845bee48b7ce8d2}{restr}} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Extract the restriction of the unknowns corresponding to cell iT and its edges. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HybridCore_ga4e485116ef8d2bbdbdffaab1b3377ba5}{operator+}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&b)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HybridCore_ga4e485116ef8d2bbdbdffaab1b3377ba5}{operator+}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&b)
 \begin{DoxyCompactList}\small\item\em Overloads the addition\+: adds the coefficients. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \mbox{\hyperlink{group__HybridCore_ga6256a41660c0ca12280dfc93f7cc890d}{operator-\/}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} \&b)
+\mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \mbox{\hyperlink{group__HybridCore_ga6256a41660c0ca12280dfc93f7cc890d}{operator-\/}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&b)
 \begin{DoxyCompactList}\small\item\em Overloads the subtraction\+: subtracts the coefficients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__HybridCore_ga57dea440c87824d4b0e8460cfb38362d}{operator+=}} (const \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} \&b)
+\begin{DoxyCompactList}\small\item\em Overloads the increment\+: adds the coefficients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__HybridCore_gaa1973d4e04752401607251eddc650198}{operator/=}} (const double \&r)
+\begin{DoxyCompactList}\small\item\em Overloads the increment\+: adds the coefficients. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{group__HybridCore_gafede4bb5d9e9d4ea1255f84911217ef1}{operator()}} (size\+\_\+t index) const
 \begin{DoxyCompactList}\small\item\em Overloads the ()\+: returns the corresponding coefficient. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{classHArDCore2D_1_1UVector}{U\+Vector}} class describes a vector of unknowns for discrete functions defined by polynomials in the cells and polynomials on the edges (polynomials on the edges are not taken into account yet, but this can easily be changed). The class describes the respective degrees of cell and edges polynomials considered. In the values stored in an element of this class, the coefficients on the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) 
+The \mbox{\hyperlink{classHArDCore2D_1_1UVector}{UVector}} class describes a vector of unknowns for discrete functions defined by polynomials in the cells and polynomials on the edges (polynomials on the edges are not taken into account yet, but this can easily be changed). The class describes the respective degrees of cell and edges polynomials considered. In the values stored in an element of this class, the coefficients on the cell basis functions come first (in the order of the cells), and then all the edge basis functions (in the order of the edges) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Hybrid\+Core/hybridcore.\+hpp\item 
-src/\+Hybrid\+Core/hybridcore.\+cpp\end{DoxyCompactItemize}
+src/\+Hybrid\+Core/\mbox{\hyperlink{hybridcore_8hpp}{hybridcore.\+hpp}}\item 
+src/\+Hybrid\+Core/\mbox{\hyperlink{hybridcore_8cpp}{hybridcore.\+cpp}}\end{DoxyCompactItemize}

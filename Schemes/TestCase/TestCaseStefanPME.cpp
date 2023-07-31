@@ -5,7 +5,7 @@
 //
 
 #include "TestCaseStefanPME.hpp"
-#include "cell.hpp"
+#include "mesh.hpp"
 #include <memory>
 #include <string>
 #include <vector>

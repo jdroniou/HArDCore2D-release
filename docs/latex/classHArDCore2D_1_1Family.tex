@@ -1,4 +1,4 @@
-\hypertarget{classHArDCore2D_1_1Family}{}\doxysection{H\+Ar\+D\+Core2D\+::Family$<$ Basis\+Type $>$ Class Template Reference}
+\hypertarget{classHArDCore2D_1_1Family}{}\doxysection{HAr\+DCore2D\+::Family$<$ Basis\+Type $>$ Class Template Reference}
 \label{classHArDCore2D_1_1Family}\index{HArDCore2D::Family$<$ BasisType $>$@{HArDCore2D::Family$<$ BasisType $>$}}
 
 
@@ -7,19 +7,21 @@
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Basis\+Type\+::\+Function\+Value {\bfseries Function\+Value}
+typedef Basis\+Type\+::\+Function\+Value \mbox{\hyperlink{group__Basis_ga152a59e1b0aa753e65bb6553be665bdd}{Function\+Value}}
 \item 
-typedef Basis\+Type\+::\+Gradient\+Value {\bfseries Gradient\+Value}
+typedef Basis\+Type\+::\+Gradient\+Value \mbox{\hyperlink{group__Basis_ga063c30fe4fcd2174052072b1e255e7b3}{Gradient\+Value}}
 \item 
-typedef Vector\+Rd {\bfseries Curl\+Value}
+typedef Basis\+Type\+::\+Curl\+Value \mbox{\hyperlink{group__Basis_gaa6e19263ad635ad262543cc45228b6d4}{Curl\+Value}}
 \item 
-typedef double {\bfseries Divergence\+Value}
+typedef Basis\+Type\+::\+Divergence\+Value \mbox{\hyperlink{group__Basis_ga2e8ce183bd37909071e96f87de8e598c}{Divergence\+Value}}
 \item 
-typedef Basis\+Type\+::\+Hessian\+Value {\bfseries Hessian\+Value}
+typedef Basis\+Type\+::\+Rotor\+Value \mbox{\hyperlink{group__Basis_ga5f886bf9e4b7ce8c56f6d6ec2cdd81a1}{Rotor\+Value}}
 \item 
-typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+typedef Basis\+Type\+::\+Hessian\+Value \mbox{\hyperlink{group__Basis_ga1fe6d577493eb5e42f6d2acf845adadf}{Hessian\+Value}}
 \item 
-typedef Basis\+Type {\bfseries Ancestor\+Type}
+typedef Basis\+Type\+::\+Geometric\+Support \mbox{\hyperlink{group__Basis_ga25780d2074b4184b02f14aed12cb7bd1}{Geometric\+Support}}
+\item 
+typedef Basis\+Type \mbox{\hyperlink{group__Basis_ga351548314a33eea75df0f0ab15046fee}{Ancestor\+Type}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -28,25 +30,29 @@ typedef Basis\+Type {\bfseries Ancestor\+Type}
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga385bf99cf8c3888a150ed53f410ae39f}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Dimension of the family. This is actually the number of functions in the family, not necessarily linearly independent. \end{DoxyCompactList}\item 
-Function\+Value \mbox{\hyperlink{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_ga152a59e1b0aa753e65bb6553be665bdd}{Function\+Value}} \mbox{\hyperlink{group__Basis_ga15a1f56b9bb54f849ebaf4a66f75907d}{function}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at point x. \end{DoxyCompactList}\item 
-Function\+Value \mbox{\hyperlink{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}{function}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Function\+Value, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
+\mbox{\hyperlink{group__Basis_ga152a59e1b0aa753e65bb6553be665bdd}{Function\+Value}} \mbox{\hyperlink{group__Basis_gac54950ab44f2fbd6e95a6f1e196fcf53}{function}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_ga152a59e1b0aa753e65bb6553be665bdd}{Function\+Value}}, 2 $>$ \&ancestor\+\_\+value\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th function at a quadrature point iqn, knowing all the values of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
-Gradient\+Value \mbox{\hyperlink{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}{gradient}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_ga063c30fe4fcd2174052072b1e255e7b3}{Gradient\+Value}} \mbox{\hyperlink{group__Basis_ga05b9845ad5b44a743ae7e8223a897447}{gradient}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at point x. \end{DoxyCompactList}\item 
-Gradient\+Value \mbox{\hyperlink{group__Basis_ga525278d350aa0742fef160f3592b5de6}{gradient}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Gradient\+Value, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
+\mbox{\hyperlink{group__Basis_ga063c30fe4fcd2174052072b1e255e7b3}{Gradient\+Value}} \mbox{\hyperlink{group__Basis_ga525278d350aa0742fef160f3592b5de6}{gradient}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_ga063c30fe4fcd2174052072b1e255e7b3}{Gradient\+Value}}, 2 $>$ \&ancestor\+\_\+gradient\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the gradient of the i-\/th function at a quadrature point iqn, knowing all the gradients of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
-Curl\+Value \mbox{\hyperlink{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}{curl}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_gaa6e19263ad635ad262543cc45228b6d4}{Curl\+Value}} \mbox{\hyperlink{group__Basis_ga9f44b487b46df0e9cf83b175ae0ae3b3}{curl}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at point x. \end{DoxyCompactList}\item 
-Curl\+Value \mbox{\hyperlink{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}{curl}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Curl\+Value, 2 $>$ \&ancestor\+\_\+curl\+\_\+quad) const
+\mbox{\hyperlink{group__Basis_gaa6e19263ad635ad262543cc45228b6d4}{Curl\+Value}} \mbox{\hyperlink{group__Basis_gab3e001e54bd8f3b2d272ceefeb4f23b6}{curl}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_gaa6e19263ad635ad262543cc45228b6d4}{Curl\+Value}}, 2 $>$ \&ancestor\+\_\+curl\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the curl of the i-\/th function at a quadrature point iqn, knowing all the curls of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
-Divergence\+Value \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}{divergence}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_ga2e8ce183bd37909071e96f87de8e598c}{Divergence\+Value}} \mbox{\hyperlink{group__Basis_ga86a0fd0d5391607f156b3c27be6d7164}{divergence}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at point x. \end{DoxyCompactList}\item 
-Divergence\+Value \mbox{\hyperlink{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}{divergence}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Divergence\+Value, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad) const
+\mbox{\hyperlink{group__Basis_ga2e8ce183bd37909071e96f87de8e598c}{Divergence\+Value}} \mbox{\hyperlink{group__Basis_gab0744d69d4277d2251248d9bbfe5ae97}{divergence}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_ga2e8ce183bd37909071e96f87de8e598c}{Divergence\+Value}}, 2 $>$ \&ancestor\+\_\+divergence\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the divergence of the i-\/th function at a quadrature point iqn, knowing all the divergences of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
-Hessian\+Value \mbox{\hyperlink{group__Basis_ga1177b381c53a1643c59e6c629eb92635}{hessian}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_ga2e8ce183bd37909071e96f87de8e598c}{Divergence\+Value}} \mbox{\hyperlink{group__Basis_ga8f28c598a6a1192ac88d41d8d948dc8e}{rotor}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate the scalar rotor of the i-\/th function at point x. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Basis_ga5f886bf9e4b7ce8c56f6d6ec2cdd81a1}{Rotor\+Value}} \mbox{\hyperlink{group__Basis_ga81089112aaa4b7dc9cf08d3a6955832b}{rotor}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_ga5f886bf9e4b7ce8c56f6d6ec2cdd81a1}{Rotor\+Value}}, 2 $>$ \&ancestor\+\_\+rotor\+\_\+quad) const
+\begin{DoxyCompactList}\small\item\em Evaluate the scalar rotor of the i-\/th function at a quadrature point iqn, knowing all the scalar rotors of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__Basis_ga1fe6d577493eb5e42f6d2acf845adadf}{Hessian\+Value}} \mbox{\hyperlink{group__Basis_ga1177b381c53a1643c59e6c629eb92635}{hessian}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the Hessian of the i-\/th basis function at point x. \end{DoxyCompactList}\item 
-Hessian\+Value \mbox{\hyperlink{group__Basis_ga6c5490c4123089e015312925d5e0871d}{hessian}} (size\+\_\+t i, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ Hessian\+Value, 2 $>$ \&ancestor\+\_\+hessian\+\_\+quad) const
+\mbox{\hyperlink{group__Basis_ga1fe6d577493eb5e42f6d2acf845adadf}{Hessian\+Value}} \mbox{\hyperlink{group__Basis_ga6c5490c4123089e015312925d5e0871d}{hessian}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, size\+\_\+t iqn, const boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{group__Basis_ga1fe6d577493eb5e42f6d2acf845adadf}{Hessian\+Value}}, 2 $>$ \&ancestor\+\_\+hessian\+\_\+quad) const
 \begin{DoxyCompactList}\small\item\em Evaluate the hessian of the i-\/th function at a quadrature point iqn, knowing all the hessian of ancestor basis functions at the quadrature nodes (provided by eval\+\_\+quad) \end{DoxyCompactList}\item 
 const Eigen\+::\+Matrix\+Xd \& \mbox{\hyperlink{group__Basis_gaaf8f501609f30a03b0b167e381f6ac23}{matrix}} () const
 \begin{DoxyCompactList}\small\item\em Return the coefficient matrix. \end{DoxyCompactList}\item 
@@ -57,25 +63,27 @@ size\+\_\+t \mbox{\hyperlink{group__Basis_gad4b3b65781bb5e81935f045b635e0d85}{ma
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Basis\+Type\+::tensor\+Rank
+constexpr static const \mbox{\hyperlink{group__Basis_ga99c0a4ae66e5304b0bb7500c00f6e397}{Tensor\+RankE}} \mbox{\hyperlink{group__Basis_ga08d54d3faf34f09569be1955ec3d6135}{tensor\+Rank}} = Basis\+Type\+::tensor\+Rank
 \item 
-constexpr static const bool {\bfseries has\+Ancestor} = true
+constexpr static const bool \mbox{\hyperlink{group__Basis_ga6fbce961b16541854b79cc940acca587}{has\+Ancestor}} = true
 \item 
-static const bool {\bfseries has\+Function} = Basis\+Type\+::has\+Function
+static const bool \mbox{\hyperlink{group__Basis_gadadcc5cd716933a3b1d54794b860bdcc}{has\+Function}} = Basis\+Type\+::has\+Function
 \item 
-static const bool {\bfseries has\+Gradient} = Basis\+Type\+::has\+Gradient
+static const bool \mbox{\hyperlink{group__Basis_gae39bd5582b1fa4926b4f6eb2143cb8b7}{has\+Gradient}} = Basis\+Type\+::has\+Gradient
 \item 
-static const bool {\bfseries has\+Curl} = Basis\+Type\+::has\+Curl
+static const bool \mbox{\hyperlink{group__Basis_gaa6193ca9c9f178fe6bfa2f0d85ba86b1}{has\+Curl}} = Basis\+Type\+::has\+Curl
 \item 
-static const bool {\bfseries has\+Divergence} = Basis\+Type\+::has\+Divergence
+static const bool \mbox{\hyperlink{group__Basis_ga4704c8206eb8a68ec251b10a9f90b54b}{has\+Divergence}} = Basis\+Type\+::has\+Divergence
 \item 
-static const bool {\bfseries has\+Hessian} = Basis\+Type\+::has\+Hessian
+static const bool \mbox{\hyperlink{group__Basis_gabca4c63b562f233354b93cfc8a383500}{has\+Rotor}} = Basis\+Type\+::has\+Rotor
+\item 
+static const bool \mbox{\hyperlink{group__Basis_ga64d73ab58afec7d9596b80034b22805f}{has\+Hessian}} = Basis\+Type\+::has\+Hessian
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
-class H\+Ar\+D\+Core2\+D\+::\+Family$<$ Basis\+Type $>$}
+class HAr\+DCore2\+D\+::\+Family$<$ Basis\+Type $>$}
 
 \mbox{\hyperlink{classHArDCore2D_1_1Family}{Family}} of functions expressed as linear combination of the functions of a given basis
 
@@ -83,4 +91,4 @@ If $(f_1,...,f_r)$ is the basis, then the family is $(\phi_1,...,\phi_l)$ where 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Common/basis.\+hpp\end{DoxyCompactItemize}
+src/\+Common/\mbox{\hyperlink{basis_8hpp}{basis.\+hpp}}\end{DoxyCompactItemize}

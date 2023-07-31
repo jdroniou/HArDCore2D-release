@@ -1,29 +1,29 @@
-\hypertarget{classHArDCore2D_1_1LEPNC__StefanPME}{}\doxysection{H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME Class Reference}
+\hypertarget{classHArDCore2D_1_1LEPNC__StefanPME}{}\doxysection{HAr\+DCore2D\+::LEPNC\+\_\+\+Stefan\+PME Class Reference}
 \label{classHArDCore2D_1_1LEPNC__StefanPME}\index{HArDCore2D::LEPNC\_StefanPME@{HArDCore2D::LEPNC\_StefanPME}}
 
 
-L\+E\+P\+NC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$.  
+LEPNC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$.  
 
 
 
 
-{\ttfamily \#include $<$L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E.\+hpp$>$}
+{\ttfamily \#include $<$LEPNC\+\_\+\+Stefan\+PME.\+hpp$>$}
 
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double)$>$
+using \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} = std\+::function$<$ double(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(double, double, Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__LEPNC_ga3b61172d0528de628227d64dac41e398}{L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+ME}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__LEPNC_ga3b61172d0528de628227d64dac41e398}{LEPNC\+\_\+\+Stefan\+PME}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&nc, \mbox{\hyperlink{group__LEPNC_ga52caf522e75a28e63f86cda8cb811143}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gaa89044901a4abb21d8600c6887a6a676}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_ga528592275ee4a7f49fcf27bb2803b38e}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_gacd93c2714bba358b33c2055e40c4aa21}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_gad11f3d66f37d4811e1c58ac860f60e38}{solve}} ()
 \begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
@@ -44,10 +44,10 @@ double \mbox{\hyperlink{group__LEPNC_gaf0e776f29c97fe0ca650cd2b328caf84}{get\+\_
 
 
 \doxysubsection{Detailed Description}
-L\+E\+P\+NC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$. 
+LEPNC scheme for diffusion equation $u - \div(K \nabla(\zeta(u))) = f$. 
 
 The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+L\+E\+P\+N\+C/L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E.\+hpp\end{DoxyCompactItemize}
+Schemes/\+LEPNC/\mbox{\hyperlink{LEPNC__StefanPME_8hpp}{LEPNC\+\_\+\+Stefan\+PME.\+hpp}}\end{DoxyCompactItemize}

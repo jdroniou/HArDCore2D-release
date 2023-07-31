@@ -266,10 +266,10 @@ XGrad::LocalOperators XGrad::_compute_cell_gradient_potential(size_t iT)
   return LocalOperators(GT, MPT.partialPivLu().solve(BPT));
 }
 
+//-----------------------------------------------------------------------------
+// Local L2 inner product
+//-----------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
-// local L2 inner product
-//-----------------------------------------------------------------------------
 Eigen::MatrixXd XGrad::computeL2Product(
                                         const size_t iT,
                                         const double & penalty_factor,
@@ -347,10 +347,10 @@ Eigen::MatrixXd XGrad::computeL2Product(
 
 }
 
-
 //-----------------------------------------------------------------------------
 // Evaluate the potential at a point
 //-----------------------------------------------------------------------------
+
 double XGrad::evaluatePotential(const size_t iT, const Eigen::VectorXd & vT, const VectorRd & x) const {
   // Ancestor of basis of P^{k+1}(T) and values at x
   MonomialScalarBasisCell monomial_ancestor = cellBases(iT).Polykpo->ancestor();
@@ -364,4 +364,30 @@ double XGrad::evaluatePotential(const size_t iT, const Eigen::VectorXd & vT, con
 
 }
 
+//------------------------------------------------------------------------------
+// Compute the local L2 norm
+//------------------------------------------------------------------------------
 
+double XGrad::_compute_squared_l2_norm(size_t iT, const Eigen::VectorXd & vT) const
+{
+  return vT.transpose() * computeL2Product(iT) * vT;
+}
+
+//------------------------------------------------------------------------------
+
+double XGrad::computeL2Norm(const Eigen::VectorXd & v) const
+{
+  Eigen::VectorXd l2 = Eigen::VectorXd::Zero(m_mesh.n_cells());
+  
+  std::function<void(size_t, size_t)> compute_squared_l2_norm_all
+    = [this, &v, &l2](size_t start, size_t end)->void
+    {
+      for (size_t iT = start; iT < end; iT++) {
+        l2(iT) = _compute_squared_l2_norm(iT, restrictCell(iT, v));
+      } // for iT
+    };
+
+  parallel_for(m_ddr_core.mesh().n_cells(), compute_squared_l2_norm_all, m_use_threads);
+
+  return std::sqrt(l2.sum());
+}

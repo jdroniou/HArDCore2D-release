@@ -17,9 +17,9 @@
 #include <unordered_map>
 
 #include <mesh.hpp>
-#include <cell.hpp>
-#include <edge.hpp>
-#include <vertex.hpp>
+//#include <cell.hpp>
+//#include <edge.hpp>
+//#include <vertex.hpp>
 #include <quadraturerule.hpp>
 #include <basis.hpp>
 #include <typeinfo>

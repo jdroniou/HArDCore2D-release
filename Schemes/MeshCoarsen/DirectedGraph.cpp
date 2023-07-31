@@ -290,8 +290,12 @@ bool DirectedGraph::test_graph()
 
 void DirectedGraph::randomise()
 {
-    std::srand(std::time(nullptr));
-    std::random_shuffle(begin(G), end(G));
+    // std::srand(std::time(nullptr));
+    // std::random_shuffle(begin(G), end(G));
+    std::random_device rd;
+    std::mt19937 g(rd());
+ 
+    std::shuffle(G.begin(), G.end(), g);
 }
 
 void DirectedGraph::order()

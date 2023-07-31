@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['solution_5ffunction_5ftype_904',['solution_function_type',['../group__HMM.html#ga27d931ba11a943660c086fe00f7563f4',1,'HArDCore2D::HMM_StefanPME_Transient::solution_function_type()'],['../group__LEPNC.html#gaaa5b13bc0eaacce6b494fedc3d7b0d37',1,'HArDCore2D::LEPNC_diffusion::solution_function_type()'],['../group__LEPNC.html#ga528592275ee4a7f49fcf27bb2803b38e',1,'HArDCore2D::LEPNC_StefanPME::solution_function_type()'],['../group__LEPNC.html#gad7706d0b826b23c14db6ae609d9feeea',1,'HArDCore2D::LEPNC_StefanPME_Transient::solution_function_type()']]],
-  ['source_5ffunction_5ftype_905',['source_function_type',['../group__HMM.html#ga647dbb1f2ec569f35290a00c0a00726b',1,'HArDCore2D::HMM_StefanPME_Transient::source_function_type()'],['../group__LEPNC.html#gae128bf98004abb3e21bbce3a6465b37e',1,'HArDCore2D::LEPNC_diffusion::source_function_type()'],['../group__LEPNC.html#gaa89044901a4abb21d8600c6887a6a676',1,'HArDCore2D::LEPNC_StefanPME::source_function_type()'],['../group__LEPNC.html#gab3274d8175921c3b3d05f892d42021b2',1,'HArDCore2D::LEPNC_StefanPME_Transient::source_function_type()']]]
+  ['matrixftype_1899',['MatrixFType',['../group__HHO2D.html#ga37173e331cdc5fa65f30562ccb17ca8c',1,'HHO2D.hpp']]],
+  ['matrixrd_1900',['MatrixRd',['../group__Basis.html#ga7f900870c2d2fad52b58a784576b2bfc',1,'HArDCore2D']]],
+  ['mmfile_1901',['mmfile',['../mmread_8m.html#a394bea46053746368e992c7e9d0c7aa7',1,'mmread.m']]],
+  ['momenttensoredgederivativetype_1902',['MomentTensorEdgeDerivativeType',['../group__DDR__klplate.html#gace9e45d00c79f841bb70597bfdfe5f14',1,'HArDCore2D::KirchhoffLove']]],
+  ['momenttensortype_1903',['MomentTensorType',['../group__DDR__klplate.html#gaa0cfd6d5ef9f4e2018e7bcfb412d4cbd',1,'HArDCore2D::KirchhoffLove']]],
+  ['monomialcellintegralstype_1904',['MonomialCellIntegralsType',['../group__Quadratures.html#ga4255c52c7d9ac1165c0a37da8970feb6',1,'HArDCore2D']]],
+  ['monomialedgeintegralstype_1905',['MonomialEdgeIntegralsType',['../group__Quadratures.html#ga1d89d9fdcd5599eefd37c35fbf28bd94',1,'HArDCore2D']]]
 ];

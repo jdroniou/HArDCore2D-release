@@ -1,29 +1,29 @@
-\hypertarget{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{}\doxysection{H\+Ar\+D\+Core2D\+::L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient Class Reference}
+\hypertarget{classHArDCore2D_1_1LEPNC__StefanPME__Transient}{}\doxysection{HAr\+DCore2D\+::LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient Class Reference}
 \label{classHArDCore2D_1_1LEPNC__StefanPME__Transient}\index{HArDCore2D::LEPNC\_StefanPME\_Transient@{HArDCore2D::LEPNC\_StefanPME\_Transient}}
 
 
-L\+E\+P\+NC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$.  
+LEPNC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$.  
 
 
 
 
-{\ttfamily \#include $<$L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+transient.\+hpp$>$}
+{\ttfamily \#include $<$LEPNC\+\_\+\+Stefan\+PME\+\_\+transient.\+hpp$>$}
 
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&)$>$
+using \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&)$>$
 \begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} = std\+::function$<$ double(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ double(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} = std\+::function$<$ Vector\+Rd(const double \&, const Vector\+Rd \&, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}}(const double \&, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} = std\+::function$<$ Eigen\+::\+Matrix2d(const double, const double, const \mbox{\hyperlink{classHArDCore2D_1_1Cell}{Cell}} $\ast$)$>$
+using \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} = \mbox{\hyperlink{mmread_8m_a8c89f3c0aeca4c3cc23a632c39fe026d}{std\+::function}}$<$ Eigen\+::\+Matrix2d(const double, const double, const Cell $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor (does not depend on time) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group__LEPNC_ga1af1664183475a426585bdd324629855}{L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{L\+E\+P\+N\+C\+Core}} \&nc, \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
+\mbox{\hyperlink{group__LEPNC_ga1af1664183475a426585bdd324629855}{LEPNC\+\_\+\+Stefan\+PME\+\_\+\+Transient}} (\mbox{\hyperlink{classHArDCore2D_1_1LEPNCCore}{LEPNCCore}} \&nc, \mbox{\hyperlink{group__LEPNC_ga76c0d6231d94d1cf68d62d70a8aee5cf}{tensor\+\_\+function\+\_\+type}} kappa, size\+\_\+t deg\+\_\+kappa, \mbox{\hyperlink{group__LEPNC_gab3274d8175921c3b3d05f892d42021b2}{source\+\_\+function\+\_\+type}} source, \mbox{\hyperlink{classBoundaryConditions}{Boundary\+Conditions}} BC, \mbox{\hyperlink{group__LEPNC_gad7706d0b826b23c14db6ae609d9feeea}{solution\+\_\+function\+\_\+type}} exact\+\_\+solution, \mbox{\hyperlink{group__LEPNC_ga5e88108f72387df11f69fcaf6b54e7cc}{grad\+\_\+function\+\_\+type}} grad\+\_\+exact\+\_\+solution, \mbox{\hyperlink{classTestCaseNonLinearity_a3d8a5c89c517dd0d9c835b7441ee9b07}{Test\+Case\+Non\+Linearity\+::nonlinearity\+\_\+function\+\_\+type}} zeta, double weight, std\+::string solver\+\_\+type, std\+::ostream \&output=std\+::cout)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \mbox{\hyperlink{group__LEPNC_ga21dbcbf35ae6613a7ef46e88f81faf27}{iterate}} (const double tps, const double dt, const Eigen\+::\+Vector\+Xd Xn)
 \begin{DoxyCompactList}\small\item\em Execute one time iteration. \end{DoxyCompactList}\item 
@@ -50,10 +50,10 @@ Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{group__LEPNC_ga08dbbd6c3203d4f215e22ec639
 
 
 \doxysubsection{Detailed Description}
-L\+E\+P\+NC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$. 
+LEPNC scheme for diffusion equation $\partial_t u - \div(K \nabla(\zeta(u))) = f$. 
 
 The vector Xh manipulated in the resolution has mixed components, corresponding either to the unknown u or to $\zeta(u)$, depending on the choice of weight of mass-\/lumping for the cell/edge unknowns. If no weight is put on the edges (resp. the cells), then the edge (resp. cell) unknowns represent $\zeta(u)$. Otherwise, they represent u. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+L\+E\+P\+N\+C/L\+E\+P\+N\+C\+\_\+\+Stefan\+P\+M\+E\+\_\+transient.\+hpp\end{DoxyCompactItemize}
+Schemes/\+LEPNC/\mbox{\hyperlink{LEPNC__StefanPME__transient_8hpp}{LEPNC\+\_\+\+Stefan\+PME\+\_\+transient.\+hpp}}\end{DoxyCompactItemize}

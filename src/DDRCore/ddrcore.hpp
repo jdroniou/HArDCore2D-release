@@ -89,6 +89,7 @@ namespace HArDCore2D
       std::unique_ptr<RolyBasisCellType>  Rolykmo;
       std::unique_ptr<RolyComplBasisCellType> RolyComplk;
       std::unique_ptr<RolyComplBasisCellType> RolyComplkp2;
+      std::unique_ptr<GolyComplBasisCellType> GolyComplkp2;
     };
 
     /// Structure to store edge bases

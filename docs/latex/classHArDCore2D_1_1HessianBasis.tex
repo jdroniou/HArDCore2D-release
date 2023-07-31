@@ -1,4 +1,4 @@
-\hypertarget{classHArDCore2D_1_1HessianBasis}{}\doxysection{H\+Ar\+D\+Core2D\+::Hessian\+Basis$<$ Basis\+Type $>$ Class Template Reference}
+\hypertarget{classHArDCore2D_1_1HessianBasis}{}\doxysection{HAr\+DCore2D\+::Hessian\+Basis$<$ Basis\+Type $>$ Class Template Reference}
 \label{classHArDCore2D_1_1HessianBasis}\index{HArDCore2D::HessianBasis$<$ BasisType $>$@{HArDCore2D::HessianBasis$<$ BasisType $>$}}
 
 
@@ -12,19 +12,21 @@ Basis for the space of Hessians of polynomials.
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Matrix\+Rd {\bfseries Function\+Value}
+typedef \mbox{\hyperlink{group__Basis_ga7f900870c2d2fad52b58a784576b2bfc}{Matrix\+Rd}} \mbox{\hyperlink{group__Basis_gac61389cc65826f36d73bf6f3259aa222}{Function\+Value}}
 \item 
-typedef void {\bfseries Gradient\+Value}
+typedef void \mbox{\hyperlink{group__Basis_ga3ab58475085e90baa896d2bf97a36c90}{Gradient\+Value}}
 \item 
-typedef void {\bfseries Curl\+Value}
+typedef void \mbox{\hyperlink{group__Basis_gae0e76d447049bc2623c31d6a1aa9bc14}{Curl\+Value}}
 \item 
-typedef void {\bfseries Divergence\+Value}
+typedef void \mbox{\hyperlink{group__Basis_ga970a02e5e0c186259f8b9f6c47e7daf3}{Divergence\+Value}}
 \item 
-typedef void {\bfseries Hessian\+Value}
+typedef void \mbox{\hyperlink{group__Basis_ga008a72c6ae8d4d00afd6a47c29893bde}{Rotor\+Value}}
 \item 
-typedef Basis\+Type\+::\+Geometric\+Support {\bfseries Geometric\+Support}
+typedef void \mbox{\hyperlink{group__Basis_ga5383ba6c69fcbfa33969ab58b25a57f1}{Hessian\+Value}}
 \item 
-typedef Basis\+Type {\bfseries Ancestor\+Type}
+typedef Basis\+Type\+::\+Geometric\+Support \mbox{\hyperlink{group__Basis_ga582205b35110100777abd914a3f8787a}{Geometric\+Support}}
+\item 
+typedef Basis\+Type \mbox{\hyperlink{group__Basis_ga3290c152ef86608fe650b0c36c9977d2}{Ancestor\+Type}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -33,32 +35,34 @@ typedef Basis\+Type {\bfseries Ancestor\+Type}
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{group__Basis_ga15423e83d47bc1ece6b1cc7aad394e83}{dimension}} () const
 \begin{DoxyCompactList}\small\item\em Compute the dimension of the basis. \end{DoxyCompactList}\item 
-Function\+Value \mbox{\hyperlink{group__Basis_ga7ddff2edbc924af5220b346d9ee4888d}{function}} (size\+\_\+t i, const Vector\+Rd \&x) const
+\mbox{\hyperlink{group__Basis_gac61389cc65826f36d73bf6f3259aa222}{Function\+Value}} \mbox{\hyperlink{group__Basis_ga7ddff2edbc924af5220b346d9ee4888d}{function}} (size\+\_\+t \mbox{\hyperlink{mmread_8m_aeca839551793b48163d805c13e7ecf30}{i}}, const \mbox{\hyperlink{group__Basis_ga2b59ab7a013fef73321867484e13e2f3}{Vector\+Rd}} \&x) const
 \begin{DoxyCompactList}\small\item\em Evaluate the i-\/th basis function at point x. \end{DoxyCompactList}\item 
 constexpr const Basis\+Type \& \mbox{\hyperlink{group__Basis_ga78aa364fc49dd99264a88b4cb8a80734}{ancestor}} () const
 \begin{DoxyCompactList}\small\item\em Return the ancestor (basis that the gradient was taken of) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-constexpr static const Tensor\+RankE {\bfseries tensor\+Rank} = Matrix
+constexpr static const \mbox{\hyperlink{group__Basis_ga99c0a4ae66e5304b0bb7500c00f6e397}{Tensor\+RankE}} \mbox{\hyperlink{group__Basis_ga82eb2385629a5e2a3251764d1a038daf}{tensor\+Rank}} = \mbox{\hyperlink{group__Basis_gga99c0a4ae66e5304b0bb7500c00f6e397a8b95982f3300bbf7fbf7e15bc7a8cfcf}{Matrix}}
 \item 
-constexpr static const bool {\bfseries has\+Ancestor} = true
+constexpr static const bool \mbox{\hyperlink{group__Basis_gae09421b7fa23c78f9026cdb778ab1b5b}{has\+Ancestor}} = true
 \item 
-static const bool {\bfseries has\+Function} = true
+static const bool \mbox{\hyperlink{group__Basis_gae6e24b3a0136bd63f5ac7c75522c666f}{has\+Function}} = true
 \item 
-static const bool {\bfseries has\+Gradient} = false
+static const bool \mbox{\hyperlink{group__Basis_gac0a312781ab19de379a674184770c7c3}{has\+Gradient}} = false
 \item 
-static const bool {\bfseries has\+Curl} = false
+static const bool \mbox{\hyperlink{group__Basis_ga2395c72c97b2f85007d6fb6fa007486a}{has\+Curl}} = false
 \item 
-static const bool {\bfseries has\+Divergence} = false
+static const bool \mbox{\hyperlink{group__Basis_ga3986246e63f838dfde06545baa53d840}{has\+Divergence}} = false
 \item 
-static const bool {\bfseries has\+Hessian} = false
+static const bool \mbox{\hyperlink{group__Basis_ga2777e8c9db3c1ed48abe0da05e6375ee}{has\+Rotor}} = false
+\item 
+static const bool \mbox{\hyperlink{group__Basis_gae1ae139b26fe53718a37c6c665e33f61}{has\+Hessian}} = false
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Basis\+Type$>$\newline
-class H\+Ar\+D\+Core2\+D\+::\+Hessian\+Basis$<$ Basis\+Type $>$}
+class HAr\+DCore2\+D\+::\+Hessian\+Basis$<$ Basis\+Type $>$}
 
 Basis for the space of Hessians of polynomials. 
 
@@ -66,4 +70,4 @@ To construct a basis of H$^\wedge$k, this assumes that the scalar basis it is co
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Common/basis.\+hpp\end{DoxyCompactItemize}
+src/\+Common/\mbox{\hyperlink{basis_8hpp}{basis.\+hpp}}\end{DoxyCompactItemize}
