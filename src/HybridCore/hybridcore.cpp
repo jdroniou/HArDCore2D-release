@@ -6,7 +6,7 @@
 
 
 #include "hybridcore.hpp"
-#include "vertex.hpp"
+#include "mesh.hpp"
 #include <quad2d.hpp>
 #include <quad1d.hpp>
 #include <Eigen/Dense>
@@ -17,7 +17,7 @@ using namespace HArDCore2D;
 //----------------------------------------------------------------------------
 //                UVector
 //----------------------------------------------------------------------------
-UVector::UVector(const Eigen::VectorXd values, const Mesh& mesh, const int cell_deg, const size_t edge_deg)
+UVector::UVector(const Eigen::VectorXd & values, const Mesh & mesh, const int cell_deg, const size_t edge_deg)
   : m_values(values),
     m_mesh(mesh), 
     m_cell_deg(cell_deg),
@@ -58,8 +58,8 @@ HybridCore::HybridCore(const Mesh* mesh_ptr, const int cell_deg, const size_t ed
     m_output(output),
     m_ortho(ortho),
     m_cell_basis(mesh_ptr->n_cells()),
-    m_edge_basis(mesh_ptr->n_edges()),
-    _offset_doe(0)        {
+    m_edge_basis(mesh_ptr->n_edges())
+    {
   m_output << "[HybridCore] Construction" << (m_use_threads ? " (multi-threading)" : "") << (m_ortho ? " (orthonormalised basis functions)" : "") << "\n";
   // Create cell bases
   std::function<void(size_t, size_t)> construct_all_cell_basis

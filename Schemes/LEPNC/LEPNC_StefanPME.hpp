@@ -403,7 +403,7 @@ Eigen::MatrixXd LEPNC_StefanPME::diffusion_operator(const size_t iT) const {
 	// Diffusion tensor at the quadrature nodes
 	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
 	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
-			[&kappaT,&cell](QuadratureNode qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
+			[&kappaT](QuadratureNode qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
 
 	return nc.gram_matrix(Dnc_phiT_quadT, Dnc_phiT_quadT, local_dofs, local_dofs, quadT, true, kappaT_quadT);  
 }

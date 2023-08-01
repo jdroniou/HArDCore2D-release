@@ -1,8 +1,8 @@
 #ifndef XCURL_HPP
 #define XCURL_HPP
 
+#include <globaldofspace.hpp>
 #include <ddrcore.hpp>
-#include <ddrspace.hpp>
 #include <integralweight.hpp>
 #include <xgrad.hpp>
 
@@ -14,7 +14,7 @@ namespace HArDCore2D
    */
 
   /// Discrete Hcurl space: local operators, L2 product and global interpolator
-  class XCurl : public DDRSpace
+  class XCurl : public GlobalDOFSpace
   {
   public:
     typedef std::function<Eigen::Vector2d(const Eigen::Vector2d &)> FunctionType;

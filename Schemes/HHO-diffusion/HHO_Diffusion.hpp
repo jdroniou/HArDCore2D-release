@@ -208,6 +208,7 @@ namespace HArDCore2D {
       GlobRHS(Eigen::VectorXd::Zero(m_ntotal_edge_dofs)),
       ScRHS(Eigen::VectorXd::Zero(m_ntotal_cell_dofs))
  {
+      m_output << "[HHO_Diffusion] Initializing" << std::endl;
       GlobMat.resize(m_ntotal_edge_dofs, m_ntotal_edge_dofs);        
       ScBeMat.resize(m_ntotal_cell_dofs, m_ntotal_edge_dofs);
     // Do nothing

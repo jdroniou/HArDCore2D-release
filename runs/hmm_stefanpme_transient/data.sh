@@ -8,18 +8,18 @@ use_threads="true"
 bc="D"  # N may not work...
 
 # Test case
-tcsol=4
+tcsol=1
 tcdiff=1
 
 # Type of nonlinearity
 tcNL=2
-mPME=3
+mPME=2
 
 # Weight of mass-lumping on edges
 weight=0
 
 # Source: exact (1) or zero (0)
-source=0
+source=1
 
 # Final time and initial time step
 FinalTps=1

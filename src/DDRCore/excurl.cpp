@@ -1,5 +1,6 @@
 #include "excurl.hpp"
 #include <parallel_for.hpp>
+#include <GMpoly_cell.hpp>
 
 using namespace HArDCore2D;
 
@@ -8,7 +9,7 @@ using namespace HArDCore2D;
 //------------------------------------------------------------------------------
 
 EXCurl::EXCurl(const DDRCore & ddr_core, bool use_threads, std::ostream & output)
-  : DDRSpace(
+  : GlobalDOFSpace(
 	     ddr_core.mesh(),
 	     0,
 	     2*PolynomialSpaceDimension<Edge>::Poly(ddr_core.degree()),
@@ -241,15 +242,15 @@ EXCurl::hhoLocalOperators EXCurl::_compute_hho_operators(size_t iT)
     size_t dim_Rolykmo = cellBases(iT).Rolykmo->dimension();
     size_t dim_RolyComplk = cellBases(iT).RolyComplk->dimension();
     // Icurl: Components on R^{k-1}(T)
-    boost::multi_array<VectorRd, 2> basis_Rolykmo_quad = evaluate_quad<Function>::compute(*cellBases(iT).Rolykmo, qr_2kpo_T);
-    Eigen::LDLT<Eigen::MatrixXd> cholesky_mass_Rolykmo(compute_gram_matrix(basis_Rolykmo_quad, qr_2kpo_T));
+    MonomialCellIntegralsType int_mono_2kpo_T = IntegrateCellMonomials(T, 2*degree()+1);
+    Eigen::LDLT<Eigen::MatrixXd> cholesky_mass_Rolykmo(GramMatrix(T, *cellBases(iT).Rolykmo, int_mono_2kpo_T));
     IcurlT.block(offset_T, 0, dim_Rolykmo, dim_Pkpo2)
-      = cholesky_mass_Rolykmo.solve(compute_gram_matrix(basis_Rolykmo_quad, basis_Polykpo2_quad, qr_2kpo_T));
+      = cholesky_mass_Rolykmo.solve(GramMatrix(T, *cellBases(iT).Rolykmo, Polykpo2(iT), int_mono_2kpo_T));
     // Icurl: Components R^{c,k}(T)
-    boost::multi_array<VectorRd, 2> basis_RolyComplk_quad = evaluate_quad<Function>::compute(*cellBases(iT).RolyComplk, qr_2kpo_T);
-    Eigen::LDLT<Eigen::MatrixXd> cholesky_mass_RolyComplk(compute_gram_matrix(basis_RolyComplk_quad, qr_2kpo_T));
+    Eigen::LDLT<Eigen::MatrixXd> cholesky_mass_RolyComplk(GramMatrix(T, *cellBases(iT).RolyComplk, int_mono_2kpo_T));
     IcurlT.block(offset_T + dim_Rolykmo, 0, dim_RolyComplk, dim_Pkpo2)
-      = cholesky_mass_RolyComplk.solve(compute_gram_matrix(basis_RolyComplk_quad, basis_Polykpo2_quad, qr_2kpo_T));
+      = cholesky_mass_RolyComplk.solve(GramMatrix(T, *cellBases(iT).RolyComplk, Polykpo2(iT), int_mono_2kpo_T));
+
   }
   // Edge contributions to Icurl and difference operators
   // delta_TE is made of two components: tangential and normal to the edge

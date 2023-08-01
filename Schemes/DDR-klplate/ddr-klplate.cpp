@@ -34,7 +34,7 @@ const std::string mesh_dir = "../../typ2_meshes/";
 std::string default_mesh = mesh_dir + "hexa1_1.typ2";
 
 // Max number of cells to plot a graph
-constexpr size_t max_nb_cells_for_plot = 15000;
+//constexpr size_t max_nb_cells_for_plot = 15000;
 
 //------------------------------------------------------------------------------
 

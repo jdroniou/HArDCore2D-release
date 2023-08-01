@@ -16,8 +16,8 @@
 #include <boost/timer/timer.hpp>
 
 #include "mesh.hpp"
-#include "import_mesh.hpp"
-#include "mesh_builder.hpp"
+//#include "import_mesh.hpp"
+//#include "mesh_builder.hpp"
 
 #include "HMM_StefanPME_transient.hpp"
 #include "TestCase/TestCaseTransient.hpp"
@@ -27,7 +27,7 @@ using namespace HArDCore2D;
 
 // Mesh filenames
 const std::string mesh_dir = "../../typ2_meshes/";
-std::string default_mesh = mesh_dir + "cart5x5.typ2";
+std::string default_mesh = mesh_dir + "hexa1_3.typ2";
 const std::string default_solver_type = "bicgstab";
 
 // Max number of cells to plot a graph
@@ -80,30 +80,11 @@ int main(int argc, const char* argv[]) {
 
 
 	// --------------------------------------------------------------------------
-  //                        Create the NC data structure
+  //                        Create the HMM data structure
   // --------------------------------------------------------------------------
 
-  // Read the mesh file
-	MeshReaderTyp2 mesh(mesh_file);
-
-	std::vector<std::vector<double> > vertices;
-	std::vector<std::vector<size_t> > cells;
-	std::vector<std::vector<double> > centers;
-	if (mesh.read_mesh(vertices, cells, centers) == false) {
-		output << "Could not open file" << std::endl;
-		return false;
-	};
-
-	// Build the mesh
-	MeshBuilder builder = MeshBuilder();
-	std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh(vertices, cells);
-	if (mesh_ptr.get() == NULL) {
-		printf(
-		  "Mesh cannot be created!\n Check the input file contains \n "
-		  "Vertices "
-		  "and cells with the correct tags");
-		return 0;
-	} 
+	MeshBuilder builder(mesh_file);
+	std::unique_ptr<Mesh> mesh_ptr = builder.build_the_mesh();
 	// Re-index the mesh edges, to facilitate treatment of boundary conditions (Dirichlet boundary edges are put at the end)
   // Get boundary conditions and re-order edges
   std::string bc_id = vm["bc_id"].as<std::string>();
@@ -133,39 +114,38 @@ int main(int argc, const char* argv[]) {
 	int source = vm["source"].as<int>();
 
 	// Nonlinearity zeta(u)
-	TestCaseNonLinearity::nonlinearity_function_type zeta = [&tcaseNL](double s, std::string type){
+	TestCaseNonLinearity::nonlinearity_function_type zeta = [&tcaseNL](double s, std::string type)->double{
 		return tcaseNL.nonlinearity(s, type);
 	};
 
   // Diffusion tensor
-  HMM_StefanPME_Transient::tensor_function_type kappa = [&](const double x, const double y, const Cell* cell) {
+  HMM_StefanPME_Transient::tensor_function_type kappa = [&](const double x, const double y, const Cell* cell)->Eigen::Matrix2d {
 			return tcase.diff(x,y,cell);
   };
-	size_t deg_kappa = tcase.get_deg_diff();
 
   // Exact solution, gradient and time derivative
-  HMM_StefanPME_Transient::solution_function_type exact_solution = [&](const double t, const VectorRd p) {
+  HMM_StefanPME_Transient::solution_function_type exact_solution = [&](const double t, const VectorRd p)->double {
 			return tcase.solution()(t,p);
   };
-  HMM_StefanPME_Transient::grad_function_type grad_exact_solution = [&](const double t, const VectorRd p, const Cell* cell) {
+  HMM_StefanPME_Transient::grad_function_type grad_exact_solution = [&](const double t, const VectorRd p, const Cell* cell)->VectorRd {
 			return tcase.grad_solution()(t,p,cell);
   };
-  HMM_StefanPME_Transient::solution_function_type time_der_exact_solution = [&](double t, VectorRd p) {
+  HMM_StefanPME_Transient::solution_function_type time_der_exact_solution = [&](double t, VectorRd p)->double {
 			return tcase.delt_solution()(t,p);
   };
-	
+
   // Source term, adjusted for reaction term
-  HMM_StefanPME_Transient::source_function_type source_term = [&](const double t, const VectorRd p, const Cell* cell) {
+  HMM_StefanPME_Transient::source_function_type source_term = [&](const double t, const VectorRd p, const Cell* cell)->double {
 		// Two options: zero source term, or exact given by exact solution (latter is only valid for diffusion=Id)
 		double val = 0;
 		if (source == 1){
-			val = time_der_exact_solution(t, p) - zeta(exact_solution(t, p), "hess") * (kappa(p.x(), p.y(), cell)*grad_exact_solution(t, p, cell)).dot(grad_exact_solution(t, p, cell)) + zeta(exact_solution(t, p), "der")*tcase.div_diff_grad(t, p.x(), p.y(), cell);
+			val = time_der_exact_solution(t, p) - zeta(exact_solution(t, p), "hess") * (kappa(p.x(), p.y(), cell)*grad_exact_solution(t, p, cell)).dot(grad_exact_solution(t, p, cell)) + zeta(exact_solution(t, p), "der") * tcase.minus_div_diff_grad(t, p.x(), p.y(), cell);
 		}
 		return val;
   };
 
   // Create the model equation
-  HMM_StefanPME_Transient StefanPME_model(hmm, kappa, deg_kappa, source_term, BC, exact_solution, grad_exact_solution, zeta, weight, solver_type);
+  HMM_StefanPME_Transient StefanPME_model(hmm, kappa, source_term, BC, exact_solution, grad_exact_solution, zeta, weight, solver_type);
 
   // --------------------------------------------------------------------------
 	// 											Recalling the mesh and parameters
@@ -279,12 +259,12 @@ int main(int argc, const char* argv[]) {
 		// In the cases weight=0 and weight=1, some components of Xh actually correspond to zeta(u), not u,
 		// but nc_VertexValues then does not use these components
 		Eigen::VectorXd approx_sol_vertex = hmm.VertexValues(Xn, "cell");
-		plotdata.write_to_vtu(filename,approx_sol_vertex,1);
+		plotdata.write_to_vtu(filename,approx_sol_vertex);
 
 		// Zeta of approximate solution
 		Eigen::VectorXd zeta_approx_sol_vertex = hmm.VertexValues(zetau, "cell");
 		std::string filename_zeta = std::string("zeta-") + vm["plot"].as<std::string>() + std::string(".vtu");
-		plotdata.write_to_vtu(filename_zeta,zeta_approx_sol_vertex,1);
+		plotdata.write_to_vtu(filename_zeta,zeta_approx_sol_vertex);
 
 		// Exact solution
 		Eigen::VectorXd exact_sol_vertex = Eigen::VectorXd::Zero(mesh_ptr->n_vertices());
@@ -292,7 +272,7 @@ int main(int argc, const char* argv[]) {
 			auto v= mesh_ptr->vertex(iV)->coords();
 			exact_sol_vertex(iV) = exact_solution(FinalTps,v);
 		}
-		plotdata.write_to_vtu(std::string("exact-")+filename,exact_sol_vertex,1);
+		plotdata.write_to_vtu(std::string("exact-")+filename,exact_sol_vertex);
 
 		// Zeta of exact solution
 		Eigen::VectorXd zeta_exact_sol_vertex = Eigen::VectorXd::Zero(mesh_ptr->n_vertices());
@@ -300,7 +280,7 @@ int main(int argc, const char* argv[]) {
 			auto v= mesh_ptr->vertex(iV)->coords();
 			zeta_exact_sol_vertex(iV) = zeta(exact_solution(FinalTps,v), "fct");
 		}
-		plotdata.write_to_vtu(std::string("zeta-exact-")+filename,zeta_exact_sol_vertex,1);
+		plotdata.write_to_vtu(std::string("zeta-exact-")+filename,zeta_exact_sol_vertex);
 
 	}
 

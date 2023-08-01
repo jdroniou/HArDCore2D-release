@@ -30,8 +30,8 @@
 #include <string>
 #include <vector>
 #include <mesh.hpp>
-#include <cell.hpp>
-#include <edge.hpp>
+//#include <cell.hpp>
+//#include <edge.hpp>
 #include <quadraturerule.hpp>
 #include <basis.hpp>
 #include <iostream>
@@ -82,8 +82,8 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
   {
     public:
       UVector(
-        const Eigen::VectorXd values,   ///< values of the vector
-        const Mesh& mesh,               ///< reference to the mesh
+        const Eigen::VectorXd & values,   ///< values of the vector
+        const Mesh & mesh,               ///< reference to the mesh
         const int cell_deg,             ///< polynomial degrees in cell
         const size_t edge_deg           ///< polynomial degrees on edge
       );
@@ -131,6 +131,17 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     UVector operator-(const UVector& b){
       assert(m_cell_deg == b.get_cell_deg() || m_edge_deg == b.get_edge_deg() );
       return UVector(m_values - b.asVectorXd(), m_mesh, m_cell_deg, m_edge_deg);
+    }
+
+    /// Overloads the increment: adds the coefficients
+    void operator+=(const UVector& b){
+      assert(m_cell_deg == b.get_cell_deg() || m_edge_deg == b.get_edge_deg() );
+      this->asVectorXd() = m_values + b.asVectorXd();
+    }
+
+    /// Overloads the increment: adds the coefficients
+    void operator/=(const double & r){
+      this->asVectorXd() = m_values / r;
     }
 
     /// Overloads the (): returns the corresponding coefficient
@@ -258,7 +269,7 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     // Output stream
     std::ostream & m_output;
     // Orthonormalise or not the basis functions
-    const bool & m_ortho;
+    const bool m_ortho;
 
     // Cell and edges bases
     std::vector<std::unique_ptr<PolyCellBasisType>> m_cell_basis;
@@ -267,9 +278,6 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
     // Creates the cell and edge bases
     PolyCellBasisType _construct_cell_basis(size_t iT);
     PolyEdgeBasisType _construct_edge_basis(size_t iF);
-
-    // offset for quadrature rules, should be 0 except for testing purposes
-    int _offset_doe;	
 
   };
 
@@ -365,12 +373,6 @@ and polynomials on the edges (polynomials on the edges are not taken into accoun
 
     return UVector(XTF, *get_mesh(), cell_deg, edge_deg);
   }
-
-
-
-  // --------------------------------------------------------------------------------------------------
-  // ------- Functions that return class elements
-
 
 
   //@}

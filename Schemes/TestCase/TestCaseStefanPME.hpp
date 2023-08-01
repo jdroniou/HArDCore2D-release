@@ -29,9 +29,9 @@
 #include <Eigen/Dense>
 #include "TestCase.hpp"
 
-namespace HArDCore2D {		// Forward declaration
-	class Cell;
-}
+//namespace HArDCore2D {		// Forward declaration
+//	class Cell;
+//}
 
 using namespace HArDCore2D;
 

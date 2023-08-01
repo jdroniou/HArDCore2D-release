@@ -5,7 +5,7 @@
 //
 
 #include "TestCaseStefanPME.hpp"
-#include "cell.hpp"
+#include "mesh.hpp"
 #include <memory>
 #include <string>
 #include <vector>
@@ -40,7 +40,7 @@ TestCaseStefanPME::TestCaseStefanPME(const std::vector<int> iTCS)
 double TestCaseStefanPME::sol(const double x, const double y){
   double u = 0;
   if (m_iTCS[0]>0){
-    u = m_tcase.sol()(VectorRd(x, y));
+    u = m_tcase.get_solution().value(VectorRd(x, y));
   }else{
     switch(m_iTCS[0]){
       /// iTCS[0]=-1, \f$u=\cosh(\frac{x+y}{\sqrt{2}}-\gamma\f$ if \f$\frac{x+y}{\sqrt{2}}>\gamma\f$.
@@ -70,7 +70,7 @@ double TestCaseStefanPME::sol(const double x, const double y){
 Eigen::Vector2d TestCaseStefanPME::grad_sol(const double x, const double y, const Cell* cell){
   Eigen::Vector2d G = Eigen::Vector2d::Zero();
   if (m_iTCS[0]>0){
-    G = m_tcase.grad_sol()(VectorRd(x, y), cell);
+    G = m_tcase.get_solution().gradient(VectorRd(x, y), cell);
   }else{
     switch(m_iTCS[0]){
       case -1: {
@@ -103,7 +103,7 @@ Eigen::Vector2d TestCaseStefanPME::grad_sol(const double x, const double y, cons
 Eigen::Matrix2d TestCaseStefanPME::hess_sol(const double x, const double y, const Cell* cell){
   Eigen::MatrixXd H = Eigen::Matrix2d::Zero();
   if (m_iTCS[0]>0){
-    H = m_tcase.hess_sol()(VectorRd(x, y), cell);
+    H = m_tcase.get_solution().hessian(VectorRd(x, y), cell);
   }else{
     switch(m_iTCS[0]){
       case -1: {
