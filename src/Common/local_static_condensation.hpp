@@ -47,33 +47,22 @@ namespace HArDCore2D
       Eigen::MatrixXd AT = m_Perm * lsT.first * m_Perm.transpose();
       Eigen::VectorXd bT = m_Perm * lsT.second;
   
-      Eigen::MatrixXd AT_sys, AT_sc;
-      Eigen::VectorXd bT_sys, bT_sc;
-  
-      if (m_dim_sc > 0){
-        // Extract 4 blocks of AT, bT for static condensation
-        Eigen::MatrixXd A11 = AT.topLeftCorner(m_dim_sys, m_dim_sys);  
-        Eigen::MatrixXd A12 = AT.topRightCorner(m_dim_sys, m_dim_sc);
-        Eigen::MatrixXd A21 = AT.bottomLeftCorner(m_dim_sc, m_dim_sys);
-        Eigen::MatrixXd A22 = AT.bottomRightCorner(m_dim_sc, m_dim_sc);
-        Eigen::VectorXd b1 = bT.head(m_dim_sys);
-        Eigen::VectorXd b2 = bT.tail(m_dim_sc);
-        // Create condensed system (AT_reduced, bT_reduced) and SC recovery operator (RT, cT)
-        Eigen::PartialPivLU<Eigen::MatrixXd> A22pivlu(A22);
-        Eigen::MatrixXd A22inv_A21 = A22pivlu.solve(A21);
-        Eigen::VectorXd A22inv_b2 = A22pivlu.solve(b2);
-        AT_sys = A11 - A12 * A22inv_A21;
-        bT_sys = b1 - A12 * A22inv_b2;
-        AT_sc = -A22inv_A21;
-        bT_sc = A22inv_b2;
-      }else{
-        // No static condensation
-        AT_sys = AT;
-        bT_sys = bT;
-        AT_sc = Eigen::MatrixXd::Zero(0,0);
-        bT_sc = Eigen::VectorXd::Zero(0);
-      }
-      
+      // Extract 4 blocks of AT, bT for static condensation
+      Eigen::MatrixXd A11 = AT.topLeftCorner(m_dim_sys, m_dim_sys);  
+      Eigen::MatrixXd A12 = AT.topRightCorner(m_dim_sys, m_dim_sc);
+      Eigen::MatrixXd A21 = AT.bottomLeftCorner(m_dim_sc, m_dim_sys);
+      Eigen::MatrixXd A22 = AT.bottomRightCorner(m_dim_sc, m_dim_sc);
+      Eigen::VectorXd b1 = bT.head(m_dim_sys);
+      Eigen::VectorXd b2 = bT.tail(m_dim_sc);
+
+      // Create condensed system (AT_reduced, bT_reduced) and SC recovery operator (RT, cT)
+      Eigen::MatrixXd A22inv_A21 = A22.ldlt().solve(A21);
+      Eigen::VectorXd A22inv_b2 = A22.ldlt().solve(b2);
+      Eigen::MatrixXd AT_sys = A11 - A12 * A22inv_A21;
+      Eigen::VectorXd bT_sys = b1 - A12 * A22inv_b2;
+      Eigen::MatrixXd AT_sc = -A22inv_A21;
+      Eigen::VectorXd bT_sc = A22inv_b2;
+
       return std::make_tuple(AT_sys, bT_sys, AT_sc, bT_sc);
     };
 

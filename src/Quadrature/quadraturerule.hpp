@@ -26,8 +26,8 @@
 #include <vector>
 
 #include <mesh.hpp>
-//#include <cell.hpp>
-//#include <edge.hpp>
+#include <cell.hpp>
+#include <edge.hpp>
 
 namespace HArDCore2D {
 

@@ -63,6 +63,7 @@ public:
   HMM_StefanPME_Transient(
 		HybridCore &hmm,										///< instance of the hybridcore class (with basis functions, etc.)
 		tensor_function_type kappa, 	///< diffusion tensor
+		size_t deg_kappa,							///< polynomial degree of the diffusion tensor
 		source_function_type source,  ///< source term
 		BoundaryConditions BC,					///< type of boundary conditions
 		solution_function_type exact_solution, 	///< exact solution
@@ -132,6 +133,7 @@ private:
 
 	const HybridCore& hmm;
   const tensor_function_type kappa;
+	size_t _deg_kappa;
   const source_function_type source;
 	const BoundaryConditions m_BC;
   const solution_function_type exact_solution;
@@ -155,9 +157,10 @@ private:
 
 };
 
-HMM_StefanPME_Transient::HMM_StefanPME_Transient(HybridCore &hmm, tensor_function_type kappa, source_function_type source, BoundaryConditions BC, solution_function_type exact_solution, grad_function_type grad_exact_solution, TestCaseNonLinearity::nonlinearity_function_type zeta, double weight, std::string solver_type, std::ostream & output)
+HMM_StefanPME_Transient::HMM_StefanPME_Transient(HybridCore &hmm, tensor_function_type kappa, size_t deg_kappa, source_function_type source, BoundaryConditions BC, solution_function_type exact_solution, grad_function_type grad_exact_solution, TestCaseNonLinearity::nonlinearity_function_type zeta, double weight, std::string solver_type, std::ostream & output)
   : hmm(hmm),
 		kappa(kappa),
+		_deg_kappa(deg_kappa),
     source(source),
 		m_BC(BC),
 		exact_solution(exact_solution),
@@ -204,7 +207,7 @@ UVector HMM_StefanPME_Transient::iterate(const double tps, const double dt, cons
   // relaxation parameter
   double relax = 1;     
 	size_t iter = 0;
-	UVector Xhprev = Xn;
+	UVector Xhprev = UVector(Eigen::VectorXd::Zero(n_cell_dofs + n_edges_dofs), *hmm.get_mesh(), 0, 0);
 	UVector Xh = UVector(Eigen::VectorXd::Zero(n_cell_dofs + n_edges_dofs), *hmm.get_mesh(), 0, 0);
 
 	// Vector of Dirichlet BC, either on u (if weight>0) or zeta(u) (if weight=0)
@@ -225,9 +228,7 @@ UVector HMM_StefanPME_Transient::iterate(const double tps, const double dt, cons
 		  DirBC(n_cell_dofs + iF) /= mesh->b_edge(ibF)->measure();
     }
 	}
-	// Adjust initial iteration of Newton to match these BCs
-	Xhprev.asVectorXd().tail(mesh->n_b_edges()) = DirBC.tail(mesh->n_b_edges());
-
+	Xhprev.asVectorXd() = DirBC;
 
 	// ---- NEWTON ITERATONS ------ //
 	Eigen::VectorXd RES = residual_scheme(dt, Xhprev); 		// Scheme is F(X)=C, then RES = C - F(u_prev)

@@ -176,7 +176,6 @@ LEPNC_StefanPME_Transient::LEPNC_StefanPME_Transient(LEPNCCore &nc, tensor_funct
 		solver_type(solver_type),
     m_output(output) {
 
-    m_output << "[LEPNC_StefanPME_Transient] Initializing" << std::endl;
 		//---- Compute diffusion and mass matrix (do not change during time stepping or Newton) ------//
 		const Mesh* mesh = nc.get_mesh();
 		DiffT.resize(mesh->n_cells());
@@ -437,7 +436,7 @@ Eigen::MatrixXd LEPNC_StefanPME_Transient::diffusion_operator(const size_t iT) c
 	// Diffusion tensor at the quadrature nodes
 	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
 	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
-			[&kappaT](QuadratureNode qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
+			[&kappaT,&cell](QuadratureNode qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
 
 	return nc.gram_matrix(Dnc_phiT_quadT, Dnc_phiT_quadT, local_dofs, local_dofs, quadT, true, kappaT_quadT);  
 }

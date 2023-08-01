@@ -49,27 +49,17 @@ public:
 
     /// Writes the vtu file  
     bool write_to_vtu(
-          const std::string & filename, ///< name of file to write to
-          const std::vector<Eigen::VectorXd> & sol_vrtx,   ///< Each element in the std::vector is a vector of values of a function to plot at the mesh vertices
-  				const std::vector<std::string> & sol_names = {}     ///< each string is the name of one function
+          std::string file_name, ///< name of file to write to
+          Eigen::VectorXd sol_vertex,   ///< vector of values of the solution at the mesh vertices
+          bool dimen = true  ///< elevation of the plot: planar if dimen=0, elevated if dimen=1
           );
 
-    /// Overloaded writer for the mesh alone
+    /// overloaded writer for the mesh alone
     bool write_to_vtu(std::string file_name); 
-
-    /// Overload to simplify the call when only one solution is involved
-    inline bool write_to_vtu(
-				  const std::string & filename, ///< name of file to write to
-				  const Eigen::VectorXd & sol_vrtx,  ///< values of the solution at the mesh vertices
-				  const std::string & sol_name = "solution"  ///< name of the solution
-				  )
-		  {
-		    return write_to_vtu(filename, std::vector<Eigen::VectorXd> {sol_vrtx}, std::vector<std::string> {sol_name});
-		  }
 
 private:
     void write_vertices(FILE* pFile);/// <\brief add vertices coords to the vtk file 
-    void write_vertices(FILE* pFile, const Eigen::VectorXd & data);/// <\brief add vertices coords to the vtk file for 3d graphs
+    void write_vertices(FILE* pFile, Eigen::VectorXd data);/// <\brief add vertices coords to the vtk file for 3d graphs
     void write_header(FILE* pFile); /// <\brief add header to the file
     void write_cells(FILE* pFile); /// <\brief add the cell data - note we just use a polygon form vtk type 7
     /**
@@ -79,8 +69,9 @@ private:
     * @param names
     */
    
-    void write_solution(FILE* pFile, const Eigen::VectorXd & sol, const std::string & name); /// <\brief writes a solution to the vtu file
-    void write_footer(FILE* pFile); /// <\brief add the footer to the vtu file
+    void write_point_scalar_property(FILE* pFile, Eigen::VectorXd data,
+                                     std::string name); /// <\brief writes all of the point data to the vtk file
+    void write_footer(FILE* pFile); /// <\brief add the footer to the vtk file
 
     const Mesh* _mesh;
 

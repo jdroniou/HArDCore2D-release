@@ -22,7 +22,6 @@ QuadRuleTriangle::QuadRuleTriangle(size_t doe, bool warn)
 
     _w = new double[_npts];
     _xy = new double[_npts * 2];
-    _xyphys = new double[_npts * 2];
     //    Input, int RULE, the index of the rule.
     //    Input, int ORDER_NUM, the order (number of points) of the rule.
     //    Output, double XY[2*ORDER_NUM], the points of the rule.
@@ -57,6 +56,7 @@ double QuadRuleTriangle::wq(size_t i) {
     return _w[i] * std::abs(area);
 }
 void QuadRuleTriangle::setup(double xV[], double yV[]) {
+    _xyphys = new double[_npts * 2];
     double t[6];
     for (int i = 0; i <= 2; i++) {
         t[i * 2] = xV[i];

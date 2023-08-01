@@ -2,7 +2,7 @@
 #
 
 # Degree (minimum 3)
-k=4
+k=3
 
 # Plate parameters
 D=1

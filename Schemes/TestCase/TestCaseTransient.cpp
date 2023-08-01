@@ -5,11 +5,13 @@
 //
 
 #include "TestCaseTransient.hpp"
-#include "mesh.hpp"
+#include "cell.hpp"
 #include <memory>
 #include <string>
 #include <vector>
 #include <iostream>
+
+#include <Eigen/Dense>
 
 using namespace HArDCore2D;
 
@@ -100,7 +102,7 @@ std::function<VectorRd(const double&, const VectorRd&, const Cell*)> TestCaseTra
         break;
 
     case 3: 
-      grad = [](const double t, const VectorRd p, const Cell* cell)->VectorRd {
+      grad = [this](const double t, const VectorRd p, const Cell* cell)->VectorRd {
           VectorRd G = VectorRd::Zero();
           G(0) = 2.0-t;
           G(1) = 0;
@@ -164,7 +166,7 @@ std::function<double(const double &, const VectorRd &)> TestCaseTransient::delt_
       break;
 
     case 3: 
-      time_der = [](double t, VectorRd p) -> double {
+      time_der = [this](double t, VectorRd p) -> double {
         return -p.x();
       };
       break;
@@ -236,7 +238,7 @@ Eigen::Vector2d TestCaseTransient::div_diff(const double x, const double y, cons
 ///////////////////////////// SOURCE TERM ///////////////////////////
 
 // Source term
-double TestCaseTransient::minus_div_diff_grad(const double t, const double x, const double y, const Cell* cell){
+double TestCaseTransient::div_diff_grad(const double t, const double x, const double y, const Cell* cell){
 
   Eigen::Matrix2d AHu = diff(x,y,cell) * hess_solution()(t,VectorRd(x,y),cell);
 

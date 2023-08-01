@@ -5,7 +5,7 @@
 
 
 #include "mesh.hpp"
-//#include "vertex.hpp"
+#include "vertex.hpp"
 #include <stdio.h>
 #include <vtu_writer.hpp>
 
@@ -43,7 +43,7 @@ void VtuWriter::write_vertices(FILE* pFile) {
     fprintf(pFile, "%s\n", "         </Points>");
 }
 
-void VtuWriter::write_vertices(FILE* pFile, const Eigen::VectorXd & data) {
+void VtuWriter::write_vertices(FILE* pFile, Eigen::VectorXd data) {
     // VERTICES
     fprintf(pFile, "%s\n", "         <Points>");
     fprintf(pFile, "%s%s%s\n",
@@ -108,17 +108,22 @@ void VtuWriter::write_cells(FILE* pFile) {
     fprintf(pFile, "%s\n", "            </Cells>");
 }
 
-void VtuWriter::write_solution(FILE* pFile, const Eigen::VectorXd & sol, const std::string & name) {
+void VtuWriter::write_point_scalar_property(FILE* pFile,
+                                                  Eigen::VectorXd data,
+                                                  std::string name) {
+    fprintf(pFile, "%s\n", "         <PointData Scalars=\"count\">");
     fprintf(pFile, "%s%s%s\n", "            <DataArray type=\"Float64\" Name=\"",
             name.c_str(),
             "\" "
             "format=\"ascii\">");
-    for (size_t i = 0; i < size_t(sol.size()); i++) {
-        fprintf(pFile, "%e ", sol[i]);
+    for (size_t i = 0; i < size_t(data.size()); i++) {
+        fprintf(pFile, "%e ", data[i]);
     }
     fprintf(pFile, "%s\n", "");
 
     fprintf(pFile, "%s\n", "            </DataArray>");
+
+    fprintf(pFile, "%s\n", "         </PointData>");
 }
 
 void VtuWriter::write_footer(FILE* pFile) {
@@ -126,37 +131,18 @@ void VtuWriter::write_footer(FILE* pFile) {
     fprintf(pFile, "%s\n", "   </UnstructuredGrid>");
     fprintf(pFile, "%s\n", "</VTKFile>");
 }
-
-bool VtuWriter::write_to_vtu(const std::string & filename, const std::vector<Eigen::VectorXd> & sol_vrtx, const std::vector<std::string> & sol_names) {
-
-  // Open and write header
+bool VtuWriter::write_to_vtu(std::string filename, Eigen::VectorXd sol_vertex, bool dimen) {
   FILE* pFile = fopen(filename.c_str(), "w");
   write_header(pFile);
-
-  // If sol_names is too short, we re-create it
-  std::vector<std::string> names = sol_names;
-  if (names.size() < sol_vrtx.size()){
-    names.resize(0);
-    for (size_t i=0; i < sol_vrtx.size(); i++){
-      names.push_back("solution" + std::to_string(i));
-    }
+  if (dimen) { 
+    write_vertices(pFile,sol_vertex);
+  } else {
+    write_vertices(pFile);
   }
-
-  // Write solutions
-  // Functions
-  for (size_t i=0; i < sol_vrtx.size(); i++){
-    write_vertices(pFile, sol_vrtx[i]);
-  }
-  fprintf(pFile, "%s\n", "         <PointData Scalars=\"count\">");
-  for (size_t i=0; i < sol_vrtx.size(); i++){
-  	write_solution(pFile, sol_vrtx[i], names[i]);
-  }
-  fprintf(pFile, "%s\n", "         </PointData>");
- 
+  write_point_scalar_property(pFile, sol_vertex, "solution");
   write_cells(pFile);
   write_footer(pFile);
   fclose(pFile);
-  
   return true;
 }
 

@@ -16,11 +16,8 @@
 *
 */
 
-#ifndef BCHANDLERS_HPP
-#define BCHANDLERS_HPP
-
 #include <BoundaryConditions/BoundaryConditions.hpp>
-#include <globaldofspace.hpp>
+#include <ddrspace.hpp>
 #include <mesh.hpp>
 
 using namespace HArDCore2D;
@@ -34,32 +31,32 @@ using namespace HArDCore2D;
    * @{
    */
 
-/// Adds BC labels do GlobalDOFSpace DOFs. The default label is 0; we leave it 0 for internal DOF, -1 for Neumann DOF and 1 for Dirichlet DOF
-void setBCLabels(const BoundaryConditions &BC, GlobalDOFSpace &globaldofspace) {
+/// Adds BC labels do ddrspace DOFs. The default label is 0; we leave it 0 for internal DOF, -1 for Neumann DOF and 1 for Dirichlet DOF
+void setBCLabels(const BoundaryConditions &BC, DDRSpace &ddrspace) {
   
-  for (Vertex *v : globaldofspace.mesh().get_vertices()){
+  for (Vertex *v : ddrspace.mesh().get_vertices()){
     int label = 0;
     if (BC.type(*v)=="dir"){
       label = 1;
     }else if (BC.type(*v)=="neu"){
       label = -1;
     }
-    size_t offset_v = globaldofspace.globalOffset(*v);
-    for (size_t i=offset_v; i < offset_v + globaldofspace.numLocalDofsVertex(); i++){
-      globaldofspace.setLabelDOF(i, label);
+    size_t offset_v = ddrspace.globalOffset(*v);
+    for (size_t i=offset_v; i < offset_v + ddrspace.numLocalDofsVertex(); i++){
+      ddrspace.setLabelDOF(i, label);
     }          
   }
 
-  for (Edge *e : globaldofspace.mesh().get_edges()){
+  for (Edge *e : ddrspace.mesh().get_edges()){
     int label = 0;
     if (BC.type(*e)=="dir"){
       label = 1;
     }else if (BC.type(*e)=="neu"){
       label = -1;
     }
-    size_t offset_e = globaldofspace.globalOffset(*e);
-    for (size_t i=offset_e; i < offset_e + globaldofspace.numLocalDofsEdge(); i++){
-      globaldofspace.setLabelDOF(i, label);
+    size_t offset_e = ddrspace.globalOffset(*e);
+    for (size_t i=offset_e; i < offset_e + ddrspace.numLocalDofsEdge(); i++){
+      ddrspace.setLabelDOF(i, label);
     }          
   }
 
@@ -126,12 +123,7 @@ Eigen::ArrayXi create_mapDOF(const std::vector<size_t> &c, const size_t N){
    2) insert, in a vector already containing values for Dirichlet DOFs, values calculated by solving a system on the other DOFs.
 */
 template<typename VecType>
-VecType replaceSectionsVector(
-                              const VecType &V,
-                              const VecType &Z,
-                              const std::vector<std::pair<size_t,size_t>> &sec
-                              )
-{
+VecType replaceSectionsVector(const VecType &V, const VecType &Z, const std::vector<std::pair<size_t,size_t>> &sec){
   assert ( sec[sec.size()-1].first + sec[sec.size()-1].second <= size_t(V.rows()) );
   
   VecType val = V;
@@ -147,4 +139,3 @@ VecType replaceSectionsVector(
 
 //@}
 
-#endif

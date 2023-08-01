@@ -1,5 +1,0 @@
-<map id="HArDCore2D::GlobalDOFSpace" name="HArDCore2D::GlobalDOFSpace">
-<area shape="rect" id="node1" title="Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version bei..." alt="" coords="5,171,216,197"/>
-<area shape="rect" id="node2" href="$classHArDCore2D_1_1LocalDOFSpace.html" title="Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimensio..." alt="" coords="9,95,213,121"/>
-<area shape="rect" id="node3" href="$classMesh2D_1_1Mesh.html" title=" " alt="" coords="55,5,166,32"/>
-</map>

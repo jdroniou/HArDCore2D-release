@@ -11,15 +11,15 @@ namespace HArDCore2D
    */
 
   /// Extended XCurl space, with vector-valued polynomials on the edges.
-  /** Following GlobalDOFSpace, the DOFs are organised this way: DOFs of edges (for each edge: normal components, then tangential components - both oriented according to the intrinsic normal and tangent to the edge), DOFs of cells. 
+  /** Following DDRSpace, the DOFs are organised this way: DOFs of edges (for each edge: normal components, then tangential components - both oriented according to the intrinsic normal and tangent to the edge), DOFs of cells. 
   The matrices m_reduction are used to locally recover DOFs for the XCurl space by removing the normal components to the edges. */
 
   /// Extended discrete Hcurl space: local operators, L2 product and global interpolator
-  class EXCurl : public GlobalDOFSpace
+  class EXCurl : public DDRSpace
   {
   public:
     typedef std::function<Eigen::Vector2d(const Eigen::Vector2d &)> FunctionType;
-    typedef MatrixFamily<DDRCore::PolyBasisCellType, dimspace> Polyk2x2Type;
+    typedef MatrixFamily<RestrictedBasis<DDRCore::PolyBasisCellType>, dimspace> Polyk2x2Type;
     typedef TensorizedVectorFamily<DDRCore::PolyBasisCellType, dimspace> Polykpo2Type;
     
     /// A structure to store the local HHO operators

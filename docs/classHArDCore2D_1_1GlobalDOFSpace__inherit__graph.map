@@ -1,9 +1,0 @@
-<map id="HArDCore2D::GlobalDOFSpace" name="HArDCore2D::GlobalDOFSpace">
-<area shape="rect" id="node1" title="Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version bei..." alt="" coords="257,107,468,133"/>
-<area shape="rect" id="node3" href="$classHArDCore2D_1_1EXCurl.html" title="Extended XCurl space, with vector&#45;valued polynomials on the edges." alt="" coords="528,5,679,32"/>
-<area shape="rect" id="node4" href="$classHArDCore2D_1_1HHOSpace.html" title="Class definition: polynomial bases and operators." alt="" coords="516,56,691,83"/>
-<area shape="rect" id="node5" href="$classHArDCore2D_1_1XCurl.html" title="Discrete Hcurl space: local operators, L2 product and global interpolator." alt="" coords="533,107,674,133"/>
-<area shape="rect" id="node6" href="$classHArDCore2D_1_1XDivDiv.html" title="Discrete Hdivdiv space." alt="" coords="525,157,682,184"/>
-<area shape="rect" id="node7" href="$classHArDCore2D_1_1XGrad.html" title="Discrete H1 space: local operators, L2 product and global interpolator." alt="" coords="531,208,676,235"/>
-<area shape="rect" id="node2" href="$classHArDCore2D_1_1LocalDOFSpace.html" title="Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimensio..." alt="" coords="5,107,209,133"/>
-</map>

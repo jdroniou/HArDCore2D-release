@@ -1,5 +1,0 @@
-<map id="HArDCore2D::XDivDiv" name="HArDCore2D::XDivDiv">
-<area shape="rect" id="node1" title="Discrete Hdivdiv space." alt="" coords="32,155,189,181"/>
-<area shape="rect" id="node2" href="$classHArDCore2D_1_1GlobalDOFSpace.html" title="Base class for global DOF spaces. Provides functions to manipulate global DOFs (the local version bei..." alt="" coords="5,80,216,107"/>
-<area shape="rect" id="node3" href="$classHArDCore2D_1_1LocalDOFSpace.html" title="Base class for local DOF spaces: functions to access local DOFs (organised from the smallest dimensio..." alt="" coords="9,5,213,32"/>
-</map>
