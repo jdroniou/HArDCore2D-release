@@ -2,9 +2,14 @@
 #include <string>
 #include <boost/timer/timer.hpp>
 
-//const std::string mesh_root = "/home/liam/HHO/liamyemm/HArDCore2D-liam/typ2_meshes/";
-// const std::string mesh_root = "../../typ2_meshes/";
 
+/*!
+ * \addtogroup MeshCoarsen
+ * @{
+ */
+
+
+/// Usage: mesh-coarsen <input file> <output file> <number of coarsening levels>
 int main(int argc, char *argv[])
 {
     std::string mesh_file = argv[1];
@@ -147,3 +152,6 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+
+//@}

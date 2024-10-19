@@ -70,6 +70,13 @@ The following schemes are currently available in HArD::Core2D. The Hybrid High-O
  - [HHO_fullgradientdiff](@ref HHO_fullgradientdiff): HHO scheme with full gradient; similar to [HHO_locvardiff](@ref HArDCore3D::HHO_LocVarDiff) but implemented using the HHOSpace module instead of the HybridCore module.
 
 
+Besides the schemes, some codes/libraries provide generic useful tools:
+
+ - [BoundaryConditions](@ref BoundaryConditions): tools to handle boundary conditions (selection of boundary mesh quantities for natural/essential BCs, tools to create maps DOFs to Unkowns (removing certains DOFs corresponding to essential boundary conditions), etc.).
+
+ - [MeshCoarsen](@ref MeshCoarsen): tools to coarsen (agglomerate) a mesh. Mostly one executable (mesh-coarsen) is useful.
+
+
 The directory `runs` contains BASH to run series of tests on families of meshes. The files `data.sh` describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the `output` directory, including a pdf file `rate.pdf` describing the rates of convergence in various energy norms.
 
 To run the scripts as they are, you will need `pdflatex` and (for the LEPNC and HMM schemes) a FORTRAN compiler (adjust the `Makefile` to your compiler).

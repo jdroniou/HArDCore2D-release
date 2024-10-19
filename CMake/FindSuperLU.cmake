@@ -6,21 +6,34 @@ if (SUPERLU_INCLUDES AND SUPERLU_LIBRARIES)
   set(SUPERLU_FIND_QUIETLY TRUE)
 endif (SUPERLU_INCLUDES AND SUPERLU_LIBRARIES)
 
-find_path(SUPERLU_INCLUDES
-  NAMES
-  supermatrix.h
-  PATHS
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ".dylib" ".so")	
+  set(LD_SEARCH $ENV{DYLD_LIBRARY_PATH})
+else()
+  set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ".so")
+  set(LD_SEARCH $ENV{LD_LIBRARY_PATH})
+endif()
+
+find_path(SUPERLU_INCLUDES NAMES supermatrix.h PATHS
+  ${PROJECT_SOURCE_DIR}/ExternalLibraries/superlu
+  $ENV{CPATH}
   $ENV{SUPERLUDIR}
   ${INCLUDE_INSTALL_DIR}
   PATH_SUFFIXES
+  include
+  build/include
   superlu
   SRC
 )
 
-find_library(SUPERLU_LIBRARIES
-  NAMES "superlu_5.2.1" "superlu_5.2" "superlu_5.1.1" "superlu_5.1" "superlu_5.0" "superlu_4.3" "superlu_4.2" "superlu_4.1" "superlu_4.0" "superlu_3.1" "superlu_3.0" "superlu"
-  PATHS $ENV{SUPERLUDIR} ${LIB_INSTALL_DIR}
-  PATH_SUFFIXES lib)
+find_library(SUPERLU_LIBRARIES NAMES "superlu_5.2.1" "superlu_5.2" "superlu_5.1.1" "superlu_5.1" "superlu_5.0" "superlu_4.3" "superlu_4.2" "superlu_4.1" "superlu_4.0" "superlu_3.1" "superlu_3.0" "superlu" "superlu_mt_PTHREAD" "superlu_dist" "superlu_mt_OPENMP"
+  PATHS 
+  $ENV{LIBRARY_PATH}
+  ${LD_SEARCH}
+  $ENV{SUPERLUDIR} 
+  ${LIB_INSTALL_DIR} 
+  ${PROJECT_SOURCE_DIR}/ExternalLibraries/superlu
+  PATH_SUFFIXES build/lib lib)
 
 if(SUPERLU_INCLUDES AND SUPERLU_LIBRARIES)
 
@@ -87,6 +100,13 @@ else()
   set(SUPERLU_VERSION_OK TRUE)
 endif()
 
+if(NOT SUPERLU_LIBDIR)
+ get_filename_component(SUPERLU_LIBDIR ${SUPERLU_LIBRARIES} PATH)
+endif(NOT SUPERLU_LIBDIR)
+
+set(SUPERLU_INCS ${SUPERLU_INCLUDES})
+set(SUPERLU_LIBS ${SUPERLU_LIBDIR})
+
 endif()
 
 include(FindPackageHandleStandardArgs)
@@ -94,4 +114,4 @@ find_package_handle_standard_args(SuperLU
                                   REQUIRED_VARS SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_VERSION_OK
                                   VERSION_VAR SUPERLU_VERSION_VAR)
 
-mark_as_advanced(SUPERLU_INCLUDES SUPERLU_LIBRARIES)
+mark_as_advanced(SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_INCS SUPERLU_LIBS)

@@ -1,0 +1,89 @@
+#!/bin/bash
+#
+# Execute hho file on series of meshes, and calculate outputs
+#
+
+# Options
+if [[ $1 == "help" ]]; then
+    echo -e "\nExecute tests using parameters in data.sh"
+    exit;
+fi;
+
+# Load data
+. data.sh
+
+# Directories
+executable_name="ddr-quadrot"
+
+origin=$(pwd)
+if [ ! -f ../directories.sh ]; then
+    echo "directories.sh does not exist. Please read the README.txt in the parent folder."
+    exit
+fi
+. ../directories.sh
+
+# Execute for each value of the viscosity and for each mesh
+
+nbdegrees=${#degrees[@]}
+for k in `seq 1 $nbdegrees`;
+do
+    degree=${degrees[$k]};
+
+    echo "Degree                 : $degree"
+    echo "Mesh family            : $mesh_family"
+    echo "Stabilization parameter: $stab_par"
+    echo "Test case: solution    : $solution"
+    echo "Output directory       : $outdir"
+
+    outsubdir=${outdir}/${mesh_family}_k${degree}
+    if [ ! -d $outsubdir ]; then
+        mkdir -p $outsubdir
+    else
+        \rm -r $outsubdir/*
+    fi
+    
+    nbmesh=${#mesh[@]}
+    for i in `seq 1 $nbmesh`; 
+    do
+        meshtype=$(echo ${mesh[$i]} | cut -d ':' -f 1)
+        meshfile=$meshdir"/"$(echo ${mesh[$i]} | cut -d ':' -f 2)
+        echo -e "------------------------------------------------------------------------------"
+        echo -e "Mesh $i out of $nbmesh: $meshfile"
+        echo -e "Output directory: $outsubdir"
+        echo -e "------------------------------------------------------------------------------"
+        # Execute code
+        echo "Running command: $executable --mesh $meshfile.typ2 --degree $degree --solution $solution --stabilisation-parameter $stab_par";
+        if($executable --mesh $meshfile.typ2 --degree $degree --solution $solution --stabilization-parameter $stab_par); then
+            # Move outputs
+            mv results.txt $outsubdir/results-$i.txt
+        fi
+    done
+    
+    # CREATE DATA FILE FOR LATEX
+    echo -e "Degree,MeshSize,NbCells,NbEdges,NbVertices,DimSpaces,DimLinSys[% FOREACH error = errors %],[% error %],[% error %]_rate[% END %]" > $outsubdir/$errorsfile
+    for i in `seq 1 $nbmesh`; 
+    do
+        Degree=$(awk '/Degree:/ {print $NF}' $outsubdir/results-$i.txt)
+        MeshSize=$(awk '/MeshSize:/ {print $NF}' $outsubdir/results-$i.txt)
+        NbCells=$(awk '/NbCells:/ {print $NF}' $outsubdir/results-$i.txt)
+        NbEdges=$(awk '/NbEdges:/ {print $NF}' $outsubdir/results-$i.txt)
+        NbVertices=$(awk '/NbVertices:/ {print $NF}' $outsubdir/results-$i.txt)
+        DimSpaces=$(awk '/DimSpaces:/ {print $NF}' $outsubdir/results-$i.txt)
+        DimLinSys=$(awk '/DimLinSys:/ {print $NF}' $outsubdir/results-$i.txt)        
+
+        [% FOREACH error = errors %]
+        [% error %]=$(awk '/[% error %]:/ {print $NF}' $outsubdir/results-$i.txt)[% END %]
+        
+        if(($i > 1)); then
+            imo=$(perl -E "say $i - 1")
+            OldMeshSize=$(awk '/MeshSize:/ {print $NF}' $outsubdir/results-$imo.txt)
+            [% FOREACH error = errors %]
+            Old[% error %]=$(awk '/[% error %]:/ {print $NF}' $outsubdir/results-$imo.txt)
+            [% error %]Rate=$(perl -E "say sprintf(\"%.2f\", log($Old[% error %]/$[% error %])/log($OldMeshSize/$MeshSize))")
+            [% END %]
+            echo -e "$Degree,$MeshSize,$NbCells,$NbEdges,$NbVertices,$DimSpaces,$DimLinSys[% FOREACH error = errors %],$[% error %],$[% error %]Rate[% END %]" >> $outsubdir/$errorsfile
+        else
+            echo -e "$Degree,$MeshSize,$NbCells,$NbEdges,$NbVertices,$DimSpaces,$DimLinSys[% FOREACH error = errors %],$[% error %],--[% END %]" >> $outsubdir/$errorsfile
+        fi
+    done;
+done;

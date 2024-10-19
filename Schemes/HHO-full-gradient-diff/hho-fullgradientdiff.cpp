@@ -51,7 +51,7 @@ int main(int argc, const char* argv[])
     ("solution,s", boost::program_options::value<int>()->default_value(0), "Select the solution")
     ("export-matrix,e", "Export matrix to Matrix Market format")
     ("plot", boost::program_options::value<std::string>(), "Save plot of the solution to the given filename")
-    ("iterative-solver,i", "Use iterative linear solver")
+    ("solver", boost::program_options::value<std::string>()->default_value("PardisoLU"), "Choice of solver, not case dependent. Options are: PardisoLU, UMFPACK, PaStiXLU, PaStiXLLT, EigenLU, EigenBiCGSTAB (reverts to EigenLU if the selected solver is not available)")
     ("stabilization-parameter,x", boost::program_options::value<double>(), "Set the stabilization parameter");
 
   boost::program_options::variables_map vm;
@@ -138,47 +138,15 @@ int main(int argc, const char* argv[])
     saveMarket(diff.systemVector(), "b_fullgradientdiff.mtx");
   }
 
+  // Select linear solver
+  std::string name_solver = vm["solver"].as<std::string>();
+  LinearSolver<FullGradientDiffusion::SystemMatrixType> solver(name_solver);
+  std::cout << "[main] Solving the system using " << solver.name() << std::endl;
+
   // Solve the problem
   timer.start();
-  Eigen::VectorXd uh_solsystem;
-  if (vm.count("iterative-solver")) {
-    std::cout << "[main] Solving the linear system using BiCGSTAB" << std::endl;
-    
-    Eigen::BiCGSTAB<FullGradientDiffusion::SystemMatrixType, Eigen::IncompleteLUT<double> > solver;
-    // solver.preconditioner().setFillfactor(2);
-    solver.compute(diff.systemMatrix());
-    if (solver.info() != Eigen::Success) {
-      std::cerr << "[main] ERROR: Could not factorize matrix" << std::endl;
-      exit(1);
-    }
-    uh_solsystem = solver.solve(diff.systemVector());
-    if (solver.info() != Eigen::Success) {
-      std::cerr << "[main] ERROR: Could not solve direct system" << std::endl;
-      exit(1);
-    }
-  } else { 
-#ifdef WITH_MKL
-    std::cout << "[main] Solving the linear system using Pardiso" << std::endl;    
-    unsigned nb_threads_hint = std::thread::hardware_concurrency();
-    mkl_set_dynamic(0);
-    mkl_set_num_threads(nb_threads_hint);
-    Eigen::PardisoLU<FullGradientDiffusion::SystemMatrixType> solver;
-#elif WITH_UMFPACK
-    std::cout << "[main] Solving the linear system using Umfpack" << std::endl;    
-    Eigen::UmfPackLU<FullGradientDiffusion::SystemMatrixType> solver;
-#else
-    std::cout << "[main] Solving the linear system using direct solver" << std::endl;    
-    Eigen::SparseLU<FullGradientDiffusion::SystemMatrixType> solver;
-#endif
-    solver.compute(diff.systemMatrix());
-    if (solver.info() != Eigen::Success) {
-      std::cerr << "[main] ERROR: Could not factorize matrix" << std::endl;
-    }
-    uh_solsystem = solver.solve(diff.systemVector());
-    if (solver.info() != Eigen::Success) {
-      std::cerr << "[main] ERROR: Could not solve linear system" << std::endl;
-    }
-  }
+  Eigen::VectorXd uh_solsystem = solver.compute_and_solve(diff.systemMatrix(), diff.systemVector());
+
   // Re-create boundary values and statically condensed unknowns
   Eigen::VectorXd uh = Eigen::VectorXd::Zero(diff.hhospace().dimension());
   uh.head(diff.numDirDOFs()) = UDir;

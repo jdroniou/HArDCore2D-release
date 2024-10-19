@@ -4,8 +4,8 @@
 //
 
 
-#ifndef MAGNETOSTATICS_HPP
-#define MAGNETOSTATICS_HPP
+#ifndef DDR_RMPLATE_HPP
+#define DDR_RMPLATE_HPP
 
 #include <iostream>
 

@@ -713,7 +713,7 @@ namespace HArDCore2D
   // Useful formulas to manipulate this basis (all indices starting from 0):
   //      the i-th element in the basis is f_{i%r} E_{i/r}
   //      the matrix E_m has 1 at position (m%N, m/N)
-  //      the element f_aE_b is the i-th in the family with i = ( [b/N]N + [b%N] )r + a
+  //      the element f_aE_b is the i-th in the family with i = b*r + a
   template<typename ScalarFamilyType, size_t N>
   class MatrixFamily
   {
@@ -835,13 +835,13 @@ namespace HArDCore2D
       return N;
     }
     
-    /// Return the transpose operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the transpose
+    /// Return the transpose operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associates the vector of coefficients corresponding to the transpose
     inline const Eigen::MatrixXd transposeOperator() const
     {
       return m_transposeOperator;
     }
     
-    /// Return the symmetrisation operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associate the vector of coefficients corresponding to the symmetrised matrix
+    /// Return the symmetrisation operator, the rN^2 square matrix that to a given vector of coefficients on the Matrix family associates the vector of coefficients corresponding to the symmetrised matrix
     inline const Eigen::MatrixXd symmetriseOperator() const
     {
       return (Eigen::MatrixXd::Identity(dimension(), dimension()) + m_transposeOperator)/2;
@@ -855,7 +855,7 @@ namespace HArDCore2D
       
       Eigen::MatrixXd SB = Eigen::MatrixXd::Zero(dim_scalar * N*(N+1)/2, dimension());
       
-      // The matrix consists in selecting certain rows of symmetriseOperator, corresponding to the lower triangle part
+      // The matrix consists in selecting certain rows of symmetriseOperator, corresponding to the lower triangular part
       // To select these rows, we loop over the columns of the underlying matrices, and get the rows in symmetriseOperator()
       // corresponding to the lower triangular part of each column
       size_t position = 0;
@@ -1593,7 +1593,7 @@ namespace HArDCore2D
 
     /// Evaluate the rotor of the i-th basis function at point x
     RotorValue rotor(size_t i, const VectorRd &x) const;
-    
+
     /// Return the Rck basis
     inline const std::shared_ptr<RolyComplBasisCell> &rck() const
     {
@@ -1692,6 +1692,32 @@ namespace HArDCore2D
     return transformed_B_quad;
   };
 
+   /// From a scalar family B=(B_1..B_r) and vectors (v_1..v_k) in R^N, constructs a "Family" of "TensorizedVectorFamily" (built on B, of size N) that represents the family (B_1v_1..B_rv_1 B_1v_2...B_rv_2... B_1v_k..B_rv_k).
+   /** Useful to tensorized scalar family while controlling the directions of tensorization (e.g. to identify tangential and normal directions along a surface, etc.). If B and v are orthonormal, then so is the returned family of tensorized basis. */
+  template <typename ScalarBasisType, size_t N>
+  Family<TensorizedVectorFamily<ScalarBasisType, N>> GenericTensorization(
+          const ScalarBasisType & B,  /// The scalar family
+          const std::vector<Eigen::VectorXd> & v /// The vectors for tensorization
+  )
+  {
+      size_t r = B.dimension();
+      size_t k = v.size();
+
+      Eigen::MatrixXd M = Eigen::MatrixXd::Zero(r*k, r*N);
+
+      for (size_t i=0; i < k; i++){
+          // Check the dimension of vector v[i]
+          assert(v[i].size() == N);
+
+          // Fill in M
+          for (size_t j=0; j < N; j++){
+              M.block(i*r, j*r, r, r) = v[i](j) * Eigen::MatrixXd::Identity(r,r);
+          }
+      }
+
+      TensorizedVectorFamily<ScalarBasisType, N> tensbasis(B);
+      return Family<TensorizedVectorFamily<ScalarBasisType, N>>(tensbasis, M);
+  }
 
   /// Function to symmetrise a matrix (useful together with transform_values_quad)
   inline static std::function<Eigen::MatrixXd(const Eigen::MatrixXd &)> 
@@ -1701,6 +1727,23 @@ namespace HArDCore2D
   inline static std::function<Eigen::MatrixXd(const Eigen::MatrixXd &)> 
   skew_symmetrise_matrix = [](const Eigen::MatrixXd & x)->Eigen::MatrixXd { return 0.5*(x-x.transpose());};
 
+  /// From a scalar family B, constructs a "Family" of "MatrixFamily" (built on B, of size NxN) that represents the family B Id on the MatrixFamily.
+  /** Useful, e.g., to compute Gram matrices involving traces, by writing tr(G) B = G : B Id and computing the Gram matrix of G with the output of this function. */
+  template <typename ScalarBasisType, size_t N>
+  Family<MatrixFamily<ScalarBasisType, N>> IsotropicMatrixFamily(
+                                                          const ScalarBasisType & B  /// The scalar family
+                                                          )
+  {
+    size_t r = B.dimension();
+    Eigen::MatrixXd M = Eigen::MatrixXd::Zero(r, r*N*N);
+
+    for (size_t k=0; k < N; k++){
+        M.block(0, k*r*(N+1), r, r) = Eigen::MatrixXd::Identity(r, r);
+    }
+
+    MatrixFamily<ScalarBasisType, N> matbasis(B);
+    return Family<MatrixFamily<ScalarBasisType, N>>(matbasis, M);
+  }
   //------------------------------------------------------------------------------
   //        BASIS EVALUATION
   //------------------------------------------------------------------------------
@@ -1915,6 +1958,7 @@ namespace HArDCore2D
         return basis.gradient(i, iqn, ancestor_basis_quad);
       }
     };
+
 
     // Evaluate the curl at x of a TensorizedVectorFamily (includes information on the ancestor basis, to optimise eval_quad for tensorized bases)
     template <typename ScalarBasisType, size_t N>
@@ -2323,6 +2367,40 @@ namespace HArDCore2D
                    basis_dot_v_quad.origin(), [&v](const Value &x) -> double { return scalar_product(x,v); });
     return basis_dot_v_quad;
   }
+
+  /// This overloading of the scalar_product function computes the scalar product between an evaluation of a basis and a field that varies on the quadrature nodes; both basis values and constant value must be of type Value
+  template <typename Value>
+  boost::multi_array<double, 2> scalar_product(
+                                               const boost::multi_array<Value, 2> & basis_quad, ///< The basis evaluation
+                                               const std::vector<Value> & v ///< The vector field to take the scalar product with
+                                               )
+  {
+    boost::multi_array<double, 2> basis_dot_v_quad(boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]]);
+    for (std::size_t i = 0; i < basis_quad.shape()[0]; i++) {
+      for (std::size_t iqn = 0; iqn < basis_quad.shape()[1]; iqn++) {
+        basis_dot_v_quad[i][iqn] = scalar_product(basis_quad[i][iqn], v[iqn]);
+      } // for iqn
+    } // for i
+    return basis_dot_v_quad;
+  }
+
+  /// Take the product of a matrix-valued basis with a vector
+  boost::multi_array<VectorRd, 2> matrix_vector_product(
+                                                        const boost::multi_array<MatrixRd, 2> & basis_quad, ///< The basis evaluation
+                                                        const std::vector<VectorRd> & v_quad ///< The vector to take the product with
+                                                        );
+
+  /// Take the product of a matrix with a vector-valued basis
+  boost::multi_array<VectorRd, 2> matrix_vector_product(
+                                                        const std::vector<MatrixRd> & m_quad, ///< The matrix to take the product with
+                                                        const boost::multi_array<VectorRd, 2> & basis_quad ///< The basis evaluation
+                                                        );
+
+  /// Take the product of (the transposed of) a vector with a matrix-valued basis
+  boost::multi_array<VectorRd, 2> vector_matrix_product(
+                                                        const std::vector<VectorRd> & v_quad, ///< The vector to take the product with
+                                                        const boost::multi_array<MatrixRd, 2> & basis_quad ///< The basis evaluation                                                
+                                                        );
   
   /// \f$L^2\f$-orthonormalization: simply consists in using gram_schmidt() with the specific l2 inner product
   template<typename BasisType>
@@ -2334,7 +2412,7 @@ namespace HArDCore2D
   {
     // Check that the basis evaluation and quadrature rule are coherent
     assert ( basis.dimension() == basis_quad.shape()[0] && qr.size() == basis_quad.shape()[1] );
-    
+
     // The inner product between the i-th and j-th basis vectors
     std::function<double(size_t, size_t)> inner_product
       = [&basis_quad, &qr](size_t i, size_t j)->double
@@ -2347,7 +2425,7 @@ namespace HArDCore2D
       };
 
     Eigen::MatrixXd B = gram_schmidt(basis_quad, inner_product);
-    
+
     return Family<BasisType>(basis, B);    
   }
 
@@ -2710,6 +2788,7 @@ namespace HArDCore2D
         b(i) += quad[iqn].w * scalar_product(f(quad[iqn].vector()), basis_quad[i][iqn]);
       } // for iqn
     } // for i
+
     return cholesky_mass.solve(b);
   }
  
@@ -2745,7 +2824,7 @@ namespace HArDCore2D
          over the edge): \sum_i phi(x_i) psi(x_i) where (x_i)_i are nodes that are sufficient to determine
          entirely polynomials up to the considered degree.
          The nodes we build here correspond to equidistant P^k nodes on the edge */
-        
+
         // Nodes 
         m_nb_nodes = basis.max_degree() + 1;
         m_nodes.reserve(m_nb_nodes);

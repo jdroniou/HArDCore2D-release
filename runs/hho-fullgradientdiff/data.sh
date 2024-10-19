@@ -10,8 +10,10 @@ stab_par=1
 # Test case
 tcsol=1
 
-# Meshes
+# Solver
+solver="PastixLU"
 
+# Meshes
 mesh_family=hexa
 
 case ${mesh_family} in

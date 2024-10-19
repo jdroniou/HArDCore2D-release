@@ -84,7 +84,28 @@ Eigen::MatrixXd GramMatrix(const Edge& E,         ///< Edge to which the basis c
     }
 
   };
-  
+
+/// GramMatrix of two tensorized families on the edge
+template<typename BasisType1, typename BasisType2, size_t N>
+Eigen::MatrixXd GramMatrix(
+            const Edge& E, ///< Edge to which the basis corresponds
+            const TensorizedVectorFamily<BasisType1, N> & basis1, ///< First basis (rows of the Gram matrix)
+            const TensorizedVectorFamily<BasisType2, N> & basis2,  ///< Second basis (columns of the Gram matrix)
+            MonomialEdgeIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        Eigen::MatrixXd gm = Eigen::MatrixXd::Zero(basis1.dimension(), basis2.dimension());
+
+        Eigen::MatrixXd anc_gm = GramMatrix(E, basis1.ancestor(), basis2.ancestor(), mono_int_map);
+        size_t dim1 = anc_gm.rows();
+        size_t dim2 = anc_gm.cols();
+
+        for (size_t i=0; i<N; i++){
+            gm.block(i*dim1, i*dim2, dim1, dim2) = anc_gm;
+        }
+        return gm;
+    }
+
 /// This overload to simplify the call to GramMatrix in case the two bases are the same
 template<typename BasisType>
 Eigen::MatrixXd GramMatrix(const Edge& E, const BasisType & basis, MonomialEdgeIntegralsType mono_int_map = {})

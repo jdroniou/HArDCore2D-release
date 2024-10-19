@@ -50,7 +50,7 @@ do
     echo -e "Output directory: $outsubdir"
     echo -e "------------------------------------------------------------------------------"
     # Execute code
-    if($executable -m $meshfile.typ2 -k $k -s $tcsol -x $stab_par); then
+    if($executable -m $meshfile.typ2 -k $k -s $tcsol -x $stab_par --solver $solver); then
       # Move outputs
       mv results.txt $outsubdir/results-$i.txt
     fi

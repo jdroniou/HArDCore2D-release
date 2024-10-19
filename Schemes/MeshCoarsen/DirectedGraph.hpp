@@ -13,12 +13,12 @@
 #define _DIRECTEDGRAPH_HPP
 
 /*!	
- * @defgroup DirectedGraph 
+ * @defgroup MeshCoarsen 
  * @brief The DirectedGraph class as well as classes that make it up and the NodeArray class
  */
 
 /*!
- * \addtogroup DirectedGraph
+ * \addtogroup MeshCoarsen
  * @{
  */
 

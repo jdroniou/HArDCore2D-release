@@ -1,0 +1,184 @@
+#------------------------------------------------------------------------------#
+#        Installation notes to guide first attempts to compile HArDCore
+#------------------------------------------------------------------------------#
+
+Summary
+I     QUICK OVERVIEW
+II    BASIC INSTALLATION (Eigen & Boost only)
+III   LOCAL INSTALLATION DIRECTORY
+IV    COMPILATION WITH OTHER SOLVER (PASTIX, SUPERLU, UMFPACK)
+V     COMPILATION WITH MKL
+VI    MPI
+VII   CHOICE OF COMPILER
+VIII  GCC LOCAL INSTALLATION
+IX    MACOS TROUBLESHOUTING
+
+
+
+
+#~~~~~ I QUICK OVERVIEW ~~~~~#
+
+HArDCore comes with several libraries options for linear solvers and two mandatory libraries: Eigen and Boost
+
+You should request a third party to enable HArDCore's compilation and run with desired solver.
+
+You can install all libraries on your own, please be sure that HArDCore can easily find them in path (see `On a local computer` section below).
+
+##~~~~ On a calculation grid ~~~~##
+
+Using available libraries installed by support teams is highly recommended. You usually do so by loading proper environment such as by using `module load`.
+
+##~~~~ On a local computer ~~~~##
+
+An installation of a library with a system package manager should be found automatically, otherwise see below and report us the trouble.
+
+A personnal installation from sources will requires to set environment variables to target the correct directories. It can involves:
+LIBRARY_PATH / LD_LIBRARY_PATH / DYLD_LIBRARY_PATH / CPATH / PATH / PKG_CONFIG_PATH / RPATH ...
+
+##~~~ On all systems ~~~~##
+HArDCore will try to perform a local installation of a thrid party if it is not found but requested. 
+
+Requesting a third party is disable as default value, you can change this default behavior in CMakeLists.txt 
+Example:
+change
+option(USE_PASTIX "Use Pastix library's solver. Warning: it enables the compilation of Pastix and it's dependencies during build if not already present.\n Usage: -DUSE_PASTIX=ON/OFF (default OFF)" OFF)
+to
+option(USE_PASTIX "Use Pastix library's solver. Warning: it enables the compilation of Pastix and it's dependencies during build if not already present.\n Usage: -DUSE_PASTIX=ON/OFF (default OFF)" ON)
+This can come handy if you know you will only compile with a given library for a long time.
+
+
+In command line, you request a third party by adding -DUSE_[LIBNAME]=ON
+
+
+#~~~~~ II BASIC INSTALLATION (Eigen & Boost only) ~~~~~#
+
+Only command line cmake is discussed here. You should however be able to compile using your cmake habits with minor modifications.
+
+Assuming that you cloned from git the HArDCore2D repository, basic installation procedure follows:
+$ cd HArDCore2D
+$ mkdir build && cd build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)
+$ make -j [N]  
+where N is the number of process you want to run in parallel (ex: make -j 4)
+
+WARNINGS: 
+- using `$ make -j` only might use all visibles processors and thus, depending on the hardware, cause memory swaps
+- using `$ make -j [N]` only will build all HArDCore executables, you can also try specific ones (ex: $ make ddr-rmplate)
+- Boost and Eigen libraries are mandatory. An attempt to install them locally will occur if they are not found in path
+
+#~~~~~ III LOCAL INSTALLATION DIRECTORY ~~~~~#
+
+Local installation are performed in [PATH_TO_HC_DIRECTORY]/ExternalLibraries by default.
+
+To change this behavior, you should initialize the LIBDIR variable such as (based on conventions of section II)
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DLIBDIR=[ANOTHER_PATH]
+This command can be use to define a path in which libraries can be looked for once installations are made.
+
+WARNINGS:
+- It can be usefull to set the LIBDIR into another directory than [PATH_TO_HC_DIRECTORY]/ExternalLibraries to avoid reinstalling libraries if several versions/directories of HArDCore exists.
+- Special care should be paid to environmental variables if you use another LIBDIR than default. To specify it again at each cmake can be a workaround before using a script
+- To reinstall a library or delete an aborted installation, remove the directory of the library under LIBDIR location
+
+
+
+
+#~~~~~ IV COMPILATION WITH OTHER SOLVER (PASTIX, SUPERLU, UMFPACK) ~~~~~#
+
+HArDCore can use third party solvers. In command line, you request a third party by adding -DUSE_[LIBNAME]=ON
+
+##~~~~ PASTIX ~~~~##
+
+You can specify that you wish to use MKL or OpenBLAS (default is OpenBLAS but MKL is faster):
+- Default OpenBLAS
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_PASTIX=ON
+
+- With MKL
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_PASTIX=ON -DUSE_MKL=ON
+
+- With OpenBLAS explicitly
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_PASTIX=ON -DUSE_OPENBLAS=ON
+
+You can add MPI support for pastix but adding , example with MKL:
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_PASTIX=ON -DUSE_MKL=ON -DUSE_MPI=ON
+
+##~~~~ SUPERLU ~~~~##
+
+To specify linking with SuperLU you should add -DUSE_SPUERLU=ON:
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_SUPERLU=ON
+
+SuperLU can be build with pthread, OpenMP and MPI/OpenMP compatibility:
+- Pthread
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_SUPERLU=ON -DSUPERLU_OPENMP=ON
+
+- OpenMP
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_SUPERLU=ON -DSUPERLU_PTHREAD=ON
+
+- MPI/OpenMPI (this will activate -DUSE_MPI=ON if not defined)
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_SUPERLU=ON -DSUPERLU_MPI=ON
+
+Beware that clang is not provided with OpenMP support if you use MacOS
+
+##~~~~ UMFPACK ~~~~##
+
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_UMFPACK=ON
+
+
+
+
+#~~~~~ V COMPILATION WITH MKL ~~~~~#
+
+Please use the -DUSE_MKL=ON flag in order to compile with MKL:
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DUSE_MKL=ON
+
+MKL is not provided as third party
+
+Please be sure to define MKLROOT or related path in order to find the package during cmake process.
+
+
+
+#~~~~~ VI MPI ~~~~~#
+
+HArDCore doesn't use MPI by iself, some third parties can be compiled with.
+
+By using -DUSE_MPI=ON cmake will check presence of OpenMPI library, install it if not found and use mpi wrappers as compilers.
+
+HArDCore's executables won't be able to run directly as they will try to link to mpi library at runtime so please be sure to have those libraries in path.
+
+If a local installation has been automatically performed, a file defining the environment variables has been created under LIBDIR/env/set_mpi_env and should be source.
+$ source LIBDIR/env/set_mpi_env
+$ [run an HArDCore executable]
+Note that you should provide absolute path to LIBDIR or relative path to your shell's current directory
+
+#~~~~~ VII CHOICE OF COMPILER ~~~~~#
+
+Compiler can be choosen by:
+- setting it directly in [PATH_TO_HARDCORE]/CMakeLists.txt :
+set(cpp_compiler "g++")
+set(c_compiler "gcc")
+
+- using :
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd) -DCMAKE_CXX_COMPILER=$(which g++) -DCMAKE_C_COMPILER=$(which gcc) 
+
+- exporting CC and CXX environment variables:
+$ export CC=$(which gcc)
+$ export CXX=$(which g++)
+
+Special cases and some trouble shoutings are discussed in sections VIII and IX below.
+
+#~~~~~ VIII GCC LOCAL INSTALLATION ~~~~~#
+
+TO BE DONE
+
+#~~~~~ IX MACOS TROUBLESHOUTING  ~~~~~#
+
+Under MACOS you can undergo builting issue.
+
+If troubles arise at compilation time with clang/clang++ you then might check your SDKROOT path
+$ echo $SDKROOT
+if none then you probably want to set it
+$ export SDKROOT=$(xcrun --show-sdk-path)
+
+Installed gcc with brew are often distributed as gcc-[VERSION] and specifying only gcc can lead to use clang instead.
+We would thus advice to use `export CXX=`, `cmake .. -DCMAKE_CXX_COMPILER=` or specifying the C and C++ compiler in CMakeLists.txt carefully, example:
+$ export CC=$(which gcc-13)
+$ export CXX=$(which g++-13)

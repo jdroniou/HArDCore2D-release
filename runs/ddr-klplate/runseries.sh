@@ -61,7 +61,7 @@ do
     	if [ -f exact-displacement.vtu ]; then
       	mv exact-displacement.vtu $outsubdir/mesh"$i"_exact-displacement.vtu
       fi
-    	if [ $export_matrix ]; then
+    	if [ $export_matrix != "false" ]; then
       	mv A.mtx $outsubdir/A"$i".mtx
       	mv b.mtx $outsubdir/b"$i".mtx
       fi
@@ -88,7 +88,7 @@ do
     TwallSolve=$(awk '/TwallSolve:/ {print $NF}' $outsubdir/results-$i.txt)
     TprocSolve=$(awk '/TprocSolve:/ {print $NF}' $outsubdir/results-$i.txt)
     echo -e "$TwallPlatesCore $TprocPlatesCore $TwallModel $TprocModel $TwallSolve $TprocSolve" >> $outsubdir/$timesfile    
-    if(($i \> 1)); then
+    if(($i > 1)); then
       imo=$(perl -E "say $i - 1")
       OldMeshSize=$(awk '/MeshSize:/ {print $NF}' $outsubdir/results-$imo.txt)
       OldError=$(awk '/^Error:/ {print $NF}' $outsubdir/results-$imo.txt)

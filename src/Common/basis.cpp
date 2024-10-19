@@ -169,6 +169,55 @@ namespace HArDCore2D
   }
 
   //------------------------------------------------------------------------------
+  // Matrix-vector product
+  //------------------------------------------------------------------------------
+
+  boost::multi_array<VectorRd, 2> matrix_vector_product(
+                                                        const boost::multi_array<MatrixRd, 2> & basis_quad, ///< The basis evaluation
+                                                        const std::vector<VectorRd> & v_quad ///< The vector to take the product with
+                                                        )
+  {
+    assert(basis_quad.shape()[1] == v_quad.size());
+    boost::multi_array<VectorRd, 2> basis_v_quad(boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]]);
+    for (std::size_t i = 0; i < basis_quad.shape()[0]; i++) {
+      for (std::size_t iqn = 0; iqn < basis_quad.shape()[1]; iqn++) {
+        basis_v_quad[i][iqn] = basis_quad[i][iqn] * v_quad[iqn];
+      } // for iqn
+    } // for i
+    return basis_v_quad;
+  }
+
+  boost::multi_array<VectorRd, 2> matrix_vector_product(
+                                                        const std::vector<MatrixRd> & m_quad, ///< The matrix to take the product with
+                                                        const boost::multi_array<VectorRd, 2> & basis_quad ///< The basis evaluation
+                                                        )
+  {
+    assert(basis_quad.shape()[1] == m_quad.size());
+    boost::multi_array<VectorRd, 2> m_basis_quad(boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]]);
+    for (std::size_t i = 0; i < basis_quad.shape()[0]; i++) {
+      for (std::size_t iqn = 0; iqn < basis_quad.shape()[1]; iqn++) {
+        m_basis_quad[i][iqn] = m_quad[iqn] * basis_quad[i][iqn];
+      } // for iqn
+    } // for i
+    return m_basis_quad;
+  }
+
+  boost::multi_array<VectorRd, 2> vector_matrix_product(
+                                                        const std::vector<VectorRd> & v_quad, ///< The vector to take the product with
+                                                        const boost::multi_array<MatrixRd, 2> & basis_quad ///< The basis evaluation                                                
+                                                        )
+  {
+    assert(basis_quad.shape()[1] == v_quad.size());
+    boost::multi_array<VectorRd, 2> basis_v_quad(boost::extents[basis_quad.shape()[0]][basis_quad.shape()[1]]);
+    for (std::size_t i = 0; i < basis_quad.shape()[0]; i++) {
+      for (std::size_t iqn = 0; iqn < basis_quad.shape()[1]; iqn++) {
+        basis_v_quad[i][iqn] = v_quad[iqn].transpose() * basis_quad[i][iqn];
+      } // for iqn
+    } // for i
+    return basis_v_quad;
+  }
+  
+  //------------------------------------------------------------------------------
   //      Gram matrices
   //------------------------------------------------------------------------------
 

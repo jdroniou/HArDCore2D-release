@@ -377,7 +377,7 @@ std::vector<std::pair<double,double>> HHOSpace::computeNorms( const std::vector<
   parallel_for(mesh().n_cells(), compute_local_squarednorms, m_use_threads);
   
   // Vector of outputs
-  std::vector<std::pair<double,double>> list_norms(nb_vectors);
+  std::vector<std::pair<double,double> > list_norms(nb_vectors);
   for (size_t i=0; i<nb_vectors; i++){
     list_norms[i].first = std::sqrt(std::abs(local_L2_sqnorms[i].sum()));
     list_norms[i].second = std::sqrt(std::abs(local_H1_sqnorms[i].sum()));
@@ -390,6 +390,7 @@ std::vector<std::pair<double,double>> HHOSpace::computeNorms( const std::vector<
 //------------------------------------------------------------------------------
 // Vertex values 
 //------------------------------------------------------------------------------
+
 Eigen::VectorXd HHOSpace::computeVertexValues(const Eigen::VectorXd & u) const
 {
   Eigen::VectorXd values = Eigen::VectorXd::Zero(m_mesh.n_vertices());
@@ -408,7 +409,6 @@ Eigen::VectorXd HHOSpace::computeVertexValues(const Eigen::VectorXd & u) const
     }
     
     values[iV] /= V->n_cells();
-
   }
   
   return values;

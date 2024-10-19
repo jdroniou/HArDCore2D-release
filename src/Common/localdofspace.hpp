@@ -65,6 +65,24 @@ namespace HArDCore2D {
         + m_mesh.n_cells() * m_n_local_cell_dofs;
     }
 
+    /// Returns the total number of vertex DOFs
+    inline size_t numTotalDofsVertices() const
+    {
+      return m_mesh.n_vertices() * m_n_local_vertex_dofs;
+    }
+
+    /// Returns the total number of vertex DOFs
+    inline size_t numTotalDofsEdges() const
+    {
+      return m_mesh.n_edges() * m_n_local_edge_dofs;
+    }
+
+    /// Returns the total number of vertex DOFs
+    inline size_t numTotalDofsCells() const
+    {
+      return m_mesh.n_cells() * m_n_local_cell_dofs;
+    }
+    
     /// Returns the dimension of the local space on the vertex V
     inline size_t dimensionVertex(const Vertex & V) const
     {
@@ -97,6 +115,13 @@ namespace HArDCore2D {
         + T.n_edges() * m_n_local_edge_dofs
         + m_n_local_cell_dofs;
     }
+
+    /// Returns the dimension of the local space on the boundary of T
+    inline size_t dimensionCellBoundary(const Cell & T) const
+    {
+      return T.n_vertices() * m_n_local_vertex_dofs
+        + T.n_edges() * m_n_local_edge_dofs;
+    }
     
     /// Returns the dimension of the local space on the cell of index iT (including faces, edges and vertices)
     inline size_t dimensionCell(size_t iT) const
@@ -104,6 +129,12 @@ namespace HArDCore2D {
       return dimensionCell(*m_mesh.cell(iT));
     }
 
+    /// Returns the dimension of the local space on the boundary of T
+    inline size_t dimensionCellBoundary(size_t iT) const
+    {
+      return dimensionCellBoundary(*m_mesh.cell(iT));
+    }
+    
     //------------------------------------------------------------------------------
     // Local offsets
     //------------------------------------------------------------------------------

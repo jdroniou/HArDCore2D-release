@@ -211,7 +211,6 @@ Eigen::MatrixXd GramMatrix(
                     MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
                     );
   
-  
 /// Computes the Gram Matrix of the mth component of a RolyCompl Basis and a monomial basis
 Eigen::MatrixXd GMRolyComplScalar(
                     const Cell & T, ///< Cell to which the basis corresponds
@@ -543,6 +542,137 @@ Eigen::MatrixXd GramMatrixDiv(
       return transformGM(basis1, 'R', transformGM(basis2, 'C', GramMatrixDiv(T, basis1.ancestor(), basis2.ancestor(), mono_int_map) ) );
     }
   };
+
+/*------------- Templates for MatrixFamily  --------------------*/
+
+/// Gram Matrix of any pair of MatrixFamily bases
+    template<typename BasisType1, typename BasisType2, size_t N>
+    Eigen::MatrixXd GramMatrix(
+            const Cell& T, ///< Cell to which the basis corresponds
+            const MatrixFamily<BasisType1, N> & basis1, ///< First basis (rows of the Gram matrix)
+            const MatrixFamily<BasisType2, N> & basis2,  ///< Second basis (columns of the Gram matrix)
+            MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        Eigen::MatrixXd gm = Eigen::MatrixXd::Zero(basis1.dimension(), basis2.dimension());
+
+        Eigen::MatrixXd anc_gm = GramMatrix(T, basis1.ancestor(), basis2.ancestor(), mono_int_map);
+        size_t dim1 = anc_gm.rows();
+        size_t dim2 = anc_gm.cols();
+
+        for (size_t i=0; i<N*N; i++){
+            gm.block(i*dim1, i*dim2, dim1, dim2) = anc_gm;
+        }
+        return gm;
+    }
+
+/// Gram Matrix of the divergence of a MatrixFamily and a tensorized basis
+template<typename BasisType1, typename BasisType2>
+Eigen::MatrixXd GramMatrix(
+            const Cell& T,                          ///< Cell to which the basis corresponds
+            const DivergenceBasis<MatrixFamily<BasisType1, dimspace>> & basis1,   ///< Divergence of MatrixFamily (rows of the Gram matrix)
+            const TensorizedVectorFamily<BasisType2, dimspace> & basis2,              ///< Tensorized family (columns of the Gram matrix)
+            MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        Eigen::MatrixXd gm = Eigen::MatrixXd::Zero(basis1.dimension(), basis2.dimension());
+
+        // Grab the scalar bases underlying basis1 and basis2
+        BasisType1 scalar_basis1 = basis1.ancestor().ancestor();
+        BasisType2 scalar_basis2 = basis2.ancestor();
+        size_t dim1 = scalar_basis1.dimension();
+        size_t dim2 = scalar_basis2.dimension();
+
+        // Integrals of monomials
+        size_t totaldegree = scalar_basis1.max_degree() + scalar_basis2.max_degree();
+        MonomialCellIntegralsType intmap = CheckIntegralsDegree(T, totaldegree, mono_int_map);
+
+        for (size_t j=0; j < dimspace; j++){
+            Eigen::MatrixXd gm_anc = GMScalarDerivative(T, scalar_basis1, scalar_basis2, j, intmap);
+            for (size_t i=0; i < dimspace; i++){
+                gm.block(j*dimspace*dim1 + i*dim1, i*dim2, dim1, dim2) = gm_anc;
+            }
+        }
+
+        return gm/T.diam();
+    }
+
+/// Gram Matrix of the gradient basis of a tensorized family and a matrix family (only valid if N=dimspace in Tensorized and MatrixFamily).
+    template<typename BasisType1, typename BasisType2>
+    Eigen::MatrixXd GramMatrix(
+            const Cell& T,                          ///< Cell to which the basis corresponds
+            const GradientBasis<TensorizedVectorFamily<BasisType1, dimspace>> & basis1,   ///< Gradient of tensorized (rows of the Gram matrix)
+            const MatrixFamily<BasisType2, dimspace> & basis2,              ///< Matrix family (columns of the Gram matrix)
+            MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        Eigen::MatrixXd gm = Eigen::MatrixXd::Zero(basis1.dimension(), basis2.dimension());
+
+        // Grab the scalar bases underlying basis1 and basis2
+        BasisType1 scalar_basis1 = basis1.ancestor().ancestor();
+        BasisType2 scalar_basis2 = basis2.ancestor();
+        size_t dim1 = scalar_basis1.dimension();
+        size_t dim2 = scalar_basis2.dimension();
+
+        // Integrals of monomials
+        size_t totaldegree = scalar_basis1.max_degree() + scalar_basis2.max_degree();
+        MonomialCellIntegralsType intmap = CheckIntegralsDegree(T, totaldegree, mono_int_map);
+
+        for (size_t j=0; j < dimspace; j++){
+            Eigen::MatrixXd gm_anc = GMScalarDerivative(T, scalar_basis1, scalar_basis2, j, intmap);
+            for (size_t i=0; i < dimspace; i++){
+                gm.block(i*dim1, j*dimspace*dim2 + i*dim2, dim1, dim2) = gm_anc;
+            }
+        }
+
+        return gm/T.diam();
+    }
+
+/// Gram Matrix of a Matrix family and the gradient of a tensorized family
+    template<typename BasisType1, typename BasisType2>
+    Eigen::MatrixXd GramMatrix(
+            const Cell& T,                          ///< Cell to which the basis corresponds
+            const MatrixFamily<BasisType1, dimspace> & basis1,              ///< Matrix family (rows of the Gram matrix)
+            const GradientBasis<TensorizedVectorFamily<BasisType2, dimspace>> & basis2,   ///< Gradient of tensorized (columns of the Gram matrix)
+            MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        return GramMatrix(T, basis2, basis1, mono_int_map).transpose();
+    }
+
+/// Gram Matrix of two gradient bases of tensorized families.
+    template<typename BasisType1, typename BasisType2, size_t N>
+    Eigen::MatrixXd GramMatrix(
+            const Cell& T,                          ///< Cell to which the basis corresponds
+            const GradientBasis<TensorizedVectorFamily<BasisType1, N>> & basis1,   ///< First family
+            const GradientBasis<TensorizedVectorFamily<BasisType2, N>> & basis2,   ///< Second family (columns of the Gram matrix)
+            MonomialCellIntegralsType mono_int_map = {} ///< Optional list of integrals of monomials up to the sum of max degree of basis1 and basis2
+    )
+    {
+        Eigen::MatrixXd gm = Eigen::MatrixXd::Zero(basis1.dimension(), basis2.dimension());
+
+        // Grab the scalar bases underlying basis1 and basis2
+        BasisType1 scalar_basis1 = basis1.ancestor().ancestor();
+        BasisType2 scalar_basis2 = basis2.ancestor().ancestor();
+        size_t dim1 = scalar_basis1.dimension();
+        size_t dim2 = scalar_basis2.dimension();
+
+        // Integrals of monomials
+        size_t totaldegree = scalar_basis1.max_degree() + scalar_basis2.max_degree();
+        MonomialCellIntegralsType intmap = CheckIntegralsDegree(T, totaldegree, mono_int_map);
+
+        // Gram matrices of sum_i \partial_i phi \partial_i psi for the two scalar bases phi, psi
+        Eigen::MatrixXd gm_anc = Eigen::MatrixXd::Zero(dim1, dim2);
+        for (size_t k=0; k < dimspace; k++){
+            gm_anc += GMScalarDerivative(T, scalar_basis1, scalar_basis2, k, k, intmap);
+        }
+
+        for (size_t i=0; i < N; i++){
+            gm.block(i*dim1, i*dim2, dim1, dim2) = gm_anc;
+        }
+
+        return gm/(std::pow(T.diam(),2));
+    }
 
 
 /*@}*/

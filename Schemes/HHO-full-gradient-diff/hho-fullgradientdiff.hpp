@@ -31,6 +31,7 @@
 
 #include <mesh.hpp>
 #include <local_static_condensation.hpp>
+#include <linearsolver.hpp>
 
 #include <hhospace.hpp>
 #include <BoundaryConditions/BoundaryConditions.hpp>

@@ -1,0 +1,272 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+#------------------------------------------------------------------------------#
+#                             Compiler setup
+#  set(COMPILER) must be done before any language is set (ie before any project() 
+#  or enable_language() command)
+#------------------------------------------------------------------------------#
+
+if((NOT DEFINED CMAKE_C_COMPILER)) # Invoking with "cmake -DCMAKE_C_COMPILER=..." is recommended
+ message(FATAL_ERROR "\n\n Please define C compiler by invoking cmake -DCMAKE_C_COMPILER=your_C_compiler ...  (similar action is expected for CXX compiler) \n")
+else()
+ SET(ENV{CC} ${CMAKE_C_COMPILER})
+endif()
+
+if(NOT DEFINED CMAKE_CXX_COMPILER) # Invoking with "cmake -DCMAKE_CXX_COMPILER=..." is recommended
+ message(FATAL_ERROR "\n\n Please define CXX compiler by invoking cmake -DCMAKE_CXX_COMPILER=your_CXX_compiler ...  \n")
+else()
+ SET(ENV{CXX} ${CMAKE_CXX_COMPILER})
+endif()
+
+MESSAGE("Compiling on ${CMAKE_SYSTEM_NAME}")
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  SET(ADDITIONAL_FLAGS "-DWIN32")
+ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  IF(NOT INSTALL_GCC)
+   SET(ADDITIONAL_FLAGS "-framework Accelerate -Wno-unused-command-line-argument")
+  ENDIF()
+  if (NOT DEFINED ENV{SDKROOT} AND ( (${CMAKE_C_COMPILER_ID} MATCHES "[Cc]lang") OR (${CMAKE_CXX_COMPILER_ID} MATCHES "[Cc]lang") ) )
+   execute_process(COMMAND xcrun --show-sdk-path WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE SDKPATH)
+   set(CMAKE_OSX_SYSROOT "${SDKPATH}")
+  endif()
+ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+project(HArD::Core2D)
+
+#------------------------------------------------------------------------------#
+#                             Compilation flags
+#------------------------------------------------------------------------------#
+
+# clean cache
+#unset(CMAKE_CXX_STD)
+#unset(CMAKE_CXX_FLAGS_DEBUGALL)
+#unset(CMAKE_CXX_FLAGS_DEBUG)
+#unset(CMAKE_CXX_FLAGS_RELEASE)
+#unset(CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+
+# WARNING: work in progress, comment to be removed once the mess is cleaned up
+
+#SET(CMAKE_CXX_STD "-std=c++17")
+SET(CMAKE_CXX_STD "-std=gnu++20")
+#SET(CMAKE_CXX_FLAGS "-g -Wall -Wpedantic -Werror -Wno-uninitialized")
+#SET(CMAKE_CXX_FLAGS "-g -Wall -Wpedantic -Wno-uninitialized")
+SET(CMAKE_CXX_FLAGS_DEBUGALL "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -DEIGEN_INITIALIZE_MATRICES_BY_NAN -fsanitize=address,undefined -pthread ${ADDITIONAL_FLAGS}" )
+SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -DOPTIMIZE -pthread ${ADDITIONAL_FLAGS}" )
+
+SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -DNDEBUG -DOPTIMIZE -pthread -g ${ADDITIONAL_FLAGS}") #// ORIGINAL
+#SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -fopenmp -O2 -DNDEBUG -DOPTIMIZE -pthread ${ADDITIONAL_FLAGS} -lgcc" ) #// ORIGINAL
+#SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -DNDEBUG -DOPTIMIZE -pthread ${ADDITIONAL_FLAGS}") #// ORIGINAL
+#SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -pg -O3 -DNDEBUG -DOPTIMIZE -pthread ${ADDITIONAL_FLAGS}" ) # // RD for gprof
+
+#SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -DNDEBUG -DOPTIMIZE -fopenmp -lpthread ${ADDITIONAL_FLAGS}" ) #-fopenmp -liomp5 (si intel) { VERIFIER:-libgomp (si gnu})
+SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -g -DNDEBUG -DOPTIMIZE -pthread" ${ADDITIONAL_FLAGS} )
+
+#SET(CMAKE_BUILD_TYPE Debug)
+#SET(CMAKE_BUILD_TYPE Debugall)
+IF(NOT CMAKE_BUILD_TYPE)
+  SET(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build: Debug Release RelWithDebInfo" FORCE)
+ENDIF(NOT CMAKE_BUILD_TYPE)
+MESSAGE(STATUS "Build type : ${CMAKE_BUILD_TYPE}")
+
+#------------------------------------------------------------------------------#
+#                             Helpful compilation libraries
+#------------------------------------------------------------------------------#
+
+FIND_PACKAGE(Git QUIET)  # not necessay here, to be confirmed
+FIND_PACKAGE(Wget QUIET) # not necessay here, to be confirmed
+
+option(USE_MKL  "Use MKL library's solver. Warning: the compilation of MKL is user's reponsability.\n Usage: -DUSE_MKL=ON/OFF (default OFF)" OFF)
+option(USE_BLAS "Use BLAS library's solver. Warning: it enables automatic compilation of BLAS from OpenMathLib if no other packages are provided in paths.\n Usage: -DUSE_BLAS=ON/OFF (default OFF)" OFF)
+
+option(USE_PASTIX "Use Pastix library's solver. Warning: it enables the compilation of Pastix and its dependencies during build if not already present.\n Usage: -DUSE_MPI=ON/OFF (default OFF)" OFF)
+option(USE_MPI "Enable compilation of Pastix and ptscoth with MPI. ONLY AVAILABLE IF USE_PASTIX IS ON.\n Usage: -DUSE_MPI=ON/OFF (default OFF)" OFF)
+option(USE_SUPERLU "Use SuperLU library's solver. Warning: it enables the compilation of SuperLU and its dependencies during build if not already present.\n Usage: -DUSE_SUPERLU=ON/OFF (default OFF)" OFF)
+option(USE_XML "Enable parsing options with pugixml.\n Usage: -DUSE_XML=ON/OFF (default OFF)" OFF)
+
+
+include(CMakeDependentOption) # Looks nice in ccmake
+cmake_dependent_option(SUPERLU_MPI "Enables to compile SuperLU with MPI and OpenMP support if SuperLU was not installed" OFF "USE_SUPERLU" OFF)
+if(SUPERLU_MPI)
+  set(USE_MPI ON)
+endif()
+cmake_dependent_option(SUPERLU_OPENMP "Enables to compile SuperLU with OpenMP support if SuperLU was not installed" OFF "USE_SUPERLU;NOT SUPERLU_MPI" OFF)
+cmake_dependent_option(SUPERLU_PTHREAD "Enables to compile SuperLU with pthreads support if SuperLU was not installed" OFF "USE_SUPERLU;NOT SUPERLU_OPENMP;NOT SUPERLU_MPI" OFF)
+
+option(USE_UMFPACK "Use Umfpack library's solver. Warning: it enables the compilation of Umfpack from SuiteSparse (https://github.com/DrTimothyAldenDavis/SuiteSparse) and its dependencies (GMP(https://gmplib.org/), MPFR(https://www.mpfr.org/)) during build if not already present.\n Usage: -DUSE_UMFPACK=ON/OFF (default OFF)" OFF)
+#option(USE_SPECTRA "Use Spectra library's solver. Warning: it enables the compilation of Umfpack and its dependencies during build if not already present.\n Usage: -DUSE_SPECTRA=ON/OFF (default OFF)" OFF)
+
+if((NOT USE_MKL) AND (NOT USE_BLAS))
+    if (USE_PASTIX)
+     message(WARNING "\tUSE_PASTIX is only supported with MKL or BLAS.\n\tUSE_BLAS automatically set to ON")
+     set(USE_BLAS ON)
+    endif()
+    if (USE_UMFPACK)
+     message(WARNING "\tUSE_UMFPACK is only supported with MKL or BLAS.\n\tUSE_BLAS automatically set to ON")
+     set(USE_BLAS ON)
+    endif()
+endif()
+
+#------------------------------------------------------------------------------#
+#                             Libraries
+#------------------------------------------------------------------------------#
+SET(HOME_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "")
+SET(CMAKE_MODULE_PATH ${HOME_DIR}/CMake)
+set(CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH TRUE)
+SET(Boost_DEBUG "ON")
+SET(Boost_USE_STATIC_LIBS "ON")
+
+if((NOT DEFINED LIBDIR))  # WARNING: to be validated then remove this comment
+SET(EXTERNAL_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibraries)
+else()
+SET(EXTERNAL_LIB_DIR ${LIBDIR}) # Full path requested
+execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${EXTERNAL_LIB_DIR} COMMAND_ERROR_IS_FATAL ANY)# OUTPUT_QUIET COMMAND_ERROR_IS_FATAL ANY)
+list(APPEND CMAKE_MODULE_PATH "${EXTERNAL_LIB_DIR}")
+endif()
+
+ADD_SUBDIRECTORY("${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibraries")
+
+if(INSTALL_GCC) # DO NOT USE NOW, DEBUG IN PROGRESS
+ unset(CMAKE_OSX_SYSROOT)
+ SET(BUILD_GCC ${EXTERNAL_LIB_DIR}/build_gcc)
+ if(EXISTS "${BUILD_GCC}/bin/gcc-ranlib")
+  set(LOC_RANLIB_EXE "${BUILD_GCC}/bin/gcc-ranlib")
+ else()
+  set(LOC_RANLIB_EXE "${BUILD_GCC}/bin/gcc-ar")
+ endif()
+ list(APPEND CMAKE_PREFIX_PATH "${BUILD_GCC}")
+ set(ENV{CC}  "${BUILD_GCC}/bin/gcc")
+ set(ENV{CXX} "${BUILD_GCC}/bin/g++")
+ set(CMAKE_C_COMPILER          "${BUILD_GCC}/bin/gcc"    )
+ set(CMAKE_CXX_COMPILER        "${BUILD_GCC}/bin/g++"    )
+ set(CMAKE_C_COMPILER_AR       "${BUILD_GCC}/bin/gcc-ar" )
+ set(CMAKE_C_COMPILER_ID       "GNU"                     )
+ set(CMAKE_C_COMPILER_RANLIB   "${LOC_RANLIB_EXE}"       )
+ set(CMAKE_CXX_COMPILER_AR     "${BUILD_GCC}/bin/gcc-ar" )
+ set(CMAKE_CXX_COMPILER_ID     "GNU"                     )
+ set(CMAKE_CXX_COMPILER_RANLIB "${LOC_RANLIB_EXE}"       )
+ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_STD} ${CMAKE_CXX_FLAGS} -O3 -DNDEBUG -DOPTIMIZE -pthread -g" )
+ set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG -DOPTIMIZE -pthread -g" )
+ set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -DNDEBUG -DOPTIMIZE -pthread -g" )
+ message(WARNING "Compilers: ${CMAKE_C_COMPILER} ${CMAKE_CXX_COMPILER}") # TO BE REMOVED
+endif()
+
+SET(Boost_NO_WARN_NEW_VERSIONS 1)
+FIND_PACKAGE(Boost QUIET COMPONENTS filesystem program_options timer chrono REQUIRED)
+SET(EXTERNAL_INCLUDES ${Boost_INCLUDE_DIR})
+SET(EXTERNAL_LIBRARIES ${Boost_LIBRARIES})
+
+FIND_PACKAGE(Eigen3 3.3.4 REQUIRED)
+SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} "Eigen3::Eigen")
+
+#------------------------------------------------------------------------------#
+#                             Optionnal libraries
+#------------------------------------------------------------------------------#
+IF(USE_SUPERLU)
+FIND_PACKAGE(SuperLU)
+IF(SUPERLU_FOUND)
+  #set(BLA_STATIC ON)
+  #FIND_PACKAGE(BLAS REQUIRED)
+  #SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${SUPERLU_LIBRARIES} ${BLAS_LIBRARIES})
+  SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${SUPERLU_LIBRARIES})
+  SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${SUPERLU_INCLUDES})
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_SUPERLU")
+ENDIF()
+ENDIF()
+
+
+
+IF(USE_UMFPACK)
+FIND_PACKAGE(Umfpack)
+IF(UMFPACK_FOUND)
+  FIND_PACKAGE(OpenMP) # DEBUG, SHOULD CHECK TWICE MORE WITH MAC
+  FIND_PACKAGE(BLAS)
+  SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${UMFPACK_LIBRARIES} ${BLAS_LIBRARIES} ${OpenMP_CXX_LIBRARIES})
+  SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${UMFPACK_INCLUDES})
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_UMFPACK")  
+ENDIF()
+ENDIF()
+
+IF(USE_MKL)
+FIND_PACKAGE(MKL)
+IF(MKL_FOUND)
+  SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${MKL_LIBRARIES})
+  SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${MKL_INCLUDES})
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_MKL") 
+ENDIF()
+ENDIF()
+
+IF(USE_MPI)
+FIND_PACKAGE(MPI)
+ SET(CMAKE_CXX_COMPILER "mpic++")
+ SET(CMAKE_C_COMPILER "mpicc")
+ SET(CMAKE_Fortran_COMPILER "mpifort")
+ENDIF()
+
+IF(USE_PASTIX)
+FIND_PACKAGE(PASTIX HINTS ${EXTERNAL_LIB_DIR}/pastix/build/lib/cmake/pastix/)
+IF(PASTIX_FOUND)
+ SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${PASTIX_LIBRARIES})
+ SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${PASTIX_INCLUDES})
+ SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} PASTIX::pastix)
+ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_PASTIX")
+ MESSAGE(STATUS "Found pastix: ${PASTIX_VERSION}")
+ENDIF()
+ENDIF()
+
+IF(USE_SPECTRA)
+FIND_PACKAGE(Spectra)
+IF(Spectra_FOUND)
+  SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${SPECTRA_INCLUDE_DIR})
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_SPECTRA")  
+ENDIF()
+ENDIF()
+
+IF(USE_XML)
+FIND_PACKAGE(PUGIXML)
+ IF(PUGIXML_FOUND)
+  SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${PUGIXML_INCLUDES})
+  SET(EXTERNAL_LIBRARIES ${EXTERNAL_LIBRARIES} ${PUGIXML_LIBRARIES})
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_XML")
+ ENDIF()
+ENDIF()
+
+
+INCLUDE_DIRECTORIES(${EXTERNAL_INCLUDES})
+
+#------------------------------------------------------------------------------#
+#                             Directories for compiled libraries
+#------------------------------------------------------------------------------#
+
+INCLUDE_DIRECTORIES(include/Math)
+INCLUDE_DIRECTORIES(include/Mesh2D)
+INCLUDE_DIRECTORIES(src/Mesh)
+INCLUDE_DIRECTORIES(src/Quadrature)
+INCLUDE_DIRECTORIES(src/Common)
+INCLUDE_DIRECTORIES(src/HybridCore)
+INCLUDE_DIRECTORIES(src/Plot)
+INCLUDE_DIRECTORIES(src/DDRCore)
+INCLUDE_DIRECTORIES(src/HHOCore)
+
+ADD_SUBDIRECTORY(src/Mesh)
+ADD_SUBDIRECTORY(src/Quadrature)
+ADD_SUBDIRECTORY(src/Common)
+ADD_SUBDIRECTORY(src/HybridCore)
+ADD_SUBDIRECTORY(src/Plot)
+ADD_SUBDIRECTORY(src/DDRCore)
+ADD_SUBDIRECTORY(src/HHOCore)
+
+#------------------------------------------------------------------------------#
+#                             Directories for schemes
+#------------------------------------------------------------------------------#
+
+INCLUDE_DIRECTORIES(Schemes)
+ADD_SUBDIRECTORY(Schemes)
+
+
+if(INSTALL_GCC)
+string(ASCII 27 lColor)	
+message(STATUS "!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!")
+message(STATUS " ${lColor}[1;36m You are using localy compiled gcc, you might want to set variables before make and/or running an executable, please run:\n ${lColor}[32m source ${EXTERNAL_LIB_DIR}/env/set_gcc_env")
+message(STATUS "${lColor}[m!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!")
+endif()

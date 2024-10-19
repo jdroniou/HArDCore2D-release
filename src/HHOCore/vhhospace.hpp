@@ -1,11 +1,11 @@
-// Core data structures and methods required to implement the Hybrid High-Order in 2D
+// Core data structures and methods required to implement the Hybrid High-Order in 2D, for vector-valued functions
 //
 // Provides:
 //  - Polynomial spaces on the element and edges
 //  - Interpolator of smooth functions
 //  - Full gradient, potential and stabilisation bilinear form in the elements
 //
-// Author: Jerome Droniou (jerome.droniou@monash.edu)
+// Author: Alessandra Crippa (alessandra.crippa@ifpen.fr)
 //
 
 /*
@@ -23,18 +23,13 @@
  */
 
 
-#ifndef HHOSPACE_HPP
-#define HHOSPACE_HPP
+#ifndef VHHOSPACE_HPP
+#define VHHOSPACE_HPP
 
 #include <iostream>
 #include <globaldofspace.hpp>
 #include <basis.hpp>
 #include <polynomialspacedimension.hpp>
-
-/*!	
- * @defgroup HHOSpace
- * @brief Classes defining the HHO method (scalar and vector-valued)
- */
 
 
 namespace HArDCore2D
@@ -48,24 +43,30 @@ namespace HArDCore2D
 
   //------------------------------------------------------------------------------
 
+  // Type for selecting some cells (return 0 or 1 for each cell T)
+  typedef std::function<bool(const Cell &)> CellSelection;
+  static const CellSelection allcells = [](const Cell &)->bool {return true;};
+
   /// Class definition: polynomial bases and operators
-  class HHOSpace : public GlobalDOFSpace
+  class VHHOSpace : public GlobalDOFSpace
   {
   public:
     // Types for element bases
     typedef Family<MonomialScalarBasisCell> PolyBasisCellType;
     typedef TensorizedVectorFamily<PolyBasisCellType, dimspace> PolydBasisCellType;
+    typedef MatrixFamily<PolyBasisCellType, dimspace> PolydxdBasisCellType;
 
     // Types for edge bases
     typedef Family<MonomialScalarBasisEdge> PolyBasisEdgeType;
+    typedef Family<TensorizedVectorFamily<PolyBasisEdgeType, dimspace>> PolydBasisEdgeType;
 
     // Types for functions to interpolate
-    typedef std::function<double(const VectorRd &)> FunctionType;
-
+    typedef std::function<VectorRd(const VectorRd &)> FunctionType;
+    
     /// Structure to store element bases
     /** 'Poly': basis of polynomial space.\n
         'k' and 'kpo' (k+1) determines the degree.\n
-        'd' for vector-valued.
+        'd' for vector-valued, 'dxd' for matrix-valued
       */
     struct CellBases
     {
@@ -74,7 +75,9 @@ namespace HArDCore2D
 
       std::unique_ptr<PolyBasisCellType> Polykpo;
       std::unique_ptr<PolyBasisCellType> Polyk;
+      std::unique_ptr<PolydBasisCellType> Polykpod;
       std::unique_ptr<PolydBasisCellType> Polykd;
+      std::unique_ptr<PolydxdBasisCellType> Polykdxd;
     };
 
     /// Structure to store edge bases
@@ -85,6 +88,7 @@ namespace HArDCore2D
       typedef Edge GeometricSupport;
 
       std::unique_ptr<PolyBasisEdgeType> Polyk;
+      std::unique_ptr<PolydBasisEdgeType> Polykd;
     };
     
     /// A structure to store local operators (gradient, potential, stabilisation)
@@ -92,8 +96,8 @@ namespace HArDCore2D
     {
       LocalOperators(
                      const Eigen::MatrixXd & _gradient, ///< Gradient operator
-                     const Eigen::MatrixXd & _potential, ///< Potential operator
-                     const Eigen::MatrixXd & _stabilisation ///< Stabilisation bilinear form
+                     const Eigen::MatrixXd & _potential, ///< HHO Potential operator
+                     const Eigen::MatrixXd & _stabilisation ///< H1 Stabilisation bilinear form associated to the HHO potential
                      )
         : gradient(_gradient),
           potential(_potential),
@@ -107,8 +111,12 @@ namespace HArDCore2D
       Eigen::MatrixXd stabilisation;
     };
 
-    /// Constructor
-    HHOSpace(const Mesh & mesh, size_t K, bool use_threads = true, std::ostream & output = std::cout);
+    /// Constructor (with function to select cells in which boundary faces are used in the stabilisation)
+    VHHOSpace(const Mesh & mesh, size_t K, const CellSelection & BoundaryStab, bool use_threads = true, std::ostream & output = std::cout);
+
+    /// Overloaded constructor when the selection of boundary stabilisation is not entered (all boundary faces are then used)
+    VHHOSpace(const Mesh & mesh, size_t K, bool use_threads = true, std::ostream & output = std::cout)
+            : VHHOSpace(mesh, K, allcells, use_threads, output) {};
     
     /// Return a const reference to the mesh
     const Mesh & mesh() const
@@ -116,19 +124,33 @@ namespace HArDCore2D
       return m_mesh;
     }
 
-    /// Return the polynomial degree (common edge and elements)
+    /// Return the polynomial degree (common face and elements)
     const size_t & degree() const
     {
       return m_K;
+    }
+
+    /// Return the function to select the cells with boundary stabilisation
+    const CellSelection & boundaryStab() const
+    {
+      return m_boundary_stab;
     }
 
     /// Interpolator of a continuous function
     Eigen::VectorXd interpolate(
           const FunctionType & q, ///< The function to interpolate
           const int doe_cell = -1, ///< The optional degre of cell quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
-          const int doe_edge = -1 ///< The optional degre of edge quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
+          const int doe_face = -1 ///< The optional degre of face quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
           ) const;
-    
+
+    /// Local Interpolator of a continuous function on the element iT
+    Eigen::VectorXd local_interpolate(
+            size_t iT, ///< The element of the local interpolator
+            const FunctionType & q, ///< The function to interpolate
+            const int doe_cell = -1, ///< The optional degre of cell quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
+            const int doe_face = -1 ///< The optional degre of face quadrature rules to compute the interpolate. If negative, then 2*degree()+3 will be used.
+    ) const;
+
     /// Return cell bases for element iT
     inline const CellBases & cellBases(size_t iT) const
     {
@@ -171,15 +193,16 @@ namespace HArDCore2D
     }
     
     /// Computes the discrete L2 (cell unknowns only) and H1 norms of a list of vectors
-    std::vector<std::pair<double,double> > computeNorms(
+    std::vector<std::pair<double,double>> computeNorms(
                    const std::vector<Eigen::VectorXd> & list_dofs   ///< The list of vectors representing the dofs
                   ) const;
 
     /// Computes the values of the potential reconstruction at the mesh vertices
-    Eigen::VectorXd computeVertexValues(
-                  const Eigen::VectorXd & u   ///< DOFs in the discrete space
-                  ) const;
-
+    /// and stores them in a way that is compatible with vtu_writer
+    std::vector<Eigen::VectorXd> computeVertexValues(
+                                                     const Eigen::VectorXd & u ///< DOFs in the discrete space
+                                                     ) const;
+   
   private:
     /// Compute the bases on an element T
     CellBases _construct_cell_bases(size_t iT);
@@ -194,6 +217,8 @@ namespace HArDCore2D
     const Mesh & m_mesh;
     // Degrees
     const size_t m_K;
+    // Choice of boundary stabilisation
+    CellSelection m_boundary_stab;
     // Parallel or not
     bool m_use_threads;
     // Output stream
@@ -208,7 +233,8 @@ namespace HArDCore2D
     std::vector<std::unique_ptr<LocalOperators> > m_operators;
         
   };
+
   
 } // end of namespace HArDCore2D
 
-#endif // HHOSPACE_HPP
+#endif // VHHOSPACE_HPP
